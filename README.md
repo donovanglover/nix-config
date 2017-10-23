@@ -129,37 +129,37 @@ That's it! You're now ready to use your shiny new system!
 
 TODO
 
-## Core Software
+### Core Software
 
 These are the software that you interact with on a daily basis. They are a bit more complex than commands.
 
-- Editor: vim
-- File Browser: ranger
-- Image Viewer: feh
-- Video Player: mpv
-- Music Player: cmus
+- Editor: [vim](https://github.com/vim/vim)
+- File Browser: [ranger](https://github.com/ranger/ranger)
+- Image Viewer: [feh](https://github.com/derf/feh)
+- Video Player: [mpv](https://github.com/mpv-player/mpv)
+- Music Player: [cmus](https://github.com/cmus/cmus)
 - Web Browser:
-	1. Inox (Chromium patch)
-	2. Waterfox (Firefox fork)
+	1. [Inox](https://github.com/gcarq/inox-patchset) (Chromium patch)
+	2. [Waterfox](https://github.com/MrAlex94/Waterfox) (Firefox fork)
 
-## Supporting Software
+### Supporting Software
 
 These are the software that you don't "interact with" per-se (i.e. you don't run the command) but are an essential part of the operating system nonetheless.
 
-- Display Server: Xorg
-- Window Manager: i3-gaps
-- Terminal Emulator: termite
-- Information System: polybar
+- Display Server: [Xorg](https://wiki.archlinux.org/index.php/Xorg)
+- Window Manager: [i3-gaps](https://github.com/Airblader/i3)
+- Terminal Emulator: [termite](https://github.com/thestinger/termite)
+- Information System: [polybar](https://github.com/jaagr/polybar)
 - Lock Screen: i3lock
-- Compositor: compton
+- Compositor: [compton](https://github.com/chjj/compton)
 - Package Manager
-	- aur: pacaur
-	- vim: plug
-- Screenshot: shotgun
+	- aur: [pacaur](https://github.com/rmarquis/pacaur)
+	- vim: [plug](https://github.com/junegunn/vim-plug)
+- Screenshot: [shotgun](https://github.com/Streetwalrus/shotgun)
 
-## Browser Software
+### Browser Software
 
-- Content Blocker: uBlock Origin
-- Vim Keybindings: VimFx, Vimium
-- Secure Connection: HTTPS Everywhere
+- Content Blocker: [uBlock Origin](https://github.com/gorhill/uBlock)
+- Vim Keybindings: [VimFx](https://github.com/akhodakivskiy/VimFx), [Vimium](https://github.com/philc/vimium)
+- Secure Connection: [HTTPS Everywhere](https://github.com/EFForg/https-everywhere)
 
