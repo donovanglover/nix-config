@@ -82,6 +82,10 @@ TODO
 
 NOTE: In the future, I may make it easier to use custom configurations (such as automatically fetching your dotfiles from a git repository). As it stands now, this repository is completely centric on my own personal configuration and does not aim to replicate other people's dotfiles or other configuration. This should be trivial to setup with a minor inconvenience to me.
 
+TODO: Add this somewhere:
+
+**Configuration is self-documenting.** It is trivial for someone to view and understand how the dotfiles work.
+
 ### Use Case
 
 TODO
@@ -139,23 +143,31 @@ These are the software that you interact with on a daily basis. They are a bit m
 - Video Player: [mpv](https://github.com/mpv-player/mpv)
 - Music Player: [cmus](https://github.com/cmus/cmus)
 - Web Browser:
-	1. [Inox](https://github.com/gcarq/inox-patchset) (Chromium patch)
-	2. [Waterfox](https://github.com/MrAlex94/Waterfox) (Firefox fork)
+	1. [inox](https://github.com/gcarq/inox-patchset) (Chromium patch)
+	2. [waterfox](https://github.com/MrAlex94/Waterfox) (Firefox fork)
 
 ### Supporting Software
 
 These are the software that you don't "interact with" per-se (i.e. you don't run the command) but are an essential part of the operating system nonetheless.
 
-- Display Server: [Xorg](https://wiki.archlinux.org/index.php/Xorg)
+- Display Server: [xorg](https://wiki.archlinux.org/index.php/Xorg)
+- Shell: [zsh](https://wiki.archlinux.org/index.php/Zsh)
 - Window Manager: [i3-gaps](https://github.com/Airblader/i3)
+- Display Manager: TODO - I haven't decided on a display manager yet, most of them are *too* graphical. I'm looking for a simple DM that emphasizes keyboard usage
 - Terminal Emulator: [termite](https://github.com/thestinger/termite)
 - Information System: [polybar](https://github.com/jaagr/polybar)
 - Lock Screen: i3lock
 - Compositor: [compton](https://github.com/chjj/compton)
-- Package Manager
-	- aur: [pacaur](https://github.com/rmarquis/pacaur)
-	- vim: [plug](https://github.com/junegunn/vim-plug)
+- AUR Helper: [pacaur](https://github.com/rmarquis/pacaur)
 - Screenshot: [shotgun](https://github.com/Streetwalrus/shotgun)
+- Color Scheme: [base16](https://github.com/chriskempson/base16)
+    - [shell](https://github.com/chriskempson/base16-shell)
+    - [vim](https://github.com/chriskempson/base16-vim)
+    - TODO: Consider the most important information to output in trufetch (base16 theme, etc.)
+- Boot Loader: [grub](https://wiki.archlinux.org/index.php/GRUB)
+- GRUB Theme: [arch-silence](https://github.com/fghibellini/arch-silence)
+
+TODO: Differentiate between color scheme and theme
 
 ### Browser Software
 
@@ -163,3 +175,30 @@ These are the software that you don't "interact with" per-se (i.e. you don't run
 - Vim Keybindings: [VimFx](https://github.com/akhodakivskiy/VimFx), [Vimium](https://github.com/philc/vimium)
 - Secure Connection: [HTTPS Everywhere](https://github.com/EFForg/https-everywhere)
 
+### Vim Plugins
+
+Vim works exceptionally well out of the box, and most things can be configured directly through the .vimrc file. Some things, however, take a lot more time to implement. Vim plugins allow us to easily add complex functionality to our vim instances.
+
+My plugin manager of choice is [vim-plug](https://github.com/junegunn/vim-plug). The following plugins are inlcuded in `.vimrc`:
+
+TODO: add this
+
+## FAQ
+
+Q: Why no status line or other information bar shown at all times?
+
+A: New Start was built with minimalism and simplicity in mind. You're focusing on the current task at hand and nothing else. If you need to access certain information, you can, but having such information shown on the screen 24/7 goes against the founding principles of this operating system. Less is more.
+
+## Help
+
+By default I keep track of all the useful commands and other features I use on a daily basis. Although these are not a replacement for reading the manual pages, they do offer a quick insight on what is possible with certain software. For a list of available programs and other features that have help files, simply type `help` in the terminal. To access the help of a specific piece of software, type `help <software>`
+
+If you find a bug or something isn't working for you, please file an issue with as many details as possible and I'll see what I can do. If you have the skills to fix it yourself, please do!
+
+## Contributing
+
+If you would like to contribute to this project then you can. Please file an issue or submit a pull request and I'll look into it. For reference, the directory structure is as follows:
+
+- **dotfiles/** - All of my custom configuration files (integrated directly with the OS, unless specified otherwise)
+- **help/** - All the built-in help pages I provide with the OS
+- **install/** - Install scripts used during the installation process
