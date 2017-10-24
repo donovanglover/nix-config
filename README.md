@@ -183,6 +183,25 @@ My plugin manager of choice is [vim-plug](https://github.com/junegunn/vim-plug).
 
 TODO: add this
 
+### Fonts
+
+- Web Serif: TODO
+- Web Sans-serif: TODO
+- Web Monospace: TODO
+- Terminal: [Hack](https://github.com/source-foundry/Hack)
+
+### Other
+
+- Default Background: Arch Adapta
+    - Resolution: 3840x2160
+    - Source: https://www.reddit.com/r/UnixWallpapers/comments/71lcxo/
+    - Original: https://github.com/adapta-project/adapta-backgrounds
+    - Original Author: [Tista](https://github.com/tista500)
+    - License: [Creative Commons Attribution-ShareAlike 3.0](https://creativecommons.org/licenses/by-sa/3.0/)
+- Default Theme: Materia
+    - Author: [Defman21](https://github.com/Defman21)
+    - Source: https://github.com/chriskempson/base16-shell/blob/master/scripts/base16-materia.sh
+
 ## FAQ
 
 Q: Why no status line or other information bar shown at all times?
