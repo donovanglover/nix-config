@@ -30,6 +30,7 @@ call plug#begin('~/.vim/plugged')       " Use vim-plug as our package manager of
     Plug 'maksimr/vim-jsbeautify'       " Make it easier to work with foreign code
     Plug 'lervag/vimtex'                " Make editing LaTeX a breeze
     Plug 'dbeniamine/todo.txt-vim'      " Easily manage any part of your todo.txt
+    Plug 'Kjwon15/vim-transparent'      " Add transparency by default for all color schemes
 call plug#end()                         " Start the plugins
 
 " =================================== Configuration ===================================
@@ -131,3 +132,7 @@ autocmd FileType json       map <leader>b :call JsonBeautify()<CR>
 autocmd FileType jsx        map <leader>b :call JsxBeautify()<CR>
 autocmd FileType html       map <leader>b :call HtmlBeautify()<CR>
 autocmd FileType css        map <leader>b :call CSSBeautify()<CR>
+
+" Make it easy to disable and re-enable transparency as needed
+map <leader>r :TransparentDisable<CR>
+map <leader>y :TransparentEnable<CR>
