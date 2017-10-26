@@ -1,0 +1,40 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! 
+!    New Start: A modern Arch workflow built with an emphasis on functionality.
+!    Copyright (C) 2017 Donovan Glover
+! 
+!    This program is free software: you can redistribute it and/or modify
+!    it under the terms of the GNU General Public License as published by
+!    the Free Software Foundation, either version 3 of the License, or
+!    (at your option) any later version.
+! 
+!    This program is distributed in the hope that it will be useful,
+!    but WITHOUT ANY WARRANTY; without even the implied warranty of
+!    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+!    GNU General Public License for more details.
+! 
+!    You should have received a copy of the GNU General Public License
+!    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+! 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! Use 1.875x (180/96) scaling for 4k (Effectively 2048x1152)
+Xft.dpi: 180
+
+! Make it easier to distinguish between letters (Required for dpi < 300)
+Xft.hinting: true
+
+! Make high resolution output look cleaner
+Xft.antialias: true
+
+! Only use hinting if the font provides it; do not attempt to autohint
+Xft.autohint: false
+
+! Reduce blur and other unwanted artifacts
+Xft.lcdfilter: lcddefault
+
+! Align the font fully to the grid (increases clarity)
+Xft.hintstyle: hintfull
+
+! Make font colors look better (?)
+Xft.rgba: rgb
