@@ -1,0 +1,110 @@
+##################################################################################
+# 
+#    New Start: A modern Arch workflow built with an emphasis on functionality.
+#    Copyright (C) 2017 Donovan Glover
+# 
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+# 
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+# 
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+# 
+##################################################################################
+
+# Remove the default keybindings
+toggle_actions
+toggle_aliasing
+toggle_caption
+toggle_filenames
+toggle_exif
+save_filelist
+toggle_fixed_geometry
+toggle_pause
+toggle_info
+toggle_keep_vp
+toggle_menu
+next_img
+toggle_pointer
+prev_img
+quit
+reload_image
+save_image
+toggle_fullscreen
+size_to_image
+close
+jump_random
+prev_dir
+next_dir
+orient_3
+orient_1
+
+# Remove the default editing functionality
+flip
+mirror
+action_0
+action_1
+action_2
+action_3
+action_4
+action_5
+action_6
+action_7
+action_8
+action_9
+jump_first
+jump_last
+jump_fwd
+jump_back
+reload_plus
+reload_minus
+remove
+delete
+scroll_left
+scroll_right
+scroll_up
+scroll_down
+scroll_left_page
+scroll_right_page
+scroll_up_page
+scroll_down_page
+render
+zoom_in
+zoom_out
+zoom_default
+zoom_fit
+zoom_fill
+
+# Remove the menu stuff
+menu_close
+menu_up
+menu_down
+menu_parent
+menu_child
+menu_select
+
+# Add our custom keybindings
+toggle_fullscreen f
+next_img j
+prev_img k
+toggle_filenames i
+toggle_fixed_geometry g
+toggle_pause h
+quit q
+size_to_image w
+jump_random z
+scroll_left b
+scroll_right n
+scroll_up u
+scroll_down d
+zoom_in h
+zoom_out l
+zoom_default o
+zoom_fill p
+toggle_pointer a
