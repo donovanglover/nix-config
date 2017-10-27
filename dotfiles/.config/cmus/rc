@@ -1,0 +1,34 @@
+##################################################################################
+#
+#    New Start: A modern Arch workflow built with an emphasis on functionality.
+#    Copyright (C) 2017 Donovan Glover
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+#
+##################################################################################
+
+# Tell cmus to use alsa as our audio system of choice
+set output_plugin=alsa
+set dsp.alsa.device=default
+set mixer.alsa.device=default
+set mixer.alsa.channel=Master
+
+# Bind q to detach cmus instead of closing it (use :q to close cmus)
+bind -f common q shell tmux detach-client -s cmus
+
+# Use the green theme for a clean interface
+colorscheme green
+
+# Load all the songs inside the ~/Music directory
+add ~/Music
