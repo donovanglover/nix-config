@@ -153,6 +153,7 @@ These are the software that you don't "interact with" per-se (i.e. you don't run
 - Display Server: [xorg](https://wiki.archlinux.org/index.php/Xorg)
 - Shell: [zsh](https://wiki.archlinux.org/index.php/Zsh)
 - Window Manager: [i3-gaps](https://github.com/Airblader/i3)
+- Sound System: [alsa](https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture)
 - Display Manager: TODO - I haven't decided on a display manager yet, most of them are *too* graphical. I'm looking for a simple DM that emphasizes keyboard usage
 - Terminal Emulator: [termite](https://github.com/thestinger/termite)
 - Information System: [polybar](https://github.com/jaagr/polybar)
