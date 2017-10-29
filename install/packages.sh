@@ -29,9 +29,13 @@ i git           # Install git, our version control system of choice
 i tree          # Install tree, used to show the contents of entire directories
 i wget          # Install wget, used for downloading files from websites
 i httpie        # Install httpie, used to manipulate HTTP requests
-i unzip         # Install unzip, used to unzip files
 i diff-so-fancy # Install diff-so-fancy, a nicer git diff
 i ntp           # Install ntp, used to sync the system time with one on the internet
+
+i zip           # Install zip, used to zip files
+i unzip         # Install unzip, used to unzip files
+i p7zip         # Install p7zip, used to extract 7z files
+i unrar         # Install unrar, used to extract rar files
 
 i openvpn       # Install openvpn, used to connect to VPNs
 i openssh       # Install openssh, used to connect via SSH
