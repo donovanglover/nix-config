@@ -142,6 +142,7 @@ These are the software that you interact with on a daily basis. They are a bit m
 - Image Viewer: [feh](https://github.com/derf/feh)
 - Video Player: [mpv](https://github.com/mpv-player/mpv)
 - Music Player: [cmus](https://github.com/cmus/cmus)
+- Document Viewer: [zathura](https://github.com/pwmt/zathura)
 - Web Browser:
 	1. [inox](https://github.com/gcarq/inox-patchset) (Chromium patch)
 	2. [waterfox](https://github.com/MrAlex94/Waterfox) (Firefox fork)
