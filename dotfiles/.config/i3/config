@@ -1,0 +1,211 @@
+##################################################################################
+# 
+#    New Start: A modern Arch workflow built with an emphasis on functionality.
+#    Copyright (C) 2017 Donovan Glover
+# 
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+# 
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+# 
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+# 
+##################################################################################
+
+# Set the command key for i3 to super
+set $mod Mod4
+
+# Set the secondary command key to alt
+set $alt Mod1
+
+# Use Hack as our preferred font of choice
+font pango:Hack 12
+
+# Add a subtle border to all windows (allows us to easily see which one has focus)
+for_window [class="^.*"] border pixel 1
+new_window pixel 1
+
+####################################################################
+# i3 Controls - These are the core keys that you use to manage
+# your windows, some of which are already i3 defaults
+####################################################################
+
+# ========================= Managing Windows ========================= 
+
+# Open a new terminal
+bindsym $mod+Return exec termite
+
+# Close the currently focused window
+bindsym $mod+q          kill
+bindsym $mod+Shift+q    kill
+
+# Change the focus between windows, vim style
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Move the currently focused window, vim style
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Toggle fullscreen (also bind F11 so certain programs use i3's fullscreen)
+bindsym $mod+f  fullscreen toggle
+bindsym F11     fullscreen toggle
+
+# Switch to an updated window (useful for opening URLs and jumping to the browser)
+bindsym $mod+p [urgent=latest] focus
+
+# Open new windows horizontally (to the right) or vertically (below)
+bindsym $mod+semicolon split horizontal
+bindsym $mod+v split vertical
+
+# ========================= Floating Windows ========================= 
+
+# Toggle floating mode
+bindsym $mod+Shift+space floating toggle
+
+# Hold down $mod and use the pointer to move floating windows around
+floating_modifier $mod
+
+# Switch between focusing floating windows and regular windows
+bindsym $mod+space focus mode_toggle
+
+# ========================= Workspaces ========================= 
+
+# Easily switch between your two most recently used workspaces
+bindsym $alt+a workspace back_and_forth
+
+# Easily switch between all workspaces
+bindsym $alt+Tab workspace next
+bindsym $alt+Shift+Tab workspace prev
+
+# Easily open a new workspace
+bindsym $alt+f exec --no-startup-id ~/.config/i3/new_workspace.sh
+
+# Move directly to workspace N without tabbing through all of them
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+# Move the currently focused window to workspace N
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+# ========================= Resize Mode ========================= 
+
+# Set the re-size size (rss) to 10
+set $rss 10
+
+# Keybindings for resize mode (Enter or Return to exit)
+mode "resize" {
+        bindsym h resize shrink width $rss px or $rss ppt
+        bindsym j resize grow height $rss px or $rss ppt
+        bindsym k resize shrink height $rss px or $rss ppt
+        bindsym l resize grow width $rss px or $rss ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+# Keybinding to enter resize mode
+bindsym $mod+r mode "resize"
+
+# ========================= Lock Screen ========================= 
+
+# Add a keybinding to instantly lock the screen
+bindsym $mod+Ctrl+l exec i3lock -i ~/.config/i3/lock.png 
+
+# ========================= i3-Specific ========================= 
+
+# Restart i3 (layout is preserved and open programs are still open)
+# This is particularly useful when you want to test out new i3/config settings
+bindsym $mod+Shift+r restart
+
+# ========================= Disabled Keys ========================= 
+
+# Disable F1 (useful for programs that open a help window)
+bindsym F1 nop
+
+# ========================= Program Shortcuts ========================= 
+
+# Easily open a new browser window with []
+bindsym $mod+braceleft exec inox
+bindsym $mod+braceright exec waterfox
+
+# ========================= Music Player (cmus) ========================= 
+
+# Easily pause and resume music playback
+bindsym $mod+m exec --no-startup-id cmus-remote --pause
+
+# Easily jump to the next and previous songs
+bindsym $mod+b exec --no-startup-id cmus-remote --prev
+bindsym $mod+n exec --no-startup-id cmus-remote --next
+
+# TODO: Easily show a now playing overlay
+
+# ========================= Screenshot tool (shotgun) ========================= 
+
+# Bind Print Scren to screenshot the desktop and open the output png
+bindsym Print exec ~/.config/i3/screenshot.sh
+
+####################################################################
+# Configuration and keybindings specific to i3-gaps
+####################################################################
+
+# Our preferred gap size of choice
+set $inner 20
+set $outer 5
+
+# Enable gaps with our size of choice
+gaps inner $inner
+gaps outer $outer
+
+# Only show gaps when there's more than one window open
+smart_gaps on
+
+# Only show borders when there's more than one window open
+smart_borders on
+
+# Make it easy to switch between gaps and no gaps
+bindsym $mod+g          gaps inner all set 0;       gaps outer all set 0
+bindsym $mod+Shift+g    gaps inner all set $inner;  gaps outer all set $outer
+
+# Make it easy to disable and re-enable borders on a per-window basis
+bindsym $mod+u border none
+bindsym $mod+y border pixel 1
+
+####################################################################
+# Sane defaults for border colors in i3 - Here we set the focused
+# color to green and everything else to a light grey
+####################################################################
+
+# Colors:               Border  Backgr. Text    Indicator
+client.focused          #007030 #007030 #ffffff #2b2b2b
+client.focused_inactive #888888 #2b2b2b #ffffff #2b2b2b
+client.unfocused        #888888 #2b2b2b #ffffff #2b2b2b
+client.urgent           #888888 #2b2b2b #ffffff #2b2b2b
+
