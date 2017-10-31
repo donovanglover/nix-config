@@ -1,0 +1,87 @@
+##################################################################################
+# 
+#    New Start: A modern Arch workflow built with an emphasis on functionality.
+#    Copyright (C) 2017 Donovan Glover
+# 
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+# 
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+# 
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+# 
+##################################################################################
+
+####################################################################
+# Sudo and other system aliases
+####################################################################
+
+alias sudo="sudo " # Make aliases work with sudo (note the extra space)
+alias pls="sudo"   # A nicer way to ask for root permissions
+
+alias rm="rm -i"        # Always confirm before deleting things (use -f to override)
+alias mkdir="mkdir -p"  # Automatically make parent directories that don't exist yet
+
+alias p="pwd | sed -e 's!$HOME!~!g'"    # Same as pwd, but uses ~ instead of $HOME
+alias c="clear"                         # Easily start fresh with a clean terminal
+
+# Make ls a lot easier to read (print directories first, just like ranger)
+alias ls="ls -hN --color=auto --group-directories-first"
+
+alias l="ls -1"      # Show each output from ls on a separate line
+alias lsa="ls -A"    # Show hidden files (also known as dotfiles)
+alias type="type -a" # Easily see what the command you want to run points to
+
+####################################################################
+# Miscellaneous aliases
+####################################################################
+
+alias vim="vim -p"      # Open multiple files in new tabs instead of buffers
+alias dl="youtube-dl"   # Quick and easy way to download the majority of online videos
+
+alias back="feh --no-fehbg --bg-fill"          # Easily set a new background (temporary)
+alias synctime="ntpdate -u 0.us.pool.ntp.org"  # Sync the system time with one on the internet
+
+# Use tmux to open our music player of choice in the background
+alias cmas="tmux new-session -A -D -s cmus $(which cmus)"
+alias cmus="cmas" # Alias cmus to cmas for good measure
+
+# Show the lines that are in <file2> but NOT in <file1>
+alias compare="grep -nFxvf" # Usage: compare <file1> <file2>
+
+####################################################################
+# Git aliases
+####################################################################
+
+alias ga="git add"                  # Swiftly add new files to the repository
+alias gc="git commit -m"            # Easily create new commits
+alias gd="clear && git diff"        # Dedicate the entire window to showing file changes
+alias gp="git push"                 # Push your commits to remote (usually origin)
+alias gs="git status"               # Compare any local changes you've made to the remote
+alias gr="git reset HEAD"           # Undo the last commit but keep your changed files
+alias grr="git reset --hard HEAD"   # Remove the last commit and all changes with it
+
+####################################################################
+# Launch aliases (allow us to easily open external programs)
+####################################################################
+
+alias f="launch feh"            # Easy image viewing with f
+alias lnox="launch inox"        # Launch inox separate from the terminal
+alias lfox="launch waterfox"    # Launch waterfox separate from the terminal
+
+####################################################################
+# Fun aliases that don't serve any specific purpose
+####################################################################
+
+alias yaourt="pacaur"   # Why yaourt when you can pacaur?
+alias yay="pacaur"      # Using pacaur can be fun too
+alias emacs="vim"       # No need to start another operating system
+alias nano="vim"        # Why nano when you have vim?
+alias vi="vim"          # Vim is vi improved, literally
+
