@@ -67,6 +67,9 @@ alias gs="git status"               # Compare any local changes you've made to t
 alias gr="git reset HEAD"           # Undo the last commit but keep your changed files
 alias grr="git reset --hard HEAD"   # Remove the last commit and all changes with it
 
+# Easily cd into the "home" directory of any repository you're working in
+alias gh="cd `git rev-parse --show-toplevel`"
+
 ####################################################################
 # Launch aliases (allow us to easily open external programs)
 ####################################################################
