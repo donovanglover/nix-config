@@ -1,0 +1,133 @@
+#!/bin/ruby
+##################################################################################
+#
+#    New Start: A modern Arch workflow built with an emphasis on functionality.
+#    Copyright (C) 2017 Donovan Glover
+#    
+#    Maid: Easily move dotfiles from one location to another
+#    Copyright (C) 2017 Donovan Glover
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+#
+##################################################################################
+
+# Maid is a command line interface to handle the process of moving dotfiles from one
+# location to another (i.e. between your local filesystem and the upstream repository)
+
+# NOTE: For Maid to recognize the dotfiles you want, they must be in upstream first
+# Use maid add <FULL_PATH> to add a dotfile to upstream (e.g. maid add ~/.vimrc)
+
+# TODO: Use .maidrc to store configuration (?)
+# If so, add Maid.init() to create a base configuration
+
+module Maid
+ 
+    REPOSITORY="~/Home/new-start"
+
+    def self.maid()
+
+        # Store and duplicate the given_command so we can modify it
+        given_command = ARGV[0].dup
+        
+        # If no command is given then check all the files for changes
+        if not given_command then
+            # We could use self instead of Maid, but this makes things much more declarative
+            Maid.status()
+        end
+
+        # Otherwise, we can start iterating through the possible commands
+        # Remove any dashes (this allows us to use both --help and help, for example)
+        given_command.delete!("-")
+
+        if given_command == "help" or given_command == "h" then
+            Maid.help()     # Show maid help
+        end
+
+        if given_command == "up" or given_command == "u" then
+            Maid.up()       # Push all your local changes upstream
+            # To only push a specific file, use maid up <filename>
+            # TODO: use fuzzy matching to find the filename? If more than one
+            # file is found, don't do anything and instead ask the user to specify
+            # which one (i.e. with the full (relative?) path)
+        end
+
+        if given_command == "down" or given_command == "d" then
+            Maid.down()     # Pull your upstream changes to the local filesystem
+            # To only pull a specific file, use maid down <filename>
+        end
+
+        if given_command == "status" or given_command == "s" then
+            Maid.status()   # Show all the files that differ from upstream
+            # Use maid s <filename> to view a simple diff between the two files
+            # TODO: Show different things for files that don't exist and files
+            # that have been changed
+        end
+        
+        if given_command == "diff" or given_command == "f" then
+            Maid.diff()     # Open both files in vimdiff
+            # This allows you to see and edit the files in detail
+        end
+
+        if given_command == "add" or given_command == "a" then
+            Maid.add()      # Add a specific file to upstream
+            # This allows you to track dotfiles that aren't in your upstream yet
+            # TODO: This should fail if the file already exists
+        end
+
+        if given_command == "remove" or given_command == "r" then
+            Maid.remove()   # Remove a specific file from upstream
+            # This removes a file from your upstream, preventing it from being tracked
+            # NOTE: the local file remains the same; only the upstream file is removed
+        end
+
+    end
+    
+    def self.help()
+        puts "Help"
+        exit 0
+    end
+
+    def self.up()
+        puts "Up"
+        exit 0
+    end
+
+    def self.down()
+        puts "Down"
+        exit 0
+    end
+
+    def self.status()
+        puts "Status"
+        exit 0
+    end
+
+    def self.diff()
+        puts "Diff"
+        exit 0
+    end
+
+    def self.add()
+        puts "Add"
+        exit 0
+    end
+
+    def self.remove()
+        puts "Remove"
+        exit 0
+    end
+
+end
+
+Maid.maid()
