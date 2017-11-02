@@ -1,0 +1,46 @@
+#!/bin/ruby
+##################################################################################
+#
+#    New Start: A modern Arch workflow built with an emphasis on functionality.
+#    Copyright (C) 2017 Donovan Glover
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+#
+##################################################################################
+
+module Help
+    HELPDIR = ENV["HOME"] + "/.help"
+
+    # Main function to handle the given command
+    def self.help()
+        given_command = ARGV[0].dup
+        if not given_command then
+            self.list()
+        else
+            self.open(given_command) 
+        end
+    end
+
+    # Open the help information from <file>
+    def self.open(file)
+        exec ENV["VIM"] + "/macros/less.sh #{self::HELPDIR}/#{file}.md"
+    end
+    
+    # List all the possible help commands
+    def self.list()
+        puts Dir.entries(self::HELPDIR).select { |f| !File.directory? f }.each { |s| s.slice! ".md" }
+    end
+end
+
+Help.help()
