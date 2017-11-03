@@ -1,0 +1,143 @@
+##################################################################################
+# 
+#    New Start: A modern Arch workflow built with an emphasis on functionality.
+#    Copyright (C) 2017 Donovan Glover
+# 
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+# 
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+# 
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+# 
+##################################################################################
+
+####################################################################
+# Screen resolution functions (also changes DPI, but not for the
+# programs and other software that you already have open)
+####################################################################
+
+# Easily change the resolution to 1080p
+function 1080p() {
+    xrandr --output VGA-1 --mode "1920x1080"        # Change the resolution
+    sed -i '/Xft.dpi/c\Xft.dpi: 96' ~/.Xresources   # Change the dpi line to 96
+    xrdb ~/.Xresources                              # Reload .Xresources
+}
+
+# Easily change the resolution to 4k
+function 4k() {
+    # Get the display type (VGA-1, etc.)
+    local display=$(xrandr | grep -Eo ".{0,20} connected" | awk '{print $1}')
+
+    # Get the default mode name for 4k
+    local mode=$(cvt 3840 2160 | grep "Modeline" | awk '{print $2}') 
+    
+    # If the 4k mode hasn't been added yet
+    if [[ !(xrandr | grep -q 3840x2160) ]]; then
+
+        # Create the new mode with cvt settings
+        xrandr --newmode $(cvt 3840 2160 | grep -o '"3840x2160.*')
+
+        # Add the new mode to the display with xrandr
+        xrandr --addmode ${display} ${mode}
+
+    fi 
+
+    xrandr --output ${display} --mode ${mode}       # Change the resolution to 4k
+    sed -i '/Xft.dpi/c\Xft.dpi: 180' ~/.Xresources  # Change the dpi line to 180
+    xrdb ~/.Xresources                              # Reload .Xresources
+}
+
+####################################################################
+# Git functions
+####################################################################
+
+# Easily clone and cd into GitHub repositories 
+function hub() {
+    git clone ssh://git@github.com/$1.git
+    cd $(basename "$1")
+}
+
+# Do the same for GitLab
+function lab() {
+    git clone ssh://git@gitlab.com/$1.git
+    cd $(basename "$1")
+}
+
+####################################################################
+# Utility functions
+####################################################################
+
+# Take a screenshot after a certain amount of time
+function ss() {
+	(sleep $1 && shotgun) &
+}
+
+# Automatically open the readme in any repository
+function readme() {
+    local readme=`ls | grep README`
+    if [[ $readme ]]; then
+        lvim $readme
+    else
+        echo "No README found."
+    fi
+}
+
+# Extract any file easily
+function extract() {
+    if [ -z "$1" ]; then
+        echo "You must specify a file to extract."
+        echo "Usage: extract <filename>"
+        return 1
+    fi
+
+    if [ -f $1 ]; then
+        case $1 in
+            *.rar) unrar x -ad  ../$1 ;; # Proprietary rar format
+            *.zip) unzip        ../$1 ;; # Simple and clean zip files
+            *.7z) 7z x          ../$1 ;; # Free and open source 7z format
+            # Other formats
+            *.tar.bz2) tar xvjf ../$1 ;;
+            *.tar.gz) tar xvzf  ../$1 ;;
+            *.tar.xz) tar xvJf  ../$1 ;;
+            *.lzma) unlzma      ../$1 ;;
+            *.bz2) bunzip2      ../$1 ;; 
+            *.gz) gunzip        ../$1 ;;
+            *.tar) tar xvf      ../$1 ;;
+            *.tbz2) tar xvjf    ../$1 ;;
+            *.tgz) tar xvzf     ../$1 ;;
+            *.xz) unxz          ../$1 ;;
+            *.Z) uncompress     ../$1 ;;
+            # Fallback if none of these work
+            *) echo "extract: '$1' - Unknown archive method." ;;
+        esac
+    else
+        echo "extract: '$1' - File does not exist."
+    fi
+}
+
+####################################################################
+# Opening things and other launcher functions
+####################################################################
+
+# TODO: Easily play any video (both online and offline)
+function play() {
+    if [ -z "$1" ]; then
+        echo "You need to pass something to play."
+        echo "Usage: play <pattern to search for>"
+        return 1
+    fi
+    # TODO: Figure out why this doesn't work for certain inputs
+    launch mpv "`ls | grep -i \"$1\"`"
+}
+
+# TODO: Easily open any file
+function open() {
+    echo "TODO"
+}
