@@ -51,44 +51,31 @@ module Maid
         given_command.delete!("-")
 
         if given_command == "help" or given_command == "h" then
-            Maid.help()     # Show maid help
+            Maid.help()
         end
 
         if given_command == "up" or given_command == "u" then
-            Maid.up()       # Push all your local changes upstream
-            # To only push a specific file, use maid up <filename>
-            # TODO: use fuzzy matching to find the filename? If more than one
-            # file is found, don't do anything and instead ask the user to specify
-            # which one (i.e. with the full (relative?) path)
+            Maid.up()
         end
 
         if given_command == "down" or given_command == "d" then
-            Maid.down()     # Pull your upstream changes to the local filesystem
-            # To only pull a specific file, use maid down <filename>
+            Maid.down()
         end
 
         if given_command == "status" or given_command == "s" then
-            Maid.status()   # Show all the files that differ from upstream
-            # Use maid s <filename> to view a simple diff between the two files
-            # TODO: Show different things for files that don't exist and files
-            # that have been changed
+            Maid.status()
         end
         
         if given_command == "diff" or given_command == "f" then
-            Maid.diff()     # Open both files in vimdiff
-            # This allows you to see and edit the files in detail
+            Maid.diff()
         end
 
         if given_command == "add" or given_command == "a" then
-            Maid.add()      # Add a specific file to upstream
-            # This allows you to track dotfiles that aren't in your upstream yet
-            # TODO: This should fail if the file already exists
+            Maid.add()
         end
 
         if given_command == "remove" or given_command == "r" then
-            Maid.remove()   # Remove a specific file from upstream
-            # This removes a file from your upstream, preventing it from being tracked
-            # NOTE: the local file remains the same; only the upstream file is removed
+            Maid.remove()
         end
 
     end
@@ -99,32 +86,46 @@ module Maid
     end
 
     def self.up()
-        puts "Up"
+        # If no file was given:
+        # > For each file in upstream
+        #     > If the file in upstream does not match the file downstream
+        #         > Replace the file upstream with the file downstream
+        # If a file was given:
+        # > Look for <filename> with fuzzy matching
+        #     > If exactly one match is found
+        #         > If the file upstream does not match the file downstream
+        #             > Replace the file upstream with the file downstream
+        #     > Else
+        #         > The search was too generic, show all results and ask the
+        #           user to narrow down the search
         exit 0
     end
 
     def self.down()
-        puts "Down"
+        # The same as up() but updates the file downstream with the file upstream
         exit 0
     end
 
     def self.status()
-        puts "Status"
+        # If no file was given:
+        # > For each file in upstream, if us != ds then print the file as one that differs
+        # Note that files downstream may be different or simply may not exist, so handle both cases
+        # Otherwise a file was given, so show a simple diff between the two files (both ways)
         exit 0
     end
 
     def self.diff()
-        puts "Diff"
+        # See a comparison between upstream and downstream in vimdiff (same as nvim -d)
         exit 0
     end
 
     def self.add()
-        puts "Add"
+        # Add a specific file from downstream to upstream; fails if the file already exists
         exit 0
     end
 
     def self.remove()
-        puts "Remove"
+        # Remove a specific file from upstream, preventing it from being tracked
         exit 0
     end
 
