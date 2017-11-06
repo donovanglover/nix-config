@@ -34,6 +34,13 @@ Note that for all of the above, `cd` is not required.
 - Print the working directory: `pwd`
 - Make a script executable: `chmod +x <file>`
 - Termite the processes with a specific word in it: `killall -q <word>`
+- Get the current time and settings: `timedatectl`
+- Show what gets executed when you run a command: `which <command>`
+- Create a symbolic (soft) link between two files: `ln -s <source> <dest>`
+    - When a program references `dest`, it will link to and give `source`.
+    - In comparison, a hard link is when you make a copy of the file
+- Change the permissions of a directory to all users: `chmod -R a+rwX dir/`
+- Give permissions to the user `hello` and the group `world`: `chown -R hello:world dir/`
 
 ### System Commands
 
@@ -58,4 +65,25 @@ These programs are installed on top of the base system.
 
 - Zip all files in a directotry: `zip -r <zip_name> <directory>`
 - Extract any type of archiving algorithm: `extract <filename>`
+
+### Opening Things
+
+Note that the preferred way to open things is with the `open` function; however, sometimes it is necessary to use these commands if, for example, you're loading an entire directory.
+
+- Open a video or multiple videos in a playlist: `mpv <files/dir>`
+
+### Pacaur
+
+- Install packages: `pacaur -S <packages>`
+- Remove packages (including dependencies no longer needed): `pacaur -Rs <packages>`
+- Update all packages: `pacaur -Syu`
+
+Note that if you ever get 404s with `pacman` or `pacaur`, you need to update your local database to the new download locations with `-Syu` first.
+
+## Custom Commands
+
+- Easily switch to a 4k resolution with DPI scaling: `4k`
+- Easily switch to a 1080p resolution (with 96 DPI): `1080p`
+- Run a command as root: `pls <command>`
+- Run the previous command as root: `pls !!`
 
