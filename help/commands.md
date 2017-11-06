@@ -22,10 +22,10 @@ Note that "renaming" files is the same as moving them from one location to anoth
 
 ## Switching Directories
 
-- Go up one directory `..`
-- Go up two directories `...`
-- Go to the home directory `~` OR simply `cd` with no parameters
-- Go to dirname `dirname`
+- Go up one directory: `..`
+- Go up two directories: `...`
+- Go to the home directory: `~` OR simply `cd` with no parameters
+- Go to dirname: `dirname`
 
 Note that for all of the above, `cd` is not required.
 
