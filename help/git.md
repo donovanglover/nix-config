@@ -15,6 +15,7 @@
     - The most common use is `git push origin master`, which is usually the default for `git push`
 - Show the difference between the staging area and the working tree: `git diff` **OR** `gd`
 - Show a log of all the commits: `git log` (full log) **OR** `git lg` (commits only, easier to read)
+- Edit the last commit message: `git commit --amend`
 
 Note that the `-u` flag means `set-(u)pstream-to`. It records the location so you don't have to set which remote to push or pull from every time.
 
