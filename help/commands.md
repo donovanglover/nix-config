@@ -61,6 +61,12 @@ These programs are installed on top of the base system.
 - Open a webpage in a borderless window: `inox --app=<url>`
 - Open a webpage in the regular browser window: `inox <url>`
 
+### Waterfox
+
+- Open a webpage in a new window: `waterfox --new-window <url>`
+- Open a webpage in a new tab: `waterfox --new-tab <url>`
+- Search for a specific term: `waterfox --search <term>`
+
 ### Dealing with Archives
 
 - Zip all files in a directotry: `zip -r <zip_name> <directory>`
