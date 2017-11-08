@@ -83,6 +83,7 @@ Note that the preferred way to open things is with the `open` function; however,
 - Install packages: `pacaur -S <packages>`
 - Remove packages (including dependencies no longer needed): `pacaur -Rs <packages>`
 - Update all packages: `pacaur -Syu`
+- Search for a specific package: `pacaur -Ss <package>`
 
 Note that if you ever get 404s with `pacman` or `pacaur`, you need to update your local database to the new download locations with `-Syu` first.
 
