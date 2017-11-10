@@ -93,7 +93,7 @@ menu_select
 toggle_fullscreen f
 next_img j
 prev_img k
-toggle_filenames i
+toggle_filenames d
 toggle_fixed_geometry g
 toggle_pause h
 quit q
