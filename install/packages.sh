@@ -55,6 +55,7 @@ i php           # Install php, used when we need to test php stuff
 i php-cgi       # Install php-cgi, used to make php work with local servers
 i lua           # Install lua, in case we ever want to use it
 i jdk-9-openjdk # Install java, if for some reason we need to use it
+i crystal       # Install crystal, a ruby-like language with a binary compiler
 
 i xorg-server   # Install xorg-server, used to manage graphical elements on the display
 i xorg-xinit    # Install xorg-xinit, allowing us to start the X server with .xinitrc
