@@ -9,7 +9,6 @@
 - Undo the last commit and delete changes: `grr`
 - Update your local repository with a remote repository: `git pull -u <remote> <branch>`
     - The most common use is `git pull -u origin master`, although this also works for upstream remotes
-    - 
 - Show the status of the local repository: `git status` **OR** `gs` **OR** `git s`
 - Push changes from your local repository to a remote repository: `git push <remote> <branch>` **OR** `git push` **OR** `gp`
     - The most common use is `git push origin master`, which is usually the default for `git push`
