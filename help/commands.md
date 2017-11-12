@@ -83,6 +83,16 @@ Note that the preferred way to open things is with the `open` function; however,
 
 - Open a video or multiple videos in a playlist: `mpv <files/dir>`
 
+### Firejail
+
+Use `firejail` to sandbox a program or other piece of software. This ensures that the program does not have access to your entire file system since it runs in a restricted environment.
+
+- Run a program in firejail with its default profile (if it exists): `firejail <program>`
+- Use firejail by default for all programs that have profiles: `firecfg`
+    - List all the programs that use firejail by default: `firecfg --list`
+    - Remove all symbolic links to firejail: `firecfg --clean`
+- Verify that firejail is being used for a particular program: `firejail --list`
+
 ### Pacaur
 
 - Install packages: `pacaur -S <packages>`
