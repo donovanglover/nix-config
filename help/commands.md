@@ -70,7 +70,12 @@ These programs are installed on top of the base system.
 ### Dealing with Archives
 
 - Zip all files in a directotry: `zip -r <zip_name> <directory>`
+- View the contents of rar files: `unrar lb <files>`
+- Extract the contents of rar files: `unrar x <files>`
+- Extract the contents of zip files: `unzip <files>`
 - Extract any type of archiving algorithm: `extract <filename>`
+
+**Note**: When using `unrar` or `unzip` to extract multiple files (with wildcards), you must first escape the `*` to `\*`.
 
 ### Opening Things
 
