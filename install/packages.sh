@@ -53,6 +53,7 @@ i crystal       # Install crystal, a ruby-like language with a binary compiler
 i jq            # Install jq, used to manipulate JSON in the terminal
 i tmux          # Install tmux, used to run terminal programs in the background
 i fzf           # Install fzf, used to easily search for things in vim
+i pygmentize    # Install pygmentize, used as a variant of cat with syntax highlighting
 
 i virtualbox-guest-modules-arch # Install Arch-specific VirtualBox modules
 i virtualbox-guest-utils        # Install the core VirtualBox functionality
