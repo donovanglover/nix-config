@@ -40,13 +40,6 @@ i unrar         # Install unrar, used to extract rar files
 i openvpn       # Install openvpn, used to connect to VPNs
 i openssh       # Install openssh, used to connect via SSH
 
-i jq            # Install jq, used to manipulate JSON in the terminal
-i tmux          # Install tmux, used to run terminal programs in the background
-i fzf           # Install fzf, used to easily search for things in vim
-
-i virtualbox-guest-modules-arch # Install Arch-specific VirtualBox modules
-i virtualbox-guest-utils        # Install the core VirtualBox functionality
-
 i elixir        # Install elixir, our functional language of choice
 i ruby          # Install ruby, another programming language of choice
 i rust          # Install rust, a dependency to build other packages
@@ -56,6 +49,13 @@ i php-cgi       # Install php-cgi, used to make php work with local servers
 i lua           # Install lua, in case we ever want to use it
 i jdk-9-openjdk # Install java, if for some reason we need to use it
 i crystal       # Install crystal, a ruby-like language with a binary compiler
+
+i jq            # Install jq, used to manipulate JSON in the terminal
+i tmux          # Install tmux, used to run terminal programs in the background
+i fzf           # Install fzf, used to easily search for things in vim
+
+i virtualbox-guest-modules-arch # Install Arch-specific VirtualBox modules
+i virtualbox-guest-utils        # Install the core VirtualBox functionality
 
 i xorg-server   # Install xorg-server, used to manage graphical elements on the display
 i xorg-xinit    # Install xorg-xinit, allowing us to start the X server with .xinitrc
