@@ -34,24 +34,15 @@ module Trucolor
         f = n - 43 * h
         t = f * 255 / 43
         q = 255 - t
-        
         case h
-        when 0
-            return {255, t, 0}
-        when 1
-            return {q, 255, 0}
-        when 2
-            return {0, 255, t}
-        when 3
-            return {0, q, 255}
-        when 4
-            return {t, 0, 255}
-        when 5
-            return {255, 0, q}
-        else
-            return {0, 0, 0}
+            when 0; return {255, t, 0}
+            when 1; return {q, 255, 0}
+            when 2; return {0, 255, t}
+            when 3; return {0, q, 255}
+            when 4; return {t, 0, 255}
+            when 5; return {255, 0, q}
         end
-
+        return {0, 0, 0}
     end
     
     # Tests the format method by printing a rainbow of colors
