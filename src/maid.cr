@@ -35,7 +35,10 @@ require "../lib/trucolor"
 
 module Maid
     UPSTREAM = ENV["HOME"] + "/Home/new-start/dotfiles"
-    def self.maid()
+
+    extend self
+
+    def maid()
         Maid.status() if ARGV.size() == 0
         case ARGV[0].delete("-")
             when "help",    "h"; Maid.help()
@@ -48,37 +51,37 @@ module Maid
         end
     end
 
-    def self.help()
+    def help()
         puts "Help"
         exit 0
     end
 
-    def self.up()
+    def up()
         puts "Up"
         exit 0
     end
 
-    def self.down()
+    def down()
         puts "Down"
         exit 0
     end
     
-    def self.status()
+    def status()
         puts "Status"
         exit 0
     end
 
-    def self.diff()
+    def diff()
         puts "Diff"
         exit 0
     end
 
-    def self.add()
+    def add()
         puts "Add"
         exit 0
     end
 
-    def self.remove()
+    def remove()
         puts "Remove"
         exit 0
     end
