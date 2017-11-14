@@ -34,7 +34,8 @@ require "file_utils"
 require "../lib/trucolor"
 
 module Maid
-    UPSTREAM = ENV["HOME"] + "/Home/new-start/dotfiles"
+
+    UPSTREAM = "/Home/new-start/dotfiles"
 
     extend self
 
