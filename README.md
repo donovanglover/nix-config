@@ -187,10 +187,27 @@ TODO: add this
 
 ### Fonts
 
-- Web Serif: TODO
-- Web Sans-serif: TODO
-- Web Monospace: TODO
-- Terminal: [Hack](https://github.com/source-foundry/Hack)
+1. The [Hack](https://github.com/source-foundry/Hack) fonts are used for the terminal.
+2. The [Noto](https://github.com/googlei18n/noto-fonts) fonts are used for the web and other programs.
+
+### Languages Included
+
+- C
+- C++
+- Perl
+- Go
+- Ruby
+- Lua
+- Java
+- PHP
+- Python
+- Crystal
+- Elixir
+- Rust
+
+Note that this list is not exhaustive. Other languages like Markdown, HTML, CSS, and Sass also work by default.
+
+TODO: Clean up this section
 
 ### Other
 
