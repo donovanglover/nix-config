@@ -53,8 +53,31 @@ module Maid
     end
 
     def help()
-        puts "Help"
+        puts Trucolor.format({125, 255, 0}, "Usage: maid [command]")
+        _hr("Always used:")
+        _hc("up", "Replace the file upstream with the file downstream")
+        _hc("down", "Replace the file downstream with the file upstream")
+        _hc("status", "List the files that aren't in sync with upstream")
+        _hr("Sometimes used:")
+        _hc("diff", "View the lines that differ between upstream and downstream")
+        _hr("Rarely used:")
+        _hc("add", "Copy a file from downstream to upstream")
+        _hc("remove", "Removes a file from upstream, preventing it from being tracked")
+        _hn("Ideally you should only edit files locally (i.e. not upstream)")
+        _hn("Then pushing your changes is as simple as typing 'maid up'!")
         exit 0
+    end
+
+    private def _hc(command, description)
+        puts Trucolor.format({255, 55, 225}, "    #{command.ljust(14, ' ')}#{description}")
+    end
+
+    private def _hr(message)
+        puts Trucolor.format({12, 155, 255}, "  #{message}")
+    end
+
+    private def _hn(note)
+        puts Trucolor.format({255, 128, 10}, "#{note}")
     end
 
     def up()
