@@ -49,6 +49,7 @@ module Maid
             when "diff",    "f"; Maid.diff()
             when "add",     "a"; Maid.add()
             when "remove",  "r"; Maid.remove()
+            else Maid.unknown()
         end
     end
 
@@ -78,6 +79,11 @@ module Maid
 
     private def _hn(note)
         puts Trucolor.format({255, 128, 10}, "#{note}")
+    end
+
+    def unknown()
+        puts Trucolor.format({255, 55, 20}, "Unknown command '#{ARGV[0]}'")
+        puts Trucolor.format({200, 200, 10}, "Type 'maid help' for a list of commands")
     end
 
     def up()
