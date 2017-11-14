@@ -97,7 +97,22 @@ module Maid
     end
     
     def status()
-        puts "Status"
+        # For each file in upstream
+        Dir.glob(ENV["HOME"] + Maid::UPSTREAM + "/**/*").each do |upstream|
+            next if File.directory?(upstream)
+            downstream = upstream.sub(UPSTREAM, "")
+            puts Trucolor.format({180, 0, 255}, upstream.sub(ENV["HOME"], "~")) + " -> " + Trucolor.format({255, 0, 128}, downstream.sub(ENV["HOME"], "~"))
+            # If the file upstream exists downstream
+            if File.exists?(downstream)
+                # Print a summary of what's different if they aren't the same
+                unless upstream.includes?(".jpg") || FileUtils.cmp(upstream, downstream)
+                    puts "Lines in the upstream repository but not stored locally:"
+                    puts Trucolor.format({20, 200, 255}, `grep -nFxvf #{upstream} #{downstream}`)
+                    puts "Lines stored locally but not upstream:"
+                    puts Trucolor.format({255, 200, 58}, `grep -nFxvf #{downstream} #{upstream}`)
+                end
+            end
+        end
         exit 0
     end
 
