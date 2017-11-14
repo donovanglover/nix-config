@@ -30,6 +30,9 @@
 # TODO: Use .maidrc to store configuration (?)
 # If so, add Maid.init() to create a base configuration
 
+require "file_utils"
+require "../lib/trucolor"
+
 module Maid
     UPSTREAM = ENV["HOME"] + "/Home/new-start/dotfiles"
     def self.maid()
