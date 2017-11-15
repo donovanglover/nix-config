@@ -127,6 +127,10 @@ module Maid
         exit 0
     end
 
+    private def _e(error)
+        puts Trucolor.format({255, 55, 20}, error)
+    end
+
     def remove()
         puts "Remove"
         exit 0
