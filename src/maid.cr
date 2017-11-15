@@ -88,12 +88,39 @@ module Maid
     end
 
     def up()
-        puts "Up"
+
+        # TODO: If no file was given, update all the files (?)
+        # May be safer to only update one file at a time
+
+        if ARGV.size == 1
+            _e("You must specify the file to push to upstream.")
+            exit 1
+        end
+
+        # TODO: If the file exists downstream *and* if it exists upstream,
+        # then update the file upstream with the file downstream, stating the changes
+        # TODO: Check that the file is indeed different before changing it
+        # Otherwise state that the file didn't exist downstream / upstream
+
         exit 0
+
     end
 
     def down()
-        puts "Down"
+
+        # TODO: 'maid down' pulls all the files from upstream to downstream (?)
+        # Could make an explicit 'maid down all' instead, similar to 'maid up all' (?)
+
+        if ARGV.size == 1
+            _e("You must specify the file to fetch from upstream.")
+            exit 1
+        end
+
+        # TODO: If the file exists upstream but not downstream, don't update it (?)
+        # Could make it so that 'maid down' simply pulls all the files that already exist
+        # and 'maid down all' pulls files that don't exist yet
+        # TODO: Similar to up(), check that the files are different before changing them
+
         exit 0
     end
     
@@ -105,6 +132,8 @@ module Maid
             puts Trucolor.format({180, 0, 255}, upstream.sub(ENV["HOME"], "~")) + " -> " + Trucolor.format({255, 0, 128}, downstream.sub(ENV["HOME"], "~"))
             # If the file upstream exists downstream
             if File.exists?(downstream)
+                # TODO: Simply show if the files are the same or different
+                # TODO: If the user wants a more specific diff, use 'maid diff'
                 # Print a summary of what's different if they aren't the same
                 unless upstream.includes?(".jpg") || FileUtils.cmp(upstream, downstream)
                     puts "Lines in the upstream repository but not stored locally:"
@@ -112,19 +141,44 @@ module Maid
                     puts "Lines stored locally but not upstream:"
                     puts Trucolor.format({255, 200, 58}, `grep -nFxvf #{downstream} #{upstream}`)
                 end
+            else
+                # TODO: The file exists upstream but not downstream, show this
             end
         end
         exit 0
     end
 
     def diff()
-        puts "Diff"
+
+        if ARGV.size == 1
+            _e("You must specify the file to view the difference between.")
+            exit 1
+        end
+
+        # TODO: If the files are the same print something
+        # Otherwise show the difference as usual (but only if it's not empty)
         exit 0
+
     end
 
     def add()
-        puts "Add"
+
+        if ARGV.size() == 1
+            _e("You must specify a file to add to upstream")
+            exit 1
+        end
+
+        # TODO: Make this logical instead of having multiple branching if statements
+        if File.exists?(ENV["HOME"] + "/" + ARGV[1])
+            puts "The file ~/" + ARGV[1] + " exists."
+            # If the file already exists upstream then throw an error
+            # Otherwise add the file as usual
+        else
+            puts "The file ~/" + ARGV[1] + " does not exist."
+        end
+
         exit 0
+
     end
 
     private def _e(error)
@@ -132,8 +186,21 @@ module Maid
     end
 
     def remove()
-        puts "Remove"
+
+        if ARGV.size() == 1
+            _e("You must specify a file to remove from upstream")
+            exit 1
+        end
+
+        if File.exists?(ENV["HOME"] + Maid::UPSTREAM + "/" + ARGV[1])
+            puts "The file ~" + Maid::UPSTREAM + "/" + ARGV[1] + " exists."
+            # TODO: Remove the file
+        else
+            puts "The file ~" + Maid::UPSTREAM + "/" + ARGV[1] + " does not exist."
+        end
+
         exit 0
+
     end
 
 end
