@@ -31,7 +31,7 @@
 # If so, add Maid.init() to create a base configuration
 
 require "file_utils"
-require "../lib/trucolor"
+require "trucolor"
 
 module Maid
 

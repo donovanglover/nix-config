@@ -24,7 +24,7 @@
 # Trufetch is an alternative to neofetch that emphasizes the use of true color support
 # It is made specifically for this system and does not rely on many external calls
 
-require "../lib/trucolor"
+require "trucolor"
 
 module Trufetch
     extend self
