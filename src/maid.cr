@@ -84,6 +84,7 @@ module Maid
     def unknown()
         puts Trucolor.format({255, 55, 20}, "Unknown command '#{ARGV[0]}'")
         puts Trucolor.format({200, 200, 10}, "Type 'maid help' for a list of commands")
+        exit 1
     end
 
     def up()
