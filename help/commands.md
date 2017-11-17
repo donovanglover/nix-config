@@ -102,6 +102,14 @@ Use `firejail` to sandbox a program or other piece of software. This ensures tha
 
 Note that if you ever get 404s with `pacman` or `pacaur`, you need to update your local database to the new download locations with `-Syu` first.
 
+### Other Pacman Variants
+
+- View the dependencies of a package in tree format: `pactree -c <package>`
+    - Add `-d 1` to limit the depth of the tree to one level deep
+- List all the packages that depend on a certain package: `pactree -rc <package>`
+- Remove all cached versions of packages except the most recent one: `paccache -rk1`
+- Remove all cached versions of uninstalled packages: `paccache -ruk0`
+
 ## Custom Commands
 
 - Easily switch to a 4k resolution with DPI scaling: `4k`
