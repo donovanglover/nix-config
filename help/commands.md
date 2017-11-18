@@ -41,6 +41,7 @@ Note that for all of the above, `cd` is not required.
     - In comparison, a hard link is when you make a copy of the file
 - Change the permissions of a directory to all users: `chmod -R a+rwX dir/`
 - Give permissions to the user `hello` and the group `world`: `chown -R hello:world dir/`
+- Given text input, return only unique lines (aka no duplicates): `cat <input_file> | uniq`
 
 ### System Commands
 

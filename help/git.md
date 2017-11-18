@@ -13,6 +13,7 @@
 - Push changes from your local repository to a remote repository: `git push <remote> <branch>` **OR** `git push` **OR** `gp`
     - The most common use is `git push origin master`, which is usually the default for `git push`
 - Show the difference between the staging area and the working tree: `git diff` **OR** `gd`
+    - Show the changes that you added but haven't committed yet: `git diff --staged` **OR** `gd --staged` **OR** `gds`
 - Show a log of all the commits: `git log` (full log) **OR** `git lg` (commits only, easier to read)
 - Edit the last commit message: `git commit --amend`
 
