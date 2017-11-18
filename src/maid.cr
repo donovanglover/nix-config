@@ -126,23 +126,21 @@ module Maid
     
     def status()
         # For each file in upstream
+        i = 0
         Dir.glob(ENV["HOME"] + Maid::UPSTREAM + "/**/*").each do |upstream|
             next if File.directory?(upstream)
             downstream = upstream.sub(UPSTREAM, "")
-            puts Trucolor.format({180, 0, 255}, upstream.sub(ENV["HOME"], "~")) + " -> " + Trucolor.format({255, 0, 128}, downstream.sub(ENV["HOME"], "~"))
-            # If the file upstream exists downstream
+            # If the file downstream exists then print its name iff their contents differ
+            # Otherwise state that the file upstream doesn't exist downstream
+            o = downstream.sub(ENV["HOME"], "").lchop()
             if File.exists?(downstream)
-                # TODO: Simply show if the files are the same or different
-                # TODO: If the user wants a more specific diff, use 'maid diff'
-                # Print a summary of what's different if they aren't the same
-                unless upstream.includes?(".jpg") || FileUtils.cmp(upstream, downstream)
-                    puts "Lines in the upstream repository but not stored locally:"
-                    puts Trucolor.format({20, 200, 255}, `grep -nFxvf #{upstream} #{downstream}`)
-                    puts "Lines stored locally but not upstream:"
-                    puts Trucolor.format({255, 200, 58}, `grep -nFxvf #{downstream} #{upstream}`)
+                unless FileUtils.cmp(upstream, downstream)
+                    puts "(#{i}) " + Trucolor.format({255, 0, 128}, o)
+                    i = i + 1
                 end
             else
-                # TODO: The file exists upstream but not downstream, show this
+                puts "(#{i}) " + Trucolor.format({255, 0, 255}, o)
+                i = i + 1
             end
         end
         exit 0
@@ -155,8 +153,27 @@ module Maid
             exit 1
         end
 
-        # TODO: If the files are the same print something
-        # Otherwise show the difference as usual (but only if it's not empty)
+        upstream = ENV["HOME"] + Maid::UPSTREAM + "/" + ARGV[1]
+        downstream = ENV["HOME"] + "/" + ARGV[1]
+        # If the file exists downstream then print the diffference between upstream and downstream
+        # Otherwise print that the file doesn't exist downstream
+        if File.exists?(downstream)
+            unless File.exists?(upstream)
+                puts upstream.sub(ENV["HOME"], "~") + " does not exist."
+                exit 1
+            end
+            unless FileUtils.cmp(upstream, downstream)
+                puts "Lines downstream but not in the repository:"
+                puts Trucolor.format({20, 150, 255}, `grep -nFxvf #{upstream} #{downstream}`)
+                puts "Lines upstream but not stored locally:"
+                puts Trucolor.format({155, 150, 58}, `grep -nFxvf #{downstream} #{upstream}`)
+            else
+                puts downstream.sub(ENV["HOME"], "").lchop() + " is already in sync."
+            end
+        else
+            puts downstream.sub(ENV["HOME"], "~") + " does not exist."
+            exit 1
+        end
         exit 0
 
     end
