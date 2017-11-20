@@ -87,6 +87,15 @@ These programs are installed on top of the base system.
 
 Note that you can run multiple servers on different ports through Jekyll and other software.
 
+### Crystal
+
+- Build and run the program directly: `crystal <file>`
+- Compile the program to binary: `crystal build <file>`
+    - Add `--progress` or `-p` to show build progress
+    - Add `--release` when you're building the release version (takes longer)
+    - Add `--no-debug` to increase the build speed (useful for dev builds)
+    - Add `-o` to specify the location of the output file
+
 ### Dealing with Archives
 
 - Zip all files in a directotry: `zip -r <zip_name> <directory>`
