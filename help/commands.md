@@ -78,6 +78,15 @@ These programs are installed on top of the base system.
 - Open a webpage in a new tab: `waterfox --new-tab <url>`
 - Search for a specific term: `waterfox --search <term>`
 
+### Jekyll
+
+- Start a server and monitor it for changes (useful for development): `jekyll serve`
+- Start a server and detach it from the current shell: `jekyll serve --detach`
+- Terminate a jekyll server that was detached from the shell: `kill -9 <pid>`
+- Terminate all jekyll servers: `pkill -f jekyll`
+
+Note that you can run multiple servers on different ports through Jekyll and other software.
+
 ### Dealing with Archives
 
 - Zip all files in a directotry: `zip -r <zip_name> <directory>`
