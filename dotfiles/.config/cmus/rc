@@ -18,7 +18,7 @@
 #
 ##################################################################################
 
-# Tell cmus to use alsa as our audio system of choice
+# Tell cmus to use alsa (required to get things working)
 set output_plugin=alsa
 set dsp.alsa.device=default
 set mixer.alsa.device=default
