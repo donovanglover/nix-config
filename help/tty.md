@@ -14,3 +14,13 @@
 - Go to the beginning of the line       `Ctrl+A`
 - Go to the end of the line             `Ctrl+E`
 - Remove everything after the cursor    `Ctrl+K`
+
+## Piping
+
+- Take the output from `a` and use it as the input for `b`: `a | b`
+- Take the output from `a` and write it to the file `b`: `a > b`
+- Take the output from `a` and append it to the file `b`: `a >> b`
+
+## Wildcard
+
+- Use `*` anywhere as a wildcard to find all matches
