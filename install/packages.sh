@@ -49,6 +49,7 @@ i php-cgi       # Install php-cgi, used to make php work with local servers
 i lua           # Install lua, in case we ever want to use it
 i jdk-9-openjdk # Install java, if for some reason we need to use it
 i crystal       # Install crystal, a ruby-like language with a binary compiler
+i nodejs        # Install node.js, used as a javascript runtime environment
 
 i jq            # Install jq, used to manipulate JSON in the terminal
 i tmux          # Install tmux, used to run terminal programs in the background
@@ -57,6 +58,7 @@ i pygmentize    # Install pygmentize, used as a variant of cat with syntax highl
 i firejail      # Install firejail, a simple and straightforward way to sandbox programs
 i ctags         # Install ctags, used with vim to create tags for formal languages
 i shards        # Install shards, a package manager for crystal
+i npm           # Install npm, a package manager for node.js
 
 i virtualbox-guest-modules-arch # Install Arch-specific VirtualBox modules
 i virtualbox-guest-utils        # Install the core VirtualBox functionality
