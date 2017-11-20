@@ -87,39 +87,66 @@ module Maid
         exit 1
     end
 
+    # 'maid up' will update all files upstream with the ones downstream
+    # 'maid up <file>' to update a specific file
     def up()
-
-        # TODO: If no file was given, update all the files (?)
-        # May be safer to only update one file at a time
 
         if ARGV.size == 1
             _e("You must specify the file to push to upstream.")
             exit 1
         end
 
-        # TODO: If the file exists downstream *and* if it exists upstream,
-        # then update the file upstream with the file downstream, stating the changes
-        # TODO: Check that the file is indeed different before changing it
-        # Otherwise state that the file didn't exist downstream / upstream
+        upstream = ENV["HOME"] + Maid::UPSTREAM + "/" + ARGV[1]
+        downstream = ENV["HOME"] + "/" + ARGV[1]
+
+        # Since we can't update the files upstream without knowing which ones to update,
+        # we need to make sure that a downstream version exists as well as upstream
+        # If you use 'maid up <file>' and the file does not exist, it will behave like 'maid add'
+        if File.exists?(upstream) && File.exists?(downstream)
+            unless FileUtils.cmp(upstream, downstream)
+                File.write(upstream, File.read(downstream))
+                if FileUtils.cmp(upstream, downstream)
+                    puts "Successfully updated " + upstream.sub(ENV["HOME"], "~") + "!"
+                else
+                    puts "Uh oh. The files appear to still differ. This should never happen."
+                end
+            else
+                puts "Both files exist, but they're the same, so there's no reason to update."
+            end
+        else
+            puts "The file exists downstream but not upstream. Using 'maid add'."
+        end
 
         exit 0
 
     end
 
+    # 'maid down' will update all files downstream with the ones upstream
+    # 'maid down <file>' to update a specific file
     def down()
-
-        # TODO: 'maid down' pulls all the files from upstream to downstream (?)
-        # Could make an explicit 'maid down all' instead, similar to 'maid up all' (?)
 
         if ARGV.size == 1
             _e("You must specify the file to fetch from upstream.")
             exit 1
         end
 
-        # TODO: If the file exists upstream but not downstream, don't update it (?)
-        # Could make it so that 'maid down' simply pulls all the files that already exist
-        # and 'maid down all' pulls files that don't exist yet
-        # TODO: Similar to up(), check that the files are different before changing them
+        upstream = ENV["HOME"] + Maid::UPSTREAM + "/" + ARGV[1]
+        downstream = ENV["HOME"] + "/" + ARGV[1]
+
+        if File.exists?(upstream)
+            if File.exists?(downstream) && !FileUtils.cmp(upstream, downstream)
+                File.write(downstream, File.read(upstream))
+                if FileUtils.cmp(upstream, downstream)
+                    puts "Successfully updated " + downstream.sub(ENV["HOME"], "~") + "!"
+                else
+                    puts "Uh oh. The files appear to still differ. This should never happen."
+                end
+            else
+                puts "Both files exist, but they're the same, so there's no reason to update."
+            end
+        else
+            puts "The file must exist upstream before you can use it."
+        end
 
         exit 0
     end
