@@ -14,11 +14,19 @@ Note that "renaming" files is the same as moving them from one location to anoth
 - Remove (delete) a directory: `rm -r <dirname>`
 - Make a new file: `touch <filename>`
 - Make a new directory: `mkdir <dirname>`
-- List all the files in a directory: `ls`
+- List all the files in a directory: `ls` **OR** `find`
 - List all the directories in a directory: `ls -d */`
 - List all the files in a directory, including dotfiles: `ls -A`
 - List all the files in dirname: `ls <dirname>`
 - Only list png and jpg files: `ls *.{png,jpg}`
+- Print the file type based on header information: `file <filename>`
+- Show all running processes as a tree: `pstree`
+- Print the number of new lines: `wc -l <file>`
+- Print the maximum line length: `wc -L <file>`
+- Print the word count: `wc -w <file>`
+- Show the size of the current directory, including subdirectories: `du -h`
+- Show the size of the current directory and its files: `du -ha`
+- Get more information about any command: `man <command>`
 
 ## Switching Directories
 
@@ -42,6 +50,7 @@ Note that for all of the above, `cd` is not required.
 - Change the permissions of a directory to all users: `chmod -R a+rwX dir/`
 - Give permissions to the user `hello` and the group `world`: `chown -R hello:world dir/`
 - Given text input, return only unique lines (aka no duplicates): `cat <input_file> | uniq`
+- Search all files in a directory (and all subdirectories) for a given string: `grep -inr <search_term>` **OR** `g <search_term>`
 
 ### System Commands
 
@@ -56,6 +65,7 @@ These programs are installed on top of the base system.
 - List the entire contents of a directory: `tree`
 - List all the directories in a directory, up to 2 levels deep: `tree -d -L 2`
 - Beautify any JSON output: `<json_output> | jq '.'`
+- Easily search for a file in a directory and its subdirectories: `fzf`
 
 ### Inox
 
@@ -110,6 +120,11 @@ Note that if you ever get 404s with `pacman` or `pacaur`, you need to update you
 - List all the packages that depend on a certain package: `pactree -rc <package>`
 - Remove all cached versions of packages except the most recent one: `paccache -rk1`
 - Remove all cached versions of uninstalled packages: `paccache -ruk0`
+
+### Working with Online Resources
+
+- Download anything online: `wget <url>`
+- View the response header and contents of any webpage: `http <url>`
 
 ## Custom Commands
 
