@@ -55,6 +55,9 @@ alias cmus="cmas" # Alias cmus to cmas for good measure
 # Show the lines that are in <file2> but NOT in <file1>
 alias compare="grep -nFxvf" # Usage: compare <file1> <file2>
 
+# "dog" is a colorful version of cat
+alias dog="pygmentize -g"
+
 ####################################################################
 # Git aliases
 ####################################################################
