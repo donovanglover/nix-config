@@ -41,5 +41,10 @@ fi
 
 # TODO: Clean up and final changes for the new system
 
+# Install all the vim plugins
+# TODO: Download vim-plug before this so :PlugInstall works
+# TODO: Ensure that this works during the install process
+vim +PlugInstall +qall
+
 umount /mnt     # Unmount the filesystem
 reboot          # Restart the system
