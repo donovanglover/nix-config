@@ -70,6 +70,12 @@ function lab() {
     cd $(basename "$1")
 }
 
+# Easily cd into the "home" directory of any repository you're working in
+# This needs to be a function instead of an alias since it relies on `external calls`
+function gh() {
+    cd `git rev-parse --show-toplevel`
+}
+
 ####################################################################
 # Utility functions
 ####################################################################
