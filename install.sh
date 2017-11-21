@@ -46,5 +46,14 @@ fi
 # TODO: Ensure that this works during the install process
 vim +PlugInstall +qall
 
+# This is a placeholder of the structure needed to install crystal-ctags
+# TODO: Ensure this works during installation
+cd some_directory
+git clone https://github.com/SuperPaintman/crystal-ctags
+cd crystal-ctags
+sudo make install # TODO: Is sudo required here?
+cd ../..
+rm some_directory
+
 umount /mnt     # Unmount the filesystem
 reboot          # Restart the system
