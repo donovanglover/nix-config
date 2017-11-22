@@ -50,7 +50,11 @@ Note that for all of the above, `cd` is not required.
 - Change the permissions of a directory to all users: `chmod -R a+rwX dir/`
 - Give permissions to the user `hello` and the group `world`: `chown -R hello:world dir/`
 - Given text input, return only unique lines (aka no duplicates): `cat <input_file> | uniq`
+
+### Searching Through Files
+
 - Search all files in a directory (and all subdirectories) for a given string: `grep -inr <search_term>` **OR** `g <search_term>`
+- Search all files in a directory (including subdirectories) for a given string and ignore dotfiles: `ag <search_term>`
 
 ### System Commands
 
