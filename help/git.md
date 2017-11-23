@@ -38,7 +38,12 @@ Also note that `git clone` makes a remote name of `origin` by default. This is w
 - Checkout a different branch: `git checkout <branch>`
     - Useful for 1) checking out the master or development branch, 2) checking out an upstream branch, and 3) checking out a feature branch
 - Create a new branch: `git checkout -b <branch>`
+    - Use `<group>/<description>` to describe your branches
+    - For example, a fix for a compiler issue should have a branch name of `fix/description-of-compiler-issue`
+    - Note that the branch should be descriptive but not too long (i.e. don't make it longer than above, since the example above is pretty long already)
+    - Always create a new branch when submitting pull requests. This allows you to create multiple pull requests for different issues, prevent conflicts between your master branch and upstream, as well as some other things.
 - Delete a branch when you're done with it: `git branch -d <branch>`
+- Push your changes to a different branch (i.e. your new branch): `git push origin <branch>` **OR** `gp origin <branch>`
 
 ## Less common commands
 
