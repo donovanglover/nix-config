@@ -61,6 +61,7 @@ i shards        # Install shards, a package manager for crystal
 i npm           # Install npm, a package manager for node.js
 
 i the_silver_searcher           # Install ag, used to easily search through files
+i fdupes                        # Install fdupes, used to quickly find duplicate files
 
 i virtualbox-guest-modules-arch # Install Arch-specific VirtualBox modules
 i virtualbox-guest-utils        # Install the core VirtualBox functionality
