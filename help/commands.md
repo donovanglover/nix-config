@@ -70,6 +70,14 @@ These programs are installed on top of the base system.
 - List all the directories in a directory, up to 2 levels deep: `tree -d -L 2`
 - Beautify any JSON output: `<json_output> | jq '.'`
 - Easily search for a file in a directory and its subdirectories: `fzf`
+- Show duplicate files in a given directory, with the ability to remove them as well: `fdupes <dir>`
+    - Add `-r` to go through subdirectories
+    - Add `-n` to exclude empty files
+    - Add `-f` to omit the first file in each set of matches
+    - Add `-1` to list each set of matches on a single line
+    - Add `-S` to show the size of each duplicate file
+    - Add `-d` to delete duplicates during execution
+    - Add `-A` to ignore hidden files
 
 ### Inox
 
