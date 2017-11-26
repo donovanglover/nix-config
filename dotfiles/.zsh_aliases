@@ -52,6 +52,9 @@ alias volume="vol"
 ####################################################################
 
 alias vim="vim -p"      # Open multiple files in new tabs instead of buffers
+alias vh="vim -o"       # Open multiple files horizontally
+alias vv="vim -O"       # Open multiple files vertically
+alias vc="vimdiff"      # Easily compare two files side by side for differences between them
 alias dl="youtube-dl"   # Quick and easy way to download the majority of online videos
 
 alias back="feh --no-fehbg --bg-fill"          # Easily set a new background (temporary)
