@@ -63,6 +63,10 @@ i npm           # Install npm, a package manager for node.js
 i the_silver_searcher           # Install ag, used to easily search through files
 i fdupes                        # Install fdupes, used to quickly find duplicate files
 
+i tig           # Install tig, used to browse git commits
+i ncdu          # Install ncdu, used to easily see disk usage
+i w3m           # Install w3m, our text-based web browser of choice
+
 i virtualbox-guest-modules-arch # Install Arch-specific VirtualBox modules
 i virtualbox-guest-utils        # Install the core VirtualBox functionality
 
