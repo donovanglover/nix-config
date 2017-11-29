@@ -123,6 +123,14 @@ Note that you can run multiple servers on different ports through Jekyll and oth
 Note that the preferred way to open things is with the `open` function; however, sometimes it is necessary to use these commands if, for example, you're loading an entire directory.
 
 - Open a video or multiple videos in a playlist: `mpv <files/dir>`
+- Open an image or multiple images: `feh <files/dir>`
+    - Add `-r` to recursively iterate through all subdirectories
+    - Add `-z` to randomize the order of the images
+    - Use `-l` to enable list mode, an easy way to see various details about images
+    - Use `-t` to enable thumbnail mode, a quick and easy way to see all the images in a directory
+        - Add `-E <pixels>` to set the thumbnail height
+        - Add `-y <pixels>` to set the thumbnail width
+        - Note that generating thumbnails takes time (i.e. don't use with large file sizes)
 
 ### Firejail
 
