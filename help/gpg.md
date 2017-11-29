@@ -40,6 +40,8 @@ More specifically,
 - Use RSA for the sign only key and RSA for the encrypt only key
 - Use a keysize of 4096 bits
 - Make the key valid for one year (1y)
+- Do not put anything for the comments field
+    - More information: [OpenPGP User ID Comments considered harmful](https://debian-administration.org/users/dkg/weblog/97)
 
 ## Common Commands
 
@@ -52,16 +54,20 @@ More specifically,
     - Often used so other people can send messages to you with your public key
 - Import a public key: `gpg --import <keyfile>`
     - Used so that you can send encrypted messages to other people with their public key
+- Check the fingerprint of a keyfile: `gpg --with-fingerprint <keyfile>`
+
+**NOTE**: If you import a public key from a keyfile, then you should first check that the fingerprint matches a verified source published by the expected owner of that key *before* adding it.
 
 ## Using a Keyserver
 
 - Add a public key to the keyserver (permanent): `gpg --send-keys <user_id>`
 - View the details of a key on the keyserver: `gpg --search-keys <user_id>`
-- Import a key from the keyserver: `gpg --recv-keys <key_id>`
+- Import a key from the keyserver: `gpg --recv-key <fingerprint>`
 
 **NOTE**: You should always verify the authenticity of a retrieved public key by comparing its *fingerprint* with one the owner published on at least one *independent source*.
 
-**NOTE**: Never use a short ID when requesting keys from a keyserver. There have been attacks in the past that abuse the fact that it's trivial to create multiple keys with the same short ID. Instead, always use the full fingerprint or long key ID when receiving a key.
+**NOTE**: Never use a short ID when requesting keys from a keyserver. There have been attacks in the past that abuse the fact that it's trivial to create multiple keys with the same short ID. The long key ID is also prone to this attack. Instead, always use the full fingerprint when receiving a key.
+- More Information: [OpenPGP Key IDs are not useful](https://debian-administration.org/users/dkg/weblog/105)
 
 ## Encrypting and Decrypting Things
 
@@ -118,6 +124,10 @@ Now that you have a copy of the subkey, you need to change its password.
 
 **Never** delete your expired or revoked subkeys. This makes it impossible to decrypt files encrypted with the old subkey. **Only** delete expired or revoked keys from other users to clean your keyring.
 
+Remember to extend your expiration dates. This shows that the key is still active and being used by its holder. A key with no expiration date is not trustworthy.
+
+You should have a separate subkey for e.g. signing an email message and signing another key. This helps separate the two keys in case one gets compromised.
+
 ## Signing Things
 
 A GPG signature is used to cerify and timestamp documents and other files. If the file is modified, verification of the signature will fail.
@@ -150,3 +160,14 @@ How can you make sure that you received the right file or other content? With si
     - If for some reason you need to verify a file that doesn't follow this naming convention (should never happen), add the file to verify after `<sig_file>`.
 
 **NOTE**: If a file has been encrypted and signed (i.e. `file.sig.gpg` and `file.sig.asc`), you should first decrypt the file then verify the signature separately.
+
+## Encrypting Your Own Files
+
+- `gpg -e -a -r <user_id> <file>`
+
+## Revoking a Key
+
+**NOTE**: Anyone with access to your revocation certificate can revoke your key, rendering it useless. You should only revoke a key if it is compromised, lost, or you forgot your passphrase.
+
+- Revoking the key: `gpg --import <fingerprint>.rev`
+- Updating the keyserver: `gpg --keyserver <keyserver> --send-keys <user_id>`
