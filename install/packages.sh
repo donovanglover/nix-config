@@ -92,6 +92,18 @@ i zathura           # Install zathura, our document viewer of choice
 i zathura-djvu      # Install zathura-djvu, enabling djvu support for zathura
 i zathura-pdf-mupdf # Install zathura-pdf-mupdf, enabling pdf support for zathura
 
+i texlive-core          # Install texlive-core, the basic functionality required for TeX and LaTeX
+i texlive-science       # Install texlive-science, allowing us to easily use mathematics with TeX
+i texlive-pictures      # Install texlive-pictures, used to make graphics with TeX
+i texlive-publishers    # Install texlive-publishers, a collection of publisher formats
+i texlive-latexextra    # Install texlive-latexextra, giving us more LaTeX support
+i texlive-humanities    # Install texliive-humanities, an easier way to write text
+i texlive-fontsextra    # Install texlive-fontsextra, used for font variety
+i texlive-formatsextra  # Install texlive-formatsextra, additional support for TeX formats
+i texlive-bibtexextra   # Install texlive-bibtexextra, more features for BibTeX
+
+i minted            # Install minted, used for syntax highlighting in LaTeX
+
 i ttf-hack          # Install Hack, our primary terminal font of choice
 i ttf-fira-mono     # Install Fira Mono, our secondary terminal font of choice
 i noto-fonts        # Install the Noto fonts, our primary fonts used for everything else
