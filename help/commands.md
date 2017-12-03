@@ -40,16 +40,23 @@ Note that for all of the above, `cd` is not required.
 ### Other Commands
 
 - Print the working directory: `pwd`
-- Make a script executable: `chmod +x <file>`
 - Termite the processes with a specific word in it: `killall -q <word>`
 - Get the current time and settings: `timedatectl`
 - Show what gets executed when you run a command: `which <command>`
 - Create a symbolic (soft) link between two files: `ln -s <source> <dest>`
     - When a program references `dest`, it will link to and give `source`.
     - In comparison, a hard link is when you make a copy of the file
-- Change the permissions of a directory to all users: `chmod -R a+rwX dir/`
 - Give permissions to the user `hello` and the group `world`: `chown -R hello:world dir/`
 - Given text input, return only unique lines (aka no duplicates): `cat <input_file> | uniq`
+
+### Changing File Permissions
+
+- Make a script executable: `chmod +x <file>`
+- Change the permissions of a directory to all users: `chmod -R a+rwX dir/`
+- Give anyone and everyone access to a directory: `chmod -R 777 dir/`
+    - Useful for deleting files that the current user can't delete
+
+Note that you should *never* give a file or directory more permissions than needed. `a+rwX` and `777` should only be used in extreme situations where you have to change permissions before using a file. You should change the permissions back or delete the file when you're done.
 
 ### Searching Through Files
 
@@ -151,10 +158,13 @@ Use `firejail` to sandbox a program or other piece of software. This ensures tha
 
 ### Pacaur
 
-- Install packages: `pacaur -S <packages>`
-- Remove packages (including dependencies no longer needed): `pacaur -Rs <packages>`
-- Update all packages: `pacaur -Syu`
-- Search for a specific package: `pacaur -Ss <package>`
+Although the examples above use `pacman`, they apply for `pacaur` as well.
+
+- Install packages: `pacman -S <packages>`
+- Remove packages (including dependencies no longer needed): `pacman -Rs <packages>`
+- Update all packages: `pacman -Syu`
+- Search for a specific package: `pacman -Ss <package>`
+- List all self-installed packages (i.e. from the AUR): `pacman -Qm`
 
 Note that if you ever get 404s with `pacman` or `pacaur`, you need to update your local database to the new download locations with `-Syu` first.
 
