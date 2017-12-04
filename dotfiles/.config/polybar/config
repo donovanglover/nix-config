@@ -1,0 +1,100 @@
+##################################################################################
+#
+#    New Start: A modern Arch workflow built with an emphasis on functionality.
+#    Copyright (C) 2017 Donovan Glover
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+#
+##################################################################################
+
+[bar/main]
+modules-left    = i3
+modules-center  = cmus
+modules-right   = cpu ram volume date time
+
+monitor         = VGA-1
+foreground      = #AF80AC
+background      = #FF1C1E21
+font-0          = "Fira Mono:size=22"
+font-1          = "Noto Sans CJK JP:size=22"
+
+height          = 88
+underline-size  = 7.5
+padding-left    = 2
+padding-right   = 2
+module-margin   = 1
+
+[module/i3]
+type = internal/i3
+
+label-focused-background    = #4f2c4c
+label-focused-underline     = #B894B0
+
+label-focused-foreground    = #c16772
+label-unfocused-foreground  = #8a7f8f
+label-urgent-foreground     = #e4b226
+label-visible-foreground    = #f2f2f2
+
+label-focused-padding       = 2
+label-unfocused-padding     = 2
+label-urgent-padding        = 2
+label-visible-padding       = 2
+
+ws-icon-0   = 1;一
+ws-icon-1   = 2;二
+ws-icon-2   = 3;三
+ws-icon-3   = 4;四
+ws-icon-4   = 5;五
+ws-icon-5   = 6;六
+ws-icon-6   = 7;七
+ws-icon-7   = 8;八
+ws-icon-8   = 9;九
+ws-icon-9   = 10;十
+
+[module/cpu]
+type = internal/cpu
+label = CPU: %percentage%%
+
+[module/ram]
+type = internal/memory
+label = RAM: %gb_used%
+
+[module/date]
+type = internal/date
+date = %-d.%-m.%y
+
+[module/time]
+type = internal/date
+date = %H:%M
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 98
+label-full = %percentage%%
+label-charging = %percentage%%
+label-discharigng = %percentage%
+
+[module/cmus]
+type = custom/script
+exec = sh ~/.config/polybar/cmus.sh
+exec-if = pgrep -x cmus
+interval = 5
+
+[module/volume]
+type = internal/volume
+label-volume = VOL: %percentage%%
+
+; vim:ft=dosini
