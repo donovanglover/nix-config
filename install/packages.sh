@@ -73,6 +73,8 @@ i virtualbox-guest-utils        # Install the core VirtualBox functionality
 i xorg-server   # Install xorg-server, used to manage graphical elements on the display
 i xorg-xinit    # Install xorg-xinit, allowing us to start the X server with .xinitrc
 i xclip         # Install xclip, our clipboard manager of choice
+i xdo           # Install xdo, used to show and hide windows such as polybar
+i xorg-xprop    # Install xorg-xprop, used to determine whether or not a window is visible
 
 i libmad        # Install libmad, needed so that we can recognize and process mp3 files
 i alsa-utils    # Install alsa-utils, required to make the sound system work
