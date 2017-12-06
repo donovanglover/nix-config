@@ -193,10 +193,10 @@ gaps inner $inner
 gaps outer $outer
 
 # Only show gaps when there's more than one window open
-smart_gaps on
+# smart_gaps on
 
 # Only show borders when there's more than one window open
-smart_borders on
+# smart_borders on
 
 # Make it easy to switch between gaps and no gaps
 bindsym $mod+g          gaps inner all set 0;       gaps outer all set 0
