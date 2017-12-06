@@ -79,6 +79,11 @@ floating_modifier $mod
 # Switch between focusing floating windows and regular windows
 bindsym $mod+space focus mode_toggle
 
+# ========================= Program-Specific Windows ========================= 
+
+for_window [class="^feh$"] floating enable
+for_window [instance="^feh$"] floating enable
+
 # ========================= Workspaces ========================= 
 
 # Easily switch between your two most recently used workspaces
