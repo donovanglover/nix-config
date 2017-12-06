@@ -170,12 +170,15 @@ bindsym $mod+m exec --no-startup-id cmus-remote --pause
 bindsym $mod+b exec --no-startup-id cmus-remote --prev
 bindsym $mod+n exec --no-startup-id cmus-remote --next
 
-# TODO: Easily show a now playing overlay
-
 # ========================= Screenshot tool (shotgun) ========================= 
 
 # Bind Print Scren to screenshot the desktop and open the output png
 bindsym Print exec ~/.config/i3/screenshot.sh
+
+# ========================= Information Bar (polybar) ========================= 
+
+# Easily show and hide polybar
+bindsym $mod+o exec --no-startup-id ~/.config/i3/polybar.sh
 
 ####################################################################
 # Configuration and keybindings specific to i3-gaps
