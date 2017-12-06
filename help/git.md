@@ -45,6 +45,18 @@ Also note that `git clone` makes a remote name of `origin` by default. This is w
 - Delete a branch when you're done with it: `git branch -d <branch>`
 - Push your changes to a different branch (i.e. your new branch): `git push origin <branch>` **OR** `gp origin <branch>`
 
+### Updating a Forked Repository
+
+If you haven't already, make sure that you have added a remote to the original (upstream) repository: `git remote add upstream <dir>`
+
+1. Fetch all the branches of that remote into `upstream/<branch>`: `git fetch upstream`
+2. Change to the branch that you want to update (usually master): `git checkout master`
+3. Rewrite that branch (usually master) with the changes upstream: `git rebase upstream/master`
+
+If a lot of people have forked your reposiory, then it may be better to use `git merge upstream/master` instead. This avoids rewriting history, but at the cost of clean pull requests.
+
+It may be necessary to force push your changes with `git push -f origin <branch>` (usually master).
+
 ## Less common commands
 
 - Removes files to commit: `git rm <files>`
