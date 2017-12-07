@@ -39,3 +39,4 @@ get inox-bin        # Install inox, our chromium variant of choice
 get waterfox-bin    # Install waterfox, our firefox variant of choice
 get ttf-noto        # Install the noto fonts, used for extended language support
 get polybar         # Install polybar, our panel system of choice
+get htop-vim-git    # Install htop-vim-git, our process explorer of choice
