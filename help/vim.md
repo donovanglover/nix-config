@@ -59,3 +59,12 @@ Note that all other vim movements work while indenting things as well.
     - Select the lines you want to comment out with `j/k`
     - Press `x` to delete the first character, repeatedly if necessary
     - Exit the mode as usual
+
+## Plugin Specific
+
+### fzf.vim
+
+- Open the result in a new tab: `<C-t>`
+- Open the result in a new horizontal split: `<C-x>`
+- Open the result in a new vertical split: `<C-v>`
+- Use a command in fullscreen: `:Command!`
