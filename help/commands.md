@@ -48,6 +48,7 @@ Note that for all of the above, `cd` is not required.
     - In comparison, a hard link is when you make a copy of the file
 - Give permissions to the user `hello` and the group `world`: `chown -R hello:world dir/`
 - Given text input, return only unique lines (aka no duplicates): `cat <input_file> | uniq`
+- Search for a particular font on the system: `fc-list | grep -i <font>`
 
 ### Changing File Permissions
 
