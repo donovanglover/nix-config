@@ -90,15 +90,18 @@ Note that you should always make changes from an external branch then make a pul
 ### Working with Tags
 
 - Show all the tags in a repository: `git tag`
-- Create a new tag: `git tag -a <tag_name> -m <description>`
+- Create a new tag: `git tag -s <tag_name> -m <description>`
     - If `-m` is not given, git will open your editor to allow you to type a more detailed message
     - The tag name is usually a version number such as `v2.4.3`
+    - Note that if for some reason you don't want to sign your tag, you should use `-a` instead.
 - View the saved data of a tag: `git show <tag_name>`
-- Tag a specific commit instead of the current state in the repository: `git tag -a <tag_name> <commit>`
-- Push a tag to the remote repository: `git push origin <tagname>`
+- Tag a specific commit instead of the current state in the repository: `git tag -s <tag_name> <commit>`
+- Push a tag to the remote repository: `git push origin <tag_name>`
     - Note that sharing a tag is the same as sharing remote branches
 - Push all tags to upstream: `git push --tags`
 - Easily change between versions of a repository (through tags): `git checkout <tag_name>`
 - Update a previous version with new changes: `git checkout -b <branch_name> <tag_name>`
     - Note that you should make a new tag for the updated commit since `<tag_name>` already refers to a commit and is not changed
     - For example, if you checkout tag `2.0` then the new tag can be, for example, `2.0.1` or `2.0a`
+- List all the tags in a given repository: `git tag -l`
+- Delete a tag (should rarely be used, if ever): `git tag -d <tag_name>`
