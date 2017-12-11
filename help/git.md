@@ -3,12 +3,14 @@
 ## Common commands
 
 - Start a new git repository: `git init` **OR** `gi`
+- Clone a git repository from an upstream url: `git clone <url>`
 - Add files to commit: `git add <files>` **OR** `ga <files>`
 - Commit those files to the repository: `git commit -m <message>` **OR** `gc <message>`
 - Undo the last commit: `gr`
 - Undo the last commit and delete changes: `grr`
 - Update your local repository with a remote repository: `git pull -u <remote> <branch>`
     - The most common use is `git pull -u origin master`, although this also works for upstream remotes
+    - This is the equivalent of clicking "accept pull request" on GitHub
 - Show the status of the local repository: `git status` **OR** `gs` **OR** `git s`
 - Push changes from your local repository to a remote repository: `git push <remote> <branch>` **OR** `git push` **OR** `gp`
     - The most common use is `git push origin master`, which is usually the default for `git push`
@@ -57,6 +59,8 @@ If a lot of people have forked your reposiory, then it may be better to use `git
 
 It may be necessary to force push your changes with `git push -f origin <branch>` (usually master).
 
+Note that you should always make changes from an external branch then make a pull request from your external branch to avoid rewriting history.
+
 ## Less common commands
 
 - Removes files to commit: `git rm <files>`
@@ -71,6 +75,17 @@ It may be necessary to force push your changes with `git push -f origin <branch>
 - Merge all unpushed commits into a single commit: `git rebase -i origin/master`
     - Note that you are not done after this. You must also change `pick` to `squash` (or `s`) for all of the commits you want to merge. This is usually everything except your most recent commit.
     - Another window will open to let you combine all the commit messages into one big commit message
+- Merge the current branch with another one (usually master): `git merge <branch>`
+- Change the remote location if your upstream repository URL changes: `git remote set-url origin git@address:user/repo.git`
+- Get an idea of how much has changed since the last commit: `git diff --stat`
+- Rebase the last N commits (i.e. edit them): `git rebase -i HEAD=N`
+    - Apply the commit as-is: `pick`
+    - Edit the commit message: `reword`
+    - Edit the file(s) and/or commit message: `edit`
+    - Merge the commit with the previous commit: `squash`
+    - Merge the commit with the previous commit and discard the commit message: `fixup`
+
+**NOTE:** You should only merge commits with local commits that you haven't pushed yet. Doing this for upstream commits can cause problems for other people that have cloned your repository.
 
 ### Working with Tags
 
