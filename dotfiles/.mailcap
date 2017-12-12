@@ -18,6 +18,8 @@
 # 
 ##################################################################################
 
+# mailcap is used for software like rtv and w3m
+
 # Use feh for imgur albums
 image/x-imgur-album; feh -g 1280x960 %s; test=test -n "$DISPLAY"
 
@@ -33,3 +35,8 @@ video/x-youtube; mpv --ytdl-format=best '%s' --autofit 1280x960; test=test -n "$
 # Use mpv for all other types of videos
 video/*; mpv '%s' --autofit 1280x960 --loop=inf; test=test -n "$DISPLAY"
 
+# Use feh for all other types of images
+image/*; feh %s
+
+# Use zathura for pdfs
+application/pdf; zathura %s
