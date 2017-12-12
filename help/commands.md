@@ -123,6 +123,21 @@ Note that you can run multiple servers on different ports through Jekyll and oth
         - The directory `<dir>` must exist before you can write to it
     - Note that all `pdflatex` options must come before specifying `<file>`
 
+### Xclip
+
+**Using the X clipboard**
+
+- Copy the result of any command to the X clipboard: `command | xclip`
+    - This is particularly useful for commands like `fzf`, where you want to search for a specific file then do something with it
+- Paste the results from the X clipboard: `xclip -o`
+
+**Using the global clipboard**
+
+- Copy a file to the global clipboard: `xclip -sel clip < filename.txt` **OR** `cat filename.txt | xclip -sel clip`
+    - Note that `-sel` is shorthand for `-selection` and that `clip` is shorthand for `clipboard`
+- Copy the result of any command to the global clipboard: `command | xclip -sel clip`
+- Paste the results from the global clipboard: `xclip -o -sel clip`
+
 ### Dealing with Archives
 
 - Zip all files in a directotry: `zip -r <zip_name> <directory>`
