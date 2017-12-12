@@ -38,6 +38,8 @@ alias l="ls -1"      # Show each output from ls on a separate line
 alias lsa="ls -A"    # Show hidden files (also known as dotfiles)
 alias type="type -a" # Easily see what the command you want to run points to
 
+alias g="grep -inr"  # Look for a string in all the files of a directory and its subdirectories
+
 ####################################################################
 # Volume aliases
 ####################################################################
@@ -55,6 +57,7 @@ alias vim="vim -p"      # Open multiple files in new tabs instead of buffers
 alias vh="vim -o"       # Open multiple files horizontally
 alias vv="vim -O"       # Open multiple files vertically
 alias vc="vimdiff"      # Easily compare two files side by side for differences between them
+alias vz="vim +Files"   # Open any file inside a directory easily with fzf
 alias dl="youtube-dl"   # Quick and easy way to download the majority of online videos
 
 alias back="feh --no-fehbg --bg-fill"          # Easily set a new background (temporary)
@@ -70,13 +73,19 @@ alias compare="grep -nFxvf" # Usage: compare <file1> <file2>
 # "dog" is a colorful version of cat
 alias dog="pygmentize -g"
 
+# Easily show all of the todos in a given project
+alias todo="ag TODO"
+
 ####################################################################
 # Git aliases
 ####################################################################
 
 alias ga="git add"                  # Swiftly add new files to the repository
+alias gap="git add --patch"         # Commit a file one part at a time
 alias gc="git commit -m"            # Easily create new commits
-alias gd="clear && git diff"        # Dedicate the entire window to showing file changes
+alias gd="git diff"                 # Show all file changes that you haven't added yet
+alias gds="git diff --staged"       # Show the changes you added but haven't committed yet
+alias gg="git grep"                 # Easily grep for a string inside the git repository
 alias gp="git push"                 # Push your commits to remote (usually origin)
 alias gs="git status"               # Compare any local changes you've made to the remote
 alias gr="git reset HEAD~"          # Undo the last commit but keep your changed files
