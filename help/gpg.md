@@ -68,6 +68,7 @@ More specifically,
 
 **NOTE**: Never use a short ID when requesting keys from a keyserver. There have been attacks in the past that abuse the fact that it's trivial to create multiple keys with the same short ID. The long key ID is also prone to this attack. Instead, always use the full fingerprint when receiving a key.
 - More Information: [OpenPGP Key IDs are not useful](https://debian-administration.org/users/dkg/weblog/105)
+- Also see: [Evil 32: Check Your GPG Fingerprints](https://evil32.com)
 
 ## Encrypting and Decrypting Things
 
