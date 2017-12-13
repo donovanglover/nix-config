@@ -110,5 +110,4 @@ i minted            # Install minted, used for syntax highlighting in LaTeX
 
 i ttf-hack          # Install Hack, our primary terminal font of choice
 i ttf-fira-mono     # Install Fira Mono, our secondary terminal font of choice
-i noto-fonts        # Install the Noto fonts, our primary fonts used for everything else
-i ttf-liberation    # Install the Liberation fonts, our secondary fonts used for everything else
+i noto-fonts        # Install the Noto fonts, used for everything else
