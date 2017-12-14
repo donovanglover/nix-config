@@ -12,4 +12,11 @@
         }
     }
 
+    var randomize = function(id) {
+        var list = document.getElementById(id);
+        for(var i = list.children.length; i > -1; i--) {
+            list.appendChild(list.children[Math.random() * i | 0]);
+        }
+    }
+
 })(window, document);
