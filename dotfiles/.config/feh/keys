@@ -90,9 +90,10 @@ menu_child
 menu_select
 
 # Add our custom keybindings
+# Note that k goes right (next) and j goes left (prev)
 toggle_fullscreen f
-next_img j
-prev_img k
+next_img k
+prev_img j
 toggle_filenames d
 toggle_fixed_geometry g
 toggle_pause h
