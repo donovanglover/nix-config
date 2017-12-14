@@ -22,11 +22,16 @@
 
 # Our font of choice
 font = Hack 12
+#font = Fira Mono 12
+#font = Inconsolata 12
 
 # No need to show the mouse in the terminal window
 mouse_autohide = true
 
 [colors]
 
-# 20% Transparency
-background = rgba(63, 63, 63, 0.8)
+# 5% Transparency
+# Note: 20% is better when you're not using clear-shadow
+background = rgba(63, 63, 63, 0.95)
+
+# vim:ft=dosini
