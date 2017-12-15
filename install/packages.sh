@@ -68,6 +68,7 @@ i ncdu          # Install ncdu, used to easily see disk usage
 i w3m           # Install w3m, our text-based web browser of choice
 i irssi         # Install irssi, our IRC client of choice
 i profanity     # Install profanity, our XMPP client of choice
+i ispell        # Install ispell, used to spell check files
 
 i virtualbox-guest-modules-arch # Install Arch-specific VirtualBox modules
 i virtualbox-guest-utils        # Install the core VirtualBox functionality
@@ -76,6 +77,7 @@ i xorg-server   # Install xorg-server, used to manage graphical elements on the 
 i xorg-xinit    # Install xorg-xinit, allowing us to start the X server with .xinitrc
 i xclip         # Install xclip, our clipboard manager of choice
 i xdo           # Install xdo, used to show and hide windows such as polybar
+i xdotool       # Install xdotool, used to make forward search work with zathura and vimtex
 i xorg-xprop    # Install xorg-xprop, used to determine whether or not a window is visible
 
 i libmad        # Install libmad, needed so that we can recognize and process mp3 files
