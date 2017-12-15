@@ -49,6 +49,9 @@ Note that for all of the above, `cd` is not required.
 - Give permissions to the user `hello` and the group `world`: `chown -R hello:world dir/`
 - Given text input, return only unique lines (aka no duplicates): `cat <input_file> | uniq`
 - Search for a particular font on the system: `fc-list | grep -i <font>`
+- Search for all files of a specific extension in a given directory: `find . -name "*.ext" -type f`
+    - Chain `-delete` to the end of the find command in order to delete the results
+    - This is useful if, for example, you want to delete all files with the extension `ext` in all directories and subdirectories
 
 ### Changing File Permissions
 
