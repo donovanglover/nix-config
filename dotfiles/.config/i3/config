@@ -212,8 +212,9 @@ bindsym $mod+y border pixel 1
 ####################################################################
 
 # Colors:               Border  Backgr. Text    Indicator
-client.focused          #007030 #007030 #ffffff #007030
+client.focused          #4f2c4c #4f2c4c #ffffff #4f2c4c
 client.focused_inactive #888888 #2b2b2b #ffffff #2b2b2b
 client.unfocused        #888888 #2b2b2b #ffffff #2b2b2b
 client.urgent           #900000 #900000 #ffffff #900000
 
+# vim:ft=dosini
