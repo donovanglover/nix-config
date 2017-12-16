@@ -141,6 +141,18 @@ Note that you can run multiple servers on different ports through Jekyll and oth
 - Copy the result of any command to the global clipboard: `command | xclip -sel clip`
 - Paste the results from the global clipboard: `xclip -o -sel clip`
 
+### Secure Shell
+
+- Make a new 4096-bit RSA key: `ssh-keygen -t rsa -b 4096 [-C <comment>]`
+    - Note that `id_rsa` is your private key and `id_rsa.pub` is your public key
+- Add your new key to SSH: `ssh-add ~/.ssh/id_rssa`
+- Copy your public key: `xclip -sel clip < ~/.ssh/id_rsa.pub`
+- Add a location to your known hosts: `ssh -T <location>`
+    - For example, if you wanted to use SSH with GitHub, you would add the location `git@gitlab.com`
+- Start the SSH agent: `eval "$(ssh-agent -s)"`
+
+Note that a git repository must be cloned with SSH if you want to use SSH with it.
+
 ### Dealing with Archives
 
 - Zip all files in a directotry: `zip -r <zip_name> <directory>`
