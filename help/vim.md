@@ -13,6 +13,13 @@ For some vim commands, I use a `<leader>` keybinding as an alternative since I f
     - Also note that you should use "\`" instead of quotation marks
 - Compare two files side by side for differences between the two: `vim -d <file1> <file2>`
 
+## Working with Tab Characters
+
+- Convert tabs to spaces: `:retab`
+- Reindent the entire file: `gg=G`
+    - `gg` to go to the top of the file
+    - `=G` to reindent until the bottom of the file
+
 ## Movement Keys
 
 - Go to the beginning of the file: `gg`
@@ -27,8 +34,8 @@ For some vim commands, I use a `<leader>` keybinding as an alternative since I f
 - Go to the next end of a word: `e`
 - Go to the next end of a big word: `E`
 - Go to the previous sentence: `(`
-- Go to the next sentence: `)`
 - Go to the previous paragraph: `{`
+- Go to the next sentence: `)`
 - Go to the next paragraph: `}`
 
 Note that `0` is sometimes called the **hard beginning of line** and `^` is sometimes called the **soft beginning of line**.
@@ -48,7 +55,35 @@ Note that you can chain numbers with the movement keys, such as `5j` to move dow
 
 Note that you should avoid mapping `j` to `gj` (same for `k` to `gk`). It encourages bad practice and defeats the purpose of using vim.
 
-## Chained Commands
+- Go to the next instance of `<KEY>` on the current line: `f + <KEY>`
+- Go to the previous instance of `<KEY>` on the current line: `F + <KEY>`
+- Go until just before the next instance of `<KEY>` on the current line: `t + <KEY>`
+- Go until just before the previous instance of `<KEY>` on the current line: `T + <KEY>`
+
+You can easily move through instances like so:
+
+- Go to the next instance when using `f` or `t`: `;`
+- Go to the previous instance when using `f` or `t`: `,`
+
+Note that these keys get rarely used (if ever). TODO: Consider aliasing them to something else instead.
+
+### Searching for Things
+
+Note that the search commands are also considered movement keys. You can chain them with the operator commands like everything else.
+
+- Search for the next instance of a string: `/string`
+- Search for the previous instance of a string: `?string`
+- Search for the next occurrence of the word under the cursor: `*`
+- Search for the previous occurrence of the word under the cursor: `#`
+
+TODO: It may be easier to make an alias for `*` and `#`
+
+Once you are back in normal mode, you can navigate through search results like so:
+
+- Go to the next search result: `n`
+- Go to the previous search result: `N`
+
+## Chained (Operator) Commands
 
 - Copying things: `y + <MOTION>`
     - Copy the current line: `yy`
@@ -79,6 +114,10 @@ Note that you should avoid mapping `j` to `gj` (same for `k` to `gk`). It encour
 
 Note that `ci<block>` and `ca<block>` work for pretty much anything, including `{`, `[`, and `t` (for `<tags>`).
 
+Note that text deleted is also copied into vim's hidden buffer. There is no need for a "cut" command since copying things is handled automatically by vim.
+
+Repeat the last operation with `.`. This is really powerful when you want to perform the same action multiple times.
+
 ## Basic Commands
 
 - Undo the last action: `u`
@@ -105,6 +144,10 @@ Note that if you want to paste from the system clipboard (i.e. not vim), then yo
 
 To help remembering `a`, just know that it *appends* things (after the cursor and at the end of the line)
 
+An example of combining the insert keys with movement keys is `ea`. This combination of keys allows you to append text to the end of a word, since `e` goes to the end of the word and `a` enters insert mode after the cursor.
+
+Note that you can use `<C-o>` at any time while in insert mode to execute a single normal mode command. This is useful if, for example, you want to navigate to the end of the line after making changes to another part of it.
+
 ## Working with Files
 
 Note that there are a lot of buffer commands, however, I only document the ones I actively use here.
@@ -114,19 +157,35 @@ There are also a lot of window commands; however, I don't need to use most of th
 Also note that vim tabs is a thing, although you really shouldn't be using them.
 
 - List all the buffers: `:ls`
+- Search all your buffers for one with a specific pattern in its name and go to it: `:b pattern`
 - Go to the next buffer: `:bn`
 - Go to the previous buffer: `:bp`
 - Delete the current buffer: `:bd`
-- Open a new buffer with file F: `:e <F>`
+- Open the previously viewed buffer: `:b#`
+- Open a new buffer with a given file: `:e <filename>`
+- Open the file under the cursor: `gf`
 
 TODO: Replace these commands with the ones from your plugins
 
-- Open a horizontal split: `:sp [F]`
-- Open a vertical split: `:vs [F]`
-- Open a new tab: `:tabnew [F]`
+- Open a horizontal split: `:sp [filename]`
+- Open a vertical split: `:vs [filename]`
+- Open a new tab: `:tabnew [filename]`
 - Switch to the next tab: `gt`
 - Switch to the previous tab: `gT`
 - Close all windows except the current one: `:only`
+- Close all tabs except the current one: `:tabonly`
+
+## Search and Replace
+
+- Replace foo with bar everywhere: `:%s/foo/bar/g`
+- Replace foo with bar on the current line only: `:s/foo/bar/g`
+- Replace foo with bar everywhere, but ask for confirmation on each change: `:%s/foo/bar/gc`
+    - Change the current item and move on to the next one: `y`
+    - Do not change the current item and move on to the next one: `n`
+    - Change all the results: `a`
+    - Quit making changes: `q`
+
+By default searches are assumed to be case insensitive if the entire string is lowercase. Note that if case matters and the entire search string is lowercase, you should chain `I` to the command to make it case sensitive.
 
 ## Visual Mode
 
@@ -148,6 +207,28 @@ Note that commands I do not find useful are not mentioned here. Consult the help
 - Move the screen up half a page: `<C-u>`
 - Convert to lowercase: `gu + <MOTION>`
 - Convert to uppercase: `gU + <MOTION>`
+- Jump between the opening and closing parentheses, brackets, curly braces, and tags: `%`
+- Delete the character under the cursor and enter insert mode: `s`
+    - Note that this is an alias of `xi`
+- Clear the current line and enter insert mode: `S`
+    - Note that this is an alias of `cc`
+- Join the current line with the next one: `J`
+
+## Macros
+
+Macros are used for complex commands that can't be repeated with `.`. They help reduce repetition and repeat exactly what you did when you create them.
+
+- Start recording a macro: `q + <SYMBOL>`
+    - To end the macro, press `q` again.
+    - If you want to end the macro in insert mode, press `<C-o>` then `q`.
+- Play back a previously recorded macro: `@ + <SYMBOL>`
+    - To repeat the last macro played, simply use `@@`.
+
+## Marking Things
+
+- Mark the current line: `m + <SYMBOL>`
+- Go to a previously marked line: `' + <SYMBOL>'`
+- Go to a previously marked line, exactly where you were before: ``` + <SYMBOL>``
 
 ## Indenting Things
 
@@ -171,9 +252,14 @@ Note that all other vim movements work while indenting things as well.
 
 - Save the current buffer: `:w`
     - Chain `q` to save the current buffer then quit it
-    - Chain `!` to force write the currenet buffer
+    - Chain `!` to force write the current buffer
 - Quit the current buffer without trying to save: `:q`
     - Chain `!` to force close the current buffer without saving it
+- Insert the contents of a file into the current buffer: `:r <filename>`
+- Insert the results of a shell command into the current buffer: `:r! <command>`
+- Save the current buffer as a new file: `:saveas <filename>`
+- Create a new file and open it in a new buffer (not saved until you save it): `:new <filename>`
+- Reload the current file: `:e`
 
 ### Syntax Highlighting
 
@@ -181,6 +267,18 @@ Note that all other vim movements work while indenting things as well.
 - Get the syntax of the current file: `:set syntax?`
     - Note that to get the value of any variable, just add `?` to it.
 - It is possible to manually change the syntax of a file, although you shouldn't do this since plugins and other features you may have will not be loaded.
+
+### Spell Check
+
+- Toggle spell check: `:set spell!`
+- Jump to the next occurrence of a misspelled word: `]s`
+- Jump to the previous occurrence of a misspelled word: `[s`
+- Choose the first suggestion for the word under the cursor: `1z=`
+- Add the word under the cursor to your personal dictionary: `zg`
+- Remove the word under the cursor from your personal dictionary: `zug`
+- Mark the word under the cursor as misspelled: `zw`
+
+Note that there are more spell check commands out there, although you really shouldn't need them.
 
 ### Commenting lines
 
@@ -229,3 +327,11 @@ Note that all other vim movements work while indenting things as well.
 - You should only be in insert mode when you are inserting text. If you are not inserting text, then you should not be in insert mode.
 - To cancel most things and switch back to normal (keybindings) mode, simply press `esc`.
 - Line numbers should NOT be important in your daily workflow and should be disabled most of the time. This lets you focus on what you need to look at: the program itself and nothing more.
+- Registers keep track of all the things that vim has copied, although I haven't found myself using it often enough to document it here.
+- The leader key (space) is used for commands not specific to any file type.
+- The local leader (backslash) is used for commands that only affect a certain file type.
+- Note that vim has folding capabilities as well although I personally haven't made much use of them.
+
+## Miscellaneous
+
+- If for some reason you need to edit files that have line feeds in them, you can use `:%s/^M/\r/g` to remove the line feeds. At this point, you should easily be able to tell what this command does and reproduce it if necessary.
