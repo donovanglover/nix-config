@@ -21,9 +21,10 @@ Note that "renaming" files is the same as moving them from one location to anoth
 - Only list png and jpg files: `ls *.{png,jpg}`
 - Print the file type based on header information: `file <filename>`
 - Show all running processes as a tree: `pstree`
-- Print the number of new lines: `wc -l <file>`
-- Print the maximum line length: `wc -L <file>`
-- Print the word count: `wc -w <file>`
+- Print the number of lines in a file: `wc -l <file>`
+- Print the length of the longest line in a file: `wc -L <file>`
+- Print the number of words in a file: `wc -w <file>`
+- Print the number of lines in all markdown files in a given directory, including subdirectories: `find . -name "*.md" | xargs wc -l`
 - Show the size of the current directory, including subdirectories: `du -h`
 - Show the size of the current directory and its files: `du -ha`
 - Get more information about any command: `man <command>`
@@ -159,6 +160,7 @@ Note that a git repository must be cloned with SSH if you want to use SSH with i
 - View the contents of rar files: `unrar lb <files>`
 - Extract the contents of rar files: `unrar x <files>`
 - Extract the contents of zip files: `unzip <files>`
+- Extract the contents of a tgz file: `tar -xvzf file.tgz`
 - Extract any type of archiving algorithm: `extract <filename>`
 
 **Note**: When using `unrar` or `unzip` to extract multiple files (with wildcards), you must first escape the `*` to `\*`.
