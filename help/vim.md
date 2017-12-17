@@ -6,7 +6,7 @@ For some vim commands, I use a `<leader>` keybinding as an alternative since I f
 
 ## Starting vim
 
-- Open a file at a particular line number: `vim +<number> <file>`
+- Open a file at a specific line number: `vim +<number> <file>`
 - Open multiple files in separate tabs: `vim -p <files>`
 - Open all files that contain the function / variable / string `str` in the current directory: `vim -p "grep -l <str> [files]"`
     - Note that `[files]` is optional, allowing you to only search for e.g. `*.js` files
@@ -152,7 +152,11 @@ Note that you can use `<C-o>` at any time while in insert mode to execute a sing
 
 Note that there are a lot of buffer commands, however, I only document the ones I actively use here.
 
-There are also a lot of window commands; however, I don't need to use most of them.
+- Switch to the next window: `<C-w>w`
+- Switch to a specific window: `<C-w><h/j/k/l>`
+- Move a window up *or* to the left: `<C-w>R`
+- Move a window down *or* to the right: `<C-w>r`
+- Move the current window to a specific side: `<C-w><H/J/K/L>`
 
 Also note that vim tabs is a thing, although you really shouldn't be using them.
 
