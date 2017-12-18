@@ -189,19 +189,29 @@ Use `firejail` to sandbox a program or other piece of software. This ensures tha
     - Remove all symbolic links to firejail: `firecfg --clean`
 - Verify that firejail is being used for a particular program: `firejail --list`
 
-### Pacaur
+### Pacman
 
-Although the examples above use `pacman`, they apply for `pacaur` as well.
+Although the examples below use `pacman`, they apply for `yay` as well.
 
 - Install packages: `pacman -S <packages>`
 - Remove packages (including dependencies no longer needed): `pacman -Rs <packages>`
 - Update all packages: `pacman -Syu`
 - Search for a specific package: `pacman -Ss <package>`
-- List all self-installed packages (i.e. from the AUR): `pacman -Qm`
+- List all installed packages: `pacman -Q`
+    - List all the packages installed as dependencies: `pacman -Qd`
+    - List all self-installed packages (i.e. from the AUR): `pacman -Qm`
+- Display information about a specific package: `pacman -Qi <package>`
+- List all the files owned by a specific package: `pacman -Ql <package>`
+- Install a package from a local file: `pacman -U /path/to/pkg.ar.gz`
 
-Note that if you ever get 404s with `pacman` or `pacaur`, you need to update your local database to the new download locations with `-Syu` first.
+Note that if you ever get 404s with `pacman` or `yay`, you need to update your local database to the new download locations with `-Syu` first.
 
-### Other Pacman Variants
+#### Yay-specific Commands
+
+- Remove unneeded dependencies: `yay -Cd`
+- Show statistics about installed packages: `yay -Qstats`
+
+#### Other Pacman Variants
 
 - View the dependencies of a package in tree format: `pactree -c <package>`
     - Add `-d 1` to limit the depth of the tree to one level deep
