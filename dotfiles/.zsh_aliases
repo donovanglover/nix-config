@@ -103,8 +103,6 @@ alias lfox="launch waterfox"    # Launch waterfox separate from the terminal
 # Fun aliases that don't serve any specific purpose
 ####################################################################
 
-alias yaourt="pacaur"   # Why yaourt when you can pacaur?
-alias yay="pacaur"      # Using pacaur can be fun too
 alias emacs="vim"       # No need to start another operating system
 alias nano="vim"        # Why nano when you have vim?
 alias vi="vim"          # Vim is vi improved, literally
