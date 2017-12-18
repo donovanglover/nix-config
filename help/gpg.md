@@ -54,6 +54,7 @@ More specifically,
     - Often used so other people can send messages to you with your public key
 - Import a public key: `gpg --import <keyfile>`
     - Used so that you can send encrypted messages to other people with their public key
+- Delete a public key from your keyring: `gpg --delete-keys <user_id>`
 - Check the fingerprint of a keyfile: `gpg --with-fingerprint <keyfile>`
 
 **NOTE**: If you import a public key from a keyfile, then you should first check that the fingerprint matches a verified source published by the expected owner of that key *before* adding it.
