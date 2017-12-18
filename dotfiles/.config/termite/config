@@ -32,6 +32,7 @@ mouse_autohide = true
 
 # 5% Transparency
 # Note: 20% is better when you're not using clear-shadow
-background = rgba(63, 63, 63, 0.95)
+# background = rgba(63, 63, 63, 0.95)
+background = #19171C
 
 # vim:ft=dosini
