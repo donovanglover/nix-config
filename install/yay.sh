@@ -21,7 +21,7 @@
 # Ensure that a <localuser> was given so we can run commands from it
 if [ -z "$1" ]; then
     echo "You need to specify a local user to use."
-    echo "Usage: pacaur.sh <localuser>"
+    echo "Usage: yay.sh <localuser>"
     exit 1
 fi
 
@@ -55,10 +55,6 @@ function build() {
 
 }
 
-# Add the GPG key for cower
-su $LOCALUSER --session-command 'gpg --keyserver hkps://pgp.mit.edu --recv-keys 1EB2638FF56C0C53' 
-
 mkdir -v $TEMP  # Make the temp directory
-build cower     # Install cower (pacaur dependency)
-build pacaur    # Install pacaur, our AUR helper of choice
+build yay       # Install yay, our AUR helper of choice
 rm -rfv $TEMP   # Clean up
