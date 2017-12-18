@@ -38,8 +38,6 @@ alias l="ls -1"      # Show each output from ls on a separate line
 alias lsa="ls -A"    # Show hidden files (also known as dotfiles)
 alias type="type -a" # Easily see what the command you want to run points to
 
-alias g="grep -inr"  # Look for a string in all the files of a directory and its subdirectories
-
 ####################################################################
 # Volume aliases
 ####################################################################
@@ -80,6 +78,7 @@ alias todo="ag TODO"
 # Git aliases
 ####################################################################
 
+alias g="git"                       # In case we ever need to type a full command
 alias ga="git add"                  # Swiftly add new files to the repository
 alias gap="git add --patch"         # Commit a file one part at a time
 alias gc="git commit -m"            # Easily create new commits
