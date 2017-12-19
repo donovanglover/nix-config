@@ -59,6 +59,7 @@ i firejail      # Install firejail, a simple and straightforward way to sandbox 
 i ctags         # Install ctags, used with vim to create tags for formal languages
 i shards        # Install shards, a package manager for crystal
 i npm           # Install npm, a package manager for node.js
+i llvm          # Install llvm, used to make the crystal binary
 
 i the_silver_searcher           # Install ag, used to easily search through files
 i fdupes                        # Install fdupes, used to quickly find duplicate files
