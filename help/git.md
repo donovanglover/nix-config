@@ -49,7 +49,7 @@ Also note that `git clone` makes a remote name of `origin` by default. This is w
 
 ### Updating a Forked Repository
 
-If you haven't already, make sure that you have added a remote to the original (upstream) repository: `git remote add upstream <dir>`
+If you haven't already, make sure that you have added a remote to the original (upstream) repository: `git remote add upstream <location>`
 
 1. Fetch all the branches of that remote into `upstream/<branch>`: `git fetch upstream`
 2. Change to the branch that you want to update (usually master): `git checkout master`
@@ -105,3 +105,12 @@ Note that you should always make changes from an external branch then make a pul
     - For example, if you checkout tag `2.0` then the new tag can be, for example, `2.0.1` or `2.0a`
 - List all the tags in a given repository: `git tag -l`
 - Delete a tag (should rarely be used, if ever): `git tag -d <tag_name>`
+
+### Creating Patches
+
+You can make patch files for git repositories. This makes it so that other people can use your changes with ease.
+
+- Create patch files for the last N commits: `git format-patch HEAD~N`
+- Apply a patch to a git repository (unstaged): `git patch my.patch`
+- Apply a patch with its commit: `git am my.patch`
+- Apply all patches with their respective commits: `git am *.patch`
