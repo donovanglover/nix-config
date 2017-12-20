@@ -6,14 +6,6 @@ TODO: Put images here
 
 New Start is built on top of [Arch GNU/Linux](https://www.archlinux.org/) and consists of my [dotfiles](dotfiles/), [install scripts](install/), [help files](help/), and [custom software](src/).
 
-New start strives for simplicity, reproducability, and universaltiy. More specifically,
-
-**Simplicity.** It should be trivial to find and edit the things you're looking for; to get things done. Once mastered, the interface should not get in the way. Everything just works.
-
-**Reproducability.** It should be trivial to reproduce your previous environment from a fresh install.
-
-**Universality.** Interaction with the system should be consistent, using similar keybindings, fonts, and looks. Using the terminal as opposed to click-point windows allow for minimum configuration and maximum universality.
-
 ## Before You Begin
 
 These are some important things I believe any potential user of New Start should know.
@@ -23,15 +15,23 @@ These are some important things I believe any potential user of New Start should
 3. [Free software gives you complete control over your computing](https://www.gnu.org/philosophy/free-sw.html). If something doesn't work, it's more often than not user error. You no longer have the luxury of blaming your computer for "not working".
 4. [Keep it simple](https://en.wikipedia.org/wiki/KISS_principle). At the end of the day, you only need to use your computer for a few specific tasks, such as listening to music, writing software, sending messages, and using the internet. Don't overcomplicate things.
 
+This system was built with **reproducability** in mind. The entire system resolves around being able to install it from scratch and have the exact same configuration as before.
+
+Additionally, the design philosophy behind this system is quite different than what you'd expect if you're coming from a traditional click-point system. There is no such thing as "clicking the close button" here, or clicking anything for that matter.
+
+Once mastered, the interface should not get in the way. Everything just works.
+
 ## Getting Started
+
+The size of this repository may seem intimidating at first, but making use of New Start is really simple. I explain each directory in detail below, as well as link some files that you may like.
+
+If you're just here for the dots, skip to the [dotfiles/](#dotfiles) section. If, however, you want to dig deeper instead then continue reading.
 
 ### app/
 
-The views for my local server end up here.
+This directory holds all the files I use for my local server, with the exception of the "controller" itself (see [`src/server.cr`](src/server.cr)).
 
-#### views
-
-- [`index.ecr`](app/views/index.ecr) - Simple home page, clean and elegant
+- [`views/index.ecr`](app/views/index.ecr) - Simple home page, clean and elegant
 
 ### dotfiles/
 
@@ -43,7 +43,7 @@ My goal here is simple: use as few config settings as possible required to make 
 - [`fontconfig/fonts.conf`](dotfiles/.config/fontconfig/fonts.conf)
 - [`feh/keys`](dotfiles/.config/feh/keys)
 - [`gtk-3.0/gtk.css`](dotfiles/.config/gtk-3.0/gtk.css)
-- cmus/
+- mpv/
     - [`input.conf`](dotfiles/.config/mpv/input.conf)
     - [`mpv.conf`](dotfiles/.config/mpv/mpv.conf)
 - polybar/
