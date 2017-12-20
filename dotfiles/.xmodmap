@@ -1,0 +1,16 @@
+! Make Caps Lock the escape key on press and the control key when used in combination with other keys
+! Especially useful for vim and other programs so you don't have to reach for the escape key or the ctrl key
+
+! This file makes the caps lock key function as ctrl and esc
+! Note that you must run xcape -e 'Control_L=Escape' to add the escape functionality
+! TODO: See if this can be expressed in the config file itself
+
+! Clear both the caps lock and control keys
+clear lock
+clear control
+
+! Set the caps lock key to Control_L
+keycode 66 = Control_L
+
+! Reassign the control command to the caps lock and control keys respectively
+add control = Caps_Lock Control_L Control_R
