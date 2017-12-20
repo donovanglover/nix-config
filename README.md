@@ -17,7 +17,7 @@ These are some important things I believe any potential user of New Start should
 
 This system was built with **reproducability** in mind. The entire system resolves around being able to install it from scratch and have the exact same configuration as before.
 
-Additionally, the design philosophy behind this system is quite different than what you'd expect if you're coming from a traditional click-point system. There is no such thing as "clicking the close button" here, or clicking anything for that matter.
+Additionally, the design philosophy behind this system is quite different than what you'd expect if you're coming from a traditional point-click system. There is no such thing as "clicking the close button" here, or clicking anything for that matter.
 
 Once mastered, the interface should not get in the way. Everything just works.
 
@@ -27,13 +27,13 @@ The size of this repository may seem intimidating at first, but making use of Ne
 
 If you're just here for the dots, skip to the [dotfiles/](#dotfiles) section. If, however, you want to dig deeper instead then continue reading.
 
-### app/
+### [app/](app/)
 
 This directory holds all the files I use for my local server, with the exception of the "controller" itself (see [`src/server.cr`](src/server.cr)).
 
 - [`views/index.ecr`](app/views/index.ecr) - Simple home page, clean and elegant
 
-### dotfiles/
+### [dotfiles/](dotfiles/)
 
 I know how frustrating it is to see a setup and not have access to the dotfiles. I also know how frustrating it is to go through dotfiles with default config settings everywhere or dotfiles with little to no documentation at all.
 
@@ -60,14 +60,14 @@ My goal here is simple: use as few config settings as possible required to make 
 - [`.tmux.conf`](dotfiles/.tmux.conf)
 - [`.xmodmap`](dotfiles/.xmodmap)
 
-### etc/
+### [etc/](etc/)
 
 All config files that don't have definite paths in `~` end up here.
 
 - [`userChrome.css`](etc/userChrome.css) - A bare-minimum browser that emphasizes keyboard usage
 - [`user.js`](etc/user.js) - Settings to make using the browser a more pleasurable experience
 
-### help/
+### [help/](help/)
 
 Help files are a way for me to keep track of all the useful commands I learn about certain software. They're compiled in easy-to-read files so I don't have to search the same thing over and over.
 
@@ -77,7 +77,7 @@ Help files are a way for me to keep track of all the useful commands I learn abo
 - [`profanity.md`](help/profanity.md) - A primer on using XMPP with Profanity
 - [`vim.md`](help/vim.md) - A complete reference to everything I know (and find worth mentioning) about vim
 
-### src/
+### [src/](src/)
 
 This directory holds custom software that I made specifically for my use case. Feel free to use them for inspiration.
 
@@ -94,14 +94,14 @@ Note that you should run `crystal docs` in the root directory if you want to vie
 
 The other directories may not be as interesting to go through, but each one has a purpose.
 
-- `bin/` - Output directory for compiled binaries from `src`
-- `docs/` - Output directory for compiled documentation from `src`
-- `external/` - Also known as "not my files", these files reside in the external directory so they don't count towards GitHub's language algorithm
-- `grub/` - A nice theme for grub
-- `install/` - Scripts to automate installing the system with the Arch ISO
-    - `packages.sh` - All of the packages I use (and why) from the official repos
-- `lib/` - Output directory for the libraries used by `src`
-- `spec/` - Tests for the files in `src` to make sure that nothing breaks
+- [`bin/`](bin/) - Output directory for compiled binaries from `src`
+- [`docs/`](docs/) - Output directory for compiled documentation from `src`
+- [`external/`](external/) - Also known as "not my files", these files reside in the external directory so they don't count towards GitHub's language algorithm
+- [`grub/`](grub/) - A nice theme for grub
+- [`install/`](install/) - Scripts to automate installing the system with the Arch ISO
+    - [`packages.sh`](install/packages.sh) - All of the packages I use (and why) from the official repos
+- [`lib/`](lib/) - Output directory for the libraries used by `src`
+- [`spec/`](spec/) - Tests for the files in `src` to make sure that nothing breaks
 
 ## Contributing
 
