@@ -6,18 +6,22 @@ TODO: Put images here
 
 New Start is built on top of [Arch GNU/Linux](https://www.archlinux.org/) and consists of my [dotfiles](dotfiles/), [install scripts](install/), [help files](help/), and [custom software](src/).
 
+New start strives for simplicity, reproducability, and universaltiy. More specifically,
+
+**Simplicity.** It should be trivial to find and edit the things you're looking for; to get things done. Once mastered, the interface should not get in the way. Everything just works.
+
+**Reproducability.** It should be trivial to reproduce your previous environment from a fresh install.
+
+**Universality.** Interaction with the system should be consistent, using similar keybindings, fonts, and looks. Using the terminal as opposed to click-point windows allow for minimum configuration and maximum universality.
+
 ## Before You Begin
+
+These are some important things I believe any potential user of New Start should know.
 
 1. [Linux is not an operating system](https://www.gnu.org/gnu/linux-and-gnu.html). It is simply a kernel used as part of an operating system. Do not say that you use "Linux"; rather, you use the GNU system with Linux, or GNU plus Linux. All the so-called Linux distributions are actually distributions of GNU/Linux.
 2. [Arch GNU/Linux is rolling-release](https://wiki.archlinux.org/index.php/Arch_Linux). You will always have the latest software. There is no such thing as having to install a new version of Arch.
 3. [Free software gives you complete control over your computing](https://www.gnu.org/philosophy/free-sw.html). If something doesn't work, it's more often than not user error. You no longer have the luxury of blaming your computer for "not working".
 4. [Keep it simple](https://en.wikipedia.org/wiki/KISS_principle). At the end of the day, you only need to use your computer for a few specific tasks, such as listening to music, writing software, sending messages, and using the internet. Don't overcomplicate things.
-
-## Design Goals
-
-1. **Simplicity.** It should be trivial to find and edit the things you're looking for; to get things done. Once mastered, the interface should not get in the way. Everything just works.
-2. **Reproducability.** It should be trivial to reproduce your previous environment from a fresh install.
-3. **Universality.** Interaction with the system should be consistent, using similar keybindings, fonts, and looks. Using the terminal as opposed to click-point windows allow for minimum configuration and maximum universality.
 
 ## Getting Started
 
@@ -39,31 +43,21 @@ My goal here is simple: use as few config settings as possible required to make 
 - [`fontconfig/fonts.conf`](dotfiles/.config/fontconfig/fonts.conf)
 - [`feh/keys`](dotfiles/.config/feh/keys)
 - [`gtk-3.0/gtk.css`](dotfiles/.config/gtk-3.0/gtk.css)
-
-#### mpv
-
-- [`input.conf`](dotfiles/.config/mpv/input.conf)
-- [`mpv.conf`](dotfiles/.config/mpv/mpv.conf)
-
-#### polybar
-
-- [`config`](dotfiles/.config/polybar/config)
-- [`cmus.sh`](dotfiles/.config/polybar/cmus.sh)
-- [`launch.sh`](dotfiles/.config/polybar/launch.sh)
-
-#### zsh
-
+- cmus/
+    - [`input.conf`](dotfiles/.config/mpv/input.conf)
+    - [`mpv.conf`](dotfiles/.config/mpv/mpv.conf)
+- polybar/
+    - [`config`](dotfiles/.config/polybar/config)
+    - [`cmus.sh`](dotfiles/.config/polybar/cmus.sh)
+    - [`launch.sh`](dotfiles/.config/polybar/launch.sh)
 - [`.zshrc`](dotfiles/.zshrc)
 - [`.zsh_aliases`](dotfiles/.zsh_aliases)
 - [`.zsh_functions`](dotfiles/.zsh_functions)
 - [`.zprofile`](dotfiles/.zprofile)
-
-Relevant but not-so-interesting entries include:
-
 - [`.ctags`](dotfiles/.ctags)
 - [`.dircolors`](dotfiles/.dircolors)
 - [`.mailcap`](dotfiles/.mailcap)
-- [`.tmux.conf`](dotfiles/.tmux.conf) - I don't actually *use* tmux, but I do use it to keep cmus running in the background.
+- [`.tmux.conf`](dotfiles/.tmux.conf)
 - [`.xmodmap`](dotfiles/.xmodmap)
 
 ### etc/
