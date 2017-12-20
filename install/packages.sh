@@ -70,6 +70,7 @@ i w3m           # Install w3m, our text-based web browser of choice
 i irssi         # Install irssi, our IRC client of choice
 i profanity     # Install profanity, our XMPP client of choice
 i ispell        # Install ispell, used to spell check files
+i xcape         # Install xcape, used to make the caps lock key function as ctrl and esc
 
 i virtualbox-guest-modules-arch # Install Arch-specific VirtualBox modules
 i virtualbox-guest-utils        # Install the core VirtualBox functionality
