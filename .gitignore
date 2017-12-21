@@ -1,3 +1,7 @@
 # Ignore all files inside the bin/ directory except .gitkeep
 bin/*
 !bin/.gitkeep
+
+# Ignore all files made by shards
+.shards/
+lib/**/*
