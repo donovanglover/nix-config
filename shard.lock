@@ -1,0 +1,18 @@
+version: 1.0
+shards:
+  kemal:
+    github: kemalcr/kemal
+    commit: 56d34deef97dfef9f4534ec58aeca54a8fa8694b
+
+  kilt:
+    github: jeromegn/kilt
+    version: 0.4.0
+
+  radix:
+    github: luislavena/radix
+    version: 0.3.8
+
+  spec-kemal:
+    github: kemalcr/spec-kemal
+    commit: 93ab608228ea6619d15555d1c77a3bcff29f1dba
+
