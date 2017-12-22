@@ -2,6 +2,10 @@
 bin/*
 !bin/.gitkeep
 
+# Ignore all files inside the docs/ directory except .gitkeep
+docs/*
+!docs/.gitkeep
+
 # Ignore all files made by shards
 .shards/
 lib/**/*
