@@ -18,7 +18,7 @@
 #
 ##################################################################################
 
-# Ensure that a <localuser> was given so we can use pacaur from it
+# Ensure that a <localuser> was given so we can use yay from it
 if [ -z "$1" ]; then
     echo "You need to specify a local user to use."
     echo "Usage: aur.sh <localuser>"
@@ -30,7 +30,7 @@ LOCALUSER=$1
 
 # Handle installing packages from the AUR
 function get() {
-    su $LOCALUSER --session-command "pacaur -S $1 --noconfirm --noedit"
+    su $LOCALUSER --session-command "yay -S $1 --noconfirm --noedit"
 }
 
 get i3-gaps         # Install i3-gaps, our window manager of choice
