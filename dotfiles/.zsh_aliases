@@ -56,7 +56,9 @@ alias vh="vim -o"       # Open multiple files horizontally
 alias vv="vim -O"       # Open multiple files vertically
 alias vc="vimdiff"      # Easily compare two files side by side for differences between them
 alias vz="vim +Files"   # Open any file inside a directory easily with fzf
-alias dl="youtube-dl"   # Quick and easy way to download the majority of online videos
+
+# Quick and easy way to download the majority of online videos
+alias dl="youtube-dl -f bestvideo+bestaudio"
 
 alias back="feh --no-fehbg --bg-fill"          # Easily set a new background (temporary)
 alias synctime="ntpdate -u 0.us.pool.ntp.org"  # Sync the system time with one on the internet
