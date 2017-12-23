@@ -1,1 +1,5 @@
 language: crystal
+
+# Travis will make sure that all our tests work
+script:
+    - crystal spec
