@@ -1,4 +1,4 @@
-SOURCES = bin/maid bin/serv bin/pass bin/mktex
+SOURCES = bin/maid bin/serv bin/pass bin/mktex bin/theme
 
 .PHONY: all
 all: $(SOURCES)
@@ -27,3 +27,5 @@ bin/pass: src/pass.cr
 bin/mktex: src/mktex.cr
 	crystal build $^ -o $@ $(FLAGS)
 
+bin/theme: src/theme.cr lib/theme.cr
+	crystal build $< -o $@ $(FLAGS)
