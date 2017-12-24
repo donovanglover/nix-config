@@ -1,23 +1,18 @@
 require "theme"
 require "yaml"
-require "colorize"
 
-Dir.cd(ENV["HOME"] + "/Home/new-start")
+if ARGV.size > 0
+  file : String = ARGV[0]
+  Theme._DNE(file) if !File.exists?(file)
 
-# Testing for now.
-file : String = ARGV.size > 0 ? ARGV[0] : "themes/atelier-cave-light.yaml"
+  if File.extname(file) != ".yaml" && File.extname(file) != ".yml"
+    Theme._e("The file #{File.expand_path(file)} doesn't appear to be .yaml!")
+  end
 
-if !File.exists?(file)
-  _e("The file " + File.expand_path(file) + " doesn't exist!")
-end
+  theme : Hash(YAML::Type, YAML::Type) = YAML.parse(File.read file).as_h
 
-yaml : Hash(YAML::Type, YAML::Type) = YAML.parse(File.read file).as_h
-
-# Theme.set_terminal(yaml)
-Theme.set_shell(yaml)
-# Theme.set_back(yaml)
-
-private def _e(message)
-  puts message.colorize(:red)
-  exit 1
+  Theme.set_terminal(theme)
+  puts "Successfully changed the theme to #{theme["scheme"].to_s}!"
+else
+  Theme.test
 end
