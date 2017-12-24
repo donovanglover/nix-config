@@ -9,3 +9,4 @@ docs/*
 # Ignore all files made by shards
 .shards/
 lib/**/*
+!lib/*.cr
