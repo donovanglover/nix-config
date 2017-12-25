@@ -21,10 +21,10 @@
 " =================================== Plugins ===================================
 
 call plug#begin('~/.vim/plugged')       " Use vim-plug as our package manager of choice
+    Plug 'airblade/vim-gitgutter'
     Plug 'osyo-manga/vim-over'          " Automatically highlight find and replace
     Plug 'jiangmiao/auto-pairs'         " Close brackets and other pairs automatically
     Plug 'sukima/xmledit'               " Automatically close tags when writing html
-    Plug 'chriskempson/base16-vim'      " Add base16 color schemes
     Plug 'w0rp/ale'                     " Automatically check language syntax for errors
     Plug 'maksimr/vim-jsbeautify'       " Make it easier to work with foreign code
     Plug 'lervag/vimtex'                " Make editing LaTeX a breeze
@@ -45,7 +45,6 @@ call plug#begin('~/.vim/plugged')       " Use vim-plug as our package manager of
     Plug 'rust-lang/rust.vim'           " Add rust support to vim
 
     Plug 'jamessan/vim-gnupg'           " Easily use GPG encryption inside of vim
-    Plug 'jeetsukumaran/vim-filebeagle' " A simple file explorer
     Plug 'reedes/vim-pencil'            " Use vim as a tool for writing
     Plug 'mileszs/ack.vim'              " Testing ack.vim with ag
     Plug 'tpope/vim-endwise'            " Automatically add end
@@ -86,7 +85,6 @@ set viminfo^=!                 " Use viminfo to store workspace and other data a
 set sessionoptions-=options    " When you explicitly save a workspace, save the entire environment
 
 set t_Co=256                   " Tell vim that we want to use 256 colors
-"set term=xterm-256color        " Explicitly tell vim that our terminal supports 256 colors
 set scrolloff=1                " The minimal number of rows to show when scrolling up/down
 set sidescrolloff=5            " The minimal number of columns to show when scrolling left/right 
 
@@ -105,55 +103,39 @@ set smarttab                   " Always indent based on column number to align t
 " =================================== Plugin-Specific ===================================
 
 let base16colorspace=256                        " Tell base16 to use 256 colors
-source ~/.vimrc_background                      " Load the same base16 theme used in the shell
+" source ~/.vimrc_background                      " Load the same base16 theme used in the shell
+source ~/Home/Contributing/base16-vim/colors/base16-atelier-cave-light.vim
 
 let g:ale_lint_on_text_changed = 'never'        " Do not lint while typing
 let g:ale_lint_on_insert_leave = 1              " Only lint after leaving insert mode
+let g:ackprg = 'ag --vimgrep'                   " Use ag instead of ack / grep
+let g:plug_window = 'rightbelow topleft new'    " Show vim-plug above instead of to the left
+let g:vimfiler_as_default_explorer = 1          " Replace netrw with vimfiler as the default FileEx
+let g:indentLine_enabled = 0                    " Disable indent lines by default
+let g:indentLine_color_term = 8                 " Set the color for the indent line
+let g:vimfiler_no_default_key_mappings = 1
 
-let g:ranger_map_keys = 0                       " Remove the default ranger.vim keybindings
-
-let g:ackprg = 'ag --vimgrep'
-
-let g:gitgutter_override_sign_column_highlight = 0
-highlight SignColumn ctermbg=3
-let g:gitgutter_grep_command = 'ag'
-let g:gitgutter_enabled = 0
-
-"let g:plug_window = 'rightbelow topleft new'
-
-" Set the color for the indent line (default 239)
-let g:indentLine_color_term = 8
+" Note that indent lines breaks with pencil mode, although you really
+" shouldn't be using both at the same time anyway.
 
 " NOTE: To view all the items you can change the color of, use:
 " :so $VIMRUNTIME/syntax/hitest.vim
 
 " Set the color for the vertical split line (6 is as good as 8 here)
 hi vertsplit ctermfg=8 ctermbg=none
-
 " Remove the background color from the status line
 hi StatusLine ctermbg=none
 hi StatusLineNC ctermbg=none
-
 " Remove the background color from tabs
 hi TabLine ctermbg=none
 hi TabLineFill ctermbg=none
 hi TabLineSel ctermbg=none
-
 " Finally, an easier way to read search results
 hi Search ctermbg=240 ctermfg=255
-
 " We have to set the color for while we search as well
 " To keep things simple, we'll just invert the colors here
 " As an added bonus, this looks rather nice as well
 hi IncSearch ctermbg=255 ctermfg=240
-
-" Disable the indent by default since it breaks with pencil + markdown and
-" other files. TODO: load indentLine for some files and pencil for others (?)
-" TODO 2: create a keybinding for :IndentLinesToggle
-let g:indentLine_enabled = 0
-
-" Set VimFiler as the default file explorer (instead of netrw)
-let g:vimfiler_as_default_explorer = 1
 
 " Disable all vimtex keybindings so we can define our own
 let g:vimtex_mappings_enabled = 0
@@ -162,99 +144,26 @@ let g:vimtex_view_method = 'zathura'
 let g:vimtex_index_show_help = 0
 let g:vimtex_index_split_width = 50
 let g:vimtex_index_split_pos = 'vert rightbelow'
-map <localleader>a <plug>(vimtex-toc-toggle)
-map <localleader>f <plug>(vimtex-view)
-map <localleader>g <plug>(vimtex-compile)
-map <localleader>c <plug>(vimtex-errors)
-map <localleader>w :VimtexCountWords<CR>
+nnoremap <localleader>a <plug>(vimtex-toc-toggle)
+nnoremap <localleader>f <plug>(vimtex-view)
+nnoremap <localleader>g <plug>(vimtex-compile)
+nnoremap <localleader>c <plug>(vimtex-errors)
+nnoremap <localleader>w :VimtexCountWords<CR>
 
 " Delete the surrounding environment
-map <localleader>d <plug>(vimtex-env-delete)
-map <localleader>c <plug>(vimtex-env-change)
+nnoremap <localleader>d <plug>(vimtex-env-delete)
+nnoremap <localleader>c <plug>(vimtex-env-change)
 
 " Toggle stars
-map <localleader>s <plug>(vimtex-env-toggle-star)
-map <localleader>e <plug>(vimtex-cmd-toggle-star)
+nnoremap <localleader>s <plug>(vimtex-env-toggle-star)
+nnoremap <localleader>e <plug>(vimtex-cmd-toggle-star)
 
-imap ]] <plug>(vimtex-delim-close)
+inoremap ]] <plug>(vimtex-delim-close)
 
 " =================================== Custom Keybindings ===================================
 
 " Change the global leader to the space bar
 let mapleader = ' '
-
-" Easily open any file in a new tab with ranger
-map <leader>f :RangerNewTab<CR>
-
-" Toggle between highlighting all the search results
-map <leader>g :set hlsearch!<CR>
-
-" Find and replace with automatic highlighting and inline changes
-map <leader>t :OverCommandLine<CR>%s/
-
-" Insert a line above without leaving keybindings mode
-map <leader>m O<Esc>
-
-" Insert a line below without leaving keybindings mode
-map <leader>n o<Esc>
-
-" Save the current buffer
-map <leader>j :w<CR>
-
-" Close the current buffer
-map <leader>k :q<CR>
-
-" Toggle wrap
-map <leader>w :set wrap!<CR>
-
-" Toggle line numbers
-map <leader>e :set nu!<CR>
-
-" Easily switch between soft tabs and hard tabs
-map <leader>q :set expandtab!<CR>
-
-" Bind the right beautify function based on what file is open
-autocmd FileType javascript map <leader>b :call JsBeautify()<CR>
-autocmd FileType json       map <leader>b :call JsonBeautify()<CR>
-autocmd FileType jsx        map <leader>b :call JsxBeautify()<CR>
-autocmd FileType html       map <leader>b :call HtmlBeautify()<CR>
-autocmd FileType css        map <leader>b :call CSSBeautify()<CR>
-
-" Make it easy to disable and re-enable transparency as needed
-map <leader>r :TransparentDisable<CR>
-map <leader>y :TransparentEnable<CR>
-
-" Make it easy to switch between tabs in insert mode
-imap <A-left> <Esc>gT
-imap <A-right> <Esc>gt
-
-" Let the same keybindings be used outside of insert mode for consistency
-map <A-left> gT
-map <A-right> gt
-
-" Easily switch between true color support, which allows us to easily change
-" color schemes on the fly (but disables transparency in the process)
-map <leader>\ :set termguicolors!<CR>
-
-" Automatically disable transparency for vimdiff (since vim uses background
-" colors for showing the comparison)
-if &diff
-    set termguicolors!
-endif
-
-" Easily search for files in the current directory
-map <leader>[ :Files<CR>
-
-" Easily search through and view the commits of the current git repository
-map <leader>] :Commits<CR>
-
-" Easily save and restore vim sessions
-map <leader>1 :mksession! ~/.vim_session<CR>
-map <leader>2 :source ~/.vim_session<CR>
-
-" Easily move tabs to the left and to the right (note that tabm = tabmove)
-map <A-j> :tabm +i<CR>
-map <A-k> :tabm -i<CR>
 
 " Use incsearch and tab / shift+tab to go through the results
 cno <expr>  <tab>    getcmdtype() =~ '[?/]' ? '<c-g>' : feedkeys('<tab>', 'int')[1]
@@ -264,28 +173,10 @@ cno <expr>  <s-tab>  getcmdtype() =~ '[?/]' ? '<c-t>' : feedkeys('<s-tab>', 'int
 vnoremap . :normal .<CR>
 
 " Easily show lines that go past the character count
-"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-"map <leader>s :call matchadd('OverLength', '\%101v', 100)<CR>
-
-" Easily toggle the file viewer
-map <silent> <leader>a :NERDTreeToggle<CR>
-" map <silent> <leader>a :VimFilerExplorer<CR>
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 
 " Automatically close the file viewer when it's the only thing left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" Easily move between windows
-map <leader>u <C-w>w
-
-" Easily switch between the previous window (useful when working on 2 files at once)
-map <leader>i <C-w><C-p>
-
-" Easily open new files in horizontal and vertical splits
-map <leader>v :split<CR> <C-w>w :Files<CR>
-map <leader>r :vsplit<CR> <C-w>w :Files<CR>
-
-" Easily toggle the tagbar
-map <silent> <leader>d :TagbarToggle<CR>
 
 " Add elixir support to ctags
 let g:tagbar_type_elixir = {
@@ -343,63 +234,8 @@ let g:tagbar_type_crystal = {
     \},
 \}
 
-" Easily move through the document
-" TODO: Change these to <leader>d and <leader>u respectfully
-map <leader>o <C-d>
-map <leader>p <C-u>
-
-" Easily move between previous cursor positions
-" Note that this also works across files, so going back far enough
-" will take you to the previous file
-map <leader>, <C-o>
-map <leader>. <C-i>
-
-" Easily increase or decrease the window width between splits
-" Note that <C-w>< and <C-w>> don't work for horizontal splits, so we use :winc instead
-map <leader>8 :15winc -<CR>
-map <leader>9 :15winc +<CR>
-
-" Easily make the width of two windows equal
-map <leader>0 :winc =<CR>
-
-" Easily search for the text under the cursor
-map <leader>1 :Ack! "\b<cword>\b"<CR>
-
-" Easily enter 'zen mode' with Goyo and Pencil
-" We have to explicitly set vertsplit again since Goyo resets it for some reason
-map <silent> <leader>2 :PencilSoft<CR>:Goyo<CR>:hi vertsplit ctermfg=8 ctermbg=none<CR>
-
-" Easily show the git gutter
-map <leader>3 :GitGutterToggle<CR>
-
 " Use w!! to force write a file as sudo
 " cmap w!! w !sudo tee > /dev/null %
-
-" Easily insert a single character without manually entering and
-" exiting insert mode every time
-map <leader>4 a<Space><Esc>r
-map <leader>5 i<Space><Esc>r
-
-" Easily jump between lines in all open files
-map <leader>6 :Lines<CR>
-
-" Easily jump between lines in the same file
-map <leader>7 :BLines<CR>
-
-" Easily search for any line in all files
-map <leader>F2 :Ag<CR>
-
-" Easily show all git diffs
-map <leader>F3 :GFiles?<CR>
-
-" Easily show all git files
-map <leader>F4 :GFiles<CR>
-
-" Easily move between buffers
-map <leader>F5 :Buffers<CR>
-
-" Easily go through all the commits for a specific file
-map <leader>F6 :BCommits<CR>
 
 " Make the tabline not have an X in it
 function MyTabLine()
@@ -437,16 +273,66 @@ set tabline=%!MyTabLine()
 " Highlight key words that we like to use
 match Function /@requires/
 
-" Easily switch between buffers
-map <silent> <leader>s :bn<CR>
-map gn :bn<CR>
-map gp :bp<CR>
-map gd :bd<CR>
-
-" Easily switch between the last open buffer
-map <silent> <leader>F7 :e #<CR>
-" Switch back and forth between two buffers in the same window
-map <silent> <leader>F8 <C-6>
-
 " Use syntax highlighting for .ecr files
 autocmd BufNewFile,BufRead *.ecr set syntax=html
+
+" Easily switch between buffers
+nnoremap <silent> gn :bn<CR>
+nnoremap <silent> gp :bp<CR>
+nnoremap <silent> gd :bd<CR>
+" ================== Top row
+"nnoremap <silent> <leader><TAB>
+nnoremap <silent> <leader>q :Files<CR>
+nnoremap <silent> <leader>w :Commits<CR>
+nnoremap <silent> <leader>e :set nu!<CR>
+nnoremap <silent> <leader>r :call matchadd('OverLength', '\%101v', 100)<CR>
+nnoremap <silent> <leader>t :OverCommandLine<CR>%s/
+"nnoremap <silent> <leader>y
+nnoremap <silent> <leader>u <C-w>w
+nnoremap <silent> <leader>i <C-w><C-p>
+nnoremap <silent> <leader>o <C-d>
+nnoremap <silent> <leader>p <C-u>
+" Easily show all git diffs
+nnoremap <silent> <leader>[ :GFiles?<CR>
+" Easily show all git files
+nnoremap <silent> <leader>] :GFiles<CR>
+" Easily go through all the commits for a specific file
+nnoremap <silent> <leader>\ :BCommits<CR>
+" ================== Middle row
+nnoremap <silent> <leader>a :NERDTreeToggle<CR>
+"nnoremap <silent> <leader>s
+nnoremap <silent> <leader>d :TagbarToggle<CR>
+nnoremap <silent> <leader>f :VimFiler<CR>
+nnoremap <silent> <leader>g :set hlsearch!<CR>
+nnoremap <silent> <leader>h :Buffers<CR>
+" Easily jump between lines in all open files
+nnoremap <silent> <leader>j :Lines<CR>
+" Easily jump between lines in the same file
+nnoremap <silent> <leader>k :BLines<CR>
+" Easily search for any line in all files in the project
+nnoremap <silent> <leader>l :Ag<CR>
+" Easily open new files in horizontal and vertical splits
+nnoremap <silent> <leader>; :split<CR> <C-w>w :Files<CR>
+nnoremap <silent> <leader>' :vsplit<CR> <C-w>w :Files<CR>
+" ================== Bottom row
+" Note that I personally don't use <space> + z/x/c/n/m/,/.
+nnoremap <silent> <leader>v :Ack! "\b<cword>\b"<CR>
+"nnoremap <silent> <leader>b
+nnoremap <silent> <leader>n o<Esc>
+nnoremap <silent> <leader>m O<Esc>
+
+" Bind the right beautify function based on what file is open
+autocmd FileType javascript map <leader>b :call JsBeautify()<CR>
+autocmd FileType json       map <leader>b :call JsonBeautify()<CR>
+autocmd FileType jsx        map <leader>b :call JsxBeautify()<CR>
+autocmd FileType html       map <leader>b :call HtmlBeautify()<CR>
+autocmd FileType css        map <leader>b :call CSSBeautify()<CR>
+
+" Easily enter 'zen mode' with Goyo and Pencil
+" We have to explicitly set vertsplit again since Goyo resets it for some reason
+nnoremap <silent> <leader>2 :PencilSoft<CR>:Goyo<CR>:hi vertsplit ctermfg=8 ctermbg=none<CR>
+nnoremap <silent> <leader>3 :mksession! ~/.vim_session<CR>
+nnoremap <silent> <leader>4 :source ~/.vim_session<CR>
+nnoremap <silent> <leader>8 :15winc -<CR>
+nnoremap <silent> <leader>9 :15winc +<CR>
+nnoremap <silent> <leader>0 :winc =<CR>
