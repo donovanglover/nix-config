@@ -1,12 +1,11 @@
-# Ignore all files inside the bin/ directory except .gitkeep
-bin/*
-!bin/.gitkeep
+# Ignore all files in the bin/ directory
+bin/
 
-# Ignore all files inside the docs/ directory except .gitkeep
-docs/*
-!docs/.gitkeep
+# Ignore all files in the docs/ directory
+docs/
+
+# Ignore all files in the lib/ directory
+lib/
 
 # Ignore all files made by shards
 .shards/
-lib/**/*
-!lib/*.cr

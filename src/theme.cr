@@ -1,4 +1,4 @@
-require "theme"
+require "./theme_helper"
 require "yaml"
 
 if ARGV.size > 0

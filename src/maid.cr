@@ -2,7 +2,7 @@
 #
 #    New Start: A modern Arch workflow built with an emphasis on functionality.
 #    Copyright (C) 2017 Donovan Glover
-#    
+#
 #    Maid: Easily move dotfiles from one location to another
 #    Copyright (C) 2017 Donovan Glover
 #
@@ -31,7 +31,7 @@
 # If so, add Maid.init() to create a base configuration
 
 require "file_utils"
-require "trucolor"
+require "./trucolor"
 
 module Maid
 
@@ -150,7 +150,7 @@ module Maid
 
         exit 0
     end
-    
+
     def status()
         # For each file in upstream
         i = 0
