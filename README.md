@@ -6,7 +6,8 @@
 
 > Vim is my editor, \*nix is my IDE.
 
-![Screenshot](etc/preview.jpg)
+[![Screenshot](etc/preview.jpg)](https://raw.githubusercontent.com/GloverDonovan/new-start/master/etc/preview.jpg)
+[![Screenshot](etc/preview2.jpg)](https://raw.githubusercontent.com/GloverDonovan/new-start/master/etc/preview2.jpg)
 
 New Start is built on top of [Arch GNU/Linux](https://www.archlinux.org/) and consists of my [dotfiles](dotfiles/), [install scripts](install/), [help files](help/), and [custom software](src/).
 
