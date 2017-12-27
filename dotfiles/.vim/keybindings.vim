@@ -1,10 +1,6 @@
 " Change the global leader to the space bar
 let mapleader = ' '
 
-" Easily switch between buffers
-nnoremap <silent> gn :bn<CR>
-nnoremap <silent> gp :bp<CR>
-nnoremap <silent> gd :bd<CR>
 " ================== Top row
 "nnoremap <silent> <leader><TAB>
 nnoremap <silent> <leader>q :Files<CR>
@@ -12,7 +8,7 @@ nnoremap <silent> <leader>w :Commits<CR>
 nnoremap <silent> <leader>e :set nu!<CR>
 nnoremap <silent> <leader>r :call matchadd('OverLength', '\%101v', 100)<CR>
 nnoremap <silent> <leader>t :OverCommandLine<CR>%s/
-"nnoremap <silent> <leader>y
+nnoremap <silent> <leader>y :bn<CR>
 nnoremap <silent> <leader>u <C-w>w
 nnoremap <silent> <leader>i <C-w><C-p>
 nnoremap <silent> <leader>o <C-d>
