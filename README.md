@@ -6,7 +6,7 @@
 
 > Vim is my editor, \*nix is my IDE.
 
-![Screenshot](etc/preview.png)
+![Screenshot](etc/preview.jpg)
 
 New Start is built on top of [Arch GNU/Linux](https://www.archlinux.org/) and consists of my [dotfiles](dotfiles/), [install scripts](install/), [help files](help/), and [custom software](src/).
 
@@ -39,7 +39,7 @@ My goal here is simple: use as few config settings as possible required to make 
 - [`userChrome.css`](etc/userChrome.css) - A bare-minimum browser that emphasizes keyboard usage
 - [`user.js`](etc/user.js) - Settings to make using the browser a more pleasurable experience
 
-### [Install scripts](install/)
+### [Install Scripts](install/)
 
 The install scripts let you install the entire operating system and dotfiles with a simple command. Note that you should not run this on your actual computer. The install script is meant to be used with the Arch ISO. Simply run:
 
