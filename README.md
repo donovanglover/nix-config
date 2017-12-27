@@ -1,39 +1,31 @@
 # New Start
 
+[![GPLv3 License](https://img.shields.io/badge/License-GPLv3-444267.svg?style=for-the-badge&colorA=676E95)](https://www.gnu.org/licenses/gpl-3.0.en.html)
+[![Creative Commons BY-SA](https://img.shields.io/badge/Creative_Commons-BY&ndash;SA-444267.svg?style=for-the-badge&colorA=676E95)](https://creativecommons.org/licenses/by-sa/4.0/)
+[![Uses Crystal](https://img.shields.io/badge/Uses-Crystal-444267.svg?style=for-the-badge&colorA=676E95)](https://crystal-lang.org)
+
 > Vim is my editor, \*nix is my IDE.
 
-TODO: Put images here
+![Screenshot](etc/preview.png)
 
 New Start is built on top of [Arch GNU/Linux](https://www.archlinux.org/) and consists of my [dotfiles](dotfiles/), [install scripts](install/), [help files](help/), and [custom software](src/).
 
 ## Before You Begin
 
-These are some important things I believe any potential user of New Start should know.
-
-1. [Linux is not an operating system](https://www.gnu.org/gnu/linux-and-gnu.html). It is simply a kernel used as part of an operating system. Do not say that you use "Linux"; rather, you use the GNU system with Linux, or GNU plus Linux. All the so-called Linux distributions are actually distributions of GNU/Linux.
-2. [Arch GNU/Linux is rolling-release](https://wiki.archlinux.org/index.php/Arch_Linux). You will always have the latest software. There is no such thing as having to install a new version of Arch.
-3. [Free software gives you complete control over your computing](https://www.gnu.org/philosophy/free-sw.html). If something doesn't work, it's more often than not user error. You no longer have the luxury of blaming your computer for "not working".
+1. [Linux is not an operating system](https://www.gnu.org/gnu/linux-and-gnu.html). All the so-called "Linux" distributions are actually distributions of [GNU/Linux](https://www.gnu.org/gnu/gnu-users-never-heard-of-gnu.html).
+2. [Arch GNU/Linux is rolling-release](https://wiki.archlinux.org/index.php/Arch_Linux). There is no such thing as having to install a new version of Arch.
+3. [Free software gives you complete control over your computing](https://www.gnu.org/philosophy/free-sw.html). If something doesn't work, it's more often than not user error.
 4. [Keep it simple](https://en.wikipedia.org/wiki/KISS_principle). At the end of the day, you only need to use your computer for a few specific tasks, such as listening to music, writing software, sending messages, and using the internet. Don't overcomplicate things.
 
 This system was built with **reproducability** in mind. The entire system resolves around being able to install it from scratch and have the exact same configuration as before.
 
-Additionally, the design philosophy behind this system is quite different than what you'd expect if you're coming from a traditional point-click system. There is no such thing as "clicking the close button" here, or clicking anything for that matter.
+This system is different from your traditional point-click system. There is no such thing as "clicking the close button" here, or clicking anything for that matter.
 
 Once mastered, the interface should not get in the way. Everything just works.
 
 ## Getting Started
 
-The size of this repository may seem intimidating at first, but making use of New Start is really simple. I explain each directory in detail below, as well as link some files that you may like.
-
-If you're just here for the dots, skip to the [dotfiles/](#dotfiles) section. If, however, you want to dig deeper instead then continue reading.
-
-### [app/](app/)
-
-This directory holds all the files I use for my local server, with the exception of the "controller" itself (see [`src/server.cr`](src/server.cr)).
-
-- [`views/index.ecr`](app/views/index.ecr) - Simple home page, clean and elegant
-
-### [dotfiles/](dotfiles/)
+### [Dotfiles](dotfiles/)
 
 I know how frustrating it is to see a setup and not have access to the dotfiles. I also know how frustrating it is to go through dotfiles with default config settings everywhere or dotfiles with little to no documentation at all.
 
@@ -42,32 +34,26 @@ My goal here is simple: use as few config settings as possible required to make 
 - [`cmus/rc`](dotfiles/.config/cmus/rc)
 - [`fontconfig/fonts.conf`](dotfiles/.config/fontconfig/fonts.conf)
 - [`feh/keys`](dotfiles/.config/feh/keys)
-- [`gtk-3.0/gtk.css`](dotfiles/.config/gtk-3.0/gtk.css)
-- mpv/
-    - [`input.conf`](dotfiles/.config/mpv/input.conf)
-    - [`mpv.conf`](dotfiles/.config/mpv/mpv.conf)
-- polybar/
-    - [`config`](dotfiles/.config/polybar/config)
-    - [`cmus.sh`](dotfiles/.config/polybar/cmus.sh)
-    - [`launch.sh`](dotfiles/.config/polybar/launch.sh)
+- [`polybar/config`](dotfiles/.config/polybar/config)
 - [`.zshrc`](dotfiles/.zshrc)
-- [`.zsh_aliases`](dotfiles/.zsh_aliases)
-- [`.zsh_functions`](dotfiles/.zsh_functions)
-- [`.zprofile`](dotfiles/.zprofile)
-- [`.ctags`](dotfiles/.ctags)
-- [`.dircolors`](dotfiles/.dircolors)
-- [`.mailcap`](dotfiles/.mailcap)
-- [`.tmux.conf`](dotfiles/.tmux.conf)
-- [`.xmodmap`](dotfiles/.xmodmap)
-
-### [etc/](etc/)
-
-All config files that don't have definite paths in `~` end up here.
-
 - [`userChrome.css`](etc/userChrome.css) - A bare-minimum browser that emphasizes keyboard usage
 - [`user.js`](etc/user.js) - Settings to make using the browser a more pleasurable experience
 
-### [help/](help/)
+### [Install scripts](install/)
+
+The install scripts let you install the entire operating system and dotfiles with a simple command. Note that you should not run this on your actual computer. The install script is meant to be used with the Arch ISO. Simply run:
+
+```bash
+wget https://raw.githubusercontent.com/GloverDonovan/new-start/master/install.sh
+chmod +x install.sh
+./install.sh
+```
+
+**NOTE**: The install script is incomplete and should not be used (yet)!
+
+After installation, you will be able to use the operating system and even put it on a live USB!
+
+### [Help Files](help/)
 
 Help files are a way for me to keep track of all the useful commands I learn about certain software. They're compiled in easy-to-read files so I don't have to search the same thing over and over.
 
@@ -77,36 +63,22 @@ Help files are a way for me to keep track of all the useful commands I learn abo
 - [`profanity.md`](help/profanity.md) - A primer on using XMPP with Profanity
 - [`vim.md`](help/vim.md) - A complete reference to everything I know (and find worth mentioning) about vim
 
-### [src/](src/)
+### [Custom Software](src/)
 
 This directory holds custom software that I made specifically for my use case. Feel free to use them for inspiration.
 
-- [`git-blame.cr`](src/git-blame.cr) - A colorful version of `git blame`
-- [`maid.cr`](src/maid.cr) - This program is in charge of managing all my dotfiles
-- [`mktex.cr`](src/mktex.cr) - This program handles compiling my LaTeX files into PDF papers. It keeps intermediary files in a separate directory from everything else
-- [`pass.cr`](src/pass.cr) - A simple password manager
-- [`server.cr`](src/server.cr) - Handles the logic behind my local server
-- [`theme.cr`](src/theme.cr) - Easily change color schemes across everything, including polybar, termite, and open terminal windows. Support for base16 color schemes as well as custom color schemes
+Some of the most interesting software include:
 
-Note that you should run `crystal docs` in the root directory if you want to view the documentation for these files in a nice format.
+- [`maid.cr`](src/maid.cr) - An easy way to manage dotfiles.
+- [`theme.cr`](src/theme.cr) - Easily change color schemes across everything, including polybar, termite, and i3. Uses `base16` color schemes.
 
-### Other Directories
-
-The other directories may not be as interesting to go through, but each one has a purpose.
-
-- [`bin/`](bin/) - Output directory for compiled binaries from `src`
-- [`docs/`](docs/) - Output directory for compiled documentation from `src`
-- [`external/`](external/) - Also known as "not my files", these files reside in the external directory so they don't count towards GitHub's language algorithm
-- [`grub/`](grub/) - A nice theme for grub
-- [`install/`](install/) - Scripts to automate installing the system with the Arch ISO
-    - [`packages.sh`](install/packages.sh) - All of the packages I use (and why) from the official repos
-- [`lib/`](lib/) - Output directory for the libraries used by `src`
-- [`spec/`](spec/) - Tests for the files in `src` to make sure that nothing breaks
+Run `crystal docs` to generate the documentation for these files in a nice format.
 
 ## Contributing
 
-This is a big project; I may have let some things slip through such as typos or other errors. If you want to improve the help files or other parts of the project then please file an issue first. Pull requests are accepted, but I'd prefer if you made an issue first!
+If you want to improve the help files or other parts of New Start then please file an issue first. Pull requests are accepted, but I'd prefer if you made an issue first!
 
-[Many users mistakenly use "Linux" without knowing that they're actually using GNU](https://www.gnu.org/gnu/gnu-users-never-heard-of-gnu.html). I was a victim of this. I used a variety of "Linux" distributions in the past and had no idea what a "GNU" even was. Please help spread the word about the GNU Project.
+## License
 
-[Free software is more than just gratis](#). We need to educate our population about free software. A lot of the software I preferred to use in the past was free software yet I never understood the true meaning of "free software" nor the philosophy behind it.
+- Code is released under the GPLv3 license.
+- Help files are released under the Creative Commons BY-SA license.
