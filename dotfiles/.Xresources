@@ -38,3 +38,34 @@ Xft.hintstyle: hintfull
 
 ! Make font colors look better (?)
 Xft.rgba: rgb
+
+! This line is used to indicate where to add theme colors. Note that everything
+! after this line is replaced. See the theme docs for more information.
+! [colors]
+*foreground: #959DCB
+*cursorColor: #959DCB
+*background: #292D3E
+*color0: #292D3E
+*color8: #676E95
+*color7: #959DCB
+*color15: #FFFFFF
+*color1: #F07178
+*color9: #F07178
+*color2: #C3E88D
+*color10: #C3E88D
+*color3: #FFCB6B
+*color11: #FFCB6B
+*color4: #82AAFF
+*color12: #82AAFF
+*color5: #C792EA
+*color13: #C792EA
+*color6: #89DDFF
+*color14: #89DDFF
+*color16: #F78C6C
+*color17: #FF5370
+*color18: #444267
+*color19: #32374D
+*color20: #8796B0
+*color21: #959DCB
+
+! vim:ft=xdefaults

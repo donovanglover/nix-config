@@ -12,6 +12,8 @@ if ARGV.size > 0
   theme : Hash(YAML::Type, YAML::Type) = YAML.parse(File.read file).as_h
 
   Theme.set_terminal(theme)
+  Theme.set_xresources(theme)
+  system("i3 restart >/dev/null 2>&1")
   puts "Successfully changed the theme to #{theme["scheme"].to_s}!"
 else
   Theme.test

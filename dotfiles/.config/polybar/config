@@ -18,35 +18,36 @@
 #
 ##################################################################################
 
+[color]
+background = ${xrdb:color0:#19171C}
+text = ${xrdb:color7:#8B8792}
+highlight = ${xrdb:color5:#AF80AC}
+yellow = ${xrdb:color3:#AF80AC}
+blue = ${xrdb:color6:#AF80AC}
+
 [bar/main]
 modules-left    = i3
 modules-center  = cmus
 modules-right   = cpu ram volume date time
 
 monitor         = VGA-1
-#foreground      = #AF80AC
-foreground      = #8a7f8f
-background      = #EE1C1E21
+foreground      = ${color.text}
+background      = ${color.background}
 font-0          = "Fira Mono:size=22"
 font-1          = "Noto Sans CJK JP:size=22"
 
 height          = 88
 padding-left    = 2
-#underline-size = 5
 padding-right   = 2
 module-margin   = 1
 
 [module/i3]
 type = internal/i3
 
-#label-focused-background    = #AA4f2c4c
-label-focused-underline     = #B894B0
-
-label-focused-foreground    = #AF80AC
-#label-focused-foreground    = #c16772
-label-unfocused-foreground  = #8a7f8f
-label-urgent-foreground     = #e4b226
-label-visible-foreground    = #f2f2f2
+label-focused-foreground    = ${color.highlight}
+label-unfocused-foreground  = ${color.text}
+label-urgent-foreground     = ${color.yellow}
+label-visible-foreground    = ${color.blue}
 
 label-focused-padding       = 2
 label-unfocused-padding     = 2

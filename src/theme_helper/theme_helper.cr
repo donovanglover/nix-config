@@ -45,6 +45,52 @@ module Theme
     #test_color :white,          "color07 base05"
   end
 
+  # Sets all the colors in .Xresources, then reloads xrdb.
+  #
+  # This method will replace everything after the `[colors]`
+  # line with the theme colors, then reload xrdb to make sure
+  # that everything takes effect.
+  #
+  # You should reload i3 (which in turn should reload polybar)
+  # if you want the changes to take effect immediately.
+  def set_xresources(theme : Hash(YAML::Type, YAML::Type))
+    file : String = ENV["HOME"] + "/.Xresources"
+    _DNE(file) if !File.exists?(file)
+    config : String = ""
+    File.each_line(file) do |line|
+      config += line + "\n"
+      break if line.includes?("[colors]")
+    end
+    config += add_xcolor_fgbg "foreground",  theme["base05"]
+    config += add_xcolor_fgbg "cursorColor", theme["base06"]
+    config += add_xcolor_fgbg "background",  theme["base00"]
+    config += add_xcolor  0,  theme["base00"] # Black
+    config += add_xcolor  8,  theme["base03"] # Gray
+    config += add_xcolor  7,  theme["base05"] # Silver
+    config += add_xcolor 15,  theme["base07"] # White
+    config += add_xcolor  1,  theme["base08"] # Red
+    config += add_xcolor  9,  theme["base08"]
+    config += add_xcolor  2,  theme["base0B"] # Green
+    config += add_xcolor 10,  theme["base0B"]
+    config += add_xcolor  3,  theme["base0A"] # Yellow
+    config += add_xcolor 11,  theme["base0A"]
+    config += add_xcolor  4,  theme["base0D"] # Blue
+    config += add_xcolor 12,  theme["base0D"]
+    config += add_xcolor  5,  theme["base0E"] # Purple
+    config += add_xcolor 13,  theme["base0E"]
+    config += add_xcolor  6,  theme["base0C"] # Teal
+    config += add_xcolor 14,  theme["base0C"]
+    config += add_xcolor 16,  theme["base09"] # "Extra" colors
+    config += add_xcolor 17,  theme["base0F"]
+    config += add_xcolor 18,  theme["base01"]
+    config += add_xcolor 19,  theme["base02"]
+    config += add_xcolor 20,  theme["base04"]
+    config += add_xcolor 21,  theme["base06"]
+    config += "\n! vim:ft=xdefaults\n"
+    File.write(file, config)
+    system("xrdb ~/.Xresources")
+  end
+
   # Sets all the colors in termite.
   #
   # This is the preferred method of changing your terminal
@@ -201,8 +247,16 @@ module Theme
     return "color#{num.to_s.ljust(2, ' ')} = ##{color.to_s}\n"
   end
 
-  private def add_term_fgbg(type : String, color : YAML::Type)
+  private def add_term_fgbg(type : String, color : YAML::Type) : String
     return "#{type.ljust(17, ' ')} = ##{color.to_s}\n"
+  end
+
+  private def add_xcolor(num : Int32, color : YAML::Type) : String
+    return "*color#{num.to_s}: ##{color.to_s}\n"
+  end
+
+  private def add_xcolor_fgbg(type : String, color : YAML::Type) : String
+    return "*#{type}: ##{color.to_s}\n"
   end
 
   # Prints an error that the file does not exists.
