@@ -280,6 +280,13 @@ call <sid>hi("StartifySelect",   s:cterm0C, "", "")
 call <sid>hi("StartifySlash",    s:cterm03, "", "")
 call <sid>hi("StartifySpecial",  s:cterm03, "", "")
 
+
+" Custom colors not a part of base16-vim
+" Remove the background from GitGutter items
+hi GitGutterAdd ctermbg=none
+hi GitGutterChange ctermbg=none
+hi GitGutterDelete ctermbg=none
+
 " Remove functions
 delf <sid>hi
 
