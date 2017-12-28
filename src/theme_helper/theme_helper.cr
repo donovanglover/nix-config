@@ -1,5 +1,29 @@
 require "colorize"
 
+# The theme helper handles changing the color scheme for various
+# programs. It relies on Base16 color schemes and is an easy way
+# to change color schemes for all the software you use all at once
+# with a single command.
+#
+# Note that software such as vim use the colors directly from the
+# terminal and therefore do not need an explicit change in a config
+# file. Other software, however, have the different colors hard-coded
+# into the config file.
+#
+# This software would not exist without the help from a variety of
+# people that have contributed to the "Base16 movement". Theme creators
+# made optimal color schemes and other contributors decided on which
+# colors to use for different software. It is because of their open
+# contributions that I am able to make this program the way it is.
+#
+# To learn more, here is the complete list of the Base16 repositories
+# I used in the development of this software:
+#
+# https://github.com/chriskempson/base16
+# https://github.com/chriskempson/base16-vim
+# https://github.com/chriskempson/base16-shell
+# https://github.com/chriskempson/base16-xresources
+# https://github.com/nicodebo/base16-zathura
 module Theme
   extend self
 
@@ -43,6 +67,43 @@ module Theme
     #test_color :light_magenta,  "color13 base0E"
     #test_color :light_cyan,     "color14 base0C"
     #test_color :white,          "color07 base05"
+  end
+
+  # Sets all the colors in zathura.
+  #
+  # This method will replace everything after the `[colors]`
+  # line with the theme colors. You can then open a new
+  # zathura window to see the changes instantly.
+  def set_zathura(theme : Hash(YAML::Type, YAML::Type))
+    file : String = ENV["HOME"] + "/.config/zathura/zathurarc"
+    _DNE(file) if !File.exists?(file)
+    config : String = ""
+    File.each_line(file) do |line|
+      config += line + "\n"
+      break if line.includes?("[colors]")
+    end
+    config += add_zcolor "default-bg",              theme["base00"]
+    config += add_zcolor "default-fg",              theme["base01"]
+    config += add_zcolor "statusbar-bg",            theme["base02"]
+    config += add_zcolor "statusbar-fg",            theme["base04"]
+    config += add_zcolor "inputbar-bg",             theme["base00"]
+    config += add_zcolor "inputbar-fg",             theme["base07"]
+    config += add_zcolor "notification-bg",         theme["base00"]
+    config += add_zcolor "notification-fg",         theme["base07"]
+    config += add_zcolor "notification-error-bg",   theme["base00"]
+    config += add_zcolor "notification-error-fg",   theme["base08"]
+    config += add_zcolor "notification-warning-bg", theme["base00"]
+    config += add_zcolor "notification-warning-fg", theme["base08"]
+    config += add_zcolor "highlight-color",         theme["base0A"]
+    config += add_zcolor "highlight-active-color",  theme["base0D"]
+    config += add_zcolor "completion-bg",           theme["base01"]
+    config += add_zcolor "completion-fg",           theme["base0D"]
+    config += add_zcolor "completion-highlight-bg", theme["base0D"]
+    config += add_zcolor "completion-highlight-fg", theme["base07"]
+    config += add_zcolor "recolor-lightcolor",      theme["base00"]
+    config += add_zcolor "recolor-darkcolor",       theme["base06"]
+    config += "\n# vim:ft=conf\n"
+    File.write(file, config)
   end
 
   # Sets all the colors in .Xresources, then reloads xrdb.
@@ -257,6 +318,10 @@ module Theme
 
   private def add_xcolor_fgbg(type : String, color : YAML::Type) : String
     return "*#{type}: ##{color.to_s}\n"
+  end
+
+  private def add_zcolor(type : String, color : YAML::Type) : String
+    return "set #{type.ljust(30)} \"##{color.to_s}\"\n"
   end
 
   # Prints an error that the file does not exists.
