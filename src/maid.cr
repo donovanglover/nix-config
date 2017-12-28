@@ -213,10 +213,24 @@ module Maid
         end
 
         # TODO: Make this logical instead of having multiple branching if statements
-        if File.exists?(ENV["HOME"] + "/" + ARGV[1])
-            puts "The file ~/" + ARGV[1] + " exists."
+        downstream = ENV["HOME"] + "/" + ARGV[1]
+        upstream = ENV["HOME"] + Maid::UPSTREAM + "/" + ARGV[1]
+        if File.exists?(downstream)
             # If the file already exists upstream then throw an error
             # Otherwise add the file as usual
+            if(File.exists?(upstream))
+              _e("The file already exists upstream!")
+              exit 1
+            else
+              # Make the directory upstream if it doesn't exist
+              FileUtils.mkdir_p(upstream.rpartition('/')[0])
+              File.write(upstream, File.read(downstream))
+              if(File.exists?(upstream))
+                puts "Successfully added " + upstream + "!"
+              else
+                puts "This should never happen. For some reason, " + upstream + " wasn't added."
+              end
+            end
         else
             puts "The file ~/" + ARGV[1] + " does not exist."
         end
