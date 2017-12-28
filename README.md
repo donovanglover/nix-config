@@ -8,17 +8,29 @@
 
 [![Screenshot](etc/preview.jpg)](https://raw.githubusercontent.com/GloverDonovan/new-start/master/etc/preview.jpg)
 [![Screenshot](etc/preview2.jpg)](https://raw.githubusercontent.com/GloverDonovan/new-start/master/etc/preview2.jpg)
+[![Screenshot](etc/preview3.jpg)](https://raw.githubusercontent.com/GloverDonovan/new-start/master/etc/preview3.jpg)
 
 New Start is built on top of [Arch GNU/Linux](https://www.archlinux.org/) and consists of my [dotfiles](dotfiles/), [install scripts](install/), [help files](help/), and [custom software](src/).
+
+## Features
+
+- Universal themes
+    - All Base16 themes supported.
+    - It is trivial to make your own themes.
+    - One command to change the color schemes in all the software you use.
+- Mouse-free
+    - Never reach for your mouse again.
+    - Vim-inspired keybindings.
+- Reproducability
+    - Install the system from scratch and have the exact same configuration as before.
+    - It is trivial to make your own live usb of the system.
 
 ## Before You Begin
 
 1. [Linux is not an operating system](https://www.gnu.org/gnu/linux-and-gnu.html). All the so-called "Linux" distributions are actually distributions of [GNU/Linux](https://www.gnu.org/gnu/gnu-users-never-heard-of-gnu.html).
 2. [Arch GNU/Linux is rolling-release](https://wiki.archlinux.org/index.php/Arch_Linux). There is no such thing as having to install a new version of Arch.
 3. [Free software gives you complete control over your computing](https://www.gnu.org/philosophy/free-sw.html). If something doesn't work, it's more often than not user error.
-4. [Keep it simple](https://en.wikipedia.org/wiki/KISS_principle). At the end of the day, you only need to use your computer for a few specific tasks, such as listening to music, writing software, sending messages, and using the internet. Don't overcomplicate things.
-
-This system was built with **reproducability** in mind. The entire system resolves around being able to install it from scratch and have the exact same configuration as before.
+4. [Keep it simple](https://en.wikipedia.org/wiki/Minimalism_(computing)). At the end of the day, you only need to use your computer for a few specific tasks, such as listening to music, writing software, sending messages, and using the internet. [Don't overcomplicate things](https://en.wikipedia.org/wiki/KISS_principle).
 
 This system is different from your traditional point-click system. There is no such thing as "clicking the close button" here, or clicking anything for that matter.
 
