@@ -29,7 +29,12 @@ alias rm="rm -i"        # Always confirm before deleting things (use -f to overr
 alias mkdir="mkdir -p"  # Automatically make parent directories that don't exist yet
 
 alias p="pwd | sed -e 's!$HOME!~!g'"    # Same as pwd, but uses ~ instead of $HOME
-alias c="clear"                         # Easily start fresh with a clean terminal
+
+# Easily start fresh with a clean terminal
+# Note that "clear force" (cf) clears the terminal for real and doesn't have
+# any side effects when resizing windows or scrolling up
+alias c="clear"
+alias cf="tput reset"
 
 # Make ls a lot easier to read (print directories first, just like ranger)
 alias ls="ls -hN --color=auto --group-directories-first"
@@ -109,4 +114,3 @@ alias lfox="launch waterfox"    # Launch waterfox separate from the terminal
 alias emacs="vim"       # No need to start another operating system
 alias nano="vim"        # Why nano when you have vim?
 alias vi="vim"          # Vim is vi improved, literally
-

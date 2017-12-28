@@ -58,8 +58,8 @@ zstyle ':completion:*:default' menu 'select=0'
 zstyle ':completion:*' list-colors "=(#b) #([0-9]#)*=36=31"
 
 # Source our aliases first, then our functions (some functions rely on aliases)
-source ~/.zsh_aliases
-source ~/.zsh_functions
+source ~/.zsh/aliases.zsh
+source ~/.zsh/functions.zsh
 
 # Source our dircolors
 eval "$(dircolors ~/.dircolors)"

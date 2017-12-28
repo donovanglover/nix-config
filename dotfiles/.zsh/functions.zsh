@@ -89,7 +89,7 @@ function ss() {
 function readme() {
     local readme=`ls | grep README`
     if [[ $readme ]]; then
-        lvim $readme
+        nvim $readme
     else
         echo "No README found."
     fi
