@@ -87,63 +87,10 @@ function ss() {
 
 # Automatically open the readme in any repository
 function readme() {
-    local readme=`ls | grep README`
+    local readme=`ls | ag README`
     if [[ $readme ]]; then
         nvim $readme
     else
         echo "No README found."
     fi
-}
-
-# Extract any file easily
-function extract() {
-    if [ -z "$1" ]; then
-        echo "You must specify a file to extract."
-        echo "Usage: extract <filename>"
-        return 1
-    fi
-
-    if [ -f $1 ]; then
-        case $1 in
-            *.rar) unrar x -ad  ../$1 ;; # Proprietary rar format
-            *.zip) unzip        ../$1 ;; # Simple and clean zip files
-            *.7z) 7z x          ../$1 ;; # Free and open source 7z format
-            # Other formats
-            *.tar.bz2) tar xvjf ../$1 ;;
-            *.tar.gz) tar xvzf  ../$1 ;;
-            *.tar.xz) tar xvJf  ../$1 ;;
-            *.lzma) unlzma      ../$1 ;;
-            *.bz2) bunzip2      ../$1 ;; 
-            *.gz) gunzip        ../$1 ;;
-            *.tar) tar xvf      ../$1 ;;
-            *.tbz2) tar xvjf    ../$1 ;;
-            *.tgz) tar xvzf     ../$1 ;;
-            *.xz) unxz          ../$1 ;;
-            *.Z) uncompress     ../$1 ;;
-            # Fallback if none of these work
-            *) echo "extract: '$1' - Unknown archive method." ;;
-        esac
-    else
-        echo "extract: '$1' - File does not exist."
-    fi
-}
-
-####################################################################
-# Opening things and other launcher functions
-####################################################################
-
-# TODO: Easily play any video (both online and offline)
-function play() {
-    if [ -z "$1" ]; then
-        echo "You need to pass something to play."
-        echo "Usage: play <pattern to search for>"
-        return 1
-    fi
-    # TODO: Figure out why this doesn't work for certain inputs
-    launch mpv "`ls | grep -i \"$1\"`"
-}
-
-# TODO: Easily open any file
-function open() {
-    echo "TODO"
 }

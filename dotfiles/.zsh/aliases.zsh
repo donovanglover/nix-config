@@ -56,11 +56,7 @@ alias volume="vol"
 # Miscellaneous aliases
 ####################################################################
 
-alias vim="vim -p"      # Open multiple files in new tabs instead of buffers
-alias vh="vim -o"       # Open multiple files horizontally
-alias vv="vim -O"       # Open multiple files vertically
-alias vc="vimdiff"      # Easily compare two files side by side for differences between them
-alias vz="vim +Files"   # Open any file inside a directory easily with fzf
+alias vz="nvim +Files"   # Open any file inside a directory easily with fzf
 
 # Quick and easy way to download the majority of online videos
 alias dl="youtube-dl -f bestvideo+bestaudio"
@@ -111,6 +107,6 @@ alias lfox="launch waterfox"    # Launch waterfox separate from the terminal
 # Fun aliases that don't serve any specific purpose
 ####################################################################
 
-alias emacs="vim"       # No need to start another operating system
-alias nano="vim"        # Why nano when you have vim?
-alias vi="vim"          # Vim is vi improved, literally
+alias emacs="nvim"      # No need to start another operating system
+alias nano="nvim"       # Why nano when you have vim?
+alias vi="nvim"         # Vim is vi improved, literally
