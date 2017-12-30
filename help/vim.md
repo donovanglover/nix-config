@@ -1,4 +1,4 @@
-# vim / neovim
+[Vim is a language](https://github.com/mhinz/vim-galore). Use it often enough and you'll be [fluent](https://medium.com/@mkozlows/why-atom-cant-replace-vim-433852f4b4d1) in no time.
 
 Note that the commands I mention in this file are the ones I use the most often and are by no means exhaustive.
 
@@ -117,6 +117,8 @@ Note that `ci<block>` and `ca<block>` work for pretty much anything, including `
 Note that text deleted is also copied into vim's hidden buffer. There is no need for a "cut" command since copying things is handled automatically by vim.
 
 Repeat the last operation with `.`. This is really powerful when you want to perform the same action multiple times.
+
+If you want to repeat the last operation on multiple lines, simply press `<C-v>` to enter visual block mode, select the lines you want to operate on, then execute `.` on them.
 
 ## Basic Commands
 
@@ -306,6 +308,19 @@ Note that there are more spell check commands out there, although you really sho
     - Select the lines you want to comment out with `j/k`
     - Press `x` to delete the first character, repeatedly if necessary
     - Exit the mode as usual
+
+## Other Commands
+
+These commands may get used from time to time, but aren't used enough to warrant keybindings.
+
+- Switch between soft and hard tabs: `:set expandtab!`
+    - Note that you should never have to use this since the repository should have an `.editorconfig`
+- Toggle wrap: `:set wrap!`
+    - Most of the time you don't want to hide text in a text editor, especially vim
+- Resize windows placed on top of each other (as opposed to side by side): `:<N>winc <+/-/=>`
+    - `N` is the number of units to increment / decrement the window size by.
+    - Do not use `N` when using `=`.
+    - Most of the time you shouldn't have to deal with these kinds of window sizes. Instead, prefer vertical splits and `<C-w> + >` / `<C-w> + <` / `<C-w> + =`
 
 ## Plugin Specific
 
