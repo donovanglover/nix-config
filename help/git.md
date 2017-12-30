@@ -18,6 +18,7 @@
     - Show the changes that you added but haven't committed yet: `git diff --staged` **OR** `gd --staged` **OR** `gds`
 - Show a log of all the commits: `git log` (full log) **OR** `git lg` (commits only, easier to read)
 - Edit the last commit message: `git commit --amend`
+    - To add new file changes to a previous commit, simply `git add` those files before using `git commit --amend`
 - Commit a file one part at a time: `git add --patch <file_name>` **OR** `ga --patch <file_name>` **OR** `gap <file_name>`
     - Useful when you made a lot of changes to a file and need to commit it
     - Enables you to commit certain parts of a file and not the entire thing
@@ -55,7 +56,7 @@ If you haven't already, make sure that you have added a remote to the original (
 2. Change to the branch that you want to update (usually master): `git checkout master`
 3. Rewrite that branch (usually master) with the changes upstream: `git rebase upstream/master`
 
-If a lot of people have forked your reposiory, then it may be better to use `git merge upstream/master` instead. This avoids rewriting history, but at the cost of clean pull requests.
+If a lot of people have forked your repository, then it may be better to use `git merge upstream/master` instead. This avoids rewriting history, but at the cost of clean pull requests.
 
 It may be necessary to force push your changes with `git push -f origin <branch>` (usually master).
 
@@ -66,8 +67,10 @@ Note that you should always make changes from an external branch then make a pul
 - Removes files to commit: `git rm <files>`
 - Delete all local changes in the repository: `git clean -f`
 - Show all the diffs and changes from the last N commits: `git log -p -<N>`
-- Show the differences between your repository and a remote one: `git log -p master..<REMOTE>/master`
+- Show the differences between your repository and a remote one: `git log -p master..<remote>/master`
 - View all remotes for the current repository: `git remote -v` (e.g. GitHub mirror, friend's fork, upstream, etc.)
+- Show the location of a remote in a repository: `git ls-remote --get-url <remote>`
+    - You can search for `origin` to see the location you cloned from.
 - Show the entire contents of a commit, including diffs: `git show <commit>`
 - Search for a string in the files of a git repository: `git grep <pattern>` **OR** `gg <pattern>`
     - Search for any tab characters in a repository: `git grep $'\t'` **OR** `ggt`
