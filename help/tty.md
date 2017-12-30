@@ -13,6 +13,7 @@
 - Go to the beginning of the line:      `Ctrl+A`
 - Go to the end of the line:            `Ctrl+E`
 - Remove everything after the cursor:   `Ctrl+K`
+- Clear the terminal:                   `Ctrl+L`
 
 ## Piping
 
