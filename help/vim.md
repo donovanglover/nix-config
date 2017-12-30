@@ -83,6 +83,19 @@ Once you are back in normal mode, you can navigate through search results like s
 - Go to the next search result: `n`
 - Go to the previous search result: `N`
 
+## Mapping Things
+
+Note that the commands below assume that you're writing them in a `.vimrc`. If you want to add new mappings directly in vim, remember to execute the commands in command mode with `:`.
+
+- Map in normal, visual, and operator-pending mode: `map`
+- Map in normal mode only: `nmap`
+- Map in visual mode only: `xmap`
+- Map in command mode only: `cmap`
+- Map in operator-pending mode only: `omap`
+- Map in insert mode only: `imap`
+
+Note that you should be using `noremap` instead of `map` most (if not all) of the time. This prevents mappings from using mappings made by other commands.
+
 ## Chained (Operator) Commands
 
 - Copying things: `y + <MOTION>`
