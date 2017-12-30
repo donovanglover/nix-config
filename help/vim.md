@@ -229,12 +229,20 @@ Macros are used for complex commands that can't be repeated with `.`. They help 
     - If you want to end the macro in insert mode, press `<C-o>` then `q`.
 - Play back a previously recorded macro: `@ + <SYMBOL>`
     - To repeat the last macro played, simply use `@@`.
+- Repeat a macro on all lines: `:%norm! @<SYMBOL>`
+    - To repeat a macro on only a specific set of lines, use: `:<from>,<to>norm! @<SYMBOL>`
+    - From line 5 to the end of the file: `:5,$norm! @<SYMBOL>`
+    - Repeat a macro on all lines matching a pattern: `:g/pattern/norm! @<SYMBOOL>`
 
 ## Marking Things
 
 - Mark the current line: `m + <SYMBOL>`
 - Go to a previously marked line: `' + <SYMBOL>'`
 - Go to a previously marked line, exactly where you were before: ``` + <SYMBOL>``
+- Jump to the previous cursor position: `''`
+- Jump to the previous cursor position, exactly where you were before: `` ` `` + `` ` ``
+- Jump to the previous edit location: `g;`
+- Jump to the next edit location: `g,`
 
 ## Indenting Things
 
