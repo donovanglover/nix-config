@@ -156,7 +156,7 @@ Note that a git repository must be cloned with SSH if you want to use SSH with i
 
 ### Dealing with Archives
 
-- Zip all files in a directotry: `zip -r <zip_name> <directory>`
+- Zip all files in a directory: `zip -r <zip_name> <directory>`
 - View the contents of rar files: `unrar lb <files>`
 - Extract the contents of rar files: `unrar x <files>`
 - Extract the contents of zip files: `unzip <files>`
