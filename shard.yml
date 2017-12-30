@@ -4,11 +4,8 @@ version: 0.1.0
 license: GPLv3
 
 dependencies:
-    kemal:
-        github: kemalcr/kemal
-        branch: master
-    spec-kemal:
-        github: kemalcr/spec-kemal
+    watcher:
+        github: faustinoaq/watcher
         branch: master
 
 crystal: 0.24.0
