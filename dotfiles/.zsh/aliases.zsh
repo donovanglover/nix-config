@@ -37,11 +37,12 @@ alias c="clear"
 alias cf="tput reset"
 
 # Make ls a lot easier to read (print directories first, just like ranger)
-alias ls="ls -hN --color=auto --group-directories-first"
+alias exa="exa --group-directories-first"
+alias ls="exa"
 
-alias l="ls -1"      # Show each output from ls on a separate line
-alias lsa="ls -A"    # Show hidden files (also known as dotfiles)
-alias type="type -a" # Easily see what the command you want to run points to
+alias l="exa -1"      # Show each output from ls on a separate line
+alias lsa="exa -a"    # Show hidden files (also known as dotfiles)
+alias type="type -a"  # Easily see what the command you want to run points to
 
 ####################################################################
 # Volume aliases
@@ -76,6 +77,9 @@ alias dog="pygmentize -g"
 
 # Easily show all of the todos in a given project
 alias todo="ag TODO"
+
+# Use exa as a drop-in replacement for "tree" (faster, more colors, etc.)
+alias tree="exa --long --tree"
 
 ####################################################################
 # Git aliases

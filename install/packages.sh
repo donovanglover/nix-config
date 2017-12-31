@@ -26,7 +26,6 @@ i zsh-syntax-highlighting   # Install syntax highlighting for colorful shell com
 
 i vim           # Install vim, our text editor of choice
 i git           # Install git, our version control system of choice
-i tree          # Install tree, used to show the contents of entire directories
 i wget          # Install wget, used for downloading files from websites
 i httpie        # Install httpie, used to manipulate HTTP requests
 i diff-so-fancy # Install diff-so-fancy, a nicer git diff
@@ -60,6 +59,7 @@ i ctags         # Install ctags, used with vim to create tags for formal languag
 i shards        # Install shards, a package manager for crystal
 i npm           # Install npm, a package manager for node.js
 i llvm          # Install llvm, used to make the crystal binary
+i exa           # Install exa, a drop-in replacement for ls (and tree)
 
 i the_silver_searcher           # Install ag, used to easily search through files
 i fdupes                        # Install fdupes, used to quickly find duplicate files
