@@ -18,6 +18,35 @@
 # 
 ##################################################################################
 
-set font "Hack 12"      # Use Hack as our font of choice
-set guioptions ""       # Don't show the command mode nor the status bar by default
-set adjust-open "width" # Automatically make documents take up all the available space
+set font "Hack 12"              # Use Hack as our font of choice
+set guioptions "v"              # Show a "progress bar" when scrolling up/down
+set adjust-open "width"         # Make documents take up all the available space by default
+set statusbar-basename "true"   # When using the status bar, show the basename only
+
+set render-loading "false"  # Do not show the "loading" text
+set scroll-step    "120"    # Increase the scroll distance when using j/k
+set recolor        "true"   # Use our theme colors (<C-r> for the original document colors)
+
+# [colors]
+set default-bg                     "#f8f8f8"
+set default-fg                     "#e8e8e8"
+set statusbar-bg                   "#d8d8d8"
+set statusbar-fg                   "#585858"
+set inputbar-bg                    "#f8f8f8"
+set inputbar-fg                    "#181818"
+set notification-bg                "#f8f8f8"
+set notification-fg                "#181818"
+set notification-error-bg          "#f8f8f8"
+set notification-error-fg          "#ab4642"
+set notification-warning-bg        "#f8f8f8"
+set notification-warning-fg        "#ab4642"
+set highlight-color                "#f79a0e"
+set highlight-active-color         "#7cafc2"
+set completion-bg                  "#e8e8e8"
+set completion-fg                  "#7cafc2"
+set completion-highlight-bg        "#7cafc2"
+set completion-highlight-fg        "#181818"
+set recolor-lightcolor             "#f8f8f8"
+set recolor-darkcolor              "#282828"
+
+# vim:ft=conf
