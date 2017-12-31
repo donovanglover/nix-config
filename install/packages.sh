@@ -88,6 +88,7 @@ i alsa-utils    # Install alsa-utils, required to make the sound system work
 
 i termite       # Install termite, our terminal of choice (with true color support)
 i compton       # Install compton, our compositor of choice
+i i3-gaps       # Install i3-gaps, our window manager of choice
 
 i ranger        # Install ranger, our file explorer of choice
 i feh           # Install feh, a quick and simple way to view images

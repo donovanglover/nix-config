@@ -33,7 +33,6 @@ function get() {
     su $LOCALUSER --session-command "yay -S $1 --noconfirm --noedit"
 }
 
-get i3-gaps         # Install i3-gaps, our window manager of choice
 get shotgun         # Install shotgun, our screenshot utility of choice
 get inox-bin        # Install inox, our chromium variant of choice
 get waterfox-bin    # Install waterfox, our firefox variant of choice
