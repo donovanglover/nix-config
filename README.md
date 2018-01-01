@@ -37,7 +37,7 @@ Once mastered, the interface should not get in the way. Everything just works.
 
 ## Getting Started
 
-### [Dotfiles](dotfiles/)
+### Dotfiles
 
 I know how frustrating it is to see a setup and not have access to the dotfiles. I also know how frustrating it is to go through dotfiles with default config settings everywhere or dotfiles with little to no documentation at all.
 
@@ -51,21 +51,25 @@ My goal here is simple: use as few config settings as possible required to make 
 - [`userChrome.css`](etc/userChrome.css) - A bare-minimum browser that emphasizes keyboard usage
 - [`user.js`](etc/user.js) - Settings to make using the browser a more pleasurable experience
 
-### [Install Scripts](install/)
+### Install Scripts
 
 The install scripts let you install the entire operating system and dotfiles with a simple command. Note that you should not run this on your actual computer. The install script is meant to be used with the Arch ISO. Simply run:
 
 ```bash
-wget https://raw.githubusercontent.com/GloverDonovan/new-start/master/install.sh
+wget https://raw.githubusercontent.com/GloverDonovan/new-start/master/install/install.sh
 chmod +x install.sh
 ./install.sh
 ```
+
+Some of the software I use include (in no particular order): [neovim](https://github.com/neovim/neovim), [ranger](https://github.com/ranger/ranger), [feh](https://github.com/derf/feh), [mpv](https://github.com/mpv-player/mpv), [zathura](https://github.com/pwmt/zathura), [yay](https://github.com/Jguer/yay), [compton](https://github.com/chjj/compton), [polybar](https://github.com/jaagr/polybar), [termite](https://github.com/thestinger/termite), [shotgun](https://github.com/Streetwalrus/shotgun), [waterfox](https://github.com/MrAlex94/Waterfox), [inox](https://github.com/gcarq/inox-patchset), [cmus](https://github.com/cmus/cmus), [i3-gaps](https://github.com/Airblader/i3), and [zsh](https://wiki.archlinux.org/index.php/Zsh).
+
+For a complete list of the packages included, see [`install/packages.sh`](install/packages.sh) and [`install/aur.sh`](install/aur.sh).
 
 **NOTE**: The install script is incomplete and should not be used (yet)!
 
 After installation, you will be able to use the operating system and even put it on a live USB!
 
-### [Help Files](help/)
+### Help Files
 
 Help files are a way for me to keep track of all the useful commands I learn about certain software. They're compiled in easy-to-read files so I don't have to search the same thing over and over.
 
@@ -75,7 +79,7 @@ Help files are a way for me to keep track of all the useful commands I learn abo
 - [`profanity.md`](help/profanity.md) - A primer on using XMPP with Profanity
 - [`vim.md`](help/vim.md) - A complete reference to everything I know (and find worth mentioning) about vim
 
-### [Custom Software](src/)
+### Custom Software
 
 This directory holds custom software that I made specifically for my use case. Feel free to use them for inspiration.
 
