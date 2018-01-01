@@ -76,7 +76,7 @@ alias compare="grep -nFxvf" # Usage: compare <file1> <file2>
 alias dog="pygmentize -g"
 
 # Easily show all of the todos in a given project
-alias todo="ag TODO"
+alias todo="rg TODO"
 
 # Use exa as a drop-in replacement for "tree" (faster, more colors, etc.)
 alias tree="exa --long --tree"

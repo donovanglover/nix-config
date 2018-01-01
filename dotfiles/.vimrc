@@ -28,7 +28,7 @@ source ~/.vim/keybindings.vim
 
 let g:ale_lint_on_text_changed = 'never'        " Do not lint while typing
 let g:ale_lint_on_insert_leave = 1              " Only lint after leaving insert mode
-let g:ackprg = 'ag --vimgrep'                   " Use ag instead of ack / grep
+let g:ackprg = 'rg --vimgrep'                   " Use rg instead of ag / ack / grep
 let g:plug_window = 'rightbelow topleft new'    " Show vim-plug above instead of to the left
 let g:vimfiler_as_default_explorer = 1          " Replace netrw with vimfiler as the default FileEx
 let g:indentLine_enabled = 0                    " Disable indent lines by default

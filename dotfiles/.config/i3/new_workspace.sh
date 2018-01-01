@@ -19,4 +19,4 @@
 ##################################################################################
 
 # See: https://unix.stackexchange.com/questions/138425/
-i3-msg workspace $(($(i3-msg -t get_workspaces | tr , '\n' | ag '"num":' | cut -d : -f 2 | sort -rn | head -1) + 1))
+i3-msg workspace $(($(i3-msg -t get_workspaces | tr , '\n' | rg '"num":' | cut -d : -f 2 | sort -rn | head -1) + 1))

@@ -66,7 +66,7 @@ Note that you should *never* give a file or directory more permissions than need
 ### Searching Through Files
 
 - Search all files in a directory (and all subdirectories) for a given string: `grep -inr <search_term>` **OR** `g <search_term>`
-- Search all files in a directory (including subdirectories) for a given string and ignore dotfiles: `ag <search_term>`
+- Search all files in a directory (including subdirectories) for a given string and ignore dotfiles: `rg <search_term>`
 
 ### System Commands
 

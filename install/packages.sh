@@ -61,8 +61,8 @@ i npm           # Install npm, a package manager for node.js
 i llvm          # Install llvm, used to make the crystal binary
 i exa           # Install exa, a drop-in replacement for ls (and tree)
 
-i the_silver_searcher           # Install ag, used to easily search through files
 i fdupes                        # Install fdupes, used to quickly find duplicate files
+i ripgrep                       # Install rg, a faster alternative to ag / ack / grep
 
 i tig           # Install tig, used to browse git commits
 i ncdu          # Install ncdu, used to easily see disk usage

@@ -22,8 +22,8 @@ export VISUAL="vim"
 export EDITOR="vim"
 export BROWSER="inox"
 
-# Use ag instead of grep for fzf (much faster)
-export FZF_DEFAULT_COMMAND='ag -l -g ""'
+# Use rg instead of ag / ack / grep for fzf (much faster)
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
 # Required to make gpg-agent work in cases like git commit
 export GPG_TTY=$(tty)

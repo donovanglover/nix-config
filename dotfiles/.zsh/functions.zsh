@@ -87,7 +87,7 @@ function ss() {
 
 # Automatically open the readme in any repository
 function readme() {
-    local readme=`ls | ag README`
+    local readme=`ls | rg README`
     if [[ $readme ]]; then
         nvim $readme
     else
