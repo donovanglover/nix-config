@@ -1,4 +1,5 @@
 require "colorize"
+require "./../trucolor"
 
 # The theme helper handles changing the color scheme for various
 # programs. It relies on Base16 color schemes and is an easy way
@@ -67,6 +68,29 @@ module Theme
     #test_color :light_magenta,  "color13 base0E"
     #test_color :light_cyan,     "color14 base0C"
     #test_color :white,          "color07 base05"
+  end
+
+  # Previews a given theme.
+  #
+  # Unlike #test, #preview takes a given theme and prints
+  # those colors to the terminal.
+  def preview(theme : Hash(YAML::Type, YAML::Type))
+    preview_color theme["base00"], "base00"
+    preview_color theme["base01"], "base01"
+    preview_color theme["base02"], "base02"
+    preview_color theme["base03"], "base03"
+    preview_color theme["base04"], "base04"
+    preview_color theme["base05"], "base05"
+    preview_color theme["base06"], "base06"
+    preview_color theme["base07"], "base07"
+    preview_color theme["base08"], "base08"
+    preview_color theme["base09"], "base09"
+    preview_color theme["base0A"], "base0A"
+    preview_color theme["base0B"], "base0B"
+    preview_color theme["base0C"], "base0C"
+    preview_color theme["base0D"], "base0D"
+    preview_color theme["base0E"], "base0E"
+    preview_color theme["base0F"], "base0F"
   end
 
   # Sets all the colors in zathura.
@@ -302,6 +326,13 @@ module Theme
     print " "
     print "___________________________".colorize.fore(color).back(color)
     print "\n"
+  end
+
+  private def preview_color(color : YAML::Type, text : String)
+    r : Int32 = color.to_s[0,2].to_i(16)
+    g : Int32 = color.to_s[2,2].to_i(16)
+    b : Int32 = color.to_s[4,2].to_i(16)
+    print Trucolor.format({r, g, b}, "#{text} \x1b[48;2;#{r};#{g};#{b}m____________________________\x1b[0m\n")
   end
 
   private def add_term(num : Int32, color : YAML::Type) : String
