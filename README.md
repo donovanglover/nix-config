@@ -43,7 +43,6 @@ I know how frustrating it is to see a setup and not have access to the dotfiles.
 
 My goal here is simple: use as few config settings as possible required to make everything work, and document the settings that I do use. Your "config" file shouldn't be a `man` page!
 
-- [`cmus/rc`](dotfiles/.config/cmus/rc)
 - [`fontconfig/fonts.conf`](dotfiles/.config/fontconfig/fonts.conf)
 - [`feh/keys`](dotfiles/.config/feh/keys)
 - [`polybar/config`](dotfiles/.config/polybar/config)
@@ -61,7 +60,7 @@ chmod +x install.sh
 ./install.sh
 ```
 
-Some of the software I use include (in no particular order): [neovim](https://github.com/neovim/neovim), [ranger](https://github.com/ranger/ranger), [feh](https://github.com/derf/feh), [mpv](https://github.com/mpv-player/mpv), [zathura](https://github.com/pwmt/zathura), [yay](https://github.com/Jguer/yay), [compton](https://github.com/chjj/compton), [polybar](https://github.com/jaagr/polybar), [termite](https://github.com/thestinger/termite), [shotgun](https://github.com/Streetwalrus/shotgun), [waterfox](https://github.com/MrAlex94/Waterfox), [inox](https://github.com/gcarq/inox-patchset), [cmus](https://github.com/cmus/cmus), [i3-gaps](https://github.com/Airblader/i3), and [zsh](https://wiki.archlinux.org/index.php/Zsh).
+Some of the software I use include (in no particular order): [neovim](https://github.com/neovim/neovim), [ranger](https://github.com/ranger/ranger), [feh](https://github.com/derf/feh), [mpv](https://github.com/mpv-player/mpv), [zathura](https://github.com/pwmt/zathura), [yay](https://github.com/Jguer/yay), [compton](https://github.com/chjj/compton), [polybar](https://github.com/jaagr/polybar), [termite](https://github.com/thestinger/termite), [shotgun](https://github.com/Streetwalrus/shotgun), [waterfox](https://github.com/MrAlex94/Waterfox), [inox](https://github.com/gcarq/inox-patchset), [mpd](https://github.com/MusicPlayerDaemon/MPD), [mpc](https://github.com/MusicPlayerDaemon/mpc), [ncmpcpp](https://github.com/arybczak/ncmpcpp), [i3-gaps](https://github.com/Airblader/i3), and [zsh](https://wiki.archlinux.org/index.php/Zsh).
 
 For a complete list of the packages included, see [`install/packages.sh`](install/packages.sh) and [`install/aur.sh`](install/aur.sh).
 

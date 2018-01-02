@@ -51,7 +51,6 @@ i crystal       # Install crystal, a ruby-like language with a binary compiler
 i nodejs        # Install node.js, used as a javascript runtime environment
 
 i jq            # Install jq, used to manipulate JSON in the terminal
-i tmux          # Install tmux, used to run terminal programs in the background
 i fzf           # Install fzf, used to easily search for things in vim
 i pygmentize    # Install pygmentize, used as a variant of cat with syntax highlighting
 i firejail      # Install firejail, a simple and straightforward way to sandbox programs
@@ -92,8 +91,10 @@ i i3-gaps       # Install i3-gaps, our window manager of choice
 
 i ranger        # Install ranger, our file explorer of choice
 i feh           # Install feh, a quick and simple way to view images
-i cmus          # Install cmus, our music player of choice
 i mpv           # Install mpv, a no-bloat content-first video player
+i mpd           # Install mpd, our music player daemon of choice
+i mpc           # Install mpc, used to control mpd with shell commands
+i ncmpcpp       # Install ncmpcpp, our music player client of choice
 
 i mps-youtube   # Install mps-youtube, allowing us to use youtube straight from the terminal
 i youtube-dl    # Install youtube-dl, a straightforward way to download youtube videos

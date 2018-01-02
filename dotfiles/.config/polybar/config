@@ -27,7 +27,7 @@ blue = ${xrdb:color6:#AF80AC}
 
 [bar/main]
 modules-left    = i3
-modules-center  = cmus
+modules-center  = mpd
 modules-right   = cpu ram volume date time
 
 monitor         = VGA-1
@@ -91,11 +91,8 @@ label-full = %percentage%%
 label-charging = %percentage%%
 label-discharigng = %percentage%
 
-[module/cmus]
-type = custom/script
-exec = sh ~/.config/polybar/cmus.sh
-exec-if = pgrep -x cmus
-interval = 5
+[module/mpd]
+type = internal/mpd
 
 [module/volume]
 type = internal/volume
