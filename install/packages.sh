@@ -85,10 +85,11 @@ i xorg-xprop    # Install xorg-xprop, used to determine whether or not a window 
 
 i libmad        # Install libmad, needed so that we can recognize and process mp3 files
 i alsa-utils    # Install alsa-utils, required to make the sound system work
+i bspwm         # Install bspwm, our window manager of choice
+i sxhkd         # Install sxhkd, used for adding keybindings to X
 
 i termite       # Install termite, our terminal of choice (with true color support)
 i compton       # Install compton, our compositor of choice
-i i3-gaps       # Install i3-gaps, our window manager of choice
 
 i ranger        # Install ranger, our file explorer of choice
 i feh           # Install feh, a quick and simple way to view images
