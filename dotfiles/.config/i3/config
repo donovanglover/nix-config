@@ -28,8 +28,9 @@ set $alt Mod1
 font pango:Hack 12
 
 # Add a subtle border to all windows (allows us to easily see which one has focus)
-for_window [class="^.*"] border pixel 1
-new_window pixel 1
+# Note that this used to be 1px, but changed to 10 so it's easier to see without transparency
+for_window [class="^.*"] border pixel 10
+new_window pixel 10
 
 ####################################################################
 # i3 Controls - These are the core keys that you use to manage
@@ -40,6 +41,14 @@ new_window pixel 1
 
 # Open a new terminal
 bindsym $mod+Return exec termite
+
+# Open a new floating terminal
+for_window [instance="Floating"] floating enable
+bindsym $mod+Shift+Return exec termite --name "Floating"
+
+# Specify a minimum and / or maximum size for floating windows
+#floating_minimum_size <width>x<height>
+#floating_maximum_size <width>x<height>
 
 # Close the currently focused window
 bindsym $mod+q          kill
@@ -83,6 +92,8 @@ bindsym $mod+space focus mode_toggle
 
 for_window [class="^feh$"] floating enable
 for_window [instance="^feh$"] floating enable
+for_window [class="^mpv$"] floating enable
+for_window [instance="^mpv$"] floating enable
 
 # ========================= Workspaces ========================= 
 
@@ -138,6 +149,18 @@ mode "resize" {
 
 # Keybinding to enter resize mode
 bindsym $mod+r mode "resize"
+
+# ========================= The Hidden Workspace =========================
+
+# Move the current window to the hidden workspace
+bindsym $mod+t move scratchpad
+
+# Toggle between showing and hiding windows from the hidden workspace
+bindsym $mod+i scratchpad show
+
+# Toggle program-specific windows
+# Note that the program must be started with e.g. termite --name "cmus"
+#bindsym $mod+c [instance="cmus"] scratchpad show
 
 # ========================= Lock Screen ========================= 
 
@@ -221,5 +244,8 @@ client.focused          $focused    $focused    $text   $focused
 client.focused_inactive $unfocused  $unfocused  $text   $unfocused
 client.unfocused        $unfocused  $unfocused  $text   $unfocused
 client.urgent           $urgent     $urgent     $text   $urgent
+
+# (Re)load polybar when starting i3
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # vim:ft=dosini
