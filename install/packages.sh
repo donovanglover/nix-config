@@ -58,6 +58,7 @@ i ctags         # Install ctags, used with vim to create tags for formal languag
 i shards        # Install shards, a package manager for crystal
 i npm           # Install npm, a package manager for node.js
 i llvm          # Install llvm, used to make the crystal binary
+i fd-rs         # Install fd-rs, a faster alternative to find
 i exa           # Install exa, a drop-in replacement for ls (and tree)
 
 i fdupes                        # Install fdupes, used to quickly find duplicate files
