@@ -21,12 +21,12 @@
 [color]
 background = ${xrdb:color0:#19171C}
 text = ${xrdb:color7:#8B8792}
-highlight = ${xrdb:color5:#AF80AC}
+highlight = ${xrdb:color2:#AF80AC}
 yellow = ${xrdb:color3:#AF80AC}
 blue = ${xrdb:color6:#AF80AC}
 
 [bar/main]
-modules-left    = i3
+modules-left    = bspwm
 modules-center  = mpd
 modules-right   = cpu ram volume date time
 
@@ -41,18 +41,18 @@ padding-left    = 2
 padding-right   = 2
 module-margin   = 1
 
-[module/i3]
-type = internal/i3
+[module/bspwm]
+type = internal/bspwm
+pin-workspaces = true
 
 label-focused-foreground    = ${color.highlight}
-label-unfocused-foreground  = ${color.text}
 label-urgent-foreground     = ${color.yellow}
-label-visible-foreground    = ${color.blue}
-
-label-focused-padding       = 2
-label-unfocused-padding     = 2
-label-urgent-padding        = 2
-label-visible-padding       = 2
+label-occupied-foreground   = ${color.blue}
+label-empty-foreground      = ${color.text}
+label-focused-padding   = 2
+label-urgent-padding    = 2
+label-occupied-padding  = 2
+label-empty-padding     = 2
 
 ws-icon-0   = 1;一
 ws-icon-1   = 2;二
