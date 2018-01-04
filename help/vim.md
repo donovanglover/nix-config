@@ -2,7 +2,7 @@
 
 Note that the commands I mention in this file are the ones I use the most often and are by no means exhaustive.
 
-For some vim commands, I use a `<leader>` keybinding as an alternative since I find it faster. Some of those commands may not be mentioned in this helpfile. Please see `.vimrc` for more details.
+For some vim commands, I use a `<leader>` keybinding as an alternative since I find it faster. Some of those commands may not be mentioned here. Please see `.vimrc` for more details.
 
 ## Starting vim
 
