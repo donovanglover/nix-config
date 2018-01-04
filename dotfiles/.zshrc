@@ -18,9 +18,9 @@
 # 
 ##################################################################################
 
-export VISUAL="vim"
-export EDITOR="vim"
-export BROWSER="inox"
+export VISUAL="nvim"
+export EDITOR="nvim"
+export BROWSER="waterfox"
 
 # Use rg instead of ag / ack / grep for fzf (much faster)
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
