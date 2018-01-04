@@ -1,9 +1,10 @@
-SOURCES = bin/maid bin/serv bin/pass bin/mktex bin/theme
+SOURCES = bin/maid bin/serv bin/pass bin/theme
+BIN = bin/
 
 .PHONY: all
 all: $(SOURCES)
 
-.PHONY: production
+.PHONY: release
 production: FLAGS = --release
 production: $(SOURCES)
 
@@ -16,16 +17,25 @@ install:
 	shards install
 
 bin/maid: src/maid.cr
-	crystal build $^ -o $@ $(FLAGS)
-
-bin/serv: src/serv.cr
-	crystal build $^ -o $@ $(FLAGS)
+	@mkdir -p ${BIN}
+	crystal build $< -o $@ $(FLAGS)
 
 bin/pass: src/pass.cr
-	crystal build $^ -o $@ $(FLAGS)
-
-bin/mktex: src/mktex.cr
-	crystal build $^ -o $@ $(FLAGS)
-
-bin/theme: src/theme.cr lib/theme.cr
+	@mkdir -p ${BIN}
 	crystal build $< -o $@ $(FLAGS)
+
+bin/theme: src/theme.cr src/theme_helper/*.cr
+	@mkdir -p ${BIN}
+	crystal build $< -o $@ $(FLAGS)
+
+bin/trufetch: src/trufetch.cr
+	@mkdir -p ${BIN}
+	crystal build $< -o $@ $(FLAGS)
+
+bin/git-blame: src/git-blame.cr
+	@mkdir -p ${BIN}
+	crystal build $< -o $@ ${FLAGS}
+
+bin/plain-text: src/plain-text.cr
+	@mkdir -p ${BIN}
+	crystal build $< -o $@ ${FLAGS}
