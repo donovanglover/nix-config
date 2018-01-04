@@ -21,6 +21,6 @@ ip link
 sudo dhcpcd
 
 # Start the window manager
-exec i3
+exec bspwm
 
 # vim:ft=zsh
