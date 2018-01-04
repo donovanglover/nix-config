@@ -58,6 +58,7 @@ alias volume="vol"
 ####################################################################
 
 alias vz="nvim +Files"   # Open any file inside a directory easily with fzf
+alias vh="nvim -i NONE -c 'set noswapfile' -c 'set noundofile' -c 'set nobackup'"
 
 # Quick and easy way to download the majority of online videos
 alias dl="youtube-dl -f bestvideo+bestaudio"
