@@ -77,6 +77,7 @@ alias todo="rg TODO"
 
 # Use exa as a drop-in replacement for "tree" (faster, more colors, etc.)
 alias tree="exa --long --tree"
+alias t="tree -L 1"
 
 ####################################################################
 # Git aliases
