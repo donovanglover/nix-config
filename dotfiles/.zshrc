@@ -37,6 +37,8 @@ export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH" # Add ruby gems to $PATH
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/Home/new-start/bin:$PATH"
 
+export FZF_DEFAULT_OPTS='--height 40% --reverse --border --color=16'
+
 autoload -Uz compinit && compinit
 autoload -Uz promptinit && promptinit
 autoload -Uz vcs_info
