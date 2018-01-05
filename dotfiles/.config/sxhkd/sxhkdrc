@@ -93,7 +93,7 @@ super + shift + t
 
 # Change the window mode to floating
 # This is the equivalent of a floating window in i3
-super + @space
+super + space
     bspc node -t floating
 
 # Change the window mode to fullscreen

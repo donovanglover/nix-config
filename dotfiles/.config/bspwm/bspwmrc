@@ -2,7 +2,7 @@
 
 sxhkd &
 
-bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+bspc monitor -d 1 2 3 4 5 6
 
 bspc config border_width        15
 bspc config window_gap          20
@@ -12,3 +12,13 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
 bspc rule -a mpv state=floating
+bspc rule -a feh state=floating
+
+# Always focus the window under the cursor
+# when moving the mouse, similar to i3
+bspc config focus_follows_pointer true
+
+# Colors
+#bspc config normal_border_color
+#bspc config active_border_color
+#bspc config focused_border_color
