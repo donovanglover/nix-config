@@ -1,7 +1,0 @@
-.termite {
-    padding: 30px;
-    /* TODO: Use 15px for normal windows
-     * and 30px all around for floating windows */
-    padding-top: 15px;
-    padding-bottom: 0;
-}

@@ -61,8 +61,8 @@ i llvm          # Install llvm, used to make the crystal binary
 i fd-rs         # Install fd-rs, a faster alternative to find
 i exa           # Install exa, a drop-in replacement for ls (and tree)
 
-i fdupes                        # Install fdupes, used to quickly find duplicate files
-i ripgrep                       # Install rg, a faster alternative to ag / ack / grep
+i fdupes        # Install fdupes, used to quickly find duplicate files
+i ripgrep       # Install rg, a faster alternative to ag / ack / grep
 
 i tig           # Install tig, used to browse git commits
 i ncdu          # Install ncdu, used to easily see disk usage
@@ -88,7 +88,7 @@ i alsa-utils    # Install alsa-utils, required to make the sound system work
 i bspwm         # Install bspwm, our window manager of choice
 i sxhkd         # Install sxhkd, used for adding keybindings to X
 
-i termite       # Install termite, our terminal of choice (with true color support)
+i rxvt-unicode  # Install urxvt, our terminal of choice
 i compton       # Install compton, our compositor of choice
 
 i ranger        # Install ranger, our file explorer of choice
