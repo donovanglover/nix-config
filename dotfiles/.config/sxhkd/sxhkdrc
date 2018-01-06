@@ -20,7 +20,7 @@
 
 # Open a new terminal window
 super + Return
-    termite
+    urxvtcd
 
 # Reload sxhkd (applies new keybindings, etc.)
 super + Escape
@@ -96,13 +96,9 @@ super + shift + t
 super + space
     bspc node -t floating
 
-# Change the window mode to fullscreen
-super + f
-    bspc node -t fullscreen
-
 # Toggle between "tiled" and "fullscreen"
 # monocle mode
-super + shift + f
+super + f
     bspc desktop -l next
 
 # vim:ft=sxhkdrc
