@@ -64,6 +64,7 @@ let g:vimtex_view_method = 'zathura'
 let g:vimtex_index_show_help = 0
 let g:vimtex_index_split_width = 50
 let g:vimtex_index_split_pos = 'vert rightbelow'
+let g:vimtex_compiler_latexmk = {'build_dir': '.tex'}
 nnoremap <localleader>a <plug>(vimtex-toc-toggle)
 nnoremap <localleader>f <plug>(vimtex-view)
 nnoremap <localleader>g <plug>(vimtex-compile)
