@@ -232,6 +232,7 @@ Note that commands I do not find useful are not mentioned here. Consult the help
 - Clear the current line and enter insert mode: `S`
     - Note that this is an alias of `cc`
 - Join the current line with the next one: `J`
+- Prepend or append the same text to multiple lines: `<C-v><MOTION>I` **OR** `<C-v><MOTION>A`
 
 ## Macros
 

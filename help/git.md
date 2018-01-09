@@ -8,8 +8,8 @@
 - Commit those files to the repository: `git commit -m <message>` **OR** `gc <message>`
 - Undo the last commit: `gr`
 - Undo the last commit and delete changes: `grr`
-- Update your local repository with a remote repository: `git pull -u <remote> <branch>`
-    - The most common use is `git pull -u origin master`, although this also works for upstream remotes
+- Update your local repository with a remote repository: `git pull <remote> <branch>`
+    - Most of the time you'll be using `origin master` to pull from your remote repository and `upstream master` to pull from the upstream repository
     - This is the equivalent of clicking "accept pull request" on GitHub
 - Show the status of the local repository: `git status` **OR** `gs` **OR** `git s`
 - Push changes from your local repository to a remote repository: `git push <remote> <branch>` **OR** `git push` **OR** `gp`
@@ -87,6 +87,7 @@ Note that you should always make changes from an external branch then make a pul
     - Edit the file(s) and/or commit message: `edit`
     - Merge the commit with the previous commit: `squash`
     - Merge the commit with the previous commit and discard the commit message: `fixup`
+- Rename a git directory to use different capitalization (e.g. from uppercase to lowercase): `git mv <old_name> <temp_name>` **THEN** `git mv <temp_name> <new_name>`
 
 **NOTE:** You should only merge commits with local commits that you haven't pushed yet. Doing this for upstream commits can cause problems for other people that have cloned your repository.
 
