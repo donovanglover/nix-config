@@ -101,4 +101,13 @@ super + space
 super + f
     bspc desktop -l next
 
+super + p
+    ~/.config/sxhkd/screenshot.sh
+
+super + o
+    xdo hide -N "Polybar"
+
+super + O
+    xdo show -N "Polybar"
+
 # vim:ft=sxhkdrc
