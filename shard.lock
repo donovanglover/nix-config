@@ -1,6 +1,0 @@
-version: 1.0
-shards:
-  watcher:
-    github: faustinoaq/watcher
-    commit: 139f79ef77aa5b13f914096e041e85cfff1f72fb
-
