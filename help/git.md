@@ -62,6 +62,13 @@ It may be necessary to force push your changes with `git push -f origin <branch>
 
 Note that you should always make changes from an external branch then make a pull request from your external branch to avoid rewriting history.
 
+If you need to update your local repository but have local changes, you need to stash them first.
+
+1. Fetch upstream like usual.
+2. Use `git stash` to store your changes temporarily.
+3. Rebase the branch you want to update with `upstream/<branch>` (usually master).
+4. Finally use `git stash pop` to update your repository with the stashed changes.
+
 ## Less common commands
 
 - Removes files to commit: `git rm <files>`
