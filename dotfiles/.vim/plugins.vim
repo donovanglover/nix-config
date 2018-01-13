@@ -34,4 +34,5 @@ call plug#begin('~/.vim/plugged')       " Use vim-plug as our package manager of
 
     Plug 'mattn/emmet-vim'              " Add emmet support
     Plug 'sgur/vim-editorconfig'        " Add editorconfig support
+    Plug 'baskerville/vim-sxhkdrc'      " Add sxhkdrc support
 call plug#end()                         " Start the plugins
