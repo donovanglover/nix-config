@@ -33,7 +33,7 @@ let g:plug_window = 'rightbelow topleft new'    " Show vim-plug above instead of
 let g:vimfiler_as_default_explorer = 1          " Replace netrw with vimfiler as the default FileEx
 let g:indentLine_enabled = 0                    " Disable indent lines by default
 let g:indentLine_color_term = 8                 " Set the color for the indent line
-let g:vimfiler_no_default_key_mappings = 1
+"let g:vimfiler_no_default_key_mappings = 1
 
 " Note that indent lines breaks with pencil mode, although you really
 " shouldn't be using both at the same time anyway.
@@ -65,15 +65,15 @@ let g:vimtex_index_show_help = 0
 let g:vimtex_index_split_width = 50
 let g:vimtex_index_split_pos = 'vert rightbelow'
 let g:vimtex_compiler_latexmk = {'build_dir': '.tex'}
-nnoremap <localleader>a <plug>(vimtex-toc-toggle)
-nnoremap <localleader>f <plug>(vimtex-view)
-nnoremap <localleader>g <plug>(vimtex-compile)
-nnoremap <localleader>c <plug>(vimtex-errors)
-nnoremap <localleader>w :VimtexCountWords<CR>
+map <localleader>a <plug>(vimtex-toc-toggle)
+map <localleader>f <plug>(vimtex-view)
+map <localleader>g <plug>(vimtex-compile)
+map <localleader>c <plug>(vimtex-errors)
+map <localleader>w :VimtexCountWords<CR>
 
 " Delete the surrounding environment
-nnoremap <localleader>d <plug>(vimtex-env-delete)
-nnoremap <localleader>c <plug>(vimtex-env-change)
+map <localleader>d <plug>(vimtex-env-delete)
+map <localleader>c <plug>(vimtex-env-change)
 
 " Toggle stars
 nnoremap <localleader>s <plug>(vimtex-env-toggle-star)
