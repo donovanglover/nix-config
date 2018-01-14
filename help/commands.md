@@ -189,6 +189,14 @@ Use `firejail` to sandbox a program or other piece of software. This ensures tha
     - Remove all symbolic links to firejail: `firecfg --clean`
 - Verify that firejail is being used for a particular program: `firejail --list`
 
+### ImageMagick
+
+- Resize an image to 50% of its original size: `convert -resize 50% <given_img> <output_img>`
+- Resize an image to a specific size: `convert -resize 1280x720 <given_img> <output_img>`
+- Resize all png files in a directory to 800x600: `mogrify -resize 800x600 *.png`
+
+Note that you should use `mogrify` instead of `convert` when you want to change images directly.
+
 ### Pacman
 
 Although the examples below use `pacman`, they apply for `yay` as well.
