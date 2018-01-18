@@ -2,7 +2,6 @@
 let mapleader = ' '
 
 " ================== Top row
-nnoremap <silent> <leader>q :Files<CR>
 nnoremap <silent> <leader>e :set nu!<CR>
 nnoremap <silent> <leader>r :call matchadd('OverLength', '\%101v', 100)<CR>
 nnoremap <silent> <leader>t :OverCommandLine<CR>%s/
@@ -12,13 +11,17 @@ nnoremap <silent> <leader>i <C-w><C-p>
 nnoremap <silent> <leader>o <C-d>
 nnoremap <silent> <leader>p <C-u>
 " ================== Middle row
-nnoremap <silent> <leader>a :NERDTreeToggle<CR>
+"nnoremap <silent> <leader>a :NERDTreeToggle<CR>
+nnoremap <silent> <leader>a :Files<CR>
 nnoremap <silent> <leader>d :TagbarToggle<CR>
-nnoremap <silent> <leader>f :VimFiler<CR>
+nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>g :set hlsearch!<CR>
 " Easily jump between lines in all open files
-nnoremap <silent> <leader>j :Lines<CR>
-nnoremap <silent> <leader>k :Buffers<CR>
+nnoremap <silent> <leader>j :Buffers<CR>
+nnoremap <silent> <leader>k :Lines<CR>
+" This is the same as f, but I haven't figured out which
+" letter I like using better yet
+nnoremap <silent> <leader>l :Files<CR>
 " Easily open new files in horizontal and vertical splits
 nnoremap <silent> <leader>; :split<CR> <C-w>w :Files<CR>
 nnoremap <silent> <leader>' :vsplit<CR> <C-w>w :Files<CR>
