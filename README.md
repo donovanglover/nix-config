@@ -35,38 +35,60 @@ This system is different from your traditional point-click system. There is no s
 
 Once mastered, the interface should not get in the way. Everything just works.
 
+## Installation
+
+For installation, I assume that you already have a base Arch installation.
+
+Install the packages from your local user account:
+
+```shell
+git clone https://github.com/GloverDonovan/new-start
+cd new-start
+makepkg
+sudo pacman -U *.pkg.tar.xz
+```
+
+If you don't have one already, install an AUR helper:
+
+```shell
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg
+sudo pacman -U *.xz
+```
+
+Next, use your AUR helper to install the AUR packages:
+
+```shell
+yay shotgun polybar ttf-noto htop-vim-git inox-bin waterfox-bin
+```
+
+Next, choose which dotfiles you want to use:
+
+```shell
+mv dotfiles ~
+cd ~/dotfiles
+stow bspwm # Change this to whatever you want
+```
+
+Now run `startx` and you should have a working system!
+
+**NOTE**: Above is just a prototype and is not finalized. Expect changes.
+
 ## Getting Started
 
 ### Dotfiles
 
-I know how frustrating it is to see a setup and not have access to the dotfiles. I also know how frustrating it is to go through dotfiles with default config settings everywhere or dotfiles with little to no documentation at all.
+My dotfiles aim to be simple, straight-forward, and to the point. If you want to know how something works, just `man software` and `/search` for what you need to know!
 
-My goal here is simple: use as few config settings as possible required to make everything work, and document the settings that I do use. Your "config" file shouldn't be a `man` page!
-
-- [`fontconfig/fonts.conf`](dotfiles/.config/fontconfig/fonts.conf)
-- [`feh/keys`](dotfiles/.config/feh/keys)
 - [`polybar/config`](dotfiles/.config/polybar/config)
 - [`.zshrc`](dotfiles/.zshrc)
 - [`userChrome.css`](etc/userChrome.css) - A bare-minimum browser that emphasizes keyboard usage
 - [`user.js`](etc/user.js) - Settings to make using the browser a more pleasurable experience
 
-### Install Scripts
-
-The install scripts let you install the entire operating system and dotfiles with a simple command. Note that you should not run this on your actual computer. The install script is meant to be used with the Arch ISO. Simply run:
-
-```bash
-wget https://raw.githubusercontent.com/GloverDonovan/new-start/master/install/install.sh
-chmod +x install.sh
-./install.sh
-```
-
 Some of the software I use include (in no particular order): [neovim](https://github.com/neovim/neovim), [ranger](https://github.com/ranger/ranger), [feh](https://github.com/derf/feh), [mpv](https://github.com/mpv-player/mpv), [zathura](https://github.com/pwmt/zathura), [yay](https://github.com/Jguer/yay), [compton](https://github.com/chjj/compton), [polybar](https://github.com/jaagr/polybar), [termite](https://github.com/thestinger/termite), [shotgun](https://github.com/Streetwalrus/shotgun), [waterfox](https://github.com/MrAlex94/Waterfox), [inox](https://github.com/gcarq/inox-patchset), [mpd](https://github.com/MusicPlayerDaemon/MPD), [mpc](https://github.com/MusicPlayerDaemon/mpc), [ncmpcpp](https://github.com/arybczak/ncmpcpp), [bspwm](https://github.com/baskerville/bspwm), [sxhkd](https://github.com/baskerville/sxhkd), and [zsh](https://wiki.archlinux.org/index.php/Zsh).
 
-For a complete list of the packages included, see [`install/packages.sh`](install/packages.sh) and [`install/aur.sh`](install/aur.sh).
-
-**NOTE**: The install script is incomplete and should not be used (yet)!
-
-After installation, you will be able to use the operating system and even put it on a live USB!
+For a complete list of the packages included, see the [`PKGBUILD`](PKGBUILD).
 
 ### Help Files
 
@@ -77,17 +99,6 @@ Help files are a way for me to keep track of all the useful commands I learn abo
 - [`gpg.md`](help/gpg.md) - Everything you need to know about GPG
 - [`profanity.md`](help/profanity.md) - A primer on using XMPP with Profanity
 - [`vim.md`](help/vim.md) - A complete reference to everything I know (and find worth mentioning) about vim
-
-### Custom Software
-
-This directory holds custom software that I made specifically for my use case. Feel free to use them for inspiration.
-
-Some of the most interesting software include:
-
-- [`maid.cr`](src/maid.cr) - An easy way to manage dotfiles.
-- [`theme.cr`](src/theme.cr) - Easily change color schemes across everything, including polybar, termite, and i3. Uses `base16` color schemes.
-
-Run `crystal docs` to generate the documentation for these files in a nice format.
 
 ## Contributing
 
