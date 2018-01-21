@@ -64,9 +64,9 @@ Note that you should always make changes from an external branch then make a pul
 
 If you need to update your local repository but have local changes, you need to stash them first.
 
-1. Fetch upstream like usual.
-2. Use `git stash` to store your changes temporarily.
-3. Rebase the branch you want to update with `upstream/<branch>` (usually master).
+1. First fetch upstream like usual.
+2. Then use `git stash` to store your changes temporarily.
+3. Next rebase the branch you want to update with `upstream/<branch>` (usually master).
 4. Finally use `git stash pop` to update your repository with the stashed changes.
 
 ## Less common commands

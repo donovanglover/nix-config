@@ -66,7 +66,7 @@ echo "%wheel ALL=(ALL) ALL" >> /mnt/etc/sudoers
 sed -i '/GRUB_GFXMODE/c\GRUB_GFXMODE=1280x1024' /mnt/etc/default/grub
 
 # (Important!) Font settings ============
-FONTS="/etc/fonts"
+FONTS="/mnt/etc/fonts"
 # Disable embedded bitmaps for all fonts
 ln -s $FONTS/conf.avail/70-no-bitmaps.conf $FONTS/conf.d
 # Enable sub-pixel RGB rendering

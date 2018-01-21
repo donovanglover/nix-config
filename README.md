@@ -45,7 +45,7 @@ Install the packages from your local user account:
 git clone https://github.com/GloverDonovan/new-start
 cd new-start
 makepkg
-sudo pacman -U *.pkg.tar.xz
+sudo pacman -U *.xz
 ```
 
 If you don't have one already, install an AUR helper:
@@ -60,10 +60,10 @@ sudo pacman -U *.xz
 Next, use your AUR helper to install the AUR packages:
 
 ```shell
-yay shotgun polybar ttf-noto htop-vim-git inox-bin waterfox-bin
+yay -S shotgun polybar ttf-noto htop-vim-git inox-bin waterfox-bin
 ```
 
-Next, choose which dotfiles you want to use:
+Then choose which dotfiles you want to use:
 
 ```shell
 mv dotfiles ~
@@ -71,7 +71,7 @@ cd ~/dotfiles
 stow bspwm # Change this to whatever you want
 ```
 
-Now run `startx` and you should have a working system!
+Finally run `startx` and you should have a working system!
 
 **NOTE**: Above is just a prototype and is not finalized. Expect changes.
 
@@ -86,7 +86,20 @@ My dotfiles aim to be simple, straight-forward, and to the point. If you want to
 - [`userChrome.css`](etc/userChrome.css) - A bare-minimum browser that emphasizes keyboard usage
 - [`user.js`](etc/user.js) - Settings to make using the browser a more pleasurable experience
 
-Some of the software I use include (in no particular order): [neovim](https://github.com/neovim/neovim), [ranger](https://github.com/ranger/ranger), [feh](https://github.com/derf/feh), [mpv](https://github.com/mpv-player/mpv), [zathura](https://github.com/pwmt/zathura), [yay](https://github.com/Jguer/yay), [compton](https://github.com/chjj/compton), [polybar](https://github.com/jaagr/polybar), [termite](https://github.com/thestinger/termite), [shotgun](https://github.com/Streetwalrus/shotgun), [waterfox](https://github.com/MrAlex94/Waterfox), [inox](https://github.com/gcarq/inox-patchset), [mpd](https://github.com/MusicPlayerDaemon/MPD), [mpc](https://github.com/MusicPlayerDaemon/mpc), [ncmpcpp](https://github.com/arybczak/ncmpcpp), [bspwm](https://github.com/baskerville/bspwm), [sxhkd](https://github.com/baskerville/sxhkd), and [zsh](https://wiki.archlinux.org/index.php/Zsh).
+Some of the software I use include (in no particular order):
+
+- [neovim](https://github.com/neovim/neovim)
+- [ranger](https://github.com/ranger/ranger)
+- [feh](https://github.com/derf/feh)
+- [mpv](https://github.com/mpv-player/mpv)
+- [zathura](https://github.com/pwmt/zathura)
+- [yay](https://github.com/Jguer/yay)
+- [polybar](https://github.com/jaagr/polybar)
+- [shotgun](https://github.com/Streetwalrus/shotgun)
+- [inox](https://github.com/gcarq/inox-patchset)
+- [waterfox](https://github.com/MrAlex94/Waterfox)
+- [mpd](https://github.com/MusicPlayerDaemon/MPD) + [mpc](https://github.com/MusicPlayerDaemon/mpc) + [ncmpcpp](https://github.com/arybczak/ncmpcpp)
+- [bspwm](https://github.com/baskerville/bspwm) + [sxhkd](https://github.com/baskerville/sxhkd)
 
 For a complete list of the packages included, see the [`PKGBUILD`](PKGBUILD).
 
@@ -107,4 +120,4 @@ If you want to improve the help files or other parts of New Start then please fi
 ## License
 
 - Code is released under the GPLv3 license.
-- Help files are released under the Creative Commons BY-SA license.
+- The [`install-guide.sh`](install-guide.sh) and help files are released under the Creative Commons BY-SA license.
