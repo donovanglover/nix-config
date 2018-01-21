@@ -2,7 +2,7 @@
 #
 #    New Start: A modern Arch workflow built with an emphasis on functionality.
 #    Copyright (C) 2017 Donovan Glover
-#    
+#
 #    Trufetch: A colorful fetch script inspired by neofetch
 #    Copyright (C) 2017 Donovan Glover
 #
@@ -24,61 +24,40 @@
 # Trufetch is an alternative to neofetch that emphasizes the use of true color support
 # It is made specifically for this system and does not rely on many external calls
 
-require "trucolor"
+require "./trucolor"
 
-module Trufetch
-    extend self
+def fetch()
+    uptime = `uptime -p`.lchop("up ").split(",")
+    packages = `pacman -Qq --color never | wc -l`
+    resolution = `xrandr | grep '*'`.split('"')[1].split('_')[0]
+    kernel = `uname -r`
+    os = `uname -o`.chomp()
+    type = `uname -m`
+    zsh_version = `zsh --version`.split(" ")[1]
 
-    def trufetch()
-        Trufetch.fetch() if ARGV.size() == 0
-        case ARGV[0].delete("-")
-            when "help", "h"; Trufetch.help()
-            else Trufetch.unknown()
-        end
-    end
-
-    def fetch()
-        # These values are queried manually since they change often
-        uptime = `uptime -p`.lchop("up ").split(",")
-        packages = `pacman -Qq --color never | wc -l`
-        resolution = `xrandr | grep '*'`.split('"')[1].split('_')[0]
-
-        add_banner("New Start")
-        add("OS",               "GNU/Linux (Arch)")
-
-        # TODO: Test this with different inputs
-        # TODO: Handle the edge case where there's only one item
-        add("Uptime",           uptime[0] + "," + uptime[1])
-
-        add("Packages",         packages) 
-        add("Shell",            "zsh")
-        add("Resolution",       resolution)
-        add("Window Manager",   "i3-gaps")
-        add("Terminal",         "termite")
-        add("Fonts",            "Noto, Hack")
-        exit 0
-    end
-
-    def help()
-        puts "Help"
-        exit 0
-    end
-
-    def unknown()
-        puts "Unknown"
-        exit 0
-    end
-
-    def add(section, contents)
-        message = section + ": " + contents
-        puts message
-    end
-
-    def add_banner(text)
-        puts text
-    end
-
+    # add_banner("New Start")
+    # TODO: Test this with different inputs
+    # TODO: Handle the edge case where there's only one item
+    puts ""
+    puts add("OS", "Parabola #{os} #{type}")
+    puts add("Kernel",           kernel)
+    puts add("Uptime",           uptime[0] + "," + uptime[1])
+    puts add("Packages",         packages)
+    puts add("Shell",            "zsh #{zsh_version}")
+    puts add("Resolution",       resolution)
+    puts add("WM",   "i3-gaps")
+    puts add("Terminal",         "termite")
+    puts add("Terminal Font",            "Hack")
+    puts ""
 end
 
-Trufetch.trufetch()
+def add(section, contents)
+    return Trucolor.format({255, 0, 128}, section) + ": " + contents
+end
 
+def add_banner(text)
+    puts text
+    puts "-" * text.size()
+end
+
+fetch()
