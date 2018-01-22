@@ -40,6 +40,8 @@ height          = 88
 padding-left    = 2
 padding-right   = 2
 module-margin   = 1
+border-bottom-color = ${color.text}
+border-bottom-size = 3
 
 [module/bspwm]
 type = internal/bspwm
@@ -47,7 +49,7 @@ pin-workspaces = true
 
 label-focused-foreground    = ${color.highlight}
 label-urgent-foreground     = ${color.yellow}
-label-occupied-foreground   = ${color.blue}
+label-occupied-foreground   = ${color.text}
 label-empty-foreground      = ${color.text}
 label-focused-padding   = 2
 label-urgent-padding    = 2
