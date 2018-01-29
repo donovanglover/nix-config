@@ -25,6 +25,7 @@ require "./../trucolor"
 # https://github.com/chriskempson/base16-shell
 # https://github.com/chriskempson/base16-xresources
 # https://github.com/nicodebo/base16-zathura
+# https://github.com/samme/base16-styles
 module Theme
   extend self
 
@@ -236,6 +237,24 @@ module Theme
     File.write(file, config)
   end
 
+  # Sets the colors used inside the web browser.
+  #
+  # This method changes the css variables used by the browser,
+  # allowing custom styles to take advantage of this and serve
+  # a variety of different color schemes effortlessly.
+  #
+  # This makes it trivial to have a browser that is completely
+  # immersed in your color scheme. You can even theme the websites
+  # that you use often enough so that it matches any color scheme
+  # you switch to!
+  def set_web(theme : Hash(YAML::Type, YAML::Type))
+    css : String = ""
+    theme.each do |key, value|
+      css += add_css key, value
+    end
+    puts css
+  end
+
   # Sets the background color in termite.
   #
   # NOTE: This is particularly useful to avoid color flashing.
@@ -353,6 +372,10 @@ module Theme
 
   private def add_zcolor(type : String, color : YAML::Type) : String
     return "set #{type.ljust(30)} \"##{color.to_s}\"\n"
+  end
+
+  private def add_css(key : Yaml::Type, value : YAML::Type)
+    return "$#{key}: ##{value}"
   end
 
   # Prints an error that the file does not exists.

@@ -24,6 +24,11 @@ New Start is built on top of [Arch GNU/Linux](https://www.archlinux.org/) and co
     - Install the system from scratch and have the exact same configuration as before.
     - It is trivial to make your own live usb of the system.
 
+## Philosophy
+
+1. Use configuration files for everything. Make it easy to replicate your entire setup on multiple machines, without having to manually click through things or add obscurely large "config" files.
+2. Changing themes should make the computer feel completely different, but not affect the functionality itself.
+
 ## Before You Begin
 
 1. [Linux is not an operating system](https://www.gnu.org/gnu/linux-and-gnu.html). All the so-called "Linux" distributions are actually distributions of [GNU/Linux](https://www.gnu.org/gnu/gnu-users-never-heard-of-gnu.html).
@@ -44,7 +49,7 @@ Install the packages from your local user account:
 ```shell
 git clone https://github.com/GloverDonovan/new-start
 cd new-start
-makepkg
+makepkg -si
 sudo pacman -U *.xz
 ```
 
@@ -53,17 +58,46 @@ If you don't have one already, install an AUR helper:
 ```shell
 git clone https://aur.archlinux.org/yay.git
 cd yay
-makepkg
+makepkg -si
 sudo pacman -U *.xz
 ```
 
 Next, use your AUR helper to install the AUR packages:
 
 ```shell
-yay -S shotgun polybar ttf-noto htop-vim-git inox-bin waterfox-bin
+yay -S shotgun polybar ttf-noto htop-vim-git inox-bin \
+       waterfox-bin arch-silence-grub-theme launch-cmd
 ```
 
-Then choose which dotfiles you want to use:
+Enable the Arch Silence GRUB theme:
+
+```shell
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+Install crystal ctags:
+
+```shell
+git clone https://github.com/SuperPaintman/crystal-ctags
+cd crystal-ctags
+sudo make install
+```
+
+Install all the vim plugins:
+
+```shell
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+vim +PlugInstall +qall
+```
+
+Add the `undo` directory for regular vim:
+
+```shell
+mkdir ~/.vim/undo
+```
+
+Then choose which dotfiles you want to install:
 
 ```shell
 mv dotfiles ~
@@ -102,6 +136,25 @@ Some of the software I use include (in no particular order):
 - [bspwm](https://github.com/baskerville/bspwm) + [sxhkd](https://github.com/baskerville/sxhkd)
 
 For a complete list of the packages included, see the [`PKGBUILD`](PKGBUILD).
+
+If you want to use an alternative DNS server (such as [OpenNIC](https://www.opennic.org/)), put the following in your `etc/resolv.conf`:
+
+```
+nameserver # IP of nameserver 1
+nameserver # IP of nameserver 2 (fallback #1)
+nameserver # IP of nameserver 3 (fallback #2)
+options timeout:1
+```
+
+Other things I use:
+
+- Display Server: [xorg](https://wiki.archlinux.org/index.php/Xorg)
+- Sound System: [alsa](https://wiki.archlinux.org/index.php/Advanced_Linux_Sound_Architecture)
+- Boot Loader: [grub](https://wiki.archlinux.org/index.php/GRUB)
+- GRUB Theme: [arch-silence](https://github.com/fghibellini/arch-silence)
+- Vim Keybindings: [VimFx](https://github.com/akhodakivskiy/VimFx), [Vimium](https://github.com/philc/vimium)
+- Secure Connection: [HTTPS Everywhere](https://github.com/EFForg/https-everywhere)
+- (vim) Plugin manager: [vim-plug](https://github.com/junegunn/vim-plug)
 
 ### Help Files
 

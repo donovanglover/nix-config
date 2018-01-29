@@ -2,7 +2,7 @@ pkgname=new-start
 pkgver=0.1.0
 pkgrel=1
 pkgdesc="A modern Arch workflow built with an emphasis on functionality."
-arch=('i686' 'x86_64')
+arch=('any')
 license=('GPL')
 depends=(
     # Core system
@@ -73,11 +73,41 @@ depends=(
     'borg'      # Backup directories
     'exa'       # Drop-in replacement for ls and tree
     'fd-rs'     # Faster alternative to find
-    'diff-so-fancy' # A better looking git diff
+    'diff-so-fancy' # A better-looking git diff
     'youtube-dl'    # View online videos in mpv
 
     # Fonts
     'ttf-hack'      # Terminal font
     'ttf-fira-mono' # Polybar font
     'noto-fonts'    # Everything else
+
+    # Other languages
+    'elixir'
+    'ruby'
+    'go'
+    'php'
+    'jdk-9-openjdk'
+    'python'
+    'lua'
+    'nodejs'
+
+    # Other extras
+    'pygmentize' # Command line syntax highlighting (used for 'dog')
+    'ctags'      # ctags (used with vim)
+    'shards'     # Crystal package manager
+    'npm'        # Node package manager
+    'ispell'     # Spell checker (an alternative to the built-in vim one)
+    'alsa-utils' # (?) Required for sound support
+
+    # (La)TeX
+    'texlive-core'          # TeX core
+    'texlive-science'       # TeX + the formal sciences (mathematics, etc.)
+    'texlive-pictures'      # Graphics support
+    'texlive-publishers'    # Publisher formats
+    'texlive-latexextra'    # LaTeX extras
+    'texlive-humanities'    # TeX isn't just for mathematics
+    'texlive-fontsextra'    # More fonts
+    'texlive-formatsextra'  # More formats
+    'texlive-bibtexextra'   # More features for BibTeX
+    'minted'                # Add syntax highlighting support to LaTeX
 )

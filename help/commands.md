@@ -239,3 +239,8 @@ Note that if you ever get 404s with `pacman` or `yay`, you need to update your l
 - Run a command as root: `pls <command>`
 - Run the previous command as root: `pls !!`
 
+## Startup Commands
+
+- Turn the screensaver off and disable DPMS: `xset s off -dpms`
+- Sync the system time with one on the internet: `sudo synctime`
+- Launch Polybar `~/.config/polybar/launch.sh`

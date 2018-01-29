@@ -1,4 +1,16 @@
 # This is my personal install guide. It's what I use to install Arch.
+#
+# Note that if you automate this the default password for your new
+# account is the same as your username.
+#
+# Upon reboot:
+#   1. Change the root password with `passwd`
+#   2. Change the local account password with `passwd <username>`
+#
+# You may also want to turn on error handling so that any errors
+# automatically terminate the script (useful for automation)
+#
+# set -e
 
 $USERNAME = "hello"
 $HOSTNAME = "world"
