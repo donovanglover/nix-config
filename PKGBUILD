@@ -41,6 +41,7 @@ depends=(
     # Build tools
     'llvm'      # The low level virtual machine
     'git'       # Version control
+    'libsass'   # Sass support
 
     # Main environment
     'bspwm'         # Window manager
