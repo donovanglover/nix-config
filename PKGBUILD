@@ -112,3 +112,10 @@ depends=(
     'texlive-bibtexextra'   # More features for BibTeX
     'minted'                # Add syntax highlighting support to LaTeX
 )
+
+package() {
+    gem install haml
+    gem install sass
+    gem install lolcat
+    gem install jekyll
+}
