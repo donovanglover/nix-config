@@ -36,7 +36,7 @@ depends=(
 
     # Formal (Programming) languages
     'crystal'   # Language of choice
-    'rust'      # Another language of choice
+    'rustup'    # Another language of choice
 
     # Build tools
     'llvm'      # The low level virtual machine
@@ -56,7 +56,7 @@ depends=(
     'mpc'       # Music player client
     'ncmpcpp'   # Ncurses music player client
     'mpv'       # Video player
-    'irssi'     # IRC client
+    'weechat'   # IRC client
     'profanity' # XMPP client
     'w3m'       # Web browser
     'zathura'   # Document viewer
