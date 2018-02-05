@@ -42,6 +42,9 @@ depends=(
     'llvm'      # The low level virtual machine
     'git'       # Version control
     'libsass'   # Sass support
+    'shards'    # Crystal package manager
+    'npm'       # Node package manager
+    'yarn'      # Dependency manager
 
     # Main environment
     'bspwm'         # Window manager
@@ -95,8 +98,6 @@ depends=(
     # Other extras
     'pygmentize' # Command line syntax highlighting (used for 'dog')
     'ctags'      # ctags (used with vim)
-    'shards'     # Crystal package manager
-    'npm'        # Node package manager
     'ispell'     # Spell checker (an alternative to the built-in vim one)
     'alsa-utils' # (?) Required for sound support
 
