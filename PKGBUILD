@@ -79,6 +79,7 @@ depends=(
     'fd-rs'     # Faster alternative to find
     'diff-so-fancy' # A better-looking git diff
     'youtube-dl'    # View online videos in mpv
+    'xdg-user-dirs' # Generates common directories
 
     # Fonts
     'ttf-hack'      # Terminal font
@@ -94,6 +95,7 @@ depends=(
     'python'
     'lua'
     'nodejs'
+    'ghc'
 
     # Other extras
     'pygmentize' # Command line syntax highlighting (used for 'dog')
