@@ -6,8 +6,10 @@
 - Clone a git repository from an upstream url: `git clone <url>`
 - Add files to commit: `git add <files>` **OR** `ga <files>`
 - Commit those files to the repository: `git commit -m <message>` **OR** `gc <message>`
-- Undo the last commit: `gr`
+- Undo the last commit: `gr` **OR** `git reset HEAD~`
+    - Undo the last soft git reset: `git reset 'HEAD@{1}'`
 - Undo the last commit and delete changes: `grr`
+    - Also known as a "hard" git reset
 - Update your local repository with a remote repository: `git pull <remote> <branch>`
     - Most of the time you'll be using `origin master` to pull from your remote repository and `upstream master` to pull from the upstream repository
     - This is the equivalent of clicking "accept pull request" on GitHub
