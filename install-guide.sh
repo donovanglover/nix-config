@@ -24,11 +24,11 @@ timedatectl set-ntp true
 # Make a DOS partition table
 parted /dev/sda mklabel msdos
 # Create the primary partition
-parted /dev/sda mkpart primary ext4 1MiB 14GiB
+parted /dev/sda mkpart primary ext4 1MiB 44GiB
 # Enable boot for the primary partition
 parted /dev/sda set 1 boot on
 # Create the swap partition
-parted /dev/sda mkpart primary linux-swap 14GiB 100%
+parted /dev/sda mkpart primary linux-swap 44GiB 100%
 
 ############ Part 2: Make the filesystem
 
