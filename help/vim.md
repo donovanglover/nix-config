@@ -247,6 +247,9 @@ Macros are used for complex commands that can't be repeated with `.`. They help 
     - To repeat a macro on only a specific set of lines, use: `:<from>,<to>norm! @<SYMBOL>`
     - From line 5 to the end of the file: `:5,$norm! @<SYMBOL>`
     - Repeat a macro on all lines matching a pattern: `:g/pattern/norm! @<SYMBOOL>`
+- Delete all lines that contain a pattern: `:g/pattern/d`
+    - To catch multiple patterns, separate them with `\|`. Example: `:g/pattern_one\|pattern_two/d`
+    - To delete all lines that do NOT contain a pattern, use: `:v/pattern/d`
 
 ## Marking Things
 
