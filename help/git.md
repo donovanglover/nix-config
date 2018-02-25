@@ -49,6 +49,7 @@ Also note that `git clone` makes a remote name of `origin` by default. This is w
     - Always create a new branch when submitting pull requests. This allows you to create multiple pull requests for different issues, prevent conflicts between your master branch and upstream, as well as some other things.
 - Delete a branch when you're done with it: `git branch -d <branch>`
 - Push your changes to a different branch (i.e. your new branch): `git push origin <branch>` **OR** `gp origin <branch>`
+- Rename the current branch: `git branch -m <new_name>`
 
 ### Updating a Forked Repository
 
