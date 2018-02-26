@@ -1,0 +1,5 @@
+# New Start: A modern Arch workflow built with an emphasis on functionality.
+# Copyright (C) 2017 Donovan Glover
+
+# Don't show background colors for mounted files
+OTHER_WRITABLE 0
