@@ -1,0 +1,21 @@
+# New Start: A modern Arch workflow built with an emphasis on functionality.
+# Copyright (C) 2017 Donovan Glover
+
+# Change the directory from ~/.ncmpcpp to ~/.config/ncmpcpp
+ncmpcpp_directory = "~/.config/ncmpcpp"
+
+# Load music files from the ~/Music directory
+mpd_music_dir = "~/Music"
+
+# Always use the "new" user interface
+user_interface = "alternative"
+
+# Always center the new song when changing tracks
+autocenter_mode = "yes"
+
+# Let files be physically deleted inside ncmpcpp
+# Change to "yes" if you want to physically delete songs while listing to them
+allow_for_physical_item_deletion = "no"
+
+# Disable mouse support
+mouse_support = "no"
