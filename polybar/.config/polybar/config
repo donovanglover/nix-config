@@ -1,22 +1,5 @@
-##################################################################################
-#
-#    New Start: A modern Arch workflow built with an emphasis on functionality.
-#    Copyright (C) 2017 Donovan Glover
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
-#
-#    You should have received a copy of the GNU General Public License
-#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-#
-##################################################################################
+# New Start: A modern Arch workflow built with an emphasis on functionality.
+# Copyright (C) 2017-2018 Donovan Glover
 
 [color]
 background = ${xrdb:color0:#19171C}
@@ -36,12 +19,12 @@ background      = ${color.background}
 font-0          = "Fira Mono:size=22"
 font-1          = "Noto Sans CJK JP:size=22"
 
-height          = 88
+height          = 80
 padding-left    = 2
 padding-right   = 2
 module-margin   = 1
 border-bottom-color = ${color.text}
-border-bottom-size = 3
+#border-bottom-size = 2
 
 [module/bspwm]
 type = internal/bspwm
