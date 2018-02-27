@@ -1,22 +1,5 @@
-##################################################################################
-# 
-#    New Start: A modern Arch workflow built with an emphasis on functionality.
-#    Copyright (C) 2017 Donovan Glover
-# 
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
-# 
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
-# 
-#    You should have received a copy of the GNU General Public License
-#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-# 
-##################################################################################
+# New Start: A modern Arch workflow built with an emphasis on functionality.
+# Copyright (C) 2017-2018 Donovan Glover
 
 ####################################################################
 # Screen resolution functions (also changes DPI, but not for the
@@ -36,8 +19,8 @@ function 4k() {
     local display=$(xrandr | grep -Eo ".{0,20} connected" | awk '{print $1}')
 
     # Get the default mode name for 4k
-    local mode=$(cvt 3840 2160 | grep "Modeline" | awk '{print $2}') 
-    
+    local mode=$(cvt 3840 2160 | grep "Modeline" | awk '{print $2}')
+
     # If the 4k mode hasn't been added yet
     if [[ !(xrandr | grep -q 3840x2160) ]]; then
 
@@ -47,7 +30,7 @@ function 4k() {
         # Add the new mode to the display with xrandr
         xrandr --addmode ${display} ${mode}
 
-    fi 
+    fi
 
     xrandr --output ${display} --mode ${mode}       # Change the resolution to 4k
     sed -i '/Xft.dpi/c\Xft.dpi: 180' ~/.Xresources  # Change the dpi line to 180
@@ -58,10 +41,14 @@ function 4k() {
 # Git functions
 ####################################################################
 
-# Easily clone and cd into GitHub repositories 
+# Easily clone and cd into GitHub repositories
+# Usage: hub username/repository [upstream]
 function hub() {
     git clone ssh://git@github.com/$1.git
     cd $(basename "$1")
+    if [[ $2 ]]; then
+        git remote add upstream ssh://git@github.com/$2/$(basename "$1").git
+    fi
 }
 
 # Do the same for GitLab

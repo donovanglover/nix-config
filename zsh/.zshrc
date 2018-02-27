@@ -1,22 +1,5 @@
-##################################################################################
-# 
-#    New Start: A modern Arch workflow built with an emphasis on functionality.
-#    Copyright (C) 2017 Donovan Glover
-# 
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
-# 
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
-# 
-#    You should have received a copy of the GNU General Public License
-#    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-# 
-##################################################################################
+# New Start: A modern Arch workflow built with an emphasis on functionality.
+# Copyright (C) 2017-2018 Donovan Glover
 
 export VISUAL="nvim"
 export EDITOR="nvim"
@@ -35,7 +18,7 @@ export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH" # Add ruby gems to $PATH
 
 # Add custom software to $PATH
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/Home/new-start/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border --color=16'
 
@@ -60,14 +43,14 @@ zstyle ':completion:*:default' menu 'select=0'
 zstyle ':completion:*' list-colors "=(#b) #([0-9]#)*=36=31"
 
 # Source our aliases first, then our functions (some functions rely on aliases)
-source ~/.zsh/aliases.zsh
-source ~/.zsh/functions.zsh
+source ~/.aliases.sh
+source ~/.zsh_functions.zsh
 
 # Source our dircolors
 eval "$(dircolors ~/.dircolors)"
 
 # Use our dircolors for the autocompletion feature of zsh so everything looks consistent
-zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS} 
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 # Add syntax highlighting to zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
