@@ -1,0 +1,153 @@
+# New Start: A modern Arch workflow built with an emphasis on functionality.
+# Copyright (C) 2017-2018 Donovan Glover
+
+# Open a new terminal window
+super + Return
+    urxvtcd
+
+# Reload sxhkd (applies new keybindings, etc.)
+super + Escape
+    pkill -USR1 -x sxhkd
+
+# Close the focused window
+super + q
+    bspc node -c
+
+# Force close the focused window
+super + shift + q
+    bspc node -k
+
+# Switch to the window in a certain direction
+super + {h,j,k,l}
+    bspc node -f {west,south,north,east}
+
+# Swap a window with another in a certain direction
+super + shift + {h,j,k,l}
+    bspc node -s {west,south,north,east}
+
+# Switch between windows in fullscreen (monocle mode)
+super + {n,m}
+    bspc node -f {next,prev}
+
+# Focus the window under the cursor
+super + @space
+    bspc node -f pointed
+
+# Toggle the "sticky" state of a window
+# (i.e. the window follows you no matter
+# which workspace you choose)
+# Useful for videos, etc.
+super + x
+    bspc node -g sticky
+
+# Move to the next desktop on the current monitor
+alt + Tab
+    bspc desktop -f next.local
+
+# Move to the previous desktop on the current monitor
+alt + shift + Tab
+    bspc desktop -f prev.local
+
+# Focus the last window you used
+# Useful to easily go back and forth
+# between windows
+super + c
+    bspc node -f last
+
+# Focus the last desktop you used
+# Useful to easily go back and forth
+# between desktops
+alt + a
+    bspc desktop -f last
+
+# Focus a certain desktop
+super + {1-9,0}
+    bspc desktop -f '^{1-9,10}'
+
+# Send a window to a certain desktop
+super + shift + {1-9,0}
+    bspc node -d '^{1-9,10}'
+
+# Toggle between pseudo_tiled and tiled
+# This floats the window in the area it occupies
+# and automatically centers it
+super + r
+    if [ -z "$(bspc query -N -n focused.pseudo_tiled)" ]; then \
+        bspc node focused -t pseudo_tiled; \
+    else \
+        bspc node focused -t tiled; \
+    fi
+
+# Toggle between tiled and "true" fullscreen
+super + t
+    bspc node focused -t fullscreen
+
+super + shift + t
+    bspc node focused -t tiled
+
+# Toggle between floating and tiled (default)
+# This is the equivalent of a floating window in i3
+super + v
+    if [ -z "$(bspc query -N -n focused.floating)" ]; then \
+        bspc node focused -t floating; \
+    else \
+        bspc node focused -t tiled; \
+    fi
+
+# Same as above
+super + space
+    if [ -z "$(bspc query -N -n focused.floating)" ]; then \
+        bspc node focused -t floating; \
+    else \
+        bspc node focused -t tiled; \
+    fi
+
+# Toggle between "tiled" and "fullscreen" monocle mode
+super + f
+    bspc desktop -l next
+
+super + p
+    ~/.config/sxhkd/screenshot.sh
+
+super + o
+    xdo hide -N "Polybar" && bspc config top_padding 0
+
+# Note that polybar automatically handles top_padding *but*
+# this does not apply to all desktops, so we have to specify it manually here
+# top_padding depends on the height you set in polybar/config
+super + O
+    xdo show -N "Polybar" && bspc config top_padding 80
+
+# =====================
+# ===== Preselect =====
+# =====================
+
+# Preselect where windows go
+super + ctrl + {h,j,k,l}
+    bspc node -p {west,south,north,east}
+
+# Preselect the ratio of windows
+super + ctrl + {1-9}
+    bspc node -o 0.{1-9}
+
+# Cancel the preselection for the focused node
+super + ctrl + space
+    bspc node -p cancel
+
+# ======================
+# ======= Resize =======
+# ======================
+
+# Expand a window (move its side outward)
+super + alt + {h,j,k,l}
+    bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# Contract a window (move its side inward)
+super + alt + shift + {h,j,k,l}
+    bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# Move a floating window
+super + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# vim:ft=sxhkdrc
