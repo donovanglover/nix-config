@@ -1,26 +1,5 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-"    New Start: A modern Arch workflow built with an emphasis on functionality.
-"    Copyright (C) 2017 Donovan Glover
-"
-"    base16-vim: Base16 for Vim
-"    Copyright (C) 2012 Chris Kempson
-"    https://github.com/chriskempson/base16-vim
-"
-"    This program is free software: you can redistribute it and/or modify
-"    it under the terms of the GNU General Public License as published by
-"    the Free Software Foundation, either version 3 of the License, or
-"    (at your option) any later version.
-"
-"    This program is distributed in the hope that it will be useful,
-"    but WITHOUT ANY WARRANTY; without even the implied warranty of
-"    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-"    GNU General Public License for more details.
-"
-"    You should have received a copy of the GNU General Public License
-"    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-"
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" New Start: A modern Arch workflow built with an emphasis on functionality.
+" Copyright (C) 2017-2018 Donovan Glover
 
 " This is a modified version of Chris Kempson's base16-vim that removes a lot of
 " the settings you don't need when using your terminal's colors as the color scheme.
@@ -37,12 +16,12 @@ let s:cterm0C        = "06"
 let s:cterm0D        = "04"
 let s:cterm0E        = "05"
 " Extra colors
-let s:cterm01        = "18" " 10 without 256 colors
-let s:cterm02        = "19" " 11
-let s:cterm04        = "20" " 12
-let s:cterm06        = "21" " 13
-let s:cterm09        = "16" " 09
-let s:cterm0F        = "17" " 14
+let s:cterm01        = "10" " 10 without 256 colors
+let s:cterm02        = "11" " 11
+let s:cterm04        = "12" " 12
+let s:cterm06        = "13" " 13
+let s:cterm09        = "09" " 09
+let s:cterm0F        = "14" " 14
 
 " Highlighting function
 fun <sid>hi(group, ctermfg, ctermbg, attr)

@@ -1,3 +1,6 @@
+" New Start: A modern Arch workflow built with an emphasis on functionality.
+" Copyright (C) 2017-2018 Donovan Glover
+"
 filetype plugin indent on      " Attempt to determine the file type of extensionless files
 syntax enable                  " Turn syntax highlighting on
 
@@ -11,6 +14,7 @@ set ignorecase                 " By default use case-insensitive search (combine
 set smartcase                  " Make search case-sensitive when using capital letters
 set showcmd                    " Always show the current keybinding being executed
 set spell                      " Enable spell check by default
+set hidden                     " Switch between buffers without saving them
 
 set incsearch                  " Automatically move to text as you search for it
 set wildmenu                   " Show a menu of the different options when you tab in command mode

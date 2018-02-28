@@ -1,8 +1,11 @@
+" New Start: A modern Arch workflow built with an emphasis on functionality.
+" Copyright (C) 2017-2018 Donovan Glover
+
 call plug#begin('~/.vim/plugged')       " Use vim-plug as our package manager of choice
-    Plug 'airblade/vim-gitgutter'
+    Plug 'airblade/vim-gitgutter'       " Add git diff support
+    Plug 'chriskempson/base16-vim'      " Add theme support
     Plug 'osyo-manga/vim-over'          " Automatically highlight find and replace
     Plug 'jiangmiao/auto-pairs'         " Close brackets and other pairs automatically
-    Plug 'sukima/xmledit'               " Automatically close tags when writing html
     Plug 'w0rp/ale'                     " Automatically check language syntax for errors
     Plug 'maksimr/vim-jsbeautify'       " Make it easier to work with foreign code
     Plug 'lervag/vimtex'                " Make editing LaTeX a breeze
@@ -35,4 +38,11 @@ call plug#begin('~/.vim/plugged')       " Use vim-plug as our package manager of
     Plug 'mattn/emmet-vim'              " Add emmet support
     Plug 'sgur/vim-editorconfig'        " Add editorconfig support
     Plug 'baskerville/vim-sxhkdrc'      " Add sxhkdrc support
+    Plug 'cespare/vim-toml'             " Add toml support
+    Plug 'dag/vim-fish'                 " Add fish support
+    Plug 'slim-template/vim-slim'       " Add slim support
+    Plug 'pangloss/vim-javascript'      " Improve JavaScript support
+    Plug 'othree/html5.vim'             " Improve HTML support
+    Plug 'alvan/vim-closetag'           " Automatically close tags when writing HTML
+    Plug 'tpope/vim-surround'           " Easily add or remove surrounding characters
 call plug#end()                         " Start the plugins
