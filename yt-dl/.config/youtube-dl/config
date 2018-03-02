@@ -1,0 +1,14 @@
+# New Start: A modern Arch workflow built with an emphasis on functionality.
+# Copyright (C) 2017 Donovan Glover
+
+# Always download the best video format and best audio format, up to 2160p
+--format bestvideo[height<=2160]+bestaudio/best[height<=2160]
+
+# Save downloaded videos in the Videos directory
+--output ~/Videos/%(title)s.%(ext)s
+
+# Do not overwrite files that already exist
+--no-overwrites
+
+# Ignore warnings (Such as merging the audio and video into .mkv)
+--no-warnings
