@@ -20,7 +20,7 @@ bspc rule -a feh state=floating
 # while moving the mouse, similar to i3
 bspc config focus_follows_pointer true
 
-# Colors
-#bspc config normal_border_color
-#bspc config active_border_color
-#bspc config focused_border_color
+# [colors]
+bspc config normal_border_color     "#C0C5CE"
+bspc config active_border_color     "#FFFFFF"
+bspc config focused_border_color    "#FFFFFF"
