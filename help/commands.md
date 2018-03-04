@@ -53,6 +53,8 @@ Note that for all of the above, `cd` is not required.
 - Search for all files of a specific extension in a given directory: `find . -name "*.ext" -type f`
     - Chain `-delete` to the end of the find command in order to delete the results
     - This is useful if, for example, you want to delete all files with the extension `ext` in all directories and subdirectories
+- Show what gets called when you execute a command: `type <command>`
+    - Show everything that is aliased to a given command: `type -a <command>`
 
 ### Changing File Permissions
 
@@ -90,6 +92,7 @@ These programs are installed on top of the base system.
     - Add `-S` to show the size of each duplicate file
     - Add `-d` to delete duplicates during execution
     - Add `-A` to ignore hidden files
+- Search for all files of a specific extension in a given directory, recursively: `fd -e ext`
 
 ### Inox
 
@@ -162,6 +165,8 @@ Note that a git repository must be cloned with SSH if you want to use SSH with i
 - Extract the contents of zip files: `unzip <files>`
 - Extract the contents of a tgz file: `tar -xvzf file.tgz`
 - Extract any type of archiving algorithm: `extract <filename>`
+- Recursively create a new directory for each zip file in the current directory to extract to: `for f in *.zip; do unzip -d "${f%*.zip}" "$f"; done`
+    - Note that you should not use this command if the zip archive contains a directory
 
 **Note**: When using `unrar` or `unzip` to extract multiple files (with wildcards), you must first escape the `*` to `\*`.
 
