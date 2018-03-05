@@ -45,4 +45,7 @@ call plug#begin('~/.vim/plugged')       " Use vim-plug as our package manager of
     Plug 'othree/html5.vim'             " Improve HTML support
     Plug 'alvan/vim-closetag'           " Automatically close tags when writing HTML
     Plug 'tpope/vim-surround'           " Easily add or remove surrounding characters
+    Plug 'chrisbra/csv.vim'             " Add CSV support
+    Plug 'Glench/Vim-Jinja2-Syntax'     " Add Jinja2 support
+    Plug 'mustache/vim-mustache-handlebars' " Add mustache and handlebars support
 call plug#end()                         " Start the plugins
