@@ -6,7 +6,7 @@
 - Clone a git repository from an upstream url: `git clone <url>`
 - Add files to commit: `git add <files>` **OR** `ga <files>`
 - Commit those files to the repository: `git commit -m <message>` **OR** `gc <message>`
-- Undo the last commit: `gr` **OR** `git reset HEAD~`
+- Undo the last commit and keep the changes: `gr` **OR** `git reset HEAD~`
     - Undo the last soft git reset: `git reset 'HEAD@{1}'`
 - Undo the last commit and delete changes: `grr`
     - Also known as a "hard" git reset
@@ -71,6 +71,13 @@ If you need to update your local repository but have local changes, you need to 
 2. Then use `git stash` to store your changes temporarily.
 3. Next rebase the branch you want to update with `upstream/<branch>` (usually master).
 4. Finally use `git stash pop` to update your repository with the stashed changes.
+
+**NOTE**: To undo a git rebase, use `git reset --hard ORIG_HEAD`
+
+To fetch a specific branch from any repository (e.g. your repository):
+
+1. Fetch the changes into a new branch: `git fetch <remote> <name_of_remote_branch>:<name_for_the_local_branch>`
+2. Checkout that branch: `git checkout <name_you_made_for_the_local_branch>`
 
 ## Less common commands
 
