@@ -3,6 +3,7 @@
 
 [color]
 background = ${xrdb:color0:#19171C}
+background-alt = ${xrdb:color8:#8B8792}
 text = ${xrdb:color7:#8B8792}
 highlight = ${xrdb:color2:#AF80AC}
 yellow = ${xrdb:color3:#AF80AC}
@@ -19,12 +20,25 @@ background      = ${color.background}
 font-0          = "Fira Mono:size=22"
 font-1          = "Noto Sans CJK JP:size=22"
 
-height          = 80
+# NOTE: You may want to change height to 80 if you don't want float
+# Also do a grep for 80 and change the other places as well
+height          = 90
 padding-left    = 2
 padding-right   = 2
 module-margin   = 1
-border-bottom-color = ${color.text}
-#border-bottom-size = 2
+border-color = ${color.text}
+#border-color = BE${color.text}
+
+# Make the bar float
+# NOTE: offset-x should be the same as window_gap in your bspwmrc
+offset-x        = 50
+offset-y        = 30
+# NOTE: width = screen resolution - offset-x * 2
+width           = 3740
+# NOTE: border-size should be the same as border_width in your bspwmrc
+border-size     = 3
+
+#line-size = 8
 
 [module/bspwm]
 type = internal/bspwm
@@ -33,11 +47,13 @@ pin-workspaces = true
 label-focused-foreground    = ${color.highlight}
 label-urgent-foreground     = ${color.yellow}
 label-occupied-foreground   = ${color.text}
-label-empty-foreground      = ${color.text}
+label-empty-foreground      = ${color.background-alt}
 label-focused-padding   = 2
 label-urgent-padding    = 2
 label-occupied-padding  = 2
 label-empty-padding     = 2
+
+label-focused-underline = ${color.highlight}
 
 ws-icon-0   = 1;一
 ws-icon-1   = 2;二
@@ -53,19 +69,28 @@ ws-icon-9   = 10;十
 [module/cpu]
 type = internal/cpu
 label = CPU: %percentage%%
+#format-foreground = ${color.yellow}
+#format-underline = ${color.yellow}
 
 [module/ram]
 type = internal/memory
 label = RAM: %gb_used%
+#format-foreground = ${color.blue}
+#format-underline = ${color.blue}
 
 [module/date]
 type = internal/date
 date = %d.%m.%y
 #date = %B %d, %Y
+#date = %A
+#format-foreground = ${color.yellow}
+#format-underline = ${color.yellow}
 
 [module/time]
 type = internal/date
 date = %H:%M
+#format-foreground = ${color.blue}
+#format-underline = ${color.blue}
 
 [module/battery]
 type = internal/battery
@@ -78,9 +103,16 @@ label-discharigng = %percentage%
 
 [module/mpd]
 type = internal/mpd
+#format-offline =
+label-song-maxlen = 100
+label-song-ellipsis = true
+#format-online = <label-song> [<label-time>]
+#format-online-foreground = ${color.text}
 
 [module/volume]
 type = internal/volume
 label-volume = VOL: %percentage%%
+#format-volume-foreground = ${color.highlight}
+#format-volume-underline = ${color.highlight}
 
 ; vim:ft=dosini
