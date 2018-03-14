@@ -76,7 +76,7 @@ depends=(
     'ncdu'      # Ncurses du (disk usage)
     'borg'      # Backup directories
     'exa'       # Drop-in replacement for ls and tree
-    'fd-rs'     # Faster alternative to find
+    'fd'        # Faster alternative to find
     'diff-so-fancy' # A better-looking git diff
     'youtube-dl'    # View online videos in mpv
     'xdg-user-dirs' # Generates common directories

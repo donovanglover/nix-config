@@ -128,8 +128,8 @@ describe "New Start" do
         PKGBUILD.should match /\n\s*'httpie'/
       end
 
-      it "installs fd-rs" do
-        PKGBUILD.should match /\n\s*'fd-rs'/
+      it "installs fd" do
+        PKGBUILD.should match /\n\s*'fd'/
       end
 
       it "installs diff-so-fancy" do
