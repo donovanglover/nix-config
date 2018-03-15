@@ -77,6 +77,7 @@ depends=(
     'borg'      # Backup directories
     'exa'       # Drop-in replacement for ls and tree
     'fd'        # Faster alternative to find
+    'bind-tools'    # DNS tools like dig
     'diff-so-fancy' # A better-looking git diff
     'youtube-dl'    # View online videos in mpv
     'xdg-user-dirs' # Generates common directories
