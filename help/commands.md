@@ -93,6 +93,9 @@ These programs are installed on top of the base system.
     - Add `-d` to delete duplicates during execution
     - Add `-A` to ignore hidden files
 - Search for all files of a specific extension in a given directory, recursively: `fd -e ext`
+- Get the DNS record of a certain domain: `dig <domain>`
+    - Add `+short` to return a shortened version of the result
+    - Add `-t <type>` to return a specific type in the result (e.g. `-t txt`)
 
 ### Inox
 
