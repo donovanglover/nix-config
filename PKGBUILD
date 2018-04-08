@@ -115,6 +115,10 @@ depends=(
     'texlive-formatsextra'  # More formats
     'texlive-bibtexextra'   # More features for BibTeX
     'minted'                # Add syntax highlighting support to LaTeX
+
+    'avidemux-cli'  # Command line video editor
+    'sox'           # Audacity for the terminal
+    'tmux'          # Terminal multiplexer
 )
 
 package() {
