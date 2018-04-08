@@ -5,7 +5,7 @@
 # Sudo and other system aliases
 ####################################################################
 
-alias sudo="sudo " # Make aliases work with sudo (note the extra space)
+alias sudo="sudo " # Make aliases work with sudo (NOTE: Does not work with fish)
 alias pls="sudo"   # A nicer way to ask for root permissions
 
 alias rm="rm -i"        # Always confirm before deleting things (use -f to override)
@@ -60,6 +60,11 @@ alias todo="rg TODO"
 # Use exa as a drop-in replacement for "tree" (faster, more colors, etc.)
 alias tree="exa --long --tree"
 alias t="tree -L 1"
+alias t2="tree -L 2"
+alias t3="tree -L 3"
+
+# Easily copy the contents of any file
+alias copy="xclip -sel clip < "
 
 ####################################################################
 # Git aliases
@@ -86,9 +91,11 @@ alias gl="git lg"                   # Quickly show a list of the most recent com
 # Launch aliases (allow us to easily open external programs)
 ####################################################################
 
-alias f="launch feh"            # Easy image viewing with f
-alias lnox="launch inox"        # Launch inox separate from the terminal
-alias lfox="launch waterfox"    # Launch waterfox separate from the terminal
+alias f="launch feh --auto-zoom"    # Easy image viewing with f
+alias z="launch zathura"            # Easy document browsing with z
+alias m="launch mpv"                # Easy media playing with m
+alias lnox="launch inox"            # Launch inox separate from the terminal
+alias lfox="launch waterfox"        # Launch waterfox separate from the terminal
 
 ####################################################################
 # Fun aliases that don't serve any specific purpose
