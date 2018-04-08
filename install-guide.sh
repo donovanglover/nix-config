@@ -62,6 +62,10 @@ echo "en_US.UTF-8 UTF-8" > /mnt/etc/locale.gen
 # Explicitly set the keymap to US
 echo "KEYMAP=us" > /mnt/etc/vconsole.conf
 
+# Change the terminal font to a bigger one (terminus-font)
+# NOTE: Use latarcyrheb-sun32 if you want to use the default instead
+echo "FONT=ter-132n" >> /mnt/etc/vconsole.conf
+
 # Change the wait time from 90s to 10s, preventing the system from hanging at shutdown
 SYSTEMD="/mnt/etc/systemd/system.conf"
 echo "DefaultTimeoutStartSec=10s" >> $SYSTEMD
@@ -118,3 +122,42 @@ umount /mnt
 
 # Reboot the system
 reboot
+
+############ Part 7: After reboot
+
+# Install packages
+git clone https://github.com/GloverDonovan/new-start
+cd new-start
+makepkg -si
+sudo pacman -U *.xz
+
+# Install an AUR helper
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+sudo pacman -U *.xz
+
+# Install the AUR packages
+yay -S shotgun polybar ttf-noto htop-vim-git inox-bin \
+       waterfox-bin arch-silence-grub-theme launch-cmd
+
+# Enable the Arch Silence GRUB theme
+grub-mkconfig -o /boot/grub/grub.cfg
+
+# Install crystal ctags
+git clone https://github.com/SuperPaintman/crystal-ctags
+cd crystal-ctags
+sudo make install
+
+# Install all the vim plugins
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+vim +PlugInstall +qall
+
+# Add the `undo` directory for regular vim
+mkdir ~/.vim/undo
+
+# Choose which dotfiles you want to install:
+stow bspwm # Change this to whatever you want
+
+# Finally, run `startx` and you should have a working system!
