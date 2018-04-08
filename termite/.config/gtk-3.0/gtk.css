@@ -1,0 +1,8 @@
+/* New Start: A modern Arch workflow built with an emphasis on functionality.
+ * Copyright (C) 2017-2018 Donovan Glover
+ */
+
+.termite {
+    /* Same as URxvt.internalBorder */
+    padding: 30px;
+}
