@@ -130,4 +130,15 @@ autocmd BufNewFile,BufRead *.slang setlocal filetype=slim
 
 " Use htmldjango for html files
 " autocmd BufNewFile,BufRead *.html setlocal filetype=htmldjango
-autocmd BufNewFile,BufRead *.html setlocal filetype=html
+" autocmd BufNewFile,BufRead *.html setlocal filetype=html
+autocmd BufNewFile,BufRead *.html setlocal filetype=jinja
+
+" Disable vim-markdown folding
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_math = 1
+let g:vim_markdown_frontmatter = 1
+autocmd BufNewFile,BufRead *.md set conceallevel=2
+" au BufNewFile,BufRead,BufWrite *.md syntax match Comment /\%^---\_.\{-}---$/
+
+" Change cursor back to blink after exiting neovim
+au VimLeave * set guicursor=a:block-blinkon1

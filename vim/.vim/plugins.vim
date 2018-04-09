@@ -48,4 +48,5 @@ call plug#begin('~/.vim/plugged')       " Use vim-plug as our package manager of
     Plug 'chrisbra/csv.vim'             " Add CSV support
     Plug 'Glench/Vim-Jinja2-Syntax'     " Add Jinja2 support
     Plug 'mustache/vim-mustache-handlebars' " Add mustache and handlebars support
+    Plug 'plasticboy/vim-markdown'          " Add more markdown support (LaTeX, frontmatter, etc.)
 call plug#end()                         " Start the plugins
