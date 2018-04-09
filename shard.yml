@@ -1,6 +1,0 @@
-name: new-start
-description: A modern Arch workflow built with an emphasis on functionality.
-version: 0.1.0
-
-license: GPLv3
-crystal: 0.24.0
