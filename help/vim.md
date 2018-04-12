@@ -129,6 +129,8 @@ Note that `ci<block>` and `ca<block>` work for pretty much anything, including `
 
 Note that text deleted is also copied into vim's hidden buffer. There is no need for a "cut" command since copying things is handled automatically by vim.
 
+**NOTE**: If you want to copy all lines in a file to the clipboard, use: `:%y+`
+
 Repeat the last operation with `.`. This is really powerful when you want to perform the same action multiple times.
 
 If you want to repeat the last operation on multiple lines, simply press `<C-v>` to enter visual block mode, select the lines you want to operate on, then execute `.` on them.
