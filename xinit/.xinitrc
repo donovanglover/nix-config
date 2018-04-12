@@ -1,3 +1,6 @@
+# New Start: A modern Arch workflow built with an emphasis on functionality.
+# Copyright (C) 2017-2018 Donovan Glover
+
 # Source the .Xresources and .xmodmap files
 xrdb -merge ~/.Xresources
 xmodmap ~/.xmodmap
