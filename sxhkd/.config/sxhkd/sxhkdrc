@@ -5,6 +5,10 @@
 super + Return
     urxvtcd
 
+# Open a new terminal window with tmux
+super + shift + Return
+    urxvtcd -e "tmux"
+
 # Reload sxhkd (applies new keybindings, etc.)
 super + Escape
     pkill -USR1 -x sxhkd
@@ -116,7 +120,8 @@ super + o
 # this does not apply to all desktops, so we have to specify it manually here
 # top_padding depends on the height you set in polybar/config
 super + O
-    xdo show -N "Polybar" && bspc config top_padding 80
+    xdo show -N "Polybar" && bspc config top_padding 128
+    # xdo show -N "Polybar" && bspc config top_padding 80
 
 # =====================
 # ===== Preselect =====
@@ -149,5 +154,10 @@ super + alt + shift + {h,j,k,l}
 # Move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# Prevent a node from being changed (resized, moved, etc.)
+# when you create new ones
+super + y
+    bspc node focused -g private
 
 # vim:ft=sxhkdrc
