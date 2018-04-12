@@ -108,6 +108,23 @@ To fetch a specific branch from any repository (e.g. your repository):
 
 **NOTE:** You should only merge commits with local commits that you haven't pushed yet. Doing this for upstream commits can cause problems for other people that have cloned your repository.
 
+### Finding Bad Commits
+
+Before you begin, you should know a commit in which the program was working properly. Since you already know that issue is a part of the current revision, you can use `git bisect` to perform a binary search until the problem commit is found.
+
+1. Start the search with `git bisect start`
+2. Build and test the current commit to see if the problem is present.
+3. If the problem is found, use `git bisect bad`
+4. Otherwise, use `git bisect good`
+
+The problem commit is the "first bad commit" found through this process.
+
+Once you're done with finding the problem commit, use `git bisect reset` to go back to the repository's original state.
+
+**NOTE**: `git bisect run ./test` is a way to automate this process.
+
+To see the commits that have been tested so far, use `git bisect log`
+
 ### Working with Tags
 
 - Show all the tags in a repository: `git tag`
