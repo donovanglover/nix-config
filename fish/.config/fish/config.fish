@@ -4,7 +4,19 @@
 set -U fish_greeting ""
 set -U fish_history ""
 set -U fish_user_paths
-set -x BROWSER "waterfox"
+
+export VISUAL="nvim"
+export EDITOR="nvim"
+export BROWSER="waterfox"
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+export GPG_TTY=(tty)
+
+set x (ruby -e 'print Gem.user_dir')
+
+export PATH="$x/bin:$PATH" # Add ruby gems to $PATH
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
+export FZF_DEFAULT_OPTS='--height 40% --reverse --border --color=16'
 
 fish_default_key_bindings
 
