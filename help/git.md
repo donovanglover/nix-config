@@ -4,6 +4,7 @@
 
 - Start a new git repository: `git init` **OR** `gi`
 - Clone a git repository from an upstream url: `git clone <url>`
+    - Add `--depth N` to only fetch the last N commits (useful when you don't need the older commits)
 - Add files to commit: `git add <files>` **OR** `ga <files>`
 - Commit those files to the repository: `git commit -m <message>` **OR** `gc <message>`
 - Undo the last commit and keep the changes: `gr` **OR** `git reset HEAD~`
@@ -48,6 +49,7 @@ Also note that `git clone` makes a remote name of `origin` by default. This is w
     - Note that the branch should be descriptive but not too long (i.e. don't make it longer than above, since the example above is pretty long already)
     - Always create a new branch when submitting pull requests. This allows you to create multiple pull requests for different issues, prevent conflicts between your master branch and upstream, as well as some other things.
 - Delete a branch when you're done with it: `git branch -d <branch>`
+    - Delete a remote branch: `gp -d <remote> <branch>`
 - Push your changes to a different branch (i.e. your new branch): `git push origin <branch>` **OR** `gp origin <branch>`
 - Rename the current branch: `git branch -m <new_name>`
 
@@ -105,6 +107,7 @@ To fetch a specific branch from any repository (e.g. your repository):
     - Merge the commit with the previous commit: `squash`
     - Merge the commit with the previous commit and discard the commit message: `fixup`
 - Rename a git directory to use different capitalization (e.g. from uppercase to lowercase): `git mv <old_name> <temp_name>` **THEN** `git mv <temp_name> <new_name>`
+- Sign all previous commits: `git filter-branch -f --commit-filter 'git commit-tree -S "$@"' HEAD`
 
 **NOTE:** You should only merge commits with local commits that you haven't pushed yet. Doing this for upstream commits can cause problems for other people that have cloned your repository.
 
