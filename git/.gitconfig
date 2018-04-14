@@ -1,0 +1,49 @@
+[include]
+    path = ~/.gituser
+
+# Always sign commits
+[commit]
+    gpgsign = true
+
+[core]
+    editor = vim
+    autocrlf = false
+    pager = diff-so-fancy | less --tabs=4 -RFX
+    excludesfile = ~/.gitignore
+
+[web]
+    browser = waterfox
+
+[push]
+    default = simple
+
+[branch]
+    autosetuprebase = always
+
+[rerere]
+    enabled = true
+
+[color]
+    ui = true
+
+[alias]
+    s = status -s
+    lg = log --oneline --decorate --all --graph -n 10
+    contrib = shortlog -n -s
+    remotes = remote -v
+    praise = blame
+    verify = log --show-signature
+
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
+
+[color "diff"]
+    meta = yellow
+    frag = magenta bold
+    commit = yellow bold
+    old = red bold
+    new = green bold
+    whitespace = red reverse
