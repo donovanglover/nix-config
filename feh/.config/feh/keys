@@ -75,8 +75,8 @@ menu_select
 # Add our custom keybindings
 # Note that k goes right (next) and j goes left (prev)
 toggle_fullscreen f
-next_img k
-prev_img j
+next_img k Right
+prev_img j Left
 toggle_filenames d
 toggle_fixed_geometry g
 toggle_pause h
@@ -85,8 +85,8 @@ size_to_image w
 jump_random z
 scroll_left b
 scroll_right n
-scroll_up u
-scroll_down d
+scroll_up u Up
+scroll_down d Down
 zoom_in h
 zoom_out l
 zoom_default o
