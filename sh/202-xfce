@@ -1,0 +1,37 @@
+#!/bin/sh
+#
+# After all these years, Xfce is still one of the best desktop
+# environments. Although the defaults are bland, you can customize
+# it to look however you want.
+#
+# Alternatively install the `xfce4-goodies` package if you want
+# everything instead of the select few applications I choose here.
+#
+# Note that Xfce doesn't exactly handle HiDPI well, so you might want
+# to use bspwm or Plasma instead.
+#
+# mousepad: basic text editor
+# parole: basic media player
+# ristretto: basic image viewer
+#
+# https://wiki.archlinux.org/index.php/Xfce
+
+set -xe
+
+pacman -S xfce4
+
+pacman -S mousepad
+
+pacman -S parole
+
+pacman -S ristretto
+
+pacman -S xfce4-mpc-plugin
+
+pacman -S xfce4-notifyd
+
+pacman -S xfce4-pulseaudio-plugin
+
+pacman -S xfce4-screenshooter
+
+pacman -S xfce4-taskmanager
