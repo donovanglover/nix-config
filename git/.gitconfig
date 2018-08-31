@@ -12,7 +12,7 @@
     excludesfile = ~/.gitignore
 
 [web]
-    browser = waterfox
+    browser = firefox
 
 [push]
     default = simple

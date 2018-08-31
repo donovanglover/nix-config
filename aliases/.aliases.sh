@@ -95,7 +95,7 @@ alias f="launch feh --auto-zoom"    # Easy image viewing with f
 alias z="launch zathura"            # Easy document browsing with z
 alias m="launch mpv"                # Easy media playing with m
 alias lnox="launch inox"            # Launch inox separate from the terminal
-alias lfox="launch waterfox"        # Launch waterfox separate from the terminal
+alias lfox="launch firefox"         # Launch firefox separate from the terminal
 
 ####################################################################
 # Fun aliases that don't serve any specific purpose

@@ -32,7 +32,7 @@ URxvt.pointerBlank: true
 ! https://wiki.gentoo.org/wiki/Rxvt-unicode
 URxvt.perl-ext-common: default,selection-to-clipboard,pasta,matcher,keyboard-select
 URxvt.keysym.M-u: perl:url-select:select_next
-URxvt.url-launcher: /usr/bin/waterfox
+URxvt.url-launcher: /usr/bin/firefox
 URxvt.underlineURLs: true
 URxvt.matcher.button: 1
 URxvt.keysym.M-Escape:perl:keyboard-select:activate

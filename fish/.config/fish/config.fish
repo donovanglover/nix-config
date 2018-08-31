@@ -7,7 +7,7 @@ set -U fish_user_paths
 
 export VISUAL="nvim"
 export EDITOR="nvim"
-export BROWSER="waterfox"
+export BROWSER="firefox"
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 export GPG_TTY=(tty)
 

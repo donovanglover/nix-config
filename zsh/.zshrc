@@ -3,7 +3,7 @@
 
 export VISUAL="nvim"
 export EDITOR="nvim"
-export BROWSER="waterfox"
+export BROWSER="firefox"
 
 # Use rg instead of ag / ack / grep for fzf (much faster)
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
