@@ -1,0 +1,18 @@
+#!/bin/sh
+#
+# Note that before we'd use the `ttf-noto` package from the AUR,
+# although I doubt this is needed anymore with the official packages.
+#
+# https://wiki.archlinux.org/index.php/Fonts
+
+set -xe
+
+sudo pacman -S ttf-hack
+
+sudo pacman -S ttf-fira-mono
+
+sudo pacman -S ttf-roboto
+
+sudo pacman -S ttf-dejavu ttf-liberation
+
+sudo pacman -S noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra

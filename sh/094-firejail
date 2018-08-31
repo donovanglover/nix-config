@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# Firejail is the standard sandboxing software.
+#
+# To run a program with firejail, simply use:
+#   firejail <program_name>
+#
+# https://wiki.archlinux.org/index.php/Firejail
+
+set -xe
+
+pacman -S firejail
