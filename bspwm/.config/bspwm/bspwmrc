@@ -6,10 +6,15 @@ sxhkd &
 
 bspc monitor -d 1 2 3 4 5 6
 
-bspc config border_width        3
-bspc config window_gap          20
+bspc config border_width        2
+bspc config window_gap          40
 
 bspc config split_ratio          0.50
+
+# Only enable monocle mode with the explicit keybinding, and
+# when it is enabled, don't show borders or gaps (i.e. let it
+# take up the full available space on the screen).
+bspc config single_monocle       false
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
@@ -19,6 +24,9 @@ bspc rule -a feh state=floating
 # Always focus the window under the cursor
 # while moving the mouse, similar to i3
 bspc config focus_follows_pointer true
+
+# Start polybar
+~/.config/polybar/launch.sh
 
 # [colors]
 bspc config normal_border_color     "#C0C5CE"
