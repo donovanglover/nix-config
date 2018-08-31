@@ -20,9 +20,6 @@ call plug#begin('~/.vim/plugged')       " Use vim-plug as our package manager of
     Plug 'rhysd/vim-crystal'            " Add support for the crystal language
     Plug 'scrooloose/nerdtree'          " Add a file browser to vim
 
-    Plug 'majutsushi/tagbar'            " Add tagbar to show functions on the side
-    Plug 'lvht/tagbar-markdown'         " Add support for markdown to tagbar
-
     Plug 'rust-lang/rust.vim'           " Add rust support to vim
 
     Plug 'jamessan/vim-gnupg'           " Easily use GPG encryption inside of vim

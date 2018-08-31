@@ -8,7 +8,6 @@ endif
 source ~/.vim/plugins.vim
 source ~/.vim/config.vim
 source ~/.vim/colors.vim
-source ~/.vim/ctags.vim
 source ~/.vim/keybindings.vim
 
 " =================================== Plugin-Specific ===================================

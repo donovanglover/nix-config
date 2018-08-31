@@ -16,7 +16,7 @@ nnoremap <silent> <leader>p <C-u>
 " ================== Middle row
 "nnoremap <silent> <leader>a :NERDTreeToggle<CR>
 nnoremap <silent> <leader>a :Files<CR>
-nnoremap <silent> <leader>d :TagbarToggle<CR>
+"nnoremap <silent> <leader>d :TagbarToggle<CR>
 nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>g :set hlsearch!<CR>
 " Easily jump between lines in all open files
