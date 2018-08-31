@@ -1,0 +1,15 @@
+#!/bin/sh
+#
+# Inox is a patchset to provide a minimal Chromium-based browser.
+#
+# Note that if `inox-bin` isn't updated when the libraries it uses
+# are updated (e.g. icu) then the most future-proof workaround is
+# building it yourself with the `inox` package instead.
+#
+# `inox` should take around 3 hours to compile on a modern setup.
+#
+# https://github.com/gcarq/inox-patchset
+
+set -xe
+
+yay -S inox-bin

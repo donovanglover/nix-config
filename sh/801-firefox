@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# Firefox is the standard web browser.
+#
+# Note that you should install fonts before you install Firefox,
+# as it requires a ttf variant.
+#
+# https://wiki.archlinux.org/index.php/Firefox
+
+set -xe
+
+pacman -S firefox
