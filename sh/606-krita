@@ -1,0 +1,10 @@
+#!/bin/sh
+#
+# Krita is the standard painting program. It has excellent
+# support for KDE and supports HiDPI out of the box.
+#
+# https://krita.org
+
+set -xe
+
+pacman -S krita

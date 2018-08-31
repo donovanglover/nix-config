@@ -1,0 +1,23 @@
+#!/bin/sh
+#
+# `texlive-most` is a meta package that has everything we need.
+# Before we'd pick and choose which packages to install, but this
+# doesn't really matter in the long term and having "most" of
+# texlive is good enough anyway.
+#
+# `minted` is used for syntax highlighting support. This is useful
+# when writing code blocks with La(TeX)
+#
+# `texstudio` is a nice IDE for some projects. If your project is
+# relatively small and you're using KDE, feel free to include it.
+# HiDPI is supported out of the box.
+#
+# https://wiki.archlinux.org/index.php/TeX_Live
+
+set -xe
+
+pacman -S texlive-most
+
+pacman -S minted
+
+pacman -S texstudio

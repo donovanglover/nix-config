@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# VirtualBox lets you run virtual machines inside of your Arch
+# Linux installation. It works really well with KDE since the
+# interface uses Qt. This also means that HiDPI support is
+# easily achieved.
+#
+# https://wiki.archlinux.org/index.php/VirtualBox
+
+set -xe
+
+pacman -S virtualbox virtualbox-host-modules-arch

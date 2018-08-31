@@ -1,0 +1,14 @@
+#!/bin/sh
+#
+# As cool as it is to write your papers in a *vim terminal*,
+# sometimes the basics just work, and that's all you need to
+# get stuff done.
+#
+# LibreOffice has improved a lot over the years. It also works
+# great with KDE. Give it a try.
+#
+# https://wiki.archlinux.org/index.php/Libreoffice
+
+set -xe
+
+pacman -S libreoffice-fresh

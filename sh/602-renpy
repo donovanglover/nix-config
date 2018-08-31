@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# Ren'Py is the standard visual novel engine.
+#
+# https://renpy.org/
+
+set -xe
+
+pacman -S renpy
