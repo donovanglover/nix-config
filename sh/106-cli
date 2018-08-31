@@ -1,0 +1,34 @@
+#!/bin/sh
+#
+# This script installs an assortment of common CLI tools that I use
+# regularly enough to warrant inclusion.
+#
+# Note that you could also install `lolcat` if you really wanted to.
+#
+# https://github.com/junegunn/fzf
+# https://github.com/sharkdp/fd
+# https://github.com/BurntSushi/ripgrep
+# https://github.com/jakubroztocil/httpie
+# https://github.com/ogham/exa
+# https://github.com/stedolan/jq
+# https://github.com/borgbackup/borg
+# https://github.com/rg3/youtube-dl
+
+set -xe
+
+pacman -S jq            # JSON manipulation
+pacman -S ripgrep       # Faster than ag / ack / grep
+pacman -S fzf           # Fuzzy find anything
+pacman -S httpie        # Make HTTP requests
+pacman -S fd            # Faster alternative to find
+pacman -S exa           # Drop-in replacement for ls and tree
+
+pacman -S fdupes        # Find duplicate files
+pacman -S bind-tools    # DNS tools like dig
+
+pacman -S ncdu          # Ncurses du (disk usage)
+pacman -S borg          # Backup directories
+pacman -S youtube-dl    # View online videos in mpv
+pacman -S neofetch      # Bragging rights
+
+pacman -S pygmentize    # Command line syntax highlighting (used for 'dog')
