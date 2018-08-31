@@ -1,0 +1,16 @@
+#!/bin/sh
+#
+# Node lets us write JavaScript code outside of the browser.
+#
+# Yarn is the preferred dependency manager, however, some programs
+# have npm hard-coded as a dependency, so we install that as well.
+#
+# https://wiki.archlinux.org/index.php/Node.js
+
+set -xe
+
+pacman -S nodejs
+
+pacman -S npm
+
+pacman -S yarn

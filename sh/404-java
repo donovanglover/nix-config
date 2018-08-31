@@ -1,0 +1,10 @@
+#!/bin/sh
+#
+# Java is a programming language used in many programming contests.
+# This is arguably the only reason why we have it here.
+#
+# https://wiki.archlinux.org/index.php/Java
+
+set -xe
+
+pacman -S jdk10-openjdk
