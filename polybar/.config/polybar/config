@@ -43,6 +43,25 @@ border-size     = 3
 
 line-size = 8
 
+[bar/secondary]
+modules-left    = bspwm
+modules-center  = mpd
+modules-right   = cpu ram volume date time
+
+monitor         = VGA-1
+foreground      = ${color.text}
+background      = ${color.background}
+font-0          = "Fira Mono:size=22"
+font-1          = "Noto Sans CJK JP:size=22"
+
+height          = 80
+padding-left    = 2
+padding-right   = 2
+module-margin   = 1
+border-color = ${color.background}
+border-bottom-size     = 0
+line-size = 4
+
 [module/bspwm]
 type = internal/bspwm
 pin-workspaces = true

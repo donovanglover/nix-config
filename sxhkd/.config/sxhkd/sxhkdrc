@@ -120,8 +120,8 @@ super + o
 # this does not apply to all desktops, so we have to specify it manually here
 # top_padding depends on the height you set in polybar/config
 super + O
-    xdo show -N "Polybar" && bspc config top_padding 128
-    # xdo show -N "Polybar" && bspc config top_padding 80
+    xdo show -N "Polybar" && bspc config top_padding 80
+    # xdo show -N "Polybar" && bspc config top_padding 128
 
 # =====================
 # ===== Preselect =====
