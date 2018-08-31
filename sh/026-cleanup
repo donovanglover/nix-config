@@ -1,0 +1,15 @@
+#!/bin/sh
+#
+# The installation process is done. Unmount the filesystem and
+# restart the computer in order to boot into the new system.
+#
+# Alternatively, you can perform more operations with chroot
+# before you unmount and reboot.
+#
+# https://wiki.archlinux.org/index.php/Installation_guide
+
+set -xe
+
+umount /mnt
+
+reboot

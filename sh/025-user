@@ -1,0 +1,23 @@
+#!/bin/sh
+#
+# Create a new user account with sudo privileges and the fish shell.
+# Then, and add a password to it.
+#
+# Note that the default password will be the same as your username.
+#
+# To change the root password, use passwd.
+# To change the new user's password, use passwd <username>.
+#
+# https://wiki.archlinux.org/index.php/Password
+
+set -xe
+
+$USERNAME = "hello"
+
+arch-chroot /mnt useradd -m -g users -G wheel -s /usr/bin/fish $USERNAME
+
+# This is a workaround to the problem of using pipes with arch-chroot
+echo "echo $USERNAME:$USERNAME | chpasswd" > /mnt/root/chpasswd.sh
+chmod +x /mnt/root/chpasswd.sh
+arch-chroot /mnt /root/chpasswd.sh
+rm /mnt/root/chpasswd.sh

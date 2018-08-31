@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# Install grub to the primary partition. Then, make the
+# configuration file for grub.
+#
+# https://wiki.archlinux.org/index.php/Grub
+
+set -xe
+
+arch-chroot /mnt grub-install /dev/sda
+
+arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
