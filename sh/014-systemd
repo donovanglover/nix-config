@@ -1,0 +1,14 @@
+#!/bin/sh
+#
+# Change the systemd wait time from 90s to 10s, preventing the
+# system from hanging at shutdown.
+#
+# https://unix.stackexchange.com/questions/273876
+# https://old.reddit.com/r/archlinux/comments/4bawf7
+
+set -xe
+
+SYSTEMD="/mnt/etc/systemd/system.conf"
+
+echo "DefaultTimeoutStartSec=10s" >> $SYSTEMD
+echo "DefaultTimeoutStopSec=10s"  >> $SYSTEMD

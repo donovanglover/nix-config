@@ -1,0 +1,11 @@
+#!/bin/sh
+#
+# Enable colors in pacman by uncommenting the Color line.
+#
+# https://wiki.archlinux.org/index.php/Color_output_in_console#pacman
+
+set -xe
+
+PACMAN="/mnt/etc/pacman.conf"
+
+sed -i '/Color/s/^#//g' $PACMAN

@@ -1,0 +1,16 @@
+#!/bin/sh
+#
+# Set the hostname in all the necessary places.
+#
+# Note that if your system has a permanent IP address, that
+# should be used instead of 127.0.0.1.
+#
+# https://wiki.archlinux.org/index.php/Installation_guide
+
+set -xe
+
+$HOSTNAME = "arch"
+
+echo "$HOSTNAME" > /mnt/etc/hostname
+echo "127.0.1.1 $HOSTNAME.localdomain $HOSTNAME" >> /mnt/etc/hosts
+

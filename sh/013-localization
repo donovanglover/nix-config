@@ -1,0 +1,23 @@
+#!/bin/sh
+#
+# Set the language to English and use the en_US.UTF-8 locale.
+# Then, generate it.
+#
+# Next, explicitly set the keymap to US.
+#
+# Note that we also change the terminal font to a bigger one
+# (terminus-font) since this setting also uses vconsole.conf.
+# Use `latarcyrheb-sun32` if you want to use the default
+# terminal font instead.
+#
+# https://wiki.archlinux.org/index.php/Installation_guide
+
+set -xe
+
+echo "LANG=en_US.UTF-8"  > /mnt/etc/locale.conf
+echo "en_US.UTF-8 UTF-8" > /mnt/etc/locale.gen
+
+arch-chroot /mnt locale-gen
+
+echo "KEYMAP=us" > /mnt/etc/vconsole.conf
+echo "FONT=ter-132n" >> /mnt/etc/vconsole.conf
