@@ -1,0 +1,14 @@
+#!/bin/sh
+#
+# Vim is the standard text editor.
+#
+# https://wiki.archlinux.org/index.php/Vim
+
+set -xe
+
+pacman -S vim
+
+pacman -S neovim
+
+# Add the `undo` directory for regular vim
+mkdir -p ~/.vim/undo

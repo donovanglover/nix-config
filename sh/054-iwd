@@ -1,0 +1,20 @@
+#!/bin/sh
+#
+# Use iwd if you want to connect over a wireless network.
+#
+# Once the service is started, you can control it with `iwctl`.
+#
+# List all available commands: help
+# List all wifi devices: device list
+# Scan for networks: device <interface> span
+# List networks: device <interface> get-networks
+# Connect to a WPA2 protected network:
+#   device <interface> connect <network_name>
+#
+# https://wiki.archlinux.org/index.php/Iwd
+
+set -xe
+
+sudo pacman -S iwd
+
+systemctl enable iwd.service

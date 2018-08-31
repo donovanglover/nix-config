@@ -1,0 +1,11 @@
+#!/bin/sh
+#
+# The DHCP client daemon (dhcpcd) is used for internet / LAN access.
+# By enabling it as a service, we don't have to manually execute it
+# every time at logon.
+#
+# https://wiki.archlinux.org/index.php/Dhcpcd
+
+set -xe
+
+systemctl enable dhcpcd.service
