@@ -141,3 +141,14 @@ autocmd BufNewFile,BufRead *.md set conceallevel=2
 
 " Change cursor back to blink after exiting neovim
 au VimLeave * set guicursor=a:block-blinkon1
+
+" Only hide the dots we don't need
+let g:vimfiler_ignore_pattern = ['^\.git$', '^\.shards$', '^\.sass-cache$']
+
+" Only use standard for JavaScript
+let g:ale_linters = {'javascript': ['standard']}
+
+" Ignore syntax concealing for markdown files
+let g:vim_markdown_conceal = 0
+let g:tex_conceal = ""
+let g:vim_markdown_math = 1

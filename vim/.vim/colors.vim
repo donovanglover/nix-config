@@ -269,5 +269,8 @@ hi GitGutterDelete ctermbg=none
 " Remove functions
 delf <sid>hi
 
+" Hide the tilde (~) from empty files
+highlight EndOfBuffer ctermfg=0
+
 " Remove color variables
 unlet s:cterm00 s:cterm01 s:cterm02 s:cterm03 s:cterm04 s:cterm05 s:cterm06 s:cterm07 s:cterm08 s:cterm09 s:cterm0A s:cterm0B s:cterm0C s:cterm0D s:cterm0E s:cterm0F

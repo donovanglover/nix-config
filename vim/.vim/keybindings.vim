@@ -45,3 +45,7 @@ autocmd FileType css        nnoremap <silent> <leader>b :call CSSBeautify()<CR>
 nnoremap <silent> <leader>2 :PencilSoft<CR>:Goyo<CR>:hi vertsplit ctermfg=8 ctermbg=none<CR>
 nnoremap <silent> <leader>3 :mksession! ~/.vim_session<CR>
 nnoremap <silent> <leader>4 :source ~/.vim_session<CR>
+
+" Close the current buffer without closing the window
+" Useful for when you want to close a buffer with VimFiler open
+nnoremap <silent> <leader>5 :bp<bar>sp<bar>bn<bar>bd<CR>
