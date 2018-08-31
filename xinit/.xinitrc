@@ -13,15 +13,14 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
     unset f
 fi
 
+# Never blank the screen (disable power saving)
+xset s off -dpms
+
 # Start compton
 compton -b
 
 # Set the desktop background
-feh --no-fehbg --bg-fill ~/.config/feh/back.jpg
-
-# ip link then dhcpcd to get an active internet connection
-ip link
-sudo dhcpcd
+feh --no-fehbg --bg-fill ~/.config/feh/back.png
 
 # Start the window manager
 exec bspwm
