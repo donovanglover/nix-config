@@ -46,4 +46,10 @@ call plug#begin('~/.vim/plugged')       " Use vim-plug as our package manager of
     Plug 'Glench/Vim-Jinja2-Syntax'     " Add Jinja2 support
     Plug 'mustache/vim-mustache-handlebars' " Add mustache and handlebars support
     Plug 'plasticboy/vim-markdown'          " Add more markdown support (LaTeX, frontmatter, etc.)
+    Plug 'quabug/vim-gdscript'          " Add Godot support
+    Plug 'posva/vim-vue'                " Add Vue support
+    Plug 'mxw/vim-jsx'                  " Add React support
+    Plug 'digitaltoad/vim-pug'          " Add Pug support
+    Plug 'kchmck/vim-coffee-script'     " Add CoffeeScript support
+    Plug 'leafgarland/typescript-vim'   " Add TypeScript support
 call plug#end()                         " Start the plugins
