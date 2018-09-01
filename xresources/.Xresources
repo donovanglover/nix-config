@@ -39,33 +39,37 @@ URxvt.keysym.M-Escape:perl:keyboard-select:activate
 URxvt.keysym.Control-Shift-V: perl:pasta:paste
 URxvt.clipboard.autocopy: true
 
+! Disable default ctrl shift behavior of urxvt
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
 ! This line is used to indicate where to add theme colors. Note that everything
 ! after this line is replaced. See the theme docs for more information.
 ! [colors]
-*foreground: #C0C5CE
-*cursorColor: #CDD3DE
-*background: #1B2B34
-*color0: #1B2B34
-*color8: #65737E
-*color7: #C0C5CE
-*color15: #D8DEE9
-*color1: #EC5f67
-*color9: #EC5f67
-*color2: #99C794
-*color10: #99C794
-*color3: #FAC863
-*color11: #FAC863
-*color4: #6699CC
-*color12: #6699CC
-*color5: #C594C5
-*color13: #C594C5
-*color6: #5FB3B3
-*color14: #5FB3B3
-*color16: #F99157
-*color17: #AB7967
-*color18: #343D46
-*color19: #4F5B66
-*color20: #A7ADBA
-*color21: #CDD3DE
+*foreground: #D0D0D0
+*cursorColor: #E0E0E0
+*background: #151515
+*color0: #151515
+*color8: #505050
+*color7: #D0D0D0
+*color15: #FFFFFF
+*color1: #FF0086
+*color9: #FF0086
+*color2: #00C918
+*color10: #00C918
+*color3: #ABA800
+*color11: #ABA800
+*color4: #3777E6
+*color12: #3777E6
+*color5: #AD00A1
+*color13: #AD00A1
+*color6: #1FAAAA
+*color14: #1FAAAA
+*color16: #FD8900
+*color17: #CC6633
+*color18: #202020
+*color19: #303030
+*color20: #B0B0B0
+*color21: #E0E0E0
 
 ! vim:ft=xdefaults
