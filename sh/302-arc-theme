@@ -1,0 +1,13 @@
+#!/bin/sh
+#
+# Arc is also a often used theme. Once again, there is also
+# a KDE version for consistency across the two.
+#
+# https://github.com/horst3180/arc-theme
+# https://github.com/PapirusDevelopmentTeam/arc-kde
+
+set -xe
+
+pacman -S arc-gtk-theme
+
+pacman -S arc-kde

@@ -1,0 +1,10 @@
+#!/bin/sh
+#
+# Papirus is the go-to icon theme used by many. It just works.
+#
+# https://wiki.archlinux.org/index.php/Icons
+# https://github.com/PapirusDevelopmentTeam/papirus-icon-theme
+
+set -xe
+
+pacman -S papirus-icon-theme
