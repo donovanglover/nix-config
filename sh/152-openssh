@@ -1,0 +1,39 @@
+#!/bin/sh
+#
+# OpenSSH is the standard SSH tool for both client side and
+# server side operations. By default SSH servers listen on TCP
+# port 22, but you should specify a high random number to prevent
+# brute force attempts.
+#
+# To connect to a server, use:
+#   ssh -p port user@server-address
+#
+# Note that connecting via public-key authentication (i.e. SSH
+# keys) is the standard. You should disable password logins
+# entirely.
+#
+# To let other clients access your machine, enable the ssh
+# daemon service:
+#   systemctl enable sshd.service
+#
+# If you let external computers access your machine through SSH,
+# then you need to make sure to configure `/etc/ssh/sshd_config`
+# appropriately.
+#
+# Note that `mosh` may also be a viable solution for certain
+# use cases (note that it must be used with a terminal multiplexer
+# like tmux for session history).
+#
+# If you want to SSH into your server with an internet hotspot that
+# blocks anything except ports 80 / 443, you can use a server
+# multiplexer like `sslh`.
+#
+# https://wiki.archlinux.org/index.php/Secure_Shell
+# https://wiki.archlinux.org/index.php/SSH_keys
+# https://wiki.archlinux.org/index.php/Port_knocking
+# https://mosh.org/
+# https://www.rutschle.net/tech/sslh/README.html
+
+set -xe
+
+pacman -S openssh

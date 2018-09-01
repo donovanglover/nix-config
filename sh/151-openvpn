@@ -1,0 +1,11 @@
+#!/bin/sh
+#
+# This script adds support for connecting to a VPN with OpenVPN.
+# Alternatively, you can also use it as a server and host your
+# own VPN.
+#
+# https://wiki.archlinux.org/index.php/OpenVPN
+
+set -xe
+
+pacman -S openvpn
