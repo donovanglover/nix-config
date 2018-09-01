@@ -1,0 +1,11 @@
+#!/bin/sh
+#
+# `pacman-contrib` is used for tools like `paccache`, which
+# allows us to get rid of older cached packages to save
+# disk space.
+#
+# https://wiki.archlinux.org/index.php/Pacman
+
+set -xe
+
+pacman -S pacman-contrib

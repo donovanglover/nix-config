@@ -1,0 +1,20 @@
+#!/bin/sh
+#
+# Font settings are very important! These make your Arch Linux
+# installation look a lot better than the defaults.
+#
+# https://wiki.archlinux.org/index.php/Font_Configuration
+# https://old.reddit.com/r/archlinux/comments/5r5ep8
+
+set -xe
+
+FONTS="/etc/fonts"
+
+# Disable embedded bitmaps for all fonts
+ln -s $FONTS/conf.avail/70-no-bitmaps.conf $FONTS/conf.d
+
+# Enable sub-pixel RGB rendering
+ln -s $FONTS/conf.avail/10-sub-pixel-rgb.conf $FONTS/conf.d
+
+# Enable the LCD filter (reduces color fringing)
+ln -s $FONTS/conf.avail/11-lcdfilter-default.conf $FONTS/conf.d
