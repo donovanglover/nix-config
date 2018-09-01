@@ -26,6 +26,8 @@ alias ls="exa"
 alias l="exa -1"      # Show each output from ls on a separate line
 alias lsa="exa -a"    # Show hidden files (also known as dotfiles)
 
+alias where="type"    # An alternative for shells that don't use the where command
+
 ####################################################################
 # Volume aliases
 ####################################################################
@@ -58,10 +60,11 @@ alias dog="pygmentize -g"
 alias todo="rg TODO"
 
 # Use exa as a drop-in replacement for "tree" (faster, more colors, etc.)
-alias tree="exa --long --tree"
+alias tree="exa --long --tree -I 'node_modules|lib'"
 alias t="tree -L 1"
 alias t2="tree -L 2"
 alias t3="tree -L 3"
+alias te="tree"
 
 # Easily copy the contents of any file
 alias copy="xclip -sel clip < "
