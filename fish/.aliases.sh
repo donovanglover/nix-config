@@ -48,7 +48,6 @@ alias vh="nvim -i NONE -c 'set noswapfile' -c 'set noundofile' -c 'set nobackup'
 alias dl="youtube-dl -f bestvideo+bestaudio"
 
 alias back="feh --no-fehbg --bg-fill"          # Easily set a new background (temporary)
-alias synctime="ntpdate -u 0.us.pool.ntp.org"  # Sync the system time with one on the internet
 
 # Show the lines that are in <file2> but NOT in <file1>
 alias compare="grep -nFxvf" # Usage: compare <file1> <file2>
