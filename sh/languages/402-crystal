@@ -14,8 +14,8 @@
 
 set -xe
 
-pacman -S crystal
+sudo pacman -S crystal
 
-pacman -S shards
+sudo pacman -S shards
 
-pacman -S llvm
+sudo pacman -S llvm

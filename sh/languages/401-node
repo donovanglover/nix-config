@@ -9,8 +9,8 @@
 
 set -xe
 
-pacman -S nodejs
+sudo pacman -S nodejs
 
-pacman -S npm
+sudo pacman -S npm
 
-pacman -S yarn
+sudo pacman -S yarn

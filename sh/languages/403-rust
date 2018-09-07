@@ -14,7 +14,7 @@
 
 set -xe
 
-pacman -S rustup
+sudo pacman -S rustup
 
 rustup install stable
 
