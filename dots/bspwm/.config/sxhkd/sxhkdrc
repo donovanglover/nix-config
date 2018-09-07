@@ -3,11 +3,11 @@
 
 # Open a new terminal window
 super + Return
-    urxvtcd
+    termite
 
 # Open a new terminal window with tmux
 super + shift + Return
-    urxvtcd -e "tmux"
+    termite -e "tmux"
 
 # Reload sxhkd (applies new keybindings, etc.)
 super + Escape
