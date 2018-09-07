@@ -5,9 +5,6 @@
 # Sudo and other system aliases
 ####################################################################
 
-alias sudo="sudo " # Make aliases work with sudo (NOTE: Does not work with fish)
-alias pls="sudo"   # A nicer way to ask for root permissions
-
 alias rm="rm -i"        # Always confirm before deleting things (use -f to override)
 alias mkdir="mkdir -p"  # Automatically make parent directories that don't exist yet
 
@@ -24,7 +21,6 @@ alias exa="exa --group-directories-first"
 alias ls="exa"
 
 alias l="exa -1"      # Show each output from ls on a separate line
-alias lsa="exa -a"    # Show hidden files (also known as dotfiles)
 
 alias where="type"    # An alternative for shells that don't use the where command
 
@@ -35,7 +31,6 @@ alias where="type"    # An alternative for shells that don't use the where comma
 # Usage: vol 10%+ (Increase the volume by 10%), vol 10%- (Decrease by 10%)
 # vol 100% (Set the volume to 100%)
 alias vol="amixer set 'Master' "
-alias volume="vol"
 
 ####################################################################
 # Miscellaneous aliases

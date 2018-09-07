@@ -2,24 +2,22 @@
 # Copyright (C) 2017-2018 Donovan Glover
 
 set -U fish_greeting ""
-set -U fish_history ""
-set -U fish_user_paths
 
 export VISUAL="nvim"
 export EDITOR="nvim"
 export BROWSER="firefox"
+
+# Use rg instead of ag / ack / grep for fzf (much faster)
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
-export GPG_TTY=(tty)
-
-set x (ruby -e 'print Gem.user_dir')
-
-export PATH="$x/bin:$PATH" # Add ruby gems to $PATH
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/bin:$PATH"
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border --color=16'
 
+# Required to make gpg-agent work in cases like git commit
+export GPG_TTY=(tty)
+
+# Always use the default keybindings in fish
 fish_default_key_bindings
 
+# Source our aliases
 source ~/.aliases.sh
 
 # Start X at login
