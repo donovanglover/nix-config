@@ -10,4 +10,4 @@ set -xe
 
 sudo pacman -S rng-tools
 
-systemctl enable rngd.service
+sudo systemctl enable rngd.service

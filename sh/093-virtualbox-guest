@@ -8,4 +8,4 @@
 
 set -xe
 
-pacman -S virtualbox-guest-utils virtualbox-guest-modules-arch
+sudo pacman -S virtualbox-guest-utils virtualbox-guest-modules-arch

@@ -36,4 +36,4 @@
 
 set -xe
 
-pacman -S openssh
+sudo pacman -S openssh

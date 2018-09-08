@@ -22,4 +22,4 @@
 
 set -xe
 
-pacman -S plasma
+sudo pacman -S plasma

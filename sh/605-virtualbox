@@ -9,4 +9,4 @@
 
 set -xe
 
-pacman -S virtualbox virtualbox-host-modules-arch
+sudo pacman -S virtualbox virtualbox-host-modules-arch

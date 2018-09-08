@@ -6,4 +6,4 @@
 
 set -xe
 
-pacman -S tmux
+sudo pacman -S tmux

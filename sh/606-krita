@@ -3,8 +3,18 @@
 # Krita is the standard painting program. It has excellent
 # support for KDE and supports HiDPI out of the box.
 #
+# Krita also works quite well as an image editor.
+#
+# You *could* use GIMP if you wanted to, but even with the HiDPI
+# patch in 2.10, you still have to change a lot of settings in
+# order for it to look semi-decent. Additionally, it requires GTK2
+# as a dependency and you get none of the KDE features with it.
+#
+# In other words, it's much better to learn Krita than try to
+# install GIMP in its current state.
+#
 # https://krita.org
 
 set -xe
 
-pacman -S krita
+sudo pacman -S krita

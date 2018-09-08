@@ -18,20 +18,20 @@
 
 set -xe
 
-pacman -S xfce4
+sudo pacman -S xfce4
 
-pacman -S mousepad
+sudo pacman -S mousepad
 
-pacman -S parole
+sudo pacman -S parole
 
-pacman -S ristretto
+sudo pacman -S ristretto
 
-pacman -S xfce4-mpc-plugin
+sudo pacman -S xfce4-mpc-plugin
 
-pacman -S xfce4-notifyd
+sudo pacman -S xfce4-notifyd
 
-pacman -S xfce4-pulseaudio-plugin
+sudo pacman -S xfce4-pulseaudio-plugin
 
-pacman -S xfce4-screenshooter
+sudo pacman -S xfce4-screenshooter
 
-pacman -S xfce4-taskmanager
+sudo pacman -S xfce4-taskmanager

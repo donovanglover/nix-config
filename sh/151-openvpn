@@ -8,4 +8,4 @@
 
 set -xe
 
-pacman -S openvpn
+sudo pacman -S openvpn

@@ -16,19 +16,19 @@
 
 set -xe
 
-pacman -S jq            # JSON manipulation
-pacman -S ripgrep       # Faster than ag / ack / grep
-pacman -S fzf           # Fuzzy find anything
-pacman -S httpie        # Make HTTP requests
-pacman -S fd            # Faster alternative to find
-pacman -S exa           # Drop-in replacement for ls and tree
+sudo pacman -S jq            # JSON manipulation
+sudo pacman -S ripgrep       # Faster than ag / ack / grep
+sudo pacman -S fzf           # Fuzzy find anything
+sudo pacman -S httpie        # Make HTTP requests
+sudo pacman -S fd            # Faster alternative to find
+sudo pacman -S exa           # Drop-in replacement for ls and tree
 
-pacman -S fdupes        # Find duplicate files
-pacman -S bind-tools    # DNS tools like dig
+sudo pacman -S fdupes        # Find duplicate files
+sudo pacman -S bind-tools    # DNS tools like dig
 
-pacman -S ncdu          # Ncurses du (disk usage)
-pacman -S borg          # Backup directories
-pacman -S youtube-dl    # View online videos in mpv
-pacman -S neofetch      # Bragging rights
+sudo pacman -S ncdu          # Ncurses du (disk usage)
+sudo pacman -S borg          # Backup directories
+sudo pacman -S youtube-dl    # View online videos in mpv
+sudo pacman -S neofetch      # Bragging rights
 
-pacman -S pygmentize    # Command line syntax highlighting (used for 'dog')
+sudo pacman -S pygmentize    # Command line syntax highlighting (used for 'dog')
