@@ -24,6 +24,9 @@ alias l="exa -1"      # Show each output from ls on a separate line
 
 alias where="type"    # An alternative for shells that don't use the where command
 
+alias ...="cd ../.."      # Easily go up 2 directories
+alias ....="cd ../../.."  # Easily go up 3 directories
+
 ####################################################################
 # Volume aliases
 ####################################################################

@@ -41,3 +41,5 @@ set shiftwidth=4               " Make autoindent appear as 4 spaces
 
 set expandtab                  " When using <Tab>, replace the tab character with 4 spaces
 set smarttab                   " Always indent based on column number to align things easier
+
+set mouse=a                    " Enable mouse support in (a)ll modes
