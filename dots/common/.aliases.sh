@@ -57,11 +57,12 @@ alias dog="pygmentize -g"
 alias todo="rg TODO"
 
 # Use exa as a drop-in replacement for "tree" (faster, more colors, etc.)
-alias tree="exa --long --tree -I 'node_modules|lib'"
+alias tree="exa --long --tree -I 'node_modules|lib|.git'"
 alias t="tree -L 1"
 alias t2="tree -L 2"
 alias t3="tree -L 3"
 alias te="tree"
+alias ta="tree -a"
 
 # Easily copy the contents of any file
 alias copy="xclip -sel clip < "
