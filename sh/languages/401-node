@@ -5,7 +5,14 @@
 # Yarn is the preferred dependency manager, however, some programs
 # have npm hard-coded as a dependency, so we install that as well.
 #
+# We set the yarn prefix to /usr/local so libraries installed
+# globally with yarn are automatically in our $PATH.
+#
+# We enable emojis since our terminal (termite) supports them. A
+# nice addition for some added flair.
+#
 # https://wiki.archlinux.org/index.php/Node.js
+# https://yarnpkg.com/en/docs/cli/global
 
 set -xe
 
@@ -14,3 +21,7 @@ sudo pacman -S nodejs
 sudo pacman -S npm
 
 sudo pacman -S yarn
+
+yarn config set prefix /usr/local
+
+yarn config set -- --emoji true
