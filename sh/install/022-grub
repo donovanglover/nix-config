@@ -9,4 +9,13 @@ set -xe
 
 arch-chroot /mnt grub-install /dev/sda
 
+# This should work, since /etc/default/grub should exist after
+# installing the grub package with pacman, although it hasn't
+# been tested yet. This prevents the GRUB window from showing
+# at boot, which is ideal for single operating system machines.
+#
+# In the future, if you need to use grub, simply chroot into
+# your system, edit the config file, and grub-mkconfig once more.
+sed -i '/GRUB_TIMEOUT/c\GRUB_TIMEOUT=0' /etc/default/grub
+
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
