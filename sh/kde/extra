@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# There are lots of programs written in Qt. These programs play
+# really well with KDE Plasma. HiDPI support by default is a
+# nice thing to have.
+#
+# https://wiki.archlinux.org/index.php/Qt
+
+set -xe
+
+sudo pacman -S obs-studio        # Screen recording software
+sudo pacman -S baka-mplayer      # mpv with a GUI

@@ -18,6 +18,17 @@
 # users out of the box. There is no need to worry about making new
 # users manually, as this can be handled through the GUI.
 #
+# To snyc notifications between your computer and your phone, use
+# a shared clipboard, and some other things, you can add a line to
+# install the `kdeconnect` package as well.
+#
+# NOTE: Plasma also comes with network-manager and plasma-nm. If you
+# want to use network-manager instead of dhcpcd or iwd, you must
+# first stop (and disable) the service for these components, then
+# enable and start `NetworkManager.service`.
+#
+# To see which services are running, use: systemctl --type=service
+#
 # https://wiki.archlinux.org/index.php/KDE
 
 set -xe

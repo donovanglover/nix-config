@@ -1,0 +1,21 @@
+#!/bin/sh
+#
+# Random games from the KDE applications package. These are
+# particularly fun to play and are great to pass the time with.
+
+set -xe
+
+sudo pacman -S kapman        # Pacman
+sudo pacman -S katomic       # A game based on molecular geometry
+sudo pacman -S kfourinline   # Four in a row
+sudo pacman -S kmines        # Minesweeper
+sudo pacman -S kpatience     # Solitaire and other card games
+sudo pacman -S kollision     # Reaction game
+sudo pacman -S ksnakeduel    # Snake game
+sudo pacman -S ksquares      # Dots and boxes game
+sudo pacman -S ksudoku       # Sodoku
+sudo pacman -S picmi         # Logic game
+sudo pacman -S kdiamond      # Three in a row
+sudo pacman -S blinken       # Memory game
+sudo pacman -S bovo          # Like tic-tac-toe, but 5 rows instead
+sudo pacman -S kbruch        # Practice fractions

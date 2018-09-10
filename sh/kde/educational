@@ -1,0 +1,21 @@
+#!/bin/sh
+#
+# There is a `kde-applications` group package, although here we
+# hand pick the ones that we want to use.
+#
+# Note that kcalc (the basic calculator) isn't needed since all
+# common calculator commands can be accomplished with krunner
+# (alt+f2). There is also kalgebra which works great.
+#
+# https://www.archlinux.org/groups/x86_64/kde-applications
+
+set -xe
+
+sudo pacman -S kalgebra      # A great 2D and 3D graph calculator for offline use
+sudo pacman -S kalzium       # Periodic table AND many useful calculator tools
+sudo pacman -S ktouch        # Typing practice
+sudo pacman -S kmplot        # Fast 2D plot with option to save
+sudo pacman -S rocs          # Graph theory IDE
+sudo pacman -S step          # Physics simulator
+sudo pacman -S kwordquiz     # A very good flash card program
+sudo pacman -S parley        # Vocabulary trainer

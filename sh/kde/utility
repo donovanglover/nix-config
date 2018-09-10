@@ -1,0 +1,41 @@
+#!/bin/sh
+#
+# Note that Audacity does NOT support hidpi, which is why we use kwave
+# instead. As a bonus we get all the features of KDE as well.
+#
+# For Dolphin:
+#
+# Enable Previews with (Control > Configure Dolphin > General > Previews)
+# Enable Plugins with (Control > Configure Dolphin > Services)
+
+set -xe
+
+sudo pacman -S dolphin                   # File manager
+sudo pacman -S dolphin-plugins           # Git status icon on files
+sudo pacman -S kdegraphics-thumbnailers  # PDF thumbnails
+sudo pacman -S kimageformats             # GIMP and other image thumbnails
+sudo pacman -S ffmpegthumbs              # Video thumbnails
+
+sudo pacman -S ark           # Archive tool (compress and uncompress with GUI)
+sudo pacman -S okular        # Document viewer
+sudo pacman -S gwenview      # Image viewer
+
+sudo pacman -S kcharselect   # Character select
+sudo pacman -S kcolorchooser # Color chooser
+sudo pacman -S kfind         # File searcher (fd)
+sudo pacman -S filelight     # Disk usage viewer
+
+sudo pacman -S kwrite        # Text editor
+sudo pacman -S kolourpaint   # Paint
+sudo pacman -S spectacle     # Screenshot program
+
+sudo pacman -S kleopatra     # GPG IDE
+sudo pacman -S juk           # Music player
+
+sudo pacman -S kdenlive      # Video editor
+sudo pacman -S kwave         # Audio editor
+
+sudo pacman -S khelpcenter   # Help center
+sudo pacman -S krfb          # Share your desktop
+sudo pacman -S krdc          # Connect to other desktops
+sudo pacman -S print-manager # Print manager
