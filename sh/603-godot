@@ -1,9 +1,0 @@
-#!/bin/sh
-#
-# Godot is the standard game engine.
-#
-# https://wiki.archlinux.org/index.php/Godot_Engine
-
-set -xe
-
-yay -S godot
