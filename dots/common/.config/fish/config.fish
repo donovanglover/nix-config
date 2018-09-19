@@ -38,8 +38,22 @@ if not set -q set_abbr
     abbr gss    "git status"
     abbr gr     "git reset HEAD~"           # Undo the last commit but keep changed files
     abbr gre    "git remote --verbose"      # List all remotes
-    abbr grh    "git reset head"
+    abbr grh    "git reset HEAD"
     abbr grr    "git reset --hard HEAD~"    # Remove the last commit and all changes with it
+
+    abbr dl     "youtube-dl"
+    abbr back   "feh --no-fehbg --bg-fill"  # Change the background temporarily
+    abbr vol    "amixer set 'Master' "      # Change the volume, e.g. vol 10%+, vol 10%-, vol 100%
+    abbr copy   "xclip -sel clip < "        # Easily copy the contents of any file
+
+    abbr l      "ls -l"
+    abbr t      "tree"
+    abbr f      "launch feh --auto-zoom"    # Easy image viewing with f
+    abbr z      "launch zathura"            # Easy document browsing with z
+    abbr m      "launch mpv"                # Easy media playing with m
+
+    abbr lium   "launch chromium"           # Launch chromium separate from the terminal
+    abbr lfox   "launch firefox"            # Launch firefox separate from the terminal
 end
 
 # Start X at login
