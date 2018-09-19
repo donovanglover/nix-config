@@ -1,0 +1,4 @@
+# This .stow-local-ignore file is used to prevent stow from
+# ignoring the .gitignore file by default.
+#
+# https://www.gnu.org/software/stow/manual/stow.html#Ignore-Lists
