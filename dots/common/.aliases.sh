@@ -5,11 +5,6 @@
 # Sudo and other system aliases
 ####################################################################
 
-alias rm="rm -i"        # Always confirm before deleting things (use -f to override)
-alias mkdir="mkdir -p"  # Automatically make parent directories that don't exist yet
-
-alias p="pwd | sed -e 's!$HOME!~!g'"    # Same as pwd, but uses ~ instead of $HOME
-
 # Easily start fresh with a clean terminal
 # Note that "clear force" (cf) clears the terminal for real and doesn't have
 # any side effects when resizing windows or scrolling up
