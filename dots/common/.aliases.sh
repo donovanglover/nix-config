@@ -31,27 +31,6 @@ alias dog="pygmentize -g"
 alias copy="xclip -sel clip < "
 
 ####################################################################
-# Git aliases
-####################################################################
-
-alias g="git"                       # In case we ever need to type a full command
-alias ga="git add"                  # Swiftly add new files to the repository
-alias gaa="git add --all"           # Quickly add all the files changed in a repository
-alias gap="git add --patch"         # Commit a file one part at a time
-alias gb="git branch --verbose"     # Show a list of all the branches in the repository
-alias gc="git commit -m"            # Easily create new commits
-alias gca="git commit --amend"      # Easily amend previous commits
-alias gd="git diff"                 # Show all file changes that you haven't added yet
-alias gds="git diff --staged"       # Show the changes you added but haven't committed yet
-alias gg="git grep"                 # Easily grep for a string inside the git repository
-alias gp="git push"                 # Push your commits to remote (usually origin)
-alias gs="git status"               # Compare any local changes you've made to the remote
-alias gr="git reset HEAD~"          # Undo the last commit but keep your changed files
-alias gre="git remote --verbose"    # Show all the remotes for the repository
-alias grr="git reset --hard HEAD~"  # Remove the last commit and all changes with it
-alias gl="git lg"                   # Quickly show a list of the most recent commits
-
-####################################################################
 # Launch aliases (allow us to easily open external programs)
 ####################################################################
 

@@ -27,8 +27,6 @@
     ui = true
 
 [alias]
-    s = status -s
-    lg = log --oneline --decorate --all --graph -n 10
     contrib = shortlog -n -s
     remotes = remote -v
     praise = blame
