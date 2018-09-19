@@ -1,9 +1,0 @@
-#!/bin/sh
-#
-# `tmux` is the standard terminal multiplexer.
-#
-# https://wiki.archlinux.org/index.php/Tmux
-
-set -xe
-
-sudo pacman -S tmux
