@@ -1,61 +1,31 @@
 # New Start: A modern Arch workflow built with an emphasis on functionality.
 # Copyright (C) 2017-2018 Donovan Glover
 
-####################################################################
-# Sudo and other system aliases
-####################################################################
-
-# Easily start fresh with a clean terminal
-# Note that "clear force" (cf) clears the terminal for real and doesn't have
-# any side effects when resizing windows or scrolling up
 alias c="clear"
-alias cf="tput reset"
 
 # Make ls a lot easier to read (print directories first, just like ranger)
 alias exa="exa --group-directories-first"
 alias ls="exa"
+alias l="ls -l"
 
-alias l="exa -1"      # Show each output from ls on a separate line
+# Use exa as a drop-in replacement for "tree" (faster, more colors, etc.)
+alias tree="exa --long --tree -I 'node_modules|lib|.git'"
+alias t="tree"
 
-alias ...="cd ../.."      # Easily go up 2 directories
-alias ....="cd ../../.."  # Easily go up 3 directories
-
-####################################################################
-# Volume aliases
-####################################################################
-
-# Usage: vol 10%+ (Increase the volume by 10%), vol 10%- (Decrease by 10%)
-# vol 100% (Set the volume to 100%)
+# Change the volume, e.g. vol 10%+, vol 10%-, vol 100%
 alias vol="amixer set 'Master' "
-
-####################################################################
-# Miscellaneous aliases
-####################################################################
-
-alias vz="nvim +Files"   # Open any file inside a directory easily with fzf
-alias vh="nvim -i NONE -c 'set noswapfile' -c 'set noundofile' -c 'set nobackup'"
 
 # Quick and easy way to download the majority of online videos
 alias dl="youtube-dl -f bestvideo+bestaudio"
 
-alias back="feh --no-fehbg --bg-fill"          # Easily set a new background (temporary)
+# Easily set a new background (temporary)
+alias back="feh --no-fehbg --bg-fill"
 
 # Show the lines that are in <file2> but NOT in <file1>
 alias compare="grep -nFxvf" # Usage: compare <file1> <file2>
 
 # "dog" is a colorful version of cat
 alias dog="pygmentize -g"
-
-# Easily show all of the todos in a given project
-alias todo="rg TODO"
-
-# Use exa as a drop-in replacement for "tree" (faster, more colors, etc.)
-alias tree="exa --long --tree -I 'node_modules|lib|.git'"
-alias t="tree -L 1"
-alias t2="tree -L 2"
-alias t3="tree -L 3"
-alias te="tree"
-alias ta="tree -a"
 
 # Easily copy the contents of any file
 alias copy="xclip -sel clip < "
