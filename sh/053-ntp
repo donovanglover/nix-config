@@ -1,9 +1,0 @@
-#!/bin/sh
-#
-# Sync the time periodically with a remote server.
-#
-# https://wiki.archlinux.org/index.php/Systemd-timesyncd
-
-set -xe
-
-timedatectl set-ntp true

@@ -16,6 +16,7 @@ noto-fonts-extra
 tmux
 htop
 openssh
+openvpn
 
 vim
 neovim
@@ -62,6 +63,7 @@ minted
 firefox
 chromium
 firejail
+code
 
 nodejs
 npm
