@@ -39,6 +39,15 @@ borg
 youtube-dl
 neofetch
 
+ranger
+w3m
+sc
+sox
+
+mpc
+mcd
+ncmpcpp
+
 pygmentize
 xclip
 
@@ -65,3 +74,6 @@ llvm
 rustup
 
 jdk10-openjdk
+
+docker
+docker-compose
