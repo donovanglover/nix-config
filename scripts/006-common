@@ -1,0 +1,51 @@
+#!/bin/sh
+#
+# Common commands used to configure installed software.
+
+set -xe
+
+# Configure yarn
+if hash yarn 2>/dev/null; then
+    echo 'Found yarn. Configuring it...'
+    yarn config set prefix /usr/local
+    yarn config set -- --emoji true
+fi
+
+# Set up a rust toolchain
+if hash rustup 2>/dev/null; then
+    echo 'Found rust. Configuring the default toolchain...'
+    rustup install stable
+    rustup default stable
+fi
+
+# Start and enable docker
+if hash docker 2>/dev/null; then
+    echo 'Found docker. Requesting administrative rights to configure the service...'
+    sudo systemctl start docker.service
+    sudo systemctl enable docker.service
+fi
+
+# Install vim plugins and make the undo directory
+if hash vim 2>/dev/null; then
+    echo 'Found vim. Making directory for global undo and installing plugins...'
+    mkdir -p ~/.vim/undo
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    # TODO: Prompt for confirmation before running this script
+    vim +PlugInstall +qall
+fi
+
+# https://github.com/masterkorp/openvpn-update-resolv-conf
+# Note that openresolv should already be installed by netctl.
+if hash openvpn 2>/dev/null; then
+    echo 'Found openvpn. Downloading open-resolv-conf.sh...'
+    sudo curl -fLo /etc/openvpn/update-resolv-conf.sh --create-dirs \
+        https://raw.githubusercontent.com/masterkorp/openvpn-update-resolv-conf/master/update-resolv-conf.sh
+    # TODO: Prompt for confirmation that the script is valid
+fi
+
+# Add user dirs if they don't exist yet (Desktop, Downloads, etc.)
+if hash xdg-user-dirs-update 2>/dev/null; then
+    echo 'Found xdg-user-dirs. Attempting to create directories...'
+    xdg-user-dirs-update
+fi

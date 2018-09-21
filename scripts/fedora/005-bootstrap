@@ -1,0 +1,48 @@
+#!/bin/sh
+
+set -xe
+
+# Change the working directory to the location of this script
+# Then, move up to the root directory of the git repo
+cd "$(dirname "$0")"
+cd ../..
+
+# Raise an error if no environment is given
+if [ "$#" -ne 1 ]; then
+    echo 'Usage: sh ./path/to/bootstrap <environment>'
+    exit 1
+fi
+
+# Install common packages if tig isn't found (one of the common packages)
+if ! hash tig 2>/dev/null; then
+    echo 'Installing common packages...'
+    sudo dnf install $(cat ./packages/fedora/common) --assumeyes
+
+    echo 'Stowing common dotfiles...'
+    stow -S common --dir=dots --target=$HOME --no-folding --verbose=2
+
+    echo 'Configuring common packages...'
+    sh ./scripts/006-common
+fi
+
+# Install gnome packages
+if [ $1 == "gnome" ]; then
+    echo 'Installing gnome packages...'
+    sudo dnf install $(cat ./packages/fedora/gnome) --assumeyes
+
+    echo 'Now that the gnome packages are installed, you must set it up manually.'
+    exit 0
+fi
+
+# Install xfce packages
+if [ $1 == "xfce" ]; then
+    echo 'Installing xfce packages...'
+    sudo dnf install $(cat ./packages/fedora/xfce) --assumeyes
+
+    echo 'Now that the xfce packages are installed, you must set it up manually.'
+    exit 0
+fi
+
+# Throw an error if the script couldn't find a valid environment to use
+echo 'Invalid environment specified. Must be either "gnome" or "xfce"'
+exit 1
