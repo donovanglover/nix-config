@@ -17,9 +17,11 @@ export GPG_TTY=(tty)
 # Always use the default keybindings in fish
 fish_default_key_bindings
 
-# Source our aliases
-source ~/.aliases.sh
+# Use exa as a drop-in replacement for ls and tree (faster, more colors, etc.)
+alias ls="exa --group-directories-first"
+alias tree="exa --group-directories-first --long --tree -I 'node_modules|lib|.git'"
 
+# Abbreviations are aliases that expand
 if not set -q set_abbr
     set -U set_abbr
     abbr g      "git"
@@ -34,8 +36,8 @@ if not set -q set_abbr
     abbr gg     "git grep"
     abbr gl     "git log --oneline --decorate --all --graph -n 10"
     abbr gp     "git push"                  # Push your commits to a remote server
-    abbr gs     "git status -s"
-    abbr gss    "git status"
+    abbr gs     "git status"
+    abbr gss    "git status -s"
     abbr gr     "git reset HEAD~"           # Undo the last commit but keep changed files
     abbr gre    "git remote --verbose"      # List all remotes
     abbr grh    "git reset HEAD"
@@ -45,7 +47,9 @@ if not set -q set_abbr
     abbr back   "feh --no-fehbg --bg-fill"  # Change the background temporarily
     abbr vol    "amixer set 'Master' "      # Change the volume, e.g. vol 10%+, vol 10%-, vol 100%
     abbr copy   "xclip -sel clip < "        # Easily copy the contents of any file
+    abbr dog    "pygmentize -g"             # "dog" is a colorful version of cat
 
+    abbr c      "clear"                     # Because 5 letters is too much
     abbr l      "ls -l"
     abbr t      "tree"
     abbr f      "launch feh --auto-zoom"    # Easy image viewing with f
@@ -54,6 +58,9 @@ if not set -q set_abbr
 
     abbr lium   "launch chromium"           # Launch chromium separate from the terminal
     abbr lfox   "launch firefox"            # Launch firefox separate from the terminal
+
+    abbr nano   "vim"                       # The explanation is in the name
+    abbr emacs  "vim"                       # No need to start another operating system
 end
 
 # Start X at login
