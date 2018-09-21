@@ -1,9 +1,0 @@
-#!/bin/sh
-#
-# Give the wheel group permission to use the sudo and su commands.
-#
-# https://wiki.archlinux.org/index.php/Sudo
-
-set -xe
-
-echo "%wheel ALL=(ALL) ALL" >> /mnt/etc/sudoers

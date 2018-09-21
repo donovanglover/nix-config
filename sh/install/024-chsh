@@ -1,7 +1,0 @@
-#!/bin/sh
-#
-# Change the shell of the root account to fish.
-#
-# https://wiki.archlinux.org/index.php/Command-line_shell
-
-arch-chroot /mnt chsh -s /usr/bin/fish

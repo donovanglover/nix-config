@@ -1,0 +1,60 @@
+#!/bin/sh
+#
+# Once this script finishes, change the root password with passwd,
+# then unmount /mnt (with umount) and restart the system.
+#
+# https://wiki.archlinux.org/index.php/Installation_guide
+
+set -xe
+
+$HOSTNAME = "arch"
+
+# Generate the fstab file (so the filesystem is mounted on boot)
+genfstab -U /mnt > /mnt/etc/fstab
+
+# Set the timezone
+arch-chroot /mnt ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
+
+# Generate /etc/adjtime
+arch-chroot /mnt hwclock --systohc
+
+# Set the hostname
+echo "$HOSTNAME" > /mnt/etc/hostname
+
+# Configure the hosts file (if your system has a permanent IP address, use that instead of 127.0.1.1)
+echo "127.0.0.1 localhost"                          >> /mnt/etc/hosts
+echo "::1       localhost"                          >> /mnt/etc/hosts
+echo "127.0.1.1 $HOSTNAME.localdomain $HOSTNAME"    >> /mnt/etc/hosts
+
+# Set the language to English and use the en_US.UTF-8 locale.
+echo "LANG=en_US.UTF-8"  > /mnt/etc/locale.conf
+echo "en_US.UTF-8 UTF-8" > /mnt/etc/locale.gen
+
+# Generate the locale.
+arch-chroot /mnt locale-gen
+
+# Explicitly set the keymap to US.
+echo "KEYMAP=us" > /mnt/etc/vconsole.conf
+
+# Change the terminal font to a larger one (`latarcyrheb-sun32` is also an option)
+echo "FONT=ter-132n" >> /mnt/etc/vconsole.conf
+
+# Install grub to the primary partition.
+arch-chroot /mnt grub-install /dev/sda
+
+# Prevent the GRUB window from showing at boot, ideal for single OS machines (undo with chroot and mkconfig)
+sed -i '/GRUB_TIMEOUT/c\GRUB_TIMEOUT=0' /mnt/etc/default/grub
+
+# This should make the startup process not output anything (not tested)
+sed -i '/GRUB_CMDLINE_LINUX_DEFAULT/c\GRUB_CMDLINE_LINUX_DEFAULT="quiet show_status=0 rd.udev.log-priority=3 loglevel=3"' /mnt/etc/default/grub
+
+# Make the configuration file for grub.
+arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
+
+# Change the shell of the root account to fish.
+arch-chroot /mnt chsh -s /usr/bin/fish
+
+# Save our hardware information with mkinitcpio. This creates
+# an initial ramdisk environment that allows us to boot the
+# Linux kernel.
+arch-chroot /mnt mkinitcpio -p linux

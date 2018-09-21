@@ -1,9 +1,0 @@
-#!/bin/sh
-#
-# Mount the newly created filesystem (/dev/sda1) to /mnt.
-#
-# https://wiki.archlinux.org/index.php/Installation_guide
-
-set -xe
-
-mount /dev/sda1 /mnt

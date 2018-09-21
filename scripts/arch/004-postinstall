@@ -1,0 +1,39 @@
+#!/bin/sh
+#
+# Common post-install system configuration that doesn't involve any
+# external packages (besides fish)
+#
+# https://wiki.archlinux.org/index.php/General_recommendations
+
+set -xe
+
+$USERNAME = "hello"
+
+# Start and enable the DHCP client daemon service
+systemctl start dhcpcd.service
+systemctl enable dhcpcd.service
+
+# Set the timezone with systemd, and sync it periodically with a remote server
+timedatectl set-timezone America/New_York
+timedatectl set-ntp true
+
+# Font settings (https://old.reddit.com/r/archlinux/comments/5r5ep8)
+ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf          /etc/fonts/conf.d   # Disable embedded bitmaps for all fonts
+ln -s /etc/fonts/conf.avail/10-sub-pixel-rgb.conf       /etc/fonts/conf.d   # Enable sub-pixel RGB rendering
+ln -s /etc/fonts/conf.avail/11-lcdfilter-default.conf   /etc/fonts/conf.d   # Enable the LCD filter (reduces color fringing)
+
+# Change the systemd wait time from 90s to 30s, mitigating a potential hang at shutdown
+echo "DefaultTimeoutStartSec=30s" >> /etc/systemd/system.conf
+echo "DefaultTimeoutStopSec=30s"  >> /etc/systemd/system.conf
+
+# Enable colors in pacman by uncommenting the Color line.
+sed -i '/Color/s/^#//g' /etc/pacman.conf
+
+# Give users in the wheel group permission to use sudo
+echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
+
+# Create a new user account with sudo privileges and the fish shell.
+arch-chroot /mnt useradd -m -g users -G wheel -s /usr/bin/fish $USERNAME
+
+# Then, set the password equal to the username (change this later).
+echo "$USERNAME:$USERNAME" | chpasswd
