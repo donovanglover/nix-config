@@ -1,0 +1,103 @@
+#!/bin/sh
+#
+# The bootstrap script is meant to be ran on a local user account after
+# everything core system related is set up.
+
+set -xe
+
+# Change the working directory to the location of this script
+# Then, move up to the root directory of the git repo
+cd "$(dirname "$0")"
+cd ..
+
+# Raise an error if either distro or environment is not present
+if [ "$#" -ne 2 ]; then
+    echo 'Usage:   sh ./path/to/bootstrap <distro> <environment>'
+    echo 'Example: sh ./scripts/bootstrap arch bspwm'
+    exit 1
+fi
+
+# Raise an error if the distro isn't either arch or fedora
+if ! [ $1 == "arch" ] && ! [ $1 == "fedora" ]; then
+    echo 'Error: distro must either be "arch" or "fedora"'
+    exit 1
+fi
+
+# Install common packages if tig isn't found (one of the common packages)
+if ! hash tig 2>/dev/null; then
+    echo 'Installing common packages...'
+    if [ $1 == "arch" ];    then sudo pacman -Syu --needed --noconfirm - < ./packages/arch/common;  fi
+    if [ $1 == "fedora" ];  then sudo dnf install $(cat ./packages/fedora/common) --assumeyes;      fi
+
+    echo 'Stowing common dotfiles...'
+    stow -S common --dir=dots --target=$HOME --no-folding --verbose=2
+
+    echo 'Configuring common packages...'
+    sh ./scripts/006-common
+fi
+
+# If Arch Linux
+if [ $1 == "arch" ]; then
+    # Raise an error if given an invalid environment
+    if ! [ $2 == "plasma" ] && ! [ $2 == "bspwm" ]; then
+        echo 'Invalid environment specified. Must be either "plasma" or "bspwm"'
+        exit 1
+    fi
+
+    # Install yay if it isn't found (needed for AUR and bspwm)
+    if ! hash yay 2>/dev/null; then
+        echo 'Installing yay...'
+        git clone https://aur.archlinux.org/yay-bin.git
+        cd yay-bin
+        makepkg -si
+        cd ..
+        rm -r yay-bin
+    fi
+
+    # Install plasma
+    if [ $2 == "plasma" ]; then
+        echo 'Installing plasma packages...'
+        sudo pacman -Syu --needed --noconfirm --ignore discover - < ./packages/arch/plasma
+
+        echo 'Plasma packages installed. Now configure it.'
+    fi
+
+    # Install bspwm
+    if [ $2 == "bspwm" ]; then
+        echo 'Installing bspwm packages...'
+        sudo pacman -Syu --needed --noconfirm - < ./packages/arch/bspwm
+
+        echo 'Installing bspwm packages from AUR...'
+        yay -S polybar rtv shotgun launch-cmd
+
+        echo 'Stowing bspwm dotfiles...'
+        stow -S bspwm --dir=dots --target=$HOME --no-folding --verbose=2
+
+        echo 'Bspwm installed and configured. Now startx.'
+    fi
+fi
+
+# If Fedora
+if [ $1 == "fedora" ]; then
+    # Raise an error if given an invalid environment
+    if ! [ $2 == "gnome" ] && ! [ $2 == "xfce" ]; then
+        echo 'Invalid environment specified. Must be either "gnome" or "xfce"'
+        exit 1
+    fi
+
+    # Install gnome packages if requested
+    if [ $2 == "gnome" ]; then
+        echo 'Installing gnome packages...'
+        sudo dnf install $(cat ./packages/fedora/gnome) --assumeyes
+
+        echo 'Now that the gnome packages are installed, you must set it up manually.'
+    fi
+
+    # Install xfce packages if requested
+    if [ $2 == "xfce" ]; then
+        echo 'Installing xfce packages...'
+        sudo dnf install $(cat ./packages/fedora/xfce) --assumeyes
+
+        echo 'Now that the xfce packages are installed, you must set it up manually.'
+    fi
+fi
