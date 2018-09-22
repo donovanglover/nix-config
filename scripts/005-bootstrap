@@ -18,7 +18,7 @@ if [ "$#" -ne 2 ]; then
 fi
 
 # Raise an error if the distro isn't either arch or fedora
-if ! [ $1 == "arch" ] && ! [ $1 == "fedora" ]; then
+if ! [ "$1" == "arch" ] && ! [ "$1" == "fedora" ]; then
     echo 'Error: distro must either be "arch" or "fedora"'
     exit 1
 fi
@@ -26,20 +26,20 @@ fi
 # Install common packages if tig isn't found (one of the common packages)
 if ! hash tig 2>/dev/null; then
     echo 'Installing common packages...'
-    if [ $1 == "arch" ];    then sudo pacman -Syu --needed --noconfirm - < ./packages/arch/common;  fi
-    if [ $1 == "fedora" ];  then sudo dnf install $(cat ./packages/fedora/common) --assumeyes;      fi
+    if [ "$1" == "arch" ];    then sudo pacman -Syu --needed --noconfirm - < ./packages/arch/common;  fi
+    if [ "$1" == "fedora" ];  then sudo dnf install $(cat ./packages/fedora/common) --assumeyes;      fi
 
     echo 'Stowing common dotfiles...'
-    stow -S common --dir=dots --target=$HOME --no-folding --verbose=2
+    stow -S common --dir=dots --target="$HOME" --no-folding --verbose=2
 
     echo 'Configuring common packages...'
     sh ./scripts/006-common
 fi
 
 # If Arch Linux
-if [ $1 == "arch" ]; then
+if [ "$1" == "arch" ]; then
     # Raise an error if given an invalid environment
-    if ! [ $2 == "plasma" ] && ! [ $2 == "bspwm" ]; then
+    if ! [ "$2" == "plasma" ] && ! [ "$2" == "bspwm" ]; then
         echo 'Invalid environment specified. Must be either "plasma" or "bspwm"'
         exit 1
     fi
@@ -55,7 +55,7 @@ if [ $1 == "arch" ]; then
     fi
 
     # Install plasma
-    if [ $2 == "plasma" ]; then
+    if [ "$2" == "plasma" ]; then
         echo 'Installing plasma packages...'
         sudo pacman -Syu --needed --noconfirm --ignore discover - < ./packages/arch/plasma
 
@@ -63,7 +63,7 @@ if [ $1 == "arch" ]; then
     fi
 
     # Install bspwm
-    if [ $2 == "bspwm" ]; then
+    if [ "$2" == "bspwm" ]; then
         echo 'Installing bspwm packages...'
         sudo pacman -Syu --needed --noconfirm - < ./packages/arch/bspwm
 
@@ -71,22 +71,22 @@ if [ $1 == "arch" ]; then
         yay -S polybar rtv shotgun launch-cmd
 
         echo 'Stowing bspwm dotfiles...'
-        stow -S bspwm --dir=dots --target=$HOME --no-folding --verbose=2
+        stow -S bspwm --dir=dots --target="$HOME" --no-folding --verbose=2
 
         echo 'Bspwm installed and configured. Now startx.'
     fi
 fi
 
 # If Fedora
-if [ $1 == "fedora" ]; then
+if [ "$1" == "fedora" ]; then
     # Raise an error if given an invalid environment
-    if ! [ $2 == "gnome" ] && ! [ $2 == "xfce" ]; then
+    if ! [ "$2" == "gnome" ] && ! [ "$2" == "xfce" ]; then
         echo 'Invalid environment specified. Must be either "gnome" or "xfce"'
         exit 1
     fi
 
     # Install gnome packages if requested
-    if [ $2 == "gnome" ]; then
+    if [ "$2" == "gnome" ]; then
         echo 'Installing gnome packages...'
         sudo dnf install $(cat ./packages/fedora/gnome) --assumeyes
 
@@ -94,7 +94,7 @@ if [ $1 == "fedora" ]; then
     fi
 
     # Install xfce packages if requested
-    if [ $2 == "xfce" ]; then
+    if [ "$2" == "xfce" ]; then
         echo 'Installing xfce packages...'
         sudo dnf install $(cat ./packages/fedora/xfce) --assumeyes
 
