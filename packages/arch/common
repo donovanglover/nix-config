@@ -18,6 +18,14 @@ htop
 openssh
 openvpn
 
+ansible
+rsync
+vagrant
+mosh
+
+nginx-mainline
+hiawatha
+
 vim
 neovim
 
@@ -79,3 +87,5 @@ jdk10-openjdk
 
 docker
 docker-compose
+
+tlp
