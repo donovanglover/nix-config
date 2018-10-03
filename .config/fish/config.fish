@@ -7,6 +7,9 @@ export VISUAL="nvim"
 export EDITOR="nvim"
 export BROWSER="firefox"
 
+export XDG_CURRENT_DESKTOP="KDE"
+export QT_FONT_DPI="192"
+
 # Use rg instead of ag / ack / grep for fzf (much faster)
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border --color=16'
@@ -34,6 +37,7 @@ if not set -q set_abbr
     abbr gd     "git diff"                  # Show all file changes not staged yet
     abbr gds    "git diff --staged"         # Show changes staged but not committed
     abbr gg     "git grep"
+    abbr gi     "git init"
     abbr gl     "git log --oneline --decorate --all --graph -n 10"
     abbr gp     "git push"                  # Push your commits to a remote server
     abbr gs     "git status"
@@ -43,18 +47,25 @@ if not set -q set_abbr
     abbr grh    "git reset HEAD"
     abbr grr    "git reset --hard HEAD~"    # Remove the last commit and all changes with it
 
+    abbr t      "task"
+    abbr ta     "task add"
+    abbr te     "task edit"
+    abbr tc     "task completed"
+
     abbr dl     "youtube-dl"
-    abbr back   "feh --no-fehbg --bg-fill"  # Change the background temporarily
-    abbr vol    "amixer set 'Master' "      # Change the volume, e.g. vol 10%+, vol 10%-, vol 100%
-    abbr copy   "xclip -sel clip < "        # Easily copy the contents of any file
+    abbr back   "feh --bg-fill"             # Change the background
+    abbr vol    "amixer set 'Master'"       # Change the volume, e.g. vol 10%+, vol 10%-, vol 100%
+    abbr copy   "xclip -sel clip <"         # Easily copy the contents of any file
     abbr dog    "pygmentize -g"             # "dog" is a colorful version of cat
+    abbr cf     "tput reset"                # Clear the terminal completely
 
     abbr c      "clear"                     # Because 5 letters is too much
+    abbr e      "exit"
     abbr l      "ls -l"
-    abbr t      "tree"
     abbr f      "launch feh --auto-zoom"    # Easy image viewing with f
     abbr z      "launch zathura"            # Easy document browsing with z
     abbr m      "launch mpv"                # Easy media playing with m
+    abbr T      "tree"
 
     abbr lium   "launch chromium"           # Launch chromium separate from the terminal
     abbr lfox   "launch firefox"            # Launch firefox separate from the terminal
