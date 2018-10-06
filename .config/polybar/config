@@ -20,8 +20,11 @@ modules-right   = cpu ram volume date time
 monitor         = VGA-1
 foreground      = ${color.text}
 background      = ${color.background}
-font-0          = "Fira Mono:size=22"
-font-1          = "Noto Sans CJK JP:size=22"
+font-0          = "Fira Mono:style=Bold:size=19"
+font-1          = "Noto Sans CJK JP:size=19"
+font-2          = "Font Awesome 5 Free:style=Solid:size=19"
+font-3          = "Font Awesome 5 Free:style=Regular:size=19"
+font-4          = "Font Awesome 5 Brands:style=Regular:size=19"
 
 # NOTE: You may want to change height to 80 if you don't want float
 # Also do a grep for 80 and change the other places as well
@@ -29,19 +32,22 @@ height          = 85
 padding-left    = 2
 padding-right   = 2
 module-margin   = 1
-border-color = 88FFFFFF
+border-color = 66FFFFFF
 
 # Make the bar float
 # NOTE: offset-x should be the same as window_gap in your bspwmrc
-offset-x        = 20
+offset-x        = 30
 # NOTE: offset-y depends on window_gap as well; it's usually the same as offset-x
-offset-y        = 20
+offset-y        = 30
 # NOTE: width = screen resolution - offset-x * 2
-width           = 3800
+width           = 3780
 # NOTE: border-size should be the same as border_width in your bspwmrc
 border-size     = 3
 
-line-size = 8
+line-size = 4
+
+# Make fullscreen programs show above polybar
+wm-restack = bspwm
 
 [bar/secondary]
 modules-left    = bspwm
@@ -51,8 +57,11 @@ modules-right   = cpu ram volume date time
 monitor         = VGA-1
 foreground      = ${color.text}
 background      = ${color.background}
-font-0          = "Fira Mono:size=22"
-font-1          = "Noto Sans CJK JP:size=22"
+font-0          = "Fira Mono:style=Bold:size=19"
+font-1          = "Noto Sans CJK JP:size=19"
+font-2          = "Font Awesome 5 Free:style=Solid:size=19"
+font-3          = "Font Awesome 5 Free:style=Regular:size=19"
+font-4          = "Font Awesome 5 Brands:style=Regular:size=19"
 
 height          = 80
 padding-left    = 2
@@ -60,7 +69,9 @@ padding-right   = 2
 module-margin   = 1
 border-color = ${color.background}
 border-bottom-size     = 0
-line-size = 4
+# line-size = 4
+
+wm-restack = bspwm
 
 [module/bspwm]
 type = internal/bspwm
@@ -90,27 +101,27 @@ ws-icon-9   = 10;十
 
 [module/cpu]
 type = internal/cpu
-label = CPU: %percentage%%
-format-foreground = ${color.blue}
+label =  %percentage%%
+ format-foreground = ${color.blue}
 format-underline = ${color.blue}
 
 [module/ram]
 type = internal/memory
-label = RAM: %gb_used%
-format-foreground = ${color.cyan}
+label =  %gb_used%
+ format-foreground = ${color.cyan}
 format-underline = ${color.cyan}
 
 [module/date]
 type = internal/date
-date = %d.%m.%y
+date =  %d.%m.%y
 #date = %B %d, %Y
 #date = %A
-format-foreground = ${color.yellow}
+ format-foreground = ${color.yellow}
 format-underline = ${color.yellow}
 
 [module/time]
 type = internal/date
-date = %H:%M
+date =  %H:%M
 format-foreground = ${color.magenta}
 format-underline = ${color.magenta}
 
@@ -128,15 +139,15 @@ type = internal/mpd
 format-offline = No song is currently playing.
 label-song-maxlen = 100
 label-song-ellipsis = true
-format-online = <label-song>
+format-online =  <label-song>
 format-offline-foreground = ${color.cyan}
 format-offline-underline = ${color.cyan}
 format-online-foreground = ${color.cyan}
 format-online-underline = ${color.cyan}
 
 [module/volume]
-type = internal/volume
-label-volume = VOL: %percentage%%
+type = internal/alsa
+label-volume =  %percentage%%
 format-volume-foreground = ${color.green}
 format-volume-underline = ${color.green}
 
