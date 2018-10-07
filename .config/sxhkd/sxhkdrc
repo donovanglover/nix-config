@@ -3,15 +3,19 @@
 
 # Open a new terminal window
 super + Return
-    termite
+    urxvtcd
 
 # Open a new terminal window with tmux
 super + shift + Return
-    termite -e "tmux"
+    urxvtcd -e "tmux"
 
 # Reload sxhkd (applies new keybindings, etc.)
 super + Escape
     pkill -USR1 -x sxhkd
+
+# Quit the bspwm session
+super + alt + Escape
+    bspc quit
 
 # Close the focused window
 super + q
@@ -32,10 +36,6 @@ super + shift + {h,j,k,l}
 # Switch between windows in fullscreen (monocle mode)
 super + {n,m}
     bspc node -f {next,prev}
-
-# Focus the window under the cursor
-super + @space
-    bspc node -f pointed
 
 # Toggle the "sticky" state of a window
 # (i.e. the window follows you no matter
@@ -159,5 +159,10 @@ super + {Left,Down,Up,Right}
 # when you create new ones
 super + y
     bspc node focused -g private
+
+# A very bad script that opens the application menu in
+# KDE Plasma based on mouse coordinates.
+alt + z
+    xdotool mousemove 28 2131 click 1
 
 # vim:ft=sxhkdrc
