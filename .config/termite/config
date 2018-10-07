@@ -2,13 +2,13 @@
 # Copyright (C) 2017-2018 Donovan Glover
 
 [options]
-# 3 fonts of preference, sorted by readability
-font = Hack 12
-#font = Inconsolata 14
-#font = Fira Mono 12
+font = Hack 11
 
 # No need to show the mouse in the terminal window
 mouse_autohide = true
+
+# Note: If you want terminal transparency, you can use RGBA.
+#       Example: background = rgba(0, 0, 0, 0.9)
 
 [colors]
 foreground        = #D0D0D0
