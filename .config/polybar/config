@@ -77,16 +77,16 @@ wm-restack = bspwm
 type = internal/bspwm
 pin-workspaces = true
 
-label-focused-foreground    = ${color.green}
+label-focused-foreground    = ${color.text}
 label-urgent-foreground     = ${color.yellow}
-label-occupied-foreground   = ${color.text}
-label-empty-foreground      = ${color.background-alt}
+label-occupied-foreground   = ${color.background-alt}
+label-empty-foreground      = ${color.green}
 label-focused-padding   = 2
 label-urgent-padding    = 2
 label-occupied-padding  = 2
 label-empty-padding     = 2
 
-label-focused-underline = ${color.green}
+label-focused-underline = ${color.text}
 
 ws-icon-0   = 1;一
 ws-icon-1   = 2;二
@@ -102,28 +102,28 @@ ws-icon-9   = 10;十
 [module/cpu]
 type = internal/cpu
 label =  %percentage%%
- format-foreground = ${color.blue}
-format-underline = ${color.blue}
+format-foreground = ${color.background-alt}
+format-underline = ${color.background-alt}
 
 [module/ram]
 type = internal/memory
 label =  %gb_used%
- format-foreground = ${color.cyan}
-format-underline = ${color.cyan}
+format-foreground = ${color.background-alt}
+format-underline = ${color.background-alt}
 
 [module/date]
 type = internal/date
 date =  %d.%m.%y
 #date = %B %d, %Y
 #date = %A
- format-foreground = ${color.yellow}
-format-underline = ${color.yellow}
+format-foreground = ${color.background-alt}
+format-underline = ${color.background-alt}
 
 [module/time]
 type = internal/date
 date =  %H:%M
-format-foreground = ${color.magenta}
-format-underline = ${color.magenta}
+format-foreground = ${color.background-alt}
+format-underline = ${color.background-alt}
 
 [module/battery]
 type = internal/battery
@@ -140,15 +140,15 @@ format-offline = No song is currently playing.
 label-song-maxlen = 100
 label-song-ellipsis = true
 format-online =  <label-song>
-format-offline-foreground = ${color.cyan}
-format-offline-underline = ${color.cyan}
-format-online-foreground = ${color.cyan}
-format-online-underline = ${color.cyan}
+format-offline-foreground = ${color.background-alt}
+format-offline-underline = ${color.background-alt}
+format-online-foreground = ${color.background-alt}
+format-online-underline = ${color.background-alt}
 
 [module/volume]
 type = internal/alsa
 label-volume =  %percentage%%
-format-volume-foreground = ${color.green}
-format-volume-underline = ${color.green}
+format-volume-foreground = ${color.background-alt}
+format-volume-underline = ${color.background-alt}
 
 ; vim:ft=dosini

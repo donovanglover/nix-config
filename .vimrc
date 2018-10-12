@@ -7,8 +7,9 @@ endif
 
 source ~/.vim/plugins.vim
 source ~/.vim/config.vim
-source ~/.vim/colors.vim
 source ~/.vim/keybindings.vim
+
+colorscheme wal
 
 " =================================== Plugin-Specific ===================================
 

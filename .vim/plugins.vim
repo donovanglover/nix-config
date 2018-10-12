@@ -3,14 +3,13 @@
 
 call plug#begin('~/.vim/plugged')       " Use vim-plug as our package manager of choice
     Plug 'airblade/vim-gitgutter'       " Add git diff support
-    Plug 'chriskempson/base16-vim'      " Add theme support
+    Plug 'dylanaraps/wal.vim'           " Add wal support
     Plug 'osyo-manga/vim-over'          " Automatically highlight find and replace
     Plug 'jiangmiao/auto-pairs'         " Close brackets and other pairs automatically
     Plug 'w0rp/ale'                     " Automatically check language syntax for errors
     Plug 'maksimr/vim-jsbeautify'       " Make it easier to work with foreign code
     Plug 'lervag/vimtex'                " Make editing LaTeX a breeze
     Plug 'dbeniamine/todo.txt-vim'      " Easily manage any part of your todo.txt
-    Plug 'Kjwon15/vim-transparent'      " Add transparency by default for all color schemes
     Plug 'elixir-editors/vim-elixir'    " Add syntax highlighting and autoindent for Elixir
 
     Plug 'tpope/vim-fugitive'           " Add fugitive.vim, enabling us to use git in vim

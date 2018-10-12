@@ -31,6 +31,9 @@ xmodmap ~/.xmodmap
 # Make caps lock (left ctrl) work as escape
 xcape -e 'Control_L=Escape'
 
+# Set a temporary black background to avoid flash
+~/.config/feh/tile.sh 000000
+
 # If we're in KDE Plasma, then add bottom padding for
 # the panel at the bottom.
 if [ "$XDG_CURRENT_DESKTOP" == "KDE" ]; then
@@ -49,8 +52,12 @@ else
 
   # Overall look (top_padding from polybar)
   bspc config top_padding         80
-  bspc config border_width        10
+  bspc config border_width        8
   bspc config window_gap          20
+
+  # Set the color scheme to a random one. Note that this command
+  # needs to be run after any screen resolution changes.
+  wal -o ~/.config/wal/bspwm_and_dunst.sh -i ~/Pictures/Wallpapers
 
   # Never blank the screen (disable power saving)
   xset s off -dpms
@@ -58,14 +65,11 @@ else
   # Start compton
   compton -b
 
-  # Set the desktop background
-  ~/.fehbg &
-
   # Start polybar
   ~/.config/polybar/launch.sh
 
   # Start a terminal
-  urxvtcd &
+  # urxvtcd &
 fi
 
 # bspc rules
@@ -76,12 +80,3 @@ bspc rule -a kwrite         state=floating
 bspc rule -a ark            state=floating
 bspc rule -a kmag           state=floating
 bspc rule -a kcharselect    state=floating
-
-# TODO: The colors below can probably be re-written to accept values
-# from the .Xresources file.
-
-# [colors]
-bspc config normal_border_color     "#C0C5CE"
-bspc config active_border_color     "#FFFFFF"
-bspc config focused_border_color    "#FFFFFF"
-bspc config presel_feedback_color   "#C0C5CE"
