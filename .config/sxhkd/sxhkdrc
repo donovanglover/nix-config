@@ -160,9 +160,24 @@ super + {Left,Down,Up,Right}
 super + y
     bspc node focused -g private
 
-# A very bad script that opens the application menu in
-# KDE Plasma based on mouse coordinates.
+# ====================
+# ======= Rofi =======
+# ====================
+
+# Show the application launcher
 alt + z
-    xdotool mousemove 28 2131 click 1
+  env XDG_CURRENT_DESKTOP="KDE" QT_FONT_DPI="192" rofi -show drun
+
+# Show open windows
+alt + space
+  rofi -show window
+
+# Show pass
+alt + slash
+  rofi-pass
+
+# Show calculator with natural language support
+alt + backslash
+  rofi -show calc -modi calc -no-show-match -no-sort
 
 # vim:ft=sxhkdrc
