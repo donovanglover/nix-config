@@ -19,7 +19,8 @@ set hidden                     " Switch between buffers without saving them
 set incsearch                  " Automatically move to text as you search for it
 set wildmenu                   " Show a menu of the different options when you tab in command mode
 set display+=lastline          " Show as much of a long line as possible
-set laststatus=0               " Disable the status line (removes filename and increases working space)
+set laststatus=2               " Enable the status line (set to 0 to remove)
+set noshowmode                 " Disable the --MODE-- text (enable if not using the status line)
 
 set history=100                " Only keep the last 100 commands
 set tabpagemax=50              " Set the maximum number of tabs to be opened in any window to 50
