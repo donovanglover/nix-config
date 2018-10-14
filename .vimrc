@@ -5,9 +5,109 @@ if &shell =~# 'fish$'
   set shell=sh
 endif
 
-source ~/.vim/plugins.vim
-source ~/.vim/config.vim
-source ~/.vim/keybindings.vim
+call plug#begin('~/.vim/plugged')
+    Plug 'dylanaraps/wal.vim'           " Color scheme
+    Plug 'airblade/vim-gitgutter'       " Git diff
+    Plug 'itchyny/lightline.vim'        " Status line
+    Plug 'w0rp/ale'                     " Syntax checker
+    Plug 'sgur/vim-editorconfig'        " EditorConfig
+    Plug 'tpope/vim-fugitive'           " Git wrapper
+    Plug 'junegunn/fzf.vim'             " fzf wrapper
+    Plug 'jiangmiao/auto-pairs'         " {Pair} completion
+    Plug 'tpope/vim-endwise'            " 'End' completion
+    Plug 'reedes/vim-pencil'            " Word wrap
+    Plug 'junegunn/goyo.vim'            " Distraction-free writing
+
+    Plug 'osyo-manga/vim-over',         {'on': 'OverCommandLine'}
+    Plug 'maksimr/vim-jsbeautify',      {'on': ['JsBeautify', 'JsonBeautify',
+        \                       'JsxBeautify', 'HtmlBeautify', 'CSSBeautify']}
+
+    Plug 'pangloss/vim-javascript',     {'for': 'javascript'}
+    Plug 'alvan/vim-closetag',          {'for': 'html'}
+    Plug 'rhysd/vim-crystal',           {'for': 'crystal'}
+    Plug 'rust-lang/rust.vim',          {'for': 'rust'}
+    Plug 'baskerville/vim-sxhkdrc',     {'for': 'sxhkdrc'}
+    Plug 'cespare/vim-toml',            {'for': 'toml'}
+    Plug 'dag/vim-fish',                {'for': 'fish'}
+    Plug 'slim-template/vim-slim',      {'for': 'slim'}
+    Plug 'Glench/Vim-Jinja2-Syntax',    {'for': 'jinja2'}
+    Plug 'plasticboy/vim-markdown',     {'for': 'markdown'}
+    Plug 'posva/vim-vue',               {'for': 'vue'}
+    Plug 'mxw/vim-jsx',                 {'for': 'javascript'}
+    Plug 'digitaltoad/vim-pug',         {'for': 'pug'}
+    Plug 'leafgarland/typescript-vim',  {'for': 'typescript'}
+    Plug 'dbeniamine/todo.txt-vim',     {'for': 'todo'}
+    Plug 'lervag/vimtex',               {'for': 'tex'}
+call plug#end()
+
+filetype plugin indent on      " Attempt to determine the file type of extensionless files
+syntax enable                  " Turn syntax highlighting on
+
+set nocompatible               " Use vim defaults (i.e. ignore vi compatibility)
+set backspace=indent,eol,start " Make the backspace key function as you would expect
+set encoding=utf-8             " Always show files as utf-8
+set fileencoding=utf-8         " Ensure that we always save files as utf-8
+
+set autoindent                 " Automatically indent new lines
+set ignorecase                 " By default use case-insensitive search (combine with smartcase)
+set smartcase                  " Make search case-sensitive when using capital letters
+set showcmd                    " Always show the current keybinding being executed
+set spell                      " Enable spell check by default
+set hidden                     " Switch between buffers without saving them
+
+set incsearch                  " Automatically move to text as you search for it
+set wildmenu                   " Show a menu of the different options when you tab in command mode
+set display+=lastline          " Show as much of a long line as possible
+set laststatus=2               " Enable the status line (set to 0 to remove)
+set noshowmode                 " Disable the --MODE-- text (enable if not using the status line)
+
+set history=100                " Only keep the last 100 commands
+set tabpagemax=50              " Set the maximum number of tabs to be opened in any window to 50
+set viminfo^=!                 " Use viminfo to store workspace and other data automatically
+set sessionoptions-=options    " When you explicitly save a workspace, save the entire environment
+
+set t_Co=256                   " Tell vim that we want to use 256 colors
+set scrolloff=1                " The minimal number of rows to show when scrolling up/down
+set sidescrolloff=5            " The minimal number of columns to show when scrolling left/right
+
+set undofile                   " Keep track of undos even after you close a file
+set undodir=~/.vim/undo        " Save the undo history here (not that the directory must exist)
+set undolevels=1000            " We can undo this many times
+set undoreload=10000           " The maximum number of lines to keep in the undo file
+
+set tabstop=4                  " Show a tab character as 4 spaces
+set softtabstop=0              " Edit soft tabs as if they're regular spaces
+set shiftwidth=4               " Make autoindent appear as 4 spaces
+
+set expandtab                  " When using <Tab>, replace the tab character with 4 spaces
+set smarttab                   " Always indent based on column number to align things easier
+
+set mouse=a                    " Enable mouse support in (a)ll modes
+
+" Change the global leader to the space bar
+let mapleader = ' '
+
+" ================== Top row
+nnoremap <silent> <leader>e :set nu!<CR>
+nnoremap <silent> <leader>t :OverCommandLine<CR>%s/
+" ================== Middle row
+nnoremap <silent> <leader>f :Files<CR>
+nnoremap <silent> <leader>g :set hlsearch!<CR>
+nnoremap <silent> <leader>j :Buffers<CR>
+nnoremap <silent> <leader>l :Rg<CR>
+" ================== Bottom row
+autocmd FileType javascript nnoremap <silent> <leader>b :call JsBeautify()<CR>
+autocmd FileType json       nnoremap <silent> <leader>b :call JsonBeautify()<CR>
+autocmd FileType jsx        nnoremap <silent> <leader>b :call JsxBeautify()<CR>
+autocmd FileType html       nnoremap <silent> <leader>b :call HtmlBeautify()<CR>
+autocmd FileType css        nnoremap <silent> <leader>b :call CSSBeautify()<CR>
+
+" Easily enter 'zen mode' with Goyo and Pencil (Note: Goyo resets the color scheme)
+nnoremap <silent> <leader>2 :PencilSoft<CR>:Goyo<CR>:hi vertsplit ctermfg=0 ctermbg=none<CR>
+
+" Save and load vim sessions
+nnoremap <silent> <leader>3 :mksession! ~/.vim_session<CR>
+nnoremap <silent> <leader>4 :source ~/.vim_session<CR>
 
 colorscheme wal
 
