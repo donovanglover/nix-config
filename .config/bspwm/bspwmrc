@@ -4,6 +4,13 @@
 
 export SXHKD_SHELL="/usr/bin/bash"
 
+export QT_AUTO_SCREEN_SCALE_FACTOR="0"
+export QT_FONT_DPI="192"
+export QT_SCREEN_SCALE_FACTORS="VGA-1=2;"
+
+export XCURSOR_THEME="breeze_cursors"
+export XDG_DATA_DIRS="/usr/share:/usr/share:/usr/local/share"
+
 sxhkd &
 
 bspc monitor -d 1 2 3 4 5 6
