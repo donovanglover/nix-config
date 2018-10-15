@@ -7,6 +7,8 @@ export VISUAL="nvim"
 export EDITOR="nvim"
 export BROWSER="firefox"
 
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
 export XDG_CURRENT_DESKTOP="KDE"
 export QT_FONT_DPI="192"
 
