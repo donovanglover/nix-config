@@ -66,7 +66,7 @@ if not set -q set_abbr
     abbr e      "exit"
     abbr l      "ls -l"
     abbr f      "launch feh --auto-zoom"    # Easy image viewing with f
-    abbr z      "launch zathura"            # Easy document browsing with z
+    abbr z      "launch zathura -c ~/.cache/wal" # Easy document browsing with z
     abbr m      "launch mpv"                # Easy media playing with m
     abbr w      "wal -o ~/.config/wal/bspwm_and_dunst.sh"
     abbr T      "tree"
