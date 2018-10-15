@@ -40,6 +40,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'lervag/vimtex',               {'for': 'tex'}
 call plug#end()
 
+" ============================
+" ========= settings =========
+" ============================
+
 filetype plugin indent on      " Attempt to determine the file type of extensionless files
 syntax enable                  " Turn syntax highlighting on
 
@@ -84,30 +88,9 @@ set smarttab                   " Always indent based on column number to align t
 
 set mouse=a                    " Enable mouse support in (a)ll modes
 
-" Change the global leader to the space bar
-let mapleader = ' '
-
-" ================== Top row
-nnoremap <silent> <leader>e :set nu!<CR>
-nnoremap <silent> <leader>t :OverCommandLine<CR>%s/
-" ================== Middle row
-nnoremap <silent> <leader>f :Files<CR>
-nnoremap <silent> <leader>g :set hlsearch!<CR>
-nnoremap <silent> <leader>j :Buffers<CR>
-nnoremap <silent> <leader>l :Rg<CR>
-" ================== Bottom row
-autocmd FileType javascript nnoremap <silent> <leader>b :call JsBeautify()<CR>
-autocmd FileType json       nnoremap <silent> <leader>b :call JsonBeautify()<CR>
-autocmd FileType jsx        nnoremap <silent> <leader>b :call JsxBeautify()<CR>
-autocmd FileType html       nnoremap <silent> <leader>b :call HtmlBeautify()<CR>
-autocmd FileType css        nnoremap <silent> <leader>b :call CSSBeautify()<CR>
-
-" Easily enter 'zen mode' with Goyo and Pencil (Note: Goyo resets the color scheme)
-nnoremap <silent> <leader>2 :PencilSoft<CR>:Goyo<CR>:hi vertsplit ctermfg=0 ctermbg=none<CR>
-
-" Save and load vim sessions
-nnoremap <silent> <leader>3 :mksession! ~/.vim_session<CR>
-nnoremap <silent> <leader>4 :source ~/.vim_session<CR>
+" ==========================
+" ========= colors =========
+" ==========================
 
 colorscheme wal
 
@@ -128,29 +111,12 @@ let g:lightline = {
 \   },
 \ }
 
-" =================================== Plugin-Specific ===================================
-
-let g:ale_lint_on_text_changed = 'never'        " Do not lint while typing
-let g:ale_lint_on_insert_leave = 1              " Only lint after leaving insert mode
-let g:ale_linters = {'javascript': ['standard']}
-
 " Don't show the separator for vertical splits
-hi vertsplit ctermfg=0 ctermbg=none
+highlight vertsplit ctermfg=0 ctermbg=none
 
 " Finally, an easier way to read search results
-hi Search ctermbg=240 ctermfg=255
-hi IncSearch ctermbg=255 ctermfg=240
-
-" Disable all vimtex keybindings so we can define our own
-let g:vimtex_mappings_enabled = 0
-let g:vimtex_imaps_enabled = 0
-let g:vimtex_view_method = 'zathura'
-let g:vimtex_compiler_latexmk = {'build_dir': '.tex'}
-nnoremap <localleader>f <plug>(vimtex-view)
-nnoremap <localleader>g <plug>(vimtex-compile)
-nnoremap <localleader>d <plug>(vimtex-env-delete)
-nnoremap <localleader>c <plug>(vimtex-env-change)
-inoremap ]] <plug>(vimtex-delim-close)
+highlight Search ctermbg=240 ctermfg=255
+highlight IncSearch ctermbg=255 ctermfg=240
 
 " Easily show lines that go past the character count
 highlight OverLength ctermbg=240 ctermfg=230
@@ -159,19 +125,80 @@ call matchadd('OverLength', '\%80v')
 autocmd BufNewFile,BufRead *.ecr    setlocal syntax=html
 autocmd BufNewFile,BufRead *.slang  setlocal filetype=slim
 
+" ============================
+" ========= keybinds =========
+" ============================
+
+" Use space as the global leader
+let mapleader = ' '
+
+" Top row
+nnoremap <silent> <leader>e :set nu!<CR>
+nnoremap <silent> <leader>t :OverCommandLine<CR>%s/
+
+" Middle row
+nnoremap <silent> <leader>f :Files<CR>
+nnoremap <silent> <leader>g :set hlsearch!<CR>
+nnoremap <silent> <leader>j :Buffers<CR>
+nnoremap <silent> <leader>l :Rg<CR>
+
+" Bottom row
+autocmd FileType javascript nnoremap <silent> <leader>b :call JsBeautify()<CR>
+autocmd FileType json       nnoremap <silent> <leader>b :call JsonBeautify()<CR>
+autocmd FileType jsx        nnoremap <silent> <leader>b :call JsxBeautify()<CR>
+autocmd FileType html       nnoremap <silent> <leader>b :call HtmlBeautify()<CR>
+autocmd FileType css        nnoremap <silent> <leader>b :call CSSBeautify()<CR>
+
+" Easily enter 'zen mode' with Goyo and Pencil (Note: Goyo resets the color scheme)
+nnoremap <silent> <leader>2 :PencilSoft<CR>:Goyo<CR>:hi vertsplit ctermfg=0 ctermbg=none<CR>
+
+" Save and load vim sessions
+nnoremap <silent> <leader>3 :mksession! ~/.vim/.session<CR>
+nnoremap <silent> <leader>4 :source ~/.vim/.session<CR>
+
+" =======================
+" ========= ale =========
+" =======================
+
+let g:ale_lint_on_text_changed = 'never'        " Do not lint while typing
+let g:ale_lint_on_insert_leave = 1              " Only lint after leaving insert mode
+let g:ale_linters = {'javascript': ['standard']}
+
+" ==========================
+" ========= vimtex =========
+" ==========================
+
+" Disable all keybinds so we can define our own
+let g:vimtex_mappings_enabled = 0
+let g:vimtex_imaps_enabled = 0
+let g:vimtex_view_method = 'zathura'
+let g:vimtex_compiler_latexmk = {'build_dir': '.tex'}
+
+" Set the normal keybinds
+nnoremap <localleader>f <plug>(vimtex-view)
+nnoremap <localleader>g <plug>(vimtex-compile)
+nnoremap <localleader>d <plug>(vimtex-env-delete)
+nnoremap <localleader>c <plug>(vimtex-env-change)
+inoremap ]] <plug>(vimtex-delim-close)
+
+" ================================
+" ========= vim-markdown =========
+" ================================
+
 " Disable vim-markdown folding
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_math             = 1
 let g:vim_markdown_frontmatter      = 1
 autocmd BufNewFile,BufRead *.md set conceallevel=2
 
-" Change cursor back to blink after exiting neovim
-au VimLeave * set guicursor=a:block-blinkon1
-
 " Ignore syntax concealing for markdown files
 let g:vim_markdown_conceal = 0
 let g:tex_conceal = ""
 let g:vim_markdown_math = 1
+
+" ===========================
+" ========= fzf.vim =========
+" ===========================
 
 " Hide the status line showing "fzf" when using fzf.vim
 " NOTE: You must add "showmode" if your setup depends on it
