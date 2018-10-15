@@ -180,4 +180,11 @@ alt + slash
 alt + backslash
   rofi -show calc -modi calc -no-show-match -no-sort
 
+# ===================
+# ======= wal =======
+# ===================
+
+alt + m
+  wal -o ~/.config/wal/bspwm_and_dunst.sh -i ~/Pictures/Wallpapers
+
 # vim:ft=sxhkdrc

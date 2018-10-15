@@ -10,4 +10,7 @@ let &packpath = &runtimepath
 " use that instead.
 set clipboard=unnamedplus
 
+" Change cursor back to blink after exiting neovim
+autocmd VimLeave * set guicursor=a:block-blinkon1
+
 source ~/.vimrc

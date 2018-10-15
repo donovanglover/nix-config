@@ -49,8 +49,9 @@ if not set -q set_abbr
 
     abbr t      "task"
     abbr ta     "task add"
-    abbr te     "task edit"
     abbr tc     "task completed"
+    abbr td     "task done"
+    abbr te     "task edit"
 
     abbr dl     "youtube-dl"
     abbr back   "feh --bg-fill"             # Change the background
