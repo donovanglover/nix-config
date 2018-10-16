@@ -15,8 +15,10 @@ sxhkd &
 
 bspc monitor -d 1 2 3 4 5 6
 
-bspc config border_width        2
-bspc config window_gap          30
+# Overall look (top_padding from polybar)
+bspc config top_padding         80
+bspc config border_width        8
+bspc config window_gap          20
 
 bspc config split_ratio          0.50
 
@@ -38,46 +40,27 @@ xmodmap ~/.xmodmap
 # Make caps lock (left ctrl) work as escape
 xcape -e 'Control_L=Escape'
 
-# If we're in KDE Plasma, then add bottom padding for
-# the panel at the bottom.
-if [ "$XDG_CURRENT_DESKTOP" == "KDE" ]; then
-  bspc config window_gap          20
-  bspc config bottom_padding      58
+# Set a temporary black background to avoid flash
+~/.config/feh/tile.sh 000000
 
-  # Make the application menu float instead of tile
-  bspc rule -a plasmashell    state=floating border=off
-
-else
-  # Set a temporary black background to avoid flash
-  ~/.config/feh/tile.sh 000000
-
-  # If running with VirtualBox client utilities, start them.
-  # Useful for automatically changing display resolution, etc.
-  if hash VBoxClient-all 2>/dev/null; then
-    VBoxClient-all
-  fi
-
-  # Overall look (top_padding from polybar)
-  bspc config top_padding         80
-  bspc config border_width        8
-  bspc config window_gap          20
-
-  # Set the color scheme to a random one. Note that this command
-  # needs to be run after any screen resolution changes.
-  wal -o ~/.config/wal/bspwm_and_dunst.sh -i ~/Pictures/Wallpapers
-
-  # Never blank the screen (disable power saving)
-  xset s off -dpms
-
-  # Start compton
-  compton -b
-
-  # Start polybar
-  ~/.config/polybar/launch.sh
-
-  # Start a terminal
-  # urxvtcd &
+# If running with VirtualBox client utilities, start them.
+# Useful for automatically changing display resolution, etc.
+if hash VBoxClient-all 2>/dev/null; then
+  VBoxClient-all
 fi
+
+# Set the color scheme to a random one. Note that this command
+# needs to be run after any screen resolution changes.
+wal -o ~/.config/wal/bspwm_and_dunst.sh -i ~/Pictures/Wallpapers
+
+# Never blank the screen (disable power saving)
+xset s off -dpms
+
+# Start compton
+compton -b
+
+# Start polybar
+~/.config/polybar/launch.sh
 
 # bspc rules
 bspc rule -a mpv            state=floating
