@@ -51,7 +51,7 @@ fi
 
 # Set the color scheme to a random one. Note that this command
 # needs to be run after any screen resolution changes.
-wal -o ~/.config/wal/bspwm_and_dunst.sh -i ~/Pictures/Wallpapers
+wal -o ~/.config/wal/done.sh -i ~/Pictures/Wallpapers
 
 # Never blank the screen (disable power saving)
 xset s off -dpms

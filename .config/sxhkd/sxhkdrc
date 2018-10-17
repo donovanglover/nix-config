@@ -193,6 +193,6 @@ alt + backslash
 # ===================
 
 alt + m
-  wal -o ~/.config/wal/bspwm_and_dunst.sh -i ~/Pictures/Wallpapers
+  wal -o ~/.config/wal/done.sh -i ~/Pictures/Wallpapers
 
 # vim:ft=sxhkdrc
