@@ -12,7 +12,7 @@ foreground        = {foreground}
 foreground_bold   = {cursor}
 cursor            = {cursor}
 cursor_foreground = {background}
-background        = rgba({background.rgb}, 0.5)
+background        = rgba({background.rgb}, 0.9)
 
 color0  = {color0}
 color1  = {color1}
