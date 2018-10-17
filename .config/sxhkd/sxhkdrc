@@ -9,9 +9,9 @@ super + Return
 super + shift + Return
     urxvtcd -e "tmux"
 
-# Open a new transparent terminal
+# Open a new transparent terminal with tmux without the status bar
 super + backslash
-  termite --config ~/.cache/wal/termite
+  termite --config ~/.cache/wal/termite -e "tmux new-session; set status"
 
 # Open a new transparent terminal with tmux
 super + shift + backslash
