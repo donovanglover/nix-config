@@ -137,6 +137,9 @@ nnoremap <silent> <leader>e :set nu!<CR>
 nnoremap <silent> <leader>t :OverCommandLine<CR>%s/
 
 " Middle row
+nnoremap <silent> <leader>a :Vexplore<CR>
+nnoremap <silent> <leader>s :Sexplore<CR>
+nnoremap <silent> <leader>d :Explore<CR>
 nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>g :set hlsearch!<CR>
 nnoremap <silent> <leader>j :Buffers<CR>
@@ -155,6 +158,16 @@ nnoremap <silent> <leader>2 :PencilSoft<CR>:Goyo<CR>:hi vertsplit ctermfg=0 cter
 " Save and load vim sessions
 nnoremap <silent> <leader>3 :mksession! ~/.vim/.session<CR>
 nnoremap <silent> <leader>4 :source ~/.vim/.session<CR>
+
+" =========================
+" ========= netrw =========
+" =========================
+
+" Remove the banner
+let g:netrw_banner = 0
+
+" Use the tree list view
+let g:netrw_liststyle = 3
 
 " =======================
 " ========= ale =========
