@@ -11,11 +11,11 @@ super + shift + Return
 
 # Open a new transparent terminal with tmux without the status bar
 super + backslash
-  termite --config ~/.cache/wal/termite -e "tmux new-session; set status"
+  termite -e "tmux new-session; set status"
 
 # Open a new transparent terminal with tmux
 super + shift + backslash
-  termite --config ~/.cache/wal/termite -e "tmux"
+  termite -e "tmux"
 
 # Reload sxhkd (applies new keybindings, etc.)
 super + Escape
