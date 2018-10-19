@@ -1,61 +1,37 @@
 # New Start: A modern Arch workflow built with an emphasis on functionality.
 # Copyright (C) 2017-2018 Donovan Glover
 
-# ========================
-# ======= terminal =======
-# ========================
-
-# Open a new terminal window
-super + Return
-    urxvtcd
-
-# Open a new terminal window with tmux
-super + shift + Return
-    urxvtcd -e "tmux"
-
-# Open a new transparent terminal with tmux without the status bar
-super + backslash
-  termite -e "tmux new-session; set status"
-
-# Open a new transparent terminal with tmux
-super + shift + backslash
-  termite -e "tmux"
-
-# =====================
-# ======= sxhkd =======
-# =====================
-
-# Reload sxhkd (applies new keybindings, etc.)
+# Reload sxhkd
 super + Escape
     pkill -USR1 -x sxhkd
-
-# =====================
-# ======= bspwm =======
-# =====================
 
 # Quit the bspwm session
 super + alt + Escape
     bspc quit
+
+# Take a screenshot
+super + p
+    ~/.config/sxhkd/screenshot.sh
+
+# Open a new terminal window
+super + {_,shift} + Return
+    urxvtcd {_,-e "tmux"}
+
+# Open a new transparent terminal
+super + {_,shift} + backslash
+  termite -e {"tmux new-session; set status", "tmux"}
 
 # ====================
 # ======= Node =======
 # ====================
 
 # Close the focused window
-super + q
-    bspc node -c
+super + {_,shift} + q
+    bspc node -{c,k}
 
-# Force close the focused window
-super + shift + q
-    bspc node -k
-
-# Switch to the window in a certain direction
-super + {h,j,k,l}
-    bspc node -f {west,south,north,east}
-
-# Swap a window with another in a certain direction
-super + shift + {h,j,k,l}
-    bspc node -s {west,south,north,east}
+# Switch to / Swap with the node in the specified direction
+super + {_,shift} + {h,j,k,l}
+    bspc node -{f,s} {west,south,north,east}
 
 # Switch to the next / previous node (includes monocle layout)
 super + {n,m}
@@ -69,33 +45,21 @@ super + c
 super + shift + {1-9,0}
     bspc node -d '^{1-9,10}'
 
-# =====================
-# ======= Flags =======
-# =====================
+# FLAGS: Toggle between node flags
+super + {x,y,l}
+    bspc node -g {sticky,private,locked}
 
-# Toggle the sticky flag
-super + x
-    bspc node -g sticky
-
-# Toggle the private flag
-super + y
-    bspc node -g private
-
-# Toggle the locked flag
-super + b
-    bspc node -g locked
+# STATES: Toggle between node states
+super + {t,r,f,space}
+    bspc node focused -t ~{tiled,pseudo_tiled,fullscreen,floating}
 
 # =======================
 # ======= Desktop =======
 # =======================
 
 # Move to the next desktop on the current monitor
-alt + Tab
-    bspc desktop -f next.local
-
-# Move to the previous desktop on the current monitor
-alt + shift + Tab
-    bspc desktop -f prev.local
+alt + {_, shift} + Tab
+    bspc desktop -f {next,prev}.local
 
 # Easily go back and forth between the last desktop used
 alt + a
@@ -108,33 +72,6 @@ super + {1-9,0}
 # Switch between tiled and monocle desktop layouts
 super + f
     bspc desktop -l next
-
-# ======================
-# ======= States =======
-# ======================
-
-# Toggle pseudo_tiled state (centered float)
-super + r
-    bspc node focused -t ~pseudo_tiled
-
-# Toggle fullscreen state
-super + t
-    bspc node focused -t ~fullscreen
-
-# Toggle floating state
-super + v
-    bspc node focused -t ~floating
-
-# Same as above
-super + space
-    bspc node focused -t ~floating
-
-# ==========================
-# ======= screenshot =======
-# ==========================
-
-super + p
-    ~/.config/sxhkd/screenshot.sh
 
 # =======================
 # ======= polybar =======
@@ -184,20 +121,12 @@ super + {Left,Down,Up,Right}
 # ====================
 
 # Show the application launcher
-alt + z
-  env XDG_CURRENT_DESKTOP="KDE" QT_FONT_DPI="192" rofi -show drun
-
-# Show open windows
-alt + space
-  rofi -show window
+alt + {z,space,backslash}
+  env XDG_CURRENT_DESKTOP="KDE" QT_FONT_DPI="192" rofi -show {drun,window,calc -modi calc -no-show-match -no-sort}
 
 # Show pass
 alt + slash
   rofi-pass
-
-# Show calculator with natural language support
-alt + backslash
-  rofi -show calc -modi calc -no-show-match -no-sort
 
 # ===================
 # ======= wal =======
