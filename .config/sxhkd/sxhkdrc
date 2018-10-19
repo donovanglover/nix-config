@@ -92,10 +92,11 @@ super + r
 
 # Toggle between tiled and "true" fullscreen
 super + t
-    bspc node focused -t fullscreen
-
-super + shift + t
-    bspc node focused -t tiled
+    if [ -z "$(bspc query -N -n focused.fullscreen)" ]; then \
+        bspc node focused -t fullscreen; \
+    else \
+        bspc node focused -t tiled; \
+    fi
 
 # Toggle between floating and tiled (default)
 # This is the equivalent of a floating window in i3
