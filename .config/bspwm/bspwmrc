@@ -40,6 +40,9 @@ xmodmap ~/.xmodmap
 # Make caps lock (left ctrl) work as escape
 xcape -e 'Control_L=Escape'
 
+# Change the default X shaped cursor to a pointer
+xsetroot -cursor_name left_ptr
+
 # Set a temporary black background to avoid flash
 ~/.config/feh/tile.sh 000000
 
