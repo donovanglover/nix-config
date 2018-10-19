@@ -94,23 +94,6 @@ set mouse=a                    " Enable mouse support in (a)ll modes
 
 colorscheme wal
 
-" Wal Themes: Tomorrow, Tomorrow_Night, one, materia, material, nord
-" Other Themes: wombat, solarized, powerline, jellybeans, Tomorrow_Night_Blue,
-"               Tomorrow_Night_Eighties, PaperColor, seoul256, landscape,
-"               darcula, molokai, OldHope, deus
-let g:lightline = {
-\   'colorscheme': 'Tomorrow_Night',
-\   'active': {
-\     'left': [
-\       [ 'mode', 'paste' ], [ 'gitbranch' ],
-\       ['readonly', 'filename', 'modified']
-\     ]
-\   },
-\   'component_function': {
-\     'gitbranch': 'fugitive#head'
-\   },
-\ }
-
 " Don't show the separator for vertical splits
 highlight vertsplit ctermfg=0 ctermbg=none
 
@@ -124,6 +107,36 @@ call matchadd('OverLength', '\%80v')
 
 autocmd BufNewFile,BufRead *.ecr    setlocal syntax=html
 autocmd BufNewFile,BufRead *.slang  setlocal filetype=slim
+
+" =============================
+" ========= lightline =========
+" =============================
+
+" Add the current branch to the status line
+let g:lightline = {
+\   'active': {
+\     'left': [
+\       [ 'mode', 'paste' ], [ 'gitbranch' ],
+\       ['readonly', 'filename', 'modified']
+\     ]
+\   },
+\   'component_function': {
+\     'gitbranch': 'fugitive#head'
+\   }
+\ }
+
+" Note that wal.vim's lightline theme uses some options that are incompatible
+" with regular vim and are only supported by neovim.
+"
+" Wal Themes: Tomorrow, Tomorrow_Night, one, materia, material, nord
+" Other Themes: wombat, solarized, powerline, jellybeans, Tomorrow_Night_Blue,
+"               Tomorrow_Night_Eighties, PaperColor, seoul256, landscape,
+"               darcula, molokai, OldHope, deus
+if has('nvim')
+    let g:lightline.colorscheme = 'wal'
+else
+    let g:lightline.colorscheme = 'Tomorrow_Night'
+endif
 
 " ============================
 " ========= keybinds =========
