@@ -80,40 +80,22 @@ super + {1-9,0}
 super + shift + {1-9,0}
     bspc node -d '^{1-9,10}'
 
-# Toggle between pseudo_tiled and tiled
-# This floats the window in the area it occupies
-# and automatically centers it
+# Toggle pseudo_tiled mode. This floats the node
+# in the area it occupies and automatically centers it
 super + r
-    if [ -z "$(bspc query -N -n focused.pseudo_tiled)" ]; then \
-        bspc node focused -t pseudo_tiled; \
-    else \
-        bspc node focused -t tiled; \
-    fi
+    bspc node focused -t ~pseudo_tiled
 
-# Toggle between tiled and "true" fullscreen
+# Toggle fullscreen mode
 super + t
-    if [ -z "$(bspc query -N -n focused.fullscreen)" ]; then \
-        bspc node focused -t fullscreen; \
-    else \
-        bspc node focused -t tiled; \
-    fi
+    bspc node focused -t ~fullscreen
 
-# Toggle between floating and tiled (default)
-# This is the equivalent of a floating window in i3
+# Toggle floating mode
 super + v
-    if [ -z "$(bspc query -N -n focused.floating)" ]; then \
-        bspc node focused -t floating; \
-    else \
-        bspc node focused -t tiled; \
-    fi
+    bspc node focused -t ~floating
 
 # Same as above
 super + space
-    if [ -z "$(bspc query -N -n focused.floating)" ]; then \
-        bspc node focused -t floating; \
-    else \
-        bspc node focused -t tiled; \
-    fi
+    bspc node focused -t ~floating
 
 # Toggle between "tiled" and "fullscreen" monocle mode
 super + f
