@@ -1,6 +1,10 @@
 # New Start: A modern Arch workflow built with an emphasis on functionality.
 # Copyright (C) 2017-2018 Donovan Glover
 
+# ========================
+# ======= terminal =======
+# ========================
+
 # Open a new terminal window
 super + Return
     urxvtcd
@@ -17,13 +21,25 @@ super + backslash
 super + shift + backslash
   termite -e "tmux"
 
+# =====================
+# ======= sxhkd =======
+# =====================
+
 # Reload sxhkd (applies new keybindings, etc.)
 super + Escape
     pkill -USR1 -x sxhkd
 
+# =====================
+# ======= bspwm =======
+# =====================
+
 # Quit the bspwm session
 super + alt + Escape
     bspc quit
+
+# ====================
+# ======= Node =======
+# ====================
 
 # Close the focused window
 super + q
@@ -41,16 +57,37 @@ super + {h,j,k,l}
 super + shift + {h,j,k,l}
     bspc node -s {west,south,north,east}
 
-# Switch between windows in fullscreen (monocle mode)
+# Switch to the next / previous node (includes monocle layout)
 super + {n,m}
     bspc node -f {next,prev}
 
-# Toggle the "sticky" state of a window
-# (i.e. the window follows you no matter
-# which workspace you choose)
-# Useful for videos, etc.
+# Swap between the last window used
+super + c
+    bspc node -f last
+
+# Send a node to a certain desktop
+super + shift + {1-9,0}
+    bspc node -d '^{1-9,10}'
+
+# =====================
+# ======= Flags =======
+# =====================
+
+# Toggle the sticky flag
 super + x
     bspc node -g sticky
+
+# Toggle the private flag
+super + y
+    bspc node -g private
+
+# Toggle the locked flag
+super + b
+    bspc node -g locked
+
+# =======================
+# ======= Desktop =======
+# =======================
 
 # Move to the next desktop on the current monitor
 alt + Tab
@@ -60,15 +97,7 @@ alt + Tab
 alt + shift + Tab
     bspc desktop -f prev.local
 
-# Focus the last window you used
-# Useful to easily go back and forth
-# between windows
-super + c
-    bspc node -f last
-
-# Focus the last desktop you used
-# Useful to easily go back and forth
-# between desktops
+# Easily go back and forth between the last desktop used
 alt + a
     bspc desktop -f last
 
@@ -76,20 +105,23 @@ alt + a
 super + {1-9,0}
     bspc desktop -f '^{1-9,10}'
 
-# Send a window to a certain desktop
-super + shift + {1-9,0}
-    bspc node -d '^{1-9,10}'
+# Switch between tiled and monocle desktop layouts
+super + f
+    bspc desktop -l next
 
-# Toggle pseudo_tiled mode. This floats the node
-# in the area it occupies and automatically centers it
+# ======================
+# ======= States =======
+# ======================
+
+# Toggle pseudo_tiled state (centered float)
 super + r
     bspc node focused -t ~pseudo_tiled
 
-# Toggle fullscreen mode
+# Toggle fullscreen state
 super + t
     bspc node focused -t ~fullscreen
 
-# Toggle floating mode
+# Toggle floating state
 super + v
     bspc node focused -t ~floating
 
@@ -97,22 +129,23 @@ super + v
 super + space
     bspc node focused -t ~floating
 
-# Toggle between "tiled" and "fullscreen" monocle mode
-super + f
-    bspc desktop -l next
+# ==========================
+# ======= screenshot =======
+# ==========================
 
 super + p
     ~/.config/sxhkd/screenshot.sh
 
+# =======================
+# ======= polybar =======
+# =======================
+
 super + o
     xdo hide -N "Polybar" && bspc config top_padding 0
 
-# Note that polybar automatically handles top_padding *but*
-# this does not apply to all desktops, so we have to specify it manually here
 # top_padding depends on the height you set in polybar/config
 super + O
     xdo show -N "Polybar" && bspc config top_padding 80
-    # xdo show -N "Polybar" && bspc config top_padding 128
 
 # =====================
 # ===== Preselect =====
@@ -146,11 +179,6 @@ super + alt + shift + {h,j,k,l}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
-# Prevent a node from being changed (resized, moved, etc.)
-# when you create new ones
-super + y
-    bspc node focused -g private
-
 # ====================
 # ======= Rofi =======
 # ====================
@@ -182,9 +210,9 @@ alt + m
 # ======= dunst =======
 # =====================
 
-# Get the current node's mode
+# Get the current node's state
 alt + n
   SXHKD_NODE=$(bspc query -T -n) && \
-  notify-send "Current window $(echo $SXHKD_NODE | jq '.client.className') is in mode" "$(echo $SXHKD_NODE | jq '.client.state')"
+  notify-send "Current window $(echo $SXHKD_NODE | jq '.client.className') is in a node with state" "$(echo $SXHKD_NODE | jq '.client.state')"
 
 # vim:ft=sxhkdrc
