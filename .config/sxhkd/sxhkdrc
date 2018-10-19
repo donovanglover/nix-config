@@ -77,12 +77,11 @@ super + f
 # ======= polybar =======
 # =======================
 
-super + o
-    xdo hide -N "Polybar" && bspc config top_padding 0
-
 # top_padding depends on the height you set in polybar/config
-super + O
-    xdo show -N "Polybar" && bspc config top_padding 80
+super + o
+  (xdotool search --class --onlyvisible "Polybar" && \
+    (xdo hide -N "Polybar" && bspc config top_padding 0)) || \
+    (xdo show -N "Polybar" && bspc config top_padding 80)
 
 # =====================
 # ===== Preselect =====
