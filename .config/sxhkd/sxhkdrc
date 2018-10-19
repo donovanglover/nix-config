@@ -195,4 +195,13 @@ alt + backslash
 alt + m
   wal -o ~/.config/wal/done.sh -i ~/Pictures/Wallpapers
 
+# =====================
+# ======= dunst =======
+# =====================
+
+# Get the current node's mode
+alt + n
+  SXHKD_NODE=$(bspc query -T -n) && \
+  notify-send "Current window $(echo $SXHKD_NODE | jq '.client.className') is in mode" "$(echo $SXHKD_NODE | jq '.client.state')"
+
 # vim:ft=sxhkdrc
