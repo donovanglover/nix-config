@@ -53,20 +53,12 @@ super + {_,shift} + {h,j,k,l}
     bspc node -{f,s} {west,south,north,east}
 
 # Switch to the next / previous node (includes monocle layout)
-super + {n,m}
+super + {_,shift} + n
     bspc node -f {next,prev}
 
-# Swap between the last window used
-super + c
-    bspc node -f last
-
-# Send a node to a certain desktop
-super + shift + {1-9,0}
-    bspc node -d '^{1-9,10}'
-
 # FLAGS: Toggle between node flags
-super + {x,y,l}
-    bspc node -g {sticky,private,locked}
+super + {x,y}
+    bspc node -g {sticky,private}
 
 # STATES: Toggle between node states
 super + {t,r,f,space}
@@ -76,6 +68,10 @@ super + {t,r,f,space}
 # ======= Desktop =======
 # =======================
 
+# Focus a certain desktop / Send a node to a certain desktop
+super + {_,shift} + {1-9,0}
+    bspc {desktop -f,node -d} '^{1-9,10}'
+
 # Move to the next desktop on the current monitor
 alt + {_, shift} + Tab
     bspc desktop -f {next,prev}.local
@@ -84,29 +80,21 @@ alt + {_, shift} + Tab
 alt + a
     bspc desktop -f last
 
-# Focus a certain desktop
-super + {1-9,0}
-    bspc desktop -f '^{1-9,10}'
-
 # Switch between tiled and monocle desktop layouts
-super + f
+super + c
     bspc desktop -l next
 
 # =====================
 # ===== Preselect =====
 # =====================
 
-# Preselect where windows go
-super + ctrl + {h,j,k,l}
-    bspc node -p {west,south,north,east}
+# Preselect where new nodes go
+super + ctrl + {h,j,k,l,space}
+    bspc node -p {west,south,north,east,cancel}
 
-# Preselect the ratio of windows
+# Preselect the ratio of new nodes
 super + ctrl + {1-9}
     bspc node -o 0.{1-9}
-
-# Cancel the preselection for the focused node
-super + ctrl + space
-    bspc node -p cancel
 
 # ======================
 # ======= Resize =======
