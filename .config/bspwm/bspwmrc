@@ -15,11 +15,6 @@ sxhkd &
 
 bspc monitor -d 1 2 3 4 5 6
 
-# Overall look (top_padding from polybar)
-bspc config top_padding         80
-bspc config border_width        8
-bspc config window_gap          20
-
 bspc config split_ratio          0.50
 
 # Use monocle mode by default on single window desktops.
