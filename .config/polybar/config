@@ -2,82 +2,82 @@
 # Copyright (C) 2017-2018 Donovan Glover
 
 [color]
-background      = ${xrdb:color0}
-red             = ${xrdb:color1}
-green           = ${xrdb:color2}
-yellow          = ${xrdb:color3}
-blue            = ${xrdb:color4}
-magenta         = ${xrdb:color5}
-cyan            = ${xrdb:color6}
-text            = ${xrdb:color7}
-background-alt  = ${xrdb:color8}
+background                  = ${xrdb:color0}
+red                         = ${xrdb:color1}
+green                       = ${xrdb:color2}
+yellow                      = ${xrdb:color3}
+blue                        = ${xrdb:color4}
+magenta                     = ${xrdb:color5}
+cyan                        = ${xrdb:color6}
+text                        = ${xrdb:color7}
+background-alt              = ${xrdb:color8}
 
 [bar/main]
-modules-left    = bspwm
-modules-center  = mpd
-modules-right   = cpu ram volume date time
+modules-left                = bspwm
+modules-center              = mpd
+modules-right               = cpu ram volume date time
 
-monitor         = VGA-1
-foreground      = ${color.text}
-background      = ${color.background}
-font-0          = "Fira Mono:style=Bold:size=19"
-font-1          = "Noto Sans CJK JP:size=19"
-font-2          = "Font Awesome 5 Free:style=Solid:size=19"
-font-3          = "Font Awesome 5 Free:style=Regular:size=19"
-font-4          = "Font Awesome 5 Brands:style=Regular:size=19"
+monitor                     = VGA-1
+foreground                  = ${color.text}
+background                  = ${color.background}
+font-0                      = "Fira Mono:style=Bold:size=19"
+font-1                      = "Noto Sans CJK JP:size=19"
+font-2                      = "Font Awesome 5 Free:style=Solid:size=19"
+font-3                      = "Font Awesome 5 Free:style=Regular:size=19"
+font-4                      = "Font Awesome 5 Brands:style=Regular:size=19"
 
 # NOTE: You may want to change height to 80 if you don't want float
 # Also do a grep for 80 and change the other places as well
-height          = 85
-padding-left    = 2
-padding-right   = 2
-module-margin   = 1
-border-color = 66FFFFFF
+height                      = 85
+padding-left                = 2
+padding-right               = 2
+module-margin               = 1
+border-color                = 66FFFFFF
 
 # Make the bar float
 # NOTE: offset-x should be the same as window_gap in your bspwmrc
-offset-x        = 30
+offset-x                    = 30
 # NOTE: offset-y depends on window_gap as well; it's usually the same as offset-x
-offset-y        = 30
+offset-y                    = 30
 # NOTE: width = screen resolution - offset-x * 2
-width           = 3780
+width                       = 3780
 # NOTE: border-size should be the same as border_width in your bspwmrc
-border-size     = 3
+border-size                 = 3
 
-line-size = 4
+line-size                   = 4
 
 # Make fullscreen programs show above polybar
-wm-restack = bspwm
+wm-restack                  = bspwm
 
 [bar/secondary]
-modules-left    = bspwm
-modules-center  = mpd
-modules-right   = cpu ram volume date time
+modules-left                = bspwm
+modules-center              = mpd
+modules-right               = cpu ram volume date time
 
-monitor         = VGA-1
-foreground      = ${color.text}
-background      = ${color.background}
-font-0          = "Fira Mono:style=Bold:size=19"
-font-1          = "Noto Sans CJK JP:size=19"
-font-2          = "Font Awesome 5 Free:style=Solid:size=19"
-font-3          = "Font Awesome 5 Free:style=Regular:size=19"
-font-4          = "Font Awesome 5 Brands:style=Regular:size=19"
+monitor                     = VGA-1
+foreground                  = ${color.text}
+background                  = ${color.background}
+font-0                      = "Fira Mono:style=Bold:size=19"
+font-1                      = "Noto Sans CJK JP:size=19"
+font-2                      = "Font Awesome 5 Free:style=Solid:size=19"
+font-3                      = "Font Awesome 5 Free:style=Regular:size=19"
+font-4                      = "Font Awesome 5 Brands:style=Regular:size=19"
 
-height          = 80
-padding-left    = 2
-padding-right   = 2
-module-margin   = 1
-border-color = ${color.background}
-border-bottom-size     = 0
-# line-size = 4
+height                      = 80
+padding-left                = 2
+padding-right               = 2
+module-margin               = 1
+border-color                = ${color.background}
+border-bottom-size          = 0
+# line-size                 = 4
 
 wm-restack = bspwm
 
 [module/bspwm]
-type = internal/bspwm
-pin-workspaces = true
-
+type                        = internal/bspwm
+pin-workspaces              = true
 format                      = <label-mode> <label-state>
+
 label-monocle               =  monocle mode
 label-locked                =  Locked
 label-private               =  Private
@@ -93,78 +93,79 @@ label-locked-foreground     = ${color.background-alt}
 label-private-foreground    = ${color.background-alt}
 label-sticky-foreground     = ${color.background-alt}
 
+label-focused-padding       = 2
+label-urgent-padding        = 2
+label-occupied-padding      = 2
+label-empty-padding         = 2
+
 label-focused-foreground    = ${color.text}
 label-urgent-foreground     = ${color.yellow}
 label-occupied-foreground   = ${color.background-alt}
 label-empty-foreground      = ${color.green}
-label-focused-padding   = 2
-label-urgent-padding    = 2
-label-occupied-padding  = 2
-label-empty-padding     = 2
 
-label-focused-underline = ${color.text}
+label-focused-underline     = ${color.text}
 
-ws-icon-0   = 1;一
-ws-icon-1   = 2;二
-ws-icon-2   = 3;三
-ws-icon-3   = 4;四
-ws-icon-4   = 5;五
-ws-icon-5   = 6;六
-ws-icon-6   = 7;七
-ws-icon-7   = 8;八
-ws-icon-8   = 9;九
-ws-icon-9   = 10;十
+ws-icon-0                   = 1;一
+ws-icon-1                   = 2;二
+ws-icon-2                   = 3;三
+ws-icon-3                   = 4;四
+ws-icon-4                   = 5;五
+ws-icon-5                   = 6;六
+ws-icon-6                   = 7;七
+ws-icon-7                   = 8;八
+ws-icon-8                   = 9;九
+ws-icon-9                   = 10;十
 
 [module/cpu]
-type = internal/cpu
-label =  %percentage%%
-format-foreground = ${color.background-alt}
-format-underline = ${color.background-alt}
+type                        = internal/cpu
+label                       =  %percentage%%
+format-foreground           = ${color.background-alt}
+format-underline            = ${color.background-alt}
 
 [module/ram]
 type = internal/memory
-label =  %gb_used%
-format-foreground = ${color.background-alt}
-format-underline = ${color.background-alt}
+label                       =  %gb_used%
+format-foreground           = ${color.background-alt}
+format-underline            = ${color.background-alt}
 
 [module/date]
-type = internal/date
-date =  %d.%m.%y
-#date = %B %d, %Y
-#date = %A
-format-foreground = ${color.background-alt}
-format-underline = ${color.background-alt}
+type                        = internal/date
+date                        =  %d.%m.%y
+#date                       = %B %d, %Y
+#date                       = %A
+format-foreground           = ${color.background-alt}
+format-underline            = ${color.background-alt}
 
 [module/time]
-type = internal/date
-date =  %H:%M
-format-foreground = ${color.background-alt}
-format-underline = ${color.background-alt}
+type                        = internal/date
+date                        =  %H:%M
+format-foreground           = ${color.background-alt}
+format-underline            = ${color.background-alt}
 
 [module/battery]
-type = internal/battery
-battery = BAT0
-adapter = AC
-full-at = 98
-label-full = %percentage%%
-label-charging = %percentage%%
-label-discharigng = %percentage%
+type                        = internal/battery
+battery                     = BAT0
+adapter                     = AC
+full-at                     = 98
+label-full                  = %percentage%%
+label-charging              = %percentage%%
+label-discharigng           = %percentage%
 
 [module/mpd]
-type = internal/mpd
-format-offline = No song is currently playing.
-label-song-maxlen = 100
-label-song-ellipsis = true
-format-online =  <label-song>
-format-offline-foreground = ${color.background-alt}
-format-offline-underline = ${color.background-alt}
-format-online-foreground = ${color.background-alt}
-format-online-underline = ${color.background-alt}
+type                        = internal/mpd
+format-offline              = No song is currently playing.
+label-song-maxlen           = 100
+label-song-ellipsis         = true
+format-online               =  <label-song>
+format-offline-foreground   = ${color.background-alt}
+format-offline-underline    = ${color.background-alt}
+format-online-foreground    = ${color.background-alt}
+format-online-underline     = ${color.background-alt}
 
 [module/volume]
-type = internal/alsa
-label-volume =  %percentage%%
-format-volume-foreground = ${color.background-alt}
-format-volume-underline = ${color.background-alt}
+type                        = internal/alsa
+label-volume                =  %percentage%%
+format-volume-foreground    = ${color.background-alt}
+format-volume-underline     = ${color.background-alt}
 
 ; vim:ft=dosini
