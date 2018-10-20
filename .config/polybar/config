@@ -77,6 +77,22 @@ wm-restack = bspwm
 type = internal/bspwm
 pin-workspaces = true
 
+format                      = <label-mode> <label-state>
+label-monocle               =  monocle mode
+label-locked                =  Locked
+label-private               =  Private
+label-sticky                =  Sticky
+
+label-monocle-padding       = 1
+label-locked-padding        = 1
+label-private-padding       = 1
+label-sticky-padding        = 1
+
+label-monocle-foreground    = ${color.yellow}
+label-locked-foreground     = ${color.background-alt}
+label-private-foreground    = ${color.background-alt}
+label-sticky-foreground     = ${color.background-alt}
+
 label-focused-foreground    = ${color.text}
 label-urgent-foreground     = ${color.yellow}
 label-occupied-foreground   = ${color.background-alt}
