@@ -13,41 +13,20 @@ text                        = ${xrdb:color7}
 background-alt              = ${xrdb:color8}
 
 [bar/main]
-modules-left                = bspwm
-modules-center              = mpd
-modules-right               = cpu ram volume date time
-
-monitor                     = VGA-1
-foreground                  = ${color.text}
-background                  = ${color.background}
-font-0                      = "Fira Mono:style=Bold:size=19"
-font-1                      = "Noto Sans CJK JP:size=19"
-font-2                      = "Font Awesome 5 Free:style=Solid:size=19"
-font-3                      = "Font Awesome 5 Free:style=Regular:size=19"
-font-4                      = "Font Awesome 5 Brands:style=Regular:size=19"
-
-# NOTE: You may want to change height to 80 if you don't want float
-# Also do a grep for 80 and change the other places as well
-height                      = 85
-padding-left                = 2
-padding-right               = 2
-module-margin               = 1
-border-color                = 66FFFFFF
+inherit                     = bar/secondary
 
 # Make the bar float
-# NOTE: offset-x should be the same as window_gap in your bspwmrc
+# offset-x                  = offset-y = window_gap in bspwmrc
+# width                     = screen resolution - offset-x * 2
+# border-size               = border_width in bspwmrc
+# border-bottom-size        = border-size / 2
+# line-size                 = border-size / 2
 offset-x                    = 30
-# NOTE: offset-y depends on window_gap as well; it's usually the same as offset-x
 offset-y                    = 30
-# NOTE: width = screen resolution - offset-x * 2
 width                       = 3780
-# NOTE: border-size should be the same as border_width in your bspwmrc
-border-size                 = 3
-
+border-size                 = 8
+border-bottom-size          = 4
 line-size                   = 4
-
-# Make fullscreen programs show above polybar
-wm-restack                  = bspwm
 
 [bar/secondary]
 modules-left                = bspwm
@@ -67,10 +46,11 @@ height                      = 80
 padding-left                = 2
 padding-right               = 2
 module-margin               = 1
-border-color                = ${color.background}
-border-bottom-size          = 0
+border-color                = ${color.background-alt}
+border-bottom-size          = 4
 # line-size                 = 4
 
+# Make fullscreen programs show above polybar
 wm-restack = bspwm
 
 [module/bspwm]
