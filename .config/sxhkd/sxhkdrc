@@ -1,13 +1,9 @@
 # New Start: A modern Arch workflow built with an emphasis on functionality.
 # Copyright (C) 2017-2018 Donovan Glover
 
-# Reload sxhkd
-super + Escape
-    pkill -USR1 -x sxhkd
-
-# Quit the bspwm session
-super + alt + Escape
-    bspc quit
+# Reload sxhkd / Quit bspwm
+super + {_, alt} + Escape
+    {pkill -USR1 -x sxhkd,bspc quit}
 
 # Take a screenshot
 super + p
@@ -20,6 +16,29 @@ super + {_,shift} + Return
 # Open a new transparent terminal
 super + {_,shift} + backslash
   termite -e {"tmux new-session; set status", "tmux"}
+
+# toggle polybar: top_padding depends on the height you set in polybar/config
+super + o
+  (xdotool search --class --onlyvisible "Polybar" && \
+    (xdo hide -N "Polybar" && bspc config top_padding 0)) || \
+    (xdo show -N "Polybar" && bspc config top_padding 80)
+
+# Change the wal color scheme
+alt + m
+  wal -o ~/.config/wal/done.sh -i ~/Pictures/Wallpapers
+
+# Show rofi drun / window / calc
+alt + {z,space,backslash}
+  env XDG_CURRENT_DESKTOP="KDE" QT_FONT_DPI="192" rofi -show {drun,window,calc -modi calc -no-show-match -no-sort}
+
+# Show rofi-pass
+alt + slash
+  rofi-pass
+
+# Get the current node's state
+alt + n
+  SXHKD_NODE=$(bspc query -T -n) && \
+  notify-send "Current window $(echo $SXHKD_NODE | jq '.client.className') is in a node with state" "$(echo $SXHKD_NODE | jq '.client.state')"
 
 # ====================
 # ======= Node =======
@@ -73,16 +92,6 @@ super + {1-9,0}
 super + f
     bspc desktop -l next
 
-# =======================
-# ======= polybar =======
-# =======================
-
-# top_padding depends on the height you set in polybar/config
-super + o
-  (xdotool search --class --onlyvisible "Polybar" && \
-    (xdo hide -N "Polybar" && bspc config top_padding 0)) || \
-    (xdo show -N "Polybar" && bspc config top_padding 80)
-
 # =====================
 # ===== Preselect =====
 # =====================
@@ -114,33 +123,5 @@ super + alt + shift + {h,j,k,l}
 # Move a floating window
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
-
-# ====================
-# ======= Rofi =======
-# ====================
-
-# Show the application launcher
-alt + {z,space,backslash}
-  env XDG_CURRENT_DESKTOP="KDE" QT_FONT_DPI="192" rofi -show {drun,window,calc -modi calc -no-show-match -no-sort}
-
-# Show pass
-alt + slash
-  rofi-pass
-
-# ===================
-# ======= wal =======
-# ===================
-
-alt + m
-  wal -o ~/.config/wal/done.sh -i ~/Pictures/Wallpapers
-
-# =====================
-# ======= dunst =======
-# =====================
-
-# Get the current node's state
-alt + n
-  SXHKD_NODE=$(bspc query -T -n) && \
-  notify-send "Current window $(echo $SXHKD_NODE | jq '.client.className') is in a node with state" "$(echo $SXHKD_NODE | jq '.client.state')"
 
 # vim:ft=sxhkdrc
