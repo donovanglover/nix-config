@@ -58,7 +58,7 @@ xset s off -dpms
 compton -b
 
 # Start polybar
-~/.config/polybar/launch.sh
+~/.config/polybar/launch.sh main
 
 # bspc rules
 bspc rule -a mpv            state=floating
