@@ -1,0 +1,30 @@
+// New Start: A modern Arch workflow built with an emphasis on functionality.
+// Copyright (C) 2018 Donovan Glover
+{
+    // Look and feel
+    "workbench.colorTheme": "Nord",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.smoothScrolling": true,
+
+    // Always start with the previous workspace
+    "workbench.startupEditor": "newUntitledFile",
+
+    // Confirmations
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+
+    // Attempt to render things properly for HiDPI displays
+    "terminal.integrated.rendererType": "dom",
+    "editor.disableTranslate3d": true,
+
+    // Toggle the menu bar with alt
+    "window.menuBarVisibility": "toggle",
+
+    // Disable the enabled-by-default telemetry
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+
+    // Prefer yarn over npm
+    "eslint.packageManager": "yarn"
+}
+// vim:syn=javascript
