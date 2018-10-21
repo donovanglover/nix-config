@@ -13,45 +13,27 @@ text                        = ${xrdb:color7}
 background-alt              = ${xrdb:color8}
 
 [bar/main]
-inherit                     = bar/secondary
-
-# Make the bar float
-# offset-x                  = offset-y = window_gap in bspwmrc
-# width                     = screen resolution - offset-x * 2
-# border-size               = border_width in bspwmrc
-# border-bottom-size        = border-size / 2
-# line-size                 = border-size / 2
-offset-x                    = 30
-offset-y                    = 30
-width                       = 3780
-border-size                 = 8
-border-bottom-size          = 4
-line-size                   = 4
-
-[bar/secondary]
 modules-left                = bspwm
 modules-center              = mpd
 modules-right               = cpu ram volume date time
 
 monitor                     = VGA-1
+wm-restack                  = bspwm
+include-file                = $HOME/.cache/polybar/config
+
 foreground                  = ${color.text}
 background                  = ${color.background}
+border-color                = ${color.text}
+
 font-0                      = "Fira Mono:style=Bold:size=19"
 font-1                      = "Noto Sans CJK JP:size=19"
 font-2                      = "Font Awesome 5 Free:style=Solid:size=19"
 font-3                      = "Font Awesome 5 Free:style=Regular:size=19"
 font-4                      = "Font Awesome 5 Brands:style=Regular:size=19"
 
-height                      = 80
 padding-left                = 2
 padding-right               = 2
 module-margin               = 1
-border-color                = ${color.background-alt}
-border-bottom-size          = 4
-# line-size                 = 4
-
-# Make fullscreen programs show above polybar
-wm-restack = bspwm
 
 [module/bspwm]
 type                        = internal/bspwm
