@@ -43,6 +43,9 @@ offset-y                    = ${POLYBAR_OFFSET_XY:-0}
 border-size                 = ${POLYBAR_BORDER_SIZE:-0}
 EOL
 
+# Save the top_padding amount for use by other scripts
+echo $BSPWM_TOP_PADDING > $HOME/.cache/polybar/bspwm_top_padding
+
 # Wait until there are no more polybar instances running
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 

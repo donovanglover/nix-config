@@ -21,7 +21,7 @@ super + {_,shift} + backslash
 super + o
   (xdotool search --class --onlyvisible "Polybar" && \
     (xdo hide -N "Polybar" && bspc config top_padding 0)) || \
-    (xdo show -N "Polybar" && bspc config top_padding 80)
+    (xdo show -N "Polybar" && bspc config top_padding $(cat ~/.cache/polybar/bspwm_top_padding))
 
 # Change the wal color scheme
 alt + m
