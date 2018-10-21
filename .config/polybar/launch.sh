@@ -16,7 +16,7 @@ if [ -z "$1" ]; then bspc_config 0 4 0; exit; fi
 
 # Set defaults
 POLYBAR_HEIGHT=80
-HOST_WIDTH=3840
+HOST_WIDTH=$(bspc query -T -m | jq '.rectangle.width')
 
 # Make the bar float
 if [ "$1" == "float" ]; then
