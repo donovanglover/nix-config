@@ -6,7 +6,7 @@ configuration {
   bw: 0;
   theme: "~/.cache/wal/colors-rofi-dark.rasi";
   drun-icon-theme: "Papirus-Dark";
-  terminal: "urxvtcd";
+  terminal: "urxvtc";
   scroll-method: 1;
   columns: 3;
   width: 70;
