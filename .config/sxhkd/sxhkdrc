@@ -31,11 +31,6 @@ alt + {z,space,backslash}
 alt + slash
   rofi-pass
 
-# Get the current node's state
-alt + n
-  SXHKD_NODE=$(bspc query -T -n) && \
-  notify-send "Current window $(echo $SXHKD_NODE | jq '.client.className') is in a node with state" "$(echo $SXHKD_NODE | jq '.client.state')"
-
 # ====================
 # ======= Node =======
 # ====================
@@ -60,6 +55,14 @@ super + {x,y}
 super + {t,r,f,space}
     bspc node focused -t ~{tiled,pseudo_tiled,fullscreen,floating}
 
+# PRESELECT: The direction to create a new node
+super + ctrl + {h,j,k,l,space}
+    bspc node -p {west,south,north,east,cancel}
+
+# RATIO: The size of a new node
+super + ctrl + {1-9}
+    bspc node -o 0.{1-9}
+
 # =======================
 # ======= Desktop =======
 # =======================
@@ -79,17 +82,5 @@ alt + a
 # Switch between tiled and monocle desktop layouts
 super + c
     bspc desktop -l next
-
-# =====================
-# ===== Preselect =====
-# =====================
-
-# Preselect where new nodes go
-super + ctrl + {h,j,k,l,space}
-    bspc node -p {west,south,north,east,cancel}
-
-# Preselect the ratio of new nodes
-super + ctrl + {1-9}
-    bspc node -o 0.{1-9}
 
 # vim:ft=sxhkdrc
