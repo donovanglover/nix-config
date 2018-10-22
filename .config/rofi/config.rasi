@@ -15,4 +15,4 @@ configuration {
   display-calc: "Calc";
 }
 
-// vim:ft=java
+// vim:syn=java
