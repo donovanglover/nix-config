@@ -31,8 +31,7 @@ font-2                      = "Font Awesome 5 Free:style=Solid:size=19"
 font-3                      = "Font Awesome 5 Free:style=Regular:size=19"
 font-4                      = "Font Awesome 5 Brands:style=Regular:size=19"
 
-padding-left                = 2
-padding-right               = 2
+padding                     = 2
 module-margin               = 1
 
 [module/bspwm]
@@ -82,27 +81,27 @@ ws-icon-9                   = 10;十
 type                        = internal/cpu
 label                       =  %percentage%%
 format-foreground           = ${color.background-alt}
-format-underline            = ${color.background-alt}
+format-underline            = ${self.format-foreground}
 
 [module/ram]
 type = internal/memory
 label                       =  %gb_used%
 format-foreground           = ${color.background-alt}
-format-underline            = ${color.background-alt}
+format-underline            = ${self.format-foreground}
 
 [module/date]
 type                        = internal/date
 date                        =  %d.%m.%y
-#date                       = %B %d, %Y
-#date                       = %A
+#date                       =  %B %d, %Y
+#date                       =  %A
 format-foreground           = ${color.background-alt}
-format-underline            = ${color.background-alt}
+format-underline            = ${self.format-foreground}
 
 [module/time]
 type                        = internal/date
 date                        =  %H:%M
 format-foreground           = ${color.background-alt}
-format-underline            = ${color.background-alt}
+format-underline            = ${self.format-foreground}
 
 [module/battery]
 type                        = internal/battery
@@ -120,14 +119,14 @@ label-song-maxlen           = 100
 label-song-ellipsis         = true
 format-online               =  <label-song>
 format-offline-foreground   = ${color.background-alt}
-format-offline-underline    = ${color.background-alt}
+format-offline-underline    = ${self.format-offline-foreground}
 format-online-foreground    = ${color.background-alt}
-format-online-underline     = ${color.background-alt}
+format-online-underline     = ${self.format-online-foreground}
 
 [module/volume]
 type                        = internal/alsa
 label-volume                =  %percentage%%
 format-volume-foreground    = ${color.background-alt}
-format-volume-underline     = ${color.background-alt}
+format-volume-underline     = ${self.format-volume-foreground}
 
 ; vim:ft=dosini
