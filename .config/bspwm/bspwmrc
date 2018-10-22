@@ -17,9 +17,6 @@ bspc monitor -d 1 2 3 4 5 6
 
 bspc config split_ratio          0.50
 
-# Use monocle mode by default on single window desktops.
-bspc config single_monocle       true
-
 # When monocle mode is enabled, don't show borders or gaps (i.e. let it
 # take up the full available space on the screen).
 bspc config borderless_monocle   true
