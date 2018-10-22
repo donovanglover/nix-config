@@ -7,19 +7,44 @@
 # make uninstall    Uninstalls dotfiles
 # make prune        Removes stale links
 
-NS_REPO_PATH    := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
-NS_REPO_DIR     := $(shell basename $(NS_REPO_PATH))
-NS_PARENT_PATH  := $(shell dirname $(NS_REPO_PATH))
-NS_STOW_OPTIONS := "${NS_REPO_DIR}" --dir="${NS_PARENT_PATH}" --target="${HOME}" --no-folding --verbose=2
+verbose          ?= 2
+NS_REPO_PATH     := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
+NS_STOW_OPTIONS  := --dir="${NS_REPO_PATH}" --target="${HOME}" --no-folding --verbose=${verbose}
+NS_STOW_PACKAGES := $(wildcard */)
+NS_SUCCESS       := "SUCCESS: Stow command executed succesfully!"
+
+ns_stow_package =                                                                                          \
+	echo "STATUS: Found package variable. Stow operation will be performed if it is a valid directory..."; \
+	test -d ${package} &&                                                                                  \
+	(stow -${1} ${package} ${NS_STOW_OPTIONS} &&                                                           \
+	echo ${NS_SUCCESS}) ||                                                                                 \
+	echo "FAILURE: Not a valid target directory."
+
+ns_stow_all =                                                                                              \
+	echo "STATUS: No package variable given. Performing stow operation on all directories...";             \
+	$(foreach package,$(NS_STOW_PACKAGES),stow -${1} $(package) ${NS_STOW_OPTIONS} &&)                     \
+	echo ${NS_SUCCESS}
 
 .PHONY: install
 install:
-	stow -S ${NS_STOW_OPTIONS}
+ifdef package
+	@$(call ns_stow_package,S)
+else
+	@$(call ns_stow_all,S)
+endif
 
 .PHONY: uninstall
 uninstall:
-	stow -D ${NS_STOW_OPTIONS}
+ifdef package
+	@$(call ns_stow_package,D)
+else
+	@$(call ns_stow_all,D)
+endif
 
 .PHONY: prune
 prune:
-	stow -R ${NS_STOW_OPTIONS}
+ifdef package
+	@$(call ns_stow_package,R)
+else
+	@$(call ns_stow_all,R)
+endif
