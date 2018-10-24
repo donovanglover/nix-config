@@ -12,6 +12,7 @@ NS_REPO_PATH     := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 NS_STOW_OPTIONS  := --dir="${NS_REPO_PATH}" --target="${HOME}" --no-folding --verbose=${verbose}
 NS_STOW_PACKAGES := $(wildcard */)
 NS_SUCCESS       := "SUCCESS: Stow command executed succesfully!"
+NS_STOW_COMMAND  := $(if ${package},ns_stow_package,ns_stow_all)
 
 ns_stow_package =                                                                                          \
 	echo "STATUS: Found package variable. Stow operation will be performed if it is a valid directory..."; \
@@ -27,24 +28,12 @@ ns_stow_all =                                                                   
 
 .PHONY: install
 install:
-ifdef package
-	@$(call ns_stow_package,S)
-else
-	@$(call ns_stow_all,S)
-endif
+	@$(call ${NS_STOW_COMMAND},S)
 
 .PHONY: uninstall
 uninstall:
-ifdef package
-	@$(call ns_stow_package,D)
-else
-	@$(call ns_stow_all,D)
-endif
+	@$(call ${NS_STOW_COMMAND},D)
 
 .PHONY: prune
 prune:
-ifdef package
-	@$(call ns_stow_package,R)
-else
-	@$(call ns_stow_all,R)
-endif
+	@$(call ${NS_STOW_COMMAND},R)
