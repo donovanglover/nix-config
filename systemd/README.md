@@ -24,6 +24,10 @@ make systemd-enable-now
 
 If you only want to start certain services instead, start them like you normally would with systemd.
 
+### ssh-agent
+
+In order for ssh-agent to cache your keys, you must first add them. You can do this by using `ssh-add`.
+
 [openssh]: https://www.archlinux.org/packages/core/x86_64/openssh/
 [rxvt-unicode-patched]: https://aur.archlinux.org/packages/rxvt-unicode-patched/
 [mpd]: https://www.archlinux.org/packages/extra/x86_64/mpd/
