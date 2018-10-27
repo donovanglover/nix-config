@@ -5,6 +5,7 @@ I use git as my main tool for distributed version control.
 ## Dependencies
 
 - [git][git] - The standard version control system
+- [diff-so-fancy][diff-so-fancy] - An amazing git diff utility
 
 ## Installation
 
@@ -24,3 +25,4 @@ Add a `.gituser` file to your `$HOME` with the following:
 ```
 
 [git]: https://www.archlinux.org/packages/extra/x86_64/git/
+[diff-so-fancy]: https://www.archlinux.org/packages/community/any/diff-so-fancy/
