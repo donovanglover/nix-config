@@ -37,3 +37,14 @@ uninstall:
 .PHONY: prune
 prune:
 	@$(call ${NS_STOW_COMMAND},R)
+
+# ========================
+# ======= systemd ========
+# ========================
+
+NS_SYSTEMD_SERVICES := ssh-agent urxvtd mpd
+
+.PHONY: systemd-enable-now
+systemd-enable-now:
+	@$(foreach service,${NS_SYSTEMD_SERVICES},systemctl --user enable --now ${service}.service;)
+	@echo "SUCCESS: Enabled the following services: ${NS_SYSTEMD_SERVICES}"
