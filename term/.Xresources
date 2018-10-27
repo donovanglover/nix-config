@@ -19,7 +19,7 @@ Xft.lcdfilter: lcddefault
 ! Align the font fully to the grid (increases clarity)
 Xft.hintstyle: hintfull
 
-! Make font colors look better (?)
+! Set the type of subpixel antialiasing to rgb
 Xft.rgba: rgb
 
 ! Make letter spacing identical to termite

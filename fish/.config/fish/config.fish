@@ -56,12 +56,12 @@ if not set -q set_abbr
     abbr te     "task edit"
 
     abbr dl     "youtube-dl"
-    abbr back   "feh --bg-fill"             # Change the background
     abbr vol    "amixer set 'Master'"       # Change the volume, e.g. vol 10%+, vol 10%-, vol 100%
     abbr copy   "xclip -sel clip <"         # Easily copy the contents of any file
     abbr dog    "pygmentize -g"             # "dog" is a colorful version of cat
     abbr cf     "tput reset"                # Clear the terminal completely
 
+    abbr b      "feh --bg-fill"             # Change the background
     abbr c      "clear"                     # Because 5 letters is too much
     abbr e      "exit"
     abbr l      "ls -l"
@@ -70,9 +70,6 @@ if not set -q set_abbr
     abbr m      "launch mpv"                # Easy media playing with m
     abbr w      "wal -o ~/.config/wal/done.sh"
     abbr T      "tree"
-
-    abbr lium   "launch chromium"           # Launch chromium separate from the terminal
-    abbr lfox   "launch firefox"            # Launch firefox separate from the terminal
 
     abbr nano   "vim"                       # The explanation is in the name
     abbr emacs  "vim"                       # No need to start another operating system

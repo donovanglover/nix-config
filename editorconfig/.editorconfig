@@ -1,5 +1,6 @@
 root = true
 
+# Use 2 spaces for indentation by default
 [*]
 charset = utf-8
 end_of_line = lf
@@ -8,8 +9,7 @@ indent_size = 2
 indent_style = space
 trim_trailing_whitespace = true
 
+# Use tab indentation (with size 4) for the following files
 [Makefile]
 indent_style = tab
-
-[*.cr]
-indent_size = 2
+indent_size = 4
