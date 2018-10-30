@@ -36,7 +36,6 @@ Since my dotfiles are managed with Stow, any of your existing dotfiles will not 
 - [systemd](/systemd) - User services, such as ssh-agent and urxvtd.
 - [tmux](/tmux) - A vim-like terminal multiplexer that gets out of your way.
 - [vim](/vim) - The settings I use for vim, also known as the best editor.
-- [wal](/wal) - My additions to wal's color scheme application algorithm.
 - [xmodmap](/xmodmap) - Make caps lock function as ctrl and escape.
 
 ## Uninstall

@@ -24,6 +24,10 @@ make package=bspwm
 
 Either `startx` directly or use a display manager. Assuming you have the necessary dependencies installed, and assuming you configured your system properly, everything should just work.
 
+## Note
+
+When you use `wal` to change the color scheme, add `-o ~/.config/wal/done.sh` to run the done script. The [fish](/fish) abbreviation `w` does this automatically for you.
+
 [bspwm]: https://www.archlinux.org/packages/community/x86_64/bspwm/
 [polybar]: https://aur.archlinux.org/packages/polybar/
 [dunst]: https://www.archlinux.org/packages/community/x86_64/dunst/
