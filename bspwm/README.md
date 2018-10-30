@@ -9,8 +9,8 @@ I use `bspwm` as my window manager of choice. My setup is optimized for HiDPI, s
 - [dunst][dunst] - Notifications
 - [rofi][rofi] - Window switcher, application launcher, and dmenu replacement
 - [sxhkd][sxhkd] - Keybinds
-- [rxvt-unicode-patched][rxvt-unicode-patched] - Terminal for image support
-- [termite][termite] - Terminal for transparency and everything else
+- [rxvt-unicode-patched][rxvt-unicode-patched] - Terminal with image support
+- [termite][termite] - Terminal with true transparency, icon fonts, true color, and emoji support
 - [python-pywal][python-pywal] - A universal color scheme changer
 - [feh][feh] - Used to set the background image
 

@@ -34,7 +34,6 @@ Since my dotfiles are managed with Stow, any of your existing dotfiles will not 
 - [gpg](/gpg) - My settings for GPG.
 - [plasma](/plasma) - Dotfiles specific to KDE Plasma.
 - [systemd](/systemd) - User services, such as ssh-agent and urxvtd.
-- [term](/term) - Config for urxvt and termite. May apply elsewhere as well.
 - [tmux](/tmux) - A vim-like terminal multiplexer that gets out of your way.
 - [vim](/vim) - The settings I use for vim, also known as the best editor.
 - [wal](/wal) - My additions to wal's color scheme application algorithm.
