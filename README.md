@@ -6,7 +6,11 @@
 
 ### Step 0. Clone this repository
 
-- `git clone https://github.com/GloverDonovan/dotfiles.git --depth 1`
+Add `--depth 1` to only fetch the latest commit.
+
+```sh
+git clone https://github.com/GloverDonovan/dotfiles.git --depth 1
+```
 
 ### Step 1. Install [stow][stow]
 
@@ -40,9 +44,7 @@ Since my dotfiles are managed with Stow, any of your existing dotfiles will not 
 
 ## Uninstall
 
-If you don't want to use some of my dotfiles anymore, they can be easily uninstalled.
-
-For example, if you don't want to use my `.vimrc` anymore, run:
+If you don't want to use some of my dotfiles anymore, they can be easily uninstalled. For example, if you don't want to use my `.vimrc` anymore, run:
 
 ```sh
 make uninstall package=vim

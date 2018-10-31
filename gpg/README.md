@@ -4,7 +4,7 @@ GPG is used to sign and encrypt things.
 
 ## Dependencies
 
-- [`gnupg`][gnupg] - The GNU Privacy Guard
+- [gnupg][gnupg] - The GNU Privacy Guard
 
 ## Installation
 
