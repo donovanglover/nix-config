@@ -17,7 +17,7 @@ Open the GNOME Tweaks program. Then:
 #### Under Appearance
 
 1. Change **Applications** to **Pop** or **Pop-dark**.
-2. Change **Cursor** to **Pop**.
+2. Change **Cursor** to **Breeze_cursors**.
 3. Change **Icons** to **Pop**.
 4. Change the background and lock screen image.
 

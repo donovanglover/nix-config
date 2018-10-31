@@ -8,7 +8,8 @@ make=$(MAKE) -C ..
 # 		yet for the latest version of GNOME.
 .PHONY: rice
 rice:
-	@${install} gnome-tweaks pop-gtk-theme pop-icon-theme
+	@${install} gnome-tweaks pop-gtk-theme pop-icon-theme \
+		breeze-cursor-theme
 
 .PHONY: dev
 dev:
