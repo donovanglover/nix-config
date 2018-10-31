@@ -4,9 +4,9 @@ I use [Arch Linux][archlinux], a [GNU/Linux][gnulinux] distribution, for its bar
 
 ## Getting Started
 
-### Step 1. Install Arch
+### Step 1. Install Arch Linux
 
-Install Arch like you normally would, following the [Installation guide][archguide]. Although I keep some of my install scripts in this directory, the actual installation process varies depending on your hardware and which setup you're trying to achieve. For this reason, my scripts should only be used as a guide *after* you have a proficient understanding of how Arch Linux works.
+Install Arch Linux like you normally would, following the [Installation guide][archguide]. Although I keep some of my install scripts in this directory, the actual installation process varies depending on your hardware and which setup you're trying to achieve. For this reason, my scripts should only be used as a guide *after* you have a proficient understanding of how Arch Linux works.
 
 ### Step 2. Install packages
 
