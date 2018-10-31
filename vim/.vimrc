@@ -5,6 +5,15 @@ if &shell =~# 'fish$'
   set shell=sh
 endif
 
+let plugsys = glob('/usr/share/vim/vimfiles/autoload/plug.vim')
+let plugusr = glob('~/.vim/autoload/plug.vim')
+
+if empty(plugsys) && empty(plugusr)
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/0.10.0/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
     Plug 'dylanaraps/wal.vim'           " Color scheme
     Plug 'airblade/vim-gitgutter'       " Git diff

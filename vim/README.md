@@ -20,12 +20,6 @@ make package=vim
 
 ## Usage
 
-I use [vim-plug][vim-plug] as my plugin manager of choice. Install it, then run:
-
-```
-vim +PlugInstall +qall
-```
-
-Now you can use my vim config with all the plugins installed!
+I use [vim-plug][vim-plug] as my plugin manager of choice. If it isn't installed already, my `.vimrc` will install it for you. If you already have vim-plug installed, run `:PlugInstall`. Now you can use my vim config with all the plugins enabled!
 
 [vim-plug]: https://github.com/junegunn/vim-plug
