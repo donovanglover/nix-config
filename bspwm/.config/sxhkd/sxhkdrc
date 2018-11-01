@@ -13,6 +13,10 @@ super + p
 super + {_,shift} + Return
   {termite -e "tmux new-session; set status",urxvtc}
 
+# Toggle a dropdown terminal
+super + backslash
+  ~/.config/sxhkd/dropdown.sh
+
 # toggle polybar: top_padding depends on the height you set in polybar/config
 super + o
   (xdotool search --class --onlyvisible "Polybar" && \
