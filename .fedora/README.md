@@ -27,6 +27,11 @@ Open the GNOME Tweaks program. Then:
 2. (Optional) Uncheck **Background logo** to remove the Fedora watermark from default wallpapers.
 3. (Optional) Check **Places status indicator** to easily access your user directories.
 
+#### Under Fonts
+
+1. Change **Hinting** to **Full**.
+2. Change **Antialiasing** to **Subpixel (for LCD screens)**.
+
 ### And you're done!
 
 That's it. You now have a very simple Fedora rice. If you want to mimic my development setup as well, continue reading.
