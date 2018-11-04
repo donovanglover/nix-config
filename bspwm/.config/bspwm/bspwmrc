@@ -60,6 +60,7 @@ compton -b
 # bspc rules
 bspc rule -a mpv            state=floating
 bspc rule -a feh            state=floating
+bspc rule -a URxvt:floating state=floating
 
 bspc rule -a kwrite         state=floating
 bspc rule -a ark            state=floating
