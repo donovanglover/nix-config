@@ -23,9 +23,11 @@ bspc config presel_feedback_color "$color1"
 mkdir -p  "${HOME}/.config/zathura"
 mkdir -p  "${HOME}/.config/termite"
 mkdir -p  "${HOME}/.config/dunst"
+mkdir -p  "${HOME}/.config/kitty"
 ln -sf    "${HOME}/.cache/wal/zathurarc"  "${HOME}/.config/zathura/zathurarc"
 ln -sf    "${HOME}/.cache/wal/termite"    "${HOME}/.config/termite/config"
 ln -sf    "${HOME}/.cache/wal/dunstrc"    "${HOME}/.config/dunst/dunstrc"
+ln -sf    "${HOME}/.cache/wal/kitty.conf" "${HOME}/.config/kitty/kitty.conf"
 
 # ===================
 # ====== dunst ======
