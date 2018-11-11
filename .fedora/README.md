@@ -8,7 +8,7 @@ This is my setup for [Fedora][fedora], a [GNU/Linux][gnulinux] distribution that
 
 ### Step 1. Install packages
 
-Run `make rice` to install the packages necessary to complete this rice.
+If you want to follow this rice, use `make rice`. If you want to mimic my entire setup, use `make all` instead.
 
 ### Step 2. Apply GNOME Tweaks
 
@@ -24,8 +24,7 @@ Open the GNOME Tweaks program. Then:
 #### Under Extensions
 
 1. Check **Alternatetab** to enable previews on alt tab. Under settings, uncheck "Show only windows in the current workspace" to take advantage of alt tabbing between workspaces.
-2. (Optional) Uncheck **Background logo** to remove the Fedora watermark from default wallpapers.
-3. (Optional) Check **Places status indicator** to easily access your user directories.
+2. Check **Launch new instance** to always launch new instances from the activities view.
 
 #### Under Fonts
 
@@ -34,11 +33,7 @@ Open the GNOME Tweaks program. Then:
 
 ### And you're done!
 
-That's it. You now have a very simple Fedora rice. If you want to mimic my development setup as well, continue reading.
-
-## Setting up Fedora for development work
-
-> TODO: Write this section
+That's it. You now have a very simple Fedora rice.
 
 [fedora]: https://getfedora.org
 [gnulinux]: https://www.gnu.org/gnu/linux-and-gnu.html
