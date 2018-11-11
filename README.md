@@ -4,7 +4,9 @@
 
 ## Usage
 
-### Step 0. Clone this repository
+If you want to mimic my entire setup, follow my [Arch Linux](/.archlinux) and [Fedora](/.fedora) guides. If you only want to try some of my dotfiles, continue reading below.
+
+### Step 1. Clone this repository
 
 Add `--depth 1` to only fetch the latest commit.
 
@@ -12,12 +14,12 @@ Add `--depth 1` to only fetch the latest commit.
 git clone https://github.com/GloverDonovan/dotfiles.git --depth 1
 ```
 
-### Step 1. Install [stow][stow]
+### Step 2. Install [stow][stow]
 
 - [Arch Linux][archlinux]: `pacman -S stow`
 - [Fedora][fedora]: `dnf install stow`
 
-### Step 2. Install the dotfiles you want
+### Step 3. Install the dotfiles you want
 
 For example, to use my vim config, run:
 
@@ -44,13 +46,7 @@ Since my dotfiles are managed with Stow, any of your existing dotfiles will not 
 
 ## Uninstall
 
-If you don't want to use some of my dotfiles anymore, they can be easily uninstalled. For example, if you don't want to use my `.vimrc` anymore, run:
-
-```sh
-make uninstall package=vim
-```
-
-This will only remove the files that Stow owns, while keeping your other files intact.
+For example, to uninstall my `.vimrc`, use `make uninstall package=vim`. Stow will only remove what it owns.
 
 [archlinux]:  https://www.archlinux.org
 [fedora]:     https://getfedora.org
