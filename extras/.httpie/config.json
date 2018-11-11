@@ -1,10 +1,11 @@
 {
-  "__meta__": {
-    "about": "HTTPie configuration file",
-    "help": "https://httpie.org/docs#config",
-    "httpie": "0.9.8"
-  },
-  "default_options": [
-    "--session-read-only", "~/.httpie/headers.json"
-  ]
+    "__meta__": {
+        "about": "HTTPie configuration file",
+        "help": "https://httpie.org/doc#config",
+        "httpie": "1.0.0"
+    },
+    "default_options": [
+        "--session-read-only",
+        "~/.httpie/headers.json"
+    ]
 }
