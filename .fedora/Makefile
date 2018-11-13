@@ -1,5 +1,6 @@
 THIS_MAKEFILE := $(lastword $(MAKEFILE_LIST))
 install=sudo dnf install --assumeyes
+copr=sudo dnf copr enable --assumeyes
 make=$(MAKE) -C ..
 makeh=$(MAKE) -f $(THIS_MAKEFILE)
 
@@ -7,6 +8,7 @@ makeh=$(MAKE) -f $(THIS_MAKEFILE)
 all:
 	@${makeh} RPMs/muya.rpm
 	@${makeh} install
+	@${makeh} kitty
 	@${makeh} wal
 	@${makeh} crystal
 	@${makeh} rust
@@ -34,6 +36,11 @@ install:
 dotfiles:
 	@${make} package=tmux
 	@${make} package=fish
+
+.PHONY: kitty
+kitty:
+	@${copr} gagbo/kitty-latest
+	@${install} kitty
 
 .PHONY: wal
 wal:
