@@ -8,7 +8,7 @@ This is my setup for [Fedora][fedora], a [GNU/Linux][gnulinux] distribution that
 
 ### Step 1. Install packages
 
-If you want to follow this rice, use `make rice`. If you want to mimic my entire setup, use `make all` instead.
+If you want to mimic my entire setup, run `./bootstrap.sh`. Otherwise, install the packages manually with `make rice`.
 
 ### Step 2. Apply GNOME Tweaks
 
