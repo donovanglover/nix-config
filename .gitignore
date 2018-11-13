@@ -3,3 +3,9 @@
 
 # Ignore tar files
 *.tar*
+
+# Ignore log files
+*.log
+
+# Ignore rpm files
+*.rpm
