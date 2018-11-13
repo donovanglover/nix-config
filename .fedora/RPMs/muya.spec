@@ -1,6 +1,6 @@
 Name: muya
 Version: 0.1.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Packages I use in addition to the defaults on Fedora
 License: Various
 BuildArch: noarch
@@ -63,18 +63,20 @@ manage dependencies and other installed files.
 %{_bindir}/unowns
 
 %install
-install -Dm 755 -t %{buildroot}/%{_bindir} tari-scripts/256colortest
-install -Dm 755 -t %{buildroot}/%{_bindir} tari-scripts/colorfade
-install -Dm 755 -t %{buildroot}/%{_bindir} tari-scripts/colorhash
-install -Dm 755 -t %{buildroot}/%{_bindir} tari-scripts/colorhex
-install -Dm 755 -t %{buildroot}/%{_bindir} tari-scripts/colorline
-install -Dm 755 -t %{buildroot}/%{_bindir} tari-scripts/colorpanes
-install -Dm 755 -t %{buildroot}/%{_bindir} tari-scripts/colortest
-install -Dm 755 -t %{buildroot}/%{_bindir} tari-scripts/diamonds
-install -Dm 755 -t %{buildroot}/%{_bindir} tari-scripts/dna
-install -Dm 755 -t %{buildroot}/%{_bindir} tari-scripts/ghosts
-install -Dm 755 -t %{buildroot}/%{_bindir} tari-scripts/pipes
-install -Dm 755 -t %{buildroot}/%{_bindir} tari-scripts/pmabove
-install -Dm 755 -t %{buildroot}/%{_bindir} tari-scripts/pmleft
-install -Dm 755 -t %{buildroot}/%{_bindir} tari-scripts/spaceinvaders
-install -Dm 755 -t %{buildroot}/%{_bindir} tari-scripts/unowns
+ROOT_DIR=../../.archlinux/PKGBUILDs
+SCRIPTS_DIR=$ROOT_DIR/tari-scripts
+install -Dm 755 -t %{buildroot}/%{_bindir} $SCRIPTS_DIR/256colortest
+install -Dm 755 -t %{buildroot}/%{_bindir} $SCRIPTS_DIR/colorfade
+install -Dm 755 -t %{buildroot}/%{_bindir} $SCRIPTS_DIR/colorhash
+install -Dm 755 -t %{buildroot}/%{_bindir} $SCRIPTS_DIR/colorhex
+install -Dm 755 -t %{buildroot}/%{_bindir} $SCRIPTS_DIR/colorline
+install -Dm 755 -t %{buildroot}/%{_bindir} $SCRIPTS_DIR/colorpanes
+install -Dm 755 -t %{buildroot}/%{_bindir} $SCRIPTS_DIR/colortest
+install -Dm 755 -t %{buildroot}/%{_bindir} $SCRIPTS_DIR/diamonds
+install -Dm 755 -t %{buildroot}/%{_bindir} $SCRIPTS_DIR/dna
+install -Dm 755 -t %{buildroot}/%{_bindir} $SCRIPTS_DIR/ghosts
+install -Dm 755 -t %{buildroot}/%{_bindir} $SCRIPTS_DIR/pipes
+install -Dm 755 -t %{buildroot}/%{_bindir} $SCRIPTS_DIR/pmabove
+install -Dm 755 -t %{buildroot}/%{_bindir} $SCRIPTS_DIR/pmleft
+install -Dm 755 -t %{buildroot}/%{_bindir} $SCRIPTS_DIR/spaceinvaders
+install -Dm 755 -t %{buildroot}/%{_bindir} $SCRIPTS_DIR/unowns
