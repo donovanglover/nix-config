@@ -5,7 +5,7 @@ makeh=$(MAKE) -f $(THIS_MAKEFILE)
 
 .PHONY: all
 all:
-	@${makeh} muya.rpm
+	@${makeh} RPMs/muya.rpm
 	@${makeh} install
 	@${makeh} wal
 	@${makeh} crystal
@@ -17,7 +17,9 @@ all:
 rice:
 	@${install} gnome-tweaks pop-gtk-theme pop-icon-theme breeze-cursor-theme
 
-muya.rpm: muya.spec
+.ONESHELL:
+RPMs/muya.rpm: RPMs/muya.spec
+	@cd RPMs
 	@rm -rfv noarch
 	@fedpkg --release f29 local
 	@mv noarch/*.rpm muya.rpm
@@ -26,7 +28,7 @@ muya.rpm: muya.spec
 
 .PHONY: install
 install:
-	@${install} muya.rpm
+	@${install} RPMs/muya.rpm
 
 .PHONY: dotfiles
 dotfiles:
