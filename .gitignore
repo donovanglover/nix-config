@@ -1,0 +1,5 @@
+# Ignore firefox extensions
+*.xpi
+
+# Ignore tar files
+*.tar*
