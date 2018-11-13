@@ -1,0 +1,70 @@
+_urxvtver='9.22'
+_urxvt="rxvt-unicode-${_urxvtver}"
+
+pkgname=tari-urxvt
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="The popular terminal emulator with image support through w3m."
+arch=('any')
+provides=('rxvt-unicode')
+conflicts=('rxvt-unicode')
+depends=('libxft' 'perl' 'startup-notification' 'rxvt-unicode-terminfo' 'w3m')
+source=('urxvtc.desktop'        'font-width-fix.patch'  'line-spacing-fix.patch'
+        'sgr-mouse-mode.patch'  'fix-smart-resize-with-x11-frame-borders.patch'
+        "http://dist.schmorp.de/rxvt-unicode/${_urxvt}.tar.bz2")
+sha256sums=('9c1964776a1f7fe0ccfff937355e7dedca812c328e38970598bf2f62633ee121'
+            '4aa9d068e80413da25cef227f6246c41d42e3e4fe6507afd0f61ca4f690a674a'
+            'adba89fdbf6a84564d54f22eed0f62c05470d76c29f1e811dd3d34f380646fdd'
+            'aa87121fc41e80c5c56740b1bc98e965920463e04aae5c0b2b6717d38162479f'
+            '927299576f5c9eae8820ba5de8b452f00c4a241f5dda32b6c60fd2d5c98da0b1'
+            'e94628e9bcfa0adb1115d83649f898d6edb4baced44f5d5b769c2eeb8b95addd')
+
+prepare() {
+  cd "${_urxvt}"
+
+  patch -p0 -i ../font-width-fix.patch
+  patch -p0 -i ../line-spacing-fix.patch
+  patch -p0 -i ../sgr-mouse-mode.patch
+  patch -p1 -i ../fix-smart-resize-with-x11-frame-borders.patch
+}
+
+build() {
+  cd "${_urxvt}"
+
+  ./configure \
+    --prefix=/usr \
+    --enable-256-color \
+    --enable-combining \
+    --enable-fading \
+    --enable-font-styles \
+    --enable-iso14755 \
+    --enable-keepscrolling \
+    --enable-lastlog \
+    --enable-mousewheel \
+    --enable-next-scroll \
+    --enable-perl \
+    --enable-pointer-blank \
+    --enable-rxvt-scroll \
+    --enable-selectionscrolling \
+    --enable-slipwheeling \
+    --enable-smart-resize \
+    --enable-startup-notification \
+    --enable-transparency \
+    --enable-unicode3 \
+    --enable-utmp \
+    --enable-wtmp \
+    --enable-xft \
+    --enable-xim \
+    --enable-xterm-scroll
+  make
+}
+
+package() {
+  install -Dm 644 urxvtc.desktop "$pkgdir"/usr/share/applications/urxvtc.desktop
+
+  cd "${_urxvt}"
+
+  export TERMINFO="$srcdir/terminfo"
+  install -d "$TERMINFO"
+  make DESTDIR="$pkgdir" install
+}

@@ -1,0 +1,42 @@
+pkgname=tari-scripts
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Visually appealing terminal scripts."
+arch=('any')
+source=('colorhash' 'colorhex'    'colorline'         'colorpanes'
+        'diamonds'  'pipes'       'pmabove'           'pmleft'
+        'dna'       'colortest'   '256colortest'      'colorfade'
+        'ghosts'    'unowns'      'spaceinvaders')
+sha256sums=('506b036cfce3229c922156f06a24ed2f796baa9b640c22beca23e12c8e04a8c0'
+            'de4df3f590fc349e471cfe84623c2a97757e9ade90d7fab7fb2921d59ffd464a'
+            '4c31394d04e16c39a04ea085858ece699f5f6ac846c7438ad860d519f09701fe'
+            '877452eb18bd94c00f9f3172f50d3980ce0c1446f0278afff1bbf4a6208cbcf6'
+            '56897e603eb5146f62cdc57a9573ed7c0bf5b1662351780be83275f95568ae18'
+            '466249fdb33dfe7c8fb20e63dc5a6f62038bca69538f5a2a38ef6e9e3d2433b2'
+            'e1f7dd3aa6cd9b8e3db189c4cf50d564d6605de81a6e552d4e97b804f79748d8'
+            '74102548cf7ea34846538115e26e2a7600f4705a8bbd2666aea5886d0365571f'
+            '6ae0d2b864bd9e0f47cac4533be8c9fc45b0c15b959c97699b07b08a2ad87342'
+            'a78f3d2f7665f3b2b5655da399d22a6573ea8898d69e71f99ac35ba28abe6a0c'
+            '006e6184c77864e943c412e4bbbd55a967fa7b930514982932015f1efa6b3a7b'
+            '14adff147f635206c77cce73f67547f5c39ddc419b9d8c9e1fd724bea361f813'
+            '60958f84b7c15a37a5157953e8b409821993ad228af454d55d9a989f92a8aa44'
+            '861a55ef7aeb3b49e09d7d4d679032fbbd5f3e95ad4def9cef4ea63123bc2b13'
+            '43988542d23f1fda4c0a33cab4713fbe55466a795771a4a457f4f933668734a9')
+
+package() {
+  install -Dm 755 256colortest  "$pkgdir"/usr/bin/256colortest
+  install -Dm 755 colorfade     "$pkgdir"/usr/bin/colorfade
+  install -Dm 755 colorhash     "$pkgdir"/usr/bin/colorhash
+  install -Dm 755 colorhex      "$pkgdir"/usr/bin/colorhex
+  install -Dm 755 colorline     "$pkgdir"/usr/bin/colorline
+  install -Dm 755 colorpanes    "$pkgdir"/usr/bin/colorpanes
+  install -Dm 755 colortest     "$pkgdir"/usr/bin/colortest
+  install -Dm 755 diamonds      "$pkgdir"/usr/bin/diamonds
+  install -Dm 755 dna           "$pkgdir"/usr/bin/dna
+  install -Dm 755 ghosts        "$pkgdir"/usr/bin/ghosts
+  install -Dm 755 pipes         "$pkgdir"/usr/bin/pipes
+  install -Dm 755 pmabove       "$pkgdir"/usr/bin/pmabove
+  install -Dm 755 pmleft        "$pkgdir"/usr/bin/pmleft
+  install -Dm 755 spaceinvaders "$pkgdir"/usr/bin/spaceinvaders
+  install -Dm 755 unowns        "$pkgdir"/usr/bin/unowns
+}

@@ -1,0 +1,21 @@
+_vimplugver='0.10.0'
+
+pkgname=tari-dev
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Packages I use relating to development and other things."
+arch=('any')
+depends=(vim      neovim      httpie    exa       fd      ripgrep
+         fzf      jq          rsync     git       tig     diff-so-fancy
+         tmux     openssh     nodejs    npm       yarn    crystal
+         shards   llvm        rustup    ansible   docker  docker-compose
+         bind-tools           pacman-contrib      nginx-mainline
+         jdk-openjdk          texlive-core        texlive-science
+         texlive-humanities   texlive-fontsextra  texlive-latexextra
+         texlive-bibtexextra  minted)
+source=("https://raw.githubusercontent.com/junegunn/vim-plug/${_vimplugver}/plug.vim")
+sha256sums=('01a138fc0ed99ef2678ba004613acbf8b0c51a85a8d2a1b658ef87af722e98e1')
+
+package() {
+  install -Dm 644 plug.vim    "$pkgdir"/usr/share/vim/vimfiles/autoload/plug.vim
+}

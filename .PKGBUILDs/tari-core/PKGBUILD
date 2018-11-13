@@ -1,0 +1,14 @@
+pkgname=tari-core
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Core packages for my Arch setup."
+arch=('any')
+depends=(ttf-hack         ttf-fira-mono   ttf-roboto          ttf-font-awesome    borg
+         bspwm            sxhkd           dunst               rofi                compton
+         mpc              mpd             ncmpcpp             mpv                 feh
+         stow             htop            neofetch            xdo                 alsa-utils
+         zip              unzip           p7zip               unrar               ranger
+         xcape            xorg-xmodmap    xorg-xwininfo       xorg-xrandr         lxdm-gtk3
+         plasma-desktop   kde-gtk-config  plasma-pa           arc-kde             adapta-gtk-theme
+         python-pywal     youtube-dl      fdupes              rng-tools           weechat
+         zathura          zathura-djvu    zathura-pdf-mupdf   kitty               papirus-icon-theme)

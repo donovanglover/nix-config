@@ -1,0 +1,47 @@
+_ubo='ublock_origin-1.17.2-an+fx.xpi'
+_vimium='vimium_ff-1.64-an+fx.xpi'
+_noscript='noscript_security_suite-10.1.9.9-an+fx.xpi'
+_https='https_everywhere-2018.9.19-an+fx.xpi'
+_arcdark='arc_dark_theme-2018.9.24-fx.xpi'
+
+pkgname=tari-web
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Web browser settings."
+arch=('any')
+depends=(ttf-dejavu         ttf-liberation      noto-fonts    noto-fonts-cjk
+         noto-fonts-emoji   adapta-gtk-theme    firefox       chromium)
+source=('local-settings.js' 'mozilla.cfg'
+        "https://addons.cdn.mozilla.net/user-media/addons/607454/${_ubo}"
+        "https://addons.cdn.mozilla.net/user-media/addons/808538/${_vimium}"
+        "https://addons.cdn.mozilla.net/user-media/addons/722/${_noscript}"
+        "https://addons.cdn.mozilla.net/user-media/addons/229918/${_https}"
+        "https://addons.cdn.mozilla.net/user-media/addons/993966/${_arcdark}")
+noextract=("${_ubo}" "${_vimium}" "${_noscript}" "${_https}" "${_arcdark}")
+sha256sums=('4588ae786cf0cdf941a0c79ad71b7592cd1f5478a85822b019d98ff0d5e631d4'
+            'c625a3b98b3769bf08fe0a357898245dd2688f3d5c22c7a42ad4fc26132f45a9'
+            'b5e2fb5f12ef64d9ff4b8723af5f8d16ee349c5b9f2683edafc440f587efd078'
+            '1ac884ffd3345d83c5c47be1d6a6abe34b35678b6469ee68c7be6070100f5f98'
+            'e7ec0345c2174e64c7552ab708a59c8efd7c1078fedda64d9c9ad06a899194b9'
+            '90604ab36bd205d2cdee6a97d1e243b8193b678bd02731cc75209ce0c56590e4'
+            '95ab0e6116daa257a7023f134f14949d75271ef02428f69819d063da46f4ab8f')
+
+package() {
+  install -Dm 644 local-settings.js   "$pkgdir"/usr/lib/firefox/defaults/pref/local-settings.js
+  install -Dm 644 mozilla.cfg         "$pkgdir"/usr/lib/firefox/mozilla.cfg
+
+  install -Dm 644 $_ubo \
+    "$pkgdir"/usr/lib/firefox/browser/extensions/uBlock0@raymondhill.net.xpi
+
+  install -Dm 644 $_vimium \
+    "$pkgdir"/usr/lib/firefox/browser/extensions/{d7742d87-e61d-4b78-b8a1-b469842139fa}.xpi
+
+  install -Dm 644 $_noscript \
+    "$pkgdir"/usr/lib/firefox/browser/extensions/{73a6fe31-595d-460b-a920-fcc0f8843232}.xpi
+
+  install -Dm 644 $_https \
+    "$pkgdir"/usr/lib/firefox/browser/extensions/https-everywhere@eff.org.xpi
+
+  install -Dm 644 $_arcdark \
+    "$pkgdir"/usr/lib/firefox/browser/extensions/arc-dark-theme@afnankhan.xpi
+}
