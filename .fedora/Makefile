@@ -5,7 +5,8 @@ makeh=$(MAKE) -f $(THIS_MAKEFILE)
 
 .PHONY: all
 all:
-	@${makeh} packages
+	@${makeh} muya.rpm
+	@${makeh} install
 	@${makeh} wal
 	@${makeh} crystal
 	@${makeh} rust
@@ -16,9 +17,16 @@ all:
 rice:
 	@${install} gnome-tweaks pop-gtk-theme pop-icon-theme breeze-cursor-theme
 
-.PHONY: packages
-packages:
-	@${install} https://github.com/GloverDonovan/dotfiles/archive/0.1.0.rpm
+muya.rpm: muya.spec
+	@rm -rfv noarch
+	@fedpkg --release f29 local
+	@mv noarch/*.rpm muya.rpm
+	@rmdir noarch
+	@rm -fv *.src.rpm
+
+.PHONY: install
+install:
+	@${install} muya.rpm
 
 .PHONY: dotfiles
 dotfiles:
