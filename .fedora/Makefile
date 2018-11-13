@@ -46,7 +46,7 @@ crystal:
 
 .PHONY: rust
 rust:
-	@./vendor/rustup-init.sh
+	@./vendor/rustup-init.sh -y
 
 .PHONY: diff-so-fancy
 diff-so-fancy:
