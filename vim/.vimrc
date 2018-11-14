@@ -101,7 +101,8 @@ set mouse=a                    " Enable mouse support in (a)ll modes
 " ========= colors =========
 " ==========================
 
-colorscheme wal
+" Set the color scheme to wal, or fail silently if it's not installed
+silent! colorscheme wal
 
 " Don't show the separator for vertical splits
 highlight vertsplit ctermfg=0 ctermbg=none
