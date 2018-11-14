@@ -31,7 +31,7 @@ kitty:
 
 .PHONY: wal
 wal:
-	@sudo pip3 install pywal
+	@pip3 install --user pywal
 
 .PHONY: crystal
 crystal:
