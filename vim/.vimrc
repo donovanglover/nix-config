@@ -11,7 +11,6 @@ let plugusr = glob('~/.vim/autoload/plug.vim')
 if empty(plugsys) && empty(plugusr)
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/0.10.0/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin('~/.vim/plugged')
@@ -101,8 +100,13 @@ set mouse=a                    " Enable mouse support in (a)ll modes
 " ========= colors =========
 " ==========================
 
-" Set the color scheme to wal, or fail silently if it's not installed
-silent! colorscheme wal
+" Set the color scheme to wal, or install plugins as needed.
+try
+  colorscheme wal
+catch /^Vim\%((\a\+)\)\=:E185/
+  echo "wal was not found. Installing plugins...\n" | PlugInstall --sync
+  echo "Plugins installed! You can now use vim.\n"  | qa
+endtry
 
 " Don't show the separator for vertical splits
 highlight vertsplit ctermfg=0 ctermbg=none
