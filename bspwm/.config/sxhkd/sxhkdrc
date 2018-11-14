@@ -11,7 +11,7 @@ super + p
 
 # Open a new terminal window
 super + {_,shift} + Return
-  {termite -e "tmux new-session \; set status",urxvtc -e fish -c "tmux new-session \; set status"}
+  {kitty,urxvtc}
 
 # Toggle a dropdown terminal or open a new floating window
 super + {_,shift} + backslash
