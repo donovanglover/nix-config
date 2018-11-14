@@ -1,19 +1,11 @@
 THIS_MAKEFILE := $(lastword $(MAKEFILE_LIST))
 install=sudo dnf install --assumeyes
 copr=sudo dnf copr enable --assumeyes
-make=$(MAKE) -C ..
-makeh=$(MAKE) -f $(THIS_MAKEFILE)
 
 .PHONY: all
 all:
-	@${makeh} RPMs/muya.rpm
-	@${makeh} install
-	@${makeh} kitty
-	@${makeh} wal
-	@${makeh} crystal
-	@${makeh} rust
-	@${makeh} diff-so-fancy
-	@${makeh} dotfiles
+	@$(MAKE) -f $(THIS_MAKEFILE) RPMs/muya.rpm install kitty wal crystal rust diff-so-fancy
+	@$(MAKE) -C ..
 
 .PHONY: rice
 rice:
@@ -31,11 +23,6 @@ RPMs/muya.rpm: RPMs/muya.spec
 .PHONY: install
 install:
 	@${install} RPMs/muya.rpm
-
-.PHONY: dotfiles
-dotfiles:
-	@${make} package=tmux
-	@${make} package=fish
 
 .PHONY: kitty
 kitty:
