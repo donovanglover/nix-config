@@ -4,15 +4,7 @@
 
 ## Usage
 
-### Replicate my [Fedora setup](/.fedora)
-
-On a fresh [Fedora][fedora] install, run the bootstrap script.
-
-```sh
-git clone https://github.com/GloverDonovan/dotfiles --depth 1 && ./dotfiles/.fedora/bootstrap.sh
-```
-
-### Replicate my [Arch setup](/.arch)
+### Replicate my [Arch Linux](/.archlinux) setup
 
 On a fresh [Arch Linux][archlinux] install, run the bootstrap script.
 
@@ -20,11 +12,17 @@ On a fresh [Arch Linux][archlinux] install, run the bootstrap script.
 git clone https:///github.com/GloverDonovan/dotfiles --depth 1 && ./dotfiles/.archlinux/bootstrap.sh
 ```
 
+### Replicate my [Fedora](/.fedora) setup
+
+On a fresh [Fedora][fedora] install, run the bootstrap script.
+
+```sh
+git clone https://github.com/GloverDonovan/dotfiles --depth 1 && ./dotfiles/.fedora/bootstrap.sh
+```
+
 ### Use only the dotfiles you want
 
-Install [stow][stow] with `pacman -S stow` (Arch Linux) or `dnf install stow` (Fedora). Other [GNU/Linux](gnulinux) distributions will also work, but aren't officially supported.
-
-Use `make package=<dir>` and `make uninstall package=<dir>` as needed to install and uninstall dotfiles. Stow only changes what it owns, so you do not have to worry about existing dotfiles being changed.
+Install [`stow`][stow] with your package manager, then use `make package=dir` and `make uninstall package=dir` as needed. Stow will only change what it owns.
 
 [archlinux]:  https://www.archlinux.org
 [fedora]:     https://getfedora.org
