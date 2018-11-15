@@ -4,49 +4,27 @@
 
 ## Usage
 
-If you want to mimic my entire setup, follow my [Arch Linux](/.archlinux) and [Fedora](/.fedora) guides. If you only want to try some of my dotfiles, continue reading below.
+### Replicate my [Fedora setup](/.fedora)
 
-### Step 1. Clone this repository
-
-Add `--depth 1` to only fetch the latest commit.
+On a fresh [Fedora][fedora] install, run the bootstrap script.
 
 ```sh
-git clone https://github.com/GloverDonovan/dotfiles.git --depth 1
+git clone https://github.com/GloverDonovan/dotfiles --depth 1 && ./dotfiles/.fedora/bootstrap.sh
 ```
 
-### Step 2. Install [stow][stow]
+### Replicate my [Arch setup](/.arch)
 
-- [Arch Linux][archlinux]: `pacman -S stow`
-- [Fedora][fedora]: `dnf install stow`
-
-### Step 3. Install the dotfiles you want
-
-For example, to use my vim config, run:
+On a fresh [Arch Linux][archlinux] install, run the bootstrap script.
 
 ```sh
-make package=vim
+git clone https:///github.com/GloverDonovan/dotfiles --depth 1 && ./dotfiles/.archlinux/bootstrap.sh
 ```
 
-Since my dotfiles are managed with Stow, any of your existing dotfiles will not be overridden or changed.
+### Use only the dotfiles you want
 
-## List of dotfiles
+Install [stow][stow] with `pacman -S stow` (Arch Linux) or `dnf install stow` (Fedora). Other [GNU/Linux](gnulinux) distributions will also work, but aren't officially supported.
 
-- [bspwm](/bspwm) - All the config files relating to my window manager setup.
-- [code](/code) - My config for Code, a reasonable editor for non-vim users.
-- [editorconfig](/editorconfig) - Spaces or tabs? Just use `.editorconfig`.
-- [extras](/extras) - A collection of miscellaneous other dotfiles I use.
-- [fish](/fish) - My settings for fish, the friendly interactive shell.
-- [git](/git) - The standard version control tool.
-- [gpg](/gpg) - My settings for GPG.
-- [plasma](/plasma) - Dotfiles specific to KDE Plasma.
-- [systemd](/systemd) - User services, such as ssh-agent and urxvtd.
-- [tmux](/tmux) - A vim-like terminal multiplexer that gets out of your way.
-- [vim](/vim) - The settings I use for vim, also known as the best editor.
-- [xmodmap](/xmodmap) - Make caps lock function as ctrl and escape.
-
-## Uninstall
-
-For example, to uninstall my `.vimrc`, use `make uninstall package=vim`. Stow will only remove what it owns.
+Use `make package=<dir>` and `make uninstall package=<dir>` as needed to install and uninstall dotfiles. Stow only changes what it owns, so you do not have to worry about existing dotfiles being changed.
 
 [archlinux]:  https://www.archlinux.org
 [fedora]:     https://getfedora.org
