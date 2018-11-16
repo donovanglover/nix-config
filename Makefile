@@ -38,13 +38,10 @@ uninstall:
 prune:
 	@$(call ${NS_STOW_COMMAND},R)
 
-# ========================
-# ======= systemd ========
-# ========================
+.PHONY: enable-mpd
+enable-mpd:
+	@systemctl --user enable --now mpd.service
 
-NS_SYSTEMD_SERVICES := ssh-agent urxvtd mpd
-
-.PHONY: systemd-enable-now
-systemd-enable-now:
-	@$(foreach service,${NS_SYSTEMD_SERVICES},systemctl --user enable --now ${service}.service;)
-	@echo "SUCCESS: Enabled the following services: ${NS_SYSTEMD_SERVICES}"
+.PHONY: enable-ssh-agent
+enable-ssh-agent:
+	@systemctl --user enable --now ssh-agent.service

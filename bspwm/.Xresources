@@ -22,29 +22,4 @@ Xft.hintstyle: hintfull
 ! Set the type of subpixel antialiasing to rgb
 Xft.rgba: rgb
 
-! Make letter spacing identical to termite
-URxvt.letterSpace: 1
-
-! urxvt settings
-URxvt.font: xft:Hack:size=11
-
-URxvt.scrollBar: false
-URxvt.internalBorder: 30
-URxvt.cursorBlink: true
-URxvt.pointerBlank: true
-
-! https://wiki.gentoo.org/wiki/Rxvt-unicode
-URxvt.perl-ext-common: default,selection-to-clipboard,pasta,matcher,keyboard-select
-URxvt.keysym.M-u: perl:url-select:select_next
-URxvt.url-launcher: /usr/bin/firefox
-URxvt.underlineURLs: true
-URxvt.matcher.button: 1
-URxvt.keysym.M-Escape:perl:keyboard-select:activate
-URxvt.keysym.Control-Shift-V: perl:pasta:paste
-URxvt.clipboard.autocopy: true
-
-! Disable default ctrl shift behavior of urxvt
-URxvt.iso14755: false
-URxvt.iso14755_52: false
-
 ! vim:ft=xdefaults

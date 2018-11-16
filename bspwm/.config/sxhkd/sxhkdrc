@@ -11,11 +11,11 @@ super + p
 
 # Open a new terminal window
 super + {_,shift} + Return
-  {kitty,urxvtc}
+  kitty {_,--name floating}
 
-# Toggle a dropdown terminal or open a new floating window
-super + {_,shift} + backslash
-  {~/.config/sxhkd/dropdown.sh,urxvtc -name floating}
+# Toggle a dropdown terminal
+super + backslash
+  ~/.config/sxhkd/dropdown.sh
 
 # toggle polybar: top_padding depends on the height you set in polybar/config
 super + o

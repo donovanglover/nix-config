@@ -2,9 +2,9 @@
 # New Start: A modern Arch workflow built with an emphasis on functionality.
 # Copyright (C) 2018 Donovan Glover
 
-c='URxvt'         # Class
+c='kitty'         # Class
 i='dropdown'      # Instance
-x='urxvtc -name'  # Executable
+x='kitty --name'  # Executable
 
 # Note: This solution will not work with termite since it registers two ids.
 # See https://github.com/thestinger/termite/issues/634 for more information.

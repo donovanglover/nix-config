@@ -1,9 +1,0 @@
-[Unit]
-Description=urxvtd
-
-[Service]
-Type=forking
-ExecStart=/usr/bin/urxvtd -q -o -f
-
-[Install]
-WantedBy=default.target
