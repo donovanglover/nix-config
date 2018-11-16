@@ -11,8 +11,7 @@ echo -n "Enter a username for the local account with administrative rights: "
 read USERNAME
 
 # Start and enable the DHCP client daemon service
-systemctl start dhcpcd.service
-systemctl enable dhcpcd.service
+systemctl enable --now dhcpcd.service
 
 # Set the timezone with systemd, and sync it periodically with a remote server
 timedatectl set-timezone America/New_York

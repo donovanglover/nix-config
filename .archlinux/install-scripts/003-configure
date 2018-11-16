@@ -46,9 +46,6 @@ arch-chroot /mnt grub-install /dev/sda
 # Prevent the GRUB window from showing at boot, ideal for single OS machines (undo with chroot and mkconfig)
 sed -i '/GRUB_TIMEOUT/c\GRUB_TIMEOUT=0' /mnt/etc/default/grub
 
-# This should make the startup process not output anything (not tested)
-sed -i '/GRUB_CMDLINE_LINUX_DEFAULT/c\GRUB_CMDLINE_LINUX_DEFAULT="quiet show_status=0 rd.udev.log-priority=3 loglevel=3"' /mnt/etc/default/grub
-
 # Make the configuration file for grub.
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
