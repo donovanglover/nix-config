@@ -19,5 +19,8 @@ sudo -n dnf install -y make fedpkg
 # Run make
 make
 
+# Run vim for the first time (i.e. install plugins and exit)
+nvim
+
 # Revoke privileges
 sudo -K
