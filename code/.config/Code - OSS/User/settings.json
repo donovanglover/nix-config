@@ -2,7 +2,7 @@
 // Copyright (C) 2018 Donovan Glover
 {
     // Look and feel
-    "workbench.colorTheme": "Nord",
+    "workbench.colorTheme": "vs-wal",
     "workbench.iconTheme": "material-icon-theme",
     "editor.smoothScrolling": true,
 
