@@ -23,6 +23,7 @@ echo "DefaultTimeoutStopSec=30s"  >> /etc/systemd/system.conf
 
 # Enable colors in pacman by uncommenting the Color line.
 sed -i '/Color/s/^#//g' /etc/pacman.conf
+sed -i '/VerbosePkgLists/s/^#//g' /etc/pacman.conf
 
 # Give users in the wheel group permission to use sudo
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
