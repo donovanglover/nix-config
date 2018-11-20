@@ -1,22 +1,17 @@
-# fish - the friendly interactive shell
+# fish
 
-I use fish as my default shell of choice, and write scripts in `sh`.
+[fish][fish] is the friendly interactive shell.
 
-## Dependencies
+## Use Cases
 
-- [fish][fish] - The friendly interactive shell
-- [exa][exa] - Drop-in replacement for `ls` and `tree`
-- Any other features that you want to use (git abbreviations, etc.)
+fish can be used to:
 
-## Installation
+- Have syntax highlighting in the terminal with 0 configuration
+- Have leading autocompletion in the terminal with 0 configuration
+- Set abbreviations instead of aliases, making it easy to remember what aliases expand to
 
-```sh
-make package=fish
-```
+You should not use fish if:
 
-## Usage
+- You should use fish.
 
-The dotfiles are automatically applied when you start fish.
-
-[fish]: https://www.archlinux.org/packages/community/x86_64/fish/
-[exa]: https://www.archlinux.org/packages/community/x86_64/exa/
+[fish]: https://github.com/fish-shell/fish-shell

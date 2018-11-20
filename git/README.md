@@ -1,21 +1,26 @@
 # Git
 
-I use git as my main tool for distributed version control.
+- [Git][git] is the standard version control tool.
 
-## Dependencies
+# Use Cases
 
-- [git][git] - The standard version control system
-- [diff-so-fancy][diff-so-fancy] - An amazing git diff utility
+Git can be used to:
 
-## Installation
+- Keep track of file changes over time
+- Keep a record of all contributors to a code base
+- Rollback to a previous version of a project
+- Create snapshots of a project with tags (also known as versions)
 
-```sh
-make package=git
-```
+You should not use Git if:
+
+- You are dealing with binary files
+- You are dealing with large files that change often
 
 ## Usage
 
-Add a `.gituser` file to your `$HOME` with the following:
+First, install [diff-so-fancy][diff-so-fancy], an amazing git diff utility.
+
+Then, create a `~/.gituser` with the following:
 
 ```gitconfig
 [user]
@@ -24,5 +29,5 @@ Add a `.gituser` file to your `$HOME` with the following:
   signingkey = <the subkey you use to sign git commits>
 ```
 
-[git]: https://www.archlinux.org/packages/extra/x86_64/git/
-[diff-so-fancy]: https://www.archlinux.org/packages/community/any/diff-so-fancy/
+[git]: https://github.com/git/git
+[diff-so-fancy]: https://github.com/so-fancy/diff-so-fancy

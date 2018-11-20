@@ -1,21 +1,17 @@
 # tmux
 
-I use tmux to run multiple shells inside a single terminal, in addition to all the other benefits that tmux provides, such as session management, persistent history, and detaching.
+[tmux][tmux] is a terminal multiplexer.
 
-## Dependencies
+## Use Cases
 
-- [tmux][tmux] - Terminal multiplexer
-- [fish][fish] - The friendly interactive shell
+tmux can be used to:
 
-## Installation
+- Have persistent history in the terminal
+- Detach sessions and re-attach them later
+- Work with multiple shells while SSH'd in another machine
 
-```sh
-make package=tmux
-```
+You should not use tmux if:
 
-## Usage
+- You should use tmux.
 
-Start tmux as you normally would.
-
-[tmux]: https://www.archlinux.org/packages/community/x86_64/tmux/
-[fish]: https://www.archlinux.org/packages/community/x86_64/fish/
+[tmux]: https://github.com/tmux/tmux
