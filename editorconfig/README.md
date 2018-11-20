@@ -1,19 +1,20 @@
 # editorconfig
 
-These are the settings I use for editing files. Spaces or tabs do not matter, since the environment you use should make both behave very similarly if not exactly the same.
+[editorconfig][editorconfig] is the standard tool for editing consistency between editors.
 
-## Dependencies
+## Use Cases
 
-None.
+editorconfig can be used to:
 
-## Installation
+- Finally forget about whether spaces or tabs are being used; editorconfig will handle this automatically for you
+- Share the same indentation settings in all the editors you and your colleagues use
 
-```sh
-make package=ediiorconfig
-```
+You should not use editorconfig if:
+
+- You should use editorconfig.
 
 ## Usage
 
-If you use my [`.vimrc`](/vim) or [code](/code) config, editorconfig will aleady be applied. Otherwise you should read the [editorconfig][editorconfig] website for how to enable it in your editor.
+If you use my [`.vimrc`](/vim) or [code](/code) config, editorconfig is already applied.
 
-[editorconfig]: https://editorconfig.org/
+[editorconfig]: https://github.com/editorconfig/editorconfig

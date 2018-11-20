@@ -1,23 +1,26 @@
 # GPG
 
-GPG is used to sign and encrypt things.
+GPG is the standard encryption tool.
 
-## Dependencies
+## Use Cases
 
-- [gnupg][gnupg] - The GNU Privacy Guard
+gpg can be used to:
 
-## Installation
+- Sign things with your signing subkey
+- Read encrypted messages sent to you with your encryption subkey
+- Send encrypted messages to other people with their public key
+- Verify the authenticity of someone's messages and other data with their public key
 
-```sh
-make package=gpg
-```
+You should not use gpg if:
+
+- You should use gpg.
 
 ## Usage
 
-Use gpg as you normally would. Make sure that you export `GPG_TTY` in your shell's init script. This is how you would do it in [fish](/fish):
+Export `GPG_TTY` in your shell's init script. This is how you would do it in [fish](/fish):
 
 ```fish
 export GPG_TTY=(tty)
 ```
 
-[gnupg]: https://www.archlinux.org/packages/core/x86_64/gnupg/
+[gnupg]: https://github.com/gpg/gnupg

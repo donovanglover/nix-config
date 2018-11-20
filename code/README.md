@@ -1,25 +1,19 @@
 # Code
 
-Code is a GUI text editor.
+[Code][code] is an open source build of [a popular][vscode] GUI text editor.
 
-## Dependencies
+## Use Cases
 
-- [code][code] - The open source build of a popular non-free text editor
+Code can be used to:
 
-## Installation
+- Navigate graphical file trees entirely with the mouse
+- Provide an editor for non-vim users as needed
+- Perform a myriad of common command line operations through a point-click GUI
 
-```sh
-make package=code
-```
+You should not use Code if:
 
-## Usage
-
-Install the extensions I use with:
-
-```sh
-make code-extensions
-```
-
-Then, start Code as you normally would.
+- You want to learn how compilers, git, find, grep, and other software work
+- You want to learn [vim](/vim), the standard text editor
 
 [code]: https://www.archlinux.org/packages/community/x86_64/code/
+[vscode]: https://github.com/Microsoft/vscode
