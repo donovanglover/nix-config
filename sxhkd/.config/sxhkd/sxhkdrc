@@ -29,7 +29,7 @@ alt + m
 
 # Show rofi drun / window / calc
 alt + {z,space,backslash}
-  env XDG_CURRENT_DESKTOP="KDE" QT_FONT_DPI="192" rofi -show {drun,window,calc -modi calc -no-show-match -no-sort}
+  env XDG_CURRENT_DESKTOP="KDE" rofi -show {drun,window,calc -modi calc -no-show-match -no-sort}
 
 # Show rofi-pass
 alt + slash
