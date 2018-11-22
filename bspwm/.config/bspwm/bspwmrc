@@ -8,6 +8,9 @@ export QT_AUTO_SCREEN_SCALE_FACTOR="0"
 export QT_FONT_DPI="192"
 export QT_SCREEN_SCALE_FACTORS="VGA-1=2;"
 
+export GDK_SCALE="2"
+export GDK_DPI_SCALE="0.5"
+
 export XCURSOR_THEME="breeze_cursors"
 export XDG_DATA_DIRS="/usr/share:/usr/share:/usr/local/share"
 
