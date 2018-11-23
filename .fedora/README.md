@@ -4,36 +4,44 @@ This is my setup for [Fedora][fedora], a [GNU/Linux][gnulinux] distribution that
 
 > This guide will work with the **latest version** of Fedora (29 as of this writing).
 
-## Getting Started
+## Use my GNOME theme and settings
 
-### Step 1. Install packages
+To copy the look and feel of my GNOME setup, run:
 
-If you want to mimic my entire setup, run `./bootstrap.sh`. Otherwise, install the packages manually with `make rice`.
+```sh
+make rice
+```
 
-### Step 2. Apply GNOME Tweaks
+That's it! You now have a very simple Fedora rice.
 
-Open the GNOME Tweaks program. Then:
+## Use my packages and scripts
 
-#### Under Appearance
+### Install kitty
 
-1. Change **Applications** to **Pop** or **Pop-dark**.
-2. Change **Cursor** to **Breeze_cursors**.
-3. Change **Icons** to **Pop**.
-4. Change the background and lock screen image.
+Use `make kitty` to install the [kitty](/kitty) terminal emulator.
 
-#### Under Extensions
+### Install wal
 
-1. Check **Alternatetab** to enable previews on alt tab. Under settings, uncheck "Show only windows in the current workspace" to take advantage of alt tabbing between workspaces.
-2. Check **Launch new instance** to always launch new instances from the activities view.
+Use `make wal` to install [pywal](/wal).
 
-#### Under Fonts
+### Install crystal
 
-1. Change **Hinting** to **Full**.
-2. Change **Antialiasing** to **Subpixel (for LCD screens)**.
+Use `make crystal` to install the [Crystal][crystal] programming language.
 
-### And you're done!
+### Install rustup
 
-That's it. You now have a very simple Fedora rice.
+Use `make rustup` to install the Rust toolchain installer.
+
+## Mimic my entire setup
+
+If you want to use *everything* I use, simply run the bootstrap script, like so:
+
+```sh
+./bootstrap.sh
+```
+
+The script will ask for sudo permissions the first time you run it. Then you can sit back and relax as no manual intervention is necessary.
 
 [fedora]: https://getfedora.org
 [gnulinux]: https://www.gnu.org/gnu/linux-and-gnu.html
+[crystal]: https://crystal-lang.org/
