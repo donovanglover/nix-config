@@ -1,16 +1,16 @@
 # ssh-agent
 
-SSH is used to connect to remote machines. I use a systemd service to manage ssh-agent.
+[SSH][ssh] is used to connect to remote machines. I use a systemd service to manage ssh-agent.
 
-## Dependencies
+## Use Cases
 
-- [openssh][openssh] - SSH support
+ssh-agent can be used to:
 
-## Installation
+- Hold private keys
 
-```sh
-make package=ssh-agent
-```
+You should not use ssh-agent if:
+
+- You don't set a passphrase on your SSH keys
 
 ## Usage
 
@@ -18,6 +18,6 @@ make package=ssh-agent
 systemctl --user enable --now ssh-agent.service
 ```
 
-In order for ssh-agent to cache your keys, you must first add them with `ssh-add`.
+In order for ssh-agent to cache your keys, you must first add them with `ssh-add` or use `AddKeysToAgent Yes` in your `~/.ssh/config`
 
-[openssh]: https://www.archlinux.org/packages/core/x86_64/openssh/
+[ssh]: https://www.archlinux.org/packages/core/x86_64/openssh/

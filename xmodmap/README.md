@@ -1,30 +1,23 @@
 # xmodmap
 
-I use xmodmap with xcape to make Caps Lock function as Escape when pressed and Ctrl when held down.
+[xmodmap][xmodmap] is used to change the functionality of keys on your keyboard.
 
-## Dependencies
+## Use Cases
 
-- `xorg-xmodmap` - Used to make caps lock work as ctrl
-- `xcape` - Used to make caps lock work as escape
+xmodmap can be used to:
 
-## Installation
+- Make Caps Lock function as Ctrl when held down
+- Used with [xcape][xcape] to make Caps Lock function as Escape when pressed
 
-```sh
-make package=xmodmap
-```
+You should not use xmodmap if:
+
+- You do not need to modify keys
 
 ## Usage
 
-Start `xmodmap` in one of your init scripts, like so:
+Run `xmodmap ~/.xmodmap` in one of your init scripts to make Caps Lock function as Ctrl when held down.
 
-```sh
-# Make caps lock work as ctrl
-xmodmap ~/.xmodmap
-```
+Then, use `xcape -e 'Control_L=Escape'` to make Caps Lock (left Ctrl) function as Escape when pressed.
 
-To make caps lock work as Escape, start xcape as well:
-
-```sh
-# Make caps lock (left ctrl) work as escape
-xcape -e 'Control_L=Escape'
-```
+[xmodmap]: https://wiki.archlinux.org/index.php/Xmodmap
+[xcape]: https://github.com/alols/xcape
