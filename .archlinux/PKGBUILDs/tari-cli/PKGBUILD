@@ -1,0 +1,17 @@
+pkgname=tari-cli
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Packages for CLI programs I use independent of a desktop environment."
+arch=('any')
+depends=(mpd
+         mpc
+         ncmpcpp
+
+         htop
+         neofetch
+
+         fdupes
+         youtube-dl
+
+         ranger
+         weechat)

@@ -1,0 +1,41 @@
+pkgname=tari-desktop
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Packages common to all my desktop setups, such as fonts."
+arch=('any')
+depends=(ttf-dejavu
+         ttf-liberation
+
+         noto-fonts
+         noto-fonts-cjk
+         noto-fonts-emoji
+
+         ttf-hack
+         ttf-fira-mono
+         ttf-font-awesome
+
+         arc-solid-gtk-theme
+         arc-kde
+         papirus-icon-theme
+
+         lxdm-gtk3
+
+         xorg-xmodmap
+         xorg-xwininfo
+         xorg-xrandr
+         xorg-xinit
+
+         xdo
+         xcape
+         xdg-user-dirs
+
+         alsa-utils
+
+         mpv
+         feh
+         rofi
+         kitty
+
+         zathura
+         zathura-djvu
+         zathura-pdf-mupdf)
