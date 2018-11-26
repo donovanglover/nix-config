@@ -219,7 +219,6 @@ nnoremap <localleader>f <plug>(vimtex-view)
 nnoremap <localleader>g <plug>(vimtex-compile)
 nnoremap <localleader>d <plug>(vimtex-env-delete)
 nnoremap <localleader>c <plug>(vimtex-env-change)
-inoremap ]] <plug>(vimtex-delim-close)
 
 " ================================
 " ========= vim-markdown =========
