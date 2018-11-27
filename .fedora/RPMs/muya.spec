@@ -1,17 +1,11 @@
 Name: muya
-Version: 0.1.0
-Release: 2%{?dist}
+Version: 0.2.0
+Release: 1%{?dist}
 Summary: Packages I use in addition to the defaults on Fedora
 License: Various
 BuildArch: noarch
 
-# Rice
-Requires: gnome-tweaks
-Requires: pop-gtk-theme
-Requires: pop-icon-theme
-Requires: breeze-cursor-theme
-
-# Other
+# Packages
 Requires: stow
 Requires: neovim
 Requires: vim-enhanced
