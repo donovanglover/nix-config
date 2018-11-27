@@ -55,6 +55,10 @@ super + {_,shift} + n
 super + {x,y}
     bspc node -g {sticky,private}
 
+# FLAGS: Push and pop windows from the hidden stack
+super + {_,shift} + b
+  bspc node {-g hidden,$(bspc query -N -n .hidden | tail -n 1) -g hidden=off}
+
 # STATES: Toggle between node states
 super + {t,r,f,space}
     bspc node focused -t ~{tiled,pseudo_tiled,fullscreen,floating}
