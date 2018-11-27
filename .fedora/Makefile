@@ -4,12 +4,16 @@ copr=sudo dnf copr enable --assumeyes
 
 .PHONY: all
 all:
-	@$(MAKE) -f $(THIS_MAKEFILE) RPMs/muya.rpm install kitty wal crystal rust diff-so-fancy
+	@$(MAKE) -f $(THIS_MAKEFILE) rice RPMs/muya.rpm install kitty wal crystal rust diff-so-fancy
 	@$(MAKE) -C ..
 
 .PHONY: rice
 rice:
-	@${install} gnome-tweaks pop-gtk-theme pop-icon-theme breeze-cursor-theme
+	@${install} pop-gtk-theme pop-icon-theme breeze-cursor-theme
+	@../gnome/.config/gnome/extensions.sh
+	@../gnome/.config/gnome/antialiasing.sh
+	@../gnome/.config/gnome/pop-gtk-theme.sh
+	@../gnome/.config/gnome/breeze-cursor-theme.sh
 
 .ONESHELL:
 RPMs/muya.rpm: RPMs/muya.spec
