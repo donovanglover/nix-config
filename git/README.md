@@ -1,6 +1,6 @@
 # Git
 
-- [Git][git] is the standard version control tool.
+[Git][git] is the standard version control tool.
 
 # Use Cases
 

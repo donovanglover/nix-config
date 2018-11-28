@@ -21,7 +21,7 @@ ns_stow_package =                                                               
 	test -d ${package} &&                                                                                  \
 	(stow -${1} ${package} ${NS_STOW_OPTIONS} &&                                                           \
 	echo ${NS_SUCCESS}) ||                                                                                 \
-	echo "FAILURE: Not a valid target directory."
+	echo "FAILURE: Not a valid package directory."
 
 ns_stow_all =                                                                                              \
 	echo "STATUS: No package variable given. Performing stow operation on all directories...";             \
