@@ -19,6 +19,9 @@ sudo -n dnf install -y make fedpkg
 # Run make
 make
 
+# Change the color scheme to a sane default
+wal --theme base16-tomorrow-night
+
 # Run vim for the first time (i.e. install plugins and exit)
 nvim
 
