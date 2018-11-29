@@ -1,8 +1,9 @@
 pkgname=tari-util-xeventbind
 pkgver=0.1.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Run a script on resolution change"
 arch=('any')
+license=('MIT')
 provides=('xeventbind')
 conflicts=('xeventbind')
 depends=('libx11')
@@ -10,7 +11,7 @@ source=('xeb_event_types.h' 'xeb_handler.c' 'xeb_handler.h' 'main.c' 'Makefile' 
 sha256sums=('5e55b56bc1fc281d2549bb892a1a7e93f5eb7cb7ff88d3216345907456d02801'
             '9a26c895d79244c76e3c9b5842dab6e6d4b628842f6f63a3001d4563c253a28b'
             'b57396a210fde7858928c1e44febd1cecc2aa715b58ca11590afddc5aa3d7a75'
-            '86352dc57e084a0e3ddf1b31a06b57d9d267f39618d6de077150da720cc3728c'
+            '1d44006d8e14ebd062415a8f20d746fe8771eacf5165d3064f20401b9ddca32d'
             '420ee5dc1349c226423bf009a71a3f0b0b33456ffdf35d682fc12ee5b4dd207f'
             'e219b161877df1f1986c4e79794fde8b6cb209da7bc4b4442b925da0d7fd93ee')
 

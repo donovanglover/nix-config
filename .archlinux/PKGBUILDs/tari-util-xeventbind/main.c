@@ -105,4 +105,3 @@ int main(int argc, char **argv) {
 
     return xeb_loop() ? EXIT_FAILURE : EXIT_SUCCESS;
 }
-

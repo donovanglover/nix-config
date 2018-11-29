@@ -18,7 +18,7 @@ You should not use vim if:
 - [fzf][fzf] - Fuzzy search support
 - [ripgrep][ripgrep] - Jump between lines in files
 - [git][git] - Git diff support
-- [texlive][texlive]) - TeX support
+- [texlive][texlive] - TeX support
 
 ## Usage
 

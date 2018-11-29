@@ -1,13 +1,6 @@
 # This .stow-local-ignore file is used to prevent stow from
 # ignoring the .gitignore file by default.
 #
-# Since the root of this repository is also the package directory,
-# it is also used to ignore things that aren't dotfiles.
-#
 # https://www.gnu.org/software/stow/manual/stow.html#Ignore-Lists
 
 README.md
-LICENSE
-Makefile
-.git/*
-.directory
