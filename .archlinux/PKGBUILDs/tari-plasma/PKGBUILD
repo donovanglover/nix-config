@@ -1,0 +1,36 @@
+pkgname=tari-plasma
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Packages for my Plasma setup"
+arch=('any')
+depends=(plasma-desktop
+         plasma-pa
+         kscreen
+         kleopatra
+         obs-studio
+         baka-mplayer
+         dolphin
+         ark
+         okular
+         gwenview
+         cantata
+         kwrite
+         kcolorchooser
+         kolourpaint
+         kmag
+         spectacle
+         kdenlive
+         krita
+         texstudio
+         kwave
+         kmplot
+         kalzium
+         kwordquiz
+         kollision
+         bovo
+         blinken
+         virtualbox
+         virtualbox-host-modules-arch
+         kimageformats
+         ffmpegthumbs
+         kdegraphics-thumbnailers)
