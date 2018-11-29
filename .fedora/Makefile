@@ -1,11 +1,8 @@
-THIS_MAKEFILE := $(lastword $(MAKEFILE_LIST))
 install=sudo dnf install --assumeyes
 copr=sudo dnf copr enable --assumeyes
 
 .PHONY: all
-all:
-	@$(MAKE) -f $(THIS_MAKEFILE) rice RPMs/muya.rpm install kitty wal crystal rust diff-so-fancy
-	@$(MAKE) -C ..
+all: rice RPMs/muya.rpm install kitty wal crystal rust diff-so-fancy
 
 .PHONY: rice
 rice:

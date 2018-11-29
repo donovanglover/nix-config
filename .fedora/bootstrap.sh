@@ -19,6 +19,9 @@ sudo -n dnf install -y make fedpkg
 # Run make
 make
 
+# Install dotfiles
+make -C ..
+
 # Change the color scheme to a sane default
 wal --theme base16-tomorrow-night
 
