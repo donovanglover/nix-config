@@ -2,7 +2,7 @@ install=sudo dnf install --assumeyes
 copr=sudo dnf copr enable --assumeyes
 
 .PHONY: all
-all: rice RPMs/muya.rpm install kitty wal crystal rust diff-so-fancy
+all: rice RPMs/muya.rpm install kitty wal crystal rust diff-so-fancy clean
 
 .PHONY: rice
 rice:
@@ -46,6 +46,10 @@ rust:
 .PHONY: diff-so-fancy
 diff-so-fancy:
 	@sudo install -Dm 755 ./vendor/diff-so-fancy /usr/bin/diff-so-fancy
+
+.PHONY: clean
+clean:
+	@rm -rv ~/rpmbuild
 
 .PHONY: update
 update:
