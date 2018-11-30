@@ -48,6 +48,28 @@ If you already have dotfiles and want to improve them, you can use this reposito
 
 If you don't want to use stow, you can simply copy/paste the dotfiles you want to their relevant directories.
 
+## Updating
+
+To update your system with any changes I make, you must first verify that the changes I made are actually changes you want. Eventually I want to consider my dotfiles "stable" (i.e. 1.0.0, 2.0.0, etc.) in which only major version upgrades would significantly alter existing functionality, but right now this simply isn't the case.
+
+Once you've verified that you indeed want my changes, update your local copy of the repository like so:
+
+```sh
+git pull
+```
+
+If you used the stow method, all of the dotfiles that you use from me will already be updated; you do not have to do anything else. If git tells you that there are conflicts, you probably want to rebase your changes on top of mine, or consider making your own version of those files instead.
+
+## Downgrading
+
+If for some reason you updated by accident and want existing functionality back, you can simply checkout a previous version or commit.
+
+For example, if your configuration was last known to work at commit `a1b2c3d`, you would use:
+
+```sh
+git checkout a1b2c3d
+```
+
 [archlinux]:  https://www.archlinux.org
 [fedora]:     https://getfedora.org
 [gnulinux]:   https://www.gnu.org/gnu/linux-and-gnu.html
