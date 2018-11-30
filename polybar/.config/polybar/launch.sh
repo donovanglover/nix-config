@@ -15,7 +15,7 @@ bspc_config() {
 }
 
 # If no bar was specified, we're done here.
-if [ -z "$1" ]; then bspc_config 0 $((2 * $POLYBAR_SCALE)) 0; exit; fi
+if [ -z "$1" ]; then bspc_config 0 $((1 * $POLYBAR_SCALE)) 0; exit; fi
 
 # Set defaults
 POLYBAR_HEIGHT=$((40 * $POLYBAR_SCALE))
@@ -23,7 +23,7 @@ HOST_WIDTH=$(bspc query -T -m | jq '.rectangle.width')
 
 # Make the bar float
 if [ "$1" == "float" ]; then
-  POLYBAR_BORDER_SIZE=$((2 * $POLYBAR_SCALE))     # Later set to bspwm's border_width
+  POLYBAR_BORDER_SIZE=$((1 * $POLYBAR_SCALE))     # Later set to bspwm's border_width
   POLYBAR_OFFSET_XY=$((30 * $POLYBAR_SCALE))      # Later set to bspwm's window_gap
   POLYBAR_WIDTH=$(($HOST_WIDTH - $POLYBAR_OFFSET_XY * 2))
 else
@@ -32,7 +32,7 @@ fi
 
 # Set the bspwm variables
 BSPWM_TOP_PADDING=$(($POLYBAR_HEIGHT + ${POLYBAR_OFFSET_XY:-0} + ${POLYBAR_BORDER_SIZE:-0} * 2))
-BSPWM_BORDER_WIDTH=${POLYBAR_BORDER_SIZE:-$((4 * $POLYBAR_SCALE))}
+BSPWM_BORDER_WIDTH=${POLYBAR_BORDER_SIZE:-$((1 * $POLYBAR_SCALE))}
 BSPWM_WINDOW_GAP=${POLYBAR_OFFSET_XY:-$((20 * $POLYBAR_SCALE))}
 
 bspc_config $BSPWM_TOP_PADDING $BSPWM_BORDER_WIDTH $BSPWM_WINDOW_GAP
