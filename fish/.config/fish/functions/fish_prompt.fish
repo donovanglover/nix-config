@@ -2,20 +2,27 @@
 # Copyright (C) 2017-2018 Donovan Glover
 
 function fish_prompt
-    set pwd (basename $PWD)
-    set hostname (hostname)
 
-    if [ $pwd = $USER ]
-        set pwd "~"
+    # Use a more informative and non-unicode prompt for ttys
+    if status --is-login; and test -z "$DISPLAY"
+        set hostname (hostname)
+
+        set_color yellow;   echo -n "$USER@$hostname"
+        set_color normal;   echo -n " "
+        set_color magenta;  echo -n "($PWD)"
+    else
+        set pwd (basename $PWD)
+
+        if [ $pwd = $USER ]
+            set pwd "~"
+        end
+
+        set_color magenta;  echo -n "$pwd"
+        set_color normal;   echo -n " "
+        set_color red;      echo -n "➤"
+        set_color green;    echo -n "➤"
+        set_color blue;     echo -n "➤"
     end
 
-    #set_color yellow;   echo -n "$USER@$hostname"
-    #set_color normal;   echo -n " "
-    #set_color magenta;  echo -n "($pwd)"
-    set_color magenta;  echo -n "$pwd"
-    set_color normal;   echo -n " "
-    set_color red;      echo -n "➤"
-    set_color green;    echo -n "➤"
-    set_color blue;     echo -n "➤"
     set_color normal;   echo -n " "
 end
