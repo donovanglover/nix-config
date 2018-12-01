@@ -1,4 +1,4 @@
-# Dotfiles
+# ~/.files
 
 > TODO: Screenshots
 
@@ -9,7 +9,7 @@
 On a fresh [Arch Linux][archlinux] install, run the bootstrap script.
 
 ```sh
-git clone https:///github.com/GloverDonovan/dotfiles --depth 1 && ./dotfiles/.archlinux/bootstrap.sh
+git clone https://github.com/GloverDonovan/.files --depth 1 && ./.files/.archlinux/bootstrap.sh
 ```
 
 ### Replicate my [Fedora](/.fedora) setup
@@ -17,7 +17,7 @@ git clone https:///github.com/GloverDonovan/dotfiles --depth 1 && ./dotfiles/.ar
 On a fresh [Fedora][fedora] install, run the bootstrap script.
 
 ```sh
-git clone https://github.com/GloverDonovan/dotfiles --depth 1 && ./dotfiles/.fedora/bootstrap.sh
+git clone https://github.com/GloverDonovan/.files --depth 1 && ./.files/.fedora/bootstrap.sh
 ```
 
 ### Use only the dotfiles you want
