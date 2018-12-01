@@ -65,9 +65,6 @@ if not set -q set_abbr
     abbr c      "clear"                     # Because 5 letters is too much
     abbr e      "exit"
     abbr l      "ls -l"
-    abbr f      "launch feh --auto-zoom"    # Easy image viewing with f
-    abbr z      "launch zathura"            # Easy document browsing with z
-    abbr m      "launch mpv"                # Easy media playing with m
     abbr w      "wal -o ~/.config/wal/done.sh"
     abbr T      "tree"
 

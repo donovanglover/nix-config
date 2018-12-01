@@ -56,4 +56,4 @@ echo $BSPWM_TOP_PADDING > $HOME/.cache/polybar/bspwm_top_padding
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Start polybar
-launch polybar main
+polybar main &

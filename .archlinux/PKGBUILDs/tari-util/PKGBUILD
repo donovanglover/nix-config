@@ -4,28 +4,21 @@ _yay="yay_${_yayver}_x86_64"
 _rofipass="rofi-pass-${_rofipassver}"
 
 pkgname=tari-util
-pkgver=0.1.0
+pkgver=0.2.0
 pkgrel=1
 pkgdesc="Misc utility packages."
 arch=('any')
-provides=('launch-cmd' 'yay' 'rofi-pass')
-conflicts=('launch-cmd' 'yay' 'rofi-pass')
+provides=('yay' 'rofi-pass')
+conflicts=('yay' 'rofi-pass')
 depends=('xdg-utils' 'rofi' 'pass' 'pwgen' 'xdotool')
-source=('launch.c'
-        "https://github.com/Jguer/yay/releases/download/v${_yayver}/${_yay}.tar.gz"
+source=("https://github.com/Jguer/yay/releases/download/v${_yayver}/${_yay}.tar.gz"
         "${_rofipass}.tar.gz::https://codeload.github.com/carnager/rofi-pass/tar.gz/${_rofipassver}")
-sha256sums=('0c049434a4a7934a82fb122acfb92159eba665db81cab8af92da2f227f3274bd'
-            'e0f28c6be3c4322901438f324aed1f49ab593a8d4ed92279b1dda51381c51d6b'
+sha256sums=('e0f28c6be3c4322901438f324aed1f49ab593a8d4ed92279b1dda51381c51d6b'
             '82256730aa4ab6f0b3082eaa8410a93c284ca9fc1e0151de92d9dd703d850439')
-
-build() {
-  make launch
-}
 
 package() {
   _yayout="${srcdir}/${_yay}"
 
-  install -Dm 755 launch                "$pkgdir"/usr/bin/launch
   install -Dm 755 "$_yayout"/yay        "$pkgdir"/usr/bin/yay
   install -Dm 644 "$_yayout"/yay.8      "$pkgdir"/usr/share/man/man8/yay.8
   install -Dm 644 "$_yayout"/bash       "$pkgdir"/usr/share/bash-completion/completions/yay
