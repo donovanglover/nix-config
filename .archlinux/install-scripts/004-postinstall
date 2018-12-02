@@ -25,6 +25,3 @@ echo "%wheel ALL=(ALL) ALL" >> /mnt/etc/sudoers
 
 # Create a new user account with sudo privileges and the fish shell.
 arch-chroot /mnt useradd -m -g users -G wheel -s /usr/bin/fish "$USERNAME"
-
-# Then, set the password equal to the username (change this later).
-echo "$USERNAME:$USERNAME" | chpasswd
