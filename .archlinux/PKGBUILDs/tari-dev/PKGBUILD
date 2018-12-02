@@ -3,17 +3,38 @@ _httpiever='1.0.0'
 
 pkgname=tari-dev
 pkgver=0.1.1
-pkgrel=1
+pkgrel=2
 pkgdesc="Packages I use relating to development and other things."
 arch=('any')
-depends=(vim      neovim      httpie    exa       fd      ripgrep
-         fzf      jq          rsync     git       tig     diff-so-fancy
-         tmux     openssh     nodejs    npm       yarn    crystal
-         shards   llvm        rustup    ansible   docker  docker-compose
-         bind-tools           pacman-contrib      nginx-mainline
-         jdk-openjdk          texlive-core        texlive-science
-         texlive-humanities   texlive-fontsextra  texlive-latexextra
-         texlive-bibtexextra  minted)
+depends=(vim
+         neovim
+         httpie
+         rsync
+         git
+         tig
+         diff-so-fancy
+         tmux
+         nodejs
+         npm
+         yarn
+         crystal
+         shards
+         llvm
+         rustup
+         ansible
+         docker
+         docker-compose
+         bind-tools
+         pacman-contrib
+         nginx-mainline
+         jdk-openjdk
+         texlive-core
+         texlive-science
+         texlive-humanities
+         texlive-fontsextra
+         texlive-latexextra
+         texlive-bibtexextra
+         minted)
 source=("https://raw.githubusercontent.com/junegunn/vim-plug/${_vimplugver}/plug.vim"
         "https://raw.githubusercontent.com/jakubroztocil/httpie/${_httpiever}/extras/httpie-completion.fish")
 sha256sums=('01a138fc0ed99ef2678ba004613acbf8b0c51a85a8d2a1b658ef87af722e98e1'
