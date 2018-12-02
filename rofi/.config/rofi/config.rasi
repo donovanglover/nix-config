@@ -10,8 +10,6 @@ configuration {
   columns: 3;
   width: 70;
   display-drun: "Search";
-  display-window: "Windows";
-  display-calc: "Calc";
 }
 
 // vim:syn=java

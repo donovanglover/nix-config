@@ -27,12 +27,8 @@ super + o
 alt + m
   wal -o ~/.config/wal/done.sh -i ~/Pictures/Wallpapers
 
-# Show rofi drun / window / calc
 alt + z
   ~/.config/rofi/launch.sh
-
-alt + {space,backslash}
-  rofi -show {window,calc -modi calc -no-show-match -no-sort}
 
 # Show rofi-pass
 alt + slash
