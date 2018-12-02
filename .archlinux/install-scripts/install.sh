@@ -1,6 +1,13 @@
 #!/bin/sh
+# Simple Arch Linux install scripts, tailored to my use case.
 
+# End the script on any errors
 set -e
+
+# Change the working directory to this one
+cd "$(dirname "$0")"
+
+# Prompt for the required information
 
 echo -n "Enter the size (in GiB) to give the primary partition: "
 read DISTSIZE
@@ -26,7 +33,9 @@ fi
 echo "====================================================="
 echo "Running install scripts..."
 
+# Run the install scripts
 env DISTSIZE="$DISTSIZE" ./001-preinstall
+                         ./002-install
 env HOSTNAME="$HOSTNAME" ./003-configure
 env USERNAME="$USERNAME" ./004-postinstall
 
@@ -35,3 +44,6 @@ arch-chroot /mnt passwd
 
 echo "Enter a password for $USERNAME..."
 arch-chroot /mnt passwd "$USERNAME"
+
+echo "====================================================="
+echo "Done. Now reboot into Arch Linux!"
