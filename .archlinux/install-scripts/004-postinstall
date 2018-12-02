@@ -16,11 +16,13 @@ arch-chroot /mnt ln -sf /usr/lib/systemd/system/systemd-timesyncd.service \
                         /etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service
 
 # Enable colors in pacman by uncommenting the Color line.
-sed -i '/Color/s/^#//g' /etc/pacman.conf
-sed -i '/VerbosePkgLists/s/^#//g' /etc/pacman.conf
+sed -i '/Color/s/^#//g' /mnt/etc/pacman.conf
+
+# Show package upgrades as a list
+sed -i '/VerbosePkgLists/s/^#//g' /mnt/etc/pacman.conf
 
 # Give users in the wheel group permission to use sudo
-echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
+echo "%wheel ALL=(ALL) ALL" >> /mnt/etc/sudoers
 
 # Create a new user account with sudo privileges and the fish shell.
 arch-chroot /mnt useradd -m -g users -G wheel -s /usr/bin/fish "$USERNAME"
