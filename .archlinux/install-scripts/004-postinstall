@@ -7,11 +7,13 @@
 
 set -xe
 
-# Start and enable the DHCP client daemon service
-systemctl enable --now dhcpcd.service
+# Enable the DHCP client daemon service
+arch-chroot /mnt ln -sf /usr/lib/systemd/system/dhcpcd.service \
+                        /etc/systemd/system/multi-user.target.wants/dhcpcd.service
 
-# Sync the time periodically with a remote server
-timedatectl set-ntp true
+# Enable the timesync daemon service (sync the time periodically with a remote server)
+arch-chroot /mnt ln -sf /usr/lib/systemd/system/systemd-timesyncd.service \
+                        /etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service
 
 # Enable colors in pacman by uncommenting the Color line.
 sed -i '/Color/s/^#//g' /etc/pacman.conf
