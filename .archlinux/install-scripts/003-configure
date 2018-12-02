@@ -7,9 +7,6 @@
 
 set -xe
 
-echo -n "Enter a hostname for this machine: "
-read HOSTNAME
-
 # Generate the fstab file (so the filesystem is mounted on boot)
 genfstab -U /mnt > /mnt/etc/fstab
 

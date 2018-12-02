@@ -7,9 +7,6 @@
 
 set -xe
 
-echo -n "Enter a username for the local account with administrative rights: "
-read USERNAME
-
 # Start and enable the DHCP client daemon service
 systemctl enable --now dhcpcd.service
 
