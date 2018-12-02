@@ -1,6 +1,6 @@
 configuration {
   modi: "drun";
-  font: "Hack 12";
+  font: "IBM Plex Mono Text 12";
   show-icons: true;
   bw: 0;
   theme: "~/.cache/wal/colors-rofi-dark.rasi";
