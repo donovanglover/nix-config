@@ -13,8 +13,7 @@ read USERNAME
 # Start and enable the DHCP client daemon service
 systemctl enable --now dhcpcd.service
 
-# Set the timezone with systemd, and sync it periodically with a remote server
-timedatectl set-timezone America/New_York
+# Sync the time periodically with a remote server
 timedatectl set-ntp true
 
 # Change the systemd wait time from 90s to 30s, mitigating a potential hang at shutdown
