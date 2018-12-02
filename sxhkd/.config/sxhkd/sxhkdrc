@@ -30,10 +30,6 @@ alt + m
 alt + z
   ~/.config/rofi/launch.sh
 
-# Show rofi-pass
-alt + slash
-  rofi-pass
-
 # ====================
 # ======= Node =======
 # ====================
