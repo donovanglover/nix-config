@@ -5,12 +5,11 @@ _https='https_everywhere-2018.9.19-an+fx.xpi'
 _arcdark='arc_dark_theme-2018.9.24-fx.xpi'
 
 pkgname=tari-web
-pkgver=0.1.0
+pkgver=0.2.0
 pkgrel=1
 pkgdesc="Web browser settings."
 arch=('any')
-depends=(ttf-dejavu         ttf-liberation      noto-fonts    noto-fonts-cjk
-         noto-fonts-emoji   adapta-gtk-theme    firefox       chromium)
+depends=(firefox chromium)
 source=('local-settings.js' 'mozilla.cfg'
         "https://addons.cdn.mozilla.net/user-media/addons/607454/${_ubo}"
         "https://addons.cdn.mozilla.net/user-media/addons/808538/${_vimium}"
