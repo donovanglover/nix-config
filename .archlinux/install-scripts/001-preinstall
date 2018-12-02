@@ -1,7 +1,6 @@
 #!/bin/sh
 #
-# This script assumes you already have an active internet connection
-# (preferably through Ethernet).
+# Make partitions
 #
 # https://wiki.archlinux.org/index.php/Installation_guide
 

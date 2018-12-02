@@ -1,7 +1,6 @@
 #!/bin/sh
 #
-# Common post-install system configuration that doesn't involve any
-# external packages (besides fish)
+# Higher-level configs
 #
 # https://wiki.archlinux.org/index.php/General_recommendations
 

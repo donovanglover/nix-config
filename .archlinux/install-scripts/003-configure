@@ -1,7 +1,6 @@
 #!/bin/sh
 #
-# Once this script finishes, change the root password with passwd,
-# then unmount /mnt (with umount) and restart the system.
+# Core system configs
 #
 # https://wiki.archlinux.org/index.php/Installation_guide
 
