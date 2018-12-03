@@ -44,8 +44,3 @@ arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 # Change the shell of the root account to fish.
 arch-chroot /mnt chsh -s /usr/bin/fish
-
-# Save our hardware information with mkinitcpio. This creates
-# an initial ramdisk environment that allows us to boot the
-# Linux kernel.
-arch-chroot /mnt mkinitcpio -p linux
