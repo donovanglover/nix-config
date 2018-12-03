@@ -25,7 +25,7 @@ echo "127.0.1.1 $HOSTNAME.localdomain $HOSTNAME"    >> /mnt/etc/hosts
 
 # Set the language to English and use the en_US.UTF-8 locale.
 echo "LANG=en_US.UTF-8"  > /mnt/etc/locale.conf
-echo "en_US.UTF-8 UTF-8" > /mnt/etc/locale.gen
+sed -i '/#en_US.UTF-8 UTF-8/s/^#//g' /mnt/etc/locale.gen
 
 # Generate the locale.
 arch-chroot /mnt locale-gen
