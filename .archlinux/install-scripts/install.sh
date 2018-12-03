@@ -12,11 +12,11 @@ cd "$(dirname "$0")"
 echo -n "Enter the size (in GiB) to give the primary partition: "
 read DISTSIZE
 
-echo -n "Enter a hostname for this machine: "
-read HOSTNAME
-
-echo -n "Enter a username for the local account with sudo rights: "
+echo -n "Enter a username for the user with sudo rights (user@____): "
 read USERNAME
+
+echo -n "Enter a hostname for this machine ($USERNAME@host): "
+read HOSTNAME
 
 echo "-----------------------------------------------------"
 echo "Arch Linux will be installed with the settings above."
