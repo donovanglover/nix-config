@@ -13,9 +13,9 @@ timedatectl set-ntp true
 # enable boot for it. Then, create a primary swap partition with
 # the remaining disk space.
 parted /dev/sda mklabel msdos
-parted /dev/sda mkpart primary ext4 1MiB $DISTSIZE
+parted /dev/sda mkpart primary ext4 1MiB "$DISTSIZE"GiB
 parted /dev/sda set 1 boot on
-parted /dev/sda mkpart primary linux-swap $DISTSIZE 100%
+parted /dev/sda mkpart primary linux-swap "$DISTSIZE"GiB 100%
 
 # Format sda1 with ext4 and sda2 with swap
 mkfs -t ext4 /dev/sda1
