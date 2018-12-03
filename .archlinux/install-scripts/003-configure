@@ -30,9 +30,6 @@ echo "en_US.UTF-8 UTF-8" > /mnt/etc/locale.gen
 # Generate the locale.
 arch-chroot /mnt locale-gen
 
-# Explicitly set the keymap to US.
-echo "KEYMAP=us" > /mnt/etc/vconsole.conf
-
 # Change the terminal font to a larger one (`latarcyrheb-sun32` is also an option)
 echo "FONT=ter-132n" >> /mnt/etc/vconsole.conf
 
