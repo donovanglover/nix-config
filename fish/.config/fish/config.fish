@@ -41,6 +41,7 @@ if not set -q set_abbr
     abbr gg     "git grep"
     abbr gi     "git init"
     abbr gl     "git log --oneline --decorate --all --graph -n 10"
+    abbr gm     "git merge"
     abbr gp     "git push"                  # Push your commits to a remote server
     abbr gs     "git status"
     abbr gss    "git status -s"
@@ -48,6 +49,8 @@ if not set -q set_abbr
     abbr gre    "git remote --verbose"      # List all remotes
     abbr grh    "git reset HEAD"
     abbr grr    "git reset --hard HEAD~"    # Remove the last commit and all changes with it
+    abbr gt     "git tag"
+    abbr gts    "git tag -s"
 
     abbr t      "task"
     abbr ta     "task add"
