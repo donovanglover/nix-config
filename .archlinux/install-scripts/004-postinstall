@@ -6,6 +6,10 @@
 
 set -xe
 
+# Create the output directories if they don't exist yet
+arch-chroot /mnt mkdir -p /etc/systemd/system/multi-user.target.wants
+arch-chroot /mnt mkdir -p /etc/systemd/system/sysinit.target.wants
+
 # Enable the DHCP client daemon service
 arch-chroot /mnt ln -sf /usr/lib/systemd/system/dhcpcd.service \
                         /etc/systemd/system/multi-user.target.wants/dhcpcd.service
