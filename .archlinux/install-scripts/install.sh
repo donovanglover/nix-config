@@ -18,6 +18,9 @@ read USERNAME
 echo -n "Enter a hostname for this machine ($USERNAME@host): "
 read HOSTNAME
 
+echo -n "Type YES to enable HiDPI support in the virtual console: "
+read HIDPI
+
 echo "-----------------------------------------------------"
 echo "Arch Linux will be installed with the settings above."
 echo "NOTE: You should not run this script if you do not"
@@ -34,10 +37,10 @@ echo "====================================================="
 echo "Running install scripts..."
 
 # Run the install scripts
-env DISTSIZE="$DISTSIZE" ./001-preinstall
-                         ./002-install
-env HOSTNAME="$HOSTNAME" ./003-configure
-env USERNAME="$USERNAME" ./004-postinstall
+env DISTSIZE="$DISTSIZE"                ./001-preinstall
+                                        ./002-install
+env HOSTNAME="$HOSTNAME" HIDPI="$HIDPI" ./003-configure
+env USERNAME="$USERNAME"                ./004-postinstall
 
 echo "Enter a password for the root user..."
 arch-chroot /mnt passwd
