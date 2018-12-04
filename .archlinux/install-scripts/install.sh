@@ -12,10 +12,10 @@ cd "$(dirname "$0")"
 echo -n "Enter the size (in GiB) to give the primary partition: "
 read DISTSIZE
 
-echo -n "Enter a username for the user with sudo rights (user@____): "
+echo -n "Enter a username for the user with sudo rights: "
 read USERNAME
 
-echo -n "Enter a hostname for this machine ($USERNAME@host): "
+echo -n "Enter a hostname for this machine ($USERNAME@_____): "
 read HOSTNAME
 
 echo -n "Type YES to enable HiDPI support in the virtual console: "
