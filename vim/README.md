@@ -1,4 +1,4 @@
-# Vim
+# vim
 
 [vim][vim] is the standard text editor.
 

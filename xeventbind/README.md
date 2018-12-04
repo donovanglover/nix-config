@@ -2,6 +2,8 @@
 
 [xeventbind][xeventbind] is used to run a script on resolution change.
 
+## Use Cases
+
 xeventbind can be used to:
 
 - Change the X DPI for specific resolutions, useful, for example, if you switch between traditional and HiDPI displays often
