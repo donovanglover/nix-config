@@ -25,6 +25,8 @@ echo "127.0.1.1 $HOSTNAME.localdomain $HOSTNAME"    >> /mnt/etc/hosts
 
 # Declare which locales we want to generate and generate them
 sed -i '/#en_US.UTF-8 UTF-8/s/^#//g' /mnt/etc/locale.gen
+sed -i '/#fr_FR.UTF-8 UTF-8/s/^#//g' /mnt/etc/locale.gen
+sed -i '/#ja_JP.UTF-8 UTF-8/s/^#//g' /mnt/etc/locale.gen
 arch-chroot /mnt locale-gen
 
 # Set the system locale to the generated en_US.UTF-8
