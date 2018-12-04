@@ -1,7 +1,6 @@
 #!/bin/sh
 #
-# This script assumes you already have an active internet connection
-# (preferably through Ethernet).
+# Make partitions
 #
 # https://wiki.archlinux.org/index.php/Installation_guide
 
@@ -14,9 +13,9 @@ timedatectl set-ntp true
 # enable boot for it. Then, create a primary swap partition with
 # the remaining disk space.
 parted /dev/sda mklabel msdos
-parted /dev/sda mkpart primary ext4 1MiB 60GiB
+parted /dev/sda mkpart primary ext4 1MiB "$DISTSIZE"GiB
 parted /dev/sda set 1 boot on
-parted /dev/sda mkpart primary linux-swap 60GiB 100%
+parted /dev/sda mkpart primary linux-swap "$DISTSIZE"GiB 100%
 
 # Format sda1 with ext4 and sda2 with swap
 mkfs -t ext4 /dev/sda1
