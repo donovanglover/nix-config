@@ -1,4 +1,4 @@
-# tari-util-xeventbind
+# xeventbind
 
 [xeventbind][xeventbind] is used to run a script on resolution change.
 
