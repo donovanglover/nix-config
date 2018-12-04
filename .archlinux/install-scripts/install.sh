@@ -42,9 +42,6 @@ env DISTSIZE="$DISTSIZE"                ./001-preinstall
 env HOSTNAME="$HOSTNAME" HIDPI="$HIDPI" ./003-configure
 env USERNAME="$USERNAME"                ./004-postinstall
 
-echo "Enter a password for the root user..."
-arch-chroot /mnt passwd
-
 echo "Enter a password for $USERNAME..."
 arch-chroot /mnt passwd "$USERNAME"
 

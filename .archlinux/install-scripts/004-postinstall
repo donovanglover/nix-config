@@ -29,3 +29,6 @@ echo "%wheel ALL=(ALL) ALL" > /mnt/etc/sudoers.d/01_wheel_all
 
 # Create a new user account with sudo privileges and the fish shell.
 arch-chroot /mnt useradd -m -g users -G wheel -s /usr/bin/fish "$USERNAME"
+
+# Lock the root account (i.e. disable root login)
+arch-chroot /mnt passwd -l root
