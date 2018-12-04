@@ -25,7 +25,7 @@ sed -i '/Color/s/^#//g' /mnt/etc/pacman.conf
 sed -i '/VerbosePkgLists/s/^#//g' /mnt/etc/pacman.conf
 
 # Give users in the wheel group permission to use sudo
-echo "%wheel ALL=(ALL) ALL" >> /mnt/etc/sudoers
+echo "%wheel ALL=(ALL) ALL" > /mnt/etc/sudoers.d/01_wheel_all
 
 # Create a new user account with sudo privileges and the fish shell.
 arch-chroot /mnt useradd -m -g users -G wheel -s /usr/bin/fish "$USERNAME"
