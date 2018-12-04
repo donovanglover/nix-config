@@ -6,4 +6,4 @@
 
 set -xe
 
-pacstrap /mnt base base-devel grub fish
+pacstrap /mnt base base-devel grub fish polkit
