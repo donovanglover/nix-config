@@ -18,6 +18,10 @@ arch-chroot /mnt ln -sf /usr/lib/systemd/system/dhcpcd.service \
 arch-chroot /mnt ln -sf /usr/lib/systemd/system/systemd-timesyncd.service \
                         /etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service
 
+# Enable the rng-tools daemon
+arch-chroot /mnt ln -sf /usr/lib/systemd/system/rngd.service \
+                        /etc/systemd/system/sysinit.target.wants/rngd.service
+
 # Enable colors in pacman by uncommenting the Color line.
 sed -i '/Color/s/^#//g' /mnt/etc/pacman.conf
 
