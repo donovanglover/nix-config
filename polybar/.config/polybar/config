@@ -21,7 +21,7 @@ monitor                     = VGA-1
 wm-restack                  = bspwm
 include-file                = $HOME/.cache/polybar/config
 
-foreground                  = ${color.text}
+foreground                  = ${color.background-alt}
 background                  = ${color.background}
 border-color                = ${color.text}
 
@@ -50,9 +50,6 @@ label-private-padding       = 1
 label-sticky-padding        = 1
 
 label-monocle-foreground    = ${color.yellow}
-label-locked-foreground     = ${color.background-alt}
-label-private-foreground    = ${color.background-alt}
-label-sticky-foreground     = ${color.background-alt}
 
 label-focused-padding       = 1
 label-urgent-padding        = 1
@@ -61,30 +58,24 @@ label-empty-padding         = 1
 
 label-focused-foreground    = ${color.text}
 label-urgent-foreground     = ${color.yellow}
-label-occupied-foreground   = ${color.background-alt}
-label-empty-foreground      = ${color.background-alt}
 
 [module/cpu]
 type                        = internal/cpu
 label                       =  %percentage%%
-format-foreground           = ${color.background-alt}
 
 [module/ram]
 type = internal/memory
 label                       =  %gb_used%
-format-foreground           = ${color.background-alt}
 
 [module/date]
 type                        = internal/date
 date                        =  %d.%m.%y
 #date                       =  %B %d, %Y
 #date                       =  %A
-format-foreground           = ${color.background-alt}
 
 [module/time]
 type                        = internal/date
 date                        =  %H:%M
-format-foreground           = ${color.background-alt}
 
 [module/battery]
 type                        = internal/battery
@@ -101,13 +92,10 @@ format-offline              = No song is currently playing.
 label-song-maxlen           = 100
 label-song-ellipsis         = true
 format-online               =  <label-song>
-format-offline-foreground   = ${color.background-alt}
-format-online-foreground    = ${color.background-alt}
 
 [module/volume]
 type                        = internal/alsa
 label-volume                =  %percentage%%
-format-volume-foreground    = ${color.background-alt}
 
 [module/window]
 type = internal/xwindow
