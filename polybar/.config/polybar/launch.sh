@@ -14,9 +14,6 @@ bspc_config() {
   bspc config window_gap $3 &
 }
 
-# If no bar was specified, we're done here.
-if [ -z "$1" ]; then bspc_config 0 $((1 * $POLYBAR_SCALE)) 0; exit; fi
-
 # Set defaults
 POLYBAR_HEIGHT=$((40 * $POLYBAR_SCALE))
 HOST_WIDTH=$(bspc query -T -m | jq '.rectangle.width')
@@ -32,8 +29,8 @@ fi
 
 # Set the bspwm variables
 BSPWM_TOP_PADDING=$(($POLYBAR_HEIGHT + ${POLYBAR_OFFSET_XY:-0} + ${POLYBAR_BORDER_SIZE:-0} * 2))
-BSPWM_BORDER_WIDTH=${POLYBAR_BORDER_SIZE:-$((1 * $POLYBAR_SCALE))}
-BSPWM_WINDOW_GAP=${POLYBAR_OFFSET_XY:-$((20 * $POLYBAR_SCALE))}
+BSPWM_BORDER_WIDTH=${POLYBAR_BORDER_SIZE:-0}
+BSPWM_WINDOW_GAP=${POLYBAR_OFFSET_XY:-0}
 
 bspc_config $BSPWM_TOP_PADDING $BSPWM_BORDER_WIDTH $BSPWM_WINDOW_GAP
 

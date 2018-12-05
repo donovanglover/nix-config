@@ -14,14 +14,14 @@ background-alt              = ${xrdb:color8}
 
 [bar/main]
 modules-left                = bspwm
-modules-center              = mpd
+modules-center              = window
 modules-right               = cpu ram volume date time
 
 monitor                     = VGA-1
 wm-restack                  = bspwm
 include-file                = $HOME/.cache/polybar/config
 
-foreground                  = ${color.text}
+foreground                  = ${color.background-alt}
 background                  = ${color.background}
 border-color                = ${color.text}
 
@@ -31,7 +31,8 @@ font-2                      = "Font Awesome 5 Free:style=Solid:size=10"
 font-3                      = "Font Awesome 5 Free:style=Regular:size=10"
 font-4                      = "Font Awesome 5 Brands:style=Regular:size=10"
 
-padding                     = 2
+padding-left                = 1
+padding-right               = 2
 module-margin               = 1
 
 [module/bspwm]
@@ -50,52 +51,32 @@ label-private-padding       = 1
 label-sticky-padding        = 1
 
 label-monocle-foreground    = ${color.yellow}
-label-locked-foreground     = ${color.background-alt}
-label-private-foreground    = ${color.background-alt}
-label-sticky-foreground     = ${color.background-alt}
 
-label-focused-padding       = 2
-label-urgent-padding        = 2
-label-occupied-padding      = 2
-label-empty-padding         = 2
+label-focused-padding       = 1
+label-urgent-padding        = 1
+label-occupied-padding      = 1
+label-empty-padding         = 1
 
 label-focused-foreground    = ${color.text}
 label-urgent-foreground     = ${color.yellow}
-label-occupied-foreground   = ${color.background-alt}
-label-empty-foreground      = ${color.green}
-
-ws-icon-0                   = 1;一
-ws-icon-1                   = 2;二
-ws-icon-2                   = 3;三
-ws-icon-3                   = 4;四
-ws-icon-4                   = 5;五
-ws-icon-5                   = 6;六
-ws-icon-6                   = 7;七
-ws-icon-7                   = 8;八
-ws-icon-8                   = 9;九
-ws-icon-9                   = 10;十
 
 [module/cpu]
 type                        = internal/cpu
 label                       =  %percentage%%
-format-foreground           = ${color.background-alt}
 
 [module/ram]
 type = internal/memory
 label                       =  %gb_used%
-format-foreground           = ${color.background-alt}
 
 [module/date]
 type                        = internal/date
 date                        =  %d.%m.%y
 #date                       =  %B %d, %Y
 #date                       =  %A
-format-foreground           = ${color.background-alt}
 
 [module/time]
 type                        = internal/date
 date                        =  %H:%M
-format-foreground           = ${color.background-alt}
 
 [module/battery]
 type                        = internal/battery
@@ -112,12 +93,14 @@ format-offline              = No song is currently playing.
 label-song-maxlen           = 100
 label-song-ellipsis         = true
 format-online               =  <label-song>
-format-offline-foreground   = ${color.background-alt}
-format-online-foreground    = ${color.background-alt}
 
 [module/volume]
 type                        = internal/alsa
 label-volume                =  %percentage%%
-format-volume-foreground    = ${color.background-alt}
+
+[module/window]
+type = internal/xwindow
+label-maxlen = 120
+label-empty = /usr/bin/bspwm
 
 ; vim:ft=dosini
