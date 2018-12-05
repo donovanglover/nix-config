@@ -14,9 +14,6 @@ bspc_config() {
   bspc config window_gap $3 &
 }
 
-# If no bar was specified, we're done here.
-if [ -z "$1" ]; then bspc_config 0 $((1 * $POLYBAR_SCALE)) 0; exit; fi
-
 # Set defaults
 POLYBAR_HEIGHT=$((40 * $POLYBAR_SCALE))
 HOST_WIDTH=$(bspc query -T -m | jq '.rectangle.width')
