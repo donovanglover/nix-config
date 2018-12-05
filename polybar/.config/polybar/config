@@ -14,7 +14,7 @@ background-alt              = ${xrdb:color8}
 
 [bar/main]
 modules-left                = bspwm
-modules-center              = mpd
+modules-center              = window
 modules-right               = cpu ram volume date time
 
 monitor                     = VGA-1
@@ -108,5 +108,10 @@ format-online-foreground    = ${color.background-alt}
 type                        = internal/alsa
 label-volume                =  %percentage%%
 format-volume-foreground    = ${color.background-alt}
+
+[module/window]
+type = internal/xwindow
+label-maxlen = 120
+label-empty = /usr/bin/bspwm
 
 ; vim:ft=dosini
