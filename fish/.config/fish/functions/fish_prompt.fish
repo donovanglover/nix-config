@@ -12,12 +12,19 @@ function fish_prompt
         set_color magenta;  echo -n "($PWD)"
     else
         set pwd (basename $PWD)
+        set branch (git branch ^/dev/null | sed -n '/\* /s///p')
 
         if [ $pwd = $USER ]
             set pwd "~"
         end
 
         set_color magenta;  echo -n "$pwd"
+
+        if [ "$branch" ]
+            set_color normal;   echo -n " on "
+            set_color yellow;   echo -n "$branch"
+        end
+
         set_color normal;   echo -n " "
         set_color red;      echo -n "➤"
         set_color green;    echo -n "➤"
