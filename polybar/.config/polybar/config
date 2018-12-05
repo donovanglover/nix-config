@@ -64,17 +64,6 @@ label-urgent-foreground     = ${color.yellow}
 label-occupied-foreground   = ${color.background-alt}
 label-empty-foreground      = ${color.green}
 
-ws-icon-0                   = 1;一
-ws-icon-1                   = 2;二
-ws-icon-2                   = 3;三
-ws-icon-3                   = 4;四
-ws-icon-4                   = 5;五
-ws-icon-5                   = 6;六
-ws-icon-6                   = 7;七
-ws-icon-7                   = 8;八
-ws-icon-8                   = 9;九
-ws-icon-9                   = 10;十
-
 [module/cpu]
 type                        = internal/cpu
 label                       =  %percentage%%
