@@ -62,7 +62,7 @@ label-empty-padding         = 1
 label-focused-foreground    = ${color.text}
 label-urgent-foreground     = ${color.yellow}
 label-occupied-foreground   = ${color.background-alt}
-label-empty-foreground      = ${color.green}
+label-empty-foreground      = ${color.background-alt}
 
 [module/cpu]
 type                        = internal/cpu
