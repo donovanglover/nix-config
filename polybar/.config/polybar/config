@@ -31,7 +31,8 @@ font-2                      = "Font Awesome 5 Free:style=Solid:size=10"
 font-3                      = "Font Awesome 5 Free:style=Regular:size=10"
 font-4                      = "Font Awesome 5 Brands:style=Regular:size=10"
 
-padding                     = 2
+padding-left                = 1
+padding-right               = 2
 module-margin               = 1
 
 [module/bspwm]
