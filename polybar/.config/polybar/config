@@ -54,10 +54,10 @@ label-locked-foreground     = ${color.background-alt}
 label-private-foreground    = ${color.background-alt}
 label-sticky-foreground     = ${color.background-alt}
 
-label-focused-padding       = 2
-label-urgent-padding        = 2
-label-occupied-padding      = 2
-label-empty-padding         = 2
+label-focused-padding       = 1
+label-urgent-padding        = 1
+label-occupied-padding      = 1
+label-empty-padding         = 1
 
 label-focused-foreground    = ${color.text}
 label-urgent-foreground     = ${color.yellow}
