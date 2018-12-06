@@ -13,23 +13,18 @@ I use `install.sh` to call these scripts with the proper user-generated variable
 
 ## Usage
 
-First, download the .files archive, like so:
+First, download the install script.
 
 ```sh
-wget https://github.com/GloverDonovan/.files/archive/master.zip
+curl -L https://git.io/.install -o install.sh
 ```
 
-Then, install `unzip` and unzip the archive. Note that `-Sy` is used here since you don't want to update *everything* on the installation media, and `unzip` is unlikely to break in this case.
+After you have verified that the install script is indeed correct, run it.
 
 ```sh
-pacman -Sy unzip --noconfirm
-unzip master.zip
+sh install.sh
 ```
 
-Finally, run the install script:
-
-```sh
-./.files-master/.archlinux/install-scripts/install.sh
-```
+That's it!
 
 [archguide]: https://wiki.archlinux.org/index.php/Installation_guide
