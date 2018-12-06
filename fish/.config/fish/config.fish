@@ -46,7 +46,6 @@ if not set -q set_abbr
     abbr gco    "git checkout"
     abbr gd     "git diff"                  # Show all file changes not staged yet
     abbr gds    "git diff --staged"         # Show changes staged but not committed
-    abbr gg     "git grep"
     abbr gi     "git init"
     abbr gl     "git log --oneline --decorate --all --graph -n 10"
     abbr gm     "git merge"
