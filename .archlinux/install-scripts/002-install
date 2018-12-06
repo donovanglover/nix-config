@@ -6,4 +6,4 @@
 
 set -xe
 
-pacstrap /mnt base base-devel grub fish polkit rng-tools
+pacstrap /mnt base base-devel grub fish git polkit rng-tools
