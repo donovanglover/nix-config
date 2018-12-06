@@ -18,6 +18,14 @@ export FZF_DEFAULT_OPTS='--height 40% --reverse --border --color=16'
 # Required to make gpg-agent work in cases like git commit
 export GPG_TTY=(tty)
 
+# Add color to man pages
+set -x -U LESS_TERMCAP_md (printf "\e[01;31m")
+set -x -U LESS_TERMCAP_me (printf "\e[0m")
+set -x -U LESS_TERMCAP_se (printf "\e[0m")
+set -x -U LESS_TERMCAP_so (printf "\e[01;44;30m")
+set -x -U LESS_TERMCAP_ue (printf "\e[0m")
+set -x -U LESS_TERMCAP_us (printf "\e[01;32m")
+
 # Always use the default keybindings in fish
 fish_default_key_bindings
 
