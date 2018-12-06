@@ -9,9 +9,9 @@ cursor                {cursor}
 selection_foreground  {background}
 selection_background  {foreground}
 
-active_border_color   {color3}
-inactive_border_color {color3}
-bell_border_color     {color3}
+active_border_color   {color7}
+inactive_border_color {color8}
+bell_border_color     {color8}
 
 color0  {color0}
 color1  {color1}
