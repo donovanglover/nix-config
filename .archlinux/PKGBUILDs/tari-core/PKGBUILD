@@ -1,5 +1,5 @@
 pkgname=tari-core
-pkgver=0.3.0
+pkgver=0.4.0
 pkgrel=1
 pkgdesc="My Arch Linux setup"
 arch=('any')
@@ -32,4 +32,33 @@ depends=(stow
          cmatrix
          imagemagick
          lolcat
-         figlet)
+         figlet
+         vim
+         neovim
+         httpie
+         rsync
+         git
+         tig
+         diff-so-fancy
+         tmux
+         nodejs
+         npm
+         yarn
+         crystal
+         shards
+         llvm
+         rustup
+         ansible
+         docker
+         docker-compose
+         bind-tools
+         pacman-contrib
+         nginx-mainline
+         jdk-openjdk
+         texlive-core
+         texlive-science
+         texlive-humanities
+         texlive-fontsextra
+         texlive-latexextra
+         texlive-bibtexextra
+         minted)
