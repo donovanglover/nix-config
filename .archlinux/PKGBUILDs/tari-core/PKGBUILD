@@ -1,7 +1,7 @@
 pkgname=tari-core
-pkgver=0.2.0
-pkgrel=2
-pkgdesc="Core packages for my Arch setup."
+pkgver=0.3.0
+pkgrel=1
+pkgdesc="My Arch Linux setup"
 arch=('any')
 depends=(stow
          python-pywal
@@ -17,4 +17,19 @@ depends=(stow
          unrar
          borg
          openssh
-         openvpn)
+         openvpn
+         mpd
+         mpc
+         ncmpcpp
+         htop
+         neofetch
+         fdupes
+         youtube-dl
+         ranger
+         weechat
+         ncdu
+         task
+         cmatrix
+         imagemagick
+         lolcat
+         figlet)
