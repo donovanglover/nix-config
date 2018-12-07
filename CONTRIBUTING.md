@@ -28,7 +28,7 @@ git checkout -b fix/what-you-want-to-fix
 
 ### Step 2. Commit your changes
 
-If you are adding a new feature, use `dir: ` for which directory it affects, followed by your commit message.
+If you are adding a new feature, use `dir:` for which directory it affects, followed by your commit message.
 
 ```sh
 git commit -m "fish: Add abbreviation for git log"
@@ -40,7 +40,7 @@ Do the same for fixing existing features.
 git commit -m "kitty: Fix border width for inner windows"
 ```
 
-If you are only modifying documentation, use `docs: `. For substantial changes that affect the system as a whole, use `meta: `.
+If you are only modifying documentation, use `docs:`. For substantial changes that affect the system as a whole, use `meta:`.
 
 ### Step 3. Submit the patch
 
