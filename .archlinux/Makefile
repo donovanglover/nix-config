@@ -29,6 +29,13 @@ fontconfig:
 	@sudo ln -sf /etc/fonts/conf.avail/10-sub-pixel-rgb.conf /etc/fonts/conf.d
 	@sudo ln -sf /etc/fonts/conf.avail/11-lcdfilter-default.conf /etc/fonts/conf.d
 
+# 1. Always use emoji (best with the kitty terminal emulator)
+# 2. Install global packages to /usr/local
+.PHONY: yarnconfig
+yarnconfig:
+	@yarn config set -- --emoji true
+	@yarn config set prefix /usr/local
+
 .PHONY: clean
 clean:
 	@rm -fv **/*.pkg.tar.xz
