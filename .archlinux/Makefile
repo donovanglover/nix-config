@@ -19,6 +19,16 @@ update-keys:
 	@sudo pacman-key --populate
 	@sudo pacman-key --refresh-keys
 
+# https://old.reddit.com/r/archlinux/comments/5r5ep8
+# 1. Disable bitmap fonts (not scalable for modern HiDPI displays)
+# 2. Enable sub-pixel RGB rendering
+# 3. Enable the LCD filter (reduces color fringing)
+.PHONY: fontconfig
+fontconfig:
+	@sudo ln -sf /etc/fonts/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
+	@sudo ln -sf /etc/fonts/conf.avail/10-sub-pixel-rgb.conf /etc/fonts/conf.d
+	@sudo ln -sf /etc/fonts/conf.avail/11-lcdfilter-default.conf /etc/fonts/conf.d
+
 .PHONY: clean
 clean:
 	@rm -fv **/*.pkg.tar.xz
