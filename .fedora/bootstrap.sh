@@ -19,6 +19,9 @@ sudo -n dnf install -y make fedpkg
 # Run make
 make
 
+# Revoke privileges
+sudo -K
+
 # Install dotfiles
 make -C ..
 
@@ -27,6 +30,3 @@ wal --theme base16-tomorrow-night
 
 # Run vim for the first time (i.e. install plugins and exit)
 nvim
-
-# Revoke privileges
-sudo -K
