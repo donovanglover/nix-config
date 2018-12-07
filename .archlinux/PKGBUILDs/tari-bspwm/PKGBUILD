@@ -1,9 +1,0 @@
-pkgname=tari-bspwm
-pkgver=0.1.0
-pkgrel=2
-pkgdesc="Packages I use specifically for bspwm."
-arch=('any')
-depends=(bspwm
-         sxhkd
-         dunst
-         compton)
