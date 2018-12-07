@@ -1,9 +1,8 @@
-_vimplugver='0.10.0'
 _httpiever='1.0.0'
 
 pkgname=tari-dev
-pkgver=0.1.1
-pkgrel=2
+pkgver=0.2.0
+pkgrel=1
 pkgdesc="Packages I use relating to development and other things."
 arch=('any')
 depends=(vim
@@ -35,12 +34,9 @@ depends=(vim
          texlive-latexextra
          texlive-bibtexextra
          minted)
-source=("https://raw.githubusercontent.com/junegunn/vim-plug/${_vimplugver}/plug.vim"
-        "https://raw.githubusercontent.com/jakubroztocil/httpie/${_httpiever}/extras/httpie-completion.fish")
-sha256sums=('01a138fc0ed99ef2678ba004613acbf8b0c51a85a8d2a1b658ef87af722e98e1'
-            '3d0deae85526fbb580ec35a625a043fd1c585c315ca98ac4e371b714d2d1a3ec')
+source=("https://raw.githubusercontent.com/jakubroztocil/httpie/${_httpiever}/extras/httpie-completion.fish")
+sha256sums=('3d0deae85526fbb580ec35a625a043fd1c585c315ca98ac4e371b714d2d1a3ec')
 
 package() {
-  install -Dm 644 plug.vim                "$pkgdir"/usr/share/vim/vimfiles/autoload/plug.vim
   install -Dm 644 httpie-completion.fish  "$pkgdir"/usr/share/fish/vendor_completions.d/http.fish
 }
