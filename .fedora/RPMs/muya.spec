@@ -1,6 +1,6 @@
 Name: muya
 Version: 0.2.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: Packages I use in addition to the defaults on Fedora
 License: Various
 BuildArch: noarch
@@ -57,8 +57,7 @@ manage dependencies and other installed files.
 %{_bindir}/unowns
 
 %install
-ROOT_DIR=../../.archlinux/PKGBUILDs
-SCRIPTS_DIR=$ROOT_DIR/tari-scripts
+SCRIPTS_DIR=../../.archlinux/PKGBUILDs/color-scripts
 install -Dm 755 -t %{buildroot}/%{_bindir} $SCRIPTS_DIR/256colortest
 install -Dm 755 -t %{buildroot}/%{_bindir} $SCRIPTS_DIR/colorfade
 install -Dm 755 -t %{buildroot}/%{_bindir} $SCRIPTS_DIR/colorhash
