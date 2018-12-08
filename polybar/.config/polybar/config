@@ -2,7 +2,7 @@
 # Copyright (C) 2017-2018 Donovan Glover
 
 [color]
-background                  = ${xrdb:color0}
+background                  = ${xrdb:background}
 red                         = ${xrdb:color1}
 green                       = ${xrdb:color2}
 yellow                      = ${xrdb:color3}
