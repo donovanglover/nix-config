@@ -1,12 +1,20 @@
-pkgname=tari-scripts
+pkgname=color-scripts
 pkgver=0.1.0
 pkgrel=1
-pkgdesc="Visually appealing terminal scripts."
+pkgdesc="Visually appealing terminal scripts from around the web"
 arch=('any')
-source=('colorhash' 'colorhex'    'colorline'         'colorpanes'
-        'diamonds'  'pipes'       'pmabove'           'pmleft'
-        'dna'       'colortest'   '256colortest'      'colorfade'
-        'ghosts'    'unowns'      'spaceinvaders')
+source=(
+  'colorhash' 'colorhex'    'colorline'         'colorpanes'
+  'diamonds'  'pipes'       'pmabove'           'pmleft'
+  'dna'       'colortest'   '256colortest'      'colorfade'
+  'ghosts'    'unowns'      'spaceinvaders'
+)
+provides=(
+  'colorhash' 'colorhex'    'colorline'         'colorpanes'
+  'diamonds'  'pipes'       'pmabove'           'pmleft'
+  'dna'       'colortest'   '256colortest'      'colorfade'
+  'ghosts'    'unowns'      'spaceinvaders'
+)
 sha256sums=('506b036cfce3229c922156f06a24ed2f796baa9b640c22beca23e12c8e04a8c0'
             'de4df3f590fc349e471cfe84623c2a97757e9ade90d7fab7fb2921d59ffd464a'
             '4c31394d04e16c39a04ea085858ece699f5f6ac846c7438ad860d519f09701fe'
