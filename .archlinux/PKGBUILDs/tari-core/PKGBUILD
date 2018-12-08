@@ -1,5 +1,5 @@
 pkgname=tari-core
-pkgver=0.4.0
+pkgver=0.5.0
 pkgrel=1
 pkgdesc="My Arch Linux setup"
 arch=('any')
@@ -61,4 +61,36 @@ depends=(stow
          texlive-fontsextra
          texlive-latexextra
          texlive-bibtexextra
-         minted)
+         minted
+         ttf-dejavu
+         ttf-liberation
+         noto-fonts
+         noto-fonts-cjk
+         noto-fonts-emoji
+         ttf-hack
+         ttf-fira-mono
+         ttf-font-awesome
+         arc-solid-gtk-theme
+         arc-kde
+         papirus-icon-theme
+         lxdm-gtk3
+         xorg-xmodmap
+         xorg-xwininfo
+         xorg-xrandr
+         xorg-xinit
+         xdo
+         xcape
+         xdg-user-dirs
+         alsa-utils
+         mpv
+         feh
+         rofi
+         kitty
+         zathura
+         zathura-djvu
+         zathura-pdf-mupdf
+         code
+         bspwm
+         sxhkd
+         dunst
+         compton)
