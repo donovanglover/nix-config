@@ -38,9 +38,9 @@ yarnconfig:
 
 .PHONY: clean
 clean:
-	@rm -fv **/*.pkg.tar.xz
-	@rm -fv **/*.xpi
-	@rm -fv **/*.tar.gz
-	@rm -fv **/*.tar.bz2
-	@rm -fv **/*.vim
+	@rm -fv PKGBUILDs/**/*.pkg.tar.xz
+	@rm -fv PKGBUILDs/**/*.xpi
+	@rm -fv PKGBUILDs/**/*.tar.gz
+	@rm -fv PKGBUILDs/**/*.tar.bz2
+	@rm -fv PKGBUILDs/**/*.vim
 	@rm -rfv .aur
