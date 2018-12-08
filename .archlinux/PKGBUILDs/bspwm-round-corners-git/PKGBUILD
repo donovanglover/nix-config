@@ -1,0 +1,30 @@
+pkgname=bspwm-round-corners-git
+pkgver=0.9.5.r19.7b0cf3d
+pkgrel=1
+pkgdesc="X11 window manager with border_radius support"
+arch=('x86_64')
+url="https://github.com/Javyre/bspwm"
+provides=('bspwm')
+conflicts=('bspwm')
+license=('custom:BSD')
+depends=('xcb-util' 'xcb-util-wm' 'xcb-util-keysyms')
+makedepends=('git')
+optdepends=('sxhkd: to define keyboard and pointer bindings'
+            'xdo: for the example panel')
+source=("$pkgname::git+https://github.com/Javyre/bspwm#branch=round_corners")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "$pkgname"
+  printf "%s" "$(git describe --long | sed 's/\([^-]*-\)g/r\1/;s/-/./g')"
+}
+
+build() {
+  make -C "$pkgname" PREFIX=/usr
+}
+
+package() {
+  cd "$pkgname"
+  make PREFIX=/usr DESTDIR="$pkgdir" install
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/bspwm/LICENSE"
+}
