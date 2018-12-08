@@ -15,7 +15,7 @@ bspc_config() {
 }
 
 # Set defaults
-POLYBAR_HEIGHT=$((40 * $POLYBAR_SCALE))
+POLYBAR_HEIGHT=$((35 * $POLYBAR_SCALE))
 HOST_WIDTH=$(bspc query -T -m | jq '.rectangle.width')
 
 # Make the bar float
