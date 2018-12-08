@@ -1,5 +1,5 @@
 pkgname=tari-core
-pkgver=0.5.0
+pkgver=0.6.0
 pkgrel=1
 pkgdesc="My Arch Linux setup"
 arch=('any')
@@ -93,4 +93,59 @@ depends=(stow
          bspwm
          sxhkd
          dunst
-         compton)
+         compton
+         plasma-desktop
+         plasma-pa
+         kscreen
+         kleopatra
+         obs-studio
+         baka-mplayer
+         dolphin
+         ark
+         okular
+         gwenview
+         cantata
+         kwrite
+         kcolorchooser
+         kolourpaint
+         kmag
+         spectacle
+         kdenlive
+         krita
+         texstudio
+         kwave
+         kmplot
+         kalzium
+         kwordquiz
+         kollision
+         bovo
+         blinken
+         virtualbox
+         virtualbox-host-modules-arch
+         kimageformats
+         ffmpegthumbs
+         kdegraphics-thumbnailers
+         gnome-shell
+         gnome-shell-extensions
+         gnome-backgrounds
+         gnome-control-center
+         evince
+         file-roller
+         nautilus
+         gnome-mpv
+         l3afpad
+         gthumb
+         lollypop
+         evolution
+         ghex
+         liferea
+         libreoffice-fresh
+         poedit
+         gnome-clocks
+         gnome-characters
+         gnome-maps
+         gnome-system-monitor
+         gnome-disk-utility
+         gnome-screenshot
+         gnome-weather
+         gnome-break-timer)
