@@ -95,18 +95,10 @@ depends=(
   sxhkd
   dunst
   compton
-  plasma-desktop
-  plasma-pa
-  kscreen
   kleopatra
   obs-studio
-  baka-mplayer
   dolphin
-  ark
-  okular
   gwenview
-  cantata
-  kwrite
   kcolorchooser
   kolourpaint
   kmag
@@ -114,7 +106,6 @@ depends=(
   kdenlive
   krita
   texstudio
-  kwave
   kmplot
   kalzium
   kwordquiz
@@ -139,16 +130,12 @@ depends=(
   lollypop
   evolution
   ghex
-  liferea
   libreoffice-fresh
   poedit
   gnome-clocks
-  gnome-characters
   gnome-maps
-  gnome-system-monitor
   gnome-disk-utility
   gnome-screenshot
-  gnome-weather
   gnome-break-timer
   firefox
   chromium
