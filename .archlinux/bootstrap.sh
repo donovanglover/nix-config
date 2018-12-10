@@ -19,12 +19,14 @@ make package=bspwm-round-corners-git
 make package=color-scripts
 make package=xeventbind
 
-# Install aur dependencies
+# Install yay
 make aur package=yay
-make aur package=rtv
-make aur package=polybar
-make aur package=shotgun
-make aur package=ranger-git
+
+# Install aur packages with yay
+yay -S rtv
+yay -S polybar
+yay -S shotgun
+yay -S ranger-git
 
 # Additional settings
 make fontconfig
