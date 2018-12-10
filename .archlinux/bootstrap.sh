@@ -13,6 +13,9 @@ sudo -v
 # Source: https://gist.github.com/cowboy/3118588
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+# Refresh GPG keys before installing packages
+make refresh-keys
+
 # Install PKGBUILDs
 make package=tari-core
 make package=bspwm-round-corners-git
