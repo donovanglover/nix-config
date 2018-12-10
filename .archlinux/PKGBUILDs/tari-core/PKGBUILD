@@ -139,6 +139,21 @@ depends=(
   gnome-break-timer
   firefox
   chromium
+  pass
+  xclip
+  xdotool
+  audacity
+  firefox-i18n-fr
+  firefox-i18n-ja
+  gimp
+  namcap
+  tint2
+  ttf-ibm-plex
+  qutebrowser
+  xorg-xprop
+  xorg-xsetroot
+  breeze
+  plasma-integration
 )
 source=(
   'local-settings.js'
