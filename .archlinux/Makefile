@@ -36,6 +36,11 @@ yarnconfig:
 	@yarn config set -- --emoji true
 	@yarn config set prefix /usr/local
 
+.PHONY: rust
+rust:
+	@rustup install stable
+	@rustup default stable
+
 .PHONY: clean
 clean:
 	@rm -fv PKGBUILDs/**/*.pkg.tar.xz
