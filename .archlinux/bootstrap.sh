@@ -13,9 +13,6 @@ sudo -v
 # Source: https://gist.github.com/cowboy/3118588
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-# Install dependencies
-sudo -n pacman -S stow
-
 # Install PKGBUILDs
 make package=tari-core
 make package=bspwm-round-corners-git
