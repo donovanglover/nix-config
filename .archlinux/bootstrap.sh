@@ -29,6 +29,7 @@ yay -S rtv
 yay -S polybar
 yay -S shotgun
 yay -S ranger-git
+yay -S shantz-xwinwrap-bzr
 
 # Additional settings
 make fontconfig
