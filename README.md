@@ -6,7 +6,7 @@
 
 An operating system is a collection of software. Every operating system builds off of the work of many other individuals and their respective creations (the "software"). This is how systems work, and is not unique to operating systems nor computing itself.
 
-GNU/Linux is a collection of software that most modern free operating systems use. Note that a significant amount of non-GNU/Linux software, such as systemd, Xorg, and other software, is used to make a complete GNU/Linux distribution.
+[GNU/Linux][gnulinux] is a collection of software that most modern free operating systems use. Note that a significant amount of non-GNU/Linux software, such as systemd, Xorg, and other software, is used to make a complete GNU/Linux distribution.
 
 ## Usage
 
@@ -82,6 +82,12 @@ Once you've verified that you indeed want my changes, update your local copy of 
 
 ```sh
 git pull
+```
+
+If you don't want changes straight from master, and instead want to update incrementally, checkout the version tag you want, like so:
+
+```sh
+git checkout 0.2.0
 ```
 
 If you used the stow method, all of the dotfiles that you use from me will already be updated; you do not have to do anything else. If git tells you that there are conflicts, you probably want to rebase your changes on top of mine, or consider making your own version of those files instead.
