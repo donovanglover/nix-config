@@ -35,6 +35,9 @@ yay -S shantz-xwinwrap-bzr
 make fontconfig
 make yarnconfig
 
+# Enable the lightweight X11 display manager
+systemctl enable --now lxdm.service
+
 # Revoke privileges
 sudo -K
 
