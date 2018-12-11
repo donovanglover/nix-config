@@ -18,7 +18,6 @@ make refresh-keys
 
 # Install PKGBUILDs
 make package=tari-core
-make package=bspwm-round-corners-git
 make package=color-scripts
 make package=xeventbind
 
