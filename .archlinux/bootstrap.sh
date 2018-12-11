@@ -43,5 +43,8 @@ make -C ..
 # Change the color scheme to a sane default
 wal --theme base16-tomorrow-night
 
+# Create the user's home directories
+xdg-user-dirs-update
+
 # Run vim for the first time (i.e. install plugins and exit)
 nvim
