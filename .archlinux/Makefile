@@ -36,6 +36,18 @@ yarnconfig:
 	@yarn config set -- --emoji true
 	@yarn config set prefix /usr/local
 
+.PHONY: rust
+rust:
+	@rustup install stable
+	@rustup default stable
+
+.PHONY: gnome
+gnome:
+	@../gnome/.config/gnome/extensions.sh
+	@../gnome/.config/gnome/antialiasing.sh
+	@../gnome/.config/gnome/arc-dark-gtk-theme.sh
+	@../gnome/.config/gnome/breeze-cursor-theme.sh
+
 .PHONY: clean
 clean:
 	@rm -fv PKGBUILDs/**/*.pkg.tar.xz

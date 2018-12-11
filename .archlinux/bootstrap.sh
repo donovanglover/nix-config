@@ -13,25 +13,30 @@ sudo -v
 # Source: https://gist.github.com/cowboy/3118588
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-# Install dependencies
-sudo -n pacman -S stow
+# Refresh GPG keys before installing packages
+make refresh-keys
 
 # Install PKGBUILDs
 make package=tari-core
-make package=bspwm-round-corners-git
 make package=color-scripts
 make package=xeventbind
 
-# Install aur dependencies
+# Install yay
 make aur package=yay
-make aur package=rtv
-make aur package=polybar
-make aur package=shotgun
-make aur package=ranger-git
+
+# Install aur packages with yay
+yay -S rtv
+yay -S polybar
+yay -S shotgun
+yay -S ranger-git
+yay -S shantz-xwinwrap-bzr
 
 # Additional settings
 make fontconfig
 make yarnconfig
+
+# Enable the lightweight X11 display manager
+systemctl enable --now lxdm.service
 
 # Revoke privileges
 sudo -K
@@ -41,6 +46,9 @@ make -C ..
 
 # Change the color scheme to a sane default
 wal --theme base16-tomorrow-night
+
+# Create the user's home directories
+xdg-user-dirs-update
 
 # Run vim for the first time (i.e. install plugins and exit)
 nvim
