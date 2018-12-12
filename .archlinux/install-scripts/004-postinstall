@@ -38,4 +38,4 @@ arch-chroot /mnt useradd -m -g users -G wheel -s /usr/bin/fish "$USERNAME"
 arch-chroot /mnt passwd -l root
 
 # Clone this repository to the user's $HOME
-arch-chroot /mnt git clone https://github.com/GloverDonovan/.files /home/$USERNAME/.files
+arch-chroot /mnt su "$USERNAME" -c "git clone https://github.com/GloverDonovan/.files /home/$USERNAME/.files"
