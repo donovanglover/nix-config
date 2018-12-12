@@ -21,6 +21,9 @@ make package=tari-core
 make package=color-scripts
 make package=xeventbind
 
+# Install and set the default toolchain for rust
+make rust
+
 # Install yay
 make aur package=yay
 
