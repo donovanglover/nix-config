@@ -38,7 +38,7 @@ module-margin               = 1
 [module/bspwm]
 type                        = internal/bspwm
 pin-workspaces              = true
-format                      = <label-mode> <label-state>
+format                      = <label-state> <label-mode>
 
 label-monocle               =  monocle mode
 label-locked                =  Locked
