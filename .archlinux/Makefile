@@ -14,8 +14,8 @@ aur:
 	@makepkg -sc
 	@sudo pacman -U *.pkg.tar.xz
 
-.PHONY: update-keys
-update-keys:
+.PHONY: refresh-keys
+refresh-keys:
 	@sudo pacman-key --populate
 	@sudo pacman-key --refresh-keys
 
