@@ -30,7 +30,7 @@ On a fresh [Fedora][fedora] install, run the bootstrap script.
 git clone https://github.com/GloverDonovan/.files --depth 1 && ./.files/.fedora/bootstrap.sh
 ```
 
-> **Note**: If you just want my Fedora look, run the [make rice](./.fedora) target.
+> **Note**: If you just want my Fedora look, run the [make rice](./.fedora) target instead.
 
 ### Use only the dotfiles you want
 

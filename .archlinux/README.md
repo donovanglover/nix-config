@@ -6,7 +6,6 @@
 
 - A universal color scheme consistent across all terminal software
 - A universal theme across both Qt and GTK applications
-- The ability to switch between GNOME, Plasma, and bspwm efficiently
 - Full HiDPI support for Qt, GTK, and X-level software applications
 - Easily switch between both traditional and HiDPI resolution in the same X environment
 
