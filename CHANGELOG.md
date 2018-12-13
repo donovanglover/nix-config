@@ -1,8 +1,32 @@
 # Changelog
 
-## [Unreleased]
+## [0.2.0] (December 12th 2018)
 
-- **New**: Streamlined the Arch Linux installation process
+### New
+
+- Streamlined the Arch Linux installation process
+- The Arch Linux bootstrap script works completely
+- Combined meta packages into single PKGBUILD
+- Removed window borders and gaps from the default setup
+- The name of the focused window is now shown at the top of the screen
+- Added bspwm-round-corners-git PKGBUILD
+- Added some new git abbreviations and removed others
+- Added git branch information to the fish prompt
+- Added proper shadow settings for compton
+- Added a script to re-create the environment on resolution change
+- Added color to man pages
+- Added KDE theme support without having to set it manually through Plasma's system settings
+- Added variable DPI support to dropdown terminal and screenshot utility
+- Changed the colors used by kitty to show which kitty window has focus
+- Changed the bspwm desktop names for icons instead
+- Increased the available working space for programs and other windows
+
+### Fixed
+
+- Fixed some issues in the Arch Linux install scripts
+- Fixed an issue where GTK settings.ini incorrectly defined the cursor size
+- Fixed an issue where polybar would sometimes use the incorrect background color
+- Fixed tig showing illegible text with certain color schemes
 
 ## [0.1.0] (December 1st 2018)
 
@@ -12,4 +36,5 @@
 - The actual rice works very well
 
 [Unreleased]: https://github.com/GloverDonovan/.files/compare/0.1.0...HEAD
+[0.2.0]: https://github.com/GloverDonovan/.files/compare/0.1.0...0.2.0
 [0.1.0]: https://github.com/GloverDonovan/.files/tree/0.1.0
