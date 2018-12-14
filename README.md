@@ -1,6 +1,6 @@
 # ~/.files
 
-> TODO: Screenshots
+![Screenshot of Tari, my Arch Linux setup.](/.archlinux/screenshots/01.jpg?raw=true)
 
 ## What is an operating system?
 
