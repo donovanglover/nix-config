@@ -1,5 +1,7 @@
 # Code
 
+![Screenshot of Tari with Code and the wal color scheme.](/.archlinux/screenshots/code.jpg?raw=true)
+
 [Code][code] is an open source build of [a popular][vscode] GUI text editor.
 
 ## Use Cases

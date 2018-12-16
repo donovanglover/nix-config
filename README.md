@@ -2,6 +2,8 @@
 
 ![Screenshot of Tari, my Arch Linux setup.](/.archlinux/screenshots/01.jpg?raw=true)
 
+![Screenshot of Tari with Code and the wal color scheme.](/.archlinux/screenshots/code.jpg?raw=true)
+
 ## What is an operating system?
 
 An operating system is a collection of software. Every operating system builds off of the work of many other individuals and their respective creations (the "software"). This is how systems work, and is not unique to operating systems nor computing itself.
