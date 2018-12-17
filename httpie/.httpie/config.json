@@ -2,7 +2,7 @@
     "__meta__": {
         "about": "HTTPie configuration file",
         "help": "https://httpie.org/doc#config",
-        "httpie": "1.0.0"
+        "httpie": "1.0.2"
     },
     "default_options": [
         "--session-read-only",
