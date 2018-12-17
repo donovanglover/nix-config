@@ -23,6 +23,13 @@ function fish_prompt
         if [ "$branch" ]
             set_color normal;   echo -n " on "
             set_color yellow;   echo -n "$branch"
+
+            set tag (git describe ^/dev/null | sed 's/-\w*$//')
+
+            if [ "$tag" ]
+                set_color normal;   echo -n "/"
+                set_color cyan;     echo -n "$tag"
+            end
         end
 
         set_color normal;   echo -n " "
