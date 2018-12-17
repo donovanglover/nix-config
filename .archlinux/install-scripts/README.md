@@ -7,7 +7,7 @@ Here are my Arch Linux install scripts. They are divided into 4 parts:
 3. Configure: Writing some basic low-level config files
 4. Post-install: Post-install configuration
 
-I use `install.sh` to call these scripts with the proper user-generated variables. (TODO: clone this repository to the newly created home directory and run any other post-install commands on first boot).
+I use `install.sh` to call these scripts with the proper user-generated variables.
 
 > **Note**: If you do not understand my install scripts, you should follow the [Installation guide][archguide] instead.
 
