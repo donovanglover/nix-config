@@ -3,11 +3,11 @@
 
 # Reload sxhkd / Quit bspwm
 super + {_, alt} + Escape
-    {pkill -USR1 -x sxhkd,bspc quit}
+  {pkill -USR1 -x sxhkd,bspc quit}
 
 # Take a screenshot
 super + p
-    ~/.config/sxhkd/screenshot.sh
+  ~/.config/sxhkd/screenshot.sh
 
 # Open a new terminal window
 super + {_,shift} + Return
@@ -36,19 +36,19 @@ alt + z
 
 # Close the focused window
 super + {_,shift} + q
-    bspc node -{c,k}
+  bspc node -{c,k}
 
 # Switch to / Swap with the node in the specified direction
 super + {_,shift} + {h,j,k,l}
-    bspc node -{f,s} {west,south,north,east}
+  bspc node -{f,s} {west,south,north,east}
 
 # Switch to the next / previous node (includes monocle layout)
 super + {_,shift} + n
-    bspc node -f {next,prev}
+  bspc node -f {next,prev}
 
 # FLAGS: Toggle between node flags
 super + {x,y}
-    bspc node -g {sticky,private}
+  bspc node -g {sticky,private}
 
 # FLAGS: Push and pop windows from the hidden stack
 super + {_,shift} + b
@@ -56,15 +56,15 @@ super + {_,shift} + b
 
 # STATES: Toggle between node states
 super + {t,r,f,space}
-    bspc node focused -t ~{tiled,pseudo_tiled,fullscreen,floating}
+  bspc node focused -t ~{tiled,pseudo_tiled,fullscreen,floating}
 
 # PRESELECT: The direction to create a new node
 super + ctrl + {h,j,k,l,space}
-    bspc node -p {west,south,north,east,cancel}
+  bspc node -p {west,south,north,east,cancel}
 
 # RATIO: The size of a new node
 super + ctrl + {1-9}
-    bspc node -o 0.{1-9}
+  bspc node -o 0.{1-9}
 
 # =======================
 # ======= Desktop =======
@@ -72,18 +72,18 @@ super + ctrl + {1-9}
 
 # Focus a certain desktop / Send a node to a certain desktop
 super + {_,shift} + {1-9,0}
-    bspc {desktop -f,node -d} '^{1-9,10}'
+  bspc {desktop -f,node -d} '^{1-9,10}'
 
 # Move to the next desktop on the current monitor
 alt + {_, shift} + Tab
-    bspc desktop -f {next,prev}.local
+  bspc desktop -f {next,prev}.local
 
 # Easily go back and forth between the last desktop used
 alt + a
-    bspc desktop -f last
+  bspc desktop -f last
 
 # Switch between tiled and monocle desktop layouts
 super + c
-    bspc desktop -l next
+  bspc desktop -l next
 
 # vim:ft=sxhkdrc
