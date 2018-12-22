@@ -5,6 +5,11 @@ HOST_WIDTH=$(bspc query -T -m | jq '.rectangle.width')
 
 CURSOR_THEME=${XCURSOR_THEME:-breeze_cursors}
 
+# If the DPI is not set, set it to 96 by default
+if [ -z "$(xrdb -query | grep dpi)" ]; then
+  X_DPI=96
+fi
+
 # Determine the DPI based on screen width
 if [ "$HOST_WIDTH" -eq "1920" ]; then
   X_DPI=96
