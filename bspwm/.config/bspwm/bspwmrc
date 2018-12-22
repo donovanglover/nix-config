@@ -39,9 +39,8 @@ if hash VBoxClient-all 2>/dev/null; then
   VBoxClient-all
 fi
 
-# Set the color scheme to a random one. Note that this command
-# needs to be run after any screen resolution changes.
-wal -o ~/.config/wal/done.sh -i ~/Pictures/Wallpapers
+# Set the color scheme to a sane default.
+wal -o ~/.config/wal/done.sh --theme base16-tomorrow-night
 
 # Never blank the screen (disable power saving)
 xset s off -dpms
