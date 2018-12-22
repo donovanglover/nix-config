@@ -51,6 +51,10 @@ compton -b
 # Start polybar and other things based on DPI
 ~/.config/xeventbind/on-resolution-change.sh
 
+if hash xeventbind 2>/dev/null; then
+  xeventbind resolution $HOME/.config/xeventbind/on-resolution-change.sh &
+fi
+
 # bspc rules
 bspc rule -a mpv            state=floating
 bspc rule -a feh            state=floating
