@@ -1,9 +1,6 @@
 ! New Start: A modern Arch workflow built with an emphasis on functionality.
 ! Copyright (C) 2017-2018 Donovan Glover
 
-! Use 2x (192/96) scaling for 4k (Effectively 1920x1080)
-Xft.dpi: 192
-
 ! Make it easier to distinguish between letters (Required for dpi < 300)
 Xft.hinting: true
 
