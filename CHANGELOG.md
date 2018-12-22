@@ -1,5 +1,20 @@
 # Changelog
 
+## [Unreleased]
+
+### New
+
+- The bspwm session will now re-adjust and change DPI based on screen resolution
+- The cursor size will now change based on DPI
+- The fish prompt now also shows git tag information
+- The default color scheme is now base16-tomorrow-night
+
+### Fixed
+
+- Fixed an issue where the user had to restart the X session for the proper cursor size when using variable DPI
+- Fixed an issue where non-HiDPI users would have to manually adjust ~/.Xresources to 96 DPI
+- Fixed an issue where no wal theme would be set on a fresh install
+
 ## [0.2.0] (December 12th 2018)
 
 ### New
