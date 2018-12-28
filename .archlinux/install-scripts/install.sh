@@ -8,7 +8,7 @@ set -e
 cd "$(dirname "$0")"
 
 # Download the install scripts if they don't exist yet
-URL="https://raw.githubusercontent.com/GloverDonovan/.files/master/.archlinux/install-scripts"
+URL="https://raw.githubusercontent.com/GloverDonovan/dotfiles/master/.archlinux/install-scripts"
 [ -f 001-preinstall ]   || wget "$URL/001-preinstall"
 [ -f 002-install ]      || wget "$URL/002-install"
 [ -f 003-configure ]    || wget "$URL/003-configure"
