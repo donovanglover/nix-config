@@ -31,7 +31,6 @@ make aur package=yay
 yay -S rtv
 yay -S polybar
 yay -S shotgun
-yay -S shantz-xwinwrap-bzr
 
 # Additional settings
 make fontconfig
