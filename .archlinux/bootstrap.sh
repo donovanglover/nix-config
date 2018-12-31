@@ -30,7 +30,6 @@ make aur package=yay
 # Install aur packages with yay
 yay -S rtv
 yay -S polybar
-yay -S shotgun
 
 # Additional settings
 make fontconfig

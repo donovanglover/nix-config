@@ -1,5 +1,5 @@
 pkgname=tari-core
-pkgver=0.7.0
+pkgver=0.7.1
 pkgrel=1
 pkgdesc="My Arch Linux setup"
 arch=('any')
@@ -22,6 +22,7 @@ depends=(
   mpd
   mpc
   ncmpcpp
+  shotgun
   htop
   neofetch
   fdupes
