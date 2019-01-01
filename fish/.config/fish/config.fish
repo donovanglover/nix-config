@@ -73,6 +73,7 @@ if not set -q set_abbr
     abbr b      "feh --bg-fill"             # Change the background
     abbr c      "clear"                     # Because 5 letters is too much
     abbr e      "exit"
+    abbr k      "kitty @ set-colors -c -a ~/.cache/wal/kitty"
     abbr l      "ls -l"
     abbr w      "wal -o ~/.config/wal/done.sh"
     abbr T      "tree"
