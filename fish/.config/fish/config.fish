@@ -40,7 +40,7 @@ if not set -q set_abbr
     abbr ga     "git add"
     abbr gaa    "git add --all"
     abbr gap    "git add --patch"
-    abbr gb     "git branch --verbose"      # List all branches
+    abbr gb     "git branch"                # List all branches
     abbr gc     "git commit -m"
     abbr gca    "git commit --amend"
     abbr gco    "git checkout"
