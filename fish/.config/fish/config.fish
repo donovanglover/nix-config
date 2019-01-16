@@ -1,5 +1,5 @@
 # New Start: A modern Arch workflow built with an emphasis on functionality.
-# Copyright (C) 2017-2018 Donovan Glover
+# Copyright (C) 2017-2019 Donovan Glover
 
 set -U fish_greeting ""
 
@@ -57,6 +57,9 @@ if not set -q set_abbr
     abbr gs     "git status"
     abbr gt     "git tag"
     abbr gts    "git tag -s"
+
+    abbr y      "yarn"
+    abbr ya     "yarn add"
 
     abbr t      "task"
     abbr ta     "task add"
