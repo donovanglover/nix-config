@@ -1,5 +1,5 @@
 " New Start: A modern Arch workflow built with an emphasis on functionality.
-" Copyright (C) 2017-2018 Donovan Glover
+" Copyright (C) 2017-2019 Donovan Glover
 
 if &shell =~# 'fish$'
   set shell=sh
@@ -27,8 +27,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/goyo.vim'            " Distraction-free writing
 
     Plug 'osyo-manga/vim-over',         {'on': 'OverCommandLine'}
-    Plug 'maksimr/vim-jsbeautify',      {'on': ['JsBeautify', 'JsonBeautify',
-        \                       'JsxBeautify', 'HtmlBeautify', 'CSSBeautify']}
+    Plug 'maksimr/vim-jsbeautify'
 
     Plug 'pangloss/vim-javascript',     {'for': 'javascript'}
     Plug 'alvan/vim-closetag',          {'for': 'html'}
