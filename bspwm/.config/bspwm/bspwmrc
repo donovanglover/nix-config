@@ -8,7 +8,7 @@ export XDG_DATA_DIRS="/usr/share:/usr/share:/usr/local/share"
 
 sxhkd &
 
-bspc monitor -d     
+bspc monitor -d      
 
 bspc config split_ratio          0.50
 
