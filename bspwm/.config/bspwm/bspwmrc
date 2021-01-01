@@ -64,3 +64,4 @@ bspc rule -a kwrite         state=floating
 bspc rule -a ark            state=floating
 bspc rule -a kmag           state=floating
 bspc rule -a kcharselect    state=floating
+bspc rule -a Onboard        state=floating sticky=on

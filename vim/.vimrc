@@ -115,8 +115,8 @@ highlight Search ctermbg=240 ctermfg=255
 highlight IncSearch ctermbg=255 ctermfg=240
 
 " Easily show lines that go past the character count
-highlight OverLength ctermbg=240 ctermfg=230
-call matchadd('OverLength', '\%80v')
+" highlight OverLength ctermbg=240 ctermfg=230
+" call matchadd('OverLength', '\%80v')
 
 autocmd BufNewFile,BufRead *.ecr    setlocal syntax=html
 autocmd BufNewFile,BufRead *.slang  setlocal filetype=slim

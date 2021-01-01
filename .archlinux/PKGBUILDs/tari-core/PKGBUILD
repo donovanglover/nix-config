@@ -1,5 +1,5 @@
 pkgname=tari-core
-pkgver=0.7.1
+pkgver=0.8.0
 pkgrel=1
 pkgdesc="My Arch Linux setup"
 arch=('any')
@@ -33,8 +33,12 @@ depends=(
   task
   cmatrix
   imagemagick
+  siege
+  ponysay
   lolcat
   figlet
+  calcurse
+  whois
   vim
   neovim
   httpie
@@ -80,6 +84,7 @@ depends=(
   xorg-xwininfo
   xorg-xrandr
   xorg-xinit
+  xorg-xev
   xdo
   xcape
   xdg-user-dirs
@@ -125,7 +130,7 @@ depends=(
   evince
   file-roller
   nautilus
-  gnome-mpv
+  celluloid
   l3afpad
   gthumb
   lollypop

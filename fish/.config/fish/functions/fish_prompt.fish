@@ -14,7 +14,7 @@ function fish_prompt
         set pwd (basename $PWD)
         set branch (git branch ^/dev/null | sed -n '/\* /s///p')
 
-        if [ $pwd = $USER ]
+        if [ $PWD = "/home/$USER" ]
             set pwd "~"
         end
 

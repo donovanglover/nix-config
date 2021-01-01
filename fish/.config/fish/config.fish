@@ -31,7 +31,7 @@ fish_default_key_bindings
 
 # Use exa as a drop-in replacement for ls and tree (faster, more colors, etc.)
 alias ls="exa --group-directories-first"
-alias tree="exa --group-directories-first --long --tree -I 'node_modules|lib|.git'"
+alias tree="exa --group-directories-first --long --tree -I 'node_modules|.git|public'"
 
 # Abbreviations are aliases that expand
 if not set -q set_abbr
@@ -51,15 +51,22 @@ if not set -q set_abbr
     abbr gm     "git merge"
     abbr gp     "git push"                  # Push your commits to a remote server
     abbr gr     "git reset HEAD~"           # Undo the last commit but keep changed files
+    abbr gra    "git remote add"
     abbr gre    "git remote --verbose"      # List all remotes
     abbr grh    "git reset HEAD"
     abbr grr    "git reset --hard HEAD~"    # Remove the last commit and all changes with it
     abbr gs     "git status"
+    abbr gst    "git stash"
+    abbr gstp   "git stash pop"
     abbr gt     "git tag"
     abbr gts    "git tag -s"
 
     abbr y      "yarn"
     abbr ya     "yarn add"
+    abbr yar    "yarn remove"
+    abbr yi     "yarn init"
+    abbr yin    "yarn install"
+    abbr yu     "yarn upgrade-interactive"
 
     abbr t      "task"
     abbr ta     "task add"
@@ -72,6 +79,7 @@ if not set -q set_abbr
     abbr copy   "xclip -sel clip <"         # Easily copy the contents of any file
     abbr dog    "pygmentize -g"             # "dog" is a colorful version of cat
     abbr cf     "tput reset"                # Clear the terminal completely
+    abbr nf     "tput reset; and neofetch --size 56%; and xdotool key --delay 100 Ctrl+Shift+Page_Up"
 
     abbr b      "feh --bg-fill"             # Change the background
     abbr c      "clear"                     # Because 5 letters is too much

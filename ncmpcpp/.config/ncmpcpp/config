@@ -1,5 +1,5 @@
 # New Start: A modern Arch workflow built with an emphasis on functionality.
-# Copyright (C) 2017 Donovan Glover
+# Copyright (C) 2017-2018 Donovan Glover
 
 # Change the directory from ~/.ncmpcpp to ~/.config/ncmpcpp
 ncmpcpp_directory = "~/.config/ncmpcpp"
@@ -19,3 +19,5 @@ allow_for_physical_item_deletion = "no"
 
 # Disable mouse support
 mouse_support = "no"
+
+execute_on_song_change = "~/.config/mpd/mpdnotify"
