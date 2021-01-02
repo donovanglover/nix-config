@@ -1,5 +1,5 @@
 pkgname=tari-core
-pkgver=0.8.0
+pkgver=0.8.1
 pkgrel=1
 pkgdesc="My Arch Linux setup"
 arch=('any')
@@ -77,7 +77,6 @@ depends=(
   ttf-fira-mono
   ttf-font-awesome
   arc-solid-gtk-theme
-  arc-kde
   papirus-icon-theme
   lxdm-gtk3
   xorg-xmodmap
