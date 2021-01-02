@@ -1,0 +1,47 @@
+pkgname=sensible-chromium
+pkgver=0.1.0
+pkgrel=1
+pkgdesc="Sane defaults for the chromium web browser"
+arch=('any')
+source=('cjpalhdlnbpafiamejdnhcphjbkeiagm.json'
+				'dbepggeogbaibhgnhhndojpepiihcmeb.json'
+				'gcbommkclmclpchllfjekcdonpmejbdp.json'
+        '101-search-provider.json'
+        '102-homepage.json'
+        '103-new-tab.json'
+        '201-promotional-tabs.json'
+        '202-safe-browsing.json'
+        '203-download-location.json'
+        '204-search-suggestions.json'
+        '205-spell-check.json'
+        '206-data-collection.json')
+sha256sums=('5bcd92f712b450ecb20eb390f957216d488e5dc0c4abbb2cbf4dd6b570b11edc'
+            '5bcd92f712b450ecb20eb390f957216d488e5dc0c4abbb2cbf4dd6b570b11edc'
+            '5bcd92f712b450ecb20eb390f957216d488e5dc0c4abbb2cbf4dd6b570b11edc'
+            'c76a7a4c6b8ba10b2c2f478c3fce8577c055b1c7c3216d6feba550f097aaca4c'
+            '3bd32ca3c77ad91ce8355223d76385e21ff49fc6388bc1dc017319a402908141'
+            '4d325fd0787f3fd9b9b16bcf5159ebaafdf0f722b9eaaa9deeb4758300f8cb56'
+            '283923b96ca0b58340dcb35d5d782d8d49d806cdaea8b70a95365f154e916907'
+            'c7034bb6f603599592e452ef5d6d6b676529cdb05454072eabc8037595256c8d'
+            '48c3aa65851a4287e1a97667f57be12245a1a54067debe0ea858452d6fec0b19'
+            'e6b382bda897e7e0731adde76a572fe4b075ed2a0d95b85678cd7184b43efec3'
+            'fcc676697f930529b8605c703f33239bc55cb2f4563043353af6b1ec8712e431'
+            '732abce54318ed2dd7fdb330800d5f2d989a0086eb8f581475279f151d8a55f4')
+
+package() {
+  _ext="$pkgdir"/usr/share/chromium/extensions
+  _pol="$pkgdir"/etc/chromium/policies
+
+  install -Dm644 cjpalhdlnbpafiamejdnhcphjbkeiagm.json  "$_ext"/cjpalhdlnbpafiamejdnhcphjbkeiagm.json
+  install -Dm644 dbepggeogbaibhgnhhndojpepiihcmeb.json  "$_ext"/dbepggeogbaibhgnhhndojpepiihcmeb.json
+  install -Dm644 gcbommkclmclpchllfjekcdonpmejbdp.json  "$_ext"/gcbommkclmclpchllfjekcdonpmejbdp.json
+  install -Dm644 101-search-provider.json               "$_pol"/recommended/101-search-provider.json
+  install -Dm644 102-homepage.json                      "$_pol"/recommended/102-homepage.json
+  install -Dm644 103-new-tab.json                       "$_pol"/recommended/103-new-tab.json
+  install -Dm644 201-promotional-tabs.json              "$_pol"/managed/201-promotional-tabs.json
+  install -Dm644 202-safe-browsing.json                 "$_pol"/managed/202-safe-browsing.json
+  install -Dm644 203-download-location.json             "$_pol"/managed/203-download-location.json
+  install -Dm644 204-search-suggestions.json            "$_pol"/managed/204-search-suggestions.json
+  install -Dm644 205-spell-check.json                   "$_pol"/managed/205-spell-check.json
+  install -Dm644 206-data-collection.json               "$_pol"/managed/206-data-collection.json
+}
