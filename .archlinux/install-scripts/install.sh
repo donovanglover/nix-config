@@ -9,10 +9,10 @@ cd "$(dirname "$0")"
 
 # Download the install scripts if they don't exist yet
 URL="https://raw.githubusercontent.com/GloverDonovan/dotfiles/master/.archlinux/install-scripts"
-[ -f 001-preinstall ]   || wget "$URL/001-preinstall"
-[ -f 002-install ]      || wget "$URL/002-install"
-[ -f 003-configure ]    || wget "$URL/003-configure"
-[ -f 004-postinstall ]  || wget "$URL/004-postinstall"
+[ -f 001-preinstall ]   || curl -L "$URL/001-preinstall" -o 001-preinstall
+[ -f 002-install ]      || curl -L "$URL/002-install" -o 002-install
+[ -f 003-configure ]    || curl -L "$URL/003-configure" -o 003-configure
+[ -f 004-postinstall ]  || curl -L "$URL/004-postinstall" -o 004-postinstall
 chmod 755 001-preinstall 002-install 003-configure 004-postinstall
 
 # Prompt for the required information
