@@ -6,4 +6,4 @@
 
 set -xe
 
-pacstrap /mnt base linux linux-firmware grub fish git polkit rng-tools
+pacstrap /mnt base linux linux-firmware grub fish git polkit rng-tools vim dhcpcd
