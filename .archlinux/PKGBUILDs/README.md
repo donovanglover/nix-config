@@ -8,4 +8,3 @@ Note that you can install multiple DEs and WMs at once, then switch between them
 
 - [color-scripts](/.archlinux/PKGBUILDs/color-scripts) - Color scripts, purely for aesthetics
 - [tari-core](/.archlinux/PKGBUILDs/tari-core) - Meta package for my Arch Linux installation
-- [xeventbind](/.archlinux/PKGBUILDs/xeventbind) - Useful to change X DPI on resolution change
