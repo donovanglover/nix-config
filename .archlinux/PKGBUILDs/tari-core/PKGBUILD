@@ -1,5 +1,5 @@
 pkgname=tari-core
-pkgver=0.8.1
+pkgver=0.9.0
 pkgrel=1
 pkgdesc="My Arch Linux setup"
 arch=('any')
@@ -160,14 +160,3 @@ depends=(
   breeze
   plasma-integration
 )
-source=(
-  'local-settings.js'
-  'mozilla.cfg'
-)
-sha256sums=('4588ae786cf0cdf941a0c79ad71b7592cd1f5478a85822b019d98ff0d5e631d4'
-            'c625a3b98b3769bf08fe0a357898245dd2688f3d5c22c7a42ad4fc26132f45a9')
-
-package() {
-  install -Dm644 local-settings.js   "$pkgdir"/usr/lib/firefox/defaults/pref/local-settings.js
-  install -Dm644 mozilla.cfg         "$pkgdir"/usr/lib/firefox/mozilla.cfg
-}
