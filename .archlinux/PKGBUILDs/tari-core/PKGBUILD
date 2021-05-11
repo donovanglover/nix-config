@@ -1,5 +1,5 @@
 pkgname=tari-core
-pkgver=0.9.0
+pkgver=0.9.1
 pkgrel=1
 pkgdesc="My Arch Linux setup"
 arch=('any')
@@ -28,9 +28,7 @@ depends=(
   fdupes
   youtube-dl
   ranger
-  weechat
   ncdu
-  task
   cmatrix
   imagemagick
   siege
@@ -78,7 +76,6 @@ depends=(
   ttf-font-awesome
   arc-solid-gtk-theme
   papirus-icon-theme
-  lxdm-gtk3
   xorg-xmodmap
   xorg-xwininfo
   xorg-xrandr
@@ -100,23 +97,8 @@ depends=(
   sxhkd
   dunst
   compton
-  kleopatra
   obs-studio
-  dolphin
-  gwenview
-  kcolorchooser
-  kolourpaint
-  kmag
-  spectacle
-  kdenlive
-  krita
   texstudio
-  kmplot
-  kalzium
-  kwordquiz
-  kollision
-  bovo
-  blinken
   virtualbox
   virtualbox-host-modules-arch
   kimageformats
@@ -133,18 +115,12 @@ depends=(
   l3afpad
   gthumb
   lollypop
-  evolution
-  ghex
   libreoffice-fresh
-  poedit
   gnome-clocks
   gnome-maps
-  gnome-disk-utility
   gnome-screenshot
-  gnome-break-timer
   firefox
   chromium
-  pass
   xclip
   xdotool
   audacity
@@ -152,7 +128,6 @@ depends=(
   firefox-i18n-ja
   gimp
   namcap
-  tint2
   ttf-ibm-plex
   qutebrowser
   xorg-xprop
