@@ -1,5 +1,5 @@
 pkgname=tari-core
-pkgver=0.9.3
+pkgver=0.9.4
 pkgrel=1
 pkgdesc="My Arch Linux setup"
 arch=('any')
@@ -95,7 +95,6 @@ depends=(
   code
   bspwm
   sxhkd
-  dunst
   obs-studio
   texstudio
   virtualbox
