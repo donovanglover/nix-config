@@ -3,8 +3,6 @@
 {
     // Look and feel
     "workbench.colorTheme": "vs-wal",
-    "workbench.iconTheme": "material-icon-theme",
-    "editor.smoothScrolling": true,
 
     // Always start with the previous workspace
     "workbench.startupEditor": "newUntitledFile",
@@ -12,10 +10,6 @@
     // Confirmations
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
-
-    // Attempt to render things properly for HiDPI displays
-    "terminal.integrated.rendererType": "dom",
-    "editor.disableTranslate3d": true,
 
     // Toggle the menu bar with alt
     "window.menuBarVisibility": "toggle",
