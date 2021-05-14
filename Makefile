@@ -8,8 +8,6 @@
 # make prune        Removes stale links
 
 verbose          ?= 2
-NS_CODE_EXTENSIONS := dbaeumer.vscode-eslint EditorConfig.EditorConfig faustinoaq.crystal-lang \
-	naumovs.color-highlight PKief.material-icon-theme vscodevim.vim
 NS_REPO_PATH     := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 NS_STOW_OPTIONS  := --dir="${NS_REPO_PATH}" --target="${HOME}" --no-folding --verbose=${verbose}
 NS_STOW_PACKAGES := $(wildcard */)
@@ -39,10 +37,6 @@ uninstall:
 .PHONY: prune
 prune:
 	@$(call ${NS_STOW_COMMAND},R)
-
-.PHONY: code-extensions
-code-extensions:
-	@$(foreach extension,${NS_CODE_EXTENSIONS},code --install-extension ${extension} --force;)
 
 .PHONY: enable-mpd
 enable-mpd:
