@@ -1,5 +1,7 @@
 # Code
 
+> NOTE: As of 2021, I have no interest in the (vs)code text editor. Although the out-of-the-box features are nice and all, trying to emulate vim-like functionality was more pain than it was worth (even after using [vscode-neovim][vscode-neovim]). Additionally, the battery drain is unreal compared to running an equivalent [neovim](/neovim) experience.
+
 ![Screenshot of Tari with Code and the wal color scheme.](/.archlinux/screenshots/code.jpg?raw=true)
 
 [Code][code] is an open source build of [a popular][vscode] GUI text editor.
@@ -23,3 +25,4 @@ Once Code is installed, run `make code-extensions` to install the extensions I u
 
 [code]: https://www.archlinux.org/packages/community/x86_64/code/
 [vscode]: https://github.com/Microsoft/vscode
+[vscode-neovim]: https://github.com/asvetliakov/vscode-neovim
