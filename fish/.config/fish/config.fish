@@ -77,7 +77,6 @@ if not set -q set_abbr
     abbr dl     "youtube-dl"
     abbr vol    "amixer set 'Master'"       # Change the volume, e.g. vol 10%+, vol 10%-, vol 100%
     abbr copy   "xclip -sel clip <"         # Easily copy the contents of any file
-    abbr dog    "pygmentize -g"             # "dog" is a colorful version of cat
     abbr cf     "tput reset"                # Clear the terminal completely
     abbr nf     "tput reset; and neofetch --size 56%; and xdotool key --delay 100 Ctrl+Shift+Page_Up"
 
