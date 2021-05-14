@@ -92,10 +92,3 @@ if not set -q set_abbr
     abbr nano   "vim"                       # The explanation is in the name
     abbr emacs  "vim"                       # No need to start another operating system
 end
-
-# Start X at login
-if status --is-login
-    if test -z "$DISPLAY" -a $XDG_VTNR = 1
-        exec startx -- -keeptty
-    end
-end
