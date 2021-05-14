@@ -24,14 +24,6 @@ make package=xeventbind
 # Install and set the default toolchain for rust
 make rust
 
-# Install yay
-make aur package=yay
-
-# Install aur packages with yay
-yay -S rtv
-yay -S polybar
-yay -S gotop
-
 # Additional settings
 make fontconfig
 make yarnconfig
