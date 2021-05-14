@@ -20,6 +20,9 @@
 [branch]
     autosetuprebase = always
 
+[init]
+	defaultBranch = master
+
 [rerere]
     enabled = true
 
