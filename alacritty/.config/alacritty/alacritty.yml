@@ -1,0 +1,32 @@
+background_opacity: 0.9
+
+window:
+  padding:
+    x: 10
+    y: 10
+  decorations: none
+  startup_mode: Maximized
+  gtk_theme_variant: dark
+
+font:
+  normal:
+    family: Hack
+  size: 11
+
+draw_bold_text_with_bright_colors: true
+
+selection:
+  save_to_clipboard: true
+
+cursor:
+  style:
+    blinking: Always
+
+shell:
+  program: /usr/bin/fish
+
+mouse:
+  hide_when_typing: true
+  url:
+    launcher:
+      program: /usr/bin/firefox
