@@ -5,8 +5,6 @@ function fish_prompt
 
     # Use a more informative and non-unicode prompt for ttys
     if status --is-login; and test -z "$DISPLAY"
-        set hostname (hostname)
-
         set_color yellow;   echo -n "$USER@$hostname"
         set_color normal;   echo -n " "
         set_color magenta;  echo -n "($PWD)"
