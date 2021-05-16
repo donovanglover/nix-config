@@ -25,6 +25,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-endwise'            " 'End' completion
     Plug 'reedes/vim-pencil'            " Word wrap
     Plug 'junegunn/goyo.vim'            " Distraction-free writing
+    Plug 'jparise/vim-graphql'          " GraphQL support
 
     Plug 'osyo-manga/vim-over',         {'on': 'OverCommandLine'}
     Plug 'maksimr/vim-jsbeautify'
