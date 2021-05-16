@@ -40,7 +40,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'Glench/Vim-Jinja2-Syntax',    {'for': 'jinja2'}
     Plug 'plasticboy/vim-markdown',     {'for': 'markdown'}
     Plug 'posva/vim-vue',               {'for': 'vue'}
-    Plug 'mxw/vim-jsx',                 {'for': 'javascript'}
+    Plug 'maxmellon/vim-jsx-pretty',    {'for': 'javascript'}
     Plug 'digitaltoad/vim-pug',         {'for': 'pug'}
     Plug 'leafgarland/typescript-vim',  {'for': 'typescript'}
     Plug 'dbeniamine/todo.txt-vim',     {'for': 'todo'}
