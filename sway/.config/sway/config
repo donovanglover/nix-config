@@ -137,7 +137,7 @@ mode "resize" {
     bindsym l resize grow width 10px
 
     # Return to default mode
-    bindsym Return mode "default"
+    bindsym $mod+r mode "default"
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
