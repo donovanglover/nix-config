@@ -19,6 +19,10 @@ input "2:7:SynPS/2_Synaptics_TouchPad" {
     middle_emulation enabled
 }
 
+input "1:1:AT_Translated_Set_2_keyboard" {
+    xkb_options caps:escape
+}
+
 ### Key bindings
 #
 # Basics:
