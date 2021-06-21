@@ -17,7 +17,7 @@ modules-left                = bspwm
 modules-center              = window
 modules-right               = cpu ram volume date time
 
-monitor                     = VGA-1
+monitor                     = eDP
 wm-restack                  = bspwm
 include-file                = $HOME/.cache/polybar/config
 
