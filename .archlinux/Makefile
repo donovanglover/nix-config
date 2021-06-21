@@ -12,7 +12,7 @@ aur:
 	@echo "===================================="
 	@echo -n "Press enter to continue, or Ctrl+C to quit. " && read
 	@makepkg -sc
-	@sudo pacman -U *.pkg.tar.xz
+	@sudo pacman -U *.pkg.tar.zst
 
 .PHONY: refresh-keys
 refresh-keys:
