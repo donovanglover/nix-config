@@ -6,7 +6,7 @@ set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu rofi -show drun
 
 # Output configuration (swaymsg -t get_outputs)
 output * bg /usr/share/backgrounds/archlinux/simple.png fill
@@ -24,9 +24,6 @@ input "1:1:AT_Translated_Set_2_keyboard" {
 }
 
 ### Key bindings
-#
-# Basics:
-#
     # Start a terminal
     bindsym $mod+Return exec $term
 
@@ -34,7 +31,7 @@ input "1:1:AT_Translated_Set_2_keyboard" {
     bindsym $mod+Shift+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym $alt+z exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
