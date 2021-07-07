@@ -1,5 +1,5 @@
 # New Start: A modern Arch workflow built with an emphasis on functionality.
-# Copyright (C) 2017-2018 Donovan Glover
+# Copyright (C) 2017-2021 Donovan Glover
 
 function fish_prompt
 
@@ -10,25 +10,12 @@ function fish_prompt
         set_color magenta;  echo -n "($PWD)"
     else
         set pwd (basename $PWD)
-        set branch (git branch ^/dev/null | sed -n '/\* /s///p')
 
         if [ $PWD = "/home/$USER" ]
             set pwd "~"
         end
 
         set_color magenta;  echo -n "$pwd"
-
-        if [ "$branch" ]
-            set_color normal;   echo -n " on "
-            set_color yellow;   echo -n "$branch"
-
-            set tag (git describe ^/dev/null | sed 's/-\w*$//')
-
-            if [ "$tag" ]
-                set_color normal;   echo -n "/"
-                set_color cyan;     echo -n "$tag"
-            end
-        end
 
         set_color normal;   echo -n " "
         set_color red;      echo -n "➤"
