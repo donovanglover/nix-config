@@ -91,3 +91,5 @@ if not set -q set_abbr
     abbr nano   "vim"                       # The explanation is in the name
     abbr emacs  "vim"                       # No need to start another operating system
 end
+
+starship init fish | source

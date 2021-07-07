@@ -1,0 +1,24 @@
+add_newline = false
+
+[directory]
+style = "purple"
+
+[git_branch]
+style = "yellow"
+symbol = ""
+
+[git_status]
+disabled = true
+
+[character]
+success_symbol = "[➤](red)[➤](green)[➤](blue)"
+error_symbol = "[➤](cyan)[➤](purple)[➤](yellow)"
+
+[line_break]
+disabled = true
+
+[nodejs]
+format = "with [$symbol($version )]($style)"
+symbol = "node "
+version_format = "${major}"
+disabled = true
