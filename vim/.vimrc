@@ -21,7 +21,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'sgur/vim-editorconfig'        " EditorConfig
     Plug 'tpope/vim-fugitive'           " Git wrapper
     Plug 'junegunn/fzf.vim'             " fzf wrapper
-    Plug 'jiangmiao/auto-pairs'         " {Pair} completion
+    Plug 'lunarWatcher/auto-pairs'      " {Pair} completion
     Plug 'tpope/vim-endwise'            " 'End' completion
     Plug 'reedes/vim-pencil'            " Word wrap
     Plug 'junegunn/goyo.vim'            " Distraction-free writing
