@@ -92,3 +92,7 @@ bspc rule -a ark            state=floating
 bspc rule -a kmag           state=floating
 bspc rule -a kcharselect    state=floating
 bspc rule -a Onboard        state=floating sticky=on
+
+# Configure touchpad
+xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
+xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
