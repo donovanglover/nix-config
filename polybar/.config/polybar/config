@@ -15,7 +15,7 @@ background-alt              = ${xrdb:color8}
 [bar/main]
 modules-left                = bspwm
 modules-center              = window
-modules-right               = cpu ram volume date time
+modules-right               = cpu ram volume date time battery
 
 monitor                     = eDP
 wm-restack                  = bspwm
