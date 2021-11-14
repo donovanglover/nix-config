@@ -3,13 +3,25 @@ configuration {
   font: "Hack 12";
   show-icons: true;
   bw: 0;
-  theme: "~/.cache/wal/colors-rofi-dark.rasi";
   drun-icon-theme: "Papirus-Dark";
   terminal: "kitty";
   scroll-method: 1;
-  columns: 3;
-  width: 70;
   display-drun: "Search";
+}
+
+@theme "~/.cache/wal/colors-rofi-dark.rasi"
+
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
+}
+
+listview {
+	columns: 3;
+}
+
+window {
+	width: 1200px;
 }
 
 // vim:syn=java
