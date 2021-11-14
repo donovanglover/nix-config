@@ -60,6 +60,9 @@ label-empty-padding         = 1
 label-focused-foreground    = ${color.text}
 label-urgent-foreground     = ${color.yellow}
 
+# Replicate workspace functionality of sway
+label-empty =
+
 [module/cpu]
 type                        = internal/cpu
 label                       =  %percentage%%
