@@ -83,9 +83,24 @@ type                        = internal/battery
 battery                     = BAT0
 adapter                     = AC
 full-at                     = 98
-label-full                  = %percentage%%
+time-format                 = %H:%M
+format-charging             = <animation-charging> <label-charging>
+format-discharging          = <ramp-capacity> <label-discharging>
+format-full                 = <ramp-capacity> <label-full>
 label-charging              = %percentage%%
-label-discharigng           = %percentage%
+label-discharging           = %percentage%%
+label-full                  = %percentage%%
+ramp-capacity-0             = 
+ramp-capacity-1             = 
+ramp-capacity-2             = 
+ramp-capacity-3             = 
+ramp-capacity-4             = 
+animation-charging-0        = 
+animation-charging-1        = 
+animation-charging-2        = 
+animation-charging-3        = 
+animation-charging-4        = 
+animation-charging-framerate = 1000
 
 [module/mpd]
 type                        = internal/mpd
