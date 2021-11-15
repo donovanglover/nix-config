@@ -11,8 +11,11 @@ symbol = ""
 disabled = true
 
 [character]
-success_symbol = "[➤](red)[➤](green)[➤](blue)"
-error_symbol = "[➤](cyan)[➤](purple)[➤](yellow)"
+#success_symbol = "[➤](red)[➤](green)[➤](blue)"
+#error_symbol = "[➤](cyan)[➤](purple)[➤](yellow)"
+success_symbol = "[>](red)[>](green)[>](blue)"
+error_symbol = "[>](cyan)[>](purple)[>](yellow)"
+vicmd_symbol = "[<](bold green)"
 
 [line_break]
 disabled = true
