@@ -96,3 +96,6 @@ bspc rule -a Onboard        state=floating sticky=on
 # Configure touchpad
 xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
 xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
+
+# Start fcitx
+fcitx5 &
