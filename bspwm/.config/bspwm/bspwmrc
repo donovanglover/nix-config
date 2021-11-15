@@ -45,8 +45,8 @@ wal -o ~/.config/wal/done.sh --theme base16-tomorrow-night
 # Never blank the screen (disable power saving)
 xset s off -dpms
 
-# Start compton
-compton -b
+# Start picom (prevents screen tearing)
+picom -b
 
 # Start polybar and other things based on DPI
 # Get the host width
