@@ -99,6 +99,7 @@ set expandtab                  " When using <Tab>, replace the tab character wit
 set smarttab                   " Always indent based on column number to align things easier
 
 set mouse=a                    " Enable mouse support in (a)ll modes
+set number                     " Show numbers by default
 
 " ==========================
 " ========= colors =========
