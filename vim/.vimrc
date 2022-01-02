@@ -50,6 +50,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'leafgarland/typescript-vim',  {'for': 'typescript'}
     Plug 'dbeniamine/todo.txt-vim',     {'for': 'todo'}
     Plug 'lervag/vimtex',               {'for': 'tex'}
+    Plug 'pantharshit00/vim-prisma',    {'for': 'prisma'}
 call plug#end()
 
 " ============================
