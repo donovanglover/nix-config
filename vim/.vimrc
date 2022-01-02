@@ -17,6 +17,7 @@ let g:ale_disable_lsp = 1
 
 call plug#begin('~/.vim/plugged')
     Plug 'dylanaraps/wal.vim'           " Color scheme
+    Plug 'preservim/nerdtree'
     Plug 'airblade/vim-gitgutter'       " Git diff
     Plug 'itchyny/lightline.vim'        " Status line
     Plug 'w0rp/ale'                     " Syntax checker
