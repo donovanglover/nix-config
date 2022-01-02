@@ -13,6 +13,8 @@ if empty(plugsys) && empty(plugusr)
     \ https://raw.githubusercontent.com/junegunn/vim-plug/0.10.0/plug.vim
 endif
 
+let g:ale_disable_lsp = 1
+
 call plug#begin('~/.vim/plugged')
     Plug 'dylanaraps/wal.vim'           " Color scheme
     Plug 'airblade/vim-gitgutter'       " Git diff
@@ -26,6 +28,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'reedes/vim-pencil'            " Word wrap
     Plug 'junegunn/goyo.vim'            " Distraction-free writing
     Plug 'jparise/vim-graphql'          " GraphQL support
+    Plug 'neoclide/coc.nvim', {'branch': 'release'} " Auto-complete support
 
     Plug 'osyo-manga/vim-over',         {'on': 'OverCommandLine'}
     Plug 'maksimr/vim-jsbeautify'
@@ -200,9 +203,8 @@ let g:netrw_liststyle = 3
 " ========= ale =========
 " =======================
 
-let g:ale_lint_on_text_changed = 'never'        " Do not lint while typing
-let g:ale_lint_on_insert_leave = 1              " Only lint after leaving insert mode
-let g:ale_linters = {'javascript': ['standard']}
+nmap <silent> <C-j> <Plug>(ale_previous_wrap)
+nmap <silent> <C-k> <Plug>(ale_next_wrap)
 
 " ==========================
 " ========= vimtex =========
@@ -244,3 +246,58 @@ let g:vim_markdown_math = 1
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 ruler
+
+" ============================
+" ========= coc.nvim =========
+" ============================
+
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
+
+" Give more space for displaying messages.
+set cmdheight=2
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+set signcolumn=yes
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
