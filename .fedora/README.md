@@ -1,5 +1,7 @@
 # Muya - A light rice for Fedora
 
+> NOTE: As of 2022, none of my machines run Fedora, so this may need some modifications to get working correctly.
+
 This is my setup for [Fedora][fedora], a [GNU/Linux][gnulinux] distribution that ships with GNOME by default, making it an ideal choice for most users. This guide covers a *simple* rice that will make your Fedora look much nicer than the defaults. It only uses packages from the official repositories, making it quick and easy to set up on any machine.
 
 > This guide will work with the **latest version** of Fedora (29 as of this writing).
