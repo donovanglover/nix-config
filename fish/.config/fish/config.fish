@@ -7,6 +7,7 @@ export VISUAL="nvim"
 export EDITOR="nvim"
 export BROWSER="firefox"
 export PATH="$HOME/.deno/bin:$HOME/.cargo/bin:$HOME/.yarn/bin:$HOME/.local/bin:$PATH"
+export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/config"
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
