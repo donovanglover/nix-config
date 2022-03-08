@@ -44,10 +44,10 @@ input "1:1:AT_Translated_Set_2_keyboard" {
     floating_modifier $mod normal
 
     # Reload the configuration file
-    bindsym $mod+Shift+c reload
+    bindsym $mod+Escape reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaymsg exit
+    bindsym $mod+$alt+Escape exec swaymsg exit
 #
 # Moving around:
 #
