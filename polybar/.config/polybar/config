@@ -115,6 +115,7 @@ format-online               =  <label-song>
 [module/volume]
 type                        = internal/alsa
 label-volume                =  %percentage%%
+label-muted                 =  Off
 
 [module/window]
 type                        = internal/xwindow
