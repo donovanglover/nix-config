@@ -1,7 +1,7 @@
 @import url("../../.cache/wal/colors-waybar.css");
 
 * {
-    font-family: "Noto Sans CJK JP";
+    font-family: "Noto Sans CJK JP, Font Awesome 6 Free";
 }
 
 window#waybar {
