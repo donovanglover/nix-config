@@ -1,9 +1,9 @@
 import:
   - ~/.cache/wal/colors-alacritty.yml
 
-background_opacity: 0.9
 
 window:
+  opacity: 0.9
   padding:
     x: 10
     y: 10
