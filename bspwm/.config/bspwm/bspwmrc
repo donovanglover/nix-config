@@ -3,7 +3,7 @@
 # Copyright (C) 2018 Donovan Glover
 
 export SXHKD_SHELL="/usr/bin/bash"
-export XCURSOR_THEME="breeze_cursors"
+export XCURSOR_THEME="phinger-cursors"
 export XDG_DATA_DIRS="/usr/share:/usr/share:/usr/local/share"
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
@@ -55,7 +55,7 @@ picom -b
 # Get the host width
 HOST_WIDTH=$(bspc query -T -m | jq '.rectangle.width')
 
-CURSOR_THEME=${XCURSOR_THEME:-breeze_cursors}
+CURSOR_THEME=${XCURSOR_THEME:-phinger-cursors}
 
 # If the DPI is not set, set it to 96 by default
 if [ -z "$(xrdb -query | grep dpi)" ]; then

@@ -45,7 +45,7 @@ ROFI_DPI=$(xrdb -query | grep Xft.dpi | cut -f 2)
 ROFI_SCALE=$(expr $ROFI_DPI / 96)
 ROFI_DPI_SCALE=$(awk "BEGIN { print "1/$ROFI_SCALE" }")
 
-CURSOR_THEME=${XCURSOR_THEME:-breeze_cursors}
+CURSOR_THEME=${XCURSOR_THEME:-phinger-cursors}
 CURSOR_SIZE=$((16 * $ROFI_SCALE))
 
 xsetroot -xcf "/usr/share/icons/$CURSOR_THEME/cursors/left_ptr" "$CURSOR_SIZE"
