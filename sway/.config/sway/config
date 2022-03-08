@@ -89,6 +89,10 @@ input "1:1:AT_Translated_Set_2_keyboard" {
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
+    # Jump to previous/next workspace
+    bindsym $alt+Tab workspace next
+    bindsym $alt+Shift+Tab workspace prev
 #
 # Layout stuff:
 #
