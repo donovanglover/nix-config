@@ -103,6 +103,7 @@ bspc rule -a Onboard        state=floating sticky=on
 # Configure touchpad
 xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
 xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
+xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Disable While Typing Enabled" 0
 
 # Auto-hide the mouse cursor when inactive
 unclutter &
