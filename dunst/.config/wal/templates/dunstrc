@@ -36,12 +36,6 @@
     # Allow some HTML tags like <i> and <u> in notifications
     markup = full
 
-# These are the keybindings used to control dunst notifications
-[shortcuts]
-    close = ctrl+space
-    close_all = ctrl+shift+space
-    history = ctrl+grave
-
 # Set the background and foreground (text) color for all notifications
 [urgency_low]
     background = "{background}"
