@@ -1,6 +1,6 @@
 #!/bin/sh
 # New Start: A modern Arch workflow built with an emphasis on functionality.
-# Copyright (C) 2018 Donovan Glover
+# Copyright (C) 2018-2022 Donovan Glover
 
 export SXHKD_SHELL="/usr/bin/bash"
 export XCURSOR_THEME="phinger-cursors"
@@ -103,6 +103,9 @@ bspc rule -a Onboard        state=floating sticky=on
 # Configure touchpad
 xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
 xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
+
+# Auto-hide the mouse cursor when inactive
+unclutter &
 
 # Start fcitx
 fcitx5 &
