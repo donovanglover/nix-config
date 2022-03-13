@@ -7,4 +7,4 @@ SCREENSHOT_SCALE=$(($SCREENSHOT_DPI / 96))
 
 DATETIME=`date +%F_%H%M%S`
 shotgun ~/$DATETIME.png
-feh ~/$DATETIME.png --geometry $((1600 * $SCREENSHOT_SCALE))x$((900 * $SCREENSHOT_SCALE)) --scale-down
+notify-send -t 2000 "Screenshot saved as" "$DATETIME.png"
