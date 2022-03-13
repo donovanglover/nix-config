@@ -108,5 +108,8 @@ xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Disable While Typing Enab
 # Auto-hide the mouse cursor when inactive
 unclutter &
 
+# Start the notification daemon
+dunst &
+
 # Start fcitx
 fcitx5 &
