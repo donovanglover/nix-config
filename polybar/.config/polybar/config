@@ -119,7 +119,7 @@ label-muted                 =  Off
 
 [module/window]
 type                        = internal/xwindow
-label-maxlen                = 120
+label-maxlen                = 110
 label-empty                 = /usr/bin/bspwm
 
 ; vim:ft=dosini
