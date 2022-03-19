@@ -35,7 +35,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'maksimr/vim-jsbeautify'
 
     Plug 'pangloss/vim-javascript',     {'for': 'javascript'}
-    Plug 'alvan/vim-closetag',          {'for': 'html'}
     Plug 'rhysd/vim-crystal',           {'for': 'crystal'}
     Plug 'rust-lang/rust.vim',          {'for': 'rust'}
     Plug 'baskerville/vim-sxhkdrc',     {'for': 'sxhkdrc'}
