@@ -95,13 +95,13 @@ super + c
 # =======================
 
 XF86AudioMute
-  pactl set-sink-mute @DEFAULT_SINK@ toggle
+  pactl set-sink-mute @DEFAULT_SINK@ toggle && notify-send -t 2000 "Changed muted to" "$(pamixer --get-mute)"
 
 XF86AudioLowerVolume
-  pactl set-sink-volume @DEFAULT_SINK@ -5%
+  pactl set-sink-volume @DEFAULT_SINK@ -5% && notify-send -t 2000 "Lowered volume to" "$(pamixer --get-volume)%"
 
 XF86AudioRaiseVolume
-  pactl set-sink-volume @DEFAULT_SINK@ +5%
+  pactl set-sink-volume @DEFAULT_SINK@ +5% && notify-send -t 2000 "Raised volume to" "$(pamixer --get-volume)%"
 
 XF86AudioMicMute
   pactl set-source-mute @DEFAULT_SOURCE@ toggle
