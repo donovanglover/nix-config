@@ -113,7 +113,7 @@ label-song-ellipsis         = true
 format-online               =  <label-song>
 
 [module/volume]
-type                        = internal/alsa
+type                        = internal/pulseaudio
 label-volume                =  %percentage%%
 label-muted                 =  Off
 
