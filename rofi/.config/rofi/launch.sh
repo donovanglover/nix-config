@@ -51,7 +51,6 @@ CURSOR_SIZE=$((16 * $ROFI_SCALE))
 xsetroot -xcf "/usr/share/icons/$CURSOR_THEME/cursors/left_ptr" "$CURSOR_SIZE"
 
 env \
-  XDG_CURRENT_DESKTOP="KDE" \
   QT_AUTO_SCREEN_SCALE_FACTOR="0" \
   QT_FONT_DPI="$ROFI_DPI" \
   QT_SCREEN_SCALE_FACTORS="VGA-1=$ROFI_SCALE;" \

@@ -13,8 +13,6 @@ export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
-export XDG_CURRENT_DESKTOP="KDE"
-
 # Use rg instead of ag / ack / grep for fzf (much faster)
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 export FZF_DEFAULT_OPTS='--height 40% --reverse --border --color=16'
