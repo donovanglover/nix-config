@@ -28,6 +28,10 @@ window#waybar {
     margin: 0 5px;
 }
 
+#tray {
+  padding-right: 10px;
+}
+
 #mode {
     background: #64727D;
     border-bottom: 3px solid white;
