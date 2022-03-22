@@ -161,6 +161,9 @@ exec fcitx5
 # Hide the cursor after 5 seconds
 seat seat0 hide_cursor 5000
 
+# Start dunst
+exec dunst
+
 # Fn keys
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
