@@ -7,7 +7,7 @@
         "format": "<span style=\"italic\">{}</span>"
     },
     "tray": {
-        "spacing": 10
+        "spacing": 20
     },
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
