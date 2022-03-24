@@ -1,8 +1,8 @@
 {
     "height": 30,
-    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-left": ["sway/workspaces", "sway/mode", "tray"],
     "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "network", "backlight", "battery", "clock", "tray"],
+    "modules-right": ["pulseaudio", "network", "backlight", "battery", "clock"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
