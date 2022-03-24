@@ -178,4 +178,7 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 # bindsym XF86WLAN exec
 # bindsym XF86Favorites exec
 
+# Lock the screen after a certain amount of time
+exec swayidle -w
+
 include /etc/sway/config.d/*
