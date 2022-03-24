@@ -155,6 +155,9 @@ bar {
 
 default_border none
 
+# Import gsettings so GTK applications look the same under sway/wayland as bspwm/xorg
+exec_always ~/.config/sway/import-gsettings.sh
+
 # Start fcitx (input method of choice)
 exec fcitx5
 
