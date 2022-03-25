@@ -23,7 +23,7 @@ window#waybar {
     background: @color8;
 }
 
-#mode, #pulseaudio, #network, #backlight, #clock, #battery {
+#mode, #pulseaudio, #network, #backlight, #memory, #clock, #battery {
     padding: 0 5px;
     margin: 0 5px;
 }

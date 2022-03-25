@@ -2,7 +2,7 @@
     "height": 30,
     "modules-left": ["sway/workspaces", "sway/mode", "tray"],
     "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "network", "backlight", "battery", "clock"],
+    "modules-right": ["pulseaudio", "network", "backlight", "memory", "battery", "clock"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -16,6 +16,10 @@
     "backlight": {
         "format": "{icon}   {percent}%",
         "format-icons": ["", ""]
+    },
+    "memory": {
+        "interval": 30,
+        "format": "   {}%"
     },
     "battery": {
         "states": {
