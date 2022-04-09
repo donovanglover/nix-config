@@ -32,8 +32,8 @@ set -x -U LESS_TERMCAP_us (printf "\e[01;32m")
 fish_default_key_bindings
 
 # Use exa as a drop-in replacement for ls and tree (faster, more colors, etc.)
-alias ls="exa --group-directories-first"
-alias tree="exa --group-directories-first --long --tree -I 'node_modules|.git|public'"
+alias ls="exa --group-directories-first -I 'lost+found'"
+alias tree="exa --group-directories-first --long --tree -I 'node_modules|.git|public|lost+found'"
 
 # Abbreviations are aliases that expand
 if not set -q set_abbr
