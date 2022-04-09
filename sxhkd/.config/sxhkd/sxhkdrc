@@ -3,7 +3,7 @@
 
 # Reload sxhkd / Quit bspwm
 super + {_, alt} + Escape
-  {pkill -USR1 -x sxhkd,bspc quit}
+  {pkill -USR1 -x sxhkd && notify-send -t 2000 "sxhkd" "Reloaded config",bspc quit}
 
 # Take a screenshot
 super + p
