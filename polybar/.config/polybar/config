@@ -65,7 +65,7 @@ label-empty =
 
 [module/cpu]
 type                        = internal/cpu
-label                       =  %percentage%%
+label                       =  %percentage%%
 
 [module/ram]
 type = internal/memory
