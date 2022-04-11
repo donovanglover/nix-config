@@ -1,5 +1,5 @@
 # New Start: A modern Arch workflow built with an emphasis on functionality.
-# Copyright (C) 2017-2018 Donovan Glover
+# Copyright (C) 2017-2022 Donovan Glover
 
 [color]
 background                  = ${xrdb:background}
@@ -15,7 +15,7 @@ background-alt              = ${xrdb:color8}
 [bar/main]
 modules-left                = bspwm
 modules-center              = window
-modules-right               = cpu ram volume date time battery
+modules-right               = cpu ram volume wifi date time battery
 
 monitor                     = eDP
 wm-restack                  = bspwm
@@ -111,6 +111,15 @@ format-offline              = No song is currently playing.
 label-song-maxlen           = 100
 label-song-ellipsis         = true
 format-online               =  <label-song>
+
+[module/wifi]
+type                        = internal/network
+interface-type              = wireless
+format-connected            = <label-connected>
+format-disconnected         = <label-disconnected>
+
+label-connected             =  %upspeed%  %downspeed%
+label-disconnected          = not connected
 
 [module/volume]
 type                        = internal/pulseaudio
