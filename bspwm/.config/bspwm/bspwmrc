@@ -13,7 +13,8 @@ export XSECURELOCK_SAVER=saver_mpv
 
 sxhkd &
 
-bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+# Use specific icons for the first four desktops and the other 6 as ad hoc ones
+bspc monitor -d     五 六 七 八 九 十
 
 bspc config split_ratio          0.50
 
