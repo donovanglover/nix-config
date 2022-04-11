@@ -12,7 +12,7 @@ paru can be used to:
 
 You should not use paru if:
 
-- You want to use [yay](yay) instead.
+- You want to use [yay][yay] instead.
 
 [paru]: https://github.com/Morganamilo/paru
 [yay]: https://github.com/Jguer/yay
