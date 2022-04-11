@@ -52,5 +52,7 @@ echo $BSPWM_TOP_PADDING > $HOME/.cache/polybar/bspwm_top_padding
 # Wait until there are no more polybar instances running
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
-# Start polybar
-polybar main &
+# Start polybar programmatically on all monitors by default
+for m in $(polybar --list-monitors | cut -d":" -f1); do
+  MONITOR=$m polybar main &
+done
