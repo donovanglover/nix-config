@@ -1,5 +1,5 @@
 # New Start: A modern Arch workflow built with an emphasis on functionality.
-# Copyright (C) 2017-2019 Donovan Glover
+# Copyright (C) 2017-2022 Donovan Glover
 
 set -U fish_greeting ""
 
@@ -75,6 +75,7 @@ if not set -q set_abbr
     abbr copy   "xclip -sel clip <"         # Easily copy the contents of any file
     abbr cf     "tput reset"                # Clear the terminal completely
     abbr nf     "tput reset; and neofetch --size 56%; and xdotool key --delay 100 Ctrl+Shift+Page_Up"
+    abbr df     "df --human-readable --type=ext4 --total"
 
     abbr b      "feh --bg-fill"             # Change the background
     abbr c      "clear"                     # Because 5 letters is too much
