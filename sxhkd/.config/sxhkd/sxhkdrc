@@ -15,7 +15,7 @@ Print
 
 # Open a new terminal window
 super + {_,shift} + Return
-  kitty {_,--name floating}
+  kitty --single-instance {_,--name floating}
 
 # Toggle a dropdown terminal
 super + backslash
