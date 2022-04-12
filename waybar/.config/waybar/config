@@ -3,6 +3,22 @@
     "modules-left": ["sway/workspaces", "sway/mode", "tray"],
     "modules-center": ["sway/window"],
     "modules-right": ["pulseaudio", "network", "backlight", "memory", "battery", "clock"],
+    "sway/workspaces": {
+      "format": "{icon}",
+      "on-click": "activate",
+      "format-icons": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "五",
+        "6": "六",
+        "7": "七",
+        "8": "八",
+        "9": "九",
+        "10": "十"
+      }
+    },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
