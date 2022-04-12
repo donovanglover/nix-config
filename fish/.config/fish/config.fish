@@ -45,6 +45,7 @@ if not set -q set_abbr
     abbr gb     "git branch"                # List all branches
     abbr gc     "git commit -m"
     abbr gca    "git commit --amend"
+    abbr gcl    "git clone"
     abbr gco    "git checkout"
     abbr gd     "git diff"                  # Show all file changes not staged yet
     abbr gds    "git diff --staged"         # Show changes staged but not committed
