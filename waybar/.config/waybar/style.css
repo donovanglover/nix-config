@@ -9,6 +9,7 @@ window#waybar {
     background: @background;
     border-bottom: 1px solid rgba(100, 114, 125, 0.3);
     color: @foreground;
+    font-weight: 500;
 }
 
 #workspaces button {
