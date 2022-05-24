@@ -112,4 +112,12 @@ XF86MonBrightnessDown
 XF86MonBrightnessUp
   brightnessctl set +5%
 
+XF86Display
+  notify-send -t 2000 "XF86Display" "No command defined."
+
+XF86WLAN
+  notify-send -t 2000 "XF86WLAN" "No command defined."
+
+XF86Favorites
+  notify-send -t 2000 "XF86Favorites" "No command defined."
 # vim:ft=sxhkdrc
