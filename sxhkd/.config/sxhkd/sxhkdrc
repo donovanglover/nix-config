@@ -94,30 +94,40 @@ super + c
 # ======= fn keys =======
 # =======================
 
-XF86AudioMute
+super + F1
   pactl set-sink-mute @DEFAULT_SINK@ toggle && notify-send -t 2000 "Changed muted to" "$(pamixer --get-mute)"
 
-XF86AudioLowerVolume
+super + F2
   pactl set-sink-volume @DEFAULT_SINK@ -5% && notify-send -t 2000 "Lowered volume to" "$(pamixer --get-volume)%"
 
-XF86AudioRaiseVolume
+super + F3
   pactl set-sink-volume @DEFAULT_SINK@ +5% && notify-send -t 2000 "Raised volume to" "$(pamixer --get-volume)%"
 
-XF86AudioMicMute
+super + F4
   pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
-XF86MonBrightnessDown
+super + F5
   brightnessctl set 5%-
 
-XF86MonBrightnessUp
+super + F6
   brightnessctl set +5%
 
-XF86Display
-  notify-send -t 2000 "XF86Display" "No command defined."
+super + F7
+  notify-send -t 2000 "F7" "No command defined."
 
-XF86WLAN
-  notify-send -t 2000 "XF86WLAN" "No command defined."
+super + F8
+  notify-send -t 2000 "F8" "No command defined."
 
-XF86Favorites
-  notify-send -t 2000 "XF86Favorites" "No command defined."
+super + F9
+  notify-send -t 2000 "F9" "No command defined."
+
+super + F10
+  notify-send -t 2000 "F10" "No command defined."
+
+super + F11
+  notify-send -t 2000 "F11" "No command defined."
+
+super + F12
+  notify-send -t 2000 "F12" "No command defined."
+
 # vim:ft=sxhkdrc
