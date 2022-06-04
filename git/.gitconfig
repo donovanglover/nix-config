@@ -10,6 +10,7 @@
     autocrlf = false
     pager = diff-so-fancy | less --tabs=4 -RFX
     excludesfile = ~/.gitignore
+    quotePath = false
 
 [web]
     browser = firefox
