@@ -17,3 +17,7 @@ indent_size = 4
 [*.html]
 indent_style = tab
 indent_size = 4
+
+[*.go]
+indent_style = tab
+indent_size = 4
