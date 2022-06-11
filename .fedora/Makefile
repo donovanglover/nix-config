@@ -2,7 +2,7 @@ install=sudo dnf install --assumeyes
 copr=sudo dnf copr enable --assumeyes
 
 .PHONY: all
-all: rice RPMs/muya.rpm install kitty wal crystal rust diff-so-fancy clean
+all: rice RPMs/muya.rpm install kitty wal clean
 
 .PHONY: rice
 rice:
@@ -34,29 +34,6 @@ kitty:
 wal:
 	@pip3 install --user pywal
 
-.PHONY: crystal
-crystal:
-	@sudo ./vendor/crystal-setup.sh
-	@${install} crystal
-
-.PHONY: rust
-rust:
-	@./vendor/rustup-init.sh -y
-
-.PHONY: diff-so-fancy
-diff-so-fancy:
-	@sudo install -Dm 755 ./vendor/diff-so-fancy /usr/bin/diff-so-fancy
-
 .PHONY: clean
 clean:
 	@rm -rv ~/rpmbuild
-
-.PHONY: update
-update:
-	@mkdir -pv vendor
-	@curl -L https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/third_party/build_fatpack/diff-so-fancy -o vendor/diff-so-fancy
-	@curl -L https://sh.rustup.rs -o vendor/rustup-init.sh
-	@curl -L https://dist.crystal-lang.org/rpm/setup.sh -o vendor/crystal-setup.sh
-	@chmod 755 vendor/diff-so-fancy
-	@chmod 755 vendor/rustup-init.sh
-	@chmod 755 vendor/crystal-setup.sh
