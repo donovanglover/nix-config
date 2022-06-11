@@ -2,7 +2,7 @@ install=sudo dnf install --assumeyes
 copr=sudo dnf copr enable --assumeyes
 
 .PHONY: all
-all: rice RPMs/muya.rpm install kitty wal clean
+all: rice kitty wal
 
 .PHONY: rice
 rice:
@@ -12,19 +12,6 @@ rice:
 	@../gnome/.config/gnome/pop-gtk-theme.sh
 	@../gnome/.config/gnome/breeze-cursor-theme.sh
 
-.ONESHELL:
-RPMs/muya.rpm: RPMs/muya.spec
-	@cd RPMs
-	@rm -rfv noarch
-	@fedpkg --release f29 local
-	@mv noarch/*.rpm muya.rpm
-	@rmdir noarch
-	@rm -fv *.src.rpm
-
-.PHONY: install
-install:
-	@${install} RPMs/muya.rpm
-
 .PHONY: kitty
 kitty:
 	@${copr} gagbo/kitty-latest
@@ -33,7 +20,3 @@ kitty:
 .PHONY: wal
 wal:
 	@pip3 install --user pywal
-
-.PHONY: clean
-clean:
-	@rm -rv ~/rpmbuild
