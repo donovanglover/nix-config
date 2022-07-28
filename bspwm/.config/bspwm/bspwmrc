@@ -123,3 +123,6 @@ fcitx5 &
 
 # Auto-mount partitions
 udiskie &
+
+# Use maximum brightness on the keyboard by default
+brightnessctl --device='tpacpi::kbd_backlight' set 2
