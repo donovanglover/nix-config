@@ -15,7 +15,7 @@ background-alt              = ${xrdb:color8}
 [bar/main]
 modules-left                = bspwm
 modules-center              = window
-modules-right               = cpu ram volume wifi date time battery
+modules-right               = volume wifi date time battery
 
 monitor                     = ${env:MONITOR:}
 wm-restack                  = bspwm
