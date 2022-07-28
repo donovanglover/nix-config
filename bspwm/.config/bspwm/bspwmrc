@@ -5,6 +5,7 @@
 export SXHKD_SHELL="/usr/bin/bash"
 export XCURSOR_THEME="phinger-cursors"
 export XDG_DATA_DIRS="/usr/share:/usr/share:/usr/local/share"
+export BROWSER="firefox"
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx

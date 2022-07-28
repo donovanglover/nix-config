@@ -5,7 +5,6 @@ set -U fish_greeting ""
 
 export VISUAL="nvim"
 export EDITOR="nvim"
-export BROWSER="firefox"
 export PATH="$HOME/.deno/bin:$HOME/.cargo/bin:$HOME/.yarn/bin:$HOME/.local/bin:$HOME/.go/bin:$PATH"
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/config"
 export NODE_OPTIONS="--max_old_space_size=16384"
