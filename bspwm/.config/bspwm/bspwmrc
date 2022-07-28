@@ -46,8 +46,12 @@ if hash VBoxClient-all 2>/dev/null; then
   VBoxClient-all
 fi
 
-# Set the color scheme to a sane default.
-wal -o ~/.config/wal/done.sh --theme base16-tomorrow-night
+# Use the previous color scheme if present. Otherwise use a sane default.
+if [ -e ~/.cache/wal/colors.json ]; then
+  wal -o ~/.config/wal/done.sh -R
+else
+  wal -o ~/.config/wal/done.sh --theme base16-tomorrow-night
+fi
 
 # Never blank the screen (disable power saving)
 xset s off -dpms
