@@ -109,13 +109,13 @@ symbol = "php "
 symbol = "purs "
 
 [python]
-symbol = "py "
+symbol = "python "
 
 [ruby]
-symbol = "rb "
+symbol = "ruby "
 
 [rust]
-symbol = "rs "
+symbol = "rust "
 
 [scala]
 symbol = "scala "
