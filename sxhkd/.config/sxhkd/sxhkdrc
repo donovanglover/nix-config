@@ -107,10 +107,10 @@ super + F4
   pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 super + F5
-  brightnessctl set 5%-
+  brightnessctl set 5%- && notify-send -t 2000 "Decreased brightness to" "$(brightnessctl get)"
 
 super + F6
-  brightnessctl set +5%
+  brightnessctl set +5% && notify-send -t 2000 "Increased brightness to" "$(brightnessctl get)"
 
 super + F7
   notify-send -t 2000 "F7" "No command defined."
