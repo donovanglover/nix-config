@@ -10,3 +10,7 @@ keycode 66 = Control_L
 
 ! Reassign the control command to the caps lock and control keys respectively
 add control = Caps_Lock Control_L Control_R
+
+! Change the print screen key to a right super, so we don't have to worry
+! about certain key combinations being impossible to use with one hand.
+keycode 107 = Super_R
