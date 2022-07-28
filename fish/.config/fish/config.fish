@@ -35,6 +35,9 @@ fish_default_key_bindings
 alias ls="exa --group-directories-first -I 'lost+found'"
 alias tree="exa --group-directories-first --long --tree -I 'node_modules|.git|public|lost+found'"
 
+# Prevent accidents
+alias mv="mv -i"
+
 # Abbreviations are aliases that expand
 if not set -q set_abbr
     set -U set_abbr
