@@ -2,7 +2,7 @@
 
 set $mod Mod4
 set $alt Mod1
-set $term kitty
+set $term kitty --single-instance
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
