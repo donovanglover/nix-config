@@ -11,6 +11,7 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 export GLFW_IM_MODULE=ibus
 export XSECURELOCK_SAVER=saver_mpv
+export XSECURELOCK_COMPOSITE_OBSCURER=0
 
 sxhkd &
 
