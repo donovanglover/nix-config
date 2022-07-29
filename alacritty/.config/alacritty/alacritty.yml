@@ -22,6 +22,7 @@ selection:
 
 cursor:
   style:
+    shape: Beam
     blinking: Always
 
 shell:
