@@ -31,6 +31,15 @@ set -x -U LESS_TERMCAP_us (printf "\e[01;32m")
 # Always use the default keybindings in fish
 fish_default_key_bindings
 
+# Use https by default without a user agent for httpie
+function http
+    /usr/bin/https "$argv" "User-Agent: "
+end
+
+function https
+    /usr/bin/https "$argv" "User-Agent: "
+end
+
 # Use exa as a drop-in replacement for ls and tree (faster, more colors, etc.)
 alias ls="exa --group-directories-first -I 'lost+found'"
 alias tree="exa --group-directories-first --long --tree -I 'node_modules|.git|public|lost+found'"
