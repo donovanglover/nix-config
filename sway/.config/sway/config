@@ -36,6 +36,9 @@ input "1:1:AT_Translated_Set_2_keyboard" {
     # Toggle waybar
     bindsym $mod+o exec killall -SIGUSR1 waybar
 
+    # Screenshot the entire screen
+    bindsym $mod+p exec grim ~/$(date +%F_%H%M%S).png
+
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
