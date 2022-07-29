@@ -1,2 +1,0 @@
-# Don't show results for very long lines (e.g. minified files)
---max-columns=200

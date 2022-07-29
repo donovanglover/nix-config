@@ -6,7 +6,6 @@ set -U fish_greeting ""
 export VISUAL="nvim"
 export EDITOR="nvim"
 export PATH="$HOME/.deno/bin:$HOME/.cargo/bin:$HOME/.yarn/bin:$HOME/.local/bin:$HOME/.go/bin:$PATH"
-export RIPGREP_CONFIG_PATH="$HOME/.config/ripgrep/config"
 export NODE_OPTIONS="--max_old_space_size=16384"
 export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
 export GOPATH="$HOME/.go"
@@ -39,6 +38,9 @@ end
 function https
     /usr/bin/https "$argv" "User-Agent: "
 end
+
+# Don't show ripgrep results for very long lines (e.g. minified files)
+alias rg="rg --max-columns=200"
 
 # Use exa as a drop-in replacement for ls and tree (faster, more colors, etc.)
 alias ls="exa --group-directories-first -I 'lost+found'"
