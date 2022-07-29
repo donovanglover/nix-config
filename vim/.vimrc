@@ -15,6 +15,10 @@ endif
 
 let g:ale_disable_lsp = 1
 
+autocmd FileType javascript let g:ale_linters = {
+\  'javascript': glob('.eslintrc*', '.;') != '' ? [ 'eslint', 'flow' ] : [ 'standard', 'flow' ],
+\}
+
 call plug#begin('~/.vim/plugged')
     Plug 'dylanaraps/wal.vim'           " Color scheme
     Plug 'preservim/nerdtree'
