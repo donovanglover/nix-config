@@ -38,7 +38,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'rhysd/vim-crystal',           {'for': 'crystal'}
     Plug 'rust-lang/rust.vim',          {'for': 'rust'}
     Plug 'baskerville/vim-sxhkdrc',     {'for': 'sxhkdrc'}
-    Plug 'cespare/vim-toml',            {'for': 'toml'}
     Plug 'dag/vim-fish',                {'for': 'fish'}
     Plug 'slim-template/vim-slim',      {'for': 'slim'}
     Plug 'Glench/Vim-Jinja2-Syntax',    {'for': 'jinja2'}
