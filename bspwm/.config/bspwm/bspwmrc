@@ -54,8 +54,12 @@ else
   wal -o ~/.config/wal/done.sh --theme base16-tomorrow-night
 fi
 
-# Never blank the screen (disable power saving)
-xset s off -dpms
+# Never blank the screen if it's a virtual machine (disable power saving)
+VIRTUAL="$(systemd-detect-virt)"
+
+if [[ "$VIRTUAL" != "none" ]]; then
+  xset s off -dpms
+fi
 
 # Start picom (prevents screen tearing)
 picom -b
