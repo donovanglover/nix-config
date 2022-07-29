@@ -31,7 +31,7 @@ input "1:1:AT_Translated_Set_2_keyboard" {
     bindsym $mod+q kill
 
     # Start your launcher
-    bindsym $alt+z exec $menu
+    bindsym $mod+z exec $menu
 
     # Toggle waybar
     bindsym $mod+o exec killall -SIGUSR1 waybar
@@ -91,8 +91,8 @@ input "1:1:AT_Translated_Set_2_keyboard" {
     # We just use 1-10 as the default.
 
     # Jump to previous/next workspace
-    bindsym $alt+Tab workspace next
-    bindsym $alt+Shift+Tab workspace prev
+    bindsym $mod+Tab workspace next
+    bindsym $mod+Shift+Tab workspace prev
 #
 # Layout stuff:
 #
