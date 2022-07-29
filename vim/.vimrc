@@ -20,7 +20,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'preservim/nerdtree'
     Plug 'airblade/vim-gitgutter'       " Git diff
     Plug 'itchyny/lightline.vim'        " Status line
-    Plug 'w0rp/ale'                     " Syntax checker
+    Plug 'dense-analysis/ale'           " Syntax checker
     Plug 'sgur/vim-editorconfig'        " EditorConfig
     Plug 'tpope/vim-fugitive'           " Git wrapper
     Plug 'junegunn/fzf.vim'             " fzf wrapper
