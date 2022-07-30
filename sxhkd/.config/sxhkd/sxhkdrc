@@ -28,8 +28,8 @@ super + o
     (xdo show -N "Polybar" && bspc config top_padding $(cat ~/.cache/polybar/bspwm_top_padding))
 
 # Change the wal color scheme
-alt + m
-  wal -o ~/.config/wal/done.sh -i ~/Pictures/Wallpapers
+super + m
+  wal -o ~/.config/wal/done.sh --theme random_dark
 
 super + z
   ~/.config/rofi/launch.sh
