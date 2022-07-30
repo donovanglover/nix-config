@@ -108,6 +108,7 @@ if not set -q set_abbr
     abbr jis    "recode shift_jis..utf8"    # Easily convert shift_jis-encoded files to utf8
     abbr utf16  "recode utf16..utf8"        # Rarely, some files from Japan are utf16 instead
 
+    abbr a      "ansible-playbook"
     abbr b      "feh --bg-fill"             # Change the background
     abbr c      "clear"                     # Because 5 letters is too much
     abbr e      "exit"
