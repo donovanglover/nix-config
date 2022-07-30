@@ -39,6 +39,18 @@ function https
     /usr/bin/https "$argv" "User-Agent: "
 end
 
+# Convert unnecessarily large wav files to flac
+function wav2flac
+    set ORIGINAL_SIZE (du -hs | cut -f1)
+
+    fd -e wav -x ffmpeg -i "{}" -loglevel quiet -stats "{.}.flac"
+    fd -e wav -X trash
+
+    set NEW_SIZE (du -hs | cut -f1)
+
+    echo "Done. Reduced file size from $ORIGINAL_SIZE to $NEW_SIZE"
+end
+
 # Don't show ripgrep results for very long lines (e.g. minified files)
 alias rg="rg --max-columns=200"
 
