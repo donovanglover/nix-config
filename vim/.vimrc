@@ -53,6 +53,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'dbeniamine/todo.txt-vim',     {'for': 'todo'}
     Plug 'lervag/vimtex',               {'for': 'tex'}
     Plug 'pantharshit00/vim-prisma',    {'for': 'prisma'}
+    Plug 'isobit/vim-caddyfile'
 call plug#end()
 
 " ============================
