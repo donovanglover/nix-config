@@ -92,7 +92,7 @@ if not set -q set_abbr
     abbr yin    "yarn install"
     abbr yu     "yarn upgrade-interactive"
 
-    abbr dl     "youtube-dl"
+    abbr dl     "yt-dlp"
     abbr vol    "amixer set 'Master'"       # Change the volume, e.g. vol 10%+, vol 10%-, vol 100%
     abbr copy   "xclip -sel clip <"         # Easily copy the contents of any file
     abbr cf     "tput reset"                # Clear the terminal completely
