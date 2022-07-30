@@ -128,6 +128,18 @@ super + F11
   notify-send -t 2000 "F11" "No command defined."
 
 super + F12
-  notify-send -t 2000 "F12" "No command defined."
+  ~/.config/sxhkd/ctb.sh jisho
+
+super + Home
+  ~/.config/sxhkd/ctb.sh forvo
+
+super + End
+  ~/.config/sxhkd/ctb.sh weblio
+
+super + Insert
+  ~/.config/sxhkd/ctb.sh deepl
+
+super + Delete
+  ~/.config/sxhkd/ctb.sh cambridge
 
 # vim:ft=sxhkdrc
