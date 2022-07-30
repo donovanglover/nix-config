@@ -10,8 +10,8 @@ super + p
   ~/.config/sxhkd/screenshot.sh
 
 # Screenshot a selection
-super + shift + p
-  ~/.config/sxhkd/selection.sh
+super + {shift,alt} + p
+  ~/.config/sxhkd/selection.sh {_,clipboard}
 
 # Open a new terminal window
 super + {_,shift} + Return
