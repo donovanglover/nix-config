@@ -51,6 +51,11 @@ function wav2flac
     echo "Done. Reduced file size from $ORIGINAL_SIZE to $NEW_SIZE"
 end
 
+# Easily extract files and remove the archive
+function ex
+    unar "$argv"; and rm -i "$argv"
+end
+
 # Don't show ripgrep results for very long lines (e.g. minified files)
 alias rg="rg --max-columns=200"
 
