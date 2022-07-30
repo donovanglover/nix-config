@@ -78,6 +78,13 @@ if not set -q set_abbr
     abbr gt     "git tag"
     abbr gts    "git tag -s"
 
+    abbr d      "sudo docker"
+    abbr dc     "sudo docker-compose"
+    abbr dcu    "sudo docker-compose up"
+    abbr dcd    "sudo docker-compose down"
+    abbr dcp    "sudo docker-compose pull"
+    abbr dcl    "sudo docker-compose logs"
+
     abbr y      "yarn"
     abbr ya     "yarn add"
     abbr yar    "yarn remove"
