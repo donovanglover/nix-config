@@ -104,6 +104,7 @@ if not set -q set_abbr
     abbr cf     "tput reset"                # Clear the terminal completely
     abbr nf     "tput reset; and neofetch --size 56%; and xdotool key --delay 100 Ctrl+Shift+Page_Up"
     abbr df     "df --human-readable --type=ext4 --total"
+    abbr du     "du --human-readable --summarize"
     abbr jis    "recode shift_jis..utf8"    # Easily convert shift_jis-encoded files to utf8
     abbr utf16  "recode utf16..utf8"        # Rarely, some files from Japan are utf16 instead
 
