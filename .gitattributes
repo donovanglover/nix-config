@@ -1,1 +1,2 @@
 .archlinux/PKGBUILDs/**/* linguist-vendored
+mpv/.config/mpv/scripts/**/* linguist-vendored
