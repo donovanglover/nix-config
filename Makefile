@@ -38,10 +38,6 @@ uninstall:
 prune:
 	@$(call ${NS_STOW_COMMAND},R)
 
-.PHONY: enable-mpd
-enable-mpd:
-	@systemctl --user enable --now mpd.service
-
 .PHONY: enable-ssh-agent
 enable-ssh-agent:
 	@systemctl --user enable --now ssh-agent.service
