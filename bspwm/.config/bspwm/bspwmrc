@@ -29,12 +29,6 @@ bspc config gapless_monocle      true
 # while moving the mouse, similar to i3
 bspc config focus_follows_pointer true
 
-# Make caps lock work as ctrl
-xmodmap ~/.xmodmap
-
-# Make caps lock (left ctrl) work as escape
-xcape -e 'Control_L=Escape'
-
 # Change the default X shaped cursor to a pointer
 xsetroot -cursor_name left_ptr
 
