@@ -13,7 +13,7 @@
     quotePath = false
 
 [web]
-    browser = firefox
+    browser = librewolf
 
 [push]
     default = simple
