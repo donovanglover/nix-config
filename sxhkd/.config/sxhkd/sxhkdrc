@@ -113,19 +113,19 @@ super + F6
   brightnessctl set +5% && notify-send -t 2000 "Increased brightness to" "$(brightnessctl get)"
 
 super + F7
-  notify-send -t 2000 "F7" "No command defined."
+  playerctl -p mpv previous && notify-send -t 2000 "Previous track" "$(playerctl -p mpv metadata xesam:title)"
 
 super + F8
-  notify-send -t 2000 "F8" "No command defined."
+  playerctl -p mpv next && notify-send -t 2000 "Next track" "$(playerctl -p mpv metadata xesam:title)"
 
 super + F9
-  notify-send -t 2000 "F9" "No command defined."
+  playerctl -p mpv play-pause && notify-send -t 2000 "mpv" "$(playerctl -p mpv status)"
 
 super + F10
-  notify-send -t 2000 "F10" "No command defined."
+  playerctl -p mpv position "5-" && notify-send -t 2000 "Minus 5 seconds" "$(playerctl -p mpv position)"
 
 super + F11
-  notify-send -t 2000 "F11" "No command defined."
+  playerctl -p mpv position "5+" && notify-send -t 2000 "Plus 5 seconds" "$(playerctl -p mpv position)"
 
 super + F12
   ~/.config/sxhkd/ctb.sh jisho
