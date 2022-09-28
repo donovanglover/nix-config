@@ -7,7 +7,7 @@
 # make uninstall    Uninstalls dotfiles
 # make prune        Removes stale links
 
-verbose          ?= 2
+verbose          ?= 1
 NS_REPO_PATH     := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 NS_STOW_OPTIONS  := --dir="${NS_REPO_PATH}" --target="${HOME}" --no-folding --verbose=${verbose}
 NS_STOW_PACKAGES := $(wildcard */)
