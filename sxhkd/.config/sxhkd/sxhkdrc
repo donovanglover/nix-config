@@ -98,10 +98,10 @@ super + F1
   pactl set-sink-mute @DEFAULT_SINK@ toggle && notify-send -t 2000 "Changed muted to" "$(pamixer --get-mute)"
 
 super + F2
-  pactl set-sink-volume @DEFAULT_SINK@ -5% && notify-send -t 2000 "Lowered volume to" "$(pamixer --get-volume)%"
+  pamixer -d 5 && notify-send -t 2000 "Lowered volume to" "$(pamixer --get-volume)%"
 
 super + F3
-  pactl set-sink-volume @DEFAULT_SINK@ +5% && notify-send -t 2000 "Raised volume to" "$(pamixer --get-volume)%"
+  pamixer -i 5 && notify-send -t 2000 "Raised volume to" "$(pamixer --get-volume)%"
 
 super + F4
   pactl set-source-mute @DEFAULT_SOURCE@ toggle
