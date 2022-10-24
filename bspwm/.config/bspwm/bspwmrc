@@ -99,7 +99,6 @@ fi
 ~/.config/polybar/launch.sh main &
 
 # bspc rules
-bspc rule -a mpv            state=floating
 bspc rule -a feh            state=floating
 bspc rule -a kitty:floating state=floating
 
