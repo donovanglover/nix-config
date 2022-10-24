@@ -67,6 +67,7 @@ set nocompatible               " Use vim defaults (i.e. ignore vi compatibility)
 set backspace=indent,eol,start " Make the backspace key function as you would expect
 set encoding=utf-8             " Always show files as utf-8
 set fileencoding=utf-8         " Ensure that we always save files as utf-8
+set fileencodings=utf-8,sjis   " Automatically open shiftjis files with their proper encoding
 
 set autoindent                 " Automatically indent new lines
 set ignorecase                 " By default use case-insensitive search (combine with smartcase)
