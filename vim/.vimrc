@@ -73,6 +73,7 @@ set ignorecase                 " By default use case-insensitive search (combine
 set smartcase                  " Make search case-sensitive when using capital letters
 set showcmd                    " Always show the current keybinding being executed
 set spell                      " Enable spell check by default
+set spelllang=en_us,cjk        " Don't show errors for CJK characters
 set hidden                     " Switch between buffers without saving them
 
 set incsearch                  " Automatically move to text as you search for it
