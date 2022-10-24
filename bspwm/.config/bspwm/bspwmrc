@@ -25,6 +25,9 @@ bspc config split_ratio          0.50
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
+# Make moving windows look nice at 240Hz
+bspc config pointer_motion_interval 4
+
 # Always focus the window under the cursor
 # while moving the mouse, similar to i3
 bspc config focus_follows_pointer true
