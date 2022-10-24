@@ -115,6 +115,13 @@ if not set -q set_abbr
     abbr vs     "vagrant ssh"
     abbr vp     "vagrant provision"
 
+    abbr t      "task"
+    abbr ta     "task add"
+    abbr tc     "task calendar"
+    abbr td     "task done"
+    abbr te     "task edit"
+    abbr tm     "task modify"
+
     abbr dl     "yt-dlp"
     abbr vol    "amixer set 'Master'"       # Change the volume, e.g. vol 10%+, vol 10%-, vol 100%
     abbr copy   "xclip -sel clip <"         # Easily copy the contents of any file
