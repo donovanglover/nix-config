@@ -15,8 +15,8 @@ export XSECURELOCK_COMPOSITE_OBSCURER=0
 
 sxhkd &
 
-# Use specific icons for the first four desktops and the other 6 as ad hoc ones
-bspc monitor -d     五 六 七 八 九 十
+# Use Left/Up/Right/Down for primary monitor
+bspc monitor -d 左 上 右 下
 
 bspc config split_ratio          0.50
 
