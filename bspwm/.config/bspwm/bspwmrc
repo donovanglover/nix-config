@@ -61,7 +61,7 @@ fi
 # Start picom (prevents screen tearing)
 picom -b
 
-# Start polybar and other things based on DPI
+# Change cursor size and other things based on DPI
 # Get the host width
 HOST_WIDTH=$(bspc query -T -m | jq '.rectangle.width')
 
@@ -95,8 +95,6 @@ if [ "$X_DPI" ]; then
   #       cursor size 64 instead.
   xsetroot -xcf "/usr/share/icons/$CURSOR_THEME/cursors/left_ptr" "$(($X_DPI / 6))"
 fi
-
-~/.config/polybar/launch.sh main &
 
 # bspc rules
 bspc rule -a feh            state=floating
