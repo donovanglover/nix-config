@@ -74,9 +74,17 @@ super + ctrl + {1-9}
 # ======= Desktop =======
 # =======================
 
-# Focus a certain desktop / Send a node to a certain desktop
-super + {_,shift} + {1-9,0}
-  bspc {desktop -f,node -d} '^{1-9,10}'
+# Focus desktop {1-9,0} (or bounce to last desktop)
+super + {1-9,0}
+  target='^{1-9,10}'; \
+  [ "$(bspc query -D -d "$target")" != "$(bspc query -D -d)" ] \
+    && bspc desktop -f "$target" || bspc desktop -f last.local
+
+# Send a node to a certain desktop (or bounce to the last one)
+super + shift + {1-9,0}
+  target='^{1-9,10}'; \
+  [ "$(bspc query -D -d "$target")" != "$(bspc query -D -d)" ] \
+    && bspc node -d "$target" || bspc node -d last.local
 
 # Move to the next desktop on the current monitor
 super + {_, shift} + Tab
