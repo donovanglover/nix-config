@@ -122,5 +122,8 @@ if hash mullvad-vpn 2>/dev/null; then
   mullvad-vpn &
 fi
 
+# Start an authentication agent for polkit
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
 # Use maximum brightness on the keyboard by default
 brightnessctl --device='tpacpi::kbd_backlight' set 2
