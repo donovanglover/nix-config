@@ -127,3 +127,6 @@ fi
 
 # Use maximum brightness on the keyboard by default
 brightnessctl --device='tpacpi::kbd_backlight' set 2
+
+# Enable alt tab
+alttab -d 1 -w 1 -font "xft:Noto Sans CJK JP" -mk Super_L &

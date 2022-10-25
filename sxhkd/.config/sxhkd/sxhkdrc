@@ -86,10 +86,6 @@ super + shift + {1-9,0}
   [ "$(bspc query -D -d "$target")" != "$(bspc query -D -d)" ] \
     && bspc node -d "$target" || bspc node -d last.local
 
-# Move to the next desktop on the current monitor
-super + {_, shift} + Tab
-  bspc desktop -f {next,prev}.local.occupied
-
 # Easily go back and forth between the last desktop used
 super + a
   bspc desktop -f last
