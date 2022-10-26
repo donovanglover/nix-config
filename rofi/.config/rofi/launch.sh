@@ -59,4 +59,5 @@ env \
   XCURSOR_SIZE="$CURSOR_SIZE" \
   rofi \
     -show drun \
-    -dpi "$ROFI_DPI"
+    -dpi "$ROFI_DPI" \
+    -m -1
