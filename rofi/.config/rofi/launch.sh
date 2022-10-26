@@ -60,4 +60,5 @@ env \
   rofi \
     -show drun \
     -dpi "$ROFI_DPI" \
-    -m -1
+    -m -1 \
+    -display-drun "Search ($(bspc query -D -d focused --names))"
