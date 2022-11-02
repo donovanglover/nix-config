@@ -8,6 +8,18 @@ read_only = " ro"
 style = "yellow"
 symbol = ""
 
+[[battery.display]]
+threshold = 10
+style = "bold red"
+
+[[battery.display]]
+threshold = 30
+style = "bold yellow"
+
+[[battery.display]]
+threshold = 90
+style = "bold normal"
+
 [character]
 #success_symbol = "[➤](red)[➤](green)[➤](blue)"
 #error_symbol = "[➤](cyan)[➤](purple)[➤](yellow)"
