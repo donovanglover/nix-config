@@ -96,6 +96,5 @@ jump_first J
 jump_last K
 jump_fwd H
 jump_back L
-delete v
 save_image s
 toggle_auto_zoom m
