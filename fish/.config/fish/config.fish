@@ -9,7 +9,7 @@ export PATH="$HOME/.deno/bin:$HOME/.cargo/bin:$HOME/.yarn/bin:$HOME/.local/bin:$
 export NODE_OPTIONS="--max_old_space_size=16384"
 export GIT_DISCOVERY_ACROSS_FILESYSTEM=1
 export GOPATH="$HOME/.go"
-export TERMCMD="kitty"
+export TERMCMD="kitty --single-instance"
 
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
