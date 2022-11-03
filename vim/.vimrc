@@ -34,6 +34,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/goyo.vim'            " Distraction-free writing
     Plug 'jparise/vim-graphql'          " GraphQL support
     Plug 'neoclide/coc.nvim', {'branch': 'release'} " Auto-complete support
+    Plug 'ryanoasis/vim-devicons'
 
     Plug 'osyo-manga/vim-over',         {'on': 'OverCommandLine'}
     Plug 'maksimr/vim-jsbeautify'
