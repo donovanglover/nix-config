@@ -5,6 +5,18 @@
 super + {_, alt} + Escape
   {pkill -USR1 -x sxhkd && notify-send -t 2000 "sxhkd" "Reloaded config",bspc quit}
 
+# Dynamically adjust gaps of current desktop
+super + {_, shift +} g
+    { bspc config -d focused window_gap $(( $(bspc config -d focused window_gap) + 20 )), \
+    [ $(bspc config -d focused window_gap) -ge 20 ] && \
+    bspc config -d focused window_gap $(( $(bspc config -d focused window_gap) - 20 )) }
+
+# Dynamically adjust borders of nodes on current desktop
+super + {_, shift +} i
+    { bspc config -d focused border_width $(( $(bspc config -d focused border_width) + 1 )), \
+    [ $(bspc config -d focused border_width) -ge 1 ] && \
+    bspc config -d focused border_width $(( $(bspc config -d focused border_width) - 1 )) }
+
 # Take a screenshot
 super + p
   ~/.config/sxhkd/screenshot.sh
