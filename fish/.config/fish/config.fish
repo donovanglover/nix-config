@@ -141,6 +141,7 @@ if not set -q set_abbr
     abbr k      "kitty @ set-colors -c -a ~/.cache/wal/kitty"
     abbr l      "ls -l"
     abbr p      "paru"
+    abbr r      "ranger"
     abbr w      "wal -o ~/.config/wal/done.sh"
     abbr T      "tree"
 
