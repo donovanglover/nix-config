@@ -131,19 +131,4 @@ super + F10
 super + F11
   playerctl -p mpv position "5+" && notify-send -t 2000 "Plus 5 seconds" "$(playerctl -p mpv position)"
 
-super + F12
-  ~/.config/sxhkd/ctb.sh jisho
-
-super + Home
-  ~/.config/sxhkd/ctb.sh forvo
-
-super + End
-  ~/.config/sxhkd/ctb.sh weblio
-
-super + Insert
-  ~/.config/sxhkd/ctb.sh deepl
-
-super + Delete
-  ~/.config/sxhkd/ctb.sh cambridge
-
 # vim:ft=sxhkdrc
