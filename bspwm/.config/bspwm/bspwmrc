@@ -129,3 +129,6 @@ alttab -d 1 -w 1 -font "xft:Noto Sans CJK JP" -mk Super_L &
 
 # Fix bar showing above fullscreen programs
 xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" $(xdo id -n tint2)
+
+# Make the start button work as expected
+ksuperkey -t 200
