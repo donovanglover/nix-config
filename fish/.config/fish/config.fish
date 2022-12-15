@@ -80,7 +80,9 @@ if not set -q set_abbr
     abbr gcl    "git clone"
     abbr gco    "git checkout"
     abbr gd     "git diff"                  # Show all file changes not staged yet
+    abbr gdi    "git difftool --no-symlinks --dir-diff"
     abbr gds    "git diff --staged"         # Show changes staged but not committed
+    abbr gdsi   "git difftool --no-symlinks --dir-diff --staged"
     abbr gi     "git init"
     abbr gl     "git log --oneline --decorate --all --graph -n 10"
     abbr gm     "git merge"
