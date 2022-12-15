@@ -36,6 +36,11 @@ symbol = "node "
 version_format = "${major}"
 disabled = true
 
+[time]
+disabled = false
+style = "bold cyan"
+time_format = "%R (%a, %b %e %Y)"
+
 # Start tty-specific styles
 
 [git_commit]
