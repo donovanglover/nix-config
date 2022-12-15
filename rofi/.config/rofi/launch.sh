@@ -41,6 +41,12 @@
 # fact that active windows will not handle DPI changes anyway, you should
 # probably have no GUIs running when switching DPI.
 
+# Kill rofi if it's already running to make this a simple toggle script.
+if pgrep -x rofi; then
+    killall rofi
+    exit
+fi
+
 ROFI_DPI=$(xrdb -query | grep Xft.dpi | cut -f 2)
 ROFI_SCALE=$(expr $ROFI_DPI / 96)
 ROFI_DPI_SCALE=$(awk "BEGIN { print "1/$ROFI_SCALE" }")
