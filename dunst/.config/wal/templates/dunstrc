@@ -8,6 +8,9 @@
     # geometry = "3740x5-50+95"
     geometry = "1870x5-25+45"
 
+    # Increase width of dunst notifications
+    width = 350
+
     # Show multiple notifications in the same box
     separator_height = 0
 
