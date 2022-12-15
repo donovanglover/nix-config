@@ -208,6 +208,9 @@ nnoremap <silent> <leader>2 :PencilSoft<CR>:Goyo<CR>:hi vertsplit ctermfg=0 cter
 nnoremap <silent> <leader>3 :mksession! ~/.vim/.session<CR>
 nnoremap <silent> <leader>4 :source ~/.vim/.session<CR>
 
+" Never worry about a directory not being created before saving
+autocmd BufWritePre,FileWritePre * silent! call mkdir(expand('<afile>:p:h'), 'p')
+
 " =========================
 " ========= netrw =========
 " =========================
