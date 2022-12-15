@@ -110,6 +110,9 @@ unclutter &
 # Start the notification daemon
 dunst &
 
+# Use a cool crossfade effect
+# mpc crossfade 3
+
 # Start fcitx
 fcitx5 &
 
