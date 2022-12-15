@@ -1,7 +1,16 @@
 # New Start: A modern Arch workflow built with an emphasis on functionality.
 # Copyright (C) 2017-2022 Donovan Glover
 
-set -U fish_greeting ""
+# Show tasks when opening a new terminal
+function fish_greeting
+    if test "$PWD" = "$HOME"
+        fish_prompt
+        set_color blue
+        echo task
+        set_color normal
+        task
+    end
+end
 
 export VISUAL="nvim"
 export EDITOR="nvim"
