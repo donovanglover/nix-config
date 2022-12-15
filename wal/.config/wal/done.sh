@@ -13,3 +13,7 @@ fi
 if [ -e ~/.config/dunst/wal.sh ]; then
   ~/.config/dunst/wal.sh
 fi
+
+if [ -e ~/.config/tint2/wal.sh ]; then
+  ~/.config/tint2/wal.sh
+fi
