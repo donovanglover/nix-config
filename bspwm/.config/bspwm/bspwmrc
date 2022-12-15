@@ -57,6 +57,9 @@ fi
 # Note: --experimental-backends adds support for dual kawase blur
 picom --experimental-backends -b
 
+# Start bar
+tint2 &
+
 # Change cursor size and other things based on DPI
 # Get the host width
 HOST_WIDTH=$(bspc query -T -m | jq '.rectangle.width')
