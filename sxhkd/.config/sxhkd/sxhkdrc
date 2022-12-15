@@ -10,9 +10,9 @@ super + d
 
 # Dynamically adjust gaps of current desktop
 super + {_, shift +} g
-    { bspc config -d focused window_gap $(( $(bspc config -d focused window_gap) + 20 )), \
+    { bspc config -d focused window_gap $(( $(bspc config -d focused window_gap) + 10 )), \
     [ $(bspc config -d focused window_gap) -ge 20 ] && \
-    bspc config -d focused window_gap $(( $(bspc config -d focused window_gap) - 20 )) }
+    bspc config -d focused window_gap $(( $(bspc config -d focused window_gap) - 10 )) }
 
 # Dynamically adjust borders of nodes on current desktop
 super + {_, shift +} i
