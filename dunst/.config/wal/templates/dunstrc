@@ -42,6 +42,10 @@
     # Allow some HTML tags like <i> and <u> in notifications
     markup = full
 
+    # Increase the size of cover notifications
+    min_icon_size = 128
+    max_icon_size = 128
+
 # Set the background and foreground (text) color for all notifications
 [urgency_low]
     background = "{background}"
