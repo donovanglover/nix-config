@@ -5,7 +5,6 @@ pkgdesc="Sane defaults for the chromium web browser"
 arch=('any')
 source=('cjpalhdlnbpafiamejdnhcphjbkeiagm.json'
 				'dbepggeogbaibhgnhhndojpepiihcmeb.json'
-				'gcbommkclmclpchllfjekcdonpmejbdp.json'
         '101-search-provider.json'
         '102-homepage.json'
         '103-new-tab.json'
@@ -16,7 +15,6 @@ source=('cjpalhdlnbpafiamejdnhcphjbkeiagm.json'
         '205-spell-check.json'
         '206-data-collection.json')
 sha256sums=('5bcd92f712b450ecb20eb390f957216d488e5dc0c4abbb2cbf4dd6b570b11edc'
-            '5bcd92f712b450ecb20eb390f957216d488e5dc0c4abbb2cbf4dd6b570b11edc'
             '5bcd92f712b450ecb20eb390f957216d488e5dc0c4abbb2cbf4dd6b570b11edc'
             'c76a7a4c6b8ba10b2c2f478c3fce8577c055b1c7c3216d6feba550f097aaca4c'
             '3bd32ca3c77ad91ce8355223d76385e21ff49fc6388bc1dc017319a402908141'
@@ -34,7 +32,6 @@ package() {
 
   install -Dm644 cjpalhdlnbpafiamejdnhcphjbkeiagm.json  "$_ext"/cjpalhdlnbpafiamejdnhcphjbkeiagm.json
   install -Dm644 dbepggeogbaibhgnhhndojpepiihcmeb.json  "$_ext"/dbepggeogbaibhgnhhndojpepiihcmeb.json
-  install -Dm644 gcbommkclmclpchllfjekcdonpmejbdp.json  "$_ext"/gcbommkclmclpchllfjekcdonpmejbdp.json
   install -Dm644 101-search-provider.json               "$_pol"/recommended/101-search-provider.json
   install -Dm644 102-homepage.json                      "$_pol"/recommended/102-homepage.json
   install -Dm644 103-new-tab.json                       "$_pol"/recommended/103-new-tab.json
