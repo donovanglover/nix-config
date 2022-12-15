@@ -16,7 +16,7 @@ export XSECURELOCK_COMPOSITE_OBSCURER=0
 sxhkd &
 
 # Use Left/Up/Right/Down for primary monitor
-bspc monitor -d 左 上 右 下
+bspc monitor -d 一 二 三 四 五 六 七 八 九 十
 
 bspc config split_ratio          0.50
 
