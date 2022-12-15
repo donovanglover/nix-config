@@ -5,6 +5,9 @@
 super + {_, alt} + Escape
   {pkill -USR1 -x sxhkd && notify-send -t 2000 "sxhkd" "Reloaded config",bspc quit}
 
+super + d
+  libinput-gestures-setup restart && notify-send -t 2000 "libinput-gestures" "Reloaded config"
+
 # Dynamically adjust gaps of current desktop
 super + {_, shift +} g
     { bspc config -d focused window_gap $(( $(bspc config -d focused window_gap) + 20 )), \
