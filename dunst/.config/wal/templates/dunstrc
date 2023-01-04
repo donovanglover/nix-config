@@ -28,7 +28,7 @@
     idle_threshold = 120
 
     # Font and typography settings
-    font = Fira Mono 11
+    font = Fira Mono 12
     alignment = center
     word_wrap = yes
 
