@@ -9,12 +9,7 @@ configuration {
   display-drun: "Search";
 }
 
-@theme "~/.cache/wal/colors-rofi-dark.rasi"
-
-element-text {
-    background-color: inherit;
-    text-color:       inherit;
-}
+@theme "~/.cache/wal/rofi.rasi"
 
 listview {
 	columns: 3;
