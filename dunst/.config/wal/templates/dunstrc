@@ -21,8 +21,8 @@
     horizontal_padding = 24
 
     # The frame color and width of the notification
-    frame_color = "{color4}"
-    frame_width = 6
+    frame_color = "{color8}"
+    frame_width = 3
 
     # How long a user needs to be idle for sticky notifications
     idle_threshold = 120
