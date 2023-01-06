@@ -1,10 +1,6 @@
 " New Start: A modern Arch workflow built with an emphasis on functionality.
 " Copyright (C) 2017-2019 Donovan Glover
 
-if &shell =~# 'fish$'
-  set shell=sh
-endif
-
 let plugsys = glob('/usr/share/vim/vimfiles/autoload/plug.vim')
 let plugusr = glob('~/.vim/autoload/plug.vim')
 
