@@ -76,6 +76,11 @@ alias tree="exa --group-directories-first --long --tree -I 'node_modules|.git|pu
 # Prevent accidents
 alias mv="mv -i"
 
+# Always use kitty ssh since it's our default terminal
+if string match -qe -- "/dev/pts/" (tty)
+    alias ssh="kitty +kitten ssh"
+end
+
 # Abbreviations are aliases that expand
 if not set -q set_abbr
     set -U set_abbr
