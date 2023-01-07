@@ -47,7 +47,7 @@ super + o
 super + m
   wal -o ~/.config/wal/done.sh --theme random_dark
 
-super + z
+alt + F1
   ~/.config/rofi/launch.sh
 
 super + {equal,minus}
