@@ -171,6 +171,20 @@ else
     let g:lightline.colorscheme = 'Tomorrow_Night'
 endif
 
+" Make background color of lightline match terminal
+" https://github.com/itchyny/lightline.vim/issues/168
+autocmd VimEnter * call SetupLightlineColors()
+function SetupLightlineColors() abort
+  " transparent background in statusbar
+  let l:palette = lightline#palette()
+
+  let l:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
+  let l:palette.inactive.middle = l:palette.normal.middle
+  let l:palette.tabline.middle = l:palette.normal.middle
+
+  call lightline#colorscheme()
+endfunction
+
 " ============================
 " ========= keybinds =========
 " ============================
