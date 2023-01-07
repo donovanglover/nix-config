@@ -9,6 +9,7 @@ configuration {
   drun-icon-theme: "Papirus-Dark";
   terminal: "kitty";
   scroll-method: 1;
+  run-shell-command: "{terminal} -e fish -ic '{cmd} && read'";
 }
 
 @theme "~/.cache/wal/rofi.rasi"
