@@ -61,10 +61,6 @@ super + {_,shift} + q
 super + {_,shift} + {h,j,k,l}
   bspc node -{f,s} {west,south,north,east}
 
-# Switch to the next / previous node (includes monocle layout)
-super + {_,shift} + n
-  bspc node -f {next,prev}
-
 # FLAGS: Toggle between node flags
 super + {x,y}
   bspc node -g {sticky,private}
@@ -74,7 +70,7 @@ super + {_,shift} + b
   bspc node {-g hidden,$(bspc query -N -n .hidden | tail -n 1) -g hidden=off}
 
 # STATES: Toggle between node states
-super + {t,r,f,space}
+super + {t,w,f,space}
   bspc node focused -t ~{tiled,pseudo_tiled,fullscreen,floating}
 
 # PRESELECT: The direction to create a new node
