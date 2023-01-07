@@ -36,11 +36,12 @@ super + {_,shift} + Return
 super + backslash
   ~/.config/sxhkd/dropdown.sh
 
-# toggle polybar: top_padding depends on the height you set in polybar/config
+# TODO: Replace old polybar keybind with status notification
+# toggle tint2: bottom_padding depends on the panel_size you set in tint2rc
 super + o
-  (xdotool search --class --onlyvisible "Polybar" && \
-    (xdo hide -N "Polybar" && bspc config top_padding 0)) || \
-    (xdo show -N "Polybar" && bspc config top_padding $(cat ~/.cache/polybar/bspwm_top_padding))
+  (xdotool search --class --onlyvisible "tint2" && \
+    (xdo hide -n "tint2" && bspc config bottom_padding 0)) || \
+    (xdo show -n "tint2" && bspc config bottom_padding 30)
 
 # Change the wal color scheme
 super + m
