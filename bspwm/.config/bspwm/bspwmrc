@@ -98,6 +98,7 @@ fi
 # bspc rules
 bspc rule -a feh            state=floating
 bspc rule -a kitty:floating state=floating
+bspc rule -a Rofi           state=floating
 
 # Configure touchpad
 xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
