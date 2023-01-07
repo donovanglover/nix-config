@@ -1,6 +1,6 @@
 configuration {
   modi: ["drun", "filebrowser"];
-  font: "Hack 12";
+  font: "Noto Sans CJK JP 12";
   show-icons: true;
   bw: 0;
   drun-icon-theme: "Papirus-Dark";
