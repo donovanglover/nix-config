@@ -214,6 +214,9 @@ autocmd FileType jsx        nnoremap <silent> <leader>b :call JsxBeautify()<CR>
 autocmd FileType html       nnoremap <silent> <leader>b :call HtmlBeautify()<CR>
 autocmd FileType css        nnoremap <silent> <leader>b :call CSSBeautify()<CR>
 
+" Experimental yomichan-like command with tango
+vnoremap <C-s> y:silent !notify-send -t 4000 "成果" "$(tango '<C-r>0')"<CR>:<Esc>
+
 " Easily enter 'zen mode' with Goyo and Pencil (Note: Goyo resets the color scheme)
 nnoremap <silent> <leader>2 :PencilSoft<CR>:Goyo<CR>:hi vertsplit ctermfg=0 ctermbg=none<CR>
 
