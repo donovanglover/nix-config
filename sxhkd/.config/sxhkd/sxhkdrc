@@ -30,7 +30,7 @@ super + {shift,alt} + p
 
 # Open a new terminal window
 super + {_,shift} + Return
-  kitty --single-instance {_,--name floating}
+  ~/.config/sxhkd/kitty.sh
 
 # Toggle a dropdown terminal
 super + backslash
@@ -49,6 +49,9 @@ super + m
 
 super + z
   ~/.config/rofi/launch.sh
+
+super + {equal,minus}
+  ~/.config/sxhkd/kitty-next.sh {up,down}
 
 # ====================
 # ======= Node =======
