@@ -81,6 +81,11 @@ if string match -qe -- "/dev/pts/" (tty)
     alias ssh="kitty +kitten ssh"
 end
 
+# Source wal colors as needed
+if status is-interactive; and test "$TERM" = "xterm-256color"
+    cat ~/.cache/wal/sequences
+end
+
 # Abbreviations are aliases that expand
 if not set -q set_abbr
     set -U set_abbr
