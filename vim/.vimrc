@@ -189,7 +189,9 @@ nnoremap <silent> <leader>d :Explore<CR>
 nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>g :set hlsearch!<CR>
 nnoremap <silent> <leader>j :Buffers<CR>
+nnoremap <silent> <leader>k :NERDTreeToggleVCS<CR>
 nnoremap <silent> <leader>l :Rg<CR>
+nnoremap <silent> <leader>; <C-w>w
 
 " Bottom row
 autocmd FileType javascript nnoremap <silent> <leader>b :call JsBeautify()<CR>
@@ -255,6 +257,21 @@ autocmd BufNewFile,BufRead *.md set conceallevel=2
 let g:vim_markdown_conceal = 0
 let g:tex_conceal = ""
 let g:vim_markdown_math = 1
+
+" ============================
+" ========= nerdtree =========
+" ============================
+
+let NERDTreeShowHidden=1
+
+" Start NERDTree. If a file is specified, move the cursor to its window.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * silent! lcd %:p:h | NERDTreeVCS | wincmd p
+
+" Exit if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+let NERDTreeStatusline='%{exists("b:NERDTree")?fnamemodify(b:NERDTree.root.path.str(), ":~"):""}'
 
 " ===========================
 " ========= fzf.vim =========
