@@ -45,7 +45,13 @@ super + o
 
 # Change the wal color scheme
 super + m
-  wal -o ~/.config/wal/done.sh --theme random_dark
+  wal -o ~/.config/wal/done.sh --theme random_dark -e
+
+super + z
+  wal -o ~/.config/wal/done.sh -i ~/bgs -e
+
+super + r
+  wal -o ~/.config/wal/done.sh -R -e
 
 alt + F1
   ~/.config/rofi/launch.sh
