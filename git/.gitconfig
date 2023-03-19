@@ -27,7 +27,7 @@
     cmd = kitty kitty +kitten diff $LOCAL $REMOTE
 
 [web]
-    browser = qutebrowser
+    browser = librewolf
 
 [push]
     default = simple
