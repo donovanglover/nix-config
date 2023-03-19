@@ -59,8 +59,7 @@ if [[ "$VIRTUAL" != "none" ]]; then
 fi
 
 # Start picom (prevents screen tearing)
-# Note: --experimental-backends adds support for dual kawase blur
-picom --experimental-backends -b
+picom -b
 
 # Start bar
 tint2 &
