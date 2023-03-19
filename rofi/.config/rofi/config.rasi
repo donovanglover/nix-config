@@ -1,0 +1,25 @@
+configuration {
+  modi: ["drun", "filebrowser"];
+  font: "Noto Sans CJK JP 12";
+  show-icons: true;
+  bw: 0;
+  display-drun: "";
+  display-window: "";
+  display-combi: "";
+  drun-icon-theme: "Papirus-Dark";
+  terminal: "kitty";
+  scroll-method: 1;
+  run-shell-command: "{terminal} -e fish -ic '{cmd} && read'";
+}
+
+@theme "~/.cache/wal/rofi.rasi"
+
+listview {
+	columns: 3;
+}
+
+window {
+	width: 1200px;
+}
+
+// vim:syn=java
