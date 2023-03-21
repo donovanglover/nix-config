@@ -160,5 +160,8 @@ bspc subscribe node_remove | while read event; do
   fi
 done &
 
+# Disable middle click paste
+xmousepasteblock &
+
 # Make the start button work as expected
 ksuperkey -t 200
