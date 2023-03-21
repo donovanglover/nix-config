@@ -28,3 +28,6 @@ visualizer_output_name = "my_fifo"
 visualizer_in_stereo = "yes"
 visualizer_type = "spectrum"
 visualizer_look = "+|"
+
+# Cross-fading
+mpd_crossfade_time = 3
