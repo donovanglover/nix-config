@@ -8,7 +8,7 @@ window:
     y: 10
   decorations: none
   startup_mode: Maximized
-  gtk_theme_variant: dark
+  decorations_theme_variant: dark
 
 font:
   normal:
