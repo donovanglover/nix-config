@@ -20,9 +20,9 @@ colors:
       foreground: CellBackground
       background: CellForeground
 
-    bar:
-      foreground: '{color8}'
-      background: '{color7}'
+  footer_bar:
+    foreground: '{color8}'
+    background: '{color7}'
 
   line_indicator:
     foreground: None
