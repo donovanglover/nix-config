@@ -32,4 +32,4 @@ mouse:
   hide_when_typing: true
   hints:
     launcher:
-      program: /usr/bin/firefox
+      program: /usr/bin/librewolf
