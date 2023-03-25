@@ -141,17 +141,6 @@ alttab -d 1 -w 1 -font "xft:Noto Sans CJK JP" -mk Super_L -kk grave &
 # Fix bar showing above fullscreen programs
 xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" $(xdo id -n tint2)
 
-# Open new nodes on the next unoccupied desktop (dynamic desktops part 1)
-bspc subscribe node_add | while read event; do
-  if [ $(bspc query -N -n '.local.!hidden.tiled' | wc -l) -gt 1 ]; then
-    nodeId=$(echo "$event" | cut -d" " -f 5)
-    next=$(bspc query -D -d 'next.!occupied')
-
-    if [ -n "$next" ]; then
-      bspc node "$nodeId" --to-desktop "$next" --follow
-    fi
-  fi
-done &
 
 # Go to the previous node if the current desktop is empty (dynamic desktops part 2)
 bspc subscribe node_remove | while read event; do
