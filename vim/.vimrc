@@ -32,25 +32,25 @@ call plug#begin('~/.vim/plugged')
     Plug 'neoclide/coc.nvim', {'branch': 'release'} " Auto-complete support
     Plug 'ryanoasis/vim-devicons'
 
-    Plug 'osyo-manga/vim-over',         {'on': 'OverCommandLine'}
+    Plug 'osyo-manga/vim-over'
     Plug 'maksimr/vim-jsbeautify'
 
-    Plug 'pangloss/vim-javascript',     {'for': 'javascript'}
-    Plug 'rhysd/vim-crystal',           {'for': 'crystal'}
-    Plug 'rust-lang/rust.vim',          {'for': 'rust'}
-    Plug 'baskerville/vim-sxhkdrc',     {'for': 'sxhkdrc'}
-    Plug 'dag/vim-fish',                {'for': 'fish'}
-    Plug 'slim-template/vim-slim',      {'for': 'slim'}
-    Plug 'Glench/Vim-Jinja2-Syntax',    {'for': 'jinja2'}
-    Plug 'plasticboy/vim-markdown',     {'for': 'markdown'}
-    Plug 'posva/vim-vue',               {'for': 'vue'}
-    Plug 'maxmellon/vim-jsx-pretty',    {'for': 'javascript'}
-    Plug 'digitaltoad/vim-pug',         {'for': 'pug'}
-    Plug 'leafgarland/typescript-vim',  {'for': 'typescript'}
-    Plug 'dbeniamine/todo.txt-vim',     {'for': 'todo'}
-    Plug 'lervag/vimtex',               {'for': 'tex'}
-    Plug 'pantharshit00/vim-prisma',    {'for': 'prisma'}
-    Plug 'wuelnerdotexe/vim-astro',     {'for': 'astro', 'branch': 'main'}
+    Plug 'pangloss/vim-javascript'
+    Plug 'rhysd/vim-crystal'
+    Plug 'rust-lang/rust.vim'
+    Plug 'baskerville/vim-sxhkdrc'
+    Plug 'dag/vim-fish'
+    Plug 'slim-template/vim-slim'
+    Plug 'Glench/Vim-Jinja2-Syntax'
+    Plug 'plasticboy/vim-markdown'
+    Plug 'posva/vim-vue'
+    Plug 'maxmellon/vim-jsx-pretty'
+    Plug 'digitaltoad/vim-pug'
+    Plug 'leafgarland/typescript-vim'
+    Plug 'dbeniamine/todo.txt-vim'
+    Plug 'lervag/vimtex'
+    Plug 'pantharshit00/vim-prisma'
+    Plug 'wuelnerdotexe/vim-astro'
     Plug 'isobit/vim-caddyfile'
 call plug#end()
 
