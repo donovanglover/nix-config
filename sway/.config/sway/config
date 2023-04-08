@@ -11,6 +11,9 @@ set $menu rofi -show drun
 # Output configuration (swaymsg -t get_outputs)
 output * bg /usr/share/backgrounds/archlinux/simple.png fill
 
+# Enable variable refresh rate
+output * adaptive_sync on
+
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 input "2:7:SynPS/2_Synaptics_TouchPad" {
