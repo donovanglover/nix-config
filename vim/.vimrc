@@ -1,5 +1,5 @@
 " New Start: A modern Arch workflow built with an emphasis on functionality.
-" Copyright (C) 2017-2019 Donovan Glover
+" Copyright (C) 2017-2023 Donovan Glover
 
 let plugsys = glob('/usr/share/vim/vimfiles/autoload/plug.vim')
 let plugusr = glob('~/.vim/autoload/plug.vim')
@@ -21,7 +21,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'airblade/vim-gitgutter'       " Git diff
     Plug 'itchyny/lightline.vim'        " Status line
     Plug 'dense-analysis/ale'           " Syntax checker
-    Plug 'sgur/vim-editorconfig'        " EditorConfig
     Plug 'tpope/vim-fugitive'           " Git wrapper
     Plug 'junegunn/fzf.vim'             " fzf wrapper
     Plug 'lunarWatcher/auto-pairs'      " {Pair} completion
