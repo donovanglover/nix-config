@@ -99,10 +99,6 @@ super + ctrl + {1-9}
 super + {_,shift} + {1-9,0}
   bspc {desktop -f,node -d} '^{1-9,10}'
 
-# Move to the next desktop on the current monitor
-super + {_, shift} + Tab
-  bspc desktop -f {next,prev}.local.occupied
-
 # Easily go back and forth between the last desktop used
 super + a
   bspc desktop -f last
