@@ -58,7 +58,7 @@ function ex
 end
 
 # Don't show ripgrep results for very long lines (e.g. minified files)
-alias rg="rg --max-columns=200"
+alias rg="rg --max-columns=2000"
 
 # Use exa as a drop-in replacement for ls and tree (faster, more colors, etc.)
 alias ls="exa --group-directories-first -I 'lost+found'"
