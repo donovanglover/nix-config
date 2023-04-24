@@ -66,5 +66,4 @@ env \
   rofi \
     -show drun \
     -dpi "$ROFI_DPI" \
-    -normal-window \
     -m -1
