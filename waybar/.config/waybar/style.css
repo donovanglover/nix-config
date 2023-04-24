@@ -1,27 +1,39 @@
 @import url("../../.cache/wal/colors-waybar.css");
 
 * {
-    font-family: "Fira Mono, Noto Sans CJK JP, Font Awesome 6 Free Solid, Font Awesome 6 Free Brands";
+    font-family: "Noto Sans CJK JP, Font Awesome 6 Free Solid, Font Awesome 6 Free Brands";
+    font-weight: bold;
+    font-size: 13px;
 }
 
 window#waybar {
-    background: rgba(43, 48, 59, 0.9);
+    background: rgba(0, 0, 0, 0.9);
     background: @background;
     border-bottom: 1px solid rgba(100, 114, 125, 0.3);
     color: @foreground;
     font-weight: 500;
+    border-radius: 0;
 }
 
-#workspaces button {
+#workspaces button, #tags button {
     padding: 0 20px;
     background: transparent;
-    color: white;
+    color: #AAA;
 }
 
-#workspaces button.focused {
+#workspaces button.active, #tags button.focused {
     padding: 0 20px;
     background: #64727D;
     background: @color8;
+}
+
+#taskbar button {
+  padding: 0 20px;
+  border-right: 1px solid @color4;
+}
+
+#taskbar button.active {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 #mode, #pulseaudio, #network, #backlight, #memory, #clock, #battery {
