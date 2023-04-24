@@ -5,15 +5,13 @@
 export SXHKD_SHELL="/usr/bin/bash"
 export XCURSOR_THEME="phinger-cursors"
 export XDG_DATA_DIRS="/usr/share:/usr/share:/usr/local/share"
-export BROWSER="qutebrowser"
+export BROWSER="librewolf"
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 export GLFW_IM_MODULE=ibus
 export XSECURELOCK_SAVER=saver_mpv
 export XSECURELOCK_COMPOSITE_OBSCURER=0
-export XDG_CURRENT_DESKTOP=i3
-export GTK_USE_PORTAL=1
 
 sxhkd &
 
@@ -28,7 +26,6 @@ bspc config pointer_motion_interval 4
 # Don't use borders/gaps by default
 bspc config border_width 0
 bspc config window_gap 0
-bspc config single_monocle true
 
 # Always focus the window under the cursor
 # while moving the mouse, similar to i3
@@ -131,7 +128,7 @@ if hash mullvad-vpn 2>/dev/null; then
   mullvad-vpn &
 fi
 
-# Start an authentication agent for polkit
+# Start an authentication agent for polkit, necessary for Ventoy etc.
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # Use maximum brightness on the keyboard by default
@@ -141,7 +138,7 @@ brightnessctl --device='tpacpi::kbd_backlight' set 2
 alttab -d 1 -w 1 -font "xft:Noto Sans CJK JP" -mk Super_L -kk grave &
 
 # Fix bar showing above fullscreen programs
-xdo above -t "$(xdo id -N Bspwm -n root | sort | head -n 1)" $(xdo id -n tint2)
+~/.config/tint2/fullscreen.sh
 
 # Disable middle click paste
 xmousepasteblock &
