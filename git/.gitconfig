@@ -52,9 +52,9 @@
 
 [color "diff-highlight"]
     oldNormal = red bold
-    oldHighlight = red bold 52
+    oldHighlight = red bold
     newNormal = green bold
-    newHighlight = green bold 22
+    newHighlight = green bold
 
 [color "diff"]
     meta = yellow
