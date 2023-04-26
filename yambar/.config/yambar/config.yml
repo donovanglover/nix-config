@@ -1,0 +1,142 @@
+BMARGIN: &BMARGIN 10
+
+bar:
+  height: 30
+  location: top
+  background: 191919e6
+  foreground: ffffffbb
+  font: Noto Sans CJK JP:Bold:size=13,Font Awesome 6 Free:style=solid:size=13
+  right-margin: *BMARGIN
+  layer: bottom
+  left:
+    -
+      script:
+        path: /home/donovan/.config/yambar/hyprland.sh
+        args: []
+        content:
+          string:
+            on-click:
+              left: sh -c 'hyprctl dispatch workspace e+1'
+              right: sh -c 'hyprctl dispatch workspace empty'
+              middle: sh -c 'kitty ranger ~'
+            text: "{hypr_ws}"
+            left-margin: *BMARGIN
+    -
+      river:
+        anchors:
+          - base: &river_base
+              left-margin: *BMARGIN
+              right-margin: *BMARGIN
+              default: {string: {text: ''}}
+              conditions:
+                id == 1: {string: {text: 一}}
+                id == 2: {string: {text: 二}}
+                id == 3: {string: {text: 三}}
+                id == 4: {string: {text: 四}}
+                id == 5: {string: {text: 五}}
+                id == 6: {string: {text: 六}}
+                id == 7: {string: {text: 七}}
+                id == 8: {string: {text: 八}}
+                id == 9: {string: {text: 九}}
+                id == 10: {string: {text: 十}}
+        content:
+          map:
+            on-click:
+              left: sh -c "riverctl set-focused-tags $((1 << ({id} - 1)))"
+              right: sh -c "riverctl toggle-focused-tags $((1 << ({id} -1)))"
+              middle: sh -c "riverctl toggle-view-tags $((1 << ({id} -1)))"
+            conditions:
+              state == urgent:
+                map:
+                  <<: *river_base
+              state == focused:
+                map:
+                  <<: *river_base
+                  deco: {background: {color: ffffff33}}
+              state == visible && ~occupied:
+                map:
+                  <<: *river_base
+              state == visible && occupied:
+                map:
+                  <<: *river_base
+              state == unfocused:
+                map:
+                  <<: *river_base
+              state == invisible && ~occupied: {empty: {}}
+              state == invisible && occupied:
+                map:
+                  <<: *river_base
+  center:
+    -
+      foreign-toplevel:
+        content:
+          map:
+            conditions:
+              ~activated: {empty: {}}
+              activated:
+                - string: {text: "{title}", max: 90, on-click: 'notify-send "app-id" "{app-id}"'}
+  right:
+    -
+      battery:
+        name: BAT0
+        anchors:
+          discharging: &discharging
+            list:
+              items:
+                - ramp:
+                    tag: capacity
+                    items:
+                      - string: {text: , foreground: ff0000ff}
+                      - string: {text: , foreground: ffa600ff}
+                      - string: {text: }
+                      - string: {text: }
+                      - string: {text: }
+                      - string: {text: }
+                      - string: {text: }
+                      - string: {text: }
+                      - string: {text: }
+                      - string: {text: , foreground: 00ff00ff}
+                - string: {text: "{capacity}% {estimate}", left-margin: *BMARGIN}
+        content:
+          map:
+            conditions:
+              state == unknown:
+                <<: *discharging
+              state == discharging:
+                <<: *discharging
+              state == charging:
+                - string: {text: , foreground: 00ff00ff}
+                - string: {text: "{capacity}% {estimate}"}
+              state == full:
+                - string: {text: , foreground: 00ff00ff}
+                - string: {text: "{capacity}% full"}
+              state == "not charging":
+                - ramp:
+                    tag: capacity
+                    items:
+                      - string: {text:  , foreground: ff0000ff}
+                      - string: {text:  , foreground: ffa600ff}
+                      - string: {text:  , foreground: 00ff00ff}
+                      - string: {text:  , foreground: 00ff00ff}
+                      - string: {text:  , foreground: 00ff00ff}
+                      - string: {text:  , foreground: 00ff00ff}
+                      - string: {text:  , foreground: 00ff00ff}
+                      - string: {text:  , foreground: 00ff00ff}
+                      - string: {text:  , foreground: 00ff00ff}
+                      - string: {text:  , foreground: 00ff00ff}
+                - string: {text: "{capacity}%"}
+    -
+      clock:
+        time-format: "%H:%M %Z"
+        content:
+          - string: {text: , right-margin: 5, left-margin: *BMARGIN}
+          - string: {text: "{date}", on-click: 'yad --calendar --title "今日は何の日"'}
+          - string: {text: , right-margin: 5, left-margin: *BMARGIN}
+          - string: {text: "{time}"}
+    -
+      label:
+        content:
+          string:
+            on-click: sh -c 'rofi -show'
+            text: 
+            left-margin: *BMARGIN
