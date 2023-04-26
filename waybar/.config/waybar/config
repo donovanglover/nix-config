@@ -1,25 +1,37 @@
 {
+    "layer": "top",
+    "position": "top",
     "height": 30,
-    "modules-left": ["sway/workspaces", "sway/mode", "tray"],
-    "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "network", "backlight", "memory", "battery", "clock"],
-    "sway/workspaces": {
+    "modules-left": [ "wlr/workspaces", "hyprland/submap", "river/tags"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["hyprland/submap", "tray", "pulseaudio", "network", "backlight", "memory", "battery", "clock"],
+    "river/tags": {
+      "num-tags": 5
+    },
+    "wlr/workspaces": {
       "format": "{icon}",
       "on-click": "activate",
-      "format-icons": {
-        "1": "",
-        "2": "",
-        "3": "",
-        "4": "",
-        "5": "五",
-        "6": "六",
-        "7": "七",
-        "8": "八",
-        "9": "九",
-        "10": "十"
+      "sort-by-number": true,
+      "persistent_workspaces": {
+        "1": [],
+        "2": [],
+        "3": [],
+        "4": [],
+        "5": [],
+        "6": []
       }
     },
-    "sway/mode": {
+    "wlr/taskbar": {
+      "format": "{icon}",
+      "icon-size": 32,
+      "tooltip-format": "{title}",
+      "on-click": "activate",
+      // "on-click-middle": "close",
+      "app_ids-mapping": {
+        "mullvadbrowser": "mullvad-browser"
+      }
+    },
+    "wlr/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
     "tray": {
@@ -30,38 +42,45 @@
         "format-alt": "{:%Y-%m-%d}"
     },
     "backlight": {
-        "format": "{icon} {percent}%",
+        "format": "{icon}   {percent}%",
         "format-icons": ["", ""]
     },
     "memory": {
         "interval": 30,
-        "format": " {}%"
+        "format": "   {}%"
     },
     "battery": {
         "states": {
+            "full": 100,
             "warning": 20,
             "critical": 10
         },
-        "format": "{icon} {capacity}%",
+        "format": "{icon}   {capacity}%",
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
+        "format-full": "",
         "format-alt": "{time} {icon}",
         "format-icons": ["", "", "", "", ""]
     },
     "network": {
-        "format-wifi": " ({signalStrength}%)",
-        "format-ethernet": " {ifname}: {ipaddr}/{cidr}",
-        "format-linked": " {ifname} (No IP)",
-        "format-disconnected": "⚠ Disconnected",
+        "format-wifi": "   ({signalStrength}%)",
+        "format-ethernet": "   {ifname}: {ipaddr}/{cidr}",
+        "format-linked": "   {ifname} (No IP)",
+        "format-disconnected": "⚠   Disconnected",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
-        "format": "{icon} {volume}%",
+        "format": "{icon}   {volume}%",
         "format-muted": "🔇 Muted",
         "format-icons": {
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
+    },
+    "hyprland/submap": {
+      "format": "{}",
+      "max-length": 8,
+      "tooltip": false
     }
 }
 // vim:syn=json
