@@ -41,8 +41,8 @@ bar:
                 - ramp:
                     tag: capacity
                     items:
-                      - string: {text: , foreground: ff0000ff}
-                      - string: {text: , foreground: ffa600ff}
+                      - string: {text: }
+                      - string: {text: }
                       - string: {text: }
                       - string: {text: }
                       - string: {text: }
@@ -50,7 +50,7 @@ bar:
                       - string: {text: }
                       - string: {text: }
                       - string: {text: }
-                      - string: {text: , foreground: 00ff00ff}
+                      - string: {text: }
                 - string: {text: "{capacity}% {estimate}", left-margin: *BMARGIN}
         content:
           map:
@@ -60,25 +60,25 @@ bar:
               state == discharging:
                 <<: *discharging
               state == charging:
-                - string: {text: , foreground: 00ff00ff}
+                - string: {text: }
                 - string: {text: "{capacity}% {estimate}"}
               state == full:
-                - string: {text: , foreground: 00ff00ff}
-                - string: {text: "{capacity}% full"}
+                - string: {text: }
+                - string: {text: " {capacity}%"}
               state == "not charging":
                 - ramp:
                     tag: capacity
                     items:
-                      - string: {text:  , foreground: ff0000ff}
-                      - string: {text:  , foreground: ffa600ff}
-                      - string: {text:  , foreground: 00ff00ff}
-                      - string: {text:  , foreground: 00ff00ff}
-                      - string: {text:  , foreground: 00ff00ff}
-                      - string: {text:  , foreground: 00ff00ff}
-                      - string: {text:  , foreground: 00ff00ff}
-                      - string: {text:  , foreground: 00ff00ff}
-                      - string: {text:  , foreground: 00ff00ff}
-                      - string: {text:  , foreground: 00ff00ff}
+                      - string: {text: }
+                      - string: {text: }
+                      - string: {text: }
+                      - string: {text: }
+                      - string: {text: }
+                      - string: {text: }
+                      - string: {text: }
+                      - string: {text: }
+                      - string: {text: }
+                      - string: {text: }
                 - string: {text: "{capacity}%"}
     -
       backlight:
