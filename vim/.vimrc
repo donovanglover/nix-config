@@ -45,11 +45,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'maxmellon/vim-jsx-pretty'
     Plug 'digitaltoad/vim-pug'
     Plug 'leafgarland/typescript-vim'
-    Plug 'dbeniamine/todo.txt-vim'
     Plug 'lervag/vimtex'
     Plug 'pantharshit00/vim-prisma'
     Plug 'wuelnerdotexe/vim-astro'
     Plug 'isobit/vim-caddyfile'
+    Plug 'preservim/nerdcommenter'
 call plug#end()
 
 " ============================
@@ -279,10 +279,6 @@ let g:vim_markdown_math = 1
 
 let NERDTreeShowHidden=1
 
-" Start NERDTree. If a file is specified, move the cursor to its window.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * silent! lcd %:p:h | NERDTreeVCS | wincmd p
-
 " Exit if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
@@ -297,3 +293,5 @@ let NERDTreeStatusline='%{exists("b:NERDTree")?fnamemodify(b:NERDTree.root.path.
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 ruler
+
+hi Comment cterm=italic gui=italic
