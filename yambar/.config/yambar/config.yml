@@ -81,6 +81,19 @@ bar:
                       - string: {text:  , foreground: 00ff00ff}
                 - string: {text: "{capacity}%"}
     -
+      backlight:
+        name: amdgpu_bl0
+        content:
+          string: {text: "  {brightness}/255", left-margin: *BMARGIN}
+    -
+      script:
+        path: /home/donovan/.config/yambar/pipewire.sh
+        args: []
+        content:
+          string:
+            text: "{pipewire}"
+            left-margin: *BMARGIN
+    -
       clock:
         time-format: "%H:%M %Z"
         content:
