@@ -8,7 +8,7 @@ while true; do
   printf -- '%s\n' "hypr_ws|string|${hypr_ws}"
   printf -- '%s\n' ""
 
-  sleep 0.05
+  sleep 0.1
 done
 
 unset hypr_ws
