@@ -6,20 +6,21 @@ configuration {
   display-drun: "";
   display-window: "";
   display-combi: "";
-  drun-icon-theme: "Papirus-Dark";
+  icon-theme: "Papirus";
   terminal: "kitty";
-  scroll-method: 1;
-  run-shell-command: "{terminal} -e fish -ic '{cmd} && read'";
+  drun-match-fields: "name";
+  drun-display-format: "{name}";
+  window {
+    hide-active-window: true;
+  }
+  me-select-entry: "";
+  me-accept-entry: "MousePrimary";
 }
 
 @theme "~/.cache/wal/rofi.rasi"
 
 listview {
-	columns: 3;
-}
-
-window {
-	width: 1200px;
+  cycle: false;
 }
 
 // vim:syn=java
