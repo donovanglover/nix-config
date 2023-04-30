@@ -1,169 +1,98 @@
+/*
+  Based on Newman Sánchez's Launchpad theme.
+  https://github.com/newmanls/rofi-themes-collection
+*/
+
 * {{
-    active-background: @background;
-    active-foreground: @foreground;
-    normal-background: @background;
-    normal-foreground: @foreground;
-    urgent-background: @background;
-    urgent-foreground: @foreground;
+    font: "Noto Sans CJK JP Bold 12";
 
-    alternate-active-background: @background;
-    alternate-active-foreground: @foreground;
-    alternate-normal-background: @background;
-    alternate-normal-foreground: @foreground;
-    alternate-urgent-background: @background;
-    alternate-urgent-foreground: @foreground;
+    bg0:  #242424dd;
+    bg1:  #363636;
+    bg2:  #f5f5f520;
+    bg3:  #f5f5f540;
+    bg4:  #0860f2E6;
 
-    selected-active-background: {color8};
-    selected-active-foreground: @foreground;
-    selected-normal-background: {color8};
-    selected-normal-foreground: @foreground;
-    selected-urgent-background: {color8};
-    selected-urgent-foreground: @foreground;
+    fg0:  #f5f5f5;
+    fg1:  #f5f5f580;
 
     background-color: transparent;
-    background: rgba({background.rgb}, 0.9);
     foreground: {foreground};
-    border-color: @background;
-    spacing: 2;
+    text-color:       @fg0;
+    padding:          0px;
+    margin:           0px;
 }}
 
-#window {{
-    background-color: @background;
-    border: 1px;
-    border-color: {color7};
-    padding: 2.5ch;
+window {{
+  fullscreen: true;
+  padding: 1em;
+  background-color: @bg0;
+  background-color: rgba({background.rgb}, 0.9);
 }}
 
-#mainbox {{
-    border: 0;
-    padding: 0;
+mainbox {{
+  padding:  8px;
 }}
 
-#message {{
-    border: 2px 0px 0px;
-    border-color: @border-color;
-    padding: 1px;
+inputbar {{
+  background-color: @bg2;
+
+  margin:   0px calc( 50% - 230px );
+  padding:  4px 8px;
+  spacing:  8px;
+
+  border:         1px;
+  border-radius:  2px;
+  border-color:   @bg3;
+
+  children: [icon-search,entry];
 }}
 
-#textbox {{
-    text-color: @foreground;
+prompt {{
+  enabled:  false;
 }}
 
-#inputbar {{
-    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+icon-search {{
+  expand:   false;
+  filename: "search";
+  vertical-align: 0.5;
 }}
 
-#textbox-prompt-colon {{
-    expand: false;
-    str: ":";
-    margin: 0px 0.3em 0em 0em;
-    text-color: @normal-foreground;
+entry {{
+  placeholder:        "Search";
+  placeholder-color:  @bg2;
 }}
 
-#listview {{
-    fixed-height: 0;
-    border: 2px 0px 0px;
-    border-color: @border-color;
-    spacing: 2px;
-    scrollbar: true;
-    padding: 2px 0px 0px;
+listview {{
+  /*margin:   48px calc( 50% - 560px );*/
+  margin:   86px calc( 50% - 560px );
+  spacing:  48px;
+  /*columns:  5;*/
+  columns:  5;
+  fixed-columns: true;
 }}
 
-#element {{
-    border: 0;
-    padding: 1px;
+element, element-text, element-icon {{
+  cursor: pointer;
 }}
 
-#element-text, element-icon {{
-    background-color: inherit;
-    text-color:       inherit;
+element {{
+  padding:      8px;
+  spacing:      4px;
+
+  orientation:    vertical;
+  border-radius:  16px;
 }}
 
-#element.normal.normal {{
-    background-color: transparent;
-    text-color: @normal-foreground;
+element selected {{
+  background-color: {color8};
 }}
 
-#element.normal.urgent {{
-    background-color: transparent;
-    text-color: @urgent-foreground;
+element-icon {{
+  size: 5em;
+  horizontal-align: 0.5;
 }}
 
-#element.normal.active {{
-    background-color: transparent;
-    text-color: @active-foreground;
+element-text {{
+  horizontal-align: 0.5;
 }}
-
-#element.selected.normal {{
-    background-color: transparent;
-    text-color: @selected-normal-foreground;
-}}
-
-#element.selected.urgent {{
-    background-color: transparent;
-    text-color: @selected-urgent-foreground;
-}}
-
-#element.selected.active {{
-    background-color: transparent;
-    text-color: @selected-active-foreground;
-}}
-
-#element.alternate.normal {{
-    background-color: transparent;
-    text-color: @alternate-normal-foreground;
-}}
-
-#element.alternate.urgent {{
-    background-color: transparent;
-    text-color: @alternate-urgent-foreground;
-}}
-
-#element.alternate.active {{
-    background-color: transparent;
-    text-color: @alternate-active-foreground;
-}}
-
-#scrollbar {{
-    width: 4px;
-    border: 0;
-    handle-width: 8px;
-    padding: 0;
-}}
-
-#sidebar {{
-    border: 2px 0px 0px;
-    border-color: @border-color;
-}}
-
-#button {{
-    text-color: @normal-foreground;
-}}
-
-#button.selected {{
-    background-color: transparent;
-    text-color: @selected-normal-foreground;
-}}
-
-#inputbar {{
-    spacing: 0;
-    text-color: @normal-foreground;
-    padding: 1px;
-}}
-
-#case-indicator {{
-    spacing: 0;
-    text-color: @normal-foreground;
-}}
-
-#entry {{
-    spacing: 0;
-    text-color: @normal-foreground;
-}}
-
-#prompt {{
-    spacing: 0;
-    text-color: @normal-foreground;
-}}
-
 // vim:syn=css
