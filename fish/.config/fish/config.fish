@@ -52,9 +52,16 @@ function wav2flac
     echo "Done. Reduced file size from $ORIGINAL_SIZE to $NEW_SIZE"
 end
 
-# Easily extract files and remove the archive
-function ex
-    unar "$argv"; and rm -i "$argv"
+# Convert wav/flac to opus
+function opus
+    set ORIGINAL_SIZE (du -hs | cut -f1)
+
+    fd -e wav -e flac -x ffmpeg -i "{}" -c:a libopus -b:a 128K -loglevel quiet -stats "{.}.opus"
+    fd -e wav -e flac -X rm -I
+
+    set NEW_SIZE (du -hs | cut -f1)
+
+    echo "Done. Reduced file size from $ORIGINAL_SIZE to $NEW_SIZE"
 end
 
 # Don't show ripgrep results for very long lines (e.g. minified files)
