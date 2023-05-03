@@ -23,13 +23,17 @@ bar:
             left-margin: *BMARGIN
   center:
     -
-      foreign-toplevel:
+      script:
+        path: /home/donovan/.config/yambar/title.sh
+        args: []
         content:
-          map:
-            conditions:
-              ~activated: {empty: {}}
-              activated:
-                - string: {text: "{title}", max: 90, on-click: 'notify-send "app-id" "{app-id}"'}
+          string:
+            on-click:
+              left: sh -c '~/.config/hypr/swapmaster.sh'
+              right: sh -c 'hyprctl dispatch movetoworkspace special'
+              middle: sh -c 'hyprctl dispatch killactive'
+            text: "{title}"
+            max: 90
   right:
     -
       battery:
