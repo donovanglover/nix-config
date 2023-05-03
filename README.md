@@ -1,5 +1,7 @@
 # .files
 
+> NOTE: As of 2023, I am in the process of migrating from Arch Linux + bspwm to [NixOS](https://nixos.org/) + [Hyprland](https://hyprland.org/).
+
 These are my dotfiles. As of 2022, my operating system of choice remains to be [Arch Linux](https://archlinux.org/). I also like [Fedora](https://getfedora.org/), but I don't use it for anything serious.
 
 > NOTE: This readme is currently WIP and may change drastically. You are free to study and take whatever you want from these dotfiles, but avoid executing any commands that change a lot of stuff.
