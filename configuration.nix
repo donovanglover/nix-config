@@ -41,7 +41,6 @@
     neofetch
     anki
     git
-    home-manager
     hyprland
     htop
     logseq
@@ -73,6 +72,10 @@
 
   services.gnome.core-utilities.enable = false;
   services.mullvad-vpn.enable = true;
+
+  networking.networkmanager.wifi.macAddress = "random";
+  networking.networkmanager.ethernet.macAddress = "random";
+  services.resolved.llmnr = "false";
 
   system.stateVersion = "22.11";
 }
