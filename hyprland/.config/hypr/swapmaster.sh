@@ -51,6 +51,7 @@ else
   # If there are more windows, swap
   if [[ $numWindowsOnWorkspace -gt 1 ]]; then
     hyprctl dispatch layoutmsg swapwithmaster
+    hyprctl dispatch layoutmsg focusmaster master
   fi
 fi
 
