@@ -3,7 +3,7 @@ BMARGIN: &BMARGIN 10
 bar:
   height: 30
   location: top
-  background: 282a36e6
+  background: 262626f2
   foreground: ffffffbb
   font: Noto Sans CJK JP:Bold:size=13,Font Awesome 6 Free:style=solid:size=13
   right-margin: *BMARGIN
