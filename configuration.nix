@@ -109,7 +109,39 @@
   services.xserver.desktopManager.gnome.enable = true;
   programs.thunar.enable = true;
 
-  programs.starship.enable = true;
+  programs.starship = {
+    enable = true;
+    settings = {
+      add_newline = false;
+      directory = {
+        style = "purple";
+        read_only = " ro";
+      };
+
+      git_branch = {
+        style = "yellow";
+        symbol = "";
+      };
+
+      character = {
+        #success_symbol = "[➤](red)[➤](green)[➤](blue)";
+        #error_symbol = "[➤](cyan)[➤](purple)[➤](yellow)";
+        success_symbol = "[>](red)[>](green)[>](blue)";
+        error_symbol = "[>](cyan)[>](purple)[>](yellow)";
+        vicmd_symbol = "[<](bold green)";
+      };
+
+      line_break = { disabled = true; };
+
+      nodejs = {
+        format = "with [$symbol($version )]($style)";
+        symbol = "node ";
+        version_format = "\${major}";
+        disabled = true;
+      };
+
+    };
+  };
   programs.neovim.enable = true;
   programs.hyprland.enable = true;
   programs.git.enable = true;
