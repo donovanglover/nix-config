@@ -1,4 +1,0 @@
-# Make the foreground text easier to read with light background colors
-color cursor black green bold
-color title-focus black blue bold
-color title-blur black blue bold
