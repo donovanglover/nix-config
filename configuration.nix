@@ -106,7 +106,6 @@
     [ "en_US.UTF-8/UTF-8" "ja_JP.UTF-8/UTF-8" "fr_FR.UTF-8/UTF-8" ];
 
   services.xserver.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
   programs.thunar.enable = true;
 
   programs.starship = {
@@ -209,12 +208,8 @@
 
   fonts.fontconfig.hinting.style = "hintfull";
 
-  i18n.inputMethod = {
-    enabled = "ibus";
-    ibus.engines = with pkgs.ibus-engines; [ anthy mozc ];
-  };
+  i18n.inputMethod.enabled = "fcitx5";
 
-  services.gnome.core-utilities.enable = false;
   services.mullvad-vpn.enable = true;
   services.mullvad-vpn.enableExcludeWrapper = false;
 
@@ -223,12 +218,7 @@
   services.resolved.llmnr = "false";
 
   environment.defaultPackages = [ ];
-  environment.gnome.excludePackages = [ pkgs.gnome-tour ];
   services.xserver.excludePackages = [ pkgs.xterm ];
-  services.gnome.gnome-online-accounts.enable = false;
-  services.gnome.gnome-user-share.enable = false;
-  services.gnome.tracker.enable = false;
-  services.gnome.tracker-miners.enable = false;
 
   # Force containers to use mullvad
   networking.nat.enable = true;
@@ -308,16 +298,14 @@
       environment.variables = { TERM = "xterm-kitty"; };
 
       environment.sessionVariables = {
-        # WAYLAND_DISPLAY = "wayland-0"; # GNOME+gdm
-        WAYLAND_DISPLAY = "wayland-1"; # Hyprland+sddm
+        WAYLAND_DISPLAY = "wayland-1";
         QT_QPA_PLATFORM = "wayland";
         QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
         SDL_VIDEODRIVER = "wayland";
         CLUTTER_BACKEND = "wayland";
         MOZ_ENABLE_WAYLAND = "1";
         XDG_RUNTIME_DIR = "/run/user/1000";
-        # DISPLAY = ":0"; # GNOME+gdm
-        DISPLAY = ":1"; # Hyprland+sddm
+        DISPLAY = ":1";
       };
 
       services.xserver.enable = true;
