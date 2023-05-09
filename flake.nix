@@ -5,12 +5,14 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs: {
-    nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
+  outputs = { self, nixpkgs, home-manager, ... }@attrs: {
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = attrs;
       modules = [
         ./configuration.nix
-        inputs.home-manager.nixosModules.home-manager
+        ./modules/editor.nix
+        home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
           users.users.user = {
@@ -79,39 +81,6 @@
                 screenshots = true;
                 fade-in = 1;
               };
-            };
-            programs.neovim = {
-              enable = true;
-              plugins = with pkgs.vimPlugins; [{
-                plugin = nvim-tree-lua;
-                type = "lua";
-                config = ''
-                  vim.g.loaded_netrw = 1
-                  vim.g.loaded_netrwPlugin = 1
-                  vim.opt.termguicolors = true
-                  require("nvim-tree").setup()
-                '';
-              }
-              {
-                plugin = indent-blankline-nvim;
-                type = "lua";
-                config = ''
-                  vim.cmd [[highlight IndentBlanklineIndent1 guibg=#1f1f1f gui=nocombine]]
-                  vim.cmd [[highlight IndentBlanklineIndent2 guibg=#1a1a1a gui=nocombine]]
-                  require("indent_blankline").setup {
-                    char = "",
-                    char_highlight_list = {
-                        "IndentBlanklineIndent1",
-                        "IndentBlanklineIndent2",
-                    },
-                    space_char_highlight_list = {
-                        "IndentBlanklineIndent1",
-                        "IndentBlanklineIndent2",
-                    },
-                    show_trailing_blankline_indent = false,
-                  }
-                '';
-              }];
             };
             editorconfig = {
               enable = true;
