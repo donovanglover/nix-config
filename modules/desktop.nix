@@ -39,6 +39,9 @@
       map g scroll_to start
       map G scroll_to end
     '';
+    programs.bat = {
+      enable = true;
+    };
     programs.swaylock = {
       package = pkgs."swaylock-effects";
       settings = {
