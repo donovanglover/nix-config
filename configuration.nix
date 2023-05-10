@@ -6,6 +6,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  services.xserver.displayManager.lightdm.enable = false;
+
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
   networking.networkmanager.unmanaged = [ "interface-name:ve-*" ];
@@ -48,7 +50,6 @@
 
   services.vnstat.enable = true;
   services.tumbler.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
