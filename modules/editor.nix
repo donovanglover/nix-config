@@ -3,13 +3,15 @@
   home-manager.users.user = { pkgs, ... }: {
     programs.neovim = {
       enable = true;
+      extraConfig = ''
+        set undofile
+        set spell
+      '';
       plugins = with pkgs.vimPlugins; [
         {
           plugin = nvim-tree-lua;
           type = "lua";
           config = ''
-            vim.g.loaded_netrw = 1
-            vim.g.loaded_netrwPlugin = 1
             require("nvim-tree").setup()
           '';
         }
@@ -23,7 +25,23 @@
         {
           plugin = barbar-nvim;
           type = "lua";
+          config = ''
+            vim.g.barbar_auto_setup = false
+            require'barbar'.setup {
+              auto_hide = true,
+              sidebar_filetypes = {
+                NvimTree = true,
+              },
+            }
+          '';
         }
+        /*
+        {
+          plugin = satellite-nvim;
+          type = "lua";
+          config = ''require('satellite').setup()'';
+        }
+        */
         {
           plugin = gitsigns-nvim;
           type = "lua";
@@ -54,6 +72,49 @@
           plugin = lualine-nvim;
           type = "lua";
           config = "require('lualine').setup()";
+        }
+        {
+          plugin = nvim-cursorline;
+          type = "lua";
+          config = ''
+            require('nvim-cursorline').setup {
+              cursorline = {
+                enable = true,
+                timeout = 1000,
+                number = false,
+              },
+              cursorword = {
+                enable = true,
+                min_length = 3,
+                hl = { underline = true },
+              }
+            }
+          '';
+        }
+        {
+          plugin = comment-nvim;
+          type = "lua";
+          config = ''require('Comment').setup()'';
+        }
+        {
+          plugin = plenary-nvim;
+          type = "lua";
+        }
+        {
+          plugin = telescope-nvim;
+          type = "lua";
+        }
+        {
+          plugin = clipboard-image-nvim;
+          type = "lua";
+        }
+        {
+          plugin = nvim-colorizer-lua;
+          type = "lua";
+          # Note: supposed to add this line at the end?
+          config = ''
+            require 'colorizer'.setup()
+          '';
         }
       ];
     };
