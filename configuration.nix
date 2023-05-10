@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, stylix, ... }:
 
 {
   imports = [ ./hosts/laptop.nix ];
@@ -13,6 +13,39 @@
   networking.useHostResolvConf = true;
   services.udisks2.enable = true;
   security.pam.services.swaylock = { };
+  # stylix.image = ./background.jpg;
+  stylix.polarity = "dark";
+  # stylix.base16Scheme = ./ayu-dark.yaml;
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/monokai.yaml";
+
+  stylix.fonts = {
+    serif = {
+      package = pkgs.noto-fonts-cjk-sans;
+      name = "Noto Sans CJK JP";
+    };
+
+    sansSerif = {
+      package = pkgs.noto-fonts-cjk-sans;
+      name = "Noto Sans CJK JP";
+    };
+
+    monospace = {
+      package = pkgs.maple-mono-NF;
+      name = "MapleMono-NF";
+    };
+
+    emoji = {
+      package = pkgs.noto-fonts-emoji;
+      name = "Noto Color Emoji";
+    };
+
+    sizes = {
+      applications = 11;
+      desktop = 11;
+      popups = 11;
+      terminal = 11;
+    };
+  };
 
   services.vnstat.enable = true;
   services.tumbler.enable = true;

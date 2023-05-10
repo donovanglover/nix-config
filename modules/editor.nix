@@ -59,7 +59,7 @@
         {
           plugin = nvim-base16;
           type = "lua";
-          config = "vim.cmd('colorscheme base16-gruvbox-dark-soft')";
+          config = "vim.cmd('colorscheme base16-monokai')";
         }
         {
           plugin = lualine-nvim;
