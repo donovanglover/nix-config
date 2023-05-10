@@ -11,6 +11,8 @@
   networking.networkmanager.unmanaged = [ "interface-name:ve-*" ];
   networking.networkmanager.dns = "none";
   networking.useHostResolvConf = true;
+  services.udisks2.enable = true;
+  security.pam.services.swaylock = { };
 
   services.vnstat.enable = true;
   services.tumbler.enable = true;
