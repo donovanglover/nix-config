@@ -1,6 +1,11 @@
 { config, lib, nixpkgs, home-manager, hyprland, ... }: {
   imports = [ home-manager.nixosModule ];
   home-manager.users.user = { pkgs, ... }: {
+    xdg = {
+      userDirs = {
+        enable = true;
+      };
+    };
     home.file.".icons/default/index.theme".text = ''
       [icon theme]
       Inherits=phinger-cursors
