@@ -73,11 +73,9 @@
 
     dl = "yt-dlp";
     vol =
-      "amixer set 'Master'"; # Change the volume, e.g. vol 10%+, vol 10%-, vol 100%
-    copy = "xclip -sel clip <"; # Easily copy the contents of any file
+      "wpctl set-volume '@DEFAULT_AUDIO_SINK@'"; # Change the volume, e.g. vol 10%+, vol 10%-, vol 100%
     cf = "tput reset"; # Clear the terminal completely
-    nf =
-      "tput reset; and neofetch --size 56%; and xdotool key --delay 100 Ctrl+Shift+Page_Up";
+    nf = "tput reset; and neofetch --size 56%";
     df = "df --human-readable --type=ext4 --total";
     du = "du --human-readable --summarize";
     jis =
@@ -87,18 +85,14 @@
     jp = "LANG=ja_JP.UTF-8 LC_ALL=ja_JP.UTF-8";
 
     a = "ansible-playbook";
-    b = "feh --bg-fill"; # Change the background
+    b = "swaybg -m fill -i"; # Change the background
     c = "clear"; # Because 5 letters is too much
     e = "exit";
     k = "kitty @ set-colors -c -a ~/.cache/wal/kitty";
     l = "ls -l";
-    p = "paru";
     r = "ranger";
     w = "wal -o ~/.config/wal/done.sh";
     T = "tree";
-
-    nano = "vim"; # The explanation is in the name
-    emacs = "vim"; # No need to start another operating system
   };
 
   time.timeZone = "America/New_York";
