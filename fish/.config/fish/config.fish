@@ -74,3 +74,9 @@ end
 if status is-interactive; and test "$TERM" = "xterm-256color"
     cat ~/.cache/wal/sequences
 end
+
+if status is-login
+    if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
+        exec Hyprland
+    end
+end
