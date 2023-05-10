@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 colors=($(xrdb -query | sed -n 's/.*color\([0-9]\)/\1/p' | sort -nu | cut -f2))
 
 echo -e "\e[1;37m
