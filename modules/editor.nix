@@ -35,13 +35,6 @@
             }
           '';
         }
-        /*
-        {
-          plugin = satellite-nvim;
-          type = "lua";
-          config = ''require('satellite').setup()'';
-        }
-        */
         {
           plugin = gitsigns-nvim;
           type = "lua";
@@ -79,9 +72,7 @@
           config = ''
             require('nvim-cursorline').setup {
               cursorline = {
-                enable = true,
-                timeout = 1000,
-                number = false,
+                enable = false,
               },
               cursorword = {
                 enable = true,
@@ -107,14 +98,6 @@
         {
           plugin = clipboard-image-nvim;
           type = "lua";
-        }
-        {
-          plugin = nvim-colorizer-lua;
-          type = "lua";
-          # Note: supposed to add this line at the end?
-          config = ''
-            require 'colorizer'.setup()
-          '';
         }
       ];
     };
