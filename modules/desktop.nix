@@ -104,5 +104,11 @@
         scroll-step = 120;
       };
     };
+    services.mpd = {
+      enable = true;
+    };
+    programs.ncmpcpp = {
+      enable = true;
+    };
   };
 }
