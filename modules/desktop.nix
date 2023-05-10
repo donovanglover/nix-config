@@ -1,6 +1,18 @@
 { config, lib, nixpkgs, home-manager, hyprland, ... }: {
   imports = [ home-manager.nixosModule ];
   home-manager.users.user = { pkgs, ... }: {
+    home.file.".icons/default/index.theme".text = ''
+      [icon theme]
+      Inherits=phinger-cursors
+    '';
+    xresources.properties = {
+      "Xft.hinting" = true;
+      "Xft.antialias" = true;
+      "Xft.autohint" = false;
+      "Xft.lcdfilter" = "lcddefault";
+      "Xft.hintstyle" = "hintfull";
+      "Xft.rgba" = "rgb";
+    };
     programs.kitty = {
       enable = true;
       settings = {
