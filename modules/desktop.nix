@@ -45,24 +45,6 @@
         };
       };
     };
-    programs.alacritty = {
-      enable = true;
-      settings = {
-        window.opacity = 0.9;
-        window.padding.x = 10;
-        window.padding.y = 10;
-        window.decorations = "none";
-        window.startup_mode = "Maximized";
-        window.decorations_theme_variant = "Dark";
-        font.normal.family = "MapleMono-NF";
-        font.size = 11;
-        draw_bold_text_with_bright_colors = true;
-        selection.save_to_clipboard = true;
-        cursor.style.shape = "Beam";
-        cursor.style.blinking = "Always";
-        mouse.hide_when_typing = true;
-      };
-    };
     programs.zathura = {
       enable = true;
       options = {
