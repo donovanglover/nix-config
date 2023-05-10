@@ -13,9 +13,8 @@
   networking.useHostResolvConf = true;
   services.udisks2.enable = true;
   security.pam.services.swaylock = { };
-  # stylix.image = ./background.jpg;
+  stylix.image = ./wallpaper.png;
   stylix.polarity = "dark";
-  # stylix.base16Scheme = ./ayu-dark.yaml;
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/monokai.yaml";
 
   stylix.fonts = {
