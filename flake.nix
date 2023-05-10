@@ -3,9 +3,10 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@attrs: {
+  outputs = { self, nixpkgs, home-manager, hyprland, ... }@attrs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = attrs;
@@ -13,6 +14,10 @@
         ./configuration.nix
         ./modules/editor.nix
         ./modules/desktop.nix
+        hyprland.nixosModules.default
+        {
+          programs.hyprland.enable = true;
+        }
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;

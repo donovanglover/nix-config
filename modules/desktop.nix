@@ -1,4 +1,4 @@
-{ config, lib, nixpkgs, home-manager, ... }: {
+{ config, lib, nixpkgs, home-manager, hyprland, ... }: {
   imports = [ home-manager.nixosModule ];
   home-manager.users.user = { pkgs, ... }: {
     programs.kitty = {
@@ -33,6 +33,7 @@
     };
     programs.waybar = {
       enable = true;
+      package = hyprland.packages."x86_64-linux".waybar-hyprland;
       settings = {
         mainBar = {
           layer = "bottom";
