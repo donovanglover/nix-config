@@ -50,6 +50,14 @@
   services.vnstat.enable = true;
   services.tumbler.enable = true;
   services.xserver.displayManager.sddm.enable = true;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+  };
 
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
