@@ -58,6 +58,9 @@
         fade-in = 1;
       };
     };
+    services.dunst = {
+      enable = true;
+    };
     programs.waybar = {
       enable = true;
       package = hyprland.packages."x86_64-linux".waybar-hyprland;
