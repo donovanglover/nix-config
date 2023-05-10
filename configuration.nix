@@ -229,6 +229,8 @@
     tmux
     fish
     wget
+    grim
+    slurp
     librewolf
     kitty
     mullvad-vpn
@@ -239,13 +241,11 @@
     mpv
     neofetch
     anki
-    htop-vim
     logseq
     wl-clipboard
     sox
     spek
     ripgrep
-    phinger-cursors
     rsync
     jq
     keepassxc
@@ -261,6 +261,14 @@
     nixfmt
     whois
     wofi
+    rofi-wayland
+    tig
+    diff-so-fancy
+    trashy
+    swaybg
+    udiskie
+    brightnessctl
+    killall
   ];
 
   fonts.enableDefaultFonts = true;
@@ -270,6 +278,7 @@
     noto-fonts-cjk-serif
     noto-fonts-emoji
     hack-font
+    maple-mono-NF
   ];
 
   fonts.fontconfig = {
@@ -281,6 +290,7 @@
   };
 
   fonts.fontconfig.hinting.style = "hintfull";
+  fonts.fontconfig.allowBitmaps = false;
 
   i18n.inputMethod.enabled = "fcitx5";
 
@@ -296,7 +306,7 @@
 
   # Force containers to use mullvad
   networking.nat.enable = true;
-  networking.nat.internalInterfaces = ["ve-+"];
+  networking.nat.internalInterfaces = [ "ve-+" ];
   networking.nat.externalInterface = "wg-mullvad";
 
   services.interception-tools = {
@@ -325,7 +335,7 @@
 
   containers.test = let hostCfg = config;
   in {
-    autoStart = true;
+    autoStart = false;
     privateNetwork = true;
     hostAddress = "192.168.100.10";
     localAddress = "192.168.100.11";
@@ -346,10 +356,10 @@
 
       nix.package = pkgs.nixFlakes;
       nix.settings.experimental-features = [ "nix-command" "flakes" ];
+      programs.neovim.enable = true;
       environment.systemPackages = with pkgs; [
         p7zip
         kitty
-        neovim
         git
         unzip
         ripgrep
