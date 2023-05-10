@@ -176,6 +176,44 @@
         disabled = true;
       };
 
+      git_commit.tag_symbol = " tag ";
+      git_status = {
+        ahead = ">";
+        behind = "<";
+        diverged = "<>";
+        renamed = "r";
+        deleted = "x";
+      };
+
+      aws.symbol = "aws ";
+      cobol.symbol = "cobol ";
+      conda.symbol = "conda ";
+      crystal.symbol = "cr ";
+      cmake.symbol = "cmake ";
+      dart.symbol = "dart ";
+      deno.symbol = "deno ";
+      dotnet.symbol = ".NET ";
+      docker_context.symbol = "docker ";
+      elixir.symbol = "exs ";
+      elm.symbol = "elm ";
+      golang.symbol = "go ";
+      hg_branch.symbol = "hg ";
+      java.symbol = "java ";
+      julia.symbol = "jl ";
+      kotlin.symbol = "kt ";
+      memory_usage.symbol = "memory ";
+      nim.symbol = "nim ";
+      nix_shell.symbol = "nix ";
+      ocaml.symbol = "ml ";
+      package.symbol = "pkg ";
+      perl.symbol = "pl ";
+      php.symbol = "php ";
+      purescript.symbol = "purs ";
+      python.symbol = "python ";
+      ruby.symbol = "ruby ";
+      rust.symbol = "rust ";
+      scala.symbol = "scala ";
+      swift.symbol = "swift ";
     };
   };
   programs.neovim.enable = true;
