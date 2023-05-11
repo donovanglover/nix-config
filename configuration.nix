@@ -240,7 +240,11 @@
     };
   };
   programs.neovim.enable = true;
-  programs.git.enable = true;
+  programs.htop = {
+    enable = true;
+    package = pkgs."htop-vim";
+    settings = { tree_view = 1; };
+  };
   programs.firejail.enable = true;
 
   nix.package = pkgs.nixFlakes;
