@@ -1,18 +1,2 @@
-# Ignore firefox extensions
-*.xpi
-
-# Ignore tar files
-*.tar*
-
-# Ignore log files
-*.log
-
-# Ignore rpm files
-*.rpm
-
-# Ignore tari-dev source files
-.archlinux/PKGBUILDs/tari-dev/*.vim
-.archlinux/PKGBUILDs/tari-dev/*.fish
-
-# Ignore aur build directory
-.archlinux/.aur
+*.qcow2
+result
