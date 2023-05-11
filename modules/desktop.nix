@@ -337,26 +337,6 @@
       defaultCacheTtl = 43200;
       maxCacheTtl = 43200;
     };
-    programs.rofi = {
-      enable = true;
-      package = pkgs.rofi-wayland;
-      cycle = false;
-      extraConfig = {
-        modi = "drun,filebrowser";
-        font = "Noto Sans CJK JP 12";
-        show-icons = true;
-        bw = 0;
-        display-drun = "";
-        display-window = "";
-        display-combi = "";
-        icon-theme = "Papirus";
-        terminal = "kitty";
-        drun-match-fields = "name";
-        drun-display-format = "{name}";
-        me-select-entry = "";
-        me-accept-entry = "MousePrimary";
-      };
-    };
     programs.gpg = {
       enable = true;
       # homedir = "${config.xdg.dataHome}/gnupg"
