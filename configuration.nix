@@ -1,7 +1,7 @@
 { config, pkgs, lib, stylix, ... }:
 
 {
-  imports = [ ./hosts/laptop.nix ];
+  imports = [ ./laptop.nix ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
