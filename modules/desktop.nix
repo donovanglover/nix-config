@@ -54,7 +54,7 @@
 
       export PATH="$HOME/.deno/bin:$HOME/.cargo/bin:$HOME/.yarn/bin:$HOME/.local/bin:$HOME/.go/bin:$PATH"
       export GOPATH="$HOME/.go"
-      export SSH_AUTH_SOCK = "$XDG_RUNTIME_DIR/ssh-agent.socket"
+      export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
       export TERMCMD="kitty --single-instance"
 
       # Required to make gpg-agent work in cases like git commit
