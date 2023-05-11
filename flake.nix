@@ -49,7 +49,8 @@
                 sub-file-paths = "subs:subtitles:字幕";
                 fullscreen = "yes";
                 title = "\${filename} - mpv";
-                script-opts = "osc-title=\${filename},osc-boxalpha=150,osc-showfullscreen=no,osc-boxvideo=yes";
+                script-opts =
+                  "osc-title=\${filename},osc-boxalpha=150,osc-showfullscreen=no,osc-boxvideo=yes";
                 osc = "no";
                 osd-on-seek = "no";
                 osd-bar = "no";
@@ -69,7 +70,50 @@
                 "browser.tabs.insertAfterCurrent" = true;
               };
             };
-            programs.git = { diff-so-fancy = { enable = true; }; };
+            programs.chromium = {
+              enable = true;
+              package = pkgs."ungoogled-chromium";
+              commandLineArgs = [ "--ozone-platform-hint=auto" ];
+              extensions = [{ id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }];
+            };
+            programs.git = {
+              enable = true;
+              extraConfig = {
+                commit = { gpgsign = true; };
+                core = {
+                  editor = "nvim";
+                  autocrlf = false;
+                  quotePath = false;
+                };
+                web = { browser = "librewolf"; };
+                push = { default = "simple"; };
+                branch = { autosetuprebase = "always"; };
+                init = { defaultBranch = "master"; };
+                rerere = { enabled = true; };
+                color = { ui = true; };
+                alias = {
+                  contrib = "shortlog -n -s";
+                  remotes = "remote -v";
+                  praise = "blame";
+                  verify = "log --show-signature";
+                };
+                "color \"diff-highlight\"" = {
+                  oldNormal = "red bold";
+                  oldHighlight = "red bold";
+                  newNormal = "green bold";
+                  newHighlight = "green bold";
+                };
+                "color \"diff\"" = {
+                  meta = "yellow";
+                  frag = "magenta bold";
+                  commit = "yellow bold";
+                  old = "red bold";
+                  new = "green bold";
+                  whitespace = "red reverse";
+                };
+              };
+              diff-so-fancy = { enable = true; };
+            };
             programs.lf = { enable = true; };
             services.udiskie.enable = true;
           };

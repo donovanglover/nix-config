@@ -22,6 +22,17 @@
       TerminalEmulator=kitty
       TerminalEmulatorDismissed=true
     '';
+    xdg.configFile."mozc/ibus_config.textproto".text = ''
+      engines {
+        name : "mozc-jp"
+        longname : "Mozc"
+        layout : "default"
+        layout_variant : ""
+        layout_option : ""
+        rank : 80
+      }
+      active_on_launch: True
+    '';
     gtk = {
       enable = true;
       cursorTheme = {
@@ -63,15 +74,12 @@
       map g scroll_to start
       map G scroll_to end
     '';
-    programs.bat = {
-      enable = true;
-    };
+    programs.bat = { enable = true; };
     programs.swaylock = {
       package = pkgs."swaylock-effects";
       settings = {
         show-keyboard-layout = true;
         daemonize = true;
-        font = "Noto Sans CJK JP";
         effect-blur = "5x2";
         clock = true;
         indicator = true;
@@ -198,7 +206,44 @@
         toggle_auto_zoom = "m";
       };
     };
-    services.mpd = { enable = true; };
-    programs.ncmpcpp = { enable = true; };
+    services.mpd = {
+      enable = true;
+      extraConfig = ''
+        auto_update "yes"
+      '';
+    };
+    programs.ncmpcpp = {
+      enable = true;
+      bindings = [
+        { key = "mouse"; command = "dummy"; }
+        { key = "h"; command = ["previous_column" "jump_to_parent_directory"]; }
+        { key = "j"; command = "scroll_down"; }
+        { key = "k"; command = "scroll_up"; }
+        { key = "l"; command = [ "next_column" "enter_directory" "play_item"]; }
+        { key = "H"; command = [ "select_item" "scroll_down"]; }
+        { key = "J"; command = ["move_sort_order_down" "move_selected_items_down"]; }
+        { key = "K"; command = ["move_sort_order_up" "move_selected_items_up"]; }
+        { key = "L"; command = [ "select_item" "scroll_up"]; }
+        { key = "'"; command = "remove_selection"; }
+        { key = "ctrl-u"; command = "page_up"; }
+        { key = "ctrl-d"; command = "page_down"; }
+        { key = "u"; command = "page_up"; }
+        { key = "d"; command = "page_down"; }
+        { key = "n"; command = "next_found_item"; }
+        { key = "N"; command = "previous_found_item"; }
+        { key = "t"; command = "next_screen"; }
+        { key = "g"; command = "move_home"; }
+        { key = "G"; command = "move_end"; }
+        { key = "w"; command = "next"; }
+        { key = "b"; command = "previous"; }
+        { key = ";"; command = "seek_forward"; }
+        { key = ","; command = "seek_backward"; }
+        { key = "f"; command = "apply_filter"; }
+        { key = "i"; command = "select_item"; }
+        { key = "x"; command = [ "delete_playlist_items" "delete_browser_items" "delete_stored_playlist" ]; }
+        { key = "U"; command = "update_database"; }
+        { key = "m"; command = "add_random_items"; }
+      ];
+    };
   };
 }

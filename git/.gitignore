@@ -1,9 +1,0 @@
-# New Start: A modern Arch workflow built with an emphasis on functionality.
-# Copyright (C) 2017-2018 Donovan Glover
-
-# Don't track temporary vim files
-*~
-.*.sw*
-
-# Don't track Plasma directory files
-.directory
