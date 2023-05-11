@@ -7,6 +7,18 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   services.xserver.displayManager.lightdm.enable = false;
+  services.kmscon.enable = true;
+  services.kmscon.extraOptions = "--no-drm";
+  services.kmscon.fonts = [
+    {
+      name = "MapleMono";
+      package = pkgs.maple-mono;
+    }
+    {
+      name = "Noto Sans CJK JP";
+      package = pkgs.noto-fonts-cjk-sans;
+    }
+  ];
 
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
