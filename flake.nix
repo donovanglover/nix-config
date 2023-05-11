@@ -14,8 +14,7 @@
       specialArgs = attrs;
       modules = [
         ./configuration.nix
-        ./modules/editor.nix
-        ./modules/desktop.nix
+        ./home.nix
         hyprland.nixosModules.default
         {
           programs.hyprland.enable = true;
