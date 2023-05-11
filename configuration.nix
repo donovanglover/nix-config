@@ -368,13 +368,6 @@
     hostAddress = "192.168.100.10";
     localAddress = "192.168.100.11";
 
-    bindMounts = {
-      waylandDisplay = rec {
-        hostPath = "/run/user/1000";
-        mountPoint = hostPath;
-      };
-    };
-
     config = { config, pkgs, ... }: {
       programs.fish.enable = true;
       users.defaultUserShell = pkgs.fish;
@@ -393,39 +386,15 @@
         ripgrep
         gcc
         trashy
-        mullvad-browser
-        alacritty
-        logseq
-        feh
         wget
         exa
         fd
         fzf
         gdu
         ranger
-        wofi
-        lf
       ];
 
       environment.variables = { TERM = "xterm-kitty"; };
-
-      environment.sessionVariables = {
-        WAYLAND_DISPLAY = "wayland-1";
-        QT_QPA_PLATFORM = "wayland";
-        QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-        SDL_VIDEODRIVER = "wayland";
-        CLUTTER_BACKEND = "wayland";
-        MOZ_ENABLE_WAYLAND = "1";
-        XDG_RUNTIME_DIR = "/run/user/1000";
-        DISPLAY = ":1";
-      };
-
-      services.xserver.enable = true;
-
-      hardware.opengl = {
-        enable = true;
-        extraPackages = hostCfg.hardware.opengl.extraPackages;
-      };
 
       users.mutableUsers = false;
       users.allowNoPasswordLogin = true;
