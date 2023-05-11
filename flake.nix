@@ -79,6 +79,7 @@
             programs.git = {
               enable = true;
               extraConfig = {
+                include = { path = "~/.gituser"; };
                 commit = { gpgsign = true; };
                 core = {
                   editor = "nvim";
