@@ -1,14 +1,3 @@
-" New Start: A modern Arch workflow built with an emphasis on functionality.
-" Copyright (C) 2017-2023 Donovan Glover
-
-let plugsys = glob('/usr/share/vim/vimfiles/autoload/plug.vim')
-let plugusr = glob('~/.vim/autoload/plug.vim')
-
-if empty(plugsys) && empty(plugusr)
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/0.10.0/plug.vim
-endif
-
 let g:ale_disable_lsp = 1
 
 autocmd FileType javascript let g:ale_linters = {
@@ -16,19 +5,12 @@ autocmd FileType javascript let g:ale_linters = {
 \}
 
 call plug#begin('~/.vim/plugged')
-    Plug 'dylanaraps/wal.vim'           " Color scheme
-    Plug 'preservim/nerdtree'
-    Plug 'airblade/vim-gitgutter'       " Git diff
-    Plug 'itchyny/lightline.vim'        " Status line
     Plug 'dense-analysis/ale'           " Syntax checker
-    Plug 'tpope/vim-fugitive'           " Git wrapper
-    Plug 'junegunn/fzf.vim'             " fzf wrapper
     Plug 'lunarWatcher/auto-pairs'      " {Pair} completion
     Plug 'tpope/vim-endwise'            " 'End' completion
     Plug 'reedes/vim-pencil'            " Word wrap
     Plug 'junegunn/goyo.vim'            " Distraction-free writing
     Plug 'jparise/vim-graphql'          " GraphQL support
-    Plug 'ryanoasis/vim-devicons'
 
     Plug 'osyo-manga/vim-over'
     Plug 'maksimr/vim-jsbeautify'
@@ -103,27 +85,9 @@ set smarttab                   " Always indent based on column number to align t
 set mouse=a                    " Enable mouse support in (a)ll modes
 set number                     " Show numbers by default
 
-" Disable middle button click
-map <MiddleMouse> <Nop>
-imap <MiddleMouse> <Nop>
-map <2-MiddleMouse> <Nop>
-imap <2-MiddleMouse> <Nop>
-map <3-MiddleMouse> <Nop>
-imap <3-MiddleMouse> <Nop>
-map <4-MiddleMouse> <Nop>
-imap <4-MiddleMouse> <Nop>
-
 " ==========================
 " ========= colors =========
 " ==========================
-
-" Set the color scheme to wal, or install plugins as needed.
-try
-  colorscheme wal
-catch /^Vim\%((\a\+)\)\=:E185/
-  echo "wal was not found. Installing plugins...\n" | PlugInstall --sync
-  echo "Plugins installed! You can now use vim.\n"  | qa
-endtry
 
 " Don't show the separator for vertical splits
 highlight vertsplit ctermfg=0 ctermbg=none
@@ -138,50 +102,6 @@ highlight IncSearch ctermbg=255 ctermfg=240
 
 autocmd BufNewFile,BufRead *.ecr    setlocal syntax=html
 autocmd BufNewFile,BufRead *.slang  setlocal filetype=slim
-
-" =============================
-" ========= lightline =========
-" =============================
-
-" Add the current branch to the status line
-let g:lightline = {
-\   'active': {
-\     'left': [
-\       [ 'mode', 'paste' ], [ 'gitbranch' ],
-\       ['readonly', 'filename', 'modified']
-\     ]
-\   },
-\   'component_function': {
-\     'gitbranch': 'fugitive#head'
-\   }
-\ }
-
-" Note that wal.vim's lightline theme uses some options that are incompatible
-" with regular vim and are only supported by neovim.
-"
-" Wal Themes: Tomorrow, Tomorrow_Night, one, materia, material, nord
-" Other Themes: wombat, solarized, powerline, jellybeans, Tomorrow_Night_Blue,
-"               Tomorrow_Night_Eighties, PaperColor, seoul256, landscape,
-"               darcula, molokai, OldHope, deus
-if has('nvim')
-    let g:lightline.colorscheme = 'wal'
-else
-    let g:lightline.colorscheme = 'Tomorrow_Night'
-endif
-
-" Make background color of lightline match terminal
-" https://github.com/itchyny/lightline.vim/issues/168
-autocmd VimEnter * call SetupLightlineColors()
-function SetupLightlineColors() abort
-  " transparent background in statusbar
-  let l:palette = lightline#palette()
-
-  let l:palette.normal.middle = [ [ 'NONE', 'NONE', 'NONE', 'NONE' ] ]
-  let l:palette.inactive.middle = l:palette.normal.middle
-  let l:palette.tabline.middle = l:palette.normal.middle
-
-  call lightline#colorscheme()
-endfunction
 
 " ============================
 " ========= keybinds =========
@@ -225,23 +145,6 @@ nnoremap <silent> <leader>4 :source ~/.vim/.session<CR>
 " Never worry about a directory not being created before saving
 autocmd BufWritePre,FileWritePre * silent! call mkdir(expand('<afile>:p:h'), 'p')
 
-" =========================
-" ========= netrw =========
-" =========================
-
-" Remove the banner
-let g:netrw_banner = 0
-
-" Use the tree list view
-let g:netrw_liststyle = 3
-
-" =======================
-" ========= ale =========
-" =======================
-
-nmap <silent> <C-j> <Plug>(ale_previous_wrap)
-nmap <silent> <C-k> <Plug>(ale_next_wrap)
-
 " ==========================
 " ========= vimtex =========
 " ==========================
@@ -273,25 +176,3 @@ let g:vim_markdown_conceal = 0
 let g:tex_conceal = ""
 let g:vim_markdown_math = 1
 
-" ============================
-" ========= nerdtree =========
-" ============================
-
-let NERDTreeShowHidden=1
-
-" Exit if NERDTree is the only window remaining in the only tab.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-
-let NERDTreeStatusline='%{exists("b:NERDTree")?fnamemodify(b:NERDTree.root.path.str(), ":~"):""}'
-
-" ===========================
-" ========= fzf.vim =========
-" ===========================
-
-" Hide the status line showing "fzf" when using fzf.vim
-" NOTE: You must add "showmode" if your setup depends on it
-autocmd! FileType fzf
-autocmd  FileType fzf set laststatus=0 noshowmode noruler
-  \| autocmd BufLeave <buffer> set laststatus=2 ruler
-
-hi Comment cterm=italic gui=italic
