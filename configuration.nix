@@ -58,6 +58,15 @@
     };
   };
 
+  environment.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+    GIT_DISCOVERY_ACROSS_FILESYSTEM = "1";
+    FZF_DEFAULT_COMMAND = "rg --files --no-ignore --hidden --follow --glob \"!.git/*\"";
+    FZF_DEFAULT_OPTS = "--height 40% --reverse --border --color=16";
+    NODE_OPTIONS = "--max_old_space_size=16384";
+  };
+
   services.vnstat.enable = true;
   services.tumbler.enable = true;
   security.rtkit.enable = true;
@@ -72,6 +81,12 @@
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
   environment.shells = with pkgs; [ fish ];
+  programs.fish.shellAliases = {
+    ls = "exa --group-directories-first -I 'lost+found'";
+    tree = "exa --group-directories-first --all --long --tree -I 'node_modules|.git|public|lost+found'";
+    mv = "mv -i";
+    rg = "rg --max-columns=2000";
+  };
   programs.fish.shellAbbrs = {
     g = "git";
     ga = "git add";
@@ -170,8 +185,6 @@
       };
 
       character = {
-        #success_symbol = "[➤](red)[➤](green)[➤](blue)";
-        #error_symbol = "[➤](cyan)[➤](purple)[➤](yellow)";
         success_symbol = "[>](red)[>](green)[>](blue)";
         error_symbol = "[>](cyan)[>](purple)[>](yellow)";
         vicmd_symbol = "[<](bold green)";
