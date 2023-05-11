@@ -1,6 +1,3 @@
-import pywalQute.draw
-import time
-
 # Don't use auto-saved settings
 config.load_autoconfig(False)
 
@@ -8,14 +5,6 @@ config.load_autoconfig(False)
 from qutebrowser.mainwindow import tabwidget
 tabwidget.TabWidget.MUTE_STRING = ""
 tabwidget.TabWidget.AUDIBLE_STRING = "[A]"
-
-# Make color scheme match pywal
-pywalQute.draw.color(c, {
-  'spacing': {
-    'vertical': 0,
-    'horizontal': 0
-  }
-})
 
 # Don't close while browsing / downloading
 c.confirm_quit = ['multiple-tabs', 'downloads']
