@@ -16,6 +16,10 @@
   services.udisks2.enable = true;
   security.pam.services.swaylock = { };
 
+  systemd.extraConfig = ''
+    DefaultTimeoutStopSec=10s
+  '';
+
   virtualisation.vmVariant = {
     virtualisation = {
       memorySize = 8192;
