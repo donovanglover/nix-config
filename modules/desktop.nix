@@ -1,11 +1,7 @@
 { config, lib, nixpkgs, home-manager, hyprland, ... }: {
   imports = [ home-manager.nixosModule ];
   home-manager.users.user = { pkgs, ... }: {
-    xdg = {
-      userDirs = {
-        enable = true;
-      };
-    };
+    xdg = { userDirs = { enable = true; }; };
     home.file.".icons/default/index.theme".text = ''
       [icon theme]
       Inherits=phinger-cursors
@@ -32,6 +28,26 @@
         rank : 80
       }
       active_on_launch: True
+    '';
+    xdg.configFile."ranger/rc.conf".text = ''
+      set line_numbers absolute
+      set padding_right false
+      set vcs_aware true
+      set show_hidden true
+      set confirm_on_delete always
+      set save_console_history false
+      set mouse_enabled false
+      set tilde_in_titlebar true
+
+      alias r rename
+      alias d delete
+
+      map DD shell trash %s
+
+      set use_preview_script true
+      set preview_files true
+      set preview_images true
+      set preview_images_method kitty
     '';
     gtk = {
       enable = true;
@@ -64,8 +80,8 @@
         wayland_titlebar_color = "background";
         listen_on = "unix:/tmp/kitty";
         open_url_with = "librewolf";
-        window_padding_width = 10;
-        tab_bar_margin_width = 10;
+        window_padding_width = 5;
+        tab_bar_margin_width = 5;
       };
     };
     xdg.configFile."kitty/diff.conf".text = ''
@@ -119,9 +135,10 @@
           layer = "bottom";
           position = "top";
           height = 30;
-          modules-left = [ "wlr/taskbar" "tray" ];
-          modules-center = [ "hyprland/window" ];
-          modules-right = [ "battery" "backlight" "wireplumber" "clock" ];
+          modules-left = [ "hyprland/window" ];
+          modules-center = [ "wlr/workspaces" ];
+          modules-right =
+            [ "tray" "wireplumber" "backlight" "battery" "clock" ];
         };
       };
     };
@@ -244,6 +261,58 @@
         { key = "U"; command = "update_database"; }
         { key = "m"; command = "add_random_items"; }
       ];
+      settings = {
+        ncmpcpp_directory = "~/.config/ncmpcpp";
+        user_interface = "alternative";
+        autocenter_mode = "yes";
+        allow_for_physical_item_deletion = "no";
+        mouse_support = "no";
+        execute_on_song_change = "~/.config/mpd/mpdnotify";
+        mpd_crossfade_time = 3;
+      };
+    };
+    programs.lf = {
+      enable = true;
+    };
+    services.gpg-agent = {
+      enable = true;
+      pinentryFlavor = "curses";
+      defaultCacheTtl = 43200;
+      maxCacheTtl = 43200;
+    };
+    programs.rofi = {
+      enable = true;
+      package = pkgs.rofi-wayland;
+      cycle = false;
+      extraConfig = {
+        modi = "drun,filebrowser";
+        font = "Noto Sans CJK JP 12";
+        show-icons = true;
+        bw = 0;
+        display-drun = "";
+        display-window = "";
+        display-combi = "";
+        icon-theme = "Papirus";
+        terminal = "kitty";
+        drun-match-fields = "name";
+        drun-display-format = "{name}";
+        me-select-entry = "";
+        me-accept-entry = "MousePrimary";
+      };
+    };
+    programs.gpg = {
+      enable = true;
+      # homedir = "${config.xdg.dataHome}/gnupg"
+      settings = {
+        personal-digest-preferences = "SHA512";
+        cert-digest-algo = "SHA512";
+        cipher-algo = "AES256";
+        default-preference-list = "SHA512 SHA384 SHA256 SHA224 AES256 AES192 AES CAST5 ZLIB BZIP2 ZIP Uncompressed";
+        personal-cipher-preferences = "TWOFISH CAMELLIA256 AES 3DES";
+        throw-keyids = true;
+        keyid-format = "0xlong";
+        with-fingerprint = true;
+      };
     };
   };
 }
