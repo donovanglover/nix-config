@@ -246,15 +246,10 @@
     settings = { tree_view = 1; };
   };
   programs.firejail.enable = true;
-
   nix.package = pkgs.nixFlakes;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   environment.systemPackages = with pkgs; [
-    fluent-icon-theme
-    fluent-gtk-theme
-    maple-mono-NF
-    tmux
-    fish
+    pinentry-curses
     wget
     grim
     slurp
@@ -276,9 +271,7 @@
     rsync
     jq
     keepassxc
-    feh
     stow
-    lf
     exa
     fd
     fzf
@@ -287,10 +280,9 @@
     ranger
     nixfmt
     whois
-    wofi
-    rofi-wayland
+    lnch
+    libnotify
     tig
-    diff-so-fancy
     trashy
     swaybg
     udiskie
