@@ -15,6 +15,16 @@
   networking.useHostResolvConf = true;
   services.udisks2.enable = true;
   security.pam.services.swaylock = { };
+
+  virtualisation.vmVariant = {
+    virtualisation = {
+      memorySize = 8192;
+      cores = 4;
+    };
+    virtualisation.qemu.options =
+      [ "-device virtio-vga-gl" "-display gtk,gl=on" ];
+  };
+
   stylix.image = ./wallpaper.png;
   stylix.polarity = "dark";
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/monokai.yaml";
