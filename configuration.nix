@@ -267,12 +267,26 @@
     mediainfo
     pywal
     mpv
+    mpc-cli
     neofetch
+    tectonic
+    fdupes
     anki
     logseq
+    yt-dlp
+    gurk-rs
     wl-clipboard
+    ffmpeg
+    siege
+    ponysay
+    lolcat
+    figlet
+    calcurse
+    httpie
+    cmatrix
     sox
     spek
+    p7zip
     ripgrep
     rsync
     jq
@@ -282,6 +296,10 @@
     fd
     fzf
     unar
+    audacity
+    gimp
+    typespeed
+    slade
     gdu
     ranger
     nixfmt
@@ -289,11 +307,21 @@
     lnch
     libnotify
     tig
+    dig
     trashy
     swaybg
     udiskie
     brightnessctl
     killall
+    nodejs
+    yarn
+    deno
+    crystal
+    shards
+    rustc
+    rustfmt
+    cargo
+    genact
   ];
 
   fonts.enableDefaultFonts = true;
@@ -302,7 +330,7 @@
     noto-fonts-cjk-sans
     noto-fonts-cjk-serif
     noto-fonts-emoji
-    hack-font
+    maple-mono
     maple-mono-NF
   ];
 
