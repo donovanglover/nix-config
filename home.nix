@@ -949,5 +949,8 @@
         c.content.headers.accept_language = 'ja-JP,en-US'
       '';
     };
+    xdg.configFile."hypr/focusmaster.sh".source = ./focusmaster.sh;
+    xdg.configFile."hypr/swapmaster.sh".source = ./swapmaster.sh;
+    xdg.configFile."hypr/tags.sh".source = ./tags.sh;
   };
 }
