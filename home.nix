@@ -1,17 +1,23 @@
-{ config, lib, nixpkgs, home-manager, hyprland, ... }: {
-  users.users.user = {
-    isNormalUser = true;
-    password = "user";
-    extraGroups = [ "wheel" "networkmanager" ];
-  };
+{ config, lib, nixpkgs, pkgs, home-manager, hyprland, ... }: {
   imports = [ home-manager.nixosModule ];
   home-manager.useGlobalPkgs = true;
-  home-manager.users.user = { pkgs, ... }: {
-    home.username = "user";
-    home.homeDirectory = "/home/user";
-    home.packages = [ pkgs.httpie ];
-    home.stateVersion = "22.11";
-    xdg = { userDirs = { enable = true; }; };
+  home-manager.backupFileExtension = "old";
+  home-manager.sharedModules = [{
+    programs.chromium = {
+      enable = true;
+      package = pkgs."ungoogled-chromium";
+      commandLineArgs = [ "--ozone-platform-hint=auto" ];
+      extensions = [{ id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }];
+    };
+    programs.librewolf = {
+      enable = true;
+      settings = {
+        "middlemouse.paste" = false;
+        "browser.download.useDownloadDir" = true;
+        "ui.use_activity_cursor" = true;
+        "browser.tabs.insertAfterCurrent" = true;
+      };
+    };
     xdg.configFile."hypr/hyprland.conf".text = ''
       env=XCURSOR_SIZE,24
       env=BROWSER,librewolf
@@ -899,21 +905,6 @@
       };
       scripts = [ pkgs.mpvScripts.thumbnail ];
     };
-    programs.librewolf = {
-      enable = true;
-      settings = {
-        "middlemouse.paste" = false;
-        "browser.download.useDownloadDir" = true;
-        "ui.use_activity_cursor" = true;
-        "browser.tabs.insertAfterCurrent" = true;
-      };
-    };
-    programs.chromium = {
-      enable = true;
-      package = pkgs."ungoogled-chromium";
-      commandLineArgs = [ "--ozone-platform-hint=auto" ];
-      extensions = [{ id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }];
-    };
     programs.git = {
       enable = true;
       extraConfig = {
@@ -1119,5 +1110,7 @@
     xdg.configFile."hypr/focusmaster.sh".source = ./focusmaster.sh;
     xdg.configFile."hypr/swapmaster.sh".source = ./swapmaster.sh;
     xdg.configFile."hypr/tags.sh".source = ./tags.sh;
-  };
+    xdg = { userDirs = { enable = true; }; };
+    home.stateVersion = "22.11";
+  }];
 }
