@@ -1,7 +1,6 @@
 { config, lib, nixpkgs, pkgs, home-manager, hyprland, ... }: {
   imports = [ home-manager.nixosModule ];
   home-manager.useGlobalPkgs = true;
-  home-manager.backupFileExtension = "old";
   home-manager.sharedModules = [{
     programs.chromium = {
       enable = true;
@@ -201,6 +200,7 @@
       TerminalEmulator=kitty
       TerminalEmulatorDismissed=true
     '';
+    xdg.configFile."mozc/ibus_config.textproto".force = true;
     xdg.configFile."mozc/ibus_config.textproto".text = ''
       engines {
         name : "mozc-jp"
@@ -212,7 +212,8 @@
       }
       active_on_launch: True
     '';
-    xdg.configFile."fcitx/config".text = ''
+    xdg.configFile."fcitx5/config".force = true;
+    xdg.configFile."fcitx5/config".text = ''
       [Hotkey]
       # Enumerate when press trigger key repeatedly
       EnumerateWithTriggerKeys=True
@@ -279,6 +280,7 @@
       # Preload input method to be used by default
       PreloadInputMethod=True
     '';
+    xdg.configFile."fcitx5/profile".force = true;
     xdg.configFile."fcitx5/profile".text = ''
       [Groups/0]
       # Group Name
@@ -303,6 +305,7 @@
       [GroupOrder]
       0="Group 1"
     '';
+    xdg.configFile."fcitx5/conf/classicui.conf".force = true;
     xdg.configFile."fcitx5/conf/classicui.conf".text = ''
       # Vertical Candidate List
       Vertical Candidate List=False
@@ -329,6 +332,7 @@
       # Theme
       Theme=default
     '';
+    xdg.configFile."fcitx5/conf/clipboard.conf".force = true;
     xdg.configFile."fcitx5/conf/clipboard.conf".text = ''
       # Trigger Key
       TriggerKey=
@@ -337,6 +341,7 @@
       # Number of entries
       Number of entries=5
     '';
+    xdg.configFile."fcitx5/conf/mozc.conf".force = true;
     xdg.configFile."fcitx5/conf/mozc.conf".text = ''
       # Initial Mode
       InitialMode=Hiragana
@@ -349,10 +354,12 @@
       # Hotkey to expand usage
       ExpandKey=Control+Alt+H
     '';
+    xdg.configFile."fcitx5/conf/notifications.conf".force = true;
     xdg.configFile."fcitx5/conf/notifications.conf".text = ''
       # Hidden Notifications
       HiddenNotifications=
     '';
+    xdg.configFile."fcitx5/conf/unicode.conf".force = true;
     xdg.configFile."fcitx5/conf/unicode.conf".text = ''
       # Trigger Key
       TriggerKey=
