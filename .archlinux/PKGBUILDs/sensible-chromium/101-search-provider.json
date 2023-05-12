@@ -1,6 +1,0 @@
-{
-  "DefaultSearchProviderEnabled": true,
-  "DefaultSearchProviderName": "DuckDuckGo",
-  "DefaultSearchProviderSearchURL": "https://duckduckgo.com/?q={searchTerms}",
-  "DefaultSearchProviderIconURL": "https://duckduckgo.com/favicon.ico"
-}
