@@ -306,6 +306,7 @@
     whois
     lnch
     libnotify
+    dwt1-shell-color-scripts
     tig
     dig
     trashy
