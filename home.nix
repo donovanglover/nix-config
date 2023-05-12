@@ -688,6 +688,7 @@
         me-select-entry = "";
         me-accept-entry = "MousePrimary";
       };
+      theme = lib.mkForce ./launchpad.rasi;
     };
     services.gpg-agent = {
       enable = true;
