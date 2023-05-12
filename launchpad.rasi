@@ -16,7 +16,7 @@
     fg1:  #f5f5f580;
 
     background-color: transparent;
-    foreground: #fff;
+    foreground: #f8f8f2;
     text-color:       @fg0;
     padding:          0px;
     margin:           0px;
@@ -26,7 +26,7 @@ window {
   fullscreen: true;
   padding: 1em;
   background-color: @bg0;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(39, 40, 34, 0.9);
 }
 
 mainbox {
@@ -63,10 +63,8 @@ entry {
 }
 
 listview {
-  /*margin:   48px calc( 50% - 560px );*/
-  margin:   86px calc( 50% - 560px );
+  margin:   48px calc( 50% - 560px );
   spacing:  48px;
-  /*columns:  5;*/
   columns:  5;
   fixed-columns: true;
 }
@@ -84,7 +82,7 @@ element {
 }
 
 element selected {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(248, 248, 242, 0.3);
 }
 
 element-icon {
