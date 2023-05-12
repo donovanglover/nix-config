@@ -128,6 +128,7 @@
       bind = SUPER, S, togglespecialworkspace
       bind = SUPER_SHIFT, S, movetoworkspace, special
       bind = SUPER_SHIFT, S, togglespecialworkspace
+      bind = SUPER, Z, exec, rofi -show drun
 
       bind = SUPER, Return, exec, ~/.config/hypr/swapmaster.sh
       bind = SUPER, backslash, exec, ~/.config/hypr/focusmaster.sh
@@ -162,6 +163,7 @@
       bind = SUPER_CTRL, 5, exec, ~/.config/hypr/tags.sh 5
 
       layerrule = blur,waybar
+      layerrule = blur,rofi
 
       # Scroll through existing workspaces with super + scroll
       bind = SUPER, mouse_down, workspace, e+1
@@ -665,6 +667,27 @@
     };
     programs.lf = {
       enable = true;
+    };
+
+    programs.rofi = {
+      enable = true;
+      package = pkgs.rofi-wayland;
+      cycle = false;
+      extraConfig = {
+        modi = "drun,filebrowser";
+        font = "Noto Sans CJK JP 12";
+        show-icons = true;
+        bw = 0;
+        display-drun = "";
+        display-window = "";
+        display-combi = "";
+        icon-theme = "Papirus";
+        terminal = "kitty";
+        drun-match-fields = "name";
+        drun-display-format = "{name}";
+        me-select-entry = "";
+        me-accept-entry = "MousePrimary";
+      };
     };
     services.gpg-agent = {
       enable = true;
