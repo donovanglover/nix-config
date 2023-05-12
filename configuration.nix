@@ -323,6 +323,7 @@
     rustfmt
     cargo
     genact
+    xfce.exo
   ];
 
   fonts.enableDefaultFonts = true;
