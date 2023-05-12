@@ -746,14 +746,13 @@
         let mapleader = ' '
         nnoremap <silent> <leader>e :set nu!<CR>
         nnoremap <silent> <leader>t :OverCommandLine<CR>%s/
-        nnoremap <silent> <leader>a :Vexplore<CR>
-        nnoremap <silent> <leader>s :Sexplore<CR>
-        nnoremap <silent> <leader>d :Explore<CR>
-        nnoremap <silent> <leader>f :Files<CR>
+        nnoremap <silent> <leader>a :NvimTreeToggle<CR>
+        nnoremap <silent> <leader>f :Telescope find_files<CR>
         nnoremap <silent> <leader>g :set hlsearch!<CR>
-        nnoremap <silent> <leader>j :Buffers<CR>
-        nnoremap <silent> <leader>k :NERDTreeToggleVCS<CR>
-        nnoremap <silent> <leader>l :Rg<CR>
+        nnoremap <silent> <leader>j :BufferPrevious<CR>
+        nnoremap <silent> <leader>k :BufferNext<CR>
+        nnoremap <silent> <leader>x :BufferClose<CR>
+        nnoremap <silent> <leader>l :Telescope live_grep<CR>/
         nnoremap <silent> <leader>; <C-w>w
         vnoremap <C-s> y:silent !notify-send -t 4000 "成果" "$(tango '<C-r>0')"<CR>:<Esc>
 
