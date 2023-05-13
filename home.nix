@@ -581,6 +581,11 @@
           border: 1px solid alpha(@base09, 0.93);
           padding: 8px;
         }
+
+        #backlight, #battery, #wireplumber {
+          font-family: "Font Awesome 6 Free Solid";
+          font-size: 24px;
+        }
       '';
     };
     programs.zathura = {
