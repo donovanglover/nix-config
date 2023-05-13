@@ -519,6 +519,7 @@
     };
     programs.waybar = {
       enable = true;
+      systemd.enable = true;
       package = hyprland.packages."x86_64-linux".waybar-hyprland;
       settings = {
         mainBar = {
