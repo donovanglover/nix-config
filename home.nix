@@ -527,14 +527,49 @@
       settings = {
         mainBar = {
           layer = "bottom";
-          position = "top";
-          height = 30;
-          modules-left = [ "hyprland/window" ];
-          modules-center = [ "wlr/workspaces" ];
+          position = "left";
+          width = 30;
+          modules-left = [ "wlr/workspaces" ];
+          modules-center = [ "hyprland/window" ];
           modules-right =
             [ "tray" "wireplumber" "backlight" "battery" "clock" ];
+          "hyprland/window" = {
+            "rotate" = 90;
+          };
+          battery = {
+            "format" = "{icon}";
+            "format-icons" = ["" "" "" "" ""];
+          };
         };
       };
+      style = lib.mkForce ''
+        @define-color base00 #272822;
+        @define-color base01 #383830;
+        @define-color base02 #49483e;
+        @define-color base03 #75715e;
+        @define-color base04 #a59f85;
+        @define-color base05 #f8f8f2;
+        @define-color base06 #f5f4f1;
+        @define-color base07 #f9f8f5;
+        @define-color base08 #f92672;
+        @define-color base09 #fd971f;
+        @define-color base0A #f4bf75;
+        @define-color base0B #a6e22e;
+        @define-color base0C #a1efe4;
+        @define-color base0D #66d9ef;
+        @define-color base0E #ae81ff;
+        @define-color base0F #cc6633;
+
+        * {
+          all: initial;
+          color: @base05;
+        }
+
+        window#waybar {
+          background: alpha(@base00, 0.95);
+          border-right: 1px solid alpha(@base02, 0.67);
+        }
+      '';
     };
     programs.zathura = {
       enable = true;
