@@ -27,6 +27,18 @@
     };
     virtualisation.qemu.options =
       [ "-device virtio-vga-gl" "-display gtk,gl=on" ];
+
+    services.xserver.desktopManager.gnome.enable = true;
+    services.xserver.displayManager.gdm.enable = true;
+
+    i18n.inputMethod = lib.mkDefault {
+      enabled = "ibus";
+      ibus.engines = with pkgs.ibus-engines; [ mozc ];
+    };
+
+    services.gnome.core-utilities.enable = false;
+    environment.gnome.excludePackages = [ pkgs.gnome-tour ];
+    hardware.pulseaudio.enable = false;
   };
 
   stylix.image = ./wallpaper.png;
