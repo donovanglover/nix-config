@@ -26,7 +26,7 @@
       cores = 4;
     };
     virtualisation.qemu.options =
-      [ "-device virtio-vga-gl" "-display gtk,gl=on" ];
+      [ "-device virtio-vga-gl" "-display sdl,gl=on" ];
 
     services.xserver.desktopManager.gnome.enable = true;
     services.xserver.displayManager.gdm.enable = true;
