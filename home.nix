@@ -136,10 +136,6 @@
       bind = SUPER, K, layoutmsg, cycleprev
       bind = SUPER_SHIFT, J, layoutmsg, swapnext
       bind = SUPER_SHIFT, K, layoutmsg, swapprev
-      bind = SUPER, left, layoutmsg, orientationleft
-      bind = SUPER, right, layoutmsg, orientationright
-      bind = SUPER, up, layoutmsg, orientationtop
-      bind = SUPER, down, layoutmsg, orientationbottom
       bind = SUPER, C, layoutmsg, orientationcenter
       bind = SUPER, H, layoutmsg, addmaster
       bind = SUPER, L, layoutmsg, removemaster
