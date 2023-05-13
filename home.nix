@@ -526,7 +526,7 @@
       package = hyprland.packages."x86_64-linux".waybar-hyprland;
       settings = {
         mainBar = {
-          layer = "bottom";
+          layer = "top";
           position = "left";
           width = 30;
           modules-left = [ "wlr/workspaces" ];
