@@ -399,53 +399,5 @@
           HOLD: KEY_RIGHTMETA
   '';
 
-  containers.test = let hostCfg = config;
-  in {
-    autoStart = false;
-    privateNetwork = true;
-    hostAddress = "192.168.100.10";
-    localAddress = "192.168.100.11";
-
-    config = { config, pkgs, ... }: {
-      programs.fish.enable = true;
-      users.defaultUserShell = pkgs.fish;
-      environment.shells = with pkgs; [ fish ];
-
-      programs.npm.enable = true;
-
-      nix.package = pkgs.nixFlakes;
-      nix.settings.experimental-features = [ "nix-command" "flakes" ];
-      programs.neovim.enable = true;
-      environment.systemPackages = with pkgs; [
-        p7zip
-        kitty
-        git
-        unzip
-        ripgrep
-        gcc
-        trashy
-        wget
-        exa
-        fd
-        fzf
-        gdu
-        ranger
-      ];
-
-      environment.variables = { TERM = "xterm-kitty"; };
-
-      users.mutableUsers = false;
-      users.allowNoPasswordLogin = true;
-
-      users.users.user = {
-        isNormalUser = true;
-        home = "/home/user";
-      };
-
-      environment.defaultPackages = [ ];
-      system.stateVersion = "22.11";
-    };
-  };
-
   system.stateVersion = "22.11";
 }
