@@ -563,11 +563,26 @@
         * {
           all: initial;
           color: @base05;
+          font-size: 16px;
         }
 
         window#waybar {
           background: alpha(@base00, 0.95);
           border-right: 1px solid alpha(@base02, 0.67);
+        }
+
+        #workspaces button {
+          padding: 12px 0;
+        }
+
+        #workspaces button.active {
+          background: alpha(@base02, 0.67);
+        }
+
+        tooltip, #tray menu {
+          background: @base00;
+          border: 1px solid alpha(@base09, 0.93);
+          padding: 8px;
         }
       '';
     };
