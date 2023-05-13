@@ -36,4 +36,4 @@ fi
 sleep 0.1
 
 # Use the default animation once more.
-hyprctl keyword animation workspaces,1,6,default
+hyprctl keyword animation workspaces,1,6,default,slidevert

@@ -13,7 +13,7 @@ numWindowsOnWorkspace=`hyprctl workspaces -j | jq -r ".[] | select(.id==$oldWork
 # If there are no windows yet, function as a program launcher
 if [[ $numWindowsOnWorkspace -eq 0 ]]; then
   kitty &
-  hyprctl keyword animation workspaces,1,6,default
+  hyprctl keyword animation workspaces,1,6,default,slidevert
   exit
 fi
 
@@ -58,4 +58,4 @@ fi
 sleep 0.1
 
 # Use the default animation once more.
-hyprctl keyword animation workspaces,1,6,default
+hyprctl keyword animation workspaces,1,6,default,slidevert
