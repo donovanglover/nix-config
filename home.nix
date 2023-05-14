@@ -112,6 +112,7 @@
 
       binds {
         workspace_back_and_forth = yes
+        allow_workspace_cycles = yes
       }
 
       bind = SUPER_SHIFT, Return, exec, kitty
@@ -144,6 +145,7 @@
       bind = SUPER_SHIFT, H, splitratio, -0.05
       bind = SUPER_SHIFT, L, splitratio, +0.05
 
+      bind = SUPER, grave, workspace, previous
       bind = SUPER, 1, workspace, 1
       bind = SUPER, 2, workspace, 2
       bind = SUPER, 3, workspace, 3
