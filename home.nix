@@ -111,8 +111,6 @@
       }
 
       bind = SUPER_SHIFT, Return, exec, kitty
-      bind = SUPER, Tab, workspace, e+1
-      bind = SUPER_SHIFT, Tab, workspace, e-1
       bind = SUPER, Q, killactive,
       bind = SUPER, P, exec, grim -g "$(slurp)"
       bind = , Print, exec, grim && dunstify Screenshot Captured.
