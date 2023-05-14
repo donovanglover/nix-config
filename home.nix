@@ -525,17 +525,39 @@
         mainBar = {
           layer = "top";
           position = "left";
-          width = 30;
+          width = 45;
+          spacing = 8;
           modules-left = [ "wlr/workspaces" ];
           modules-center = [ "hyprland/window" ];
           modules-right =
             [ "tray" "wireplumber" "backlight" "battery" "clock" ];
+          "tray" = {
+            "icon-size" = 24;
+          };
           "hyprland/window" = {
             "rotate" = 90;
           };
+          "wlr/workspaces" = {
+            on-click = "activate";
+          };
+          wireplumber = {
+            format = "{icon}";
+            tooltip-format = "{volume}% {node_name}";
+            format-muted = "";
+            format-icons = ["" ""];
+          };
           battery = {
             "format" = "{icon}";
+            "tooltip-format" = "{capacity}% {timeTo}";
             "format-icons" = ["" "" "" "" ""];
+          };
+          clock = {
+            "format" = "{:%H\n%M}";
+            "tooltip-format" = "<tt>{calendar}</tt>";
+          };
+          backlight = {
+            "format" = "{icon}";
+            "format-icons" =  ["" ""];
           };
         };
       };
@@ -576,6 +598,16 @@
           background: alpha(@base02, 0.67);
         }
 
+        #window {
+          padding-top: 8px;
+          padding-bottom: 12px;
+        }
+
+        #tray * {
+          padding-top: 8px;
+          padding-bottom: 8px;
+        }
+
         tooltip, #tray menu {
           background: @base00;
           border: 1px solid alpha(@base09, 0.93);
@@ -585,6 +617,12 @@
         #backlight, #battery, #wireplumber {
           font-family: "Font Awesome 6 Free Solid";
           font-size: 24px;
+        }
+
+        #clock {
+          font-size: 18px;
+          font-weight: bold;
+          padding-bottom: 8px;
         }
       '';
     };
