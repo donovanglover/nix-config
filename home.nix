@@ -110,6 +110,10 @@
         accel_profile = flat
       }
 
+      binds {
+        workspace_back_and_forth = yes
+      }
+
       bind = SUPER_SHIFT, Return, exec, kitty
       bind = SUPER, Q, killactive,
       bind = SUPER, P, exec, grim -g "$(slurp)"
