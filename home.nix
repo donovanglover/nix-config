@@ -77,7 +77,7 @@
         animation = borderangle, 1, 8, default
         animation = fade, 1, 7, default
         animation = workspaces, 1, 6, default, slidevert
-        animation = specialWorkspace, 1, 6, default
+        animation = specialWorkspace, 1, 6, default, fade
       }
 
       dwindle {
