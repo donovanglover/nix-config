@@ -17,13 +17,6 @@
         "browser.tabs.insertAfterCurrent" = true;
       };
     };
-    xdg.configFile."lf/kitty_clean.sh" = {
-      executable = true;
-      text = ''
-        #!/usr/bin/env bash
-        kitty +kitten icat --clear --stdin no --silent --transfer-mode file < /dev/null > /dev/tty
-      '';
-    };
     xdg.configFile."hypr/hyprland.conf".text = ''
       env=XCURSOR_SIZE,24
       env=BROWSER,librewolf
@@ -803,29 +796,6 @@
         mpd_crossfade_time = 3;
       };
     };
-    programs.lf = {
-      enable = true;
-      previewer.source = pkgs.writeShellScript "kitty_preview.sh" ''
-        #!/usr/bin/env bash
-        file=$1
-        w=$2
-        h=$3
-        x=$4
-        y=$5
-        if [[ "$( file -Lb --mime-type "$file")" =~ ^image ]]; then
-            kitty +kitten icat --silent --stdin no --transfer-mode file --place "''${w}x''${h}@''${x}x''${y}" "$file" < /dev/null > /dev/tty
-            exit 1
-        fi
-        pistol "$file"
-      '';
-      extraConfig = ''
-        set cleaner ~/.config/lf/kitty_clean.sh
-      '';
-    };
-    programs.pistol = {
-      enable = true;
-    };
-
     programs.rofi = {
       enable = true;
       package = pkgs.rofi-wayland;
