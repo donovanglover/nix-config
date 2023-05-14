@@ -318,11 +318,11 @@
       # Tray Font
       TrayFont="Noto Sans CJK JP Medium 11"
       # Tray Label Outline Color
-      TrayOutlineColor=#000000
+      TrayOutlineColor=#49483e
       # Tray Label Text Color
-      TrayTextColor=#ffffff
+      TrayTextColor=#f8f8f2
       # Prefer Text Icon
-      PreferTextIcon=False
+      PreferTextIcon=True
       # Show Layout Name In Icon
       ShowLayoutNameInIcon=True
       # Use input method language to display text
