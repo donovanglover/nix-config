@@ -474,7 +474,7 @@
       };
       iconTheme = {
         package = pkgs.fluent-icon-theme;
-        name = "Fluent";
+        name = "Fluent-dark";
       };
     };
     programs.kitty = {
