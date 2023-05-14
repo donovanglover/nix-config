@@ -546,6 +546,7 @@
             [ "tray" "wireplumber" "backlight" "battery" "clock" ];
           "tray" = {
             "icon-size" = 24;
+            spacing = 8;
           };
           "hyprland/window" = {
             "rotate" = 90;
@@ -618,11 +619,6 @@
         #window {
           padding-top: 8px;
           padding-bottom: 12px;
-        }
-
-        #tray * {
-          padding-top: 8px;
-          padding-bottom: 8px;
         }
 
         tooltip, #tray menu {
