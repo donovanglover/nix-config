@@ -540,7 +540,7 @@
           position = "left";
           width = 45;
           spacing = 8;
-          modules-left = [ "wlr/workspaces" ];
+          modules-left = [ "wlr/workspaces" "custom/new-workspace" ];
           modules-center = [ "hyprland/window" ];
           modules-right =
             [ "tray" "wireplumber" "backlight" "battery" "clock" ];
@@ -571,6 +571,10 @@
           backlight = {
             "format" = "{icon}";
             "format-icons" =  ["" ""];
+          };
+          "custom/new-workspace" = {
+            "format" = "+";
+            "on-click" = "hyprctl dispatch workspace empty && rofi -show drun";
           };
         };
       };
@@ -630,6 +634,13 @@
         #backlight, #battery, #wireplumber {
           font-family: "Font Awesome 6 Free Solid";
           font-size: 24px;
+        }
+
+        #custom-new-workspace {
+          font-family: "Font Awesome 6 Free Solid";
+          padding-top: 8px;
+          padding-bottom: 8px;
+          color: alpha(@base0A, 0.67);
         }
 
         #clock {
