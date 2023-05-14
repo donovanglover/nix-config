@@ -605,7 +605,6 @@
         @define-color base0F #cc6633;
 
         * {
-          all: initial;
           color: @base05;
           font-size: 16px;
         }
@@ -617,6 +616,7 @@
 
         #workspaces button {
           padding: 12px 0;
+          border-radius: 0;
         }
 
         #workspaces button.active {
