@@ -580,6 +580,7 @@
           "custom/new-workspace" = {
             "format" = "+";
             "on-click" = "hyprctl dispatch workspace empty && rofi -show drun";
+            "tooltip" = false;
           };
         };
       };
