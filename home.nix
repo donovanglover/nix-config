@@ -943,32 +943,12 @@
           config = "require('lualine').setup()";
         }
         {
-          plugin = nvim-cursorline;
-          type = "lua";
-          config = ''
-            require('nvim-cursorline').setup {
-              cursorline = {
-                enable = false,
-              },
-              cursorword = {
-                enable = true,
-                min_length = 3,
-                hl = { underline = true },
-              }
-            }
-          '';
-        }
-        {
           plugin = comment-nvim;
           type = "lua";
           config = ''require('Comment').setup()'';
         }
         {
           plugin = plenary-nvim;
-          type = "lua";
-        }
-        {
-          plugin = clipboard-image-nvim;
           type = "lua";
         }
         {
