@@ -134,7 +134,6 @@
       bind = SUPER, Z, exec, rofi -show drun
 
       bind = SUPER, Return, exec, ~/.config/hypr/swapmaster.sh
-      bind = SUPER, backslash, exec, ~/.config/hypr/focusmaster.sh
       bind = SUPER, J, layoutmsg, cyclenext
       bind = SUPER, K, layoutmsg, cycleprev
       bind = SUPER_SHIFT, J, layoutmsg, swapnext
@@ -1241,7 +1240,6 @@
         c.content.headers.accept_language = 'ja-JP,en-US'
       '';
     };
-    xdg.configFile."hypr/focusmaster.sh".source = ./focusmaster.sh;
     xdg.configFile."hypr/swapmaster.sh".source = ./swapmaster.sh;
     xdg.configFile."hypr/tags.sh".source = ./tags.sh;
     xdg = { userDirs = { enable = true; }; };
