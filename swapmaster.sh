@@ -3,12 +3,14 @@
 # Temporary make the animation a fade for effect
 hyprctl keyword animation workspaces,1,12,default,fade
 
-# Get the workspace ID of the current window
+# Get the current window
 cw=`hyprctl activewindow -j`
-oldWorkspaceID=`echo "$cw" | jq -r '.workspace.id'`
+
+# Get the current workspace ID
+oldWorkspaceID=`hyprctl activeworkspace -j | jq -r '.id'`
 
 # Get the number of windows on the workspace (0 = do nothing, 2 or more = swap)
-numWindowsOnWorkspace=`hyprctl workspaces -j | jq -r ".[] | select(.id==$oldWorkspaceID) | .windows"`
+numWindowsOnWorkspace=`hyprctl activeworkspace -j | jq -r '.windows'`
 
 # If there are no windows yet, function as a program launcher
 if [[ $numWindowsOnWorkspace -eq 0 ]]; then
@@ -24,7 +26,7 @@ hyprctl dispatch layoutmsg focusmaster master
 hyprctl dispatch focuscurrentorlast
 
 # Get the workspace ID of the last window
-newWorkspaceID=`hyprctl activewindow -j | jq -r '.workspace.id'`
+newWorkspaceID=`hyprctl activeworkspace -j | jq -r '.id'`
 
 # If the workspaces are the same, swap master with that last window.
 if [[ "$oldWorkspaceID" == "$newWorkspaceID" ]]; then
