@@ -2,15 +2,6 @@
   imports = [ home-manager.nixosModule ];
   home-manager.useGlobalPkgs = true;
   home-manager.sharedModules = [{
-    programs.librewolf = {
-      enable = true;
-      settings = {
-        "middlemouse.paste" = false;
-        "browser.download.useDownloadDir" = true;
-        "ui.use_activity_cursor" = true;
-        "browser.tabs.insertAfterCurrent" = true;
-      };
-    };
     xdg.configFile."hypr/hyprland.conf".text = ''
       env=XCURSOR_SIZE,24
       env=BROWSER,librewolf

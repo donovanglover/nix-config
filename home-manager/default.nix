@@ -7,6 +7,7 @@
     ./git
     ./gtk
     ./kitty
+    ./librewolf
     ./mpv
     ./ncmpcpp
     ./qutebrowser
