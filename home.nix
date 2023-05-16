@@ -184,6 +184,7 @@
       misc {
         disable_hyprland_logo = yes
         animate_mouse_windowdragging = yes
+        focus_on_activate = yes
       }
     '';
     home.file.".icons/default/index.theme".text = ''
