@@ -9,6 +9,7 @@
     ./modules/stylix
     ./modules/htop.nix
     ./modules/dual-function-keys.nix
+    ./modules/tlp.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
