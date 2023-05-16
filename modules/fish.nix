@@ -1,5 +1,13 @@
 {
   programs.fish = {
+    enable = true;
+    shellAliases = {
+      ls = "exa --group-directories-first -I 'lost+found'";
+      tree =
+        "exa --group-directories-first --all --long --tree -I 'node_modules|.git|public|lost+found'";
+      mv = "mv -i";
+      rg = "rg --max-columns=2000";
+    };
     shellAbbrs = {
       g = "git";
       ga = "git add";

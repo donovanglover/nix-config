@@ -68,16 +68,8 @@
     jack.enable = true;
   };
 
-  programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
   environment.shells = with pkgs; [ fish ];
-  programs.fish.shellAliases = {
-    ls = "exa --group-directories-first -I 'lost+found'";
-    tree =
-      "exa --group-directories-first --all --long --tree -I 'node_modules|.git|public|lost+found'";
-    mv = "mv -i";
-    rg = "rg --max-columns=2000";
-  };
 
   time.timeZone = "America/New_York";
 
