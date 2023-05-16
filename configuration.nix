@@ -7,6 +7,8 @@
     ./modules/fish.nix
     ./modules/fonts.nix
     ./modules/stylix
+    ./modules/htop.nix
+    ./modules/dual-function-keys.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -87,11 +89,6 @@
   programs.thunar.enable = true;
 
   programs.neovim.enable = true;
-  programs.htop = {
-    enable = true;
-    package = pkgs."htop-vim";
-    settings = { tree_view = 1; };
-  };
   programs.firejail.enable = true;
   nix.package = pkgs.nixFlakes;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -185,30 +182,6 @@
   networking.nat.enable = true;
   networking.nat.internalInterfaces = [ "ve-+" ];
   networking.nat.externalInterface = "wg-mullvad";
-
-  services.interception-tools = {
-    enable = true;
-    plugins = [ pkgs.interception-tools-plugins.dual-function-keys ];
-    udevmonConfig = ''
-      - JOB: "${pkgs.interception-tools}/bin/intercept -g $DEVNODE | ${pkgs.interception-tools-plugins.dual-function-keys}/bin/dual-function-keys -c /etc/dual-function-keys.yaml | ${pkgs.interception-tools}/bin/uinput -d $DEVNODE"
-        DEVICE:
-          EVENTS:
-            EV_KEY: [KEY_CAPSLOCK, KEY_ESC]
-    '';
-  };
-
-  environment.etc."dual-function-keys.yaml".text = ''
-    TIMING:
-        - TAP_MILLISEC: 1000
-        - DOUBLE_TAP_MILLISEC: 0
-    MAPPINGS:
-        - KEY: KEY_CAPSLOCK
-          TAP: KEY_ESC
-          HOLD: KEY_LEFTCTRL
-        - KEY: KEY_SYSRQ
-          TAP: KEY_SYSRQ
-          HOLD: KEY_RIGHTMETA
-  '';
 
   system.stateVersion = "22.11";
 }
