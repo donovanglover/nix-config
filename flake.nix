@@ -15,8 +15,7 @@
       modules = [
         ./configuration.nix
         ./home.nix
-        ./home-manager/fcitx5
-        ./home-manager/rofi
+        ./home-manager
         hyprland.nixosModules.default
         { programs.hyprland.enable = true; }
         stylix.nixosModules.stylix

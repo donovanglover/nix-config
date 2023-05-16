@@ -1,0 +1,21 @@
+{
+  imports = [
+    ./dunst
+    ./editorconfig
+    ./fcitx5
+    ./feh
+    ./git
+    ./gtk
+    ./kitty
+    ./mpv
+    ./ncmpcpp
+    ./qutebrowser
+    ./ranger
+    ./rofi
+    ./swaylock
+    ./thunar
+    ./tig
+    ./waybar
+    ./zathura
+  ];
+}
