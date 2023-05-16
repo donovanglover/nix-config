@@ -18,7 +18,6 @@
       exec-once = fcitx5                          # Japanese input support
       exec-once = mullvad-vpn
       exec-once = wl-paste -p --watch wl-copy -pc # Disable middle click paste
-      exec-once = udiskie                         # Auto-mount drives
 
       input {
         kb_layout = us
