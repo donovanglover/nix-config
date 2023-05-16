@@ -23,6 +23,7 @@
         kb_layout = us
         accel_profile = flat
         follow_mouse = 1
+        mouse_refocus = 0
         sensitivity = 0
         touchpad {
           natural_scroll = yes
