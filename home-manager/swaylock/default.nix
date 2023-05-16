@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   home-manager.sharedModules = [{
     programs.swaylock = {

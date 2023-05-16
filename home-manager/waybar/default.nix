@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, hyprland, ... }:
 
 {
   home-manager.sharedModules = [{
