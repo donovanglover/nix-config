@@ -5,6 +5,8 @@
     ./laptop.nix
     ./modules/starship.nix
     ./modules/fish.nix
+    ./modules/fonts.nix
+    ./modules/stylix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -43,39 +45,6 @@
     services.gnome.core-utilities.enable = false;
     environment.gnome.excludePackages = [ pkgs.gnome-tour ];
     hardware.pulseaudio.enable = false;
-  };
-
-  stylix.image = ./wallpaper.png;
-  stylix.polarity = "dark";
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/monokai.yaml";
-
-  stylix.fonts = {
-    serif = {
-      package = pkgs.noto-fonts-cjk-sans;
-      name = "Noto Sans CJK JP";
-    };
-
-    sansSerif = {
-      package = pkgs.noto-fonts-cjk-sans;
-      name = "Noto Sans CJK JP";
-    };
-
-    monospace = {
-      package = pkgs.maple-mono-NF;
-      name = "MapleMono-NF";
-    };
-
-    emoji = {
-      package = pkgs.noto-fonts-emoji;
-      name = "Noto Color Emoji";
-    };
-
-    sizes = {
-      applications = 11;
-      desktop = 11;
-      popups = 11;
-      terminal = 11;
-    };
   };
 
   environment.sessionVariables = {
@@ -198,28 +167,6 @@
     xfce.exo
     (pkgs.callPackage ./pkgs/srb2.nix {})
   ];
-
-  fonts.enableDefaultFonts = true;
-  fonts.fonts = with pkgs; [
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-cjk-serif
-    noto-fonts-emoji
-    maple-mono
-    maple-mono-NF
-    font-awesome
-  ];
-
-  fonts.fontconfig = {
-    defaultFonts = {
-      serif = [ "Noto Serif CJK JP" "Noto Serif" ];
-      sansSerif = [ "Noto Sans CJK JP" "Noto Sans" ];
-      monospace = [ "Noto Mono CJK JP" "Noto Mono" ];
-    };
-  };
-
-  fonts.fontconfig.hinting.style = "hintfull";
-  fonts.fontconfig.allowBitmaps = false;
 
   i18n.inputMethod.enabled = "fcitx5";
   i18n.inputMethod.fcitx5.addons = [ pkgs.fcitx5-mozc ];
