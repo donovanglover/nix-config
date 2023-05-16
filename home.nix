@@ -2,12 +2,6 @@
   imports = [ home-manager.nixosModule ];
   home-manager.useGlobalPkgs = true;
   home-manager.sharedModules = [{
-    programs.chromium = {
-      enable = true;
-      package = pkgs."ungoogled-chromium";
-      commandLineArgs = [ "--ozone-platform-hint=auto" ];
-      extensions = [{ id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }];
-    };
     programs.librewolf = {
       enable = true;
       settings = {
