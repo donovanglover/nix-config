@@ -334,6 +334,7 @@
     cargo
     genact
     xfce.exo
+    (pkgs.callPackage ./pkgs/srb2.nix {})
   ];
 
   fonts.enableDefaultFonts = true;
