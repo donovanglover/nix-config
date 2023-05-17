@@ -11,6 +11,7 @@
     ./modules/dual-function-keys.nix
     ./modules/tlp.nix
     ./modules/osu
+    ./modules/srb2
   ];
 
   boot.loader.systemd-boot.enable = true;
