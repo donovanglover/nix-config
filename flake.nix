@@ -27,7 +27,6 @@
       specialArgs = attrs;
       modules = [
         ./configuration.nix
-        ./home.nix
         ./home-manager
         hyprland.nixosModules.default
         stylix.nixosModules.stylix

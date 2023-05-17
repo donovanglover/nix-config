@@ -1,4 +1,4 @@
-{ config, pkgs, lib, stylix, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -24,6 +24,7 @@
     ./modules/timezone
     ./modules/nix
     ./modules/npm
+    ./modules/home-manager
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -36,7 +37,6 @@
     FZF_DEFAULT_OPTS = "--height 40% --reverse --border --color=16";
     NODE_OPTIONS = "--max_old_space_size=16384";
   };
-
 
   environment.systemPackages = with pkgs; [
     pinentry-curses
