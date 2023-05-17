@@ -53,6 +53,7 @@
         ./modules/nix
         ./modules/npm
         ./modules/home-manager
+        ./modules/user
         ./modules/piper
         ./modules/packages
         {
