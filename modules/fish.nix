@@ -1,6 +1,12 @@
+{ pkgs, ... }:
+
 {
+  users.defaultUserShell = pkgs.fish;
+  environment.shells = [ pkgs.fish ];
+
   programs.fish = {
     enable = true;
+
     shellAliases = {
       ls = "exa --group-directories-first -I 'lost+found'";
       tree =
@@ -8,6 +14,7 @@
       mv = "mv -i";
       rg = "rg --max-columns=2000";
     };
+
     shellAbbrs = {
       g = "git";
       ga = "git add";

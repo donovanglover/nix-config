@@ -1,4 +1,8 @@
+{ pkgs, ... }:
+
 {
+  environment.systemPackages = [ pkgs.libnotify ];
+
   home-manager.sharedModules = [{
     services.dunst = {
       enable = true;

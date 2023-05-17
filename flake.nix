@@ -30,7 +30,6 @@
         ./home.nix
         ./home-manager
         hyprland.nixosModules.default
-        { programs.hyprland.enable = true; }
         stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
       ];

@@ -1,4 +1,6 @@
 {
+  programs.hyprland.enable = true;
+
   home-manager.sharedModules = [{
     xdg.configFile."hypr/hyprland.conf".text = ''
       env=XCURSOR_SIZE,24
