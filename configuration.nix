@@ -25,6 +25,7 @@
     ./modules/nix
     ./modules/npm
     ./modules/home-manager
+    ./modules/piper
   ];
 
   boot.loader.systemd-boot.enable = true;
