@@ -61,7 +61,9 @@
     siege
     ponysay
     lolcat
+    wev
     figlet
+    gcc
     httpie
     cmatrix
     sox
@@ -89,6 +91,8 @@
     swaybg
     brightnessctl
     killall
+    nixos-generators
+    litemdview
     nodejs
     yarn
     deno
