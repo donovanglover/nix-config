@@ -1,4 +1,9 @@
+{ pkgs, ... }:
+
 {
+  i18n.inputMethod.enabled = "fcitx5";
+  i18n.inputMethod.fcitx5.addons = [ pkgs.fcitx5-mozc ];
+
   home-manager.sharedModules = [{
     xdg.configFile."fcitx5/config".force = true;
     xdg.configFile."fcitx5/config".text = ''

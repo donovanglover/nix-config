@@ -24,8 +24,6 @@
   networking.networkmanager.unmanaged = [ "interface-name:ve-*" ];
   networking.networkmanager.dns = "none";
   networking.useHostResolvConf = true;
-  services.udisks2.enable = true;
-  security.pam.services.swaylock = { };
 
   systemd.extraConfig = ''
     DefaultTimeoutStopSec=10s
@@ -63,13 +61,6 @@
   services.vnstat.enable = true;
   services.tumbler.enable = true;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-  };
 
   users.defaultUserShell = pkgs.fish;
   environment.shells = with pkgs; [ fish ];
@@ -81,9 +72,7 @@
     [ "en_US.UTF-8/UTF-8" "ja_JP.UTF-8/UTF-8" "fr_FR.UTF-8/UTF-8" ];
 
   services.xserver.enable = true;
-  programs.thunar.enable = true;
 
-  programs.neovim.enable = true;
   programs.firejail.enable = true;
   nix.package = pkgs.nixFlakes;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -92,14 +81,11 @@
     wget
     grim
     slurp
-    librewolf
-    kitty
     mullvad-vpn
     mullvad-browser
     papirus-icon-theme
     mediainfo
     pywal
-    mpv
     mpc-cli
     neofetch
     tectonic
@@ -140,7 +126,6 @@
     lnch
     libnotify
     dwt1-shell-color-scripts
-    tig
     dig
     trashy
     swaybg
@@ -156,16 +141,11 @@
     rustfmt
     cargo
     genact
-    xfce.exo
     (pkgs.callPackage ./pkgs/srb2.nix {})
   ];
 
-  i18n.inputMethod.enabled = "fcitx5";
-  i18n.inputMethod.fcitx5.addons = [ pkgs.fcitx5-mozc ];
-
   services.mullvad-vpn.enable = true;
   services.mullvad-vpn.enableExcludeWrapper = false;
-
   networking.networkmanager.wifi.macAddress = "random";
   networking.networkmanager.ethernet.macAddress = "random";
   services.resolved.llmnr = "false";

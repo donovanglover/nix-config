@@ -1,4 +1,8 @@
+{ pkgs, ... }:
+
 {
+  environment.systemPackages = [ pkgs.ranger ];
+
   home-manager.sharedModules = [{
     xdg.configFile."ranger/rc.conf".text = ''
       set line_numbers absolute

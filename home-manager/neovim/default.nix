@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
+  programs.neovim.enable = true;
+
   home-manager.sharedModules = [{
     programs.neovim = {
       enable = true;

@@ -1,4 +1,8 @@
+{ pkgs, ... }:
+
 {
+  environment.systemPackages = [ pkgs.tig ];
+
   home-manager.sharedModules = [{
     xdg.configFile."tig/config".text = ''
       color cursor black green bold

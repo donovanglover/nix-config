@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
+  security.pam.services.swaylock = { };
+
   home-manager.sharedModules = [{
     programs.swaylock = {
       package = pkgs."swaylock-effects";
