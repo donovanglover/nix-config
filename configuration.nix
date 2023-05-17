@@ -17,14 +17,17 @@
     ./modules/networking
     ./modules/virtualization
     ./modules/xserver
+    ./modules/systemd
+    ./modules/vnstat
+    ./modules/locale
+    ./modules/firejail
+    ./modules/timezone
+    ./modules/nix
+    ./modules/npm
   ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  systemd.extraConfig = ''
-    DefaultTimeoutStopSec=10s
-  '';
 
   environment.sessionVariables = {
     EDITOR = "nvim";
@@ -35,17 +38,6 @@
   };
 
 
-
-  time.timeZone = "America/New_York";
-
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.supportedLocales =
-    [ "en_US.UTF-8/UTF-8" "ja_JP.UTF-8/UTF-8" "fr_FR.UTF-8/UTF-8" ];
-
-
-  programs.firejail.enable = true;
-  nix.package = pkgs.nixFlakes;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   environment.systemPackages = with pkgs; [
     pinentry-curses
     wget
@@ -69,7 +61,6 @@
     ponysay
     lolcat
     figlet
-    calcurse
     httpie
     cmatrix
     sox
@@ -107,10 +98,6 @@
     cargo
     genact
   ];
-
-  networking.networkmanager.wifi.macAddress = "random";
-  networking.networkmanager.ethernet.macAddress = "random";
-  services.resolved.llmnr = "false";
 
   environment.defaultPackages = [ ];
 
