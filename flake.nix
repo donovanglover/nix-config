@@ -31,13 +31,13 @@
         stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
         ./laptop.nix
-        ./modules/starship.nix
-        ./modules/fish.nix
-        ./modules/fonts.nix
+        ./modules/starship
+        ./modules/fish
+        ./modules/fonts
         ./modules/stylix
-        ./modules/htop.nix
-        ./modules/dual-function-keys.nix
-        ./modules/tlp.nix
+        ./modules/htop
+        ./modules/dual-function-keys
+        ./modules/tlp
         ./modules/osu
         ./modules/srb2
         ./modules/mullvad
