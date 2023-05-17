@@ -10,6 +10,7 @@
     ./modules/htop.nix
     ./modules/dual-function-keys.nix
     ./modules/tlp.nix
+    ./modules/osu
   ];
 
   boot.loader.systemd-boot.enable = true;
