@@ -1,3 +1,0 @@
-{
-  services.vnstat.enable = true;
-}
