@@ -5,5 +5,6 @@
     ./nix
     ./systemd
     ./timezone
+    ./user
   ];
 }

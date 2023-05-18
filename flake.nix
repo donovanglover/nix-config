@@ -26,65 +26,16 @@
       system = "x86_64-linux";
       specialArgs = attrs;
       modules = [
-        ./home-manager
+        home-manager.nixosModules.home-manager
         hyprland.nixosModules.default
         stylix.nixosModules.stylix
-        home-manager.nixosModules.home-manager
-        ./laptop.nix
-        ./bat
-        ./dunst
-        ./editorconfig
-        ./fcitx5
-        ./feh
-        ./fish
-        ./git
-        ./gpg-agent
-        ./gpg
-        ./gtk
-        ./hyprland
-        ./kitty
-        ./librewolf
-        ./mozc
-        ./mpd
-        ./mpv
-        ./ncmpcpp
-        ./neovim
-        ./qutebrowser
-        ./ranger
-        ./rofi
-        ./swaylock
-        ./thunar
-        ./tig
-        ./udiskie
-        ./waybar
-        ./xcursor
-        ./xdg-user-dirs
-        ./xresources
-        ./zathura
-        ./starship
-        ./fonts
-        ./stylix
-        ./htop
-        ./dual-function-keys
-        ./tlp
-        ./osu
-        ./srb2
-        ./mullvad
-        ./pipewire
-        ./networking
-        ./virtualization
-        ./xserver
-        ./systemd
-        ./vnstat
-        ./locale
-        ./firejail
-        ./timezone
-        ./nix
-        ./npm
-        ./home-manager
-        ./user
-        ./piper
-        ./packages
+        ./applications
+        ./common
+        ./desktop
+        ./dev
+        ./games
+        ./host
+        ./terminal
         {
           boot.loader.systemd-boot.enable = true;
           boot.loader.efi.canTouchEfiVariables = true;

@@ -1,13 +1,20 @@
 {
   imports = [
+    ./dual-function-keys
     ./dunst
     ./fcitx5
+    ./fonts
+    ./gtk
     ./hyprland
     ./mozc
+    ./pipewire
     ./rofi
+    ./stylix
     ./swaylock
+    ./udiskie
     ./waybar
     ./xcursor
+    ./xdg-user-dirs
     ./xresources
     ./xserver
   ];

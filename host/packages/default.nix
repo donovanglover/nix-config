@@ -17,7 +17,6 @@
     anki
     logseq
     yt-dlp
-    gurk-rs
     wl-clipboard
     ffmpeg
     siege
@@ -64,5 +63,8 @@
     rustfmt
     cargo
     genact
+    helix
+    nil
+    marksman
   ];
 }

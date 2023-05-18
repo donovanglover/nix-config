@@ -3,6 +3,7 @@
     ./bat
     ./fish
     ./git
+    ./gpg
     ./htop
     ./ncmpcpp
     ./neovim
