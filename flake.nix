@@ -32,7 +32,6 @@
         home-manager.nixosModules.home-manager
         ./laptop.nix
         ./modules/starship
-        ./modules/fish
         ./modules/fonts
         ./modules/stylix
         ./modules/htop
