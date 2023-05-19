@@ -9,6 +9,7 @@
     ./gtk
     ./hyprland
     ./mozc
+    ./nwg-dock
     ./pipewire
     ./rofi
     ./stylix
