@@ -19,9 +19,16 @@
         home-manager.follows = "home-manager";
       };
     };
+
+    hypr-contrib = {
+      url = "github:hyprwm/contrib";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, stylix, ... }@attrs: {
+  outputs = { self, nixpkgs, home-manager, hyprland, stylix, hypr-contrib, ... }@attrs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = attrs;
@@ -39,6 +46,10 @@
         {
           boot.loader.systemd-boot.enable = true;
           boot.loader.efi.canTouchEfiVariables = true;
+
+          environment.systemPackages = [
+            hypr-contrib.packages."x86_64-linux".grimblast
+          ];
 
           environment.sessionVariables = {
             EDITOR = "nvim";
