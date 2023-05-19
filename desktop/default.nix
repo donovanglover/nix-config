@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   imports = [
     ./dual-function-keys
@@ -17,5 +19,14 @@
     ./xdg-user-dirs
     ./xresources
     ./xserver
+  ];
+
+  environment.systemPackages = with pkgs; [
+    grim
+    slurp
+    wl-clipboard
+    lnch
+    wev
+    swaybg
   ];
 }

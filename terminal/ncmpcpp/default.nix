@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   home-manager.sharedModules = [{
     services.mpd = {
@@ -50,4 +52,8 @@
       };
     };
   }];
+
+  environment.systemPackages = with pkgs; [
+    mpc-cli
+  ];
 }

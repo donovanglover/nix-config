@@ -3,7 +3,6 @@
     ./laptop
     ./mullvad
     ./networking
-    ./packages
     ./virtualization
   ];
 }
