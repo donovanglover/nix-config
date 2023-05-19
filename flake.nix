@@ -21,13 +21,14 @@
     };
   };
 
-  outputs = inputs: {
-    nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
+  outputs = { self, nixpkgs, home-manager, hyprland, stylix, ... }@attrs: {
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
+      specialArgs = attrs;
       modules = [
-        inputs.home-manager.nixosModules.home-manager
-        inputs.hyprland.nixosModules.default
-        inputs.stylix.nixosModules.stylix
+        home-manager.nixosModules.home-manager
+        hyprland.nixosModules.default
+        stylix.nixosModules.stylix
         ./applications
         ./common
         ./desktop
