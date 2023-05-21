@@ -124,7 +124,8 @@
       bind = SUPER, K, layoutmsg, cycleprev
       bind = SUPER_SHIFT, J, layoutmsg, swapnext
       bind = SUPER_SHIFT, K, layoutmsg, swapprev
-      bind = SUPER, C, layoutmsg, orientationcenter
+      bind = SUPER, C, layoutmsg, orientationnext
+      bind = SUPER_SHIFT, C, layoutmsg, orientationprev
       bind = SUPER, H, layoutmsg, addmaster
       bind = SUPER, L, layoutmsg, removemaster
       bind = SUPER_SHIFT, H, splitratio, -0.05
