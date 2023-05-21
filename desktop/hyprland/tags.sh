@@ -6,6 +6,6 @@ ids="$(hyprctl clients -j | jq -r ".[] | select(.workspace.id == "$1") | .addres
 
 # Move those windows to the current workspace
 for id in $ids; do
-  hyprctl dispatch movetoworkspacesilent "$(hyprctl activeworkspace -j | jq -r '.id')",address:"$id"
+  hyprctl dispatch movetoworkspacesilent "$(hyprctl monitors -j | jq -r '.[] | select(.focused==true) | .activeWorkspace.id')",address:"$id"
   hyprctl dispatch focuswindow address:"$id"
 done
