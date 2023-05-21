@@ -28,6 +28,6 @@
     wl-clipboard
     lnch
     wev
-    swaybg
+    swww
   ];
 }
