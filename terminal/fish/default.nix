@@ -46,13 +46,6 @@
       gt = "git tag";
       gts = "git tag -s";
 
-      d = "sudo docker";
-      dc = "sudo docker-compose";
-      dcu = "sudo docker-compose up";
-      dcd = "sudo docker-compose down";
-      dcp = "sudo docker-compose pull";
-      dcl = "sudo docker-compose logs";
-
       y = "yarn";
       ya = "yarn add";
       yar = "yarn remove";
