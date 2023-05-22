@@ -6,7 +6,6 @@
         enable_audio_bell = false;
         allow_remote_control = true;
         dynamic_background_opacity = true;
-        background_opacity = "0.95";
         close_on_child_death = true;
         cursor_blink_interval = 0;
         wayland_titlebar_color = "background";
