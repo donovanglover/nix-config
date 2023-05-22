@@ -100,6 +100,11 @@
           config = ''require("scrollbar").setup()'';
         }
         {
+          plugin = nvim-lspconfig;
+          type = "lua";
+          config = "require'lspconfig'.nil_ls.setup{}";
+        }
+        {
           plugin = nvim-base16;
           type = "lua";
           config = "vim.cmd('colorscheme base16-monokai')";
