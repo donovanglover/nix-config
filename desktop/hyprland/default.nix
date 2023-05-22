@@ -108,7 +108,7 @@
       bind = SUPER_ALT, delete, exit
       bind = SUPER, V, togglefloating,
       bind = SUPER, V, centerwindow,
-      bind = SUPER, O, exec, killall -SIGUSR1 .waybar-wrapped
+      bind = SUPER, O, exec, killall .waybar-wrapped || waybar
       bind = SUPER, X, pin
       bind = SUPER, F, fullscreen, 1
       bind = SUPER_SHIFT, F, fullscreen
