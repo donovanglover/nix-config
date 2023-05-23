@@ -115,6 +115,10 @@
           config = "require('lualine').setup()";
         }
         {
+          plugin = git-blame-nvim;
+          type = "lua";
+        }
+        {
           plugin = comment-nvim;
           type = "lua";
           config = ''require('Comment').setup()'';
