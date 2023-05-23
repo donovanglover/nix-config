@@ -27,5 +27,8 @@
         - KEY: KEY_LEFTMETA
           TAP: [ KEY_LEFTMETA, KEY_F1 ]
           HOLD: KEY_LEFTMETA
+        - KEY: KEY_RIGHTSHIFT
+          TAP: [ KEY_LEFTMETA, KEY_F2 ]
+          HOLD: KEY_RIGHTSHIFT
   '';
 }

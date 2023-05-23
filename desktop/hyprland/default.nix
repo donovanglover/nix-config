@@ -116,6 +116,7 @@
       bind = SUPER_SHIFT, S, movetoworkspace, special
       bind = SUPER_SHIFT, S, togglespecialworkspace
       bind = SUPER, F1, exec, killall rofi || rofi -show drun
+      bind = SUPER, F2, togglespecialworkspace
 
       bind = SUPER, Return, exec, ~/.config/hypr/swapmaster.sh
       bind = SUPER, J, layoutmsg, cyclenext
