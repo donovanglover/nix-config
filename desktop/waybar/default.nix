@@ -8,7 +8,7 @@
       settings = {
         mainBar = {
           layer = "top";
-          position = "left";
+          position = "right";
           width = 45;
           spacing = 8;
           modules-left = [ "wlr/workspaces" "custom/new-workspace" ];
@@ -90,7 +90,7 @@
 
         window#waybar {
           background: alpha(@base00, 0.95);
-          border-right: 1px solid alpha(@base02, 0.67);
+          border-left: 1px solid alpha(@base02, 0.67);
         }
 
         #workspaces button {
