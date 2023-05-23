@@ -100,8 +100,8 @@
 
       bind = SUPER_SHIFT, Return, exec, kitty
       bind = SUPER, Q, killactive,
-      bind = SUPER, P, exec, grim -g "$(slurp)"
-      bind = , Print, exec, grim && dunstify Screenshot Captured.
+      bind = SUPER, P, exec, grim && dunstify Screenshot Captured.
+      bind = , Print, exec, grimblast copy area
       bind = SUPER_ALT, delete, exit
       bind = SUPER, V, togglefloating,
       bind = SUPER, V, centerwindow,
