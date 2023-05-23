@@ -95,7 +95,6 @@
       }
 
       binds {
-        workspace_back_and_forth = yes
         allow_workspace_cycles = yes
       }
 
