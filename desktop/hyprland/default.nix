@@ -33,7 +33,7 @@
 
       general {
         gaps_in = 0
-        gaps_out = 0
+        gaps_out = -1
         border_size = 0
         col.active_border = rgba(f4bf75ee) rgba(fd971fee) 45deg
         col.inactive_border = rgba(49483eaa)
