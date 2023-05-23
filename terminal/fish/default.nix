@@ -51,12 +51,6 @@
       yin = "yarn install";
       yu = "yarn upgrade-interactive";
 
-      v = "vagrant";
-      vu = "vagrant up";
-      vh = "vagrant halt";
-      vs = "vagrant ssh";
-      vp = "vagrant provision";
-
       dl = "yt-dlp";
       vol =
         "wpctl set-volume '@DEFAULT_AUDIO_SINK@'"; # Change the volume, e.g. vol 10%+, vol 10%-, vol 100%
