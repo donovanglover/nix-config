@@ -76,7 +76,6 @@
         mfact = 0.65
         special_scale_factor = 0.95
         no_gaps_when_only = yes
-        allow_small_split = yes
       }
 
       gestures {
