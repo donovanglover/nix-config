@@ -6,7 +6,6 @@
     ./fish
     ./git
     ./gpg
-    ./helix
     ./htop
     ./ncmpcpp
     ./neovim
