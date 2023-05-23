@@ -4,7 +4,9 @@
   home-manager.sharedModules = [{
     programs.rofi = {
       enable = true;
-      package = pkgs.rofi-wayland;
+      package = (pkgs.callPackage ./package/wrapper.nix {
+        rofi-unwrapped = (pkgs.callPackage ./package/wayland.nix { });
+      });
       cycle = false;
       extraConfig = {
         modi = "drun,filebrowser";
