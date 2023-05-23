@@ -27,9 +27,7 @@
       gcl = "git clone";
       gco = "git checkout";
       gd = "git diff"; # Show all file changes not staged yet
-      gdi = "git difftool --no-symlinks --dir-diff";
       gds = "git diff --staged"; # Show changes staged but not committed
-      gdsi = "git difftool --no-symlinks --dir-diff --staged";
       gi = "git init";
       gl = "git log --oneline --decorate --all --graph -n 10";
       gm = "git merge";
@@ -72,8 +70,6 @@
         "recode utf16..utf8"; # Rarely, some files from Japan are utf16 instead
       jp = "LANG=ja_JP.UTF-8 LC_ALL=ja_JP.UTF-8";
 
-      a = "ansible-playbook";
-      b = "swaybg -m fill -i"; # Change the background
       c = "clear"; # Because 5 letters is too much
       e = "exit";
       k = "kitty @ set-colors -c -a ~/.cache/wal/kitty";
