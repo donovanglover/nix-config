@@ -16,6 +16,7 @@
     TIMING:
         - TAP_MILLISEC: 1000
         - DOUBLE_TAP_MILLISEC: 0
+        - SYNTHETIC_KEYS_PAUSE_MILLISEC: 0
     MAPPINGS:
         - KEY: KEY_CAPSLOCK
           TAP: KEY_ESC
@@ -23,5 +24,8 @@
         - KEY: KEY_SYSRQ
           TAP: KEY_SYSRQ
           HOLD: KEY_RIGHTMETA
+        - KEY: KEY_LEFTMETA
+          TAP: [ KEY_LEFTMETA, KEY_F1 ]
+          HOLD: KEY_LEFTMETA
   '';
 }
