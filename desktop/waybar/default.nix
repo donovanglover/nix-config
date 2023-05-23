@@ -90,7 +90,7 @@
         }
 
         window#waybar {
-          background: alpha(@base00, 0.95);
+          background: alpha(@base00, 0.92);
           border-left: 1px solid alpha(@base02, 0.67);
         }
 
