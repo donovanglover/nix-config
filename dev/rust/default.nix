@@ -7,5 +7,6 @@
     rustfmt
     cargo
     rust-analyzer
+    bacon
   ];
 }

@@ -29,6 +29,7 @@
     lnch
     wev
     swww
+    kickoff
     greetd.tuigreet
   ];
 

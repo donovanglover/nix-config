@@ -43,5 +43,8 @@
     neofetch
     pywal
     brightnessctl
+    zellij
+    librespeed-cli
+    wiki-tui
   ];
 }
