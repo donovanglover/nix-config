@@ -10,5 +10,9 @@
 
   environment.systemPackages = with pkgs; [
     marksman
+    gopls
+    lua-language-server
+    clang-tools
+    texlab
   ];
 }
