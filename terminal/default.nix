@@ -11,7 +11,6 @@
     ./neovim
     ./ranger
     ./starship
-    ./tig
   ];
 
   environment.systemPackages = with pkgs; [
