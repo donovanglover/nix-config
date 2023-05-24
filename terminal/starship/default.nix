@@ -1,8 +1,10 @@
 {
   programs.starship = {
     enable = true;
+
     settings = {
       add_newline = false;
+
       directory = {
         style = "purple";
         read_only = " ro";
@@ -19,7 +21,7 @@
         vicmd_symbol = "[<](bold green)";
       };
 
-      line_break = { disabled = true; };
+      line_break.disabled = true;
 
       nodejs = {
         format = "with [$symbol($version )]($style)";
@@ -29,6 +31,7 @@
       };
 
       git_commit.tag_symbol = " tag ";
+
       git_status = {
         ahead = ">";
         behind = "<";
