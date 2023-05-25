@@ -11,6 +11,7 @@
       maple-mono
       maple-mono-NF
       font-awesome
+      nerdfonts
     ];
     fontconfig = {
       defaultFonts = {
