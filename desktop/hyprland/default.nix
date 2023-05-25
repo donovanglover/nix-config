@@ -1,5 +1,13 @@
+{ pkgs, ... }:
+
 {
   programs.hyprland.enable = true;
+
+  services.xserver = {
+    enable = true;
+    displayManager.lightdm.enable = false;
+    excludePackages = [ pkgs.xterm ];
+  };
 
   home-manager.sharedModules = [{
     xdg.configFile."hypr/hyprland.conf".text = ''
@@ -188,5 +196,20 @@
     '';
     xdg.configFile."hypr/swapmaster.sh".source = ./swapmaster.sh;
     xdg.configFile."hypr/tags.sh".source = ./tags.sh;
+
+    home.file.".icons/default/index.theme".text = ''
+      [icon theme]
+      Inherits=phinger-cursors
+    '';
+
+    xresources.properties = {
+      "Xft.hinting" = true;
+      "Xft.antialias" = true;
+      "Xft.autohint" = false;
+      "Xft.lcdfilter" = "lcddefault";
+      "Xft.hintstyle" = "hintfull";
+      "Xft.rgba" = "rgb";
+    };
+
   }];
 }

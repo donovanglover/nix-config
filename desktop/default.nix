@@ -15,10 +15,7 @@
     ./swaylock
     ./udiskie
     ./waybar
-    ./xcursor
     ./xdg-user-dirs
-    ./xresources
-    ./xserver
   ];
 
   environment.systemPackages = with pkgs; [
