@@ -5,23 +5,28 @@
     programs.waybar = {
       enable = true;
       package = hyprland.packages."x86_64-linux".waybar-hyprland;
+
       settings = {
         mainBar = {
           layer = "top";
           position = "right";
           width = 45;
           spacing = 8;
+
           modules-left = [ "wlr/workspaces" "custom/new-workspace" ];
           modules-center = [ "hyprland/window" ];
           modules-right =
             [ "tray" "wireplumber" "backlight" "battery" "clock" ];
-          "tray" = {
-            "icon-size" = 24;
+
+          tray = {
+            icon-size = 24;
             spacing = 8;
           };
+
           "hyprland/window" = {
-            "rotate" = 90;
+            rotate = 90;
           };
+
           "wlr/workspaces" = {
             on-click = "activate";
             sort-by-number = true;
@@ -39,25 +44,30 @@
               "10" = "十";
             };
           };
+
           wireplumber = {
             format = "{icon}";
             tooltip-format = "{volume}% {node_name}";
             format-muted = "";
             format-icons = ["" ""];
           };
+
           battery = {
             "format" = "{icon}";
             "tooltip-format" = "{capacity}% {timeTo}";
             "format-icons" = ["" "" "" "" ""];
           };
+
           clock = {
             "format" = "{:%H\n%M}";
             "tooltip-format" = "<tt>{calendar}</tt>";
           };
+
           backlight = {
             "format" = "{icon}";
             "format-icons" =  ["" ""];
           };
+
           "custom/new-workspace" = {
             "format" = "+";
             "on-click" = "hyprctl dispatch workspace empty && rofi -show drun";
@@ -66,6 +76,7 @@
           };
         };
       };
+
       style = lib.mkForce ''
         @define-color base00 #272822;
         @define-color base01 #383830;

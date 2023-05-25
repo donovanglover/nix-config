@@ -6,6 +6,7 @@
   home-manager.sharedModules = [{
     services.dunst = {
       enable = true;
+
       settings = {
         global = {
           geometry = "1870x5-25+45";
