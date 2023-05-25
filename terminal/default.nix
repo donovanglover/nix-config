@@ -2,11 +2,9 @@
 
 {
   imports = [
-    ./bat
     ./fish
     ./git
     ./gpg
-    ./htop
     ./ncmpcpp
     ./neovim
     ./ranger
@@ -46,4 +44,14 @@
     librespeed-cli
     wiki-tui
   ];
+
+  home-manager.sharedModules = [{
+    programs.bat.enable = true;
+  }];
+
+  programs.htop = {
+    enable = true;
+    package = pkgs."htop-vim";
+    settings = { tree_view = 1; };
+  };
 }
