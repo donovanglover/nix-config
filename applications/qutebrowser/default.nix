@@ -29,9 +29,6 @@
         c.colors.contextmenu.menu.fg = '#ffffff'
         c.colors.contextmenu.selected.bg = '#909090'
 
-        # Use spellcheck
-        c.spellcheck.languages = ["en-US"]
-
         # Chromium flags
         c.qt.args = ["disable-backing-store-limit", "enable-accelerated-video-decode", "disable-gpu-driver-bug-workarounds"]
         c.qt.chromium.low_end_device_mode = 'never'
