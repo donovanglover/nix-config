@@ -6,14 +6,12 @@
     ./dunst
     ./fcitx5-mozc
     ./fonts
-    ./gtk
     ./hyprland
     ./nwg-dock
     ./pipewire
     ./rofi
     ./stylix
     ./swaylock
-    ./udiskie
     ./waybar
     ./xdg-user-dirs
   ];
