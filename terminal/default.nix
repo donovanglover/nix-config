@@ -2,13 +2,12 @@
 
 {
   imports = [
-    ./fish
+    ./fish-starship
     ./git
     ./gpg
     ./ncmpcpp
     ./neovim
     ./ranger
-    ./starship
   ];
 
   environment.systemPackages = with pkgs; [
