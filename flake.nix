@@ -35,7 +35,8 @@
         hyprland.nixosModules.default
         stylix.nixosModules.stylix
         ./applications
-        ./common
+        ./common.nix
+        ./user.nix
         ./desktop
         ./dev
         ./games
