@@ -5,6 +5,18 @@
   i18n.inputMethod.fcitx5.addons = [ pkgs.fcitx5-mozc ];
 
   home-manager.sharedModules = [{
+    xdg.configFile."mozc/ibus_config.textproto".force = true;
+    xdg.configFile."mozc/ibus_config.textproto".text = ''
+      engines {
+        name : "mozc-jp"
+        longname : "Mozc"
+        layout : "default"
+        layout_variant : ""
+        layout_option : ""
+        rank : 80
+      }
+      active_on_launch: True
+    '';
     xdg.configFile."fcitx5/config".force = true;
     xdg.configFile."fcitx5/config".text = ''
       [Hotkey]

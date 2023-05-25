@@ -4,11 +4,10 @@
   imports = [
     ./dual-function-keys
     ./dunst
-    ./fcitx5
+    ./fcitx5-mozc
     ./fonts
     ./gtk
     ./hyprland
-    ./mozc
     ./nwg-dock
     ./pipewire
     ./rofi
