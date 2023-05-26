@@ -126,7 +126,7 @@
       bind = SUPER, F1, exec, killall rofi || rofi -show drun
       bind = SUPER, F2, togglespecialworkspace
 
-      bind = SUPER, Return, exec, ~/.config/hypr/swapmaster.sh
+      bind = SUPER, Return, layoutmsg, swapwithmaster master
       bind = SUPER, J, layoutmsg, cyclenext
       bind = SUPER, K, layoutmsg, cycleprev
       bind = SUPER_SHIFT, J, layoutmsg, swapnext
@@ -195,7 +195,6 @@
         focus_on_activate = yes
       }
     '';
-    xdg.configFile."hypr/swapmaster.sh".source = ./swapmaster.sh;
     xdg.configFile."hypr/tags.sh".source = ./tags.sh;
 
     home.file.".icons/default/index.theme".text = ''
