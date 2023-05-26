@@ -141,6 +141,11 @@
           type = "lua";
         }
         {
+          plugin = auto-save-nvim;
+          type = "lua";
+          config = ''require("auto-save").setup()'';
+        }
+        {
           plugin = vimtex;
           config = ''
             " Disable all keybinds so we can define our own
