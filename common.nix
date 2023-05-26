@@ -33,6 +33,9 @@
     DefaultTimeoutStopSec=10s
   '';
 
+  # logind
+  services.logind.lidSwitch = "ignore";
+
   # timezone
   time.timeZone = "America/New_York";
 }
