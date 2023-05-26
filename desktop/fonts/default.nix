@@ -9,7 +9,6 @@
       noto-fonts-cjk-serif
       noto-fonts-emoji
       maple-mono
-      maple-mono-NF
       font-awesome
       nerdfonts
     ];

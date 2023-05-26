@@ -18,8 +18,8 @@
     };
 
     monospace = {
-      package = pkgs.maple-mono-NF;
-      name = "MapleMono-NF";
+      package = pkgs.maple-mono;
+      name = "MapleMono";
     };
 
     emoji = {
