@@ -25,6 +25,10 @@
 
     services.gnome.core-utilities.enable = false;
     environment.gnome.excludePackages = [ pkgs.gnome-tour ];
-    hardware.pulseaudio.enable = false;
+
+    services.pipewire.enable = lib.mkForce false;
+    services.mullvad-vpn.enable = lib.mkForce false;
+    programs.hyprland.enable = lib.mkForce false;
+    services.greetd.enable = lib.mkForce false;
   };
 }
