@@ -5,6 +5,7 @@
     programs.qutebrowser = {
       enable = true;
       package = pkgs.qutebrowser-qt6;
+
       extraConfig = ''
         # Mute tabs by default
         from qutebrowser.mainwindow import tabwidget
@@ -159,6 +160,11 @@
 
         # Prioritize Japanese content (en-US is necessary to avoid breaking things)
         c.content.headers.accept_language = 'ja-JP,en-US'
+
+        c.url.start_pages = ['https://search.goo.ne.jp']
+        c.url.searchengines = {
+          'DEFAULT': 'https://search.goo.ne.jp/web.jsp?MT={}'
+        }
       '';
     };
   }];
