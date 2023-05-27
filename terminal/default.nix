@@ -7,7 +7,7 @@
     ./gpg
     ./ncmpcpp
     ./neovim
-    ./ranger
+    ./joshuto
   ];
 
   environment.systemPackages = with pkgs; [

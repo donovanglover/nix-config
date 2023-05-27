@@ -68,7 +68,7 @@
       e = "exit";
       k = "kitty @ set-colors -c -a ~/.cache/wal/kitty";
       l = "ls -l";
-      r = "ranger";
+      j = "joshuto";
       w = "wal -o ~/.config/wal/done.sh";
       T = "tree";
     };
