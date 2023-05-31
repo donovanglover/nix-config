@@ -8,6 +8,7 @@
         "ui.use_activity_cursor" = true;
         "browser.tabs.insertAfterCurrent" = true;
         "browser.toolbars.bookmarks.visibility" = "never";
+        "privacy.resistFingerprinting.letterboxing" = true;
       };
     };
   }];
