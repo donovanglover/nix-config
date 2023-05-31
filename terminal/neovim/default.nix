@@ -167,6 +167,7 @@
         vim-over
         vim-endwise
         rust-vim
+        neoformat
       ];
     };
   }];
