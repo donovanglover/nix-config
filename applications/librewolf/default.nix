@@ -9,6 +9,7 @@
         "browser.tabs.insertAfterCurrent" = true;
         "browser.toolbars.bookmarks.visibility" = "never";
         "privacy.resistFingerprinting.letterboxing" = true;
+        "sidebar.position_start" = false;
       };
     };
   }];
