@@ -41,7 +41,7 @@
         let mapleader = ' '
         nnoremap <silent> <leader>e :set nu!<CR>
         nnoremap <silent> <leader>t :OverCommandLine<CR>%s/
-        nnoremap <silent> <leader>a :NvimTreeToggle<CR>
+        nnoremap <silent> <leader>a :NvimTreeFocus<CR>
         nnoremap <silent> <leader>f :Files<CR>
         nnoremap <silent> <leader>g :set hlsearch!<CR>
         nnoremap <silent> <leader>j :Buffers<CR>
