@@ -12,6 +12,7 @@
       tree =
         "exa --group-directories-first --all --long --tree -I 'node_modules|.git|public|lost+found'";
       mv = "mv -i";
+      cp = "cp -a";
       rg = "rg --max-columns=2000";
       yarn = "yarn --emoji true";
     };
