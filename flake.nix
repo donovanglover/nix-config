@@ -24,9 +24,14 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-gaming = {
+      url = "github:fufexan/nix-gaming";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, stylix, hypr-contrib, ... }@attrs: {
+  outputs = { self, nixpkgs, home-manager, hyprland, stylix, hypr-contrib, nix-gaming, ... }@attrs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = attrs;
@@ -34,6 +39,7 @@
         home-manager.nixosModules.home-manager
         hyprland.nixosModules.default
         stylix.nixosModules.stylix
+        nix-gaming.nixosModules.pipewireLowLatency
         ./applications
         ./common.nix
         ./user.nix
@@ -43,11 +49,14 @@
         ./host
         ./terminal
         {
+          hardware.opengl.driSupport32Bit = true;
+
           boot.loader.systemd-boot.enable = true;
           boot.loader.efi.canTouchEfiVariables = true;
 
           environment.systemPackages = [
             hypr-contrib.packages."x86_64-linux".grimblast
+            nix-gaming.packages."x86_64-linux".osu-stable
           ];
 
           environment.sessionVariables = {
