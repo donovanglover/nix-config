@@ -9,7 +9,7 @@
       settings = {
         show-keyboard-layout = true;
         daemonize = true;
-        effect-blur = "5x2";
+        effect-blur = "20x2";
         clock = true;
         indicator = true;
         font-size = 25;
