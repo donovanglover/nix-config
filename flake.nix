@@ -48,6 +48,7 @@
         ./games
         ./host
         ./terminal
+        ./containers/rar.nix
         {
           hardware.opengl.driSupport32Bit = true;
 
