@@ -122,7 +122,7 @@
       bind = SUPER, bracketleft, changegroupactive, b
       bind = SUPER, S, togglespecialworkspace
       bind = SUPER_SHIFT, S, movetoworkspace, special
-      bind = SUPER_SHIFT, S, togglespecialworkspace
+      bind = SUPER_SHIFT, S, focuscurrentorlast
       bind = SUPER, F1, exec, killall rofi || rofi -show drun
       bind = SUPER, F2, togglespecialworkspace
 
