@@ -42,6 +42,7 @@
     zellij
     librespeed-cli
     wiki-tui
+    hexyl
   ];
 
   home-manager.sharedModules = [{
