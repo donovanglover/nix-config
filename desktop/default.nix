@@ -41,4 +41,6 @@
       };
     };
   };
+
+  zramSwap.enable = true;
 }
