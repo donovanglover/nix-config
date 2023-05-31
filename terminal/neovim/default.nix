@@ -80,11 +80,6 @@
           type = "lua";
         }
         {
-          plugin = nvim-scrollbar;
-          type = "lua";
-          config = ''require("scrollbar").setup()'';
-        }
-        {
           plugin = nvim-lspconfig;
           type = "lua";
           config = "
