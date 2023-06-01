@@ -10,6 +10,8 @@
       '';
     };
 
+    xdg.configFile."ncmpcpp/on-song-change.sh".source = ./on-song-change.sh;
+
     programs.ncmpcpp = {
       enable = true;
 
@@ -138,7 +140,7 @@
         autocenter_mode = "yes";
         allow_for_physical_item_deletion = "no";
         mouse_support = "no";
-        execute_on_song_change = "~/.config/mpd/mpdnotify";
+        execute_on_song_change = "~/.config/ncmpcpp/on-song-change.sh";
         mpd_crossfade_time = 3;
       };
     };
