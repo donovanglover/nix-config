@@ -17,7 +17,6 @@
     gimp
     anki
     logseq
-    litemdview
     mullvad-browser
     spek
     keepassxc
