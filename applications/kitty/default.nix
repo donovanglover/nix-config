@@ -13,6 +13,7 @@
         open_url_with = "librewolf";
         window_padding_width = 5;
         tab_bar_margin_width = 5;
+        modify_font = "cell_height 110%";
       };
     };
     xdg.configFile."kitty/diff.conf".text = ''
