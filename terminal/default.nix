@@ -43,6 +43,40 @@
     librespeed-cli
     wiki-tui
     hexyl
+    nb
+    jpegoptim
+    playerctl
+    recode
+    rmlint
+    sd
+    crystal
+    shards
+    smartmontools
+    sqlitebrowser
+    visidata
+    scc
+    hwinfo
+    stress
+    choose
+    gum
+    hdparm
+    imagemagick
+    onefetch
+    restic
+    wails
+    watchexec
+    memento
+    mpvpaper
+    timg
+    kanjidraw
+    ventoy
+    wf-recorder
+    mdcat
+    mdbook
+    zola
+    file
+    tessen
+    wtype
   ];
 
   home-manager.sharedModules = [{
