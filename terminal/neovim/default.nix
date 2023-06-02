@@ -11,6 +11,7 @@
         set undofile
         set spell
         set number
+        set linebreak
         set clipboard=unnamedplus
         set fileencoding=utf-8         " Ensure that we always save files as utf-8
         set fileencodings=utf-8,sjis   " Automatically open shiftjis files with their proper encoding
