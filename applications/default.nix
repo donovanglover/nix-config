@@ -20,5 +20,6 @@
     mullvad-browser
     spek
     keepassxc
+    libreoffice
   ];
 }
