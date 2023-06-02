@@ -2,6 +2,8 @@
 , stdenv
 , buildGoModule
 , fetchFromGitHub
+, pkg-config
+, vips
 }:
 
 buildGoModule rec {
@@ -12,11 +14,19 @@ buildGoModule rec {
     owner = "donovanglover";
     repo = pname;
     rev = "${version}";
-    hash = lib.fakeSha256;
+    sha256 = "sha256-sgd5kNnDXcSesGT+OignZ+APjNSxSP0Z60dr8cWO6sU=";
   };
 
+  buildInputs = [
+    vips
+  ];
+
+  nativeBuildInputs = [
+    pkg-config
+  ];
+
   # proxyVendor = true;
-  vendorSha256 = lib.fakeSha256;
+  vendorSha256 = "sha256-4zgsoExdhEqvycGerNVxZ6LnjeRRO+f6DhJdINR5ZyI=";
 
   postInstall = ''
     mkdir -p $out/share/thumbnailers
