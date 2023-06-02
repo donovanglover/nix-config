@@ -4,11 +4,12 @@
   home-manager.sharedModules = [{
     services.mpd = {
       enable = true;
-
-      extraConfig = ''
-        auto_update "yes"
-      '';
+      musicDirectory = "/home/user/Music";
     };
+
+    xdg.configFile."mpd/mpd.conf".text = ''
+      auto_update "yes"
+    '';
 
     xdg.configFile."ncmpcpp/on-song-change.sh".source = ./on-song-change.sh;
 
