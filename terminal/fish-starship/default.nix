@@ -55,7 +55,6 @@
       dl = "yt-dlp";
       vol =
         "wpctl set-volume '@DEFAULT_AUDIO_SINK@'"; # Change the volume, e.g. vol 10%+, vol 10%-, vol 100%
-      cf = "tput reset"; # Clear the terminal completely
       nf = "tput reset; and neofetch --size 56%";
       df = "df --human-readable --type=ext4 --total";
       du = "du --human-readable --summarize";
@@ -65,7 +64,7 @@
         "recode utf16..utf8"; # Rarely, some files from Japan are utf16 instead
       jp = "LANG=ja_JP.UTF-8 LC_ALL=ja_JP.UTF-8";
 
-      c = "clear"; # Because 5 letters is too much
+      c = "tput reset"; # Clear the terminal completely
       e = "exit";
       k = "kitty @ set-colors -c -a ~/.cache/wal/kitty";
       l = "ls -l";
