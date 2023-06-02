@@ -11,6 +11,7 @@
       maple-mono
       font-awesome
       nerdfonts
+      kanji-stroke-order-font
     ];
     fontconfig = {
       defaultFonts = {
