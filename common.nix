@@ -1,10 +1,6 @@
 { pkgs, ... }:
 
 {
-  imports = [
-    ./user
-  ];
-
   # locale
   i18n.defaultLocale = "ja_JP.UTF-8";
   i18n.supportedLocales =
