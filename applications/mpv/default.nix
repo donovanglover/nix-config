@@ -28,7 +28,10 @@
         osd-duration = 750;
         really-quiet = "yes";
       };
-      scripts = [ pkgs.mpvScripts.thumbnail ];
+      scripts = with pkgs.mpvScripts; [
+        mpris
+        thumbnail
+      ];
     };
   }];
 }
