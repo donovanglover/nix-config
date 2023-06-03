@@ -26,6 +26,8 @@
         set softtabstop=0              " Edit soft tabs as if they're regular spaces
         set shiftwidth=4               " Make autoindent appear as 4 spaces
 
+        set foldmethod=indent
+        set foldlevelstart=99
 
         map <MiddleMouse> <Nop>
         imap <MiddleMouse> <Nop>
@@ -53,6 +55,12 @@
         autocmd BufNewFile,BufRead *.ecr    setlocal syntax=html
         autocmd BufWritePre,FileWritePre * silent! call mkdir(expand('<afile>:p:h'), 'p')
 
+        " Automatically save location/folds/etc. when re-opening files
+        augroup remember_folds
+          autocmd!
+          autocmd BufWinLeave * mkview
+          autocmd BufWinEnter * silent! loadview
+        augroup END
       '';
       plugins = with pkgs.vimPlugins; [
         {
