@@ -130,7 +130,8 @@
         c.input.insert_mode.auto_enter = False
         c.input.insert_mode.auto_leave = False
 
-        c.url.start_pages = ['https://search.goo.ne.jp']
+        c.url.start_pages = ['about:blank']
+        c.url.default_page = "about:blank"
         c.url.searchengines = {
           'DEFAULT': 'https://search.goo.ne.jp/web.jsp?MT={}'
         }
