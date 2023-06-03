@@ -54,13 +54,6 @@
 
         autocmd BufNewFile,BufRead *.ecr    setlocal syntax=html
         autocmd BufWritePre,FileWritePre * silent! call mkdir(expand('<afile>:p:h'), 'p')
-
-        " Automatically save location/folds/etc. when re-opening files
-        augroup remember_folds
-          autocmd!
-          autocmd BufWinLeave * mkview
-          autocmd BufWinEnter * silent! loadview
-        augroup END
       '';
       plugins = with pkgs.vimPlugins; [
         {
