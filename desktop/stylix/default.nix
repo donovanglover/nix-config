@@ -4,7 +4,7 @@
   stylix.image = ./wallpaper.png;
   stylix.polarity = "dark";
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/monokai.yaml";
-  stylix.opacity.terminal = 0.95;
+  stylix.opacity.terminal = 0.92;
 
   stylix.fonts = {
     serif = {
