@@ -61,6 +61,17 @@
           clock = {
             "format" = "{:%H\n%M}";
             "tooltip-format" = "<tt>{calendar}</tt>";
+            "calendar" = {
+              "mode" = "month";
+              "weeks-pos" = "right";
+              "format" = {
+                "months" = "<span color='#ffead3'><b>{}</b></span>";
+                "days" = "<span color='#ecc6d9'><b>{}</b></span>";
+                "weeks" = "<span size='14pt' color='#99ffdd'><b>W{}</b></span>";
+                "weekdays" = "<span size='18pt' color='#ffcc66'><b>{}</b></span>";
+                "today" = "<span color='#ff6699'><b>{}</b></span>";
+              };
+            };
           };
 
           backlight = {
