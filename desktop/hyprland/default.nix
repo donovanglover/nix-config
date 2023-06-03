@@ -4,6 +4,10 @@
   programs.hyprland.enable = true;
   services.udisks2.enable = true;
 
+  environment.systemPackages = with pkgs; [
+    polkit_gnome
+  ];
+
   services.xserver = {
     enable = true;
     displayManager.lightdm.enable = false;
@@ -27,6 +31,7 @@
       exec-once = fcitx5                          # Japanese input support
       exec-once = mullvad-vpn
       exec-once = wl-paste -p --watch wl-copy -pc # Disable middle click paste
+      exec-once = ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
 
       input {
         kb_layout = us
