@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   services.pipewire = {
     enable = true;
@@ -11,6 +13,10 @@
 
     lowLatency.enable = true;
   };
+
+  environment.systemPackages = with pkgs; [
+    pulseaudio
+  ];
 
   security.rtkit.enable = true;
 }
