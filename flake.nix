@@ -31,9 +31,11 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, stylix, hypr-contrib, nix-gaming, ... }@attrs: {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+  outputs = { self, nixpkgs, home-manager, hyprland, stylix, hypr-contrib, nix-gaming, ... }@attrs: let
+    variables = import ./examples/laptop.nix;
+  in {
+    nixosConfigurations."${variables.hostname}" = nixpkgs.lib.nixosSystem {
+      system = variables.system;
       specialArgs = attrs;
       modules = [
         home-manager.nixosModules.home-manager
