@@ -4,7 +4,7 @@
   home-manager.sharedModules = [{
     programs.waybar = {
       enable = true;
-      package = (pkgs.callPackage ./package {});
+      package = (pkgs.callPackage ./package { });
 
       settings = {
         mainBar = {
@@ -23,9 +23,7 @@
             spacing = 8;
           };
 
-          "hyprland/window" = {
-            rotate = 90;
-          };
+          "hyprland/window".rotate = 90;
 
           "wlr/workspaces" = {
             on-click = "activate";
@@ -49,13 +47,13 @@
             format = "{icon}";
             tooltip-format = "{volume}% {node_name}";
             format-muted = "";
-            format-icons = ["" ""];
+            format-icons = [ "" "" ];
           };
 
           battery = {
             "format" = "{icon}";
             "tooltip-format" = "{capacity}% {timeTo}";
-            "format-icons" = ["" "" "" "" ""];
+            "format-icons" = [ "" "" "" "" "" ];
           };
 
           clock = {
@@ -76,7 +74,7 @@
 
           backlight = {
             "format" = "{icon}";
-            "format-icons" =  ["" ""];
+            "format-icons" = [ "" "" ];
           };
 
           "custom/new-workspace" = {
