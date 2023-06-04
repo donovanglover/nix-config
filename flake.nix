@@ -47,7 +47,7 @@
         ./user.nix
         ./desktop
         ./dev
-        ./games
+        ./games.nix
         ./host
         ./terminal
         ./containers/rar.nix
