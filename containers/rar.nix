@@ -1,6 +1,5 @@
 {
   containers.rar = {
-    autoStart = true;
     privateNetwork = true;
 
     bindMounts = {

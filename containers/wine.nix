@@ -4,7 +4,6 @@ let hostCfg = config; in
 
 {
   containers.wine = {
-    autoStart = true;
     privateNetwork = true;
 
     bindMounts = {
