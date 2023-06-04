@@ -54,8 +54,15 @@
         {
           hardware.opengl.driSupport32Bit = true;
 
-          boot.loader.systemd-boot.enable = true;
-          boot.loader.efi.canTouchEfiVariables = true;
+          boot.loader = {
+            systemd-boot = {
+              enable = true;
+              editor = false;
+            };
+
+            efi.canTouchEfiVariables = true;
+          };
+
           boot.tmp.useTmpfs = true;
 
           environment.systemPackages = [
