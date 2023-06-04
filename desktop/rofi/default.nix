@@ -5,8 +5,8 @@
     programs.rofi = {
       enable = true;
 
-      package = (pkgs.callPackage ./package/wrapper.nix {
-        rofi-unwrapped = (pkgs.callPackage ./package/wayland.nix { });
+      package = (pkgs.callPackage ../../packages/rofi/wrapper.nix {
+        rofi-unwrapped = (pkgs.callPackage ../../packages/rofi/wayland.nix { });
       });
 
       cycle = false;

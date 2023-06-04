@@ -6,7 +6,7 @@
   environment.systemPackages = with pkgs; [
     xfce.exo # Open with kitty support
     glib
-    (pkgs.callPackage ./go-thumbnailer {})
+    (pkgs.callPackage ../../packages/go-thumbnailer { })
   ];
   services.gvfs.enable = true; # Trash support
   services.gnome.gnome-keyring.enable = true; # Mount support

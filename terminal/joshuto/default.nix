@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = [
-    (pkgs.callPackage ./package {})
+    (pkgs.callPackage ../../packages/joshuto { })
   ];
 
   home-manager.sharedModules = [{

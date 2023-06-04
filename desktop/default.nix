@@ -7,7 +7,6 @@
     ./fcitx5-mozc
     ./fonts
     ./hyprland
-    ./nwg-dock
     ./pipewire
     ./rofi
     ./stylix
@@ -25,6 +24,7 @@
     swww
     kickoff
     greetd.tuigreet
+    (pkgs.callPackage ../packages/nwg-dock { })
   ];
 
   services.greetd = {

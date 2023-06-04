@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    (pkgs.callPackage ./package {})
+    (pkgs.callPackage ../../packages/srb2 { })
     slade
   ];
 }

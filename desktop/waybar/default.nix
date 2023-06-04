@@ -4,7 +4,7 @@
   home-manager.sharedModules = [{
     programs.waybar = {
       enable = true;
-      package = (pkgs.callPackage ./package { });
+      package = (pkgs.callPackage ../../packages/waybar { });
 
       settings = {
         mainBar = {
