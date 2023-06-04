@@ -178,6 +178,8 @@
       layerrule = blur,waybar
       layerrule = blur,rofi
 
+      windowrulev2 = nomaxsize,class:^(winecfg\.exe)$
+
       # Scroll through existing workspaces with super + scroll
       bind = SUPER, mouse_down, workspace, e+1
       bind = SUPER, mouse_up, workspace, e-1
