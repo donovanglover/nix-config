@@ -14,7 +14,6 @@
           spacing = 8;
 
           modules-left = [ "wlr/workspaces" "custom/new-workspace" ];
-          modules-center = [ "hyprland/window" ];
           modules-right =
             [ "tray" "wireplumber" "backlight" "battery" "clock" ];
 
@@ -22,8 +21,6 @@
             icon-size = 24;
             spacing = 8;
           };
-
-          "hyprland/window".rotate = 90;
 
           "wlr/workspaces" = {
             on-click = "activate";
