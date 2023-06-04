@@ -13,4 +13,6 @@
   };
 
   services.resolved.llmnr = "false";
+
+  systemd.services.NetworkManager-wait-online.enable = false;
 }
