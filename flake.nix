@@ -60,6 +60,7 @@
               editor = false;
             };
 
+            timeout = 0;
             efi.canTouchEfiVariables = true;
           };
 
