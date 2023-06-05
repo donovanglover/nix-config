@@ -31,7 +31,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, stylix, hypr-contrib, nix-gaming, ... }@attrs: let
+  outputs = { self, nixpkgs, home-manager, hyprland, stylix, nix-gaming, ... }@attrs: let
     variables = import ./variables.nix;
   in {
     nixosConfigurations."${variables.hostname}" = nixpkgs.lib.nixosSystem {
