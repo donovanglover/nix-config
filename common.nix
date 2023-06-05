@@ -173,6 +173,8 @@
       dns = "none";
       wifi.macAddress = "random";
       ethernet.macAddress = "random";
+
+      unmanaged = [ "interface-name:ve-*" ];
     };
 
     useHostResolvConf = true;
@@ -218,10 +220,6 @@
           sourcePort = 11918;
         }
       ];
-    };
-
-    networkmanager = {
-      unmanaged = [ "interface-name:ve-*" ];
     };
   };
 }
