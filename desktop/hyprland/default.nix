@@ -57,7 +57,7 @@
       decoration {
         rounding = 0
         blur = yes
-        blur_size = 8
+        blur_size = 3
         blur_passes = 1
         blur_new_optimizations = yes
         drop_shadow = yes
