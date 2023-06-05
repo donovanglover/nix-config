@@ -89,7 +89,7 @@
         # config.bind('j', 'run-with-count 5 scroll down')
         # config.bind('k', 'run-with-count 5 scroll up')
 
-        # NOTE: Use with smooth smooth scrolling enabled to scroll smoothly
+        # NOTE: Use with smooth scrolling enabled to scroll smoothly
         # config.bind('d', 'run-with-count 12 scroll down')
         # config.bind('u', 'run-with-count 12 scroll up')
 
