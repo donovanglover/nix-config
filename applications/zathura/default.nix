@@ -2,6 +2,7 @@
   home-manager.sharedModules = [{
     programs.zathura = {
       enable = true;
+
       options = {
         guioptions = "v";
         adjust-open = "width";
