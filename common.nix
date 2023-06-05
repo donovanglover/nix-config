@@ -47,6 +47,7 @@
     slade
     typespeed
     osu-lazer-bin
+    mullvad-vpn
 
     # dev
     marksman
@@ -165,4 +166,65 @@
 
   # dev
   programs.npm.enable = true;
+
+  # networking
+  networking = {
+    hostName = "nixos";
+
+    networkmanager = {
+      enable = true;
+      dns = "none";
+      wifi.macAddress = "random";
+      ethernet.macAddress = "random";
+    };
+
+    useHostResolvConf = true;
+  };
+
+  services.resolved.llmnr = "false";
+
+  systemd.services.NetworkManager-wait-online.enable = false;
+
+  # virtualization
+  virtualisation.vmVariant = {
+    virtualisation = {
+      memorySize = 8192;
+      cores = 4;
+      restrictNetwork = true;
+    };
+
+    virtualisation.qemu.options =
+      [ "-device virtio-vga-gl" "-display sdl,gl=on,show-cursor=off" "-full-screen" ];
+
+    environment.sessionVariables = {
+      WLR_NO_HARDWARE_CURSORS = "1";
+    };
+  };
+
+  # mullvad-vpn
+  services.mullvad-vpn = {
+    enable = true;
+    enableExcludeWrapper = false;
+  };
+
+  networking.firewall.allowedTCPPorts = [ 11918 ];
+
+  networking = {
+    nat = {
+      enable = true;
+      internalInterfaces = [ "ve-+" ];
+      externalInterface = "wg-mullvad";
+
+      forwardPorts = [
+        {
+          destination = "192.168.100.11:80";
+          sourcePort = 11918;
+        }
+      ];
+    };
+
+    networkmanager = {
+      unmanaged = [ "interface-name:ve-*" ];
+    };
+  };
 }
