@@ -3,9 +3,6 @@
 {
   imports = [
     ./modules
-    ./desktop
-    ./dev
-    ./host
     ./containers/rar.nix
     ./containers/wine.nix
   ];
