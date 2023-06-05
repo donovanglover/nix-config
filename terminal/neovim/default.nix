@@ -122,7 +122,11 @@
         {
           plugin = lualine-nvim;
           type = "lua";
-          config = "require('lualine').setup()";
+          config = ''
+            require('lualine').setup {
+              sections = { lualine_c = {'%f'} }
+            }
+          '';
         }
         {
           plugin = git-blame-nvim;
