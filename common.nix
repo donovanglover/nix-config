@@ -1,4 +1,4 @@
-{ pkgs, hypr-contrib, nix-gaming, ... }:
+{ pkgs, lib, hypr-contrib, nix-gaming, ... }:
 
 {
   imports = [
@@ -6,7 +6,6 @@
     ./user.nix
     ./desktop
     ./dev
-    ./games.nix
     ./host
     ./containers/rar.nix
     ./containers/wine.nix
@@ -39,9 +38,21 @@
 
   boot.tmp.useTmpfs = true;
 
-  environment.systemPackages = [
+  programs.gamemode.enable = true;
+
+  environment.systemPackages = with pkgs; [
     hypr-contrib.packages."x86_64-linux".grimblast
     nix-gaming.packages."x86_64-linux".osu-stable
+    (pkgs.callPackage ./packages/waycorner { })
+    (pkgs.callPackage ./packages/srb2 { })
+    slade
+    typespeed
+    osu-lazer-bin
+  ];
+
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "osu-lazer-bin"
+    "vmware-workstation"
   ];
 
   environment.sessionVariables = {
