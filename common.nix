@@ -1,6 +1,6 @@
 { pkgs, lib, hypr-contrib, nix-gaming, ... }:
 
-{
+let VARIABLES = import ./variables.nix; in {
   imports = [
     ./modules
     ./containers/rar.nix
@@ -34,8 +34,8 @@
   programs.gamemode.enable = true;
 
   environment.systemPackages = with pkgs; [
-    hypr-contrib.packages."x86_64-linux".grimblast
-    nix-gaming.packages."x86_64-linux".osu-stable
+    hypr-contrib.packages."${VARIABLES.system}".grimblast
+    nix-gaming.packages."${VARIABLES.system}".osu-stable
     (pkgs.callPackage ./packages/waycorner { })
     (pkgs.callPackage ./packages/srb2 { })
     slade
@@ -139,7 +139,7 @@
   services.logind.lidSwitch = "ignore";
 
   # timezone
-  time.timeZone = "America/New_York";
+  time.timeZone = "${VARIABLES.timezone}";
 
   # user
   users = {
@@ -163,7 +163,7 @@
 
   # networking
   networking = {
-    hostName = "nixos";
+    hostName = VARIABLES.hostname;
 
     networkmanager = {
       enable = true;
