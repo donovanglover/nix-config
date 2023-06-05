@@ -1,30 +1,30 @@
 # nix-config
 
-My [NixOS](https://nixos.org/) config with [Nix Flakes](https://nixos.wiki/wiki/Flakes), [Home Manager](https://nix-community.github.io/home-manager/), [Stylix](https://danth.github.io/stylix/), and [Hyprland](https://hyprland.org/).
+My [NixOS] configuration with [Nix Flakes], [Home Manager], [Stylix], and [Hyprland].
 
-## Goals
+## Features
 
-- Clean, readable code that can easily be modified to add/remove things as needed.
-- A reasonably secure development environment isolated from personal files.
-
-## Structure
-
-- `./applications/` - GUI applications
-- `./common/` - Common configs
-- `./desktop/` - Hyprland config
-- `./dev/` - Dev stuff
-- `./host/` - Host-specific config
-- `./terminal/` - Terminal programs
+- Clean, readable code that can be easily modified to add/remove things as needed.
+- Fully reproducible and declarative environment thanks to NixOS.
+- Reasonably secure containers isolated from your personal files and network.
+- Nix Flakes + Home Manager + Btrfs on LUKS.
+- Simple yet effective Neovim setup with nvim-lspconfig.
+- Modern Wayland support with Hyprland and the master-stack layout.
+- Full Japanese support with fonts, input method, and wine covered.
+- A universal color scheme inherited by all applications.
 
 ## Usage
 
 ```fish
-git clone https://github.com/donovanglover/dotfiles && cd dotfiles
-nixos-rebuild buildvm --flake .
-./result/bin/run-*-vm
+git clone https://github.com/donovanglover/nix-config && cd nix-config
+nixos-rebuild buildvm --flake .#nixos
+./result/bin/run-nixos-vm
 ```
 
-### Login
+The code base is designed to be small so it's easy to adjust things as needed. Have fun!
 
-- Username: user
-- Password: user
+[NixOS]: https://nixos.org/
+[Nix Flakes]: https://nixos.wiki/wiki/Flakes
+[Home Manager]: https://nix-community.github.io/home-manager/
+[Stylix]: https://danth.github.io/stylix/
+[Hyprland]: https://hyprland.org/
