@@ -3,6 +3,7 @@
     virtualisation = {
       memorySize = 8192;
       cores = 4;
+      restrictNetwork = true;
     };
 
     virtualisation.qemu.options =
