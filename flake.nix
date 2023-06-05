@@ -42,46 +42,7 @@
         hyprland.nixosModules.default
         stylix.nixosModules.stylix
         nix-gaming.nixosModules.pipewireLowLatency
-        ./applications
         ./common.nix
-        ./user.nix
-        ./desktop
-        ./dev
-        ./games.nix
-        ./host
-        ./terminal
-        ./containers/rar.nix
-        {
-          hardware.opengl.driSupport32Bit = true;
-
-          boot.loader = {
-            systemd-boot = {
-              enable = true;
-              editor = false;
-            };
-
-            timeout = 0;
-            efi.canTouchEfiVariables = true;
-          };
-
-          boot.tmp.useTmpfs = true;
-
-          environment.systemPackages = [
-            hypr-contrib.packages."x86_64-linux".grimblast
-            nix-gaming.packages."x86_64-linux".osu-stable
-          ];
-
-          environment.sessionVariables = {
-            EDITOR = "nvim";
-            VISUAL = "nvim";
-            GIT_DISCOVERY_ACROSS_FILESYSTEM = "1";
-            FZF_DEFAULT_OPTS = "--height 40% --reverse --border --color=16";
-            NODE_OPTIONS = "--max_old_space_size=16384";
-          };
-
-          environment.defaultPackages = [ ];
-          system.stateVersion = "22.11";
-        }
       ];
     };
   };
