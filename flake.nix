@@ -32,7 +32,7 @@
   };
 
   outputs = { self, nixpkgs, home-manager, hyprland, stylix, hypr-contrib, nix-gaming, ... }@attrs: let
-    variables = import ./examples/laptop.nix;
+    variables = import ./variables.nix;
   in {
     nixosConfigurations."${variables.hostname}" = nixpkgs.lib.nixosSystem {
       system = variables.system;
