@@ -43,6 +43,7 @@
         stylix.nixosModules.stylix
         nix-gaming.nixosModules.pipewireLowLatency
         ./common.nix
+        ./hardware-configuration.nix
       ];
     };
   };
