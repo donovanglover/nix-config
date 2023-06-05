@@ -28,7 +28,7 @@
       env=GLFW_IM_MODULE,ibus
       monitor=,preferred,auto,1
 
-      exec-once = swww init && swww img "$(fd -d 1 wallpaper.png /nix/store/)"
+      exec-once = swww init
       exec-once = wpctl set-volume @DEFAULT_AUDIO_SINK@ 20%
       exec-once = sleep 0.5 && waybar
       exec-once = fcitx5                          # Japanese input support
