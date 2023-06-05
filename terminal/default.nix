@@ -77,6 +77,7 @@
     file
     tessen
     wtype
+    mtr
   ];
 
   home-manager.sharedModules = [{
