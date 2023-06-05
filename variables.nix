@@ -1,4 +1,4 @@
 {
-  HOSTNAME = "nixos";
-  SYSTEM = "x86_64-linux";
+  hostname = "nixos";
+  system = "x86_64-linux";
 }
