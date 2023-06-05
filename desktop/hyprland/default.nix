@@ -2,7 +2,10 @@
 
 {
   programs.hyprland.enable = true;
-  services.udisks2.enable = true;
+  services.udisks2 = {
+    enable = true;
+    mountOnMedia = true;
+  };
 
   environment.systemPackages = with pkgs; [
     polkit_gnome
