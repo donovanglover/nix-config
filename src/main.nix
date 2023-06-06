@@ -22,6 +22,7 @@ in {
   # nix
   nix.package = pkgs.nixFlakes;
   nix.settings.experimental-features = ["nix-command" "flakes" "repl-flake"];
+  nix.settings.auto-optimise-store = true;
 
   hardware.opengl.driSupport32Bit = true;
 
