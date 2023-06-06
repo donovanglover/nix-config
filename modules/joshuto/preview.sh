@@ -29,6 +29,10 @@ realpath=$(realpath "$FILE_PATH")
 
 handle_extension() {
     case "${FILE_EXTENSION_LOWER}" in
+        lock)
+            cat "${FILE_PATH}" && exit 0
+            exit 1;;
+
         rar)
             unrar lt -p- -- "${FILE_PATH}" && exit 0
             exit 1;;
