@@ -1,10 +1,12 @@
-{
+let
+  VARIABLES = import ../src/variables.nix;
+in {
   containers.rar = {
     privateNetwork = true;
 
     bindMounts = {
       "/home/user" = {
-        hostPath = "/home/user/containers/rar";
+        hostPath = "/home/${VARIABLES.username}/containers/rar";
         isReadOnly = false;
       };
     };

@@ -1,9 +1,11 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  VARIABLES = import ../../src/variables.nix;
+in {
   home-manager.sharedModules = [
     {
       services.mpd = {
         enable = true;
-        musicDirectory = "/home/user/Music";
+        musicDirectory = "/home/${VARIABLES.username}/Music";
       };
 
       xdg.configFile."mpd/mpd.conf".text = ''

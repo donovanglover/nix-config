@@ -1,4 +1,6 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  VARIABLES = import ../src/variables.nix;
+in {
   imports = [
     ./feh
     ./kitty
@@ -150,7 +152,7 @@
       };
       initial_session = {
         command = "${pkgs.hyprland}/bin/Hyprland";
-        user = "user";
+        user = VARIABLES.username;
       };
     };
   };

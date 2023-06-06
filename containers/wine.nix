@@ -1,4 +1,5 @@
 {config, ...}: let
+  VARIABLES = import ../src/variables.nix;
   hostCfg = config;
 in {
   containers.wine = {
@@ -6,7 +7,7 @@ in {
 
     bindMounts = {
       "/home/user" = {
-        hostPath = "/home/user/containers/wine";
+        hostPath = "/home/${VARIABLES.username}/containers/wine";
         isReadOnly = false;
       };
 

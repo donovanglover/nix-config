@@ -161,7 +161,7 @@ in {
   users = {
     mutableUsers = false;
 
-    users.user = {
+    users."${VARIABLES.username}" = {
       isNormalUser = true;
       uid = 1000;
       password = "user";
@@ -170,8 +170,8 @@ in {
   };
 
   home-manager.users.user = {
-    home.username = "user";
-    home.homeDirectory = "/home/user";
+    home.username = VARIABLES.username;
+    home.homeDirectory = "/home/${VARIABLES.username}";
   };
 
   # dev

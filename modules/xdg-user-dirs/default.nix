@@ -1,4 +1,6 @@
-{
+let
+  VARIABLES = import ../../src/variables.nix;
+in {
   home-manager.sharedModules = [
     {
       xdg.userDirs = {
@@ -8,11 +10,11 @@
         templates = null;
         publicShare = null;
 
-        download = "/home/user/ダウンロード";
-        documents = "/home/user/ドキュメント";
-        music = "/home/user/音楽";
-        pictures = "/home/user/画像";
-        videos = "/home/user/ビデオ";
+        download = "/home/${VARIABLES.username}/ダウンロード";
+        documents = "/home/${VARIABLES.username}/ドキュメント";
+        music = "/home/${VARIABLES.username}/音楽";
+        pictures = "/home/${VARIABLES.username}/画像";
+        videos = "/home/${VARIABLES.username}/ビデオ";
       };
 
       xdg.configFile."user-dirs.locale".text = "ja_JP";
