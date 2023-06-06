@@ -55,7 +55,7 @@ let VARIABLES = import ./variables.nix; in {
 
     # nix
     nil
-    nixfmt
+    alejandra
     nixos-generators
 
     # node/yarn/deno
