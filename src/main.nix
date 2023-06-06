@@ -94,7 +94,7 @@ in {
   };
 
   environment.defaultPackages = [];
-  system.stateVersion = "22.11";
+  system.stateVersion = VARIABLES.stateVersion;
 
   # home-manager
   home-manager = {
@@ -103,7 +103,7 @@ in {
 
     sharedModules = [
       {
-        home.stateVersion = "22.11";
+        home.stateVersion = VARIABLES.stateVersion;
 
         editorconfig = {
           enable = true;
