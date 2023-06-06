@@ -132,6 +132,11 @@ in {
               indent_style = "tab";
               indent_size = 4;
             };
+
+            "*.rs" = {
+              indent_style = "space";
+              indent_size = 4;
+            };
           };
         };
       }
