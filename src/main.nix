@@ -64,7 +64,6 @@ in {
     # nix
     nil
     alejandra
-    nixos-generators
 
     # node/yarn/deno
     nodejs
