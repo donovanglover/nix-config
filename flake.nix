@@ -8,7 +8,7 @@
     nix-gaming,
     ...
   } @ attrs: let
-    VARIABLES = import ./variables.nix;
+    VARIABLES = import ./src/variables.nix;
   in {
     formatter."${VARIABLES.system}" = nixpkgs.legacyPackages."${VARIABLES.system}".alejandra;
     nixosConfigurations."${VARIABLES.hostname}" = nixpkgs.lib.nixosSystem {
@@ -19,7 +19,7 @@
         hyprland.nixosModules.default
         stylix.nixosModules.stylix
         nix-gaming.nixosModules.pipewireLowLatency
-        ./common.nix
+        ./src/main.nix
         ./hardware-configuration.nix
       ];
     };

@@ -8,9 +8,9 @@
   VARIABLES = import ./variables.nix;
 in {
   imports = [
-    ./modules
-    ./containers/rar.nix
-    ./containers/wine.nix
+    ../modules
+    ../containers/rar.nix
+    ../containers/wine.nix
   ];
 
   # locale
@@ -41,8 +41,8 @@ in {
   environment.systemPackages = with pkgs; [
     hypr-contrib.packages."${VARIABLES.system}".grimblast
     nix-gaming.packages."${VARIABLES.system}".osu-stable
-    (pkgs.callPackage ./packages/waycorner {})
-    (pkgs.callPackage ./packages/srb2 {})
+    (pkgs.callPackage ../packages/waycorner {})
+    (pkgs.callPackage ../packages/srb2 {})
     slade
     typespeed
     osu-lazer-bin
