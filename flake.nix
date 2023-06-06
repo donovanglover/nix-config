@@ -2,6 +2,7 @@
   outputs = { self, nixpkgs, home-manager, hyprland, stylix, nix-gaming, ... }@attrs: let
     VARIABLES = import ./variables.nix;
   in {
+    formatter."${VARIABLES.system}" = nixpkgs.legacyPackages."${VARIABLES.system}".alejandra;
     nixosConfigurations."${VARIABLES.hostname}" = nixpkgs.lib.nixosSystem {
       system = VARIABLES.system;
       specialArgs = attrs;
