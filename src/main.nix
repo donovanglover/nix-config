@@ -8,6 +8,7 @@
   VARIABLES = import ./variables.nix;
 in {
   imports = [
+    "${VARIABLES.hostHardwareConfiguration}"
     ../modules
     ../containers/rar.nix
     ../containers/wine.nix
