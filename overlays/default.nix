@@ -16,6 +16,10 @@
           outputHash = "sha256-cDy7sccuZj+RNjaDGjqczGl//zgmMAifjv/ZMEO/yyY=";
         });
       });
+
+      alejandra = prev.alejandra.overrideAttrs (old: {
+        patches = (old.patches or []) ++ [./alejandra-remove-ads.patch];
+      });
     })
   ];
 }
