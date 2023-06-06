@@ -43,13 +43,13 @@
           let mapleader = ' '
           nnoremap <silent> <leader>e :set nu!<CR>
           nnoremap <silent> <leader>t :OverCommandLine<CR>%s/
-          nnoremap <silent> <leader>a :NvimTreeToggle<CR>
+          nnoremap <silent> <leader>a <C-w>w
           nnoremap <silent> <leader>s :Startify<CR>
           nnoremap <silent> <leader>f :Files<CR>
           nnoremap <silent> <leader>g :set hlsearch!<CR>
           nnoremap <silent> <leader>j :Buffers<CR>
           nnoremap <silent> <leader>l :Rg<CR>
-          nnoremap <silent> <leader>; <C-w>w
+          nnoremap <silent> <leader>; :NvimTreeToggle<CR>
           vnoremap <C-s> y:silent !notify-send -t 4000 "成果" "$(tango '<C-r>0')"<CR>:<Esc>
 
           autocmd BufNewFile,BufRead *.ecr    setlocal syntax=html
