@@ -1,8 +1,6 @@
-{ config, ... }:
-
-let hostCfg = config; in
-
-{
+{config, ...}: let
+  hostCfg = config;
+in {
   containers.wine = {
     privateNetwork = true;
 
@@ -24,7 +22,11 @@ let hostCfg = config; in
       };
     };
 
-    config = { pkgs, lib, ... }: {
+    config = {
+      pkgs,
+      lib,
+      ...
+    }: {
       programs = {
         fish.enable = true;
         neovim.enable = true;
@@ -43,13 +45,13 @@ let hostCfg = config; in
       };
 
       environment = {
-        shells = with pkgs; [ fish ];
+        shells = with pkgs; [fish];
 
         variables = {
           TERM = "xterm-kitty";
         };
 
-        defaultPackages = [ ];
+        defaultPackages = [];
       };
 
       environment.systemPackages = with pkgs; [

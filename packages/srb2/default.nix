@@ -1,32 +1,30 @@
-{ lib
-, stdenv
-, fetchurl
-, fetchFromGitHub
-, cmake
-, curl
-, nasm
-, libopenmpt
-, p7zip
-, libgme
-, libpng
-, SDL2
-, SDL2_mixer
-, zlib
-, unzip
-, makeWrapper
-, makeDesktopItem
-, copyDesktopItems
-}:
-
-let
-
+{
+  lib,
+  stdenv,
+  fetchurl,
+  fetchFromGitHub,
+  cmake,
+  curl,
+  nasm,
+  libopenmpt,
+  p7zip,
+  libgme,
+  libpng,
+  SDL2,
+  SDL2_mixer,
+  zlib,
+  unzip,
+  makeWrapper,
+  makeDesktopItem,
+  copyDesktopItems,
+}: let
   version = "2.2.11";
 
   # Normal assets found on the official release
   assets = stdenv.mkDerivation rec {
     pname = "srb2-data";
     inherit version;
-    nativeBuildInputs = [ unzip ];
+    nativeBuildInputs = [unzip];
     src = fetchurl {
       url = "https://github.com/STJr/SRB2/releases/download/SRB2_release_${version}/SRB2-v${lib.replaceStrings ["."] [""] version}-Full.zip";
       sha256 = "sha256-KsJIkCczD/HyIwEy5dI3zsHbWFCMBaCoCHizfupFoWM=";
@@ -37,79 +35,78 @@ let
       cp -r *pk3 *dta *dat models/ $out/share/srb2/
     '';
   };
+in
+  stdenv.mkDerivation rec {
+    pname = "srb2";
+    inherit version;
 
-in stdenv.mkDerivation rec {
+    src = fetchFromGitHub {
+      owner = "STJr";
+      repo = "SRB2";
+      rev = "SRB2_release_${version}";
+      sha256 = "sha256-tyiXivJWjNnL+4YynUV6k6iaMs8o9HkHrp+qFj2+qvQ=";
+    };
 
-  pname = "srb2";
-  inherit version;
+    nativeBuildInputs = [
+      cmake
+      nasm
+      p7zip
+      makeWrapper
+      copyDesktopItems
+    ];
 
-  src = fetchFromGitHub {
-    owner = "STJr";
-    repo = "SRB2";
-    rev = "SRB2_release_${version}";
-    sha256 = "sha256-tyiXivJWjNnL+4YynUV6k6iaMs8o9HkHrp+qFj2+qvQ=";
-  };
+    buildInputs = [
+      curl
+      libgme
+      libpng
+      libopenmpt
+      SDL2
+      SDL2_mixer
+      zlib
+    ];
 
-  nativeBuildInputs = [
-    cmake
-    nasm
-    p7zip
-    makeWrapper
-    copyDesktopItems
-  ];
+    cmakeFlags = [
+      "-DSRB2_ASSET_DIRECTORY=${assets}/share/srb2"
+      "-DGME_INCLUDE_DIR=${libgme}/include"
+      "-DOPENMPT_INCLUDE_DIR=${libopenmpt.dev}/include"
+      "-DSDL2_MIXER_INCLUDE_DIR=${lib.getDev SDL2_mixer}/include/SDL2"
+      "-DSDL2_INCLUDE_DIR=${lib.getDev SDL2.dev}/include/SDL2"
+    ];
 
-  buildInputs = [
-    curl
-    libgme
-    libpng
-    libopenmpt
-    SDL2
-    SDL2_mixer
-    zlib
-  ];
+    patches = [
+      ./cmake.patch
+    ];
 
-  cmakeFlags = [
-    "-DSRB2_ASSET_DIRECTORY=${assets}/share/srb2"
-    "-DGME_INCLUDE_DIR=${libgme}/include"
-    "-DOPENMPT_INCLUDE_DIR=${libopenmpt.dev}/include"
-    "-DSDL2_MIXER_INCLUDE_DIR=${lib.getDev SDL2_mixer}/include/SDL2"
-    "-DSDL2_INCLUDE_DIR=${lib.getDev SDL2.dev}/include/SDL2"
-  ];
+    # Desktop icon
+    desktopItems = [
+      (makeDesktopItem rec {
+        name = "Sonic Robo Blast 2";
+        exec = pname;
+        icon = pname;
+        comment = meta.description;
+        desktopName = name;
+        genericName = name;
+        categories = ["Game"];
+      })
+    ];
 
-  patches = [
-    ./cmake.patch
-  ];
+    installPhase = ''
+      mkdir -p $out/bin $out/share/applications $out/share/pixmaps $out/share/icons
 
-  # Desktop icon
-  desktopItems = [
-    (makeDesktopItem rec {
-      name = "Sonic Robo Blast 2";
-      exec = pname;
-      icon = pname;
-      comment = meta.description;
-      desktopName = name;
-      genericName = name;
-      categories = [ "Game" ];
-    })
-  ];
+      copyDesktopItems
 
-  installPhase = ''
-    mkdir -p $out/bin $out/share/applications $out/share/pixmaps $out/share/icons
+      cp ../srb2.png $out/share/pixmaps/.
+      cp ../srb2.png $out/share/icons/.
 
-    copyDesktopItems
+      cp bin/lsdlsrb2 $out/bin/srb2
+      wrapProgram $out/bin/srb2 --set SRB2WADDIR "${assets}/share/srb2"
+    '';
 
-    cp ../srb2.png $out/share/pixmaps/.
-    cp ../srb2.png $out/share/icons/.
-
-    cp bin/lsdlsrb2 $out/bin/srb2
-    wrapProgram $out/bin/srb2 --set SRB2WADDIR "${assets}/share/srb2"
-  '';
-
-  meta = with lib; {
-    description = "Sonic Robo Blast 2 is a 3D Sonic the Hedgehog fangame based on a modified version of Doom Legacy";
-    homepage = "https://www.srb2.org/";
-    platforms = platforms.linux;
-    license = licenses.gpl2Plus;
-    maintainers = with maintainers; [ zeratax ];
-  };
-}
+    meta = with lib; {
+      description = "Sonic Robo Blast 2 is a 3D Sonic the Hedgehog fangame based on a modified version of Doom Legacy";
+      homepage = "https://www.srb2.org/";
+      platforms = platforms.linux;
+      license = licenses.gpl2Plus;
+      maintainers = with maintainers; [zeratax];
+    };
+  }

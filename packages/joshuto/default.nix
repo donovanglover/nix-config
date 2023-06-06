@@ -1,5 +1,8 @@
-{ lib, rustPlatform, fetchFromGitHub }:
-
+{
+  lib,
+  rustPlatform,
+  fetchFromGitHub,
+}:
 rustPlatform.buildRustPackage rec {
   pname = "joshuto";
   version = "493af3185092036cbbae81ae620b101f66cf4e9a";
@@ -17,6 +20,6 @@ rustPlatform.buildRustPackage rec {
     description = "Ranger-like terminal file manager written in Rust";
     homepage = "https://github.com/kamiyaa/joshuto";
     license = licenses.lgpl3Only;
-    maintainers = with maintainers; [ figsoda totoroot ];
+    maintainers = with maintainers; [figsoda totoroot];
   };
 }

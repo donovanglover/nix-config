@@ -1,11 +1,11 @@
-{ lib
-, buildGoModule
-, fetchFromGitHub
-, pkg-config
-, gtk3
-, gtk-layer-shell
+{
+  lib,
+  buildGoModule,
+  fetchFromGitHub,
+  pkg-config,
+  gtk3,
+  gtk-layer-shell,
 }:
-
 buildGoModule rec {
   pname = "nwg-dock-hyprland";
   version = "0.1.2";
@@ -19,16 +19,16 @@ buildGoModule rec {
 
   vendorSha256 = "sha256-GhcrIVnZRbiGTfeUAWvslOVWDZmoL0ZRnjgTtQgxe2Q=";
 
-  ldflags = [ "-s" "-w" ];
+  ldflags = ["-s" "-w"];
 
-  nativeBuildInputs = [ pkg-config ];
-  buildInputs = [ gtk3 gtk-layer-shell ];
+  nativeBuildInputs = [pkg-config];
+  buildInputs = [gtk3 gtk-layer-shell];
 
   meta = with lib; {
     description = "GTK3-based dock for hyprland";
     homepage = "https://github.com/nwg-piotr/nwg-dock-hyprland";
     license = licenses.mit;
     platforms = platforms.linux;
-    maintainers = with maintainers; [ dit7ya ];
+    maintainers = with maintainers; [dit7ya];
   };
 }

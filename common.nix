@@ -1,6 +1,12 @@
-{ pkgs, lib, hypr-contrib, nix-gaming, ... }:
-
-let VARIABLES = import ./variables.nix; in {
+{
+  pkgs,
+  lib,
+  hypr-contrib,
+  nix-gaming,
+  ...
+}: let
+  VARIABLES = import ./variables.nix;
+in {
   imports = [
     ./modules
     ./containers/rar.nix
@@ -9,12 +15,11 @@ let VARIABLES = import ./variables.nix; in {
 
   # locale
   i18n.defaultLocale = "ja_JP.UTF-8";
-  i18n.supportedLocales =
-    [ "ja_JP.UTF-8/UTF-8" "en_US.UTF-8/UTF-8" "fr_FR.UTF-8/UTF-8" ];
+  i18n.supportedLocales = ["ja_JP.UTF-8/UTF-8" "en_US.UTF-8/UTF-8" "fr_FR.UTF-8/UTF-8"];
 
   # nix
   nix.package = pkgs.nixFlakes;
-  nix.settings.experimental-features = [ "nix-command" "flakes" "repl-flake" ];
+  nix.settings.experimental-features = ["nix-command" "flakes" "repl-flake"];
 
   hardware.opengl.driSupport32Bit = true;
 
@@ -36,8 +41,8 @@ let VARIABLES = import ./variables.nix; in {
   environment.systemPackages = with pkgs; [
     hypr-contrib.packages."${VARIABLES.system}".grimblast
     nix-gaming.packages."${VARIABLES.system}".osu-stable
-    (pkgs.callPackage ./packages/waycorner { })
-    (pkgs.callPackage ./packages/srb2 { })
+    (pkgs.callPackage ./packages/waycorner {})
+    (pkgs.callPackage ./packages/srb2 {})
     slade
     typespeed
     osu-lazer-bin
@@ -72,10 +77,11 @@ let VARIABLES = import ./variables.nix; in {
     bacon
   ];
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "osu-lazer-bin"
-    "vmware-workstation"
-  ];
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      "osu-lazer-bin"
+      "vmware-workstation"
+    ];
 
   environment.sessionVariables = {
     EDITOR = "nvim";
@@ -85,7 +91,7 @@ let VARIABLES = import ./variables.nix; in {
     NODE_OPTIONS = "--max_old_space_size=16384";
   };
 
-  environment.defaultPackages = [ ];
+  environment.defaultPackages = [];
   system.stateVersion = "22.11";
 
   # home-manager
@@ -93,41 +99,43 @@ let VARIABLES = import ./variables.nix; in {
     useGlobalPkgs = true;
     useUserPackages = true;
 
-    sharedModules = [{
-      home.stateVersion = "22.11";
+    sharedModules = [
+      {
+        home.stateVersion = "22.11";
 
-      editorconfig = {
-        enable = true;
+        editorconfig = {
+          enable = true;
 
-        settings = {
-          "*" = {
-            charset = "utf-8";
-            end_of_line = "lf";
-            insert_final_newline = true;
-            indent_size = 2;
-            indent_style = "space";
-            trim_trailing_whitespace = true;
-          };
+          settings = {
+            "*" = {
+              charset = "utf-8";
+              end_of_line = "lf";
+              insert_final_newline = true;
+              indent_size = 2;
+              indent_style = "space";
+              trim_trailing_whitespace = true;
+            };
 
-          "*.md".indent_style = "tab";
+            "*.md".indent_style = "tab";
 
-          "Makefile" = {
-            indent_style = "tab";
-            indent_size = 4;
-          };
+            "Makefile" = {
+              indent_style = "tab";
+              indent_size = 4;
+            };
 
-          "*.html" = {
-            indent_style = "tab";
-            indent_size = 4;
-          };
+            "*.html" = {
+              indent_style = "tab";
+              indent_size = 4;
+            };
 
-          "*.go" = {
-            indent_style = "tab";
-            indent_size = 4;
+            "*.go" = {
+              indent_style = "tab";
+              indent_size = 4;
+            };
           };
         };
-      };
-    }];
+      }
+    ];
   };
 
   # systemd
@@ -149,7 +157,7 @@ let VARIABLES = import ./variables.nix; in {
       isNormalUser = true;
       uid = 1000;
       password = "user";
-      extraGroups = [ "wheel" "networkmanager" ];
+      extraGroups = ["wheel" "networkmanager"];
     };
   };
 
@@ -171,7 +179,7 @@ let VARIABLES = import ./variables.nix; in {
       wifi.macAddress = "random";
       ethernet.macAddress = "random";
 
-      unmanaged = [ "interface-name:ve-*" ];
+      unmanaged = ["interface-name:ve-*"];
     };
 
     useHostResolvConf = true;
@@ -189,8 +197,7 @@ let VARIABLES = import ./variables.nix; in {
       restrictNetwork = true;
     };
 
-    virtualisation.qemu.options =
-      [ "-device virtio-vga-gl" "-display sdl,gl=on,show-cursor=off" "-full-screen" ];
+    virtualisation.qemu.options = ["-device virtio-vga-gl" "-display sdl,gl=on,show-cursor=off" "-full-screen"];
 
     environment.sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = "1";
@@ -203,12 +210,12 @@ let VARIABLES = import ./variables.nix; in {
     enableExcludeWrapper = false;
   };
 
-  networking.firewall.allowedTCPPorts = [ 11918 ];
+  networking.firewall.allowedTCPPorts = [11918];
 
   networking = {
     nat = {
       enable = true;
-      internalInterfaces = [ "ve-+" ];
+      internalInterfaces = ["ve-+"];
       externalInterface = "wg-mullvad";
 
       forwardPorts = [

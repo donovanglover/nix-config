@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   fonts = {
     enableDefaultFonts = true;
     fonts = with pkgs; [
@@ -15,12 +13,12 @@
     ];
     fontconfig = {
       defaultFonts = {
-        serif = [ "Noto Serif CJK JP" "Noto Serif" ];
-        sansSerif = [ "Noto Sans CJK JP" "Noto Sans" ];
-        monospace = [ "Noto Mono CJK JP" "Noto Mono" ];
+        serif = ["Noto Serif CJK JP" "Noto Serif"];
+        sansSerif = ["Noto Sans CJK JP" "Noto Sans"];
+        monospace = ["Noto Mono CJK JP" "Noto Mono"];
       };
       allowBitmaps = false;
-      hinting = { style = "hintfull"; };
+      hinting = {style = "hintfull";};
     };
   };
 }

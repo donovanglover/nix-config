@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   imports = [
     ./feh
     ./kitty
@@ -126,18 +124,20 @@
     swww
     kickoff
     greetd.tuigreet
-    (pkgs.callPackage ../packages/nwg-dock { })
-    (pkgs.callPackage ../packages/hyprland-autorename-workspaces { })
+    (pkgs.callPackage ../packages/nwg-dock {})
+    (pkgs.callPackage ../packages/hyprland-autorename-workspaces {})
   ];
 
-  home-manager.sharedModules = [{
-    programs.bat.enable = true;
-  }];
+  home-manager.sharedModules = [
+    {
+      programs.bat.enable = true;
+    }
+  ];
 
   programs.htop = {
     enable = true;
     package = pkgs."htop-vim";
-    settings = { tree_view = 1; };
+    settings = {tree_view = 1;};
   };
 
   services.greetd = {

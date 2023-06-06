@@ -1,5 +1,13 @@
 {
-  outputs = { self, nixpkgs, home-manager, hyprland, stylix, nix-gaming, ... }@attrs: let
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    hyprland,
+    stylix,
+    nix-gaming,
+    ...
+  } @ attrs: let
     VARIABLES = import ./variables.nix;
   in {
     formatter."${VARIABLES.system}" = nixpkgs.legacyPackages."${VARIABLES.system}".alejandra;

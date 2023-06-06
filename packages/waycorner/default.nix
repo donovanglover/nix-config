@@ -1,10 +1,10 @@
-{ lib
-, makeWrapper
-, rustPlatform
-, pkg-config
-, fetchFromGitHub
-, wayland
-,
+{
+  lib,
+  makeWrapper,
+  rustPlatform,
+  pkg-config,
+  fetchFromGitHub,
+  wayland,
 }:
 rustPlatform.buildRustPackage rec {
   pname = "waycorner";
@@ -35,6 +35,6 @@ rustPlatform.buildRustPackage rec {
     homepage = "https://github.com/AndreasBackx/waycorner";
     platforms = platforms.linux;
     license = licenses.mit;
-    maintainers = with maintainers; [ NotAShelf ];
+    maintainers = with maintainers; [NotAShelf];
   };
 }
