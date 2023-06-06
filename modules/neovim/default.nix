@@ -44,6 +44,7 @@
           nnoremap <silent> <leader>e :set nu!<CR>
           nnoremap <silent> <leader>t :OverCommandLine<CR>%s/
           nnoremap <silent> <leader>a :NvimTreeToggle<CR>
+          nnoremap <silent> <leader>s :Startify<CR>
           nnoremap <silent> <leader>f :Files<CR>
           nnoremap <silent> <leader>g :set hlsearch!<CR>
           nnoremap <silent> <leader>j :Buffers<CR>
@@ -176,6 +177,31 @@
               nnoremap <localleader>g <plug>(vimtex-compile)
               nnoremap <localleader>d <plug>(vimtex-env-delete)
               nnoremap <localleader>c <plug>(vimtex-env-change)
+            '';
+          }
+          {
+            plugin = vim-startify;
+            config = ''
+              let g:startify_custom_header = startify#pad(split(system("cat (random choice (fd . ${pkgs.ponysay}/share/ponysay/quotes))"), '\n'))
+
+              let g:startify_change_to_dir = 0
+
+              function! s:gitModified()
+                let files = systemlist('git ls-files -m 2>/dev/null')
+                return map(files, "{'line': v:val, 'path': v:val}")
+              endfunction
+
+              function! s:gitUntracked()
+                let files = systemlist('git ls-files -o --exclude-standard 2>/dev/null')
+                return map(files, "{'line': v:val, 'path': v:val}")
+              endfunction
+
+              let g:startify_lists = [
+                      \ { 'type': 'dir', 'header': ['   歴史 '. getcwd()] },
+                      \ { 'type': function('s:gitModified'), 'header': ['   変化']},
+                      \ { 'type': function('s:gitUntracked'), 'header': ['   新規']},
+                      \ { 'type': 'commands', 'header': ['   Commands']},
+                      \ ]
             '';
           }
           fzf-vim
