@@ -1,6 +1,6 @@
 {pkgs, ...}: {
-  environment.systemPackages = [
-    (pkgs.callPackage ../../packages/joshuto {})
+  environment.systemPackages = with pkgs; [
+    joshuto
   ];
 
   home-manager.sharedModules = [

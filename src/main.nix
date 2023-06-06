@@ -9,6 +9,7 @@
 in {
   imports = [
     "${VARIABLES.hostHardwareConfiguration}"
+    ../overlays
     ../modules
     ../containers/rar.nix
     ../containers/wine.nix
