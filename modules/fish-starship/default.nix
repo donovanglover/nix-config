@@ -31,6 +31,8 @@
       gm = "git merge";
       gp = "git push"; # Push your commits to a remote server
       gr = "git reset HEAD~"; # Undo the last commit but keep changed files
+      gR = "git restore";
+      gRs = "git restore --staged";
       gra = "git remote add";
       gre = "git remote --verbose"; # List all remotes
       grh = "git reset HEAD";
