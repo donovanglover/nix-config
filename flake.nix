@@ -11,6 +11,7 @@
     VARIABLES = import ./src/variables.nix;
   in {
     formatter."${VARIABLES.system}" = nixpkgs.legacyPackages."${VARIABLES.system}".alejandra;
+
     nixosConfigurations."${VARIABLES.hostname}" = nixpkgs.lib.nixosSystem {
       system = VARIABLES.system;
       specialArgs = attrs;
