@@ -65,7 +65,7 @@
       l = "ls -l";
       j = "joshuto";
       w = "wal -o ~/.config/wal/done.sh";
-      T = "tree";
+      t = "tree";
     };
   };
 
