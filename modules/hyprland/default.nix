@@ -121,6 +121,7 @@
         bind = SUPER_ALT, delete, exit
         bind = SUPER, V, togglefloating,
         bind = SUPER, V, centerwindow,
+        bind = SUPER, I, exec, hyprctl keyword decoration:dim_inactive $((1 - $(hyprctl getoption decoration:dim_inactive -j | jq -r ".int")))
         bind = SUPER, O, exec, killall .waybar-wrapped || waybar
         bind = SUPER, X, pin
         bind = SUPER, F, fullscreen, 1
