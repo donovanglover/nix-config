@@ -184,6 +184,7 @@
         windowrulev2 = nomaxsize,class:^(winecfg\.exe)$
         windowrulev2 = opaque,class:^(kitty)$
         windowrulev2 = noblur,class:^(kitty)$
+        windowrulev2 = opacity 0.92 0.92,class:^(thunar)$
 
         # Scroll through existing workspaces with super + scroll
         bind = SUPER, mouse_down, workspace, e+1
