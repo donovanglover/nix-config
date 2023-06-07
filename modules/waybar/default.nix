@@ -78,8 +78,9 @@
 
             "custom/new-workspace" = {
               "format" = "+";
-              "on-click" = "hyprctl dispatch workspace empty && rofi -show drun";
-              "on-click-right" = "rofi -show drun";
+              "on-click" = "hyprctl dispatch workspace empty && sleep 0.1 && rofi -show drun";
+              "on-click-right" = "sleep 0.1 && rofi -show drun";
+              "on-click-middle" = "hyprctl dispatch workspace empty";
               "tooltip" = false;
             };
           };
