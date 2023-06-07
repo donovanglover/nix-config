@@ -219,6 +219,7 @@
           vim-vue
           vim-over
           vim-endwise
+          csv-vim
           rust-vim
           neoformat
         ];
