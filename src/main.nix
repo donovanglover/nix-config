@@ -77,6 +77,7 @@ in {
     # nix
     nil
     alejandra
+    nixpkgs-fmt
 
     # node/yarn/deno
     nodejs
