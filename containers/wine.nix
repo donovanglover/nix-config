@@ -80,7 +80,7 @@ in {
         driSupport32Bit = true;
       };
 
-      system.stateVersion = "22.11";
+      system.stateVersion = VARIABLES.stateVersion;
     };
   };
 }
