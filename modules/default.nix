@@ -127,7 +127,7 @@ in {
     kickoff
     greetd.tuigreet
     (pkgs.callPackage ../packages/nwg-dock {})
-    (pkgs.callPackage ../packages/hyprland-autorename-workspaces {})
+    (pkgs.callPackage ../packages/hyprland-autoname-workspaces {})
   ];
 
   home-manager.sharedModules = [
