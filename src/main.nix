@@ -3,6 +3,7 @@
   lib,
   hypr-contrib,
   nix-gaming,
+  crystal-flake,
   ...
 }: let
   VARIABLES = import ./variables.nix;
@@ -57,6 +58,9 @@ in {
   environment.systemPackages = with pkgs; [
     hypr-contrib.packages."${VARIABLES.system}".grimblast
     nix-gaming.packages."${VARIABLES.system}".osu-stable
+    ameba
+    crystal-flake.packages.${VARIABLES.system}.crystal
+    crystal-flake.packages.${VARIABLES.system}.crystalline
     (pkgs.callPackage ../packages/waycorner {})
     (pkgs.callPackage ../packages/srb2 {})
     slade

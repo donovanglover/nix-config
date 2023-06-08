@@ -6,6 +6,7 @@
     hyprland,
     stylix,
     nix-gaming,
+    crystal-flake,
     ...
   } @ attrs: let
     VARIABLES = import ./src/variables.nix;
@@ -53,6 +54,11 @@
 
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    crystal-flake = {
+      url = "github:manveru/crystal-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

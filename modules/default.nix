@@ -88,7 +88,6 @@ in {
     recode
     rmlint
     sd
-    crystal
     shards
     smartmontools
     sqlitebrowser
