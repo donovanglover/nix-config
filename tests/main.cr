@@ -5,8 +5,8 @@ require "json"
 
 hint = ""
 
-describe "nix-config" do
-  it "includes all modules" do
+describe "./modules/default.nix" do
+  it "imports all modules" do
     all_modules = Dir.children("modules")
     all_modules.delete("default.nix")
     modules = File.read("./modules/default.nix")
@@ -18,7 +18,9 @@ describe "nix-config" do
 
     hint = ""
   end
+end
 
+describe "./overlays/joshuto/default.nix" do
   it "uses the latest joshuto commit" do
     response = HTTP::Client.get "https://api.github.com/repos/kamiyaa/joshuto/branches/main"
     response.status_code.should eq(200)
