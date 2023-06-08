@@ -10,6 +10,7 @@
         automatically_count_files = true
         show_borders = false
         show_hidden = true
+        show_icons = true
         line_number_style = "absolute"
         collapse_preview = false
 
@@ -27,6 +28,7 @@
       xdg.configFile."joshuto/mimetype.toml".source = ./mimetype.toml;
       xdg.configFile."joshuto/keymap.toml".source = ./keymap.toml;
       xdg.configFile."joshuto/theme.toml".source = ./theme.toml;
+      xdg.configFile."joshuto/icons.toml".source = ./icons.toml;
     }
   ];
 }
