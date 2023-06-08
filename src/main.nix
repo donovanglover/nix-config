@@ -95,6 +95,93 @@ in {
     cargo
     rust-analyzer
     bacon
+
+    # other
+    audacity
+    gimp
+    anki
+    logseq
+    mullvad-browser
+    spek
+    keepassxc
+    libreoffice
+
+    wget
+    jq
+    exa
+    fd
+    fzf
+    gdu
+    fdupes
+    mediainfo
+    ponysay
+    lolcat
+    cmatrix
+    sox
+    httpie
+    p7zip
+    ripgrep
+    rsync
+    unar
+    genact
+    ffmpeg
+    killall
+    trashy
+    whois
+    dwt1-shell-color-scripts
+    dig
+    yt-dlp
+    neofetch
+    pywal
+    brightnessctl
+    zellij
+    librespeed-cli
+    wiki-tui
+    hexyl
+    nb
+    jpegoptim
+    playerctl
+    recode
+    rmlint
+    sd
+    shards
+    smartmontools
+    sqlitebrowser
+    visidata
+    scc
+    hwinfo
+    stress
+    choose
+    gum
+    hdparm
+    imagemagick
+    onefetch
+    restic
+    wails
+    watchexec
+    memento
+    mpvpaper
+    timg
+    kanjidraw
+    ventoy
+    wf-recorder
+    mdcat
+    mdbook
+    zola
+    file
+    tessen
+    wtype
+    mtr
+
+    grim
+    slurp
+    wl-clipboard
+    lnch
+    wev
+    swww
+    kickoff
+    greetd.tuigreet
+    (pkgs.callPackage ../packages/hyprland-autoname-workspaces {})
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg:
@@ -159,6 +246,8 @@ in {
             };
           };
         };
+
+        programs.bat.enable = true;
       }
     ];
   };
@@ -251,4 +340,36 @@ in {
       ];
     };
   };
+
+  virtualisation.vmware.host = {
+    enable = true;
+    extraConfig = ''
+      # Enable 3D acceleration on the host
+      mks.gl.allowUnsupportedDrivers = "TRUE"
+      mks.vk.allowUnsupportedDevices = "TRUE"
+    '';
+  };
+
+  programs.htop = {
+    enable = true;
+    package = pkgs."htop-vim";
+    settings = {tree_view = 1;};
+  };
+
+  services.greetd = {
+    enable = true;
+    restart = false;
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland";
+        user = "greeter";
+      };
+      initial_session = {
+        command = "${pkgs.hyprland}/bin/Hyprland";
+        user = VARIABLES.username;
+      };
+    };
+  };
+
+  zramSwap.enable = true;
 }
