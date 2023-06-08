@@ -28,6 +28,13 @@
             headers.accept_language = "ja-JP,en-US";
           };
 
+          fileselect = {
+            handler = "external";
+            folder.command = ["kitty" "-e" "joshuto" "--output-file" "{}"];
+            multiple_files.command = ["kitty" "-e" "joshuto" "--output-file" "{}"];
+            single_file.command = ["kitty" "-e" "joshuto" "--output-file" "{}"];
+          };
+
           editor.command = ["kitty" "-e" "nvim" "{}"];
         };
 
@@ -60,11 +67,6 @@
           from qutebrowser.mainwindow import tabwidget
           tabwidget.TabWidget.MUTE_STRING = ""
           tabwidget.TabWidget.AUDIBLE_STRING = "[A]"
-
-          c.fileselect.handler = 'external'
-          c.fileselect.folder.command = ['kitty', '-e', 'joshuto', '--output-file', '{}']
-          c.fileselect.multiple_files.command = ['kitty', '-e', 'joshuto', '--output-file', '{}']
-          c.fileselect.single_file.command = ['kitty', '-e', 'joshuto', '--output-file', '{}']
 
           # Better context menu colors
           c.colors.contextmenu.disabled.fg = '#808080'
