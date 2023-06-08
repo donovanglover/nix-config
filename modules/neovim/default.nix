@@ -1,4 +1,8 @@
-{pkgs, nixpkgs-master, ...}: let
+{
+  pkgs,
+  nixpkgs-master,
+  ...
+}: let
   VARIABLES = import ../../src/variables.nix;
 in {
   programs.neovim.enable = true;
