@@ -1,33 +1,29 @@
-{pkgs, ...}: let
-  VARIABLES = import ../src/variables.nix;
-in {
+{
   imports = [
-    ./feh
-    ./kitty
-    ./librewolf
-    ./mpv
-    ./piper
-    ./qutebrowser
-    ./thunar
-    ./zathura
-
-    ./fish-starship
-    ./git
-    ./gpg
-    ./ncmpcpp
-    ./neovim
-    ./joshuto
-
     ./dual-function-keys
     ./dunst
     ./fcitx5-mozc
+    ./feh
+    ./fish-starship
     ./fonts
+    ./git
+    ./gpg
     ./hyprland
+    ./joshuto
+    ./kitty
+    ./librewolf
+    ./mpv
+    ./ncmpcpp
+    ./neovim
+    ./piper
     ./pipewire
+    ./qutebrowser
     ./rofi
     ./stylix
     ./swaylock
+    ./thunar
     ./waybar
     ./xdg-user-dirs
+    ./zathura
   ];
 }
