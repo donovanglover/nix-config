@@ -29,6 +29,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
+    nixpkgs-hyprland-autoname-workspaces.url = "github:donovanglover/nixpkgs/hyprland-autoname-workspaces";
 
     home-manager = {
       url = "github:nix-community/home-manager/master";

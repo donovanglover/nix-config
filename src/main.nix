@@ -4,6 +4,7 @@
   hypr-contrib,
   nix-gaming,
   crystal-flake,
+  nixpkgs-hyprland-autoname-workspaces,
   ...
 }: let
   VARIABLES = import ./variables.nix;
@@ -181,7 +182,7 @@ in {
     swww
     kickoff
     greetd.tuigreet
-    (pkgs.callPackage ../packages/hyprland-autoname-workspaces {})
+    nixpkgs-hyprland-autoname-workspaces.legacyPackages.${VARIABLES.system}.hyprland-autoname-workspaces
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg:

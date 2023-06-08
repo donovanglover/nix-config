@@ -327,6 +327,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-hyprland-autoname-workspaces": {
+      "locked": {
+        "lastModified": 1686168668,
+        "narHash": "sha256-WjlmXyRh8PmW2zfMAitVfso06eQOAnQv8sjOZgnBXvY=",
+        "owner": "donovanglover",
+        "repo": "nixpkgs",
+        "rev": "c5480a8239d0a025f9198f100dd88cae5da51a9e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "donovanglover",
+        "ref": "hyprland-autoname-workspaces",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-lib": {
       "locked": {
         "dir": "lib",
@@ -387,6 +403,7 @@
         "hyprland": "hyprland",
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-hyprland-autoname-workspaces": "nixpkgs-hyprland-autoname-workspaces",
         "nixpkgs-master": "nixpkgs-master",
         "stylix": "stylix"
       }
