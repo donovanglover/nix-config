@@ -61,7 +61,8 @@ in {
       utf16 = "recode utf16..utf8"; # Rarely, some files from Japan are utf16 instead
       jp = "LANG=ja_JP.UTF-8 LC_ALL=ja_JP.UTF-8";
       vm = "cd ~/nix-config && nixos-rebuild build-vm --flake . && ./result/bin/run-${VARIABLES.hostname}-vm && trash put result ${VARIABLES.hostname}.qcow2";
-      sw = "cd ~/nix-config && sudo nixos-rebuild switch --flake .";
+      sw = "cd ~/nix-config && crystal run tests/main.cr --progress && sudo nixos-rebuild switch --flake .";
+      st = "cd ~/nix-config && crystal run tests/main.cr --progress";
 
       c = "tput reset"; # Clear the terminal completely
       e = "exit";
