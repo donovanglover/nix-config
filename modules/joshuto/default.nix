@@ -23,6 +23,10 @@
       xdg.configFile."joshuto/preview.sh".source = ./preview.sh;
       xdg.configFile."joshuto/kitty-show.sh".source = ./kitty-show.sh;
       xdg.configFile."joshuto/kitty-remove.sh".source = ./kitty-remove.sh;
+
+      xdg.configFile."joshuto/mimetype.toml".source = ./mimetype.toml;
+      xdg.configFile."joshuto/keymap.toml".source = ./keymap.toml;
+      xdg.configFile."joshuto/theme.toml".source = ./theme.toml;
     }
   ];
 }
