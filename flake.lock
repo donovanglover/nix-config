@@ -363,6 +363,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-master": {
+      "locked": {
+        "lastModified": 1686254953,
+        "narHash": "sha256-TlfkVPJQiVt5K2+pm1uhpvxkyloWu1xPOTxoVBi4tQc=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "cc4e1f69ed9c4cce1abc6a9ef0a91b71c4a52004",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "master",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "crystal-flake": "crystal-flake",
@@ -371,6 +387,7 @@
         "hyprland": "hyprland",
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-master": "nixpkgs-master",
         "stylix": "stylix"
       }
     },

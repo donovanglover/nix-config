@@ -1,4 +1,6 @@
-{pkgs, ...}: {
+{pkgs, nixpkgs-master, ...}: let
+  VARIABLES = import ../../src/variables.nix;
+in {
   programs.neovim.enable = true;
 
   home-manager.sharedModules = [
@@ -222,6 +224,7 @@
           csv-vim
           rust-vim
           neoformat
+          nixpkgs-master.legacyPackages.${VARIABLES.system}.vimPlugins.vim-crystal
         ];
       };
     }
