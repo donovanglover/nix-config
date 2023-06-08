@@ -2,18 +2,18 @@
   nixpkgs.overlays = [
     (final: prev: {
       joshuto = prev.joshuto.overrideAttrs (oldAttrs: rec {
-        version = "493af3185092036cbbae81ae620b101f66cf4e9a";
+        version = "1d7f9067189fbf730605f373d591654651e01689";
         src = final.fetchFromGitHub {
           owner = "kamiyaa";
           repo = "joshuto";
           rev = version;
-          sha256 = "sha256-jLlDMV03eFWDB1D6pFEq2MFAfoVwFTy8ZpweS9syDB0=";
+          sha256 = "sha256-QwFHZaMIlNhvAtQ3n/Ybav/t18FO5rUncZfJgnhkOsc=";
         };
 
         cargoDeps = oldAttrs.cargoDeps.overrideAttrs (lib.const {
           name = "joshuto.tar.gz";
           inherit src;
-          outputHash = "sha256-cDy7sccuZj+RNjaDGjqczGl//zgmMAifjv/ZMEO/yyY=";
+          outputHash = "sha256-Wb1yE/UKdp7yvmALVR3q6QM2v1I9nuEWIgEMggkGkTM=";
         });
       });
     })
