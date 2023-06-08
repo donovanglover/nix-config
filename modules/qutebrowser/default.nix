@@ -61,11 +61,10 @@
           tabwidget.TabWidget.MUTE_STRING = ""
           tabwidget.TabWidget.AUDIBLE_STRING = "[A]"
 
-          # Use ranger as the file selector
           c.fileselect.handler = 'external'
-          c.fileselect.folder.command = ['kitty', '-e', 'ranger', '--choosedir={}']
-          c.fileselect.multiple_files.command = ['kitty', '-e', 'ranger', '--choosefiles={}']
-          c.fileselect.single_file.command = ['kitty', '-e', 'ranger', '--choosefile={}']
+          c.fileselect.folder.command = ['kitty', '-e', 'joshuto', '--output-file', '{}']
+          c.fileselect.multiple_files.command = ['kitty', '-e', 'joshuto', '--output-file', '{}']
+          c.fileselect.single_file.command = ['kitty', '-e', 'joshuto', '--output-file', '{}']
 
           # Better context menu colors
           c.colors.contextmenu.disabled.fg = '#808080'
