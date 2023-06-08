@@ -3,6 +3,8 @@ require "colorize"
 require "http/client"
 require "json"
 
+hint = ""
+
 describe "nix-config" do
   it "includes all modules" do
     all_modules = Dir.children("modules")
@@ -10,10 +12,11 @@ describe "nix-config" do
     modules = File.read("./modules/default.nix")
 
     all_modules.each do |current_module|
-      print "Checking ./modules/#{current_module}...".colorize(:blue)
+      hint = "Missing ./#{current_module} import in ./modules/default.nix."
       modules.includes?("./#{current_module}").should be_true
-      puts "✓".colorize(:green)
     end
+
+    hint = ""
   end
 
   it "uses the latest joshuto commit" do
@@ -27,5 +30,11 @@ describe "nix-config" do
         json["commit"]["sha"].should eq(nix_hash)
       end
     end
+  end
+end
+
+Spec.after_suite do
+  if !hint.empty?
+    puts "✗ #{hint}".colorize(:yellow)
   end
 end
