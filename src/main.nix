@@ -5,6 +5,7 @@
   nix-gaming,
   crystal-flake,
   nixpkgs-hyprland-autoname-workspaces,
+  nixpkgs-master,
   ...
 }: let
   VARIABLES = import ./variables.nix;
@@ -62,7 +63,7 @@ in {
     ameba
     crystal-flake.packages.${VARIABLES.system}.crystal
     crystal-flake.packages.${VARIABLES.system}.crystalline
-    (pkgs.callPackage ../packages/waycorner {})
+    nixpkgs-master.legacyPackages.${VARIABLES.system}.waycorner
     (pkgs.callPackage ../packages/srb2 {})
     slade
     typespeed
