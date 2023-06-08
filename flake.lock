@@ -395,6 +395,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-srb2": {
+      "locked": {
+        "lastModified": 1686161408,
+        "narHash": "sha256-+zLyuXX949OO4fQwa6AqTTHr8RSfBdHlMIq1AJuy+5I=",
+        "owner": "donovanglover",
+        "repo": "nixpkgs",
+        "rev": "97b52a7a806da410d171a755459fba17e39fcfed",
+        "type": "github"
+      },
+      "original": {
+        "owner": "donovanglover",
+        "ref": "srb2",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "crystal-flake": "crystal-flake",
@@ -405,6 +421,7 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-hyprland-autoname-workspaces": "nixpkgs-hyprland-autoname-workspaces",
         "nixpkgs-master": "nixpkgs-master",
+        "nixpkgs-srb2": "nixpkgs-srb2",
         "stylix": "stylix"
       }
     },

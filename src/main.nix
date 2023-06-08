@@ -6,6 +6,7 @@
   crystal-flake,
   nixpkgs-hyprland-autoname-workspaces,
   nixpkgs-master,
+  nixpkgs-srb2,
   ...
 }: let
   VARIABLES = import ./variables.nix;
@@ -64,7 +65,6 @@ in {
     crystal-flake.packages.${VARIABLES.system}.crystal
     crystal-flake.packages.${VARIABLES.system}.crystalline
     nixpkgs-master.legacyPackages.${VARIABLES.system}.waycorner
-    (pkgs.callPackage ../packages/srb2 {})
     slade
     typespeed
     osu-lazer-bin
@@ -184,6 +184,7 @@ in {
     kickoff
     greetd.tuigreet
     nixpkgs-hyprland-autoname-workspaces.legacyPackages.${VARIABLES.system}.hyprland-autoname-workspaces
+    nixpkgs-srb2.legacyPackages.${VARIABLES.system}.srb2
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg:

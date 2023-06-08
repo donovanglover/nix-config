@@ -30,6 +30,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:NixOS/nixpkgs/master";
     nixpkgs-hyprland-autoname-workspaces.url = "github:donovanglover/nixpkgs/hyprland-autoname-workspaces";
+    nixpkgs-srb2.url = "github:donovanglover/nixpkgs/srb2";
 
     home-manager = {
       url = "github:nix-community/home-manager/master";
