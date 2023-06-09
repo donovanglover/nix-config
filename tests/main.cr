@@ -36,7 +36,5 @@ describe "./overlays/joshuto/default.nix" do
 end
 
 Spec.after_suite do
-  if !hint.empty?
-    puts "✗ #{hint}".colorize(:yellow)
-  end
+  hint.empty? || puts "✗ #{hint}".colorize(:yellow)
 end
