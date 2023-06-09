@@ -51,6 +51,7 @@ in {
           nnoremap <silent> <leader>t :OverCommandLine<CR>%s/
           nnoremap <silent> <leader>a <C-w>w
           nnoremap <silent> <leader>s :Startify<CR>
+          nnoremap <silent> <leader>d :Bdelete<CR>
           nnoremap <silent> <leader>f :Files<CR>
           nnoremap <silent> <leader>g :set hlsearch!<CR>
           nnoremap <silent> <leader>j :Buffers<CR>
@@ -230,6 +231,7 @@ in {
           csv-vim
           rust-vim
           neoformat
+          bufdelete-nvim
           nixpkgs-master.legacyPackages.${VARIABLES.system}.vimPlugins.vim-crystal
         ];
       };
