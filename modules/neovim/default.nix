@@ -60,6 +60,10 @@ in {
 
           autocmd BufNewFile,BufRead *.ecr    setlocal syntax=html
           autocmd BufWritePre,FileWritePre * silent! call mkdir(expand('<afile>:p:h'), 'p')
+          augroup cdgit
+            autocmd!
+            autocmd VimEnter * silent! :cd `git rev-parse --show-toplevel`
+          augroup END
         '';
         plugins = with pkgs.vimPlugins; [
           {
