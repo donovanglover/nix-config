@@ -2,5 +2,6 @@
   imports = [
     ./alejandra
     ./joshuto
+    ./rofi
   ];
 }

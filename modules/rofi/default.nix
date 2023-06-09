@@ -1,17 +1,8 @@
-{
-  pkgs,
-  lib,
-  ...
-}: {
+{lib, ...}: {
   home-manager.sharedModules = [
     {
       programs.rofi = {
         enable = true;
-
-        package = pkgs.callPackage ../../packages/rofi/wrapper.nix {
-          rofi-unwrapped = pkgs.callPackage ../../packages/rofi/wayland.nix {};
-        };
-
         cycle = false;
 
         extraConfig = {
