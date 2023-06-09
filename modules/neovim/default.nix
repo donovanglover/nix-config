@@ -191,6 +191,15 @@ in {
             config = ''require("auto-save").setup()'';
           }
           {
+            plugin = toggleterm-nvim;
+            type = "lua";
+            config = ''
+              require("toggleterm").setup {
+                shade_terminals = false
+              }
+            '';
+          }
+          {
             plugin = vimtex;
             config = ''
               " Disable all keybinds so we can define our own
