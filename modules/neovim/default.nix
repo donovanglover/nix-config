@@ -194,7 +194,7 @@ in {
           {
             plugin = vim-startify;
             config = ''
-              let g:startify_custom_header = startify#pad(split(system("cat (random choice (fd . ${pkgs.ponysay}/share/ponysay/quotes))"), '\n'))
+              let g:startify_custom_header = startify#pad(split(system("cat (random choice (fd . ${pkgs.ponysay}/share/ponysay/quotes --ignore-file ~/.config/fd/ponyignore))"), '\n'))
 
               let g:startify_change_to_dir = 0
 
@@ -232,6 +232,11 @@ in {
           nixpkgs-master.legacyPackages.${VARIABLES.system}.vimPlugins.vim-crystal
         ];
       };
+
+      xdg.configFile."fd/ponyignore".text = ''
+        snowflake+horsepower+bulkbiceps.1
+        snowflake+horsepower+bulkbiceps.2
+      '';
     }
   ];
 }
