@@ -1,10 +1,4 @@
-{
-  pkgs,
-  nixpkgs-master,
-  ...
-}: let
-  VARIABLES = import ../../src/variables.nix;
-in {
+{pkgs, ...}: {
   programs.neovim.enable = true;
 
   home-manager.sharedModules = [
@@ -254,7 +248,7 @@ in {
           rust-vim
           neoformat
           bufdelete-nvim
-          nixpkgs-master.legacyPackages.${VARIABLES.system}.vimPlugins.vim-crystal
+          vim-crystal
         ];
       };
 
