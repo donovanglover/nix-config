@@ -1,4 +1,6 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  VARIABLES = import ../../src/variables.nix;
+in {
   programs.hyprland.enable = true;
   services.udisks2 = {
     enable = true;
@@ -19,7 +21,7 @@
     {
       xdg.configFile."hypr/hyprland.conf".text = ''
         env=XCURSOR_SIZE,24
-        env=BROWSER,librewolf
+        env=BROWSER,${VARIABLES.defaultBrowser}
         env=GTK_IM_MODULE,fcitx
         env=QT_IM_MODULE,fcitx
         env=XMODIFIERS,@im=fcitx

@@ -1,4 +1,6 @@
-{
+let
+  VARIABLES = import ../../src/variables.nix;
+in {
   home-manager.sharedModules = [
     {
       programs.kitty = {
@@ -9,7 +11,7 @@
           close_on_child_death = true;
           cursor_blink_interval = 0;
 
-          open_url_with = "librewolf";
+          open_url_with = VARIABLES.defaultBrowser;
           wayland_titlebar_color = "background";
 
           allow_remote_control = true;

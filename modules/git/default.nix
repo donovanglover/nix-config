@@ -1,4 +1,6 @@
-{pkgs, ...}: {
+{pkgs, ...}: let
+  VARIABLES = import ../../src/variables.nix;
+in {
   environment.systemPackages = with pkgs; [tig git];
 
   home-manager.sharedModules = [
@@ -22,7 +24,7 @@
             quotePath = false;
           };
 
-          web.browser = "librewolf";
+          web.browser = VARIABLES.defaultBrowser;
           push.default = "simple";
           branch.autosetuprebase = "always";
           init.defaultBranch = "master";
