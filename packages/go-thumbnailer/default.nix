@@ -12,7 +12,7 @@ buildGoModule rec {
   src = fetchFromGitHub {
     owner = "donovanglover";
     repo = pname;
-    rev = "${version}";
+    rev = version;
     sha256 = "sha256-sgd5kNnDXcSesGT+OignZ+APjNSxSP0Z60dr8cWO6sU=";
   };
 
@@ -24,7 +24,6 @@ buildGoModule rec {
     pkg-config
   ];
 
-  # proxyVendor = true;
   vendorSha256 = "sha256-4zgsoExdhEqvycGerNVxZ6LnjeRRO+f6DhJdINR5ZyI=";
 
   postInstall = ''
