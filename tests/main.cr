@@ -1,7 +1,6 @@
 require "spec"
 require "colorize"
-require "http/client"
-require "json"
+require "./spec_helper"
 
 hint = ""
 
@@ -22,16 +21,13 @@ end
 
 describe "./overlays/joshuto/default.nix" do
   it "uses the latest joshuto commit" do
-    response = HTTP::Client.get "https://api.github.com/repos/kamiyaa/joshuto/branches/main"
-    response.status_code.should eq(200)
-    json = JSON.parse(response.body)
+    check_latest_commit("kamiyaa/joshuto", branch: "main")
+  end
+end
 
-    File.read_lines("./overlays/joshuto/default.nix").each do |line|
-      if line.includes? "version ="
-        nix_hash = line.split('"')[1]
-        json["commit"]["sha"].should eq(nix_hash)
-      end
-    end
+describe "./overlays/rofi/default.nix" do
+  it "uses the latest rofi-wayland commit" do
+    check_latest_commit("lbonn/rofi", branch: "wayland")
   end
 end
 
