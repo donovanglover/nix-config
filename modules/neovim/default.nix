@@ -62,6 +62,8 @@ in {
           autocmd BufNewFile,BufRead *.ecr    setlocal syntax=html
           autocmd BufWritePre,FileWritePre * silent! call mkdir(expand('<afile>:p:h'), 'p')
           autocmd VimEnter * silent! :cd `git rev-parse --show-toplevel`
+
+          tnoremap <C-space> <C-\><C-n>
         '';
         plugins = with pkgs.vimPlugins; [
           {
