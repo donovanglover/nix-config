@@ -12,6 +12,7 @@
     ./joshuto
     ./kitty
     ./librewolf
+    ./mime-apps
     ./mpv
     ./ncmpcpp
     ./neovim
