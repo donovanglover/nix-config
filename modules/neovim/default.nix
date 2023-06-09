@@ -156,7 +156,18 @@ in {
             plugin = lualine-nvim;
             type = "lua";
             config = ''
+              local theme = require("lualine.themes.base16")
+              theme.normal.b.bg = nil
+              theme.normal.c.bg = nil
+              theme.replace.b.bg = nil
+              theme.insert.b.bg = nil
+              theme.visual.b.bg = nil
+              theme.inactive.a.bg = nil
+              theme.inactive.b.bg = nil
+              theme.inactive.c.bg = nil
+
               require('lualine').setup {
+                options = { theme = theme },
                 sections = { lualine_c = {'%f'} }
               }
             '';
