@@ -212,7 +212,7 @@
           {
             plugin = vim-startify;
             config = ''
-              let g:startify_custom_header = startify#pad(split(system("cat (random choice (fd . ${pkgs.ponysay}/share/ponysay/quotes --ignore-file ~/.config/fd/ponyignore))"), '\n'))
+              let g:startify_custom_header = startify#pad(split(system("${pkgs.fish}/bin/fish -c 'cat (random choice (${pkgs.fd}/bin/fd . ${pkgs.ponysay}/share/ponysay/quotes --ignore-file ~/.config/fd/ponyignore))'"), '\n'))
 
               let g:startify_change_to_dir = 0
 
