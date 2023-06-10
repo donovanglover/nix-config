@@ -16,6 +16,7 @@
           "browser.toolbars.bookmarks.visibility" = "never";
 
           "sidebar.position_start" = false;
+          "findbar.highlightAll" = true;
         };
       };
     }
