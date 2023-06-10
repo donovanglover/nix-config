@@ -89,8 +89,8 @@ in {
         }
 
         master {
-          new_is_master = yes
-          new_on_top = yes
+          new_is_master = no
+          new_on_top = no
           mfact = 0.65
           special_scale_factor = 1
           no_gaps_when_only = yes
