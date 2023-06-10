@@ -1,0 +1,26 @@
+{pkgs, ...}:
+{
+  environment.systemPackages = with pkgs; [
+    waycorner
+  ];
+
+  home-manager.sharedModules = [
+    {
+      xdg.configFile."waycorner/config.toml".text = ''
+        [application_launcher]
+        enter_command = [ "hyprctl", "dispatch", "workspace", "empty" ]
+        exit_command = [ "${pkgs.lnch}/bin/lnch", "${pkgs.rofi}/bin/rofi", "-show", "drun" ]
+        locations = ["top_right"]  # default
+        size = 10
+        timeout_ms = 250
+
+        [show_desktop]
+        enter_command = [ "hyprctl", "dispatch", "workspace", "empty" ]
+        exit_command = [ "hyprctl", "dispatch", "workspace", "previous"]
+        locations = ["bottom_right"]  # default
+        size = 10
+        timeout_ms = 250
+      '';
+    }
+  ];
+}

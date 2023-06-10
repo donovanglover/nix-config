@@ -24,6 +24,7 @@
     ./swaylock
     ./thunar
     ./waybar
+    ./waycorner
     ./xdg-user-dirs
     ./zathura
   ];
