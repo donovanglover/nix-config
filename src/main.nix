@@ -5,7 +5,6 @@
   nix-gaming,
   crystal-flake,
   nixpkgs-hyprland-autoname-workspaces,
-  nixpkgs-master,
   nixpkgs-srb2,
   ...
 }: let
@@ -64,7 +63,8 @@ in {
     ameba
     crystal-flake.packages.${VARIABLES.system}.crystal
     crystal-flake.packages.${VARIABLES.system}.crystalline
-    nixpkgs-master.legacyPackages.${VARIABLES.system}.waycorner
+    waycorner
+    nwg-dock-hyprland
     slade
     typespeed
     osu-lazer-bin
