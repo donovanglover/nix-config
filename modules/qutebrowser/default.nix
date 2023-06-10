@@ -25,7 +25,7 @@
             notifications.enabled = true;
             register_protocol_handler = true;
             mute = true;
-            headers.accept_language = "ja-JP,en-US";
+            headers.accept_language = "ja,en-US;q=0.9,en;q=0.8";
           };
 
           fileselect = {
