@@ -2,6 +2,7 @@ require "spec"
 require "./spec_helper"
 
 check_top_level_imports("modules")
+check_top_level_imports("overlays")
 
 describe "./overlays/joshuto/default.nix" do
   it "uses the latest joshuto commit" do
