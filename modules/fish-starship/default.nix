@@ -54,7 +54,7 @@ in {
 
       dl = "yt-dlp";
       vol = "wpctl set-volume '@DEFAULT_AUDIO_SINK@'"; # Change the volume, e.g. vol 10%+, vol 10%-, vol 100%
-      nf = "tput reset; and neofetch --size 56%";
+      nf = "tput clear; and neofetch --size 56%";
       df = "df --human-readable --type=ext4 --total";
       du = "du --human-readable --summarize";
       jis = "recode shift_jis..utf8"; # Easily convert shift_jis-encoded files to utf8
@@ -64,7 +64,7 @@ in {
       sw = "cd ~/nix-config && crystal spec tests/main.cr --progress --verbose && sudo nixos-rebuild switch --flake . --verbose";
       st = "cd ~/nix-config && crystal spec tests/main.cr --progress --verbose";
 
-      c = "tput reset"; # Clear the terminal completely
+      c = "tput clear"; # Clear the terminal completely
       e = "exit";
       k = "kitty @ set-colors -c -a ~/.cache/wal/kitty";
       l = "ls -l";
