@@ -1,5 +1,5 @@
 require "spec"
-require "./spec_helper"
+require "./methods/*"
 
 check_top_level_imports("modules")
 check_top_level_imports("overlays")
