@@ -170,16 +170,6 @@ let VARIABLES = import ../../src/variables.nix; in {
         bind = SUPER_SHIFT, 8, movetoworkspace, 8
         bind = SUPER_SHIFT, 9, movetoworkspace, 9
         bind = SUPER_SHIFT, 0, movetoworkspace, 10
-        bind = SUPER_CTRL, 1, exec, ~/.config/hypr/tags.sh 1
-        bind = SUPER_CTRL, 2, exec, ~/.config/hypr/tags.sh 2
-        bind = SUPER_CTRL, 3, exec, ~/.config/hypr/tags.sh 3
-        bind = SUPER_CTRL, 4, exec, ~/.config/hypr/tags.sh 4
-        bind = SUPER_CTRL, 5, exec, ~/.config/hypr/tags.sh 5
-        bind = SUPER_CTRL, 6, exec, ~/.config/hypr/tags.sh 6
-        bind = SUPER_CTRL, 7, exec, ~/.config/hypr/tags.sh 7
-        bind = SUPER_CTRL, 8, exec, ~/.config/hypr/tags.sh 8
-        bind = SUPER_CTRL, 9, exec, ~/.config/hypr/tags.sh 9
-        bind = SUPER_CTRL, 0, exec, ~/.config/hypr/tags.sh 10
 
         layerrule = blur,waybar
         layerrule = blur,rofi
@@ -213,7 +203,6 @@ let VARIABLES = import ../../src/variables.nix; in {
           vfr = no
         }
       '';
-      xdg.configFile."hypr/tags.sh".source = ./tags.sh;
 
       home.file.".icons/default/index.theme".text = /* ini */ ''
         [icon theme]
