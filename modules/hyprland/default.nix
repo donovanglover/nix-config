@@ -210,6 +210,7 @@ in {
           animate_manual_resizes = yes
           animate_mouse_windowdragging = yes
           focus_on_activate = yes
+          vfr = no
         }
       '';
       xdg.configFile."hypr/tags.sh".source = ./tags.sh;
