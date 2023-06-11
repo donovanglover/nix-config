@@ -1,30 +1,32 @@
 {
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    hyprland,
-    stylix,
-    nix-gaming,
-    crystal-flake,
-    ...
-  } @ attrs: let
-    VARIABLES = import ./src/variables.nix;
-  in {
-    formatter."${VARIABLES.system}" = nixpkgs.legacyPackages."${VARIABLES.system}".alejandra;
+  outputs =
+    { self
+    , nixpkgs
+    , home-manager
+    , hyprland
+    , stylix
+    , nix-gaming
+    , crystal-flake
+    , ...
+    } @ attrs:
+    let
+      VARIABLES = import ./src/variables.nix;
+    in
+    {
+      formatter."${VARIABLES.system}" = nixpkgs.legacyPackages."${VARIABLES.system}".alejandra;
 
-    nixosConfigurations."${VARIABLES.hostname}" = nixpkgs.lib.nixosSystem {
-      system = VARIABLES.system;
-      specialArgs = attrs;
-      modules = [
-        home-manager.nixosModules.home-manager
-        hyprland.nixosModules.default
-        stylix.nixosModules.stylix
-        nix-gaming.nixosModules.pipewireLowLatency
-        ./src/main.nix
-      ];
+      nixosConfigurations."${VARIABLES.hostname}" = nixpkgs.lib.nixosSystem {
+        system = VARIABLES.system;
+        specialArgs = attrs;
+        modules = [
+          home-manager.nixosModules.home-manager
+          hyprland.nixosModules.default
+          stylix.nixosModules.stylix
+          nix-gaming.nixosModules.pipewireLowLatency
+          ./src/main.nix
+        ];
+      };
     };
-  };
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";

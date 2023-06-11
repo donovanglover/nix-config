@@ -1,7 +1,9 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   VARIABLES = import ../../src/variables.nix;
-in {
-  environment.systemPackages = with pkgs; [tig git];
+in
+{
+  environment.systemPackages = with pkgs; [ tig git ];
 
   home-manager.sharedModules = [
     {

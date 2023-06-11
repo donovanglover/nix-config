@@ -1,6 +1,7 @@
 let
   VARIABLES = import ../../src/variables.nix;
-in {
+in
+{
   home-manager.sharedModules = [
     {
       programs.kitty = {

@@ -1,4 +1,4 @@
-{lib, ...}: {
+{ lib, ... }: {
   nixpkgs.overlays = [
     (final: prev: {
       joshuto = prev.joshuto.overrideAttrs (oldAttrs: rec {

@@ -1,4 +1,5 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   vim-nix-rummik = pkgs.vimUtils.buildVimPluginFrom2Nix {
     pname = "vim-nix";
     version = "0def8020f152a51c011a707680780dac61a8989a";
@@ -9,7 +10,8 @@
       sha256 = "sha256-Q+Jx6/MgeE2hsd/a6FqfXpAOaRcNymZW6t75hYCcH4E=";
     };
   };
-in {
+in
+{
   programs.neovim.enable = true;
 
   home-manager.sharedModules = [

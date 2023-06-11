@@ -1,6 +1,8 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   VARIABLES = import ../../src/variables.nix;
-in {
+in
+{
   programs.hyprland.enable = true;
   services.udisks2 = {
     enable = true;
@@ -14,7 +16,7 @@ in {
   services.xserver = {
     enable = true;
     displayManager.lightdm.enable = false;
-    excludePackages = [pkgs.xterm];
+    excludePackages = [ pkgs.xterm ];
   };
 
   home-manager.sharedModules = [

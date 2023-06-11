@@ -1,6 +1,8 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   VARIABLES = import ../../src/variables.nix;
-in {
+in
+{
   home-manager.sharedModules = [
     {
       services.mpd = {
@@ -24,7 +26,7 @@ in {
           }
           {
             key = "h";
-            command = ["previous_column" "jump_to_parent_directory"];
+            command = [ "previous_column" "jump_to_parent_directory" ];
           }
           {
             key = "j";
@@ -36,23 +38,23 @@ in {
           }
           {
             key = "l";
-            command = ["next_column" "enter_directory" "play_item"];
+            command = [ "next_column" "enter_directory" "play_item" ];
           }
           {
             key = "H";
-            command = ["select_item" "scroll_down"];
+            command = [ "select_item" "scroll_down" ];
           }
           {
             key = "J";
-            command = ["move_sort_order_down" "move_selected_items_down"];
+            command = [ "move_sort_order_down" "move_selected_items_down" ];
           }
           {
             key = "K";
-            command = ["move_sort_order_up" "move_selected_items_up"];
+            command = [ "move_sort_order_up" "move_selected_items_up" ];
           }
           {
             key = "L";
-            command = ["select_item" "scroll_up"];
+            command = [ "select_item" "scroll_up" ];
           }
           {
             key = "'";
@@ -149,5 +151,5 @@ in {
     }
   ];
 
-  environment.systemPackages = with pkgs; [mpc-cli];
+  environment.systemPackages = with pkgs; [ mpc-cli ];
 }

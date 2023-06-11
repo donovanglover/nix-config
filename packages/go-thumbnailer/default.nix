@@ -1,9 +1,9 @@
-{
-  lib,
-  buildGoModule,
-  fetchFromGitHub,
-  pkg-config,
-  vips,
+{ lib
+, buildGoModule
+, fetchFromGitHub
+, pkg-config
+, vips
+,
 }:
 buildGoModule rec {
   pname = "go-thumbnailer";
@@ -35,6 +35,6 @@ buildGoModule rec {
     description = "A cover thumbnailer written in Go for performance and reliability";
     homepage = "https://github.com/donovanglover/go-thumbnailer";
     license = licenses.mit;
-    maintainers = with maintainers; [donovanglover];
+    maintainers = with maintainers; [ donovanglover ];
   };
 }

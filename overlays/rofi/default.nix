@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   nixpkgs.overlays = [
     (final: prev: {
       rofi-unwrapped = prev.rofi-unwrapped.overrideAttrs (oldAttrs: rec {
@@ -12,8 +12,8 @@
           sha256 = "sha256-8IfHpaVFGeWqyw+tLjNtg+aWwAHhSA5PuXJYjpoht2E=";
         };
 
-        nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [pkgs.wayland-scanner];
-        buildInputs = oldAttrs.buildInputs ++ [pkgs.wayland pkgs.wayland-protocols];
+        nativeBuildInputs = oldAttrs.nativeBuildInputs ++ [ pkgs.wayland-scanner ];
+        buildInputs = oldAttrs.buildInputs ++ [ pkgs.wayland pkgs.wayland-protocols ];
       });
     })
   ];

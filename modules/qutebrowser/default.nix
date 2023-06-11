@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   home-manager.sharedModules = [
     {
       programs.qutebrowser = {
@@ -30,12 +30,12 @@
 
           fileselect = {
             handler = "external";
-            folder.command = ["kitty" "-e" "joshuto" "--output-file" "{}"];
-            multiple_files.command = ["kitty" "-e" "joshuto" "--output-file" "{}"];
-            single_file.command = ["kitty" "-e" "joshuto" "--output-file" "{}"];
+            folder.command = [ "kitty" "-e" "joshuto" "--output-file" "{}" ];
+            multiple_files.command = [ "kitty" "-e" "joshuto" "--output-file" "{}" ];
+            single_file.command = [ "kitty" "-e" "joshuto" "--output-file" "{}" ];
           };
 
-          editor.command = ["kitty" "-e" "nvim" "{}"];
+          editor.command = [ "kitty" "-e" "nvim" "{}" ];
         };
 
         keyBindings = {

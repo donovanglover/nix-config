@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  environment.systemPackages = [pkgs.libnotify];
+{ pkgs, ... }: {
+  environment.systemPackages = [ pkgs.libnotify ];
 
   home-manager.sharedModules = [
     {

@@ -1,8 +1,10 @@
-{pkgs, ...}: let
+{ pkgs, ... }:
+let
   VARIABLES = import ../../src/variables.nix;
-in {
+in
+{
   users.defaultUserShell = pkgs.fish;
-  environment.shells = [pkgs.fish];
+  environment.shells = [ pkgs.fish ];
 
   programs.fish = {
     enable = true;

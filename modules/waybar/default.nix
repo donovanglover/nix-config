@@ -1,7 +1,6 @@
-{
-  lib,
-  hyprland,
-  ...
+{ lib
+, hyprland
+, ...
 }: {
   home-manager.sharedModules = [
     {
@@ -16,8 +15,8 @@
             width = 45;
             spacing = 8;
 
-            modules-left = ["wlr/workspaces" "custom/new-workspace"];
-            modules-right = ["tray" "wireplumber" "backlight" "battery" "clock"];
+            modules-left = [ "wlr/workspaces" "custom/new-workspace" ];
+            modules-right = [ "tray" "wireplumber" "backlight" "battery" "clock" ];
 
             tray = {
               icon-size = 24;
@@ -46,13 +45,13 @@
               format = "{icon}";
               tooltip-format = "{volume}% {node_name}";
               format-muted = "";
-              format-icons = ["" ""];
+              format-icons = [ "" "" ];
             };
 
             battery = {
               "format" = "{icon}";
               "tooltip-format" = "{capacity}% {timeTo}";
-              "format-icons" = ["" "" "" "" ""];
+              "format-icons" = [ "" "" "" "" "" ];
             };
 
             clock = {
@@ -73,7 +72,7 @@
 
             backlight = {
               "format" = "{icon}";
-              "format-icons" = ["" ""];
+              "format-icons" = [ "" "" ];
             };
 
             "custom/new-workspace" = {

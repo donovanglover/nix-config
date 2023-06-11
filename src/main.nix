@@ -1,15 +1,16 @@
-{
-  pkgs,
-  lib,
-  hypr-contrib,
-  nix-gaming,
-  crystal-flake,
-  nixpkgs-hyprland-autoname-workspaces,
-  nixpkgs-srb2,
-  ...
-}: let
+{ pkgs
+, lib
+, hypr-contrib
+, nix-gaming
+, crystal-flake
+, nixpkgs-hyprland-autoname-workspaces
+, nixpkgs-srb2
+, ...
+}:
+let
   VARIABLES = import ./variables.nix;
-in {
+in
+{
   imports = [
     "${VARIABLES.hostHardwareConfiguration}"
     ../overlays
@@ -24,7 +25,7 @@ in {
 
   # nix
   nix.package = pkgs.nixFlakes;
-  nix.settings.experimental-features = ["nix-command" "flakes" "repl-flake"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" "repl-flake" ];
   nix.settings.auto-optimise-store = true;
 
   hardware.opengl.driSupport32Bit = true;
@@ -205,7 +206,7 @@ in {
     NODE_OPTIONS = "--max_old_space_size=16384";
   };
 
-  environment.defaultPackages = [];
+  environment.defaultPackages = [ ];
   system.stateVersion = VARIABLES.stateVersion;
 
   # home-manager
@@ -278,7 +279,7 @@ in {
       isNormalUser = true;
       uid = 1000;
       password = "user";
-      extraGroups = ["wheel" "networkmanager"];
+      extraGroups = [ "wheel" "networkmanager" ];
     };
   };
 
@@ -300,7 +301,7 @@ in {
       wifi.macAddress = "random";
       ethernet.macAddress = "random";
 
-      unmanaged = ["interface-name:ve-*"];
+      unmanaged = [ "interface-name:ve-*" ];
     };
 
     useHostResolvConf = true;
@@ -318,7 +319,7 @@ in {
       restrictNetwork = true;
     };
 
-    virtualisation.qemu.options = ["-device virtio-vga-gl" "-display sdl,gl=on,show-cursor=off" "-full-screen"];
+    virtualisation.qemu.options = [ "-device virtio-vga-gl" "-display sdl,gl=on,show-cursor=off" "-full-screen" ];
 
     environment.sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = "1";
@@ -331,12 +332,12 @@ in {
     enableExcludeWrapper = false;
   };
 
-  networking.firewall.allowedTCPPorts = [11918];
+  networking.firewall.allowedTCPPorts = [ 11918 ];
 
   networking = {
     nat = {
       enable = true;
-      internalInterfaces = ["ve-+"];
+      internalInterfaces = [ "ve-+" ];
       externalInterface = "wg-mullvad";
 
       forwardPorts = [
@@ -360,7 +361,7 @@ in {
   programs.htop = {
     enable = true;
     package = pkgs."htop-vim";
-    settings = {tree_view = 1;};
+    settings = { tree_view = 1; };
   };
 
   services.greetd = {

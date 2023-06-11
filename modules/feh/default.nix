@@ -5,8 +5,8 @@
         enable = true;
 
         keybindings = {
-          next_img = ["k" "Right"];
-          prev_img = ["j" "Left"];
+          next_img = [ "k" "Right" ];
+          prev_img = [ "j" "Left" ];
           quit = "q";
           toggle_fullscreen = "f";
 
@@ -25,8 +25,8 @@
           jump_back = "L";
           scroll_left = "b";
           scroll_right = "n";
-          scroll_up = ["u" "Up"];
-          scroll_down = ["d" "Down"];
+          scroll_up = [ "u" "Up" ];
+          scroll_down = [ "d" "Down" ];
           zoom_default = "o";
           zoom_fill = "p";
           toggle_auto_zoom = "m";
