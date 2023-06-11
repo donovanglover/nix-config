@@ -117,6 +117,7 @@
           #workspaces button {
             padding: 12px 0;
             border-radius: 0;
+            border-bottom: 1px solid alpha(@base02, 0.5);
           }
 
           #workspaces button.active {
