@@ -1,7 +1,4 @@
-let
-  VARIABLES = import ../src/variables.nix;
-in
-{
+let VARIABLES = import ../src/variables.nix; in {
   containers.rar = {
     privateNetwork = true;
 
@@ -12,51 +9,47 @@ in
       };
     };
 
-    config =
-      { pkgs
-      , lib
-      , ...
-      }: {
-        programs = {
-          fish.enable = true;
-          neovim.enable = true;
-          starship.enable = true;
+    config = { pkgs, lib, ... }: {
+      programs = {
+        fish.enable = true;
+        neovim.enable = true;
+        starship.enable = true;
+      };
+
+      users = {
+        defaultUserShell = pkgs.fish;
+        mutableUsers = false;
+        allowNoPasswordLogin = true;
+
+        users.user = {
+          isNormalUser = true;
+          home = "/home/user";
+        };
+      };
+
+      environment = {
+        shells = with pkgs; [ fish ];
+
+        variables = {
+          TERM = "xterm-kitty";
         };
 
-        users = {
-          defaultUserShell = pkgs.fish;
-          mutableUsers = false;
-          allowNoPasswordLogin = true;
+        defaultPackages = [ ];
+      };
 
-          users.user = {
-            isNormalUser = true;
-            home = "/home/user";
-          };
-        };
+      environment.systemPackages = with pkgs; [
+        kitty
+        rar
+        unrar
+      ];
 
-        environment = {
-          shells = with pkgs; [ fish ];
-
-          variables = {
-            TERM = "xterm-kitty";
-          };
-
-          defaultPackages = [ ];
-        };
-
-        environment.systemPackages = with pkgs; [
-          kitty
-          rar
-          unrar
+      nixpkgs.config.allowUnfreePredicate = pkg:
+        builtins.elem (lib.getName pkg) [
+          "rar"
+          "unrar"
         ];
 
-        nixpkgs.config.allowUnfreePredicate = pkg:
-          builtins.elem (lib.getName pkg) [
-            "rar"
-            "unrar"
-          ];
-
-        system.stateVersion = VARIABLES.stateVersion;
-      };
+      system.stateVersion = VARIABLES.stateVersion;
+    };
   };
 }

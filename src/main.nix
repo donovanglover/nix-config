@@ -7,10 +7,8 @@
 , nixpkgs-srb2
 , ...
 }:
-let
-  VARIABLES = import ./variables.nix;
-in
-{
+
+let VARIABLES = import ./variables.nix; in {
   imports = [
     "${VARIABLES.hostHardwareConfiguration}"
     ../overlays

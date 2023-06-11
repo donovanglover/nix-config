@@ -1,8 +1,6 @@
 { pkgs, ... }:
-let
-  VARIABLES = import ../../src/variables.nix;
-in
-{
+
+let VARIABLES = import ../../src/variables.nix; in {
   programs.hyprland.enable = true;
   services.udisks2 = {
     enable = true;

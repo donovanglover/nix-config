@@ -1,8 +1,6 @@
 { pkgs, ... }:
-let
-  VARIABLES = import ../../src/variables.nix;
-in
-{
+
+let VARIABLES = import ../../src/variables.nix; in {
   users.defaultUserShell = pkgs.fish;
   environment.shells = [ pkgs.fish ];
 
