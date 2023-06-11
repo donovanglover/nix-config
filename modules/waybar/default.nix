@@ -121,7 +121,7 @@
           }
 
           #workspaces button.active {
-            background: alpha(@base02, 0.67);
+            background: alpha(@base02, 0.5);
           }
 
           #window {
