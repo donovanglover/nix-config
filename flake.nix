@@ -1,18 +1,6 @@
 {
-  outputs =
-    { self
-    , nixpkgs
-    , home-manager
-    , hyprland
-    , stylix
-    , nix-gaming
-    , crystal-flake
-    , ...
-    } @ attrs:
-    let
-      VARIABLES = import ./src/variables.nix;
-    in
-    {
+  outputs = { self, nixpkgs, home-manager, hyprland, stylix, nix-gaming, crystal-flake, ... } @ attrs:
+    let VARIABLES = import ./src/variables.nix; in {
       formatter."${VARIABLES.system}" = nixpkgs.legacyPackages."${VARIABLES.system}".alejandra;
 
       nixosConfigurations."${VARIABLES.hostname}" = nixpkgs.lib.nixosSystem {
