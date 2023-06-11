@@ -62,7 +62,7 @@
           };
         };
 
-        extraConfig = ''
+        extraConfig = /* python */ ''
           # Mute tabs by default
           from qutebrowser.mainwindow import tabwidget
           tabwidget.TabWidget.MUTE_STRING = ""

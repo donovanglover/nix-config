@@ -60,7 +60,7 @@ let VARIABLES = import ../../src/variables.nix; in {
       jis = "recode shift_jis..utf8"; # Easily convert shift_jis-encoded files to utf8
       utf16 = "recode utf16..utf8"; # Rarely, some files from Japan are utf16 instead
       jp = "LANG=ja_JP.UTF-8 LC_ALL=ja_JP.UTF-8";
-      vm = "cd ~/nix-config && crystal spec tests/main.cr --progress --verbose --tag local && nixos-rebuild build-vm --flake . --verbose && ./result/bin/run-${VARIABLES.hostname}-vm && trash put result ${VARIABLES.hostname}.qcow2";
+      vm = /* fish */ ''cd ~/nix-config && crystal spec tests/main.cr --progress --verbose --tag local && nixos-rebuild build-vm --flake . --verbose && ./result/bin/run-${VARIABLES.hostname}-vm && trash put result ${VARIABLES.hostname}.qcow2'';
       sw = "cd ~/nix-config && crystal spec tests/main.cr --progress --verbose --tag local && sudo nixos-rebuild switch --flake . --verbose";
       st = "cd ~/nix-config && crystal spec tests/main.cr --progress --verbose --tag local";
 
@@ -77,7 +77,7 @@ let VARIABLES = import ../../src/variables.nix; in {
 
   home-manager.sharedModules = [
     {
-      xdg.configFile."fish/config.fish".text = ''
+      xdg.configFile."fish/config.fish".text = /* fish */ ''
         set -U fish_greeting ""
 
         export PATH="$HOME/.deno/bin:$HOME/.cargo/bin:$HOME/.yarn/bin:$HOME/.local/bin:$HOME/.go/bin:$PATH"

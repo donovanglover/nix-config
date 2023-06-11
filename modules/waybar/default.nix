@@ -85,7 +85,7 @@
           };
         };
 
-        style = lib.mkForce ''
+        style = lib.mkForce /* css */ ''
           @define-color base00 #272822;
           @define-color base01 #383830;
           @define-color base02 #49483e;
