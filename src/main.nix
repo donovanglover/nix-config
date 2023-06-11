@@ -69,6 +69,9 @@ in {
     typespeed
     osu-lazer-bin
     mullvad-vpn
+    pass
+    treefmt
+    jamesdsp
 
     # dev
     marksman
@@ -84,6 +87,7 @@ in {
     nil
     alejandra
     nixpkgs-fmt
+    nixfmt
 
     # node/yarn/deno
     nodejs
