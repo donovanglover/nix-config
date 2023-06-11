@@ -6,7 +6,7 @@
 
   home-manager.sharedModules = [
     {
-      xdg.configFile."waycorner/config.toml".text = ''
+      xdg.configFile."waycorner/config.toml".text = /* toml */ ''
         [application_launcher]
         enter_command = [ "hyprctl", "dispatch", "workspace", "empty" ]
         exit_command = [ "${pkgs.lnch}/bin/lnch", "${pkgs.rofi}/bin/rofi", "-show", "drun" ]
