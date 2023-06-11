@@ -1,4 +1,6 @@
-{
+let
+  VARIABLES = import ../../src/variables.nix;
+in {
   home-manager.sharedModules = [
     {
       xdg.mimeApps = {
@@ -9,6 +11,8 @@
           "image/gif" = "org.qutebrowser.qutebrowser.desktop";
           "application/x-wine-extension-osz" = "osu-stable.desktop";
           "application/x-vmware-vm" = "vmware-workstation.desktop";
+          "x-scheme-handler/http" = "${VARIABLES.defaultBrowser}.desktop";
+          "x-scheme-handler/https" = "${VARIABLES.defaultBrowser}.desktop";
         };
       };
     }
