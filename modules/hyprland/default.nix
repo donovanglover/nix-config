@@ -19,7 +19,7 @@ in {
 
   home-manager.sharedModules = [
     {
-      xdg.configFile."hypr/hyprland.conf".text = ''
+      xdg.configFile."hypr/hyprland.conf".text = /* bash */ ''
         env=XCURSOR_SIZE,24
         env=BROWSER,${VARIABLES.defaultBrowser}
         env=GTK_IM_MODULE,fcitx
@@ -214,7 +214,7 @@ in {
       '';
       xdg.configFile."hypr/tags.sh".source = ./tags.sh;
 
-      home.file.".icons/default/index.theme".text = ''
+      home.file.".icons/default/index.theme".text = /* ini */ ''
         [icon theme]
         Inherits=phinger-cursors
       '';
