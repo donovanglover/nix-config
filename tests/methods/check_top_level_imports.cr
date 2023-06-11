@@ -5,7 +5,7 @@ hint = ""
 
 def check_top_level_imports(directory)
   describe "./#{directory}/default.nix" do
-    it "imports all modules in ./#{directory}/" do
+    it "imports all modules in ./#{directory}/", tags: "local" do
       all_modules = Dir.children(directory)
       all_modules.delete("default.nix")
       modules = File.read("./#{directory}/default.nix")
@@ -18,7 +18,7 @@ def check_top_level_imports(directory)
       hint = ""
     end
 
-    it "only imports modules that exist in ./#{directory}/" do
+    it "only imports modules that exist in ./#{directory}/", tags: "local" do
       all_modules = Dir.children(directory)
       all_modules.delete("default.nix")
 
