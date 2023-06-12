@@ -161,6 +161,7 @@ let VARIABLES = import ../../src/variables.nix; in {
       };
 
       line_break.disabled = true;
+      container.disabled = true;
 
       nodejs = {
         format = "with [$symbol($version )]($style)";
