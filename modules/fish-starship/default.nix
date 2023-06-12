@@ -7,6 +7,7 @@ let VARIABLES = import ../../src/variables.nix; in {
   environment.systemPackages = with pkgs; [
     wget
     jq
+    exa
     fd
     fzf
     ripgrep
