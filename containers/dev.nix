@@ -22,16 +22,10 @@ in
         home-manager.nixosModules.home-manager
         ../modules/git
         ../modules/neovim
+        ../modules/fish-starship
       ];
 
-      programs = {
-        fish.enable = true;
-        neovim.enable = true;
-        starship.enable = true;
-      };
-
       users = {
-        defaultUserShell = pkgs.fish;
         mutableUsers = false;
         allowNoPasswordLogin = true;
 
@@ -47,15 +41,11 @@ in
       };
 
       environment = {
-        shells = with pkgs; [ fish ];
-
         variables = { TERM = "xterm-kitty"; };
-
         defaultPackages = [ ];
       };
 
       environment.systemPackages = with pkgs; [ kitty ];
-
       system.stateVersion = VARIABLES.stateVersion;
     };
   };
