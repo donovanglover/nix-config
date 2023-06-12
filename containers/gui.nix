@@ -1,4 +1,4 @@
-{ home-manager, ... }:
+{ home-manager, stylix, ... }:
 let
   VARIABLES = import ../src/variables.nix;
 in
@@ -29,7 +29,10 @@ in
     config = { pkgs, lib, ... }: {
       imports = [
         home-manager.nixosModules.home-manager
-        ./common-config/wayland.nix
+        stylix.nixosModules.stylix
+        ./common/wayland.nix
+        ../modules/fonts
+        ../modules/stylix
       ];
 
       environment.systemPackages = with pkgs; [
