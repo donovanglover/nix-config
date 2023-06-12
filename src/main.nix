@@ -16,6 +16,7 @@ let VARIABLES = import ./variables.nix; in {
     ../containers/rar.nix
     ../containers/wine.nix
     ../containers/dev.nix
+    ../containers/gui.nix
   ];
 
   # locale
@@ -60,9 +61,9 @@ let VARIABLES = import ./variables.nix; in {
   environment.systemPackages = with pkgs; [
     hypr-contrib.packages."${VARIABLES.system}".grimblast
     nix-gaming.packages."${VARIABLES.system}".osu-stable
-    ameba
     crystal-flake.packages.${VARIABLES.system}.crystal
     crystal-flake.packages.${VARIABLES.system}.crystalline
+    ameba
     waycorner
     nwg-dock-hyprland
     slade
@@ -73,15 +74,9 @@ let VARIABLES = import ./variables.nix; in {
     treefmt
     jamesdsp
 
-    # other
-    audacity
-    gimp
-    anki
     logseq
     mullvad-browser
     spek
-    keepassxc
-    libreoffice
 
     gdu
     fdupes
@@ -117,7 +112,6 @@ let VARIABLES = import ./variables.nix; in {
     sd
     shards
     smartmontools
-    sqlitebrowser
     visidata
     scc
     hwinfo
@@ -128,12 +122,10 @@ let VARIABLES = import ./variables.nix; in {
     imagemagick
     onefetch
     restic
-    wails
     watchexec
     memento
     mpvpaper
     timg
-    kanjidraw
     ventoy
     wf-recorder
     mdcat
@@ -143,6 +135,7 @@ let VARIABLES = import ./variables.nix; in {
     tessen
     wtype
     mtr
+    cointop
 
     grim
     slurp
@@ -181,59 +174,13 @@ let VARIABLES = import ./variables.nix; in {
     sharedModules = [
       {
         home.stateVersion = VARIABLES.stateVersion;
-
-        editorconfig = {
-          enable = true;
-
-          settings = {
-            "*" = {
-              charset = "utf-8";
-              end_of_line = "lf";
-              insert_final_newline = true;
-              indent_size = 2;
-              indent_style = "space";
-              trim_trailing_whitespace = true;
-            };
-
-            "*.md".indent_style = "tab";
-
-            "Makefile" = {
-              indent_style = "tab";
-              indent_size = 4;
-            };
-
-            "*.html" = {
-              indent_style = "tab";
-              indent_size = 4;
-            };
-
-            "*.go" = {
-              indent_style = "tab";
-              indent_size = 4;
-            };
-
-            "*.rs" = {
-              indent_style = "space";
-              indent_size = 4;
-            };
-          };
-        };
-
-        programs.bat.enable = true;
       }
     ];
   };
 
-  # systemd
-  systemd.extraConfig = ''
-    DefaultTimeoutStopSec=10s
-  '';
-
-  # logind
-  services.logind.lidSwitch = "ignore";
-
-  # timezone
-  time.timeZone = "${VARIABLES.timezone}";
+  systemd.extraConfig = "DefaultTimeoutStopSec=10s"; # Prevent hanging on shutdown
+  services.logind.lidSwitch = "ignore"; # Don't suspend on lid close
+  time.timeZone = "${VARIABLES.timezone}"; # Timezone
 
   # user
   users = {
@@ -251,9 +198,6 @@ let VARIABLES = import ./variables.nix; in {
     home.username = VARIABLES.username;
     home.homeDirectory = "/home/${VARIABLES.username}";
   };
-
-  # dev
-  programs.npm.enable = true;
 
   # networking
   networking = {
@@ -343,5 +287,5 @@ let VARIABLES = import ./variables.nix; in {
     };
   };
 
-  zramSwap.enable = true;
+  zramSwap.enable = true; # Swap
 }
