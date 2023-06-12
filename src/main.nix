@@ -15,6 +15,7 @@ let VARIABLES = import ./variables.nix; in {
     ../modules
     ../containers/rar.nix
     ../containers/wine.nix
+    ../containers/dev.nix
   ];
 
   # locale
