@@ -83,11 +83,6 @@ let VARIABLES = import ./variables.nix; in {
     keepassxc
     libreoffice
 
-    wget
-    jq
-    exa
-    fd
-    fzf
     gdu
     fdupes
     mediainfo
@@ -97,7 +92,6 @@ let VARIABLES = import ./variables.nix; in {
     sox
     httpie
     p7zip
-    ripgrep
     rsync
     unar
     genact

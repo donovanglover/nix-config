@@ -4,16 +4,24 @@ let VARIABLES = import ../../src/variables.nix; in {
   users.defaultUserShell = pkgs.fish;
   environment.shells = [ pkgs.fish ];
 
+  environment.systemPackages = with pkgs; [
+    wget
+    jq
+    fd
+    fzf
+    ripgrep
+  ];
+
   programs.fish = {
     enable = true;
 
     shellAliases = {
-      ls = "exa --group-directories-first -I 'lost+found'";
-      tree = "exa --group-directories-first --all --long --tree -I 'node_modules|.git|public|lost+found'";
+      ls = "${pkgs.exa}/bin/exa --group-directories-first -I 'lost+found'";
+      tree = "${pkgs.exa}/bin/exa --group-directories-first --all --long --tree -I 'node_modules|.git|public|lost+found'";
       mv = "mv -i";
       cp = "cp -ia";
-      rg = "rg --max-columns=2000 --smart-case";
-      yarn = "yarn --emoji true";
+      rg = "${pkgs.ripgrep}/bin/rg --max-columns=2000 --smart-case";
+      yarn = "${pkgs.yarn}/bin/yarn --emoji true";
     };
 
     shellAbbrs = {
