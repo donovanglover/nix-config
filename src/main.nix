@@ -73,35 +73,6 @@ let VARIABLES = import ./variables.nix; in {
     treefmt
     jamesdsp
 
-    # dev
-    marksman
-    lua-language-server
-    clang-tools
-    texlab
-
-    # go
-    go
-    gopls
-
-    # nix
-    nil
-    alejandra
-    nixpkgs-fmt
-    nixfmt
-
-    # node/yarn/deno
-    nodejs
-    yarn
-    deno
-
-    # rust
-    gcc
-    rustc
-    rustfmt
-    cargo
-    rust-analyzer
-    bacon
-
     # other
     audacity
     gimp

@@ -16,6 +16,17 @@ in
 
   home-manager.sharedModules = [
     {
+      home.packages = with pkgs; [
+        go gopls
+        nil alejandra nixpkgs-fmt nixfmt
+        nodejs yarn deno
+        gcc rustc rustfmt cargo rust-analyzer bacon
+        marksman
+        lua-language-server
+        clang-tools
+        texlab
+      ];
+
       programs.neovim = {
         enable = true;
         extraConfig = /* vim */ ''
