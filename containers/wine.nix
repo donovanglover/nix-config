@@ -1,6 +1,4 @@
-{ config, ... }:
-
-let VARIABLES = import ../src/variables.nix; hostCfg = config; in {
+let VARIABLES = import ../src/variables.nix; in {
   containers.wine = {
     privateNetwork = true;
 
@@ -71,7 +69,6 @@ let VARIABLES = import ../src/variables.nix; hostCfg = config; in {
 
       hardware.opengl = {
         enable = true;
-        extraPackages = hostCfg.hardware.opengl.extraPackages;
         driSupport32Bit = true;
       };
 
