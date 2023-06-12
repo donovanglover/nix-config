@@ -191,7 +191,7 @@
         inherit = "video_default"
       '';
 
-      xdg.configFile."joshuto/keymap.toml".source = /* toml */ ''
+      xdg.configFile."joshuto/keymap.toml".text = /* toml */ ''
         [default_view]
 
         keymap = [
