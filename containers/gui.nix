@@ -4,10 +4,6 @@ let
 in
 {
   containers.gui = {
-    imports = [
-      ./common-container/wayland.nix
-    ];
-
     privateNetwork = true;
     ephemeral = true;
     autoStart = true;
@@ -16,6 +12,17 @@ in
       "/mnt" = {
         hostPath = "/home/${VARIABLES.username}/containers/gui";
         isReadOnly = false;
+      };
+
+      waylandDisplay = rec {
+        hostPath = "/run/user/1000";
+        mountPoint = hostPath;
+      };
+
+      x11Display = rec {
+        hostPath = "/tmp/.X11-unix";
+        mountPoint = hostPath;
+        isReadOnly = true;
       };
     };
 
