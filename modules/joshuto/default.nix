@@ -456,48 +456,6 @@
         "Public" = ""
         "Templates" = ""
         "Videos" = ""
-        # Spanish
-        "Escritorio" = ""
-        "Documentos" = ""
-        "Descargas" = ""
-        "Música" = ""
-        "Imágenes" = ""
-        "Público" = ""
-        "Plantillas" = ""
-        "Vídeos" = ""
-        # French
-        "Bureau" = ""
-        "Images" = ""
-        "Musique" = ""
-        "Publique" = ""
-        "Téléchargements" = ""
-        "Vidéos" = ""
-        # Portuguese
-        "Imagens" = ""
-        "Modelos" = ""
-        "Área de trabalho" = ""
-        # Italian
-        "Documenti" = ""
-        "Immagini" = ""
-        "Modelli" = ""
-        "Musica" = ""
-        "Pubblici" = ""
-        "Scaricati" = ""
-        "Scrivania" = ""
-        # German
-        "Bilder" = ""
-        "Dokumente" = ""
-        "Musik" = ""
-        "Schreibtisch" = ""
-        "Vorlagen" = ""
-        "Öffentlich" = ""
-        # Hungarian
-        "Dokumentumok" = ""
-        "Képek" = ""
-        "Zene" = ""
-        "Letöltések" = ""
-        "Számítógép" = ""
-        "Videók" = ""
 
         # File exact match icons
         [file_exact]
