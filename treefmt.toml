@@ -1,0 +1,8 @@
+[formatter.crystal]
+command = "crystal"
+options = ["tool", "format"]
+includes = [ "*.cr" ]
+
+[formatter.nix]
+command = "nixpkgs-fmt"
+includes = [ "*.nix" ]

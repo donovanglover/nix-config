@@ -63,6 +63,7 @@ let VARIABLES = import ../../src/variables.nix; in {
       vm = /* fish */ ''cd ~/nix-config && crystal spec tests/main.cr --progress --verbose --tag local && nixos-rebuild build-vm --flake . --verbose && ./result/bin/run-${VARIABLES.hostname}-vm && trash put result ${VARIABLES.hostname}.qcow2'';
       sw = "cd ~/nix-config && crystal spec tests/main.cr --progress --verbose --tag local && sudo nixos-rebuild switch --flake . --verbose";
       st = "cd ~/nix-config && crystal spec tests/main.cr --progress --verbose --tag local";
+      tf = "treefmt";
 
       c = "tput clear"; # Clear the terminal completely
       e = "exit";
