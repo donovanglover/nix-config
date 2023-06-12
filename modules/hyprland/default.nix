@@ -61,8 +61,8 @@ let VARIABLES = import ../../src/variables.nix; in {
         decoration {
           rounding = 0
           blur = yes
-          blur_size = 3
-          blur_passes = 3
+          blur_size = 4
+          blur_passes = 2
           blur_new_optimizations = yes
           drop_shadow = yes
           shadow_range = 4
