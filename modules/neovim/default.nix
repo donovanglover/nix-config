@@ -263,6 +263,7 @@ in
           bufdelete-nvim
           vim-crystal
           vim-nix-rummik
+          fcitx-vim
         ];
       };
 
