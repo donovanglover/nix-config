@@ -1,5 +1,5 @@
 {
-  outputs = { self, nixpkgs, home-manager, hyprland, stylix, nix-gaming, ... } @ attrs:
+  outputs = { self, nixpkgs, home-manager, stylix, nix-gaming, ... } @ attrs:
     let VARIABLES = import ./src/variables.nix; in {
       formatter."${VARIABLES.system}" = nixpkgs.legacyPackages."${VARIABLES.system}".nixpkgs-fmt;
 
@@ -8,7 +8,6 @@
         specialArgs = attrs;
         modules = [
           home-manager.nixosModules.home-manager
-          hyprland.nixosModules.default
           stylix.nixosModules.stylix
           nix-gaming.nixosModules.pipewireLowLatency
           ./src/main.nix
@@ -23,11 +22,6 @@
 
     home-manager = {
       url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
