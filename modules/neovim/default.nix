@@ -108,7 +108,7 @@ in
           nnoremap <silent> <leader>e :set nu!<CR>
           nnoremap <silent> <leader>t :OverCommandLine<CR>%s/
           nnoremap <silent> <leader>a <C-w>w
-          nnoremap <silent> <leader>s :Startify<CR>
+          nnoremap <silent> <leader>s :Alpha<CR>
           nnoremap <silent> <leader>d :Bdelete<CR>
           nnoremap <silent> <leader>f :Files<CR>
           nnoremap <silent> <leader>g :set hlsearch!<CR>
@@ -276,35 +276,32 @@ in
           {
             plugin = alpha-nvim;
             type = "lua";
-            config = ''
-              require'alpha'.setup(require'alpha.themes.startify'.config)
+            config = /* lua */ ''
+              local startify = require('alpha.themes.startify')
+
+              startify.section.header.val = vim.fn.system("${pkgs.fish}/bin/fish -c 'cat (random choice (${pkgs.fd}/bin/fd . ${pkgs.ponysay}/share/ponysay/quotes --ignore-file ~/.config/fd/ponyignore)) | head -n 1'")
+
+            startify.section.top_buttons.val = {
+                startify.button("e", "新しいファイル", "<cmd>ene <CR>")
+            }
+
+              startify.section.mru.val = { { type = "padding", val = 0 } }
+              startify.section.mru_cwd.val = {
+                { type = "padding", val = 1 },
+                { type = "text", val = "歴史", opts = { hl = "SpecialComment", shrink_margin = false } },
+                { type = "padding", val = 1 },
+                {
+                    type = "group",
+                    val = function()
+                        return { startify.mru(0, vim.fn.getcwd()) }
+                    end,
+                    opts = { shrink_margin = false },
+                }
+              }
+
+              require('alpha').setup(startify.config)
             '';
           }
-          # {
-          #   plugin = vim-startify;
-          #   config = /* vim */ ''
-          #     let g:startify_custom_header = startify#pad(split(system("${pkgs.fish}/bin/fish -c 'cat (random choice (${pkgs.fd}/bin/fd . ${pkgs.ponysay}/share/ponysay/quotes --ignore-file ~/.config/fd/ponyignore))'"), '\n'))
-          #
-          #     let g:startify_change_to_dir = 0
-          #
-          #     function! s:gitModified()
-          #       let files = systemlist('git ls-files -m 2>/dev/null')
-          #       return map(files, "{'line': v:val, 'path': v:val}")
-          #     endfunction
-          #
-          #     function! s:gitUntracked()
-          #       let files = systemlist('git ls-files -o --exclude-standard 2>/dev/null')
-          #       return map(files, "{'line': v:val, 'path': v:val}")
-          #     endfunction
-          #
-          #     let g:startify_lists = [
-          #             \ { 'type': 'dir', 'header': ['   歴史 '. getcwd()] },
-          #             \ { 'type': function('s:gitModified'), 'header': ['   変化']},
-          #             \ { 'type': function('s:gitUntracked'), 'header': ['   新規']},
-          #             \ { 'type': 'commands', 'header': ['   Commands']},
-          #             \ ]
-          #   '';
-          # }
           fzf-vim
           vim-caddyfile
           vim-graphql
