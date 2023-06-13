@@ -54,8 +54,14 @@ let VARIABLES = import ./variables.nix; in {
       };
 
       custom = {
-        start = "${pkgs.libnotify}/bin/notify-send 'Note' 'gamemode started.'";
-        end = "${pkgs.libnotify}/bin/notify-send 'Note' 'gamemode ended.";
+        start = /* bash */ ''
+          ${pkgs.hyprland}/bin/hyprctl keyword misc:vfr no
+          ${pkgs.libnotify}/bin/notify-send 'Note' 'gamemode started from host.'
+        '';
+        end = /* bash */ ''
+          ${pkgs.hyprland}/bin/hyprctl keyword misc:vfr yes
+          ${pkgs.libnotify}/bin/notify-send 'Note' 'gamemode ended from host.'
+        '';
       };
     };
   };
