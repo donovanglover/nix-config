@@ -26,7 +26,7 @@ in
       };
     };
 
-    config = { pkgs, lib, ... }: {
+    config = { pkgs, ... }: {
       imports = [
         home-manager.nixosModules.home-manager
         stylix.nixosModules.stylix

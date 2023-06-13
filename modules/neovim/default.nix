@@ -151,14 +151,14 @@ in
           {
             plugin = indent-blankline-nvim;
             type = "lua";
-            config = ''
+            config = /* lua */ ''
               require("indent_blankline").setup()
             '';
           }
           {
             plugin = gitsigns-nvim;
             type = "lua";
-            config = ''
+            config = /* lua */ ''
               require('gitsigns').setup()
             '';
           }
@@ -169,7 +169,7 @@ in
           {
             plugin = nvim-scrollbar;
             type = "lua";
-            config = ''require("scrollbar").setup()'';
+            config = /* lua */ ''require("scrollbar").setup()'';
           }
           {
             plugin = nvim-lspconfig;
@@ -251,7 +251,7 @@ in
           {
             plugin = toggleterm-nvim;
             type = "lua";
-            config = ''
+            config = /* lua */ ''
               require("toggleterm").setup {
                 shade_terminals = false
               }

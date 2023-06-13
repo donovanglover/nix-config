@@ -17,6 +17,8 @@ let VARIABLES = import ./variables.nix; in {
     ../containers/wine.nix
     ../containers/dev.nix
     ../containers/gui.nix
+    ../containers/srb2.nix
+    ../containers/osu.nix
   ];
 
   # locale
@@ -259,7 +261,7 @@ let VARIABLES = import ./variables.nix; in {
 
   virtualisation.vmware.host = {
     enable = true;
-    extraConfig = ''
+    extraConfig = /* config */ ''
       # Enable 3D acceleration on the host
       mks.gl.allowUnsupportedDrivers = "TRUE"
       mks.vk.allowUnsupportedDevices = "TRUE"

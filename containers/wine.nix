@@ -20,7 +20,7 @@ let VARIABLES = import ../src/variables.nix; in {
       };
     };
 
-    config = { pkgs, lib, ... }: {
+    config = { pkgs, ... }: {
       programs = {
         fish.enable = true;
         neovim.enable = true;
