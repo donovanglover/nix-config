@@ -4,5 +4,6 @@
     ./joshuto
     ./kitty
     ./rofi
+    ./waybar
   ];
 }

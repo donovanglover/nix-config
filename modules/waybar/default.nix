@@ -1,12 +1,10 @@
 { lib
-, hyprland
 , ...
 }: {
   home-manager.sharedModules = [
     {
       programs.waybar = {
         enable = true;
-        package = hyprland.packages."x86_64-linux".waybar-hyprland;
 
         settings = {
           mainBar = {
