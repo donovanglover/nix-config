@@ -24,7 +24,19 @@ in
         mountPoint = hostPath;
         isReadOnly = true;
       };
+
+      dri = rec {
+        hostPath = "/dev/dri";
+        mountPoint = hostPath;
+      };
     };
+
+    allowedDevices = [
+      {
+        modifier = "rw";
+        node = "/dev/dri/renderD128";
+      }
+    ];
 
     config = { pkgs, lib, ... }: {
       imports = [
