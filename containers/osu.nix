@@ -38,7 +38,7 @@ in
       }
     ];
 
-    config = { pkgs, lib, ... }: {
+    config = { pkgs, ... }: {
       imports = [
         home-manager.nixosModules.home-manager
         stylix.nixosModules.stylix
@@ -48,21 +48,6 @@ in
         ../modules/stylix
         ../modules/pipewire
       ];
-
-      programs.gamemode = {
-        enable = true;
-        settings = {
-          general = {
-            renice = 10;
-            igpu_power_threshold = -1;
-          };
-
-          custom = {
-            start = "${pkgs.libnotify}/bin/notify-send 'Note' 'gamemode started.'";
-            end = "${pkgs.libnotify}/bin/notify-send 'Note' 'gamemode ended.";
-          };
-        };
-      };
 
       environment.systemPackages = with pkgs; [
         nix-gaming.packages."${VARIABLES.system}".osu-stable
