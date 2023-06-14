@@ -117,6 +117,10 @@
             border-bottom: 1px solid alpha(@base02, 0.5);
           }
 
+          #workspaces button:hover {
+            background: inherit;
+          }
+
           #workspaces button.active {
             background: alpha(@base02, 0.5);
           }
