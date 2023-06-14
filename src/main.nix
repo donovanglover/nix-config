@@ -54,8 +54,8 @@ let VARIABLES = import ./variables.nix; in {
       };
 
       custom = {
-        start = "${pkgs.libnotify}/bin/notify-send 'Note' 'gamemode started.'";
-        end = "${pkgs.libnotify}/bin/notify-send 'Note' 'gamemode ended.";
+        start = "${pkgs.libnotify}/bin/notify-send 'Note' 'gamemode started from host.'";
+        end = "${pkgs.libnotify}/bin/notify-send 'Note' 'gamemode ended from host.";
       };
     };
   };
