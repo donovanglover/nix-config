@@ -6,7 +6,6 @@ in
   containers.srb2 = {
     privateNetwork = true;
     ephemeral = true;
-    autoStart = true;
 
     bindMounts = {
       "/home/user/.srb2" = {

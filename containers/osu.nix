@@ -6,7 +6,6 @@ in
   containers.osu = {
     privateNetwork = true;
     ephemeral = true;
-    autoStart = true;
 
     bindMounts = {
       "/home/user/.osu" = {

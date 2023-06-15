@@ -6,7 +6,6 @@ in
   containers.dev = {
     privateNetwork = true;
     ephemeral = true;
-    autoStart = true;
     hostAddress = "192.168.100.30";
     localAddress = "192.168.100.31";
 

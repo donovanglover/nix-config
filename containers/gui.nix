@@ -6,7 +6,6 @@ in
   containers.gui = {
     privateNetwork = true;
     ephemeral = true;
-    autoStart = true;
 
     bindMounts = {
       "/mnt" = {
