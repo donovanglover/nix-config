@@ -201,7 +201,6 @@ let VARIABLES = import ../../src/variables.nix; in {
           animate_manual_resizes = yes
           animate_mouse_windowdragging = yes
           focus_on_activate = yes
-          vfr = no
         }
       '';
 
