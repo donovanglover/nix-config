@@ -19,9 +19,12 @@ in
     config = { pkgs, ... }: {
       imports = [
         home-manager.nixosModules.home-manager
-        ../modules/git
         ../modules/neovim
         ../modules/fish-starship
+      ];
+
+      home-manager.sharedModules = [
+        ../modules/git
       ];
 
       users = {
