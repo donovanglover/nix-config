@@ -2,6 +2,7 @@
 let VARIABLES = import ../src/variables.nix; in {
   containers.wine = {
     privateNetwork = true;
+    ephemeral = true;
 
     bindMounts = {
       "/home/user" = {
