@@ -1,3 +1,4 @@
+{ nix-gaming, ... }:
 let VARIABLES = import ../src/variables.nix; in {
   containers.wine = {
     privateNetwork = true;
@@ -21,6 +22,10 @@ let VARIABLES = import ../src/variables.nix; in {
     };
 
     config = { pkgs, ... }: {
+      imports = [
+        nix-gaming.nixosModules.pipewireLowLatency
+        ../modules/pipewire.nix
+      ];
       programs = {
         fish.enable = true;
         neovim.enable = true;
