@@ -35,7 +35,7 @@ in
       ];
 
       environment.systemPackages = with pkgs; [
-        audacity  # Audio editing
+        audacity # Audio editing
         gimp # Video editing
         anki # Spaced repetition
         sqlitebrowser # SQL

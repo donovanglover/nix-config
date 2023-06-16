@@ -20,10 +20,21 @@ in
       programs.bat.enable = true;
 
       home.packages = with pkgs; [
-        go gopls
-        nil alejandra nixpkgs-fmt nixfmt
-        nodejs yarn deno
-        gcc rustc rustfmt cargo rust-analyzer bacon
+        go
+        gopls
+        nil
+        alejandra
+        nixpkgs-fmt
+        nixfmt
+        nodejs
+        yarn
+        deno
+        gcc
+        rustc
+        rustfmt
+        cargo
+        rust-analyzer
+        bacon
         marksman
         lua-language-server
         clang-tools
