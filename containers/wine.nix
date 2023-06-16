@@ -45,6 +45,9 @@ let VARIABLES = import ../src/variables.nix; in {
         starship.enable = true;
       };
 
+      i18n.defaultLocale = VARIABLES.defaultLocale;
+      i18n.supportedLocales = VARIABLES.supportedLocales;
+
       users = {
         defaultUserShell = pkgs.fish;
         mutableUsers = false;
