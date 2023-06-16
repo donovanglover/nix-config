@@ -1,31 +1,34 @@
 {
   imports = [
     ./dual-function-keys
-    ./dunst
     ./fcitx5-mozc
-    ./feh
     ./fish-starship
     ./fonts
-    ./git
-    ./gpg
     ./hyprland
     ./joshuto
-    ./kitty
     ./librewolf
-    ./mime-apps
-    ./mpv
-    ./ncmpcpp
     ./neovim
     ./piper
     ./pipewire
-    ./qutebrowser
-    ./rofi
     ./stylix
     ./swaylock
     ./thunar
-    ./waybar
     ./waycorner
     ./xdg-user-dirs
+  ];
+
+  home-manager.sharedModules = [
+    ./dunst
+    ./feh
+    ./git
+    ./gpg
+    ./kitty
+    ./mime-apps
+    ./mpv
+    ./ncmpcpp
+    ./qutebrowser
+    ./rofi
+    ./waybar
     ./zathura
   ];
 }
