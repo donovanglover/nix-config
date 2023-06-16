@@ -22,16 +22,16 @@
 
     mimetype = {
       class = {
-        audio_default	= [
+        audio_default = [
           { command = "mpv"; args = [ "--" ]; }
           { command = "mediainfo"; confirm_exit = true; }
         ];
 
-        image_default	= [
+        image_default = [
           { command = "feh"; args = [ "--" ]; fork = true; silent = true; }
         ];
 
-        video_default	= [
+        video_default = [
           { command = "mpv"; args = [ "--" ]; fork = true; silent = true; }
           { command = "mediainfo"; confirm_exit = true; }
           { command = "mpv"; args = [ "--mute" "on" "--" ]; fork = true; silent = true; }
@@ -45,7 +45,7 @@
           { command = "zathura"; fork = true; silent = true; }
         ];
 
-        libreoffice_default	= [
+        libreoffice_default = [
           { command = "libreoffice"; fork = true; silent = true; }
         ];
       };
@@ -129,31 +129,31 @@
         yml."inherit" = "text_default";
 
         # archive formats
-        "7z".app_list	= [ { command = "7z"; args = [ "x" ]; confirm_exit = true; } ];
-        rar.app_list	= [
+        "7z".app_list = [ { command = "7z"; args = [ "x" ]; confirm_exit = true; } ];
+        rar.app_list = [
           { command = "unrar"; args = [ "x" ]; confirm_exit = true; }
           { command = "file-roller"; fork = true; silent = true; } ];
-        zip.app_list	= [
+        zip.app_list = [
           { command = "unzip"; confirm_exit = true; }
           { command = "file-roller"; fork = true; silent = true; } ];
 
         # misc formats
-        aup.app_list	= [
+        aup.app_list = [
           { command = "audacity"; fork = true; silent = true; } ];
 
-        odt."inherit"	= "libreoffice_default";
-        odf."inherit"	= "libreoffice_default";
-        ods."inherit"	= "libreoffice_default";
-        odp."inherit"	= "libreoffice_default";
+        odt."inherit" = "libreoffice_default";
+        odf."inherit" = "libreoffice_default";
+        ods."inherit" = "libreoffice_default";
+        odp."inherit" = "libreoffice_default";
 
-        doc."inherit"	= "libreoffice_default";
-        docx."inherit"	= "libreoffice_default";
-        xls."inherit"	= "libreoffice_default";
-        xlsx."inherit"	= "libreoffice_default";
-        ppt."inherit"	= "libreoffice_default";
-        pptx."inherit"	= "libreoffice_default";
+        doc."inherit" = "libreoffice_default";
+        docx."inherit" = "libreoffice_default";
+        xls."inherit" = "libreoffice_default";
+        xlsx."inherit" = "libreoffice_default";
+        ppt."inherit" = "libreoffice_default";
+        pptx."inherit" = "libreoffice_default";
 
-        pdf."inherit"	= "reader_default";
+        pdf."inherit" = "reader_default";
 
         kra.app_list = [
           { command = "krita"; fork = true; silent = true; }
