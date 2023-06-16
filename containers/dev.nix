@@ -24,7 +24,7 @@ in
       ];
 
       home-manager.sharedModules = [
-        ../modules/git
+        ../home/git
       ];
 
       users = {

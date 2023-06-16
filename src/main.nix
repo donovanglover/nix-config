@@ -13,6 +13,7 @@ let VARIABLES = import ./variables.nix; in {
     "${VARIABLES.hostHardwareConfiguration}"
     ../overlays
     ../modules
+    ../home
     ../containers/rar.nix
     ../containers/wine.nix
     ../containers/dev.nix

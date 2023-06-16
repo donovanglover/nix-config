@@ -3,6 +3,7 @@ require "./methods/*"
 
 check_top_level_imports("modules")
 check_top_level_imports("overlays")
+check_top_level_imports("home")
 
 describe "./overlays/joshuto/default.nix", tags: "online" do
   it "uses the latest joshuto commit" do
