@@ -41,6 +41,7 @@ in
         sqlitebrowser # SQL
         kanjidraw # Kanji draw
         kitty # TODO: import common module
+        libreoffice
       ];
 
       users = {
