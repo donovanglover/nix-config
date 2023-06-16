@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{
   programs.joshuto = {
     enable = true;
 
@@ -17,6 +17,91 @@
         preview_script = "~/.config/joshuto/preview.sh";
         preview_shown_hook_script = "~/.config/joshuto/kitty-show.sh";
         preview_removed_hook_script = "~/.config/joshuto/kitty-remove.sh";
+      };
+    };
+
+    theme = {
+      selection = {
+        fg = "light_yellow";
+        bold = true;
+      };
+
+      visual_mode_selection = {
+        fg = "light_red";
+        bold = true;
+      };
+
+      selection.prefix = {
+        prefix = "  ";
+        size = 2;
+      };
+
+      executable = {
+        fg = "light_green";
+        bold = true;
+      };
+
+      regular = {
+        fg = "white";
+      };
+
+      directory = {
+        fg = "light_blue";
+        bold = true;
+      };
+
+      link = {
+        fg = "cyan";
+        bold = true;
+      };
+
+      link_invalid = {
+        fg = "red";
+        bold = true;
+      };
+
+      socket = {
+        fg = "light_magenta";
+        bold = true;
+      };
+
+      ext = {
+        bmp.fg = "yellow";
+        gif.fg = "yellow";
+        heic.fg = "yellow";
+        jpg.fg = "yellow";
+        jpeg.fg = "yellow";
+        pgm.fg = "yellow";
+        png.fg = "yellow";
+        ppm.fg = "yellow";
+        svg.fg = "yellow";
+
+        wav.fg = "magenta";
+        flac.fg = "magenta";
+        mp3.fg = "magenta";
+        amr.fg = "magenta";
+
+        avi.fg = "magenta";
+        flv.fg = "magenta";
+        m3u.fg = "magenta";
+        m4a.fg = "magenta";
+        m4v.fg = "magenta";
+        mkv.fg = "magenta";
+        mov.fg = "magenta";
+        mp4.fg = "magenta";
+        mpg.fg = "magenta";
+        rmvb.fg = "magenta";
+        webm.fg = "magenta";
+        wmv.fg = "magenta";
+
+        "7z".fg = "red";
+        bz2.fg = "red";
+        gz.fg = "red";
+        rar.fg = "red";
+        tar.fg = "red";
+        tgz.fg = "red";
+        xz.fg = "red";
+        zip.fg = "red";
       };
     };
   };
@@ -358,82 +443,6 @@
       { keys = ["w"], command = "show_tasks" },
       { keys = ["escape"], command = "show_tasks" },
     ]
-  '';
-
-  xdg.configFile."joshuto/theme.toml".text = /* toml */ ''
-    [selection]
-    fg = "light_yellow"
-    bold = true
-
-    [visual_mode_selection]
-    fg = "light_red"
-    bold = true
-
-    [selection.prefix]
-    prefix = "  "
-    size = 2
-
-    [executable]
-    fg = "light_green"
-    bold = true
-
-    [regular]
-    fg = "white"
-
-    [directory]
-    fg = "light_blue"
-    bold = true
-
-    [link]
-    fg = "cyan"
-    bold = true
-
-    [link_invalid]
-    fg = "red"
-    bold = true
-
-    [socket]
-    fg = "light_magenta"
-    bold = true
-
-    [ext]
-
-    bmp.fg = "yellow"
-    gif.fg = "yellow"
-    heic.fg = "yellow"
-    jpg.fg = "yellow"
-    jpeg.fg = "yellow"
-    pgm.fg = "yellow"
-    png.fg = "yellow"
-    ppm.fg = "yellow"
-    svg.fg = "yellow"
-
-    wav.fg = "magenta"
-    flac.fg = "magenta"
-    mp3.fg = "magenta"
-    amr.fg = "magenta"
-
-    avi.fg = "magenta"
-    flv.fg = "magenta"
-    m3u.fg = "magenta"
-    m4a.fg = "magenta"
-    m4v.fg = "magenta"
-    mkv.fg = "magenta"
-    mov.fg = "magenta"
-    mp4.fg = "magenta"
-    mpg.fg = "magenta"
-    rmvb.fg = "magenta"
-    webm.fg = "magenta"
-    wmv.fg = "magenta"
-
-    7z.fg = "red"
-    bz2.fg = "red"
-    gz.fg = "red"
-    rar.fg = "red"
-    tar.fg = "red"
-    tgz.fg = "red"
-    xz.fg = "red"
-    zip.fg = "red"
   '';
 
   xdg.configFile."joshuto/icons.toml".text = /* toml */ ''
