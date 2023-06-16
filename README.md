@@ -17,7 +17,7 @@ My [NixOS] configuration with [Nix Flakes], [Home Manager], [Stylix], and [Hyprl
 
 ```fish
 git clone https://github.com/donovanglover/nix-config && cd nix-config
-nixos-rebuild buildvm --flake .#nixos
+nixos-rebuild build-vm --flake .#nixos
 ./result/bin/run-nixos-vm
 ```
 
