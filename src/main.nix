@@ -31,6 +31,11 @@ let VARIABLES = import ./variables.nix; in {
   nix.settings.experimental-features = [ "nix-command" "flakes" "repl-flake" ];
   nix.settings.auto-optimise-store = true;
 
+  nix.settings = {
+    substituters = ["https://nix-gaming.cachix.org"];
+    trusted-public-keys = ["nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="];
+  };
+
   hardware.opengl.driSupport32Bit = true;
 
   boot.loader = {
