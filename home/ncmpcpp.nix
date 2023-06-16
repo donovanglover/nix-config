@@ -1,6 +1,6 @@
 { pkgs, ... }:
 
-let VARIABLES = import ../../src/variables.nix; in {
+let VARIABLES = import ../src/variables.nix; in {
   home.packages = with pkgs; [ mpc-cli ];
 
   services.mpd = {

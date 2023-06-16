@@ -1,20 +1,20 @@
 {
   home-manager.sharedModules = [
-    ./dunst
-    ./feh
-    ./git
-    ./gpg
-    ./joshuto
-    ./kitty
-    ./mime-apps
-    ./mpv
-    ./ncmpcpp
-    ./neovim
-    ./qutebrowser
-    ./rofi
-    ./waybar
-    ./waycorner
-    ./xdg-user-dirs
-    ./zathura
+    ./dunst.nix
+    ./feh.nix
+    ./git.nix
+    ./gpg.nix
+    ./joshuto.nix
+    ./kitty.nix
+    ./mime-apps.nix
+    ./mpv.nix
+    ./ncmpcpp.nix
+    ./neovim.nix
+    ./qutebrowser.nix
+    ./rofi.nix
+    ./waybar.nix
+    ./waycorner.nix
+    ./xdg-user-dirs.nix
+    ./zathura.nix
   ];
 }

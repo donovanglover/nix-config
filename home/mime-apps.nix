@@ -1,4 +1,4 @@
-let VARIABLES = import ../../src/variables.nix; in {
+let VARIABLES = import ../src/variables.nix; in {
   xdg.mimeApps = {
     enable = true;
 

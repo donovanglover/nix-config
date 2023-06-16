@@ -1,6 +1,6 @@
 { pkgs, ... }:
 
-let VARIABLES = import ../../src/variables.nix; in {
+let VARIABLES = import ../src/variables.nix; in {
   home.packages = with pkgs; [ tig ];
 
   xdg.configFile."tig/config".text = ''
