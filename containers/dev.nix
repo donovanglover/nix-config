@@ -19,7 +19,7 @@ in
     config = { pkgs, ... }: {
       imports = [
         home-manager.nixosModules.home-manager
-        ../modules/fish-starship
+        ../modules/fish.nix
       ];
 
       home-manager.sharedModules = [

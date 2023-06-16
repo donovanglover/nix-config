@@ -42,8 +42,8 @@ in
         home-manager.nixosModules.home-manager
         stylix.nixosModules.stylix
         ./common/wayland.nix
-        ../modules/fonts
-        ../modules/stylix
+        ../modules/fonts.nix
+        ../modules/stylix.nix
       ];
 
       environment.systemPackages = with pkgs; [

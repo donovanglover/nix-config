@@ -43,9 +43,9 @@ in
         stylix.nixosModules.stylix
         nix-gaming.nixosModules.pipewireLowLatency
         ./common/wayland.nix
-        ../modules/fonts
-        ../modules/stylix
-        ../modules/pipewire
+        ../modules/fonts.nix
+        ../modules/stylix.nix
+        ../modules/pipewire.nix
       ];
 
       environment.systemPackages = with pkgs; [
