@@ -23,8 +23,8 @@ in
       ];
 
       home-manager.sharedModules = [
-        ../home/git
-        ../home/neovim
+        ../home/git.nix
+        ../home/neovim.nix
       ];
 
       users = {
