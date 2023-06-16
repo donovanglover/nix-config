@@ -46,6 +46,9 @@ let VARIABLES = import ./variables.nix; in {
 
   boot.tmp.useTmpfs = true;
 
+  programs.neovim.enable = true;
+  programs.npm.enable = true;
+
   programs.gamemode = {
     enable = true;
     settings = {
