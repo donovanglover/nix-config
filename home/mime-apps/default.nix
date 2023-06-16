@@ -1,6 +1,7 @@
 let VARIABLES = import ../../src/variables.nix; in {
   xdg.mimeApps = {
     enable = true;
+
     defaultApplications = {
       "image/png" = "feh.desktop";
       "image/jpeg" = "feh.desktop";

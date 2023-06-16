@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   fonts = {
     enableDefaultFonts = true;
+
     fonts = with pkgs; [
       noto-fonts
       noto-fonts-cjk-sans
@@ -11,14 +12,16 @@
       nerdfonts
       kanji-stroke-order-font
     ];
+
     fontconfig = {
       defaultFonts = {
         serif = [ "Noto Serif CJK JP" "Noto Serif" ];
         sansSerif = [ "Noto Sans CJK JP" "Noto Sans" ];
         monospace = [ "Noto Mono CJK JP" "Noto Mono" ];
       };
+
       allowBitmaps = false;
-      hinting = { style = "hintfull"; };
+      hinting.style = "hintfull";
     };
   };
 }
