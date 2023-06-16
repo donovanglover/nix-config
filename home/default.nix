@@ -4,13 +4,17 @@
     ./feh
     ./git
     ./gpg
+    ./joshuto
     ./kitty
     ./mime-apps
     ./mpv
     ./ncmpcpp
+    ./neovim
     ./qutebrowser
     ./rofi
     ./waybar
+    ./waycorner
+    ./xdg-user-dirs
     ./zathura
   ];
 }

@@ -5,15 +5,11 @@
     ./fish-starship
     ./fonts
     ./hyprland
-    ./joshuto
     ./librewolf
-    ./neovim
     ./piper
     ./pipewire
     ./stylix
     ./swaylock
     ./thunar
-    ./waycorner
-    ./xdg-user-dirs
   ];
 }
