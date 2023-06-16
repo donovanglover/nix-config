@@ -50,7 +50,7 @@ let VARIABLES = import ../src/variables.nix; in {
 
       environment.systemPackages = with pkgs; [
         kitty
-        wine-staging
+        wineWowPackages.waylandFull
         winetricks
       ];
 
