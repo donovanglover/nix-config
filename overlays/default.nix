@@ -1,9 +1,9 @@
 {
   imports = [
-    ./alejandra
-    ./joshuto
-    ./kitty
-    ./rofi
-    ./waybar
+    ./alejandra.nix
+    ./joshuto.nix
+    ./kitty.nix
+    ./rofi.nix
+    ./waybar.nix
   ];
 }
