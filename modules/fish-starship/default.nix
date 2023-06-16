@@ -18,7 +18,7 @@ let VARIABLES = import ../../src/variables.nix; in {
 
     shellAliases = {
       ls = "${pkgs.exa}/bin/exa --group-directories-first -I 'lost+found'";
-      tree = "${pkgs.exa}/bin/exa --group-directories-first --all --long --tree -I 'node_modules|.git|public|lost+found'";
+      tree = "${pkgs.exa}/bin/exa --group-directories-first --all --long --tree -I 'node_modules|.git|public|lost+found|target'";
       mv = "mv -i";
       cp = "cp -ia";
       rg = "${pkgs.ripgrep}/bin/rg --max-columns=2000 --smart-case";
