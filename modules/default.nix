@@ -1,15 +1,15 @@
 {
   imports = [
-    ./dual-function-keys
-    ./fcitx5-mozc
-    ./fish-starship
-    ./fonts
-    ./hyprland
-    ./librewolf
-    ./piper
-    ./pipewire
-    ./stylix
-    ./swaylock
-    ./thunar
+    ./dual-function-keys.nix
+    ./fcitx.nix
+    ./fish.nix
+    ./fonts.nix
+    ./hyprland.nix
+    ./librewolf.nix
+    ./piper.nix
+    ./pipewire.nix
+    ./stylix.nix
+    ./swaylock.nix
+    ./thunar.nix
   ];
 }
