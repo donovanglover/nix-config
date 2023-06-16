@@ -134,11 +134,7 @@ in
         plugin = nvim-tree-lua;
         type = "lua";
         config = /* lua */ ''
-          require("nvim-tree").setup({
-            renderer = {
-              special_files = { "Cargo.toml", "default.nix", "Makefile", "README.md", "readme.md" }
-            }
-          })
+          require("nvim-tree").setup()
 
           vim.api.nvim_create_autocmd({"QuitPre"}, {
               callback = function() vim.cmd("NvimTreeClose") end
