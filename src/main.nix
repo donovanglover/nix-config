@@ -26,6 +26,9 @@ let VARIABLES = import ./variables.nix; in {
   i18n.defaultLocale = VARIABLES.defaultLocale;
   i18n.supportedLocales = VARIABLES.supportedLocales;
 
+  i18n.inputMethod.enabled = "fcitx5";
+  i18n.inputMethod.fcitx5.addons = [ pkgs.fcitx5-mozc ];
+
   # nix
   nix.package = pkgs.nixFlakes;
   nix.settings.experimental-features = [ "nix-command" "flakes" "repl-flake" ];

@@ -1,7 +1,6 @@
 {
   imports = [
     ./dual-function-keys.nix
-    ./fcitx.nix
     ./fish.nix
     ./fonts.nix
     ./hyprland.nix
