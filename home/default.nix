@@ -6,15 +6,19 @@
     ./git.nix
     ./gpg.nix
     ./gtk.nix
+    ./htop.nix
     ./hyprland.nix
     ./joshuto.nix
     ./kitty.nix
+    ./librewolf.nix
     ./mime-apps.nix
     ./mpv.nix
     ./ncmpcpp.nix
     ./neovim.nix
     ./qutebrowser.nix
     ./rofi.nix
+    ./swaylock.nix
+    ./thunar.nix
     ./udiskie.nix
     ./waybar.nix
     ./waycorner.nix

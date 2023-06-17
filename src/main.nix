@@ -29,6 +29,8 @@ let VARIABLES = import ./variables.nix; in {
   i18n.inputMethod.enabled = "fcitx5";
   i18n.inputMethod.fcitx5.addons = [ pkgs.fcitx5-mozc ];
 
+  security.pam.services.swaylock = { };
+
   # nix
   nix.package = pkgs.nixFlakes;
   nix.settings.experimental-features = [ "nix-command" "flakes" "repl-flake" ];
@@ -278,12 +280,6 @@ let VARIABLES = import ./variables.nix; in {
       mks.gl.allowUnsupportedDrivers = "TRUE"
       mks.vk.allowUnsupportedDevices = "TRUE"
     '';
-  };
-
-  programs.htop = {
-    enable = true;
-    package = pkgs."htop-vim";
-    settings = { tree_view = 1; };
   };
 
   services.greetd = {
