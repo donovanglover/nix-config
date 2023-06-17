@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 let
   vim-nix-rummik = pkgs.vimUtils.buildVimPluginFrom2Nix {
     pname = "vim-nix";
@@ -324,7 +324,7 @@ in
       bufdelete-nvim
       vim-crystal
       vim-nix-rummik
-      fcitx-vim
+      (lib.mkIf (config.i18n.inputMethod.enabled == "fcitx5") fcitx-vim)
     ];
   };
 
