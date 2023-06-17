@@ -3,12 +3,12 @@
     ./dual-function-keys.nix
     ./fish.nix
     ./fonts.nix
+    ./greetd.nix
     ./hyprland.nix
-    ./librewolf.nix
     ./piper.nix
     ./pipewire.nix
+    ./starship.nix
     ./stylix.nix
-    ./swaylock.nix
     ./thunar.nix
   ];
 }
