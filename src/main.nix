@@ -191,6 +191,10 @@ let VARIABLES = import ./variables.nix; in {
 
   systemd.extraConfig = "DefaultTimeoutStopSec=10s"; # Prevent hanging on shutdown
   services.logind.lidSwitch = "ignore"; # Don't suspend on lid close
+
+  # Don't shutdown when power button is short-pressed
+  services.logind.extraConfig = "HandlePowerKey=ignore";
+
   time.timeZone = "${VARIABLES.timezone}"; # Timezone
 
   # user
