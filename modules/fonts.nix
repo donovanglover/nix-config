@@ -11,6 +11,7 @@
       font-awesome
       nerdfonts
       kanji-stroke-order-font
+      liberation_ttf
     ];
 
     fontconfig = {
