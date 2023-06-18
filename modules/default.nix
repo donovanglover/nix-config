@@ -11,11 +11,6 @@
     ./stylix.nix
     ./thunar.nix
     ./user.nix
+    ./virtualization.nix
   ];
-
-  virtualisation.vmVariant = {
-    imports = [
-      ./virtualization.nix
-    ];
-  };
 }
