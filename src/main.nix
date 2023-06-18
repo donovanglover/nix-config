@@ -194,16 +194,6 @@ let VARIABLES = import ./variables.nix; in {
   time.timeZone = "${VARIABLES.timezone}"; # Timezone
 
   # user
-  users = {
-    mutableUsers = false;
-
-    users."${VARIABLES.username}" = {
-      isNormalUser = true;
-      uid = 1000;
-      password = "user";
-      extraGroups = [ "wheel" "networkmanager" ];
-    };
-  };
 
   home-manager.users.user = {
     home.username = VARIABLES.username;
@@ -228,20 +218,6 @@ let VARIABLES = import ./variables.nix; in {
   services.resolved.llmnr = "false";
 
   systemd.services.NetworkManager-wait-online.enable = false;
-
-  # virtualization
-  virtualisation.vmVariant = {
-    virtualisation = {
-      memorySize = 8192;
-      cores = 4;
-    };
-
-    virtualisation.qemu.options = [ "-device virtio-vga-gl" "-display sdl,gl=on,show-cursor=off" "-full-screen" "-audio pa,model=hda" ];
-
-    environment.sessionVariables = {
-      WLR_NO_HARDWARE_CURSORS = "1";
-    };
-  };
 
   # mullvad-vpn
   services.mullvad-vpn = {

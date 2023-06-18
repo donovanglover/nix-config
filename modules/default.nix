@@ -10,5 +10,12 @@
     ./starship.nix
     ./stylix.nix
     ./thunar.nix
+    ./user.nix
   ];
+
+  virtualisation.vmVariant = {
+    imports = [
+      ./virtualization.nix
+    ];
+  };
 }
