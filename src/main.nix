@@ -26,48 +26,10 @@ let VARIABLES = import ./variables.nix; in {
   i18n.defaultLocale = VARIABLES.defaultLocale;
   i18n.supportedLocales = VARIABLES.supportedLocales;
 
-  # nix
-  nix.package = pkgs.nixFlakes;
-  nix.settings.experimental-features = [ "nix-command" "flakes" "repl-flake" ];
-  nix.settings.auto-optimise-store = true;
-
-  nix.settings = {
-    substituters = ["https://nix-gaming.cachix.org"];
-    trusted-public-keys = ["nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="];
-  };
-
   hardware.opengl.driSupport32Bit = true;
-
-  boot.loader = {
-    systemd-boot = {
-      enable = true;
-      editor = false;
-      configurationLimit = 10;
-    };
-
-    timeout = 0;
-    efi.canTouchEfiVariables = true;
-  };
-
-  boot.tmp.useTmpfs = true;
 
   programs.neovim.enable = true;
   programs.npm.enable = true;
-
-  programs.gamemode = {
-    enable = true;
-    settings = {
-      general = {
-        renice = 10;
-        igpu_power_threshold = -1;
-      };
-
-      custom = {
-        start = "${pkgs.libnotify}/bin/notify-send 'Note' 'gamemode started from host.'";
-        end = "${pkgs.libnotify}/bin/notify-send 'Note' 'gamemode ended from host.";
-      };
-    };
-  };
 
   environment.systemPackages = with pkgs; [
     hypr-contrib.packages."${VARIABLES.system}".grimblast
@@ -177,18 +139,6 @@ let VARIABLES = import ./variables.nix; in {
   environment.defaultPackages = [ ];
   system.stateVersion = VARIABLES.stateVersion;
 
-  # home-manager
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-
-    sharedModules = [
-      {
-        home.stateVersion = VARIABLES.stateVersion;
-      }
-    ];
-  };
-
   systemd.extraConfig = "DefaultTimeoutStopSec=10s"; # Prevent hanging on shutdown
   services.logind.lidSwitch = "ignore"; # Don't suspend on lid close
 
@@ -196,28 +146,6 @@ let VARIABLES = import ./variables.nix; in {
   services.logind.extraConfig = "HandlePowerKey=ignore";
 
   time.timeZone = "${VARIABLES.timezone}"; # Timezone
-
-  # user
-
-  home-manager.users.user = {
-    home.username = VARIABLES.username;
-    home.homeDirectory = "/home/${VARIABLES.username}";
-  };
-
-  # networking
-  networking = {
-    hostName = VARIABLES.hostname;
-
-    networkmanager = {
-      enable = true;
-      wifi.macAddress = "random";
-      ethernet.macAddress = "random";
-
-      unmanaged = [ "interface-name:ve-*" ];
-    };
-
-    useHostResolvConf = true;
-  };
 
   services.resolved.llmnr = "false";
 
@@ -230,31 +158,6 @@ let VARIABLES = import ./variables.nix; in {
   };
 
   networking.firewall.allowedTCPPorts = [ 11918 ];
-
-  networking = {
-    nat = {
-      enable = true;
-      internalInterfaces = [ "ve-+" ];
-      externalInterface = "wg-mullvad";
-
-      forwardPorts = [
-        {
-          destination = "192.168.100.11:80";
-          sourcePort = 11918;
-        }
-      ];
-    };
-  };
-
-  virtualisation.vmware.host = {
-    enable = true;
-    extraConfig = /* config */ ''
-      # Enable 3D acceleration on the host
-      mks.gl.allowUnsupportedDrivers = "TRUE"
-      mks.vk.allowUnsupportedDevices = "TRUE"
-    '';
-  };
-
 
   zramSwap.enable = true; # Swap
 }
