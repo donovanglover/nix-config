@@ -1,3 +1,5 @@
+{ lib, config, ... }:
+
 {
   home-manager.sharedModules = [
     ./dunst.nix
@@ -20,7 +22,7 @@
     ./rofi.nix
     ./swaylock.nix
     ./thunar.nix
-    ./udiskie.nix
+    (lib.mkIf (config.programs.hyprland.enable == true) ./udiskie.nix)
     ./waybar.nix
     ./waycorner.nix
     ./xcursor.nix
