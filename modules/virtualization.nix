@@ -2,6 +2,13 @@
   virtualisation = {
     memorySize = 8192;
     cores = 4;
+
+    sharedDirectories = {
+      testing = {
+        source = "/home/user/containers/testing";
+        target = "/mnt";
+      };
+    };
   };
 
   virtualisation.qemu.options = [
