@@ -28,7 +28,7 @@ buildGoModule rec {
 
   postInstall = ''
     mkdir -p $out/share/thumbnailers
-    substituteAll ${./go.thumbnailer} $out/share/thumbnailers/go.thumbnailer
+    substituteAll ${../assets/go.thumbnailer} $out/share/thumbnailers/go.thumbnailer
   '';
 
   meta = with lib; {
