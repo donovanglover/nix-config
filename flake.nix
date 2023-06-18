@@ -1,8 +1,6 @@
 {
   outputs = { self, nixpkgs, home-manager, stylix, nix-gaming, ... } @ attrs:
     let VARIABLES = import ./src/variables.nix; in {
-      formatter."${VARIABLES.system}" = nixpkgs.legacyPackages."${VARIABLES.system}".nixpkgs-fmt;
-
       nixosConfigurations."${VARIABLES.hostname}" = nixpkgs.lib.nixosSystem {
         system = VARIABLES.system;
         specialArgs = attrs;
