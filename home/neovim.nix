@@ -22,6 +22,7 @@ in
     nixpkgs-fmt
     nixfmt
     nodejs
+    npm
     yarn
     deno
     gcc

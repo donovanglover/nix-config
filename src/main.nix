@@ -29,8 +29,6 @@ let VARIABLES = import ./variables.nix; in {
   hardware.opengl.driSupport32Bit = true;
 
   programs.neovim.enable = true;
-  programs.npm.enable = true;
-
   environment.systemPackages = with pkgs; [
     hypr-contrib.packages."${VARIABLES.system}".grimblast
     nix-gaming.packages."${VARIABLES.system}".osu-stable
