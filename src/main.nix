@@ -101,8 +101,6 @@ let VARIABLES = import ./variables.nix; in {
     mtr
     cointop
 
-    grim
-    slurp
     wl-clipboard
     lnch
     wev
