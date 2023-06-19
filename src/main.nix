@@ -33,9 +33,7 @@ let VARIABLES = import ./variables.nix; in {
     nix-gaming.packages."${VARIABLES.system}".osu-stable
     crystal-flake.packages.${VARIABLES.system}.crystal
     crystal-flake.packages.${VARIABLES.system}.crystalline
-    ameba
     waycorner
-    nwg-dock-hyprland
     slade
     typespeed
     osu-lazer-bin
@@ -70,8 +68,6 @@ let VARIABLES = import ./variables.nix; in {
     pywal
     brightnessctl
     zellij
-    librespeed-cli
-    wiki-tui
     hexyl
     nb
     jpegoptim
