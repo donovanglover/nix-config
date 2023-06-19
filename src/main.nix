@@ -75,7 +75,6 @@ let VARIABLES = import ./variables.nix; in {
     recode
     rmlint
     sd
-    shards
     smartmontools
     visidata
     scc

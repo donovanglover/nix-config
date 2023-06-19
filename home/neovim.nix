@@ -15,25 +15,43 @@ in
   programs.bat.enable = true;
 
   home.packages = with pkgs; [
+    # c
+    gcc
+    clang-tools
+
+    # go
     go
     gopls
+
+    # nix
     nil
     alejandra
     nixpkgs-fmt
     nixfmt
+
+    # crystal
+    shards
+
+    # node/yarn/deno
     nodejs
     npm
     yarn
     deno
-    gcc
+
+    # rust
     rustc
     rustfmt
     cargo
     rust-analyzer
     bacon
+
+    # markdown
     marksman
+
+    # lua
     lua-language-server
-    clang-tools
+
+    # tex
     texlab
   ];
 
