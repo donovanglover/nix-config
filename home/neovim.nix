@@ -34,7 +34,7 @@ in
 
     # node/yarn/deno
     nodejs
-    npm
+    nodePackages.npm
     yarn
     deno
 
