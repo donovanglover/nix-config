@@ -8,15 +8,21 @@
     ./greetd.nix
     ./home-manager.nix
     ./hyprland.nix
+    ./logind.nix
+    ./mullvad.nix
+    ./neovim.nix
     ./networking.nix
     ./nix.nix
     ./piper.nix
     ./pipewire.nix
+    ./resolved.nix
     ./starship.nix
     ./stylix.nix
+    ./systemd.nix
     ./thunar.nix
     ./user.nix
     ./virtualization.nix
     ./vmware.nix
+    ./zram.nix
   ];
 }

@@ -28,7 +28,6 @@ let VARIABLES = import ./variables.nix; in {
 
   hardware.opengl.driSupport32Bit = true;
 
-  programs.neovim.enable = true;
   environment.systemPackages = with pkgs; [
     hypr-contrib.packages."${VARIABLES.system}".grimblast
     nix-gaming.packages."${VARIABLES.system}".osu-stable
@@ -40,7 +39,6 @@ let VARIABLES = import ./variables.nix; in {
     slade
     typespeed
     osu-lazer-bin
-    mullvad-vpn
     pass
     treefmt
     jamesdsp
@@ -127,8 +125,6 @@ let VARIABLES = import ./variables.nix; in {
     ];
 
   environment.sessionVariables = {
-    EDITOR = "nvim";
-    VISUAL = "nvim";
     GIT_DISCOVERY_ACROSS_FILESYSTEM = "1";
     FZF_DEFAULT_OPTS = "--height 40% --reverse --border --color=16";
     NODE_OPTIONS = "--max_old_space_size=16384";
@@ -137,25 +133,7 @@ let VARIABLES = import ./variables.nix; in {
   environment.defaultPackages = [ ];
   system.stateVersion = VARIABLES.stateVersion;
 
-  systemd.extraConfig = "DefaultTimeoutStopSec=10s"; # Prevent hanging on shutdown
-  services.logind.lidSwitch = "ignore"; # Don't suspend on lid close
-
-  # Don't shutdown when power button is short-pressed
-  services.logind.extraConfig = "HandlePowerKey=ignore";
-
   time.timeZone = "${VARIABLES.timezone}"; # Timezone
 
-  services.resolved.llmnr = "false";
-
-  systemd.services.NetworkManager-wait-online.enable = false;
-
-  # mullvad-vpn
-  services.mullvad-vpn = {
-    enable = true;
-    enableExcludeWrapper = false;
-  };
-
   networking.firewall.allowedTCPPorts = [ 11918 ];
-
-  zramSwap.enable = true; # Swap
 }
