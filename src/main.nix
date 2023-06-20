@@ -91,6 +91,7 @@ let VARIABLES = import ./variables.nix; in {
     mtr
     cointop
 
+    poppler_utils
     wl-clipboard
     lnch
     wev
