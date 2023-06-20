@@ -2,10 +2,6 @@
 , lib
 , hypr-contrib
 , nix-gaming
-, nixpkgs-hyprland-autoname-workspaces
-, nixpkgs-srb2
-, nixpkgs-crystalline
-, nixpkgs-go-thumbnailer
 , ...
 }:
 
@@ -106,10 +102,10 @@ let VARIABLES = import ./variables.nix; in {
     swww
     kickoff
     greetd.tuigreet
-    nixpkgs-hyprland-autoname-workspaces.legacyPackages.${VARIABLES.system}.hyprland-autoname-workspaces
-    nixpkgs-srb2.legacyPackages.${VARIABLES.system}.srb2
-    nixpkgs-crystalline.legacyPackages.${VARIABLES.system}.crystalline
-    nixpkgs-go-thumbnailer.legacyPackages.${VARIABLES.system}.go-thumbnailer
+    hyprland-autoname-workspaces
+    srb2
+    crystalline
+    go-thumbnailer
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg:

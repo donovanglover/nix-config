@@ -131,54 +131,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-crystalline": {
-      "locked": {
-        "lastModified": 1687263500,
-        "narHash": "sha256-wjYgYqOpDV3+bcpq/eLXtfEdo4IeKsKxAGeSBJw521U=",
-        "owner": "donovanglover",
-        "repo": "nixpkgs",
-        "rev": "5fc6d1bdb9202839a01e86d944b8ff6f37f002f9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "donovanglover",
-        "ref": "crystalline",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs-go-thumbnailer": {
-      "locked": {
-        "lastModified": 1687268527,
-        "narHash": "sha256-ueJuEep01cQHUy9rQRVWDTkfuHU+yUQ5w2Bb69yeCrI=",
-        "owner": "donovanglover",
-        "repo": "nixpkgs",
-        "rev": "72fc3e9404fe2e3c0360619955dbe626974f445e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "donovanglover",
-        "ref": "go-thumbnailer",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs-hyprland-autoname-workspaces": {
-      "locked": {
-        "lastModified": 1687166409,
-        "narHash": "sha256-0LUsBoB5Al6WsNeSQ50Ab2dwJNln+XnCjwUBEixYWcQ=",
-        "owner": "donovanglover",
-        "repo": "nixpkgs",
-        "rev": "cf196dc3b485607c072c4679b792a7c7237f71fe",
-        "type": "github"
-      },
-      "original": {
-        "owner": "donovanglover",
-        "ref": "hyprland-autoname-workspaces",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-lib": {
       "locked": {
         "dir": "lib",
@@ -197,34 +149,18 @@
         "type": "github"
       }
     },
-    "nixpkgs-srb2": {
-      "locked": {
-        "lastModified": 1686161408,
-        "narHash": "sha256-+zLyuXX949OO4fQwa6AqTTHr8RSfBdHlMIq1AJuy+5I=",
-        "owner": "donovanglover",
-        "repo": "nixpkgs",
-        "rev": "97b52a7a806da410d171a755459fba17e39fcfed",
-        "type": "github"
-      },
-      "original": {
-        "owner": "donovanglover",
-        "ref": "srb2",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1686960236,
-        "narHash": "sha256-AYCC9rXNLpUWzD9hm+askOfpliLEC9kwAo7ITJc4HIw=",
-        "owner": "NixOS",
+        "lastModified": 1687269780,
+        "narHash": "sha256-yHdg74PyCVguNeWPEQVOzljTExE8z+oBLrhQZADUubo=",
+        "owner": "donovanglover",
         "repo": "nixpkgs",
-        "rev": "04af42f3b31dba0ef742d254456dc4c14eedac86",
+        "rev": "68734d1b33de0d92f1a0f97afcb322cd126a9a31",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "ref": "nixos-unstable",
+        "owner": "donovanglover",
+        "ref": "personal-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -235,10 +171,6 @@
         "hypr-contrib": "hypr-contrib",
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_2",
-        "nixpkgs-crystalline": "nixpkgs-crystalline",
-        "nixpkgs-go-thumbnailer": "nixpkgs-go-thumbnailer",
-        "nixpkgs-hyprland-autoname-workspaces": "nixpkgs-hyprland-autoname-workspaces",
-        "nixpkgs-srb2": "nixpkgs-srb2",
         "stylix": "stylix"
       }
     },

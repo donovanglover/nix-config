@@ -1,4 +1,4 @@
-{ home-manager, stylix, nixpkgs-srb2, ... }:
+{ home-manager, stylix, ... }:
 let
   VARIABLES = import ../src/variables.nix;
 in
@@ -47,7 +47,7 @@ in
       ];
 
       environment.systemPackages = with pkgs; [
-        nixpkgs-srb2.legacyPackages.${VARIABLES.system}.srb2
+        srb2
         kitty
       ];
 
