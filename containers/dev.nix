@@ -26,6 +26,7 @@ in
       home-manager.sharedModules = [
         ../home/git.nix
         ../home/neovim.nix
+        ../home/htop.nix
       ];
 
       users = {
