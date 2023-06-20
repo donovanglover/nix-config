@@ -31,6 +31,7 @@ let VARIABLES = import ../src/variables.nix; in {
       gaa = "git add --all";
       gap = "git add --patch";
       gb = "git branch"; # List all branches
+      gbd = "git branch --delete";
       gc = "git commit -m";
       gca = "git commit --amend";
       gcl = "git clone";
