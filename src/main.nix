@@ -2,9 +2,9 @@
 , lib
 , hypr-contrib
 , nix-gaming
-, crystal-flake
 , nixpkgs-hyprland-autoname-workspaces
 , nixpkgs-srb2
+, nixpkgs-crystalline
 , ...
 }:
 
@@ -31,8 +31,6 @@ let VARIABLES = import ./variables.nix; in {
   environment.systemPackages = with pkgs; [
     hypr-contrib.packages."${VARIABLES.system}".grimblast
     nix-gaming.packages."${VARIABLES.system}".osu-stable
-    crystal-flake.packages.${VARIABLES.system}.crystal
-    crystal-flake.packages.${VARIABLES.system}.crystalline
     waycorner
     slade
     typespeed
@@ -109,6 +107,7 @@ let VARIABLES = import ./variables.nix; in {
     greetd.tuigreet
     nixpkgs-hyprland-autoname-workspaces.legacyPackages.${VARIABLES.system}.hyprland-autoname-workspaces
     nixpkgs-srb2.legacyPackages.${VARIABLES.system}.srb2
+    nixpkgs-crystalline.legacyPackages.${VARIABLES.system}.crystalline
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg:

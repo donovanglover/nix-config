@@ -17,6 +17,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-hyprland-autoname-workspaces.url = "github:donovanglover/nixpkgs/hyprland-autoname-workspaces";
     nixpkgs-srb2.url = "github:donovanglover/nixpkgs/srb2";
+    nixpkgs-crystalline.url = "github:donovanglover/nixpkgs/crystalline";
 
     home-manager = {
       url = "github:nix-community/home-manager/master";
@@ -37,10 +38,5 @@
     };
 
     nix-gaming.url = "github:fufexan/nix-gaming";
-
-    crystal-flake = {
-      url = "github:manveru/crystal-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 }

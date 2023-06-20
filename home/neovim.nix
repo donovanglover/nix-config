@@ -30,6 +30,7 @@ in
     nixfmt
 
     # crystal
+    crystal
     shards
 
     # node/yarn/deno
