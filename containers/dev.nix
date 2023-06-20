@@ -38,7 +38,6 @@ in
       };
 
       home-manager.users.user = { pkgs, ... }: {
-        home.packages = [ pkgs.atool pkgs.httpie ];
         home.stateVersion = VARIABLES.stateVersion;
       };
 
