@@ -11,12 +11,7 @@ let VARIABLES = import ./variables.nix; in {
     ../overlays
     ../modules
     ../home
-    ../containers/rar.nix
-    ../containers/wine.nix
-    ../containers/dev.nix
-    ../containers/gui.nix
-    ../containers/srb2.nix
-    ../containers/osu.nix
+    ../containers
   ];
 
   # locale
