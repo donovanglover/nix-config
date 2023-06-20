@@ -19,6 +19,7 @@ in
     config = { pkgs, ... }: {
       imports = [
         home-manager.nixosModules.home-manager
+        ../modules/nix.nix
         ../modules/fish.nix
       ];
 
