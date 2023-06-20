@@ -18,6 +18,7 @@
     nixpkgs-hyprland-autoname-workspaces.url = "github:donovanglover/nixpkgs/hyprland-autoname-workspaces";
     nixpkgs-srb2.url = "github:donovanglover/nixpkgs/srb2";
     nixpkgs-crystalline.url = "github:donovanglover/nixpkgs/crystalline";
+    nixpkgs-go-thumbnailer.url = "github:donovanglover/nixpkgs/go-thumbnailer";
 
     home-manager = {
       url = "github:nix-community/home-manager/master";

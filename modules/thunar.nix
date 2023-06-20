@@ -6,7 +6,6 @@
   environment.systemPackages = with pkgs; [
     xfce.exo # Open with kitty support
     glib
-    (pkgs.callPackage ../packages/go-thumbnailer.nix { })
   ];
 
   services.gvfs.enable = true; # Trash support
