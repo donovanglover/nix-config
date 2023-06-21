@@ -8,6 +8,7 @@
     ./greetd.nix
     ./home-manager.nix
     ./hyprland.nix
+    ./locale.nix
     ./logind.nix
     ./mullvad.nix
     ./neovim.nix
@@ -20,6 +21,7 @@
     ./stylix.nix
     ./systemd.nix
     ./thunar.nix
+    ./timezone.nix
     ./user.nix
     ./virtualization.nix
     ./vmware.nix

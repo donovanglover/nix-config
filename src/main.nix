@@ -14,10 +14,6 @@ let VARIABLES = import ./variables.nix; in {
     ../containers
   ];
 
-  # locale
-  i18n.defaultLocale = VARIABLES.defaultLocale;
-  i18n.supportedLocales = VARIABLES.supportedLocales;
-
   hardware.opengl.driSupport32Bit = true;
 
   environment.systemPackages = with pkgs; [
@@ -118,8 +114,6 @@ let VARIABLES = import ./variables.nix; in {
 
   environment.defaultPackages = [ ];
   system.stateVersion = VARIABLES.stateVersion;
-
-  time.timeZone = "${VARIABLES.timezone}"; # Timezone
 
   networking.firewall.allowedTCPPorts = [ 11918 ];
 }
