@@ -16,13 +16,6 @@ let VARIABLES = import ../src/variables.nix; in {
       enable = true;
       internalInterfaces = [ "ve-+" ];
       externalInterface = "wg-mullvad";
-
-      forwardPorts = [
-        {
-          destination = "192.168.100.11:80";
-          sourcePort = 11918;
-        }
-      ];
     };
   };
 }
