@@ -106,12 +106,6 @@ let VARIABLES = import ./variables.nix; in {
       "vmware-workstation"
     ];
 
-  environment.sessionVariables = {
-    GIT_DISCOVERY_ACROSS_FILESYSTEM = "1";
-    FZF_DEFAULT_OPTS = "--height 40% --reverse --border --color=16";
-    NODE_OPTIONS = "--max_old_space_size=16384";
-  };
-
   environment.defaultPackages = [ ];
   system.stateVersion = VARIABLES.stateVersion;
 

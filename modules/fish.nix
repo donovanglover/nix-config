@@ -4,6 +4,12 @@ let VARIABLES = import ../src/variables.nix; in {
   users.defaultUserShell = pkgs.fish;
   environment.shells = [ pkgs.fish ];
 
+  environment.sessionVariables = {
+    GIT_DISCOVERY_ACROSS_FILESYSTEM = "1";
+    FZF_DEFAULT_OPTS = "--height 40% --reverse --border --color=16";
+    NODE_OPTIONS = "--max_old_space_size=16384";
+  };
+
   environment.systemPackages = with pkgs; [
     wget
     jq
