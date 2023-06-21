@@ -18,6 +18,7 @@ in
     # c
     gcc
     clang-tools
+    pkg-config
 
     # go
     go
