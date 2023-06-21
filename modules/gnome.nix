@@ -18,7 +18,7 @@
   i18n.inputMethod = lib.mkForce {
     enabled = "ibus";
     ibus.engines = with pkgs.ibus-engines; [ mozc ];
- };
+  };
 
   # services.gnome.core-utilities.enable = false;
   environment.gnome.excludePackages = [ pkgs.gnome-tour ];
