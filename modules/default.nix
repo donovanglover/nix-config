@@ -24,7 +24,6 @@
     ./timezone.nix
     ./user.nix
     ./virtualization.nix
-    ./vmware.nix
     ./zram.nix
   ];
 }

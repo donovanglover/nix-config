@@ -103,7 +103,6 @@ let VARIABLES = import ./variables.nix; in {
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
       "osu-lazer-bin"
-      "vmware-workstation"
     ];
 
   environment.defaultPackages = [ ];
