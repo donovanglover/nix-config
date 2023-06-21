@@ -71,7 +71,7 @@ let VARIABLES = import ../src/variables.nix; in {
 
       environment.systemPackages = with pkgs; [
         kitty
-        nix-gaming.packages."${VARIABLES.system}".wine-ge
+        wineWowPackages.stagingFull
         winetricks
       ];
 
