@@ -107,6 +107,4 @@ let VARIABLES = import ./variables.nix; in {
 
   environment.defaultPackages = [ ];
   system.stateVersion = VARIABLES.stateVersion;
-
-  networking.firewall.allowedTCPPorts = [ 11918 ];
 }
