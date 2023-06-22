@@ -1,3 +1,3 @@
-let VARIABLES = import ../src/variables.nix; in {
-  time.timeZone = "${VARIABLES.timezone}";
+{
+  time.timeZone = "America/New_York";
 }
