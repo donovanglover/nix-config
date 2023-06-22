@@ -1,7 +1,6 @@
 {
   inputs = {
     nixpkgs.url = "github:donovanglover/nixpkgs/personal-unstable";
-    nix-gaming.url = "github:fufexan/nix-gaming";
 
     home-manager = {
       url = "github:nix-community/home-manager/master";
