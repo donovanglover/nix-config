@@ -19,6 +19,8 @@ in
     gcc
     clang-tools
     pkg-config
+    gnumake
+    cmake
 
     # go
     go
