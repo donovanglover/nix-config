@@ -8,7 +8,9 @@
   ];
 
   home-manager.sharedModules = [
+    ./home/fish.nix
     ./home/gtk.nix
+    ./home/starship.nix
     ./home/xcursor.nix
     ./home/xresources.nix
   ];

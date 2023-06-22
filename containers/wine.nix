@@ -41,27 +41,6 @@
         ../modules/pipewire.nix
       ];
 
-      programs = {
-        fish.enable = true;
-        neovim.enable = true;
-        starship.enable = true;
-      };
-
-      users = {
-        defaultUserShell = pkgs.fish;
-        mutableUsers = false;
-        allowNoPasswordLogin = true;
-
-        users.user = {
-          isNormalUser = true;
-          home = "/home/user";
-        };
-      };
-
-      environment = {
-        shells = with pkgs; [ fish ];
-      };
-
       environment.systemPackages = with pkgs; [
         wineWowPackages.stagingFull
         winetricks
