@@ -1,13 +1,11 @@
 { pkgs
 , lib
-, nix-gaming
 , ...
 }:
 
 let VARIABLES = import ./variables.nix; in {
   environment.systemPackages = with pkgs; [
     grimblast
-    nix-gaming.packages."${VARIABLES.system}".osu-stable
     waycorner
     slade
     typespeed
