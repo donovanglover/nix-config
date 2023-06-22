@@ -1,4 +1,4 @@
-let VARIABLES = import ../src/variables.nix; in {
+{ config, ... }: {
   programs.kitty = {
     enable = true;
 
@@ -7,7 +7,7 @@ let VARIABLES = import ../src/variables.nix; in {
       close_on_child_death = true;
       cursor_blink_interval = 0;
 
-      open_url_with = VARIABLES.defaultBrowser;
+      open_url_with = config.variables.defaultBrowser;
       wayland_titlebar_color = "background";
 
       allow_remote_control = true;

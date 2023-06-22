@@ -1,4 +1,4 @@
-let VARIABLES = import ../src/variables.nix; in {
+{ config, ... }: {
   xdg.mimeApps = {
     enable = true;
 
@@ -7,8 +7,8 @@ let VARIABLES = import ../src/variables.nix; in {
       "image/jpeg" = "feh.desktop";
       "image/gif" = "org.qutebrowser.qutebrowser.desktop";
       "application/x-wine-extension-osz" = "osu-stable.desktop";
-      "x-scheme-handler/http" = "${VARIABLES.defaultBrowser}.desktop";
-      "x-scheme-handler/https" = "${VARIABLES.defaultBrowser}.desktop";
+      "x-scheme-handler/http" = "${config.variables.defaultBrowser}.desktop";
+      "x-scheme-handler/https" = "${config.variables.defaultBrowser}.desktop";
     };
   };
 }

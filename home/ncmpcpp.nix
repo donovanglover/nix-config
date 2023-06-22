@@ -1,11 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
-let VARIABLES = import ../src/variables.nix; in {
+{
   home.packages = with pkgs; [ mpc-cli ];
 
   services.mpd = {
     enable = true;
-    musicDirectory = "/home/${VARIABLES.username}/Music";
+    musicDirectory = "/home/${config.variables.username}/Music";
   };
 
   xdg.configFile = {

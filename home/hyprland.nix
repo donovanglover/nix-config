@@ -1,9 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
-let VARIABLES = import ../src/variables.nix; in {
+{
   xdg.configFile."hypr/hyprland.conf".text = /* bash */ ''
     env=XCURSOR_SIZE,24
-    env=BROWSER,${VARIABLES.defaultBrowser}
+    env=BROWSER,${config.variables.defaultBrowser}
     env=GTK_IM_MODULE,fcitx
     env=QT_IM_MODULE,fcitx
     env=XMODIFIERS,@im=fcitx

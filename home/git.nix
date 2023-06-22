@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
-let VARIABLES = import ../src/variables.nix; in {
+{
   home.packages = with pkgs; [ tig ];
 
   xdg.configFile."tig/config".text = ''
@@ -22,7 +22,7 @@ let VARIABLES = import ../src/variables.nix; in {
         quotePath = false;
       };
 
-      web.browser = VARIABLES.defaultBrowser;
+      web.browser = config.variables.defaultBrowser;
       push.default = "simple";
       branch.autosetuprebase = "always";
       init.defaultBranch = "master";

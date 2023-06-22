@@ -1,9 +1,4 @@
-{ pkgs
-, lib
-, ...
-}:
-
-let VARIABLES = import ./variables.nix; in {
+{ pkgs, lib, config, ... }: {
   environment.systemPackages = with pkgs; [
     grimblast
     waycorner
@@ -93,5 +88,5 @@ let VARIABLES = import ./variables.nix; in {
     ];
 
   environment.defaultPackages = [ ];
-  system.stateVersion = VARIABLES.stateVersion;
+  system.stateVersion = config.varables.stateVersion;
 }

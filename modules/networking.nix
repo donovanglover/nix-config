@@ -1,6 +1,6 @@
-let VARIABLES = import ../src/variables.nix; in {
+{ config, ... }: {
   networking = {
-    hostName = VARIABLES.hostname;
+    hostName = config.variables.hostname;
 
     networkmanager = {
       enable = true;

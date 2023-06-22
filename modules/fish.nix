@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
-let VARIABLES = import ../src/variables.nix; in {
+{
   users.defaultUserShell = pkgs.fish;
   environment.shells = [ pkgs.fish ];
 
@@ -76,7 +76,7 @@ let VARIABLES = import ../src/variables.nix; in {
       jis = "recode shift_jis..utf8"; # Easily convert shift_jis-encoded files to utf8
       utf16 = "recode utf16..utf8"; # Rarely, some files from Japan are utf16 instead
       jp = "LANG=ja_JP.UTF-8 LC_ALL=ja_JP.UTF-8";
-      vm = /* fish */ ''cd ~/nix-config && crystal spec tests/main.cr --progress --verbose --tag local && nixos-rebuild build-vm --flake . --verbose && ./result/bin/run-${VARIABLES.hostname}-vm && trash put result ${VARIABLES.hostname}.qcow2'';
+      vm = /* fish */ ''cd ~/nix-config && crystal spec tests/main.cr --progress --verbose --tag local && nixos-rebuild build-vm --flake . --verbose && ./result/bin/run-${config.variables.hostname}-vm && trash put result ${config.variables.hostname}.qcow2'';
       sw = "cd ~/nix-config && crystal spec tests/main.cr --progress --verbose --tag local && sudo nixos-rebuild switch --flake . --verbose";
       st = "cd ~/nix-config && crystal spec tests/main.cr --progress --verbose --tag local";
       tf = "treefmt";

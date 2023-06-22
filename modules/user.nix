@@ -1,8 +1,8 @@
-let VARIABLES = import ../src/variables.nix; in {
+{ config, ... }: {
   users = {
     mutableUsers = false;
 
-    users."${VARIABLES.username}" = {
+    users."${config.variables.username}" = {
       isNormalUser = true;
       uid = 1000;
       password = "user";

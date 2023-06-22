@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-let VARIABLES = import ../src/variables.nix; in {
+{ pkgs, config, ... }: {
   services.greetd = {
     enable = true;
     restart = false;
@@ -11,7 +9,7 @@ let VARIABLES = import ../src/variables.nix; in {
       };
       initial_session = {
         command = "${pkgs.hyprland}/bin/Hyprland";
-        user = VARIABLES.username;
+        user = config.variables.username;
       };
     };
   };
