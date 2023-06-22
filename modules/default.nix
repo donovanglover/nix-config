@@ -15,6 +15,7 @@
     ./neovim.nix
     ./networking.nix
     ./nix.nix
+    ./packages.nix
     ./piper.nix
     ./pipewire.nix
     ./resolved.nix

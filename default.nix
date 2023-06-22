@@ -10,6 +10,5 @@
     ./modules
     ./overlays
     ./specializations
-    ./src/main.nix
   ];
 }

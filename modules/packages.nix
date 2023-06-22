@@ -1,4 +1,6 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+
+{
   environment.systemPackages = with pkgs; [
     grimblast
     waycorner
@@ -82,10 +84,9 @@
     go-thumbnailer
   ];
 
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [
-      "osu-lazer-bin"
-    ];
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "osu-lazer-bin"
+  ];
 
   environment.defaultPackages = [ ];
 }
