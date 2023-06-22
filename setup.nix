@@ -6,6 +6,12 @@
     ./modules/stylix.nix
   ];
 
+  home-manager.sharedModules = [
+    ./home/gtk.nix
+    ./home/xcursor.nix
+    ./home/xresources.nix
+  ];
+
   environment = {
     defaultPackages = [ ];
     variables.TERM = "xterm-kitty";
