@@ -20,6 +20,7 @@
     ./resolved.nix
     ./starship.nix
     ./stylix.nix
+    ./system.nix
     ./systemd.nix
     ./thunar.nix
     ./timezone.nix
