@@ -1,4 +1,4 @@
-{ home-manager, ... }:
+{ home-manager, stylix, ... }:
 
 {
   containers.dev = {
@@ -17,6 +17,8 @@
     config = { pkgs, ... }: {
       imports = [
         home-manager.nixosModules.home-manager
+        stylix.nixosModules.stylix
+        ../setup.nix
         ../modules/nix.nix
         ../modules/fish.nix
       ];
@@ -26,28 +28,6 @@
         ../home/neovim.nix
         ../home/htop.nix
       ];
-
-      users = {
-        mutableUsers = false;
-        allowNoPasswordLogin = true;
-
-        users.user = {
-          isNormalUser = true;
-          home = "/home/user";
-        };
-      };
-
-      home-manager.users.user = { pkgs, ... }: {
-        home.stateVersion = "22.11";
-      };
-
-      environment = {
-        variables = { TERM = "xterm-kitty"; };
-        defaultPackages = [ ];
-      };
-
-      environment.systemPackages = with pkgs; [ kitty ];
-      system.stateVersion = "22.11";
     };
   };
 }
