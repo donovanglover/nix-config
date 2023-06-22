@@ -1,4 +1,4 @@
-{ home-manager, stylix, ... }: {
+{
   containers.srb2 = {
     privateNetwork = true;
     ephemeral = true;
@@ -35,38 +35,12 @@
 
     config = { pkgs, ... }: {
       imports = [
-        home-manager.nixosModules.home-manager
-        stylix.nixosModules.stylix
-        ./common/wayland.nix
-        ../modules/fonts.nix
-        ../modules/stylix.nix
+        ../setup.nix
       ];
 
       environment.systemPackages = with pkgs; [
         srb2
-        kitty
       ];
-
-      users = {
-        mutableUsers = false;
-        allowNoPasswordLogin = true;
-
-        users.user = {
-          isNormalUser = true;
-          home = "/home/user";
-        };
-      };
-
-      home-manager.users.user = { ... }: {
-        home.stateVersion = "22.11";
-      };
-
-      environment = {
-        variables = { TERM = "xterm-kitty"; };
-        defaultPackages = [ ];
-      };
-
-      system.stateVersion = "22.11";
     };
   };
 }
