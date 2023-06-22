@@ -8,10 +8,6 @@
 let VARIABLES = import ./variables.nix; in {
   imports = [
     "${VARIABLES.hostHardwareConfiguration}"
-    ../overlays
-    ../modules
-    ../home
-    ../containers
   ];
 
   hardware.opengl.driSupport32Bit = true;
