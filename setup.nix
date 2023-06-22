@@ -1,6 +1,13 @@
-{ pkgs, ... }:
+{ pkgs, home-manager, stylix, ... }:
 
 {
+  imports = [
+    home-manager.nixosModules.home-manager
+    stylix.nixosModules.stylix
+    ./modules/fonts.nix
+    ./modules/stylix.nix
+  ];
+
   environment = {
     defaultPackages = [ ];
     variables.TERM = "xterm-kitty";

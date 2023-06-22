@@ -1,5 +1,3 @@
-{ home-manager, stylix, ... }:
-
 {
   containers.gui = {
     privateNetwork = true;
@@ -25,11 +23,7 @@
 
     config = { pkgs, ... }: {
       imports = [
-        home-manager.nixosModules.home-manager
-        stylix.nixosModules.stylix
-        ./common/wayland.nix
-        ../modules/fonts.nix
-        ../modules/stylix.nix
+        ../setup.nix
       ];
 
       environment.systemPackages = with pkgs; [
