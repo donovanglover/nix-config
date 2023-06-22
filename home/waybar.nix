@@ -10,6 +10,7 @@
         spacing = 8;
 
         modules-left = [ "wlr/workspaces" "custom/new-workspace" ];
+        modules-center = [ "hyprland/window" ];
         modules-right = [ "tray" "wireplumber" "backlight" "battery" "clock" ];
 
         tray = {
@@ -105,6 +106,10 @@
       window#waybar {
         background: alpha(@base00, 0.92);
         border-left: 1px solid alpha(@base02, 0.67);
+      }
+
+      window#waybar.fullscreen #workspaces button.active {
+        background: alpha(@base09, 0.5);
       }
 
       #workspaces button {
