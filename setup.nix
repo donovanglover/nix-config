@@ -1,9 +1,7 @@
-{ pkgs, home-manager, stylix, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
-    home-manager.nixosModules.home-manager
-    stylix.nixosModules.stylix
     ./modules/fonts.nix
     ./modules/stylix.nix
   ];

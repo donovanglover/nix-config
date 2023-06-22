@@ -1,3 +1,5 @@
+{ home-manager, stylix, ... }:
+
 {
   containers.srb2 = {
     privateNetwork = true;
@@ -35,6 +37,8 @@
 
     config = { pkgs, ... }: {
       imports = [
+        home-manager.nixosModules.home-manager
+        stylix.nixosModules.stylix
         ../setup.nix
       ];
 
