@@ -45,6 +45,12 @@
         wineWowPackages.stagingFull
         winetricks
       ];
+
+      environment.sessionVariables = {
+        LC_ALL = "ja_JP.UTF-8";
+        TZ = "Asia/Tokyo";
+        WINEPREFIX = "/home/user/wine";
+      };
     };
   };
 }
