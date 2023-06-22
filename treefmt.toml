@@ -6,3 +6,4 @@ includes = [ "*.cr" ]
 [formatter.nix]
 command = "nixpkgs-fmt"
 includes = [ "*.nix" ]
+excludes = [ "./hardware/*" ]
