@@ -1,5 +1,6 @@
 require "spec"
-require "./methods/*"
+require "./check_top_level_imports"
+require "./check_latest_commit"
 
 check_top_level_imports("modules")
 check_top_level_imports("overlays")
