@@ -17,6 +17,8 @@
   home-manager.sharedModules = [
     ./home/fish.nix
     ./home/gtk.nix
+    ./home/htop.nix
+    ./home/joshuto.nix
     ./home/xcursor.nix
     ./home/xresources.nix
   ];
