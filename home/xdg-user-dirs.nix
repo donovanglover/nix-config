@@ -1,4 +1,4 @@
-let VARIABLES = import ../src/variables.nix; in {
+{ config, ... }: {
   xdg.userDirs = {
     enable = true;
 
@@ -6,11 +6,11 @@ let VARIABLES = import ../src/variables.nix; in {
     templates = null;
     publicShare = null;
 
-    download = "/home/${VARIABLES.username}/ダウンロード";
-    documents = "/home/${VARIABLES.username}/ドキュメント";
-    music = "/home/${VARIABLES.username}/音楽";
-    pictures = "/home/${VARIABLES.username}/画像";
-    videos = "/home/${VARIABLES.username}/ビデオ";
+    download = "/home/${config.variables.username}/ダウンロード";
+    documents = "/home/${config.variables.username}/ドキュメント";
+    music = "/home/${config.variables.username}/音楽";
+    pictures = "/home/${config.variables.username}/画像";
+    videos = "/home/${config.variables.username}/ビデオ";
   };
 
   xdg.configFile."user-dirs.locale".text = "ja_JP";
