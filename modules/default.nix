@@ -25,6 +25,7 @@
     ./timezone.nix
     ./user.nix
     ./virtualization.nix
+    ./wine.nix
     ./zram.nix
   ];
 }
