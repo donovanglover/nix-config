@@ -22,13 +22,11 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... } @ attrs: let VARIABLES = import ./src/variables.nix; in {
-    nixosConfigurations."${VARIABLES.hostname}" = nixpkgs.lib.nixosSystem {
-      system = VARIABLES.system;
+  outputs = { self, nixpkgs, ... } @ attrs: {
+    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
       specialArgs = attrs;
-      modules = [
-        ./.
-      ];
+      modules = [ ./. ];
     };
   };
 }
