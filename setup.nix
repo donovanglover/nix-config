@@ -2,15 +2,21 @@
 
 {
   imports = [
+    ./modules/fish.nix
     ./modules/fonts.nix
-    ./modules/stylix.nix
     ./modules/home-manager.nix
+    ./modules/locale.nix
+    ./modules/neovim.nix
+    ./modules/nix.nix
+    ./modules/starship.nix
+    ./modules/stylix.nix
+    ./modules/timezone.nix
+    ./modules/wine.nix
   ];
 
   home-manager.sharedModules = [
     ./home/fish.nix
     ./home/gtk.nix
-    ./home/starship.nix
     ./home/xcursor.nix
     ./home/xresources.nix
   ];
@@ -48,11 +54,7 @@
   };
 
   services.xserver.enable = true;
-
-  hardware.opengl = {
-    enable = true;
-    driSupport32Bit = true;
-  };
+  hardware.opengl.enable = true;
 
   system.stateVersion = "22.11";
 }
