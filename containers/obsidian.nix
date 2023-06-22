@@ -1,4 +1,6 @@
-{ lib, ... }: {
+{ home-manager, stylix, lib, ... }:
+
+{
   containers.obsidian = {
     privateNetwork = true;
     ephemeral = true;
@@ -22,48 +24,18 @@
     };
 
     config = { pkgs, ... }: {
-      users = {
-        mutableUsers = false;
-        allowNoPasswordLogin = true;
-
-        users.user = {
-          isNormalUser = true;
-          home = "/home/user";
-        };
-      };
-
-      environment = {
-        variables = {
-          TERM = "xterm-kitty";
-        };
-
-        defaultPackages = [ ];
-      };
-
-      environment.systemPackages = with pkgs; [
-        kitty
-        obsidian
+      imports = [
+        home-manager.nixosModules.home-manager
+        stylix.nixosModules.stylix
+        ../setup.nix
       ];
 
-      environment.sessionVariables = {
-        WAYLAND_DISPLAY = "wayland-1";
-        QT_QPA_PLATFORM = "wayland";
-        QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-        SDL_VIDEODRIVER = "wayland";
-        CLUTTER_BACKEND = "wayland";
-        MOZ_ENABLE_WAYLAND = "1";
-        XDG_RUNTIME_DIR = "/run/user/1000";
-        DISPLAY = ":0";
-      };
-
-      services.xserver.enable = true;
-
-      nixpkgs.config.allowUnfreePredicate = pkg:
-        builtins.elem (lib.getName pkg) [
-          "obsidian"
-        ];
-
-      system.stateVersion = "22.11";
+      environment.systemPackages = with pkgs; [
+        obsidian
+      ];
+      nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+        "obsidian"
+      ];
     };
   };
 }
