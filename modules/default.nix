@@ -1,6 +1,7 @@
 {
   imports = [
     ./boot.nix
+    ./cdemu.nix
     ./dual-function-keys.nix
     ./fish.nix
     ./fonts.nix
