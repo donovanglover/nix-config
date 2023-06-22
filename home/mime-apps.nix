@@ -1,4 +1,4 @@
-{ config, ... }: {
+{
   xdg.mimeApps = {
     enable = true;
 
@@ -7,8 +7,8 @@
       "image/jpeg" = "feh.desktop";
       "image/gif" = "org.qutebrowser.qutebrowser.desktop";
       "application/x-wine-extension-osz" = "osu-stable.desktop";
-      "x-scheme-handler/http" = "${config.variables.defaultBrowser}.desktop";
-      "x-scheme-handler/https" = "${config.variables.defaultBrowser}.desktop";
+      "x-scheme-handler/http" = "librewolf.desktop";
+      "x-scheme-handler/https" = "librewolf.desktop";
     };
   };
 }

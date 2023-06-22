@@ -1,11 +1,11 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 {
   home.packages = with pkgs; [ mpc-cli ];
 
   services.mpd = {
     enable = true;
-    musicDirectory = "/home/${config.variables.username}/Music";
+    musicDirectory = "/home/user/Music";
   };
 
   xdg.configFile = {

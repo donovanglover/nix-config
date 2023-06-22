@@ -1,9 +1,9 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 {
   xdg.configFile."hypr/hyprland.conf".text = /* bash */ ''
     env=XCURSOR_SIZE,24
-    env=BROWSER,${config.variables.defaultBrowser}
+    env=BROWSER,librewolf
     env=GTK_IM_MODULE,fcitx
     env=QT_IM_MODULE,fcitx
     env=XMODIFIERS,@im=fcitx

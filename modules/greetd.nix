@@ -1,4 +1,6 @@
-{ pkgs, config, ... }: {
+{ pkgs, ... }:
+
+{
   services.greetd = {
     enable = true;
     restart = false;
@@ -9,7 +11,7 @@
       };
       initial_session = {
         command = "${pkgs.hyprland}/bin/Hyprland";
-        user = config.variables.username;
+        user = "user";
       };
     };
   };

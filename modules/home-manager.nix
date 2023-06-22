@@ -1,16 +1,16 @@
-{ config, ... }: {
+{
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
 
     sharedModules = [{
-      home.stateVersion = config.variables.stateVersion;
+      home.stateVersion = "22.11";
     }];
 
     users = {
       user = {
-        home.username = config.variables.username;
-        home.homeDirectory = "/home/${config.variables.username}";
+        home.username = "user";
+        home.homeDirectory = "/home/user";
       };
     };
   };

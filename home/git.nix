@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 {
   home.packages = with pkgs; [ tig ];
@@ -22,7 +22,7 @@
         quotePath = false;
       };
 
-      web.browser = config.variables.defaultBrowser;
+      web.browser = "librewolf";
       push.default = "simple";
       branch.autosetuprebase = "always";
       init.defaultBranch = "master";

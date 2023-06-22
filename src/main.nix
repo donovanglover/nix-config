@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }: {
+{ pkgs, lib, ... }: {
   environment.systemPackages = with pkgs; [
     grimblast
     waycorner
@@ -88,5 +88,5 @@
     ];
 
   environment.defaultPackages = [ ];
-  system.stateVersion = config.varables.stateVersion;
+  system.stateVersion = "22.11";
 }

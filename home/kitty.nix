@@ -1,4 +1,4 @@
-{ config, ... }: {
+{
   programs.kitty = {
     enable = true;
 
@@ -7,7 +7,7 @@
       close_on_child_death = true;
       cursor_blink_interval = 0;
 
-      open_url_with = config.variables.defaultBrowser;
+      open_url_with = "librewolf";
       wayland_titlebar_color = "background";
 
       allow_remote_control = true;

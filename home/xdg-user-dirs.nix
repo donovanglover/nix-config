@@ -1,4 +1,4 @@
-{ config, ... }: {
+{
   xdg.userDirs = {
     enable = true;
 
@@ -6,11 +6,11 @@
     templates = null;
     publicShare = null;
 
-    download = "/home/${config.variables.username}/ダウンロード";
-    documents = "/home/${config.variables.username}/ドキュメント";
-    music = "/home/${config.variables.username}/音楽";
-    pictures = "/home/${config.variables.username}/画像";
-    videos = "/home/${config.variables.username}/ビデオ";
+    download = "/home/user/ダウンロード";
+    documents = "/home/user/ドキュメント";
+    music = "/home/user/音楽";
+    pictures = "/home/user/画像";
+    videos = "/home/user/ビデオ";
   };
 
   xdg.configFile."user-dirs.locale".text = "ja_JP";
