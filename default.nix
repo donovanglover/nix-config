@@ -9,6 +9,5 @@
     ./home
     ./modules
     ./overlays
-    ./specializations
   ];
 }
