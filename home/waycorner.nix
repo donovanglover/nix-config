@@ -1,4 +1,6 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+
+{
   home.packages = with pkgs; [ waycorner ];
 
   xdg.configFile."waycorner/config.toml".text = /* toml */ ''

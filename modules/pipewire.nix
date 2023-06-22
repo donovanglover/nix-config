@@ -4,8 +4,9 @@ let
   quantum = 64;
   rate = 48000;
   qr = "${toString quantum}/${toString rate}";
-  json = pkgs.formats.json {};
-in {
+  json = pkgs.formats.json { };
+in
+{
   services.pipewire = {
     enable = true;
 
@@ -38,7 +39,7 @@ in {
             rt.time.soft = 200000;
             rt.time.hard = 200000;
           };
-          flags = ["ifexists" "nofail"];
+          flags = [ "ifexists" "nofail" ];
         }
         {
           name = "libpipewire-module-protocol-pulse";
@@ -46,7 +47,7 @@ in {
             pulse.min.req = qr;
             pulse.min.quantum = qr;
             pulse.min.frag = qr;
-            server.address = ["unix:native"];
+            server.address = [ "unix:native" ];
           };
         }
       ];

@@ -308,9 +308,9 @@ in
 
           startify.section.header.val = vim.fn.system("${pkgs.fish}/bin/fish -c 'cat (random choice (${pkgs.fd}/bin/fd . ${pkgs.ponysay}/share/ponysay/quotes --ignore-file ~/.config/fd/ponyignore)) | head -n 1'")
 
-        startify.section.top_buttons.val = {
-            startify.button("e", "新しいファイル", "<cmd>ene <CR>")
-        }
+          startify.section.top_buttons.val = {
+              startify.button("e", "新しいファイル", "<cmd>ene <CR>")
+          }
 
           startify.section.mru.val = { { type = "padding", val = 0 } }
           startify.section.mru_cwd.val = {

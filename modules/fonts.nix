@@ -1,4 +1,6 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+
+{
   fonts = {
     enableDefaultFonts = false;
 

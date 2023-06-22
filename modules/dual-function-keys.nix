@@ -1,4 +1,6 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+
+{
   services.interception-tools = {
     enable = true;
     plugins = with pkgs.interception-tools-plugins; [ dual-function-keys ];
