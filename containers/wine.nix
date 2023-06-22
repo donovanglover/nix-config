@@ -1,11 +1,10 @@
-let VARIABLES = import ../src/variables.nix; in {
   containers.wine = {
     privateNetwork = true;
     ephemeral = true;
 
     bindMounts = {
-      "/home/user" = {
-        hostPath = "/home/${VARIABLES.username}/containers/wine";
+      "/mnt" = {
+        hostPath = "/home/user/containers/wine";
         isReadOnly = false;
       };
 
@@ -44,8 +43,6 @@ let VARIABLES = import ../src/variables.nix; in {
         starship.enable = true;
       };
 
-      i18n.defaultLocale = VARIABLES.defaultLocale;
-      i18n.supportedLocales = VARIABLES.supportedLocales;
 
       users = {
         defaultUserShell = pkgs.fish;
@@ -92,7 +89,7 @@ let VARIABLES = import ../src/variables.nix; in {
         driSupport32Bit = true;
       };
 
-      system.stateVersion = VARIABLES.stateVersion;
+      system.stateVersion = "22.11";
     };
   };
 }

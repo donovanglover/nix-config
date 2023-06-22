@@ -1,12 +1,11 @@
-{ lib, ... }:
-let VARIABLES = import ../src/variables.nix; in {
+{ lib, ... }: {
   containers.obsidian = {
     privateNetwork = true;
     ephemeral = true;
 
     bindMounts = {
       "/mnt" = {
-        hostPath = "/home/${VARIABLES.username}/containers/obsidian";
+        hostPath = "/home/user/containers/obsidian";
         isReadOnly = false;
       };
 
@@ -23,9 +22,6 @@ let VARIABLES = import ../src/variables.nix; in {
     };
 
     config = { pkgs, ... }: {
-      i18n.defaultLocale = VARIABLES.defaultLocale;
-      i18n.supportedLocales = VARIABLES.supportedLocales;
-
       users = {
         mutableUsers = false;
         allowNoPasswordLogin = true;
@@ -67,7 +63,7 @@ let VARIABLES = import ../src/variables.nix; in {
           "obsidian"
         ];
 
-      system.stateVersion = VARIABLES.stateVersion;
+      system.stateVersion = "22.11";
     };
   };
 }

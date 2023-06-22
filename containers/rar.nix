@@ -1,10 +1,10 @@
-let VARIABLES = import ../src/variables.nix; in {
+{
   containers.rar = {
     privateNetwork = true;
 
     bindMounts = {
       "/home/user" = {
-        hostPath = "/home/${VARIABLES.username}/containers/rar";
+        hostPath = "/home/user/containers/rar";
         isReadOnly = false;
       };
     };
@@ -49,7 +49,7 @@ let VARIABLES = import ../src/variables.nix; in {
           "unrar"
         ];
 
-      system.stateVersion = VARIABLES.stateVersion;
+      system.stateVersion = "22.11";
     };
   };
 }

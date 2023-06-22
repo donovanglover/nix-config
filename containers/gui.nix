@@ -1,7 +1,5 @@
 { home-manager, stylix, ... }:
-let
-  VARIABLES = import ../src/variables.nix;
-in
+
 {
   containers.gui = {
     privateNetwork = true;
@@ -9,7 +7,7 @@ in
 
     bindMounts = {
       "/mnt" = {
-        hostPath = "/home/${VARIABLES.username}/containers/gui";
+        hostPath = "/home/user/containers/gui";
         isReadOnly = false;
       };
 
@@ -54,12 +52,9 @@ in
         };
       };
 
-      #home-manager.sharedModules = [{
-      #}];
-
       home-manager.users.user = { pkgs, ... }: {
         home.packages = [ pkgs.atool pkgs.httpie ];
-        home.stateVersion = VARIABLES.stateVersion;
+        home.stateVersion = "22.11";
       };
 
       environment = {
@@ -67,8 +62,7 @@ in
         defaultPackages = [ ];
       };
 
-      # environment.systemPackages = with pkgs; [ kitty ];
-      system.stateVersion = VARIABLES.stateVersion;
+      system.stateVersion = "22.11";
     };
   };
 }

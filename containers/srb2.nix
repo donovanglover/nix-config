@@ -1,15 +1,11 @@
-{ home-manager, stylix, ... }:
-let
-  VARIABLES = import ../src/variables.nix;
-in
-{
+{ home-manager, stylix, ... }: {
   containers.srb2 = {
     privateNetwork = true;
     ephemeral = true;
 
     bindMounts = {
       "/home/user/.srb2" = {
-        hostPath = "/home/${VARIABLES.username}/containers/srb2";
+        hostPath = "/home/user/containers/srb2";
         isReadOnly = false;
       };
 
@@ -62,7 +58,7 @@ in
       };
 
       home-manager.users.user = { ... }: {
-        home.stateVersion = VARIABLES.stateVersion;
+        home.stateVersion = "22.11";
       };
 
       environment = {
@@ -70,7 +66,7 @@ in
         defaultPackages = [ ];
       };
 
-      system.stateVersion = VARIABLES.stateVersion;
+      system.stateVersion = "22.11";
     };
   };
 }

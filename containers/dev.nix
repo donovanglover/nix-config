@@ -1,7 +1,5 @@
 { home-manager, ... }:
-let
-  VARIABLES = import ../src/variables.nix;
-in
+
 {
   containers.dev = {
     privateNetwork = true;
@@ -11,7 +9,7 @@ in
 
     bindMounts = {
       "/mnt" = {
-        hostPath = "/home/${VARIABLES.username}/containers/dev";
+        hostPath = "/home/user/containers/dev";
         isReadOnly = false;
       };
     };
@@ -40,7 +38,7 @@ in
       };
 
       home-manager.users.user = { pkgs, ... }: {
-        home.stateVersion = VARIABLES.stateVersion;
+        home.stateVersion = "22.11";
       };
 
       environment = {
@@ -49,7 +47,7 @@ in
       };
 
       environment.systemPackages = with pkgs; [ kitty ];
-      system.stateVersion = VARIABLES.stateVersion;
+      system.stateVersion = "22.11";
     };
   };
 }
