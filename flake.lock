@@ -62,11 +62,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1687204608,
-        "narHash": "sha256-rZ0e0iAIQM7vlsMd2/pcGfymZzNBRawObFgqIpxE94c=",
+        "lastModified": 1687421788,
+        "narHash": "sha256-CgoHjiUBnru0bV4PE8z1R6ZD9KeWtuAaUkyYWYJmQUE=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "f06a43dca05fb7f1aa44742bf861d9c827b45122",
+        "rev": "a4817894576f9cd01d784e60a0bfb143c81fc2be",
         "type": "github"
       },
       "original": {
@@ -76,37 +76,17 @@
         "type": "github"
       }
     },
-    "hypr-contrib": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1687033460,
-        "narHash": "sha256-X93JvDR+SeXYylPq0pn+yM/GpTz31rN/ioY7Lsrv1OE=",
-        "owner": "hyprwm",
-        "repo": "contrib",
-        "rev": "93b6aba94c29388e1fe28908bc9b50e2ee841835",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hyprwm",
-        "repo": "contrib",
-        "type": "github"
-      }
-    },
     "nix-gaming": {
       "inputs": {
         "flake-parts": "flake-parts",
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1687051274,
-        "narHash": "sha256-KsMU7iC3rBKJjD8tS+3lyn4mFbAYY/kSV6yjsnTBfkc=",
+        "lastModified": 1687396360,
+        "narHash": "sha256-KScLvg0PbrvlAZ6K4A8QUR6dh+VAuWHV2gA5zV682gQ=",
         "owner": "fufexan",
         "repo": "nix-gaming",
-        "rev": "9c7595826e2eeb2ba166430d03b5a9ca4e5c0e6c",
+        "rev": "abd9bc538faee423b66d929e5fbb39f76c37579d",
         "type": "github"
       },
       "original": {
@@ -151,11 +131,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1687269780,
-        "narHash": "sha256-yHdg74PyCVguNeWPEQVOzljTExE8z+oBLrhQZADUubo=",
+        "lastModified": 1687439669,
+        "narHash": "sha256-Uvbv/YKquVrYNvFERQAQNkAJrGQ5X3ToLUCMUE3JJXU=",
         "owner": "donovanglover",
         "repo": "nixpkgs",
-        "rev": "68734d1b33de0d92f1a0f97afcb322cd126a9a31",
+        "rev": "194c2d8484ab575a6ebe4976992318a7bc82b008",
         "type": "github"
       },
       "original": {
@@ -168,7 +148,6 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "hypr-contrib": "hypr-contrib",
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_2",
         "stylix": "stylix"
