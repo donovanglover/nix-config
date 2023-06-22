@@ -1,4 +1,5 @@
   containers.wine = {
+{ stylix, home-manager, ... }: {
     privateNetwork = true;
     ephemeral = true;
 
@@ -34,6 +35,9 @@
 
     config = { pkgs, ... }: {
       imports = [
+        stylix.nixosModules.stylix
+        home-manager.nixosModules.home-manager
+        ../setup.nix
         ../modules/pipewire.nix
       ];
 
@@ -42,7 +46,6 @@
         neovim.enable = true;
         starship.enable = true;
       };
-
 
       users = {
         defaultUserShell = pkgs.fish;
@@ -57,39 +60,12 @@
 
       environment = {
         shells = with pkgs; [ fish ];
-
-        variables = {
-          TERM = "xterm-kitty";
-        };
-
-        defaultPackages = [ ];
       };
 
       environment.systemPackages = with pkgs; [
-        kitty
         wineWowPackages.stagingFull
         winetricks
       ];
-
-      environment.sessionVariables = {
-        WAYLAND_DISPLAY = "wayland-1";
-        QT_QPA_PLATFORM = "wayland";
-        QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-        SDL_VIDEODRIVER = "wayland";
-        CLUTTER_BACKEND = "wayland";
-        MOZ_ENABLE_WAYLAND = "1";
-        XDG_RUNTIME_DIR = "/run/user/1000";
-        DISPLAY = ":0";
-      };
-
-      services.xserver.enable = true;
-
-      hardware.opengl = {
-        enable = true;
-        driSupport32Bit = true;
-      };
-
-      system.stateVersion = "22.11";
     };
   };
 }
