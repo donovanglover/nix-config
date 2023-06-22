@@ -6,10 +6,6 @@
 }:
 
 let VARIABLES = import ./variables.nix; in {
-  imports = [
-    "${VARIABLES.hostHardwareConfiguration}"
-  ];
-
   environment.systemPackages = with pkgs; [
     hypr-contrib.packages."${VARIABLES.system}".grimblast
     nix-gaming.packages."${VARIABLES.system}".osu-stable
