@@ -4,6 +4,7 @@
   imports = [
     ./modules/fonts.nix
     ./modules/stylix.nix
+    ./modules/home-manager.nix
   ];
 
   home-manager.sharedModules = [
@@ -42,10 +43,6 @@
         home = "/home/user";
       };
     };
-  };
-
-  home-manager.users.user = {
-    home.stateVersion = "22.11";
   };
 
   services.xserver.enable = true;
