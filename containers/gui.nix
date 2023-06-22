@@ -38,30 +38,8 @@
         anki # Spaced repetition
         sqlitebrowser # SQL
         kanjidraw # Kanji draw
-        kitty # TODO: import common module
         libreoffice
       ];
-
-      users = {
-        mutableUsers = false;
-        allowNoPasswordLogin = true;
-
-        users.user = {
-          isNormalUser = true;
-          home = "/home/user";
-        };
-      };
-
-      home-manager.users.user = { pkgs, ... }: {
-        home.stateVersion = "22.11";
-      };
-
-      environment = {
-        variables = { TERM = "xterm-kitty"; };
-        defaultPackages = [ ];
-      };
-
-      system.stateVersion = "22.11";
     };
   };
 }
