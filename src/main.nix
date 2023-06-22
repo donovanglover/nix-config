@@ -1,13 +1,12 @@
 { pkgs
 , lib
-, hypr-contrib
 , nix-gaming
 , ...
 }:
 
 let VARIABLES = import ./variables.nix; in {
   environment.systemPackages = with pkgs; [
-    hypr-contrib.packages."${VARIABLES.system}".grimblast
+    grimblast
     nix-gaming.packages."${VARIABLES.system}".osu-stable
     waycorner
     slade

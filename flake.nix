@@ -15,11 +15,6 @@
         home-manager.follows = "home-manager";
       };
     };
-
-    hypr-contrib = {
-      url = "github:hyprwm/contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = { self, nixpkgs, ... } @ attrs: {
