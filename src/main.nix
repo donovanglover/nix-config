@@ -37,6 +37,7 @@
     brightnessctl
     zellij
     hexyl
+    gnome.gnome-disk-utility
     nb
     jpegoptim
     playerctl
@@ -48,6 +49,7 @@
     scc
     hwinfo
     stress
+    nixpkgs-review
     choose
     gum
     hdparm
@@ -74,8 +76,6 @@
     lnch
     wev
     swww
-    kickoff
-    greetd.tuigreet
     hyprland-autoname-workspaces
     srb2
     crystalline
