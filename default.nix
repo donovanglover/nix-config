@@ -1,11 +1,11 @@
 { home-manager, stylix, lib, ... }:
 
-let VARIABLES = import ./src/variables.nix; in {
+{
   imports = [
     home-manager.nixosModules.home-manager
     stylix.nixosModules.stylix
-    "${VARIABLES.hostHardwareConfiguration}"
     ./containers
+    ./hardware
     ./home
     ./modules
     ./overlays
