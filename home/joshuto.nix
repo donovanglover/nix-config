@@ -1,4 +1,12 @@
+{ pkgs, ... }:
+
 {
+  home.packages = with pkgs; [
+    file
+    bat
+    mediainfo
+  ];
+
   programs.joshuto = {
     enable = true;
 
