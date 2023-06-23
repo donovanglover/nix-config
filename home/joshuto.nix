@@ -487,7 +487,7 @@
                     exit 1;;
 
                 rar)
-                    unrar lt -p- -- "''${FILE_PATH}" && exit 0
+                    lsar "''${FILE_PATH}" && exit 0
                     exit 1;;
                 7z)
                     7z l -p -- "''${FILE_PATH}" && exit 0
