@@ -1,4 +1,6 @@
-{ stylix, home-manager, ... }: {
+{ stylix, home-manager, ... }:
+
+{
   containers.wine = {
     privateNetwork = true;
     ephemeral = true;

@@ -1,4 +1,6 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+
+{
   nixpkgs.overlays = [
     (final: prev: {
       rofi-unwrapped = prev.rofi-unwrapped.overrideAttrs (oldAttrs: rec {
