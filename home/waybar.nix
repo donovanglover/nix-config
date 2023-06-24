@@ -20,6 +20,10 @@
           spacing = 8;
         };
 
+        "hyprland/window" = {
+          rotate = 90;
+        };
+
         "wlr/workspaces" = {
           on-click = "activate";
           sort-by-number = true;
