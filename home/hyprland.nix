@@ -107,7 +107,7 @@
     bind = SUPER, V, togglefloating,
     bind = SUPER, V, centerwindow,
     bind = SUPER, I, exec, hyprctl keyword decoration:dim_inactive $((1 - $(hyprctl getoption decoration:dim_inactive -j | jq -r ".int")))
-    bind = SUPER, U, exec, hyprctl keyword general:gaps_out $((10 - $(hyprctl getoption general:gaps_out -j | jq -r ".int"))) && hyprctl keyword general:gaps_in $((5 - $(hyprctl getoption general:gaps_in -j | jq -r ".int"))) && hyprctl keyword general:border_size $((1 - $(hyprctl getoption general:border_size -j | jq -r ".int")))
+    bind = SUPER, U, exec, hyprctl keyword general:gaps_out $((20 - $(hyprctl getoption general:gaps_out -j | jq -r ".int"))) && hyprctl keyword general:gaps_in $((10 - $(hyprctl getoption general:gaps_in -j | jq -r ".int"))) && hyprctl keyword general:border_size $((4 - $(hyprctl getoption general:border_size -j | jq -r ".int")))
     bind = SUPER, O, exec, killall .waybar-wrapped || waybar
     bind = SUPER, X, pin
     bind = SUPER, F, fullscreen, 1
