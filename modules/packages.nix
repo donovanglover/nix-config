@@ -26,6 +26,7 @@
     p7zip
     rsync
     unar
+    unrar-wrapper
     genact
     ffmpeg
     killall

@@ -40,14 +40,11 @@
       environment.systemPackages = with pkgs; [
         kitty
         rar
-        unrar
       ];
 
-      nixpkgs.config.allowUnfreePredicate = pkg:
-        builtins.elem (lib.getName pkg) [
-          "rar"
-          "unrar"
-        ];
+      nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+        "rar"
+      ];
 
       system.stateVersion = "22.11";
     };
