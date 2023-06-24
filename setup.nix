@@ -20,6 +20,7 @@
     ./home/gtk.nix
     ./home/htop.nix
     ./home/joshuto.nix
+    ./home/kitty.nix
     ./home/xcursor.nix
     ./home/xresources.nix
   ];
