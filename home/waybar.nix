@@ -50,38 +50,38 @@
         };
 
         battery = {
-          "format" = "{icon}";
-          "tooltip-format" = "{capacity}% {timeTo}";
-          "format-icons" = [ "" "" "" "" "" ];
+          format = "{icon}";
+          tooltip-format = "{capacity}% {timeTo}";
+          format-icons = [ "" "" "" "" "" ];
         };
 
         clock = {
-          "format" = "{:%H\n%M}";
-          "tooltip-format" = "<tt>{calendar}</tt>";
-          "calendar" = {
-            "mode" = "month";
-            "weeks-pos" = "right";
-            "format" = {
-              "months" = "<span color='#ffead3'><b>{}</b></span>";
-              "days" = "<span color='#ecc6d9'><b>{}</b></span>";
-              "weeks" = "<span size='14pt' color='#99ffdd'><b>W{}</b></span>";
-              "weekdays" = "<span size='18pt' color='#ffcc66'><b>{}</b></span>";
-              "today" = "<span color='#ff6699'><b>{}</b></span>";
+          format = "{:%H\n%M}";
+          tooltip-format = "<tt>{calendar}</tt>";
+          calendar = {
+            mode = "month";
+            weeks-pos = "right";
+            format = {
+              months = "<span color='#ffead3'><b>{}</b></span>";
+              days = "<span color='#ecc6d9'><b>{}</b></span>";
+              weeks = "<span size='14pt' color='#99ffdd'><b>W{}</b></span>";
+              weekdays = "<span size='18pt' color='#ffcc66'><b>{}</b></span>";
+              today = "<span color='#ff6699'><b>{}</b></span>";
             };
           };
         };
 
         backlight = {
-          "format" = "{icon}";
-          "format-icons" = [ "" "" ];
+          format = "{icon}";
+          format-icons = [ "" "" ];
         };
 
         "custom/new-workspace" = {
-          "format" = "+";
-          "on-click" = "hyprctl dispatch workspace empty && sleep 0.1 && rofi -show drun";
-          "on-click-right" = "sleep 0.1 && rofi -show drun";
-          "on-click-middle" = "hyprctl dispatch workspace empty";
-          "tooltip" = false;
+          format = "+";
+          on-click = "hyprctl dispatch workspace empty && sleep 0.1 && rofi -show drun";
+          on-click-right = "sleep 0.1 && rofi -show drun";
+          on-click-middle = "hyprctl dispatch workspace empty";
+          tooltip = false;
         };
       };
     };
