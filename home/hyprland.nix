@@ -110,8 +110,7 @@
     bind = SUPER, U, exec, hyprctl keyword general:gaps_out $((20 - $(hyprctl getoption general:gaps_out -j | jq -r ".int"))) && hyprctl keyword general:gaps_in $((10 - $(hyprctl getoption general:gaps_in -j | jq -r ".int"))) && hyprctl keyword general:border_size $((4 - $(hyprctl getoption general:border_size -j | jq -r ".int"))) && hyprctl keyword decoration:rounding $((10 - $(hyprctl getoption decoration:rounding -j | jq -r ".int")))
     bind = SUPER, O, exec, killall .waybar-wrapped || waybar
     bind = SUPER, X, pin
-    bind = SUPER, F, fullscreen, 1
-    bind = SUPER_SHIFT, F, fullscreen
+    bind = SUPER, F, fullscreen
     bind = SUPER, S, togglespecialworkspace
     bind = SUPER_SHIFT, S, movetoworkspace, special
     bind = SUPER_SHIFT, S, focuscurrentorlast
