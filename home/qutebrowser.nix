@@ -35,6 +35,18 @@
         single_file.command = [ "kitty" "-e" "joshuto" "--output-file" "{}" ];
       };
 
+      downloads = {
+        location.directory = "$HOME/Downloads";
+        location.prompt = false;
+        position = "bottom";
+        remove_finished = 5000;
+      };
+
+      qt = {
+        args = [ "disable-backing-store-limit" "enable-accelerated-video-decode" "disable-gpu-driver-bug-workarounds" ];
+        chromium.low_end_device_mode = "never";
+      };
+
       editor.command = [ "kitty" "-e" "nvim" "{}" ];
     };
 
@@ -73,16 +85,6 @@
       c.colors.contextmenu.menu.bg = '#353535'
       c.colors.contextmenu.menu.fg = '#ffffff'
       c.colors.contextmenu.selected.bg = '#909090'
-
-      # Chromium flags
-      c.qt.args = ["disable-backing-store-limit", "enable-accelerated-video-decode", "disable-gpu-driver-bug-workarounds"]
-      c.qt.chromium.low_end_device_mode = 'never'
-
-      # Download settings
-      c.downloads.location.directory = "$HOME/Downloads"
-      c.downloads.location.prompt = False
-      c.downloads.position = "bottom"
-      c.downloads.remove_finished = 5000
 
       # Increase the default scroll offset of j/k
       # NOTE: Unfortunately this breaks websites that use their own keybinds for j/k/etc
