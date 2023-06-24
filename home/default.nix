@@ -4,7 +4,6 @@
   home-manager.sharedModules = [
     ./dunst.nix
     ./fcitx.nix
-    ./feh.nix
     ./fish.nix
     ./git.nix
     ./gpg.nix

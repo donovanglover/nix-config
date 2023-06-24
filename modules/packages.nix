@@ -73,6 +73,7 @@
     wtype
     mtr
     cointop
+    pqiv
 
     poppler_utils
     wl-clipboard

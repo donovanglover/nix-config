@@ -3,8 +3,8 @@
     enable = true;
 
     defaultApplications = {
-      "image/png" = "feh.desktop";
-      "image/jpeg" = "feh.desktop";
+      "image/png" = "pqiv.desktop";
+      "image/jpeg" = "pqiv.desktop";
       "image/gif" = "org.qutebrowser.qutebrowser.desktop";
       "application/x-wine-extension-osz" = "osu-stable.desktop";
       "x-scheme-handler/http" = "librewolf.desktop";
