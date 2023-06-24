@@ -160,6 +160,7 @@
     windowrulev2 = nomaxsize,class:^(osu\.exe)$
     windowrulev2 = opaque,class:^(kitty)$
     windowrulev2 = noblur,class:^(kitty)$
+    windowrulev2 = fullscreen,class:^(feh)$
     windowrulev2 = opacity 0.92 0.92,class:^(thunar)$
 
     # Scroll through existing workspaces with super + scroll
