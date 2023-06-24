@@ -11,7 +11,6 @@
     ./gtk.nix
     ./htop.nix
     ./hyprland.nix
-    ./hyprland-autoname-workspaces.nix
     ./joshuto.nix
     ./kitty.nix
     ./librewolf.nix
