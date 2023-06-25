@@ -13,6 +13,7 @@
       "browser.fullscreen.autohide" = false;
       "browser.tabs.insertAfterCurrent" = true;
       "browser.toolbars.bookmarks.visibility" = "never";
+      "browser.quitShortcut.disabled" = true;
 
       "sidebar.position_start" = false;
       "findbar.highlightAll" = true;
