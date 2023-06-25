@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
-  xdg.configFile."hypr/hyprland.conf".text = /* bash */ ''
+  xdg.configFile."hypr/hyprland.conf".text = with config.lib.stylix.colors; /* bash */ ''
     env=XCURSOR_SIZE,24
     env=BROWSER,librewolf
     env=GTK_IM_MODULE,fcitx
@@ -35,8 +35,8 @@
       gaps_in = 0
       gaps_out = -1
       border_size = 0
-      col.active_border = rgba(f4bf75ee) rgba(fd971fee) 45deg
-      col.inactive_border = rgba(49483eaa)
+      col.active_border = rgba(${base0A}ee) rgba(${base09}ee) 45deg
+      col.inactive_border = rgba(${base02}aa)
       layout = master
     }
 
