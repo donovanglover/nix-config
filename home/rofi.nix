@@ -26,13 +26,10 @@
         font = "Noto Sans CJK JP Bold 12";
 
         bg0 = mkLiteral "#242424dd";
-        bg1 = mkLiteral "#363636";
         bg2 = mkLiteral "#f5f5f520";
         bg3 = mkLiteral "#f5f5f540";
-        bg4 = mkLiteral "#0860f2E6";
 
         fg0 = mkLiteral "#f5f5f5";
-        fg1 = mkLiteral "#f5f5f580";
 
         background-color = mkLiteral "transparent";
         foreground = mkLiteral "#f8f8f2";
