@@ -23,7 +23,6 @@
     ./thunar.nix
     (lib.mkIf (config.programs.hyprland.enable == true) ./udiskie.nix)
     ./waybar.nix
-    ./waycorner.nix
     ./xcursor.nix
     ./xdg-user-dirs.nix
     ./xresources.nix
