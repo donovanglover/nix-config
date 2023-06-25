@@ -31,6 +31,7 @@
       osd-duration = 750;
 
       really-quiet = "yes";
+      autofit = "65%";
     };
 
     scripts = with pkgs.mpvScripts; [
