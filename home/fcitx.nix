@@ -1,3 +1,5 @@
+{ config, ... }:
+
 {
   xdg.configFile = {
     "mozc/ibus_config.textproto" = {
@@ -114,7 +116,7 @@
       '';
     };
 
-    "fcitx5/conf/classicui.conf" = {
+    "fcitx5/conf/classicui.conf" = with config.lib.stylix.colors; {
       force = true;
       text = /* ini */ ''
         # Vertical Candidate List
@@ -130,9 +132,9 @@
         # Tray Font
         TrayFont="Noto Sans CJK JP Medium 11"
         # Tray Label Outline Color
-        TrayOutlineColor=#49483e
+        TrayOutlineColor=#${base02}
         # Tray Label Text Color
-        TrayTextColor=#f8f8f2
+        TrayTextColor=#${base05}
         # Prefer Text Icon
         PreferTextIcon=True
         # Show Layout Name In Icon
