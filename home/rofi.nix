@@ -21,19 +21,12 @@
       me-accept-entry = "MousePrimary";
     };
 
-    theme = let inherit (config.lib.formats.rasi) mkLiteral; in lib.mkForce {
+    theme = let inherit (config.lib.formats.rasi) mkLiteral; in with config.lib.stylix.colors; lib.mkForce {
       "*" = {
         font = "Noto Sans CJK JP Bold 12";
-
-        bg0 = mkLiteral "#242424dd";
-        bg2 = mkLiteral "#f5f5f520";
-        bg3 = mkLiteral "#f5f5f540";
-
-        fg0 = mkLiteral "#f5f5f5";
-
         background-color = mkLiteral "transparent";
-        foreground = mkLiteral "#f8f8f2";
-        text-color = mkLiteral "@fg0";
+        foreground = mkLiteral "#${base05}";
+        text-color = mkLiteral "#${base05}";
         padding = mkLiteral "0px";
         margin = mkLiteral "0px";
       };
@@ -41,7 +34,7 @@
       window = {
         fullscreen = true;
         padding = mkLiteral "1em";
-        background-color = mkLiteral "@bg0";
+        background-color = mkLiteral "#${base00}dd";
       };
 
       mainbox = {
@@ -49,7 +42,7 @@
       };
 
       inputbar = {
-        background-color = mkLiteral "@bg2";
+        background-color = mkLiteral "#${base05}20";
 
         margin = mkLiteral "0px calc( 50% - 230px )";
         padding = mkLiteral "4px 8px";
@@ -57,7 +50,7 @@
 
         border = mkLiteral "1px";
         border-radius = mkLiteral "2px";
-        border-color = mkLiteral "@bg3";
+        border-color = mkLiteral "#${base05}40";
 
         children = map mkLiteral [ "icon-search" "entry" ];
       };
@@ -74,7 +67,7 @@
 
       entry = {
         placeholder = "Search";
-        placeholder-color = mkLiteral "@bg2";
+        placeholder-color = mkLiteral "#${base05}20";
       };
 
       listview = {
@@ -97,7 +90,7 @@
       };
 
       "element selected" = {
-        background-color = mkLiteral "rgba(248, 248, 242, 0.3)";
+        background-color = mkLiteral "#${base05}22";
       };
 
       element-icon = {
