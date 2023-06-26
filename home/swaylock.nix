@@ -3,6 +3,7 @@
 {
   programs.swaylock = {
     package = pkgs."swaylock-effects";
+
     settings = {
       show-keyboard-layout = true;
       daemonize = true;

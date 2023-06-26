@@ -3,6 +3,7 @@ let
   vim-nix-rummik = pkgs.vimUtils.buildVimPluginFrom2Nix {
     pname = "vim-nix";
     version = "0def8020f152a51c011a707680780dac61a8989a";
+
     src = pkgs.fetchFromGitHub {
       owner = "rummik";
       repo = "vim-nix";
@@ -152,6 +153,7 @@ in
 
       tnoremap <C-space> <C-\><C-n>
     '';
+
     plugins = with pkgs.vimPlugins; [
       {
         plugin = nvim-tree-lua;

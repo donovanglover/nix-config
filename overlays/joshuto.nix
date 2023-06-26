@@ -5,6 +5,7 @@
     (final: prev: {
       joshuto = prev.joshuto.overrideAttrs (oldAttrs: rec {
         version = "1d7f9067189fbf730605f373d591654651e01689";
+
         src = final.fetchFromGitHub {
           owner = "kamiyaa";
           repo = "joshuto";
