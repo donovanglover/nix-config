@@ -1,5 +1,8 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 
+let
+  opacity = lib.strings.floatToString config.stylix.opacity.terminal;
+in
 {
   xdg.configFile."hypr/hyprland.conf".text = with config.lib.stylix.colors; /* bash */ ''
     env=XCURSOR_SIZE,24
@@ -161,7 +164,7 @@
     windowrulev2 = nomaxsize,class:^(osu\.exe)$
     windowrulev2 = opaque,class:^(kitty)$
     windowrulev2 = noblur,class:^(kitty)$
-    windowrulev2 = opacity 0.92 0.92,class:^(thunar)$
+    windowrulev2 = opacity ${opacity} ${opacity},class:^(thunar)$
 
     # Scroll through existing workspaces with super + scroll
     bind = SUPER, mouse_down, workspace, e+1
