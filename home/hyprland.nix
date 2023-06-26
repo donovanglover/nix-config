@@ -159,6 +159,7 @@ in
 
     layerrule = blur,waybar
     layerrule = blur,rofi
+    layerrule = blur,notifications
 
     windowrulev2 = nomaxsize,class:^(winecfg\.exe)$
     windowrulev2 = nomaxsize,class:^(osu\.exe)$
