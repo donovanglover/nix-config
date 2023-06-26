@@ -1,5 +1,8 @@
 { config, lib, ... }:
 
+let
+  opacity = lib.strings.floatToString config.stylix.opacity.terminal;
+in
 {
   programs.waybar = {
     enable = true;
@@ -110,7 +113,7 @@
       }
 
       window#waybar {
-        background: alpha(@base00, 0.92);
+        background: alpha(@base00, ${opacity});
         border-left: 1px solid alpha(@base02, 0.67);
       }
 
