@@ -3,7 +3,6 @@
 {
   environment.systemPackages = with pkgs; [
     grimblast
-    waycorner
     slade
     typespeed
     osu-lazer-bin
@@ -65,7 +64,6 @@
     timg
     ventoy
     wf-recorder
-    mdcat
     mdbook
     zola
     file
@@ -80,10 +78,10 @@
     lnch
     wev
     swww
-    hyprland-autoname-workspaces
     srb2
     crystalline
     go-thumbnailer
+    pipe-rename
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
