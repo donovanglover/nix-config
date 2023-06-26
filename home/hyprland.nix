@@ -54,6 +54,7 @@ in
       shadow_render_power = 3
       col.shadow = rgba(1a1a1aee)
       fullscreen_opacity = 0.9999999
+      dim_strength = 0.25
     }
 
     animations {
