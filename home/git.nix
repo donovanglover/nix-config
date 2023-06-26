@@ -53,13 +53,6 @@
       };
     };
 
-    delta = {
-      enable = true;
-      options = {
-        diff-so-fancy = true;
-        hunk-header-style = "file line-number syntax";
-        hunk-header-decoration-style = "none";
-      };
-    };
+    diff-so-fancy.enable = true;
   };
 }
