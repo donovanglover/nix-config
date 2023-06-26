@@ -139,7 +139,7 @@
         # archive formats
         "7z".app_list = [{ command = "7z"; args = [ "x" ]; confirm_exit = true; }];
         rar.app_list = [
-          { command = "unrar"; args = [ "x" ]; confirm_exit = true; }
+          { command = "unar"; confirm_exit = true; }
           { command = "file-roller"; fork = true; silent = true; }
         ];
         zip.app_list = [
