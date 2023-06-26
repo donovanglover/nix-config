@@ -1,9 +1,12 @@
 { pkgs, ... }:
 
+let
+  theme = "oceanicnext";
+in
 {
   stylix.image = ../assets/wallpaper.png;
   stylix.polarity = "dark";
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/monokai.yaml";
+  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme}.yaml";
 
   stylix.opacity = {
     terminal = 0.92;
