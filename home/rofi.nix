@@ -90,7 +90,7 @@
       };
 
       "element selected" = {
-        background-color = mkLiteral "#${base05}22";
+        background-color = mkLiteral "#${base05}33";
       };
 
       element-icon = {
