@@ -2,6 +2,7 @@
 
 let
   theme = "oceanicnext";
+  opacity = 0.92;
 in
 {
   stylix.image = ../assets/wallpaper.png;
@@ -9,8 +10,8 @@ in
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme}.yaml";
 
   stylix.opacity = {
-    terminal = 0.92;
-    popups = 0.92;
+    terminal = opacity;
+    popups = opacity;
   };
 
   stylix.fonts = {
