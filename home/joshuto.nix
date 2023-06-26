@@ -36,7 +36,7 @@
         ];
 
         image_default = [
-          { command = "feh"; args = [ "--fullscreen" "--" ]; fork = true; silent = true; }
+          { command = "pqiv"; args = [ "--" ]; fork = true; silent = true; }
         ];
 
         video_default = [
