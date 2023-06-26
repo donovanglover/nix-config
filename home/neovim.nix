@@ -237,7 +237,7 @@ in
       {
         plugin = nvim-base16;
         type = "lua";
-        config = "vim.cmd('colorscheme base16-monokai')";
+        config = "vim.cmd('colorscheme base16-${config.lib.stylix.scheme.slug}')";
       }
       {
         plugin = lualine-nvim;
