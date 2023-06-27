@@ -2,8 +2,9 @@
 
 let
   opacity = lib.strings.floatToString config.stylix.opacity.terminal;
-  position = "right";
+  position = "top";
   opposite = builtins.replaceStrings ["left" "right" "top" "bottom"] ["right" "left" "bottom" "top"] position;
+  isVertical = position == "left" || position == "right";
 in
 {
   programs.waybar = {
@@ -13,7 +14,8 @@ in
       mainBar = {
         layer = "top";
         position = position;
-        width = 45;
+        width = if isVertical then 45 else null;
+        height = if isVertical then null else 45;
         spacing = 8;
 
         modules-left = [ "wlr/workspaces" "custom/new-workspace" ];
@@ -26,7 +28,7 @@ in
         };
 
         "hyprland/window" = {
-          rotate = 90;
+          rotate = if isVertical then 90 else 0;
         };
 
         "wlr/workspaces" = {
@@ -61,7 +63,7 @@ in
         };
 
         clock = {
-          format = "{:%H\n%M}";
+          format = if isVertical then "{:%H\n%M}" else "{:%H:%M}";
           tooltip-format = "<tt>{calendar}</tt>";
           calendar = {
             mode = "month";
@@ -124,7 +126,7 @@ in
       }
 
       #workspaces button {
-        padding: 12px 0;
+        padding: ${if isVertical then "12px 0" else "0 12px"};
         border-radius: 0;
         border-bottom: 1px solid alpha(@base02, 0.5);
       }
@@ -138,8 +140,8 @@ in
       }
 
       #window {
-        padding-top: 8px;
-        padding-bottom: 12px;
+        padding-${if isVertical then "top" else "left"}: 8px;
+        padding-${if isVertical then "bottom" else "right"}: 12px;
       }
 
       tooltip, #tray menu {
@@ -155,15 +157,15 @@ in
 
       #custom-new-workspace {
         font-family: "Font Awesome 6 Free Solid";
-        padding-top: 8px;
-        padding-bottom: 8px;
+        padding-${if isVertical then "top" else "left"}: 8px;
+        padding-${if isVertical then "bottom" else "right"}: 8px;
         color: alpha(@base0A, 0.67);
       }
 
       #clock {
         font-size: 18px;
         font-weight: bold;
-        padding-bottom: 8px;
+        padding-${if isVertical then "bottom" else "right"}: 8px;
       }
     '';
   };
