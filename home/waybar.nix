@@ -19,12 +19,19 @@ in
         spacing = 8;
 
         modules-left = [ "wlr/workspaces" "custom/new-workspace" ];
-        modules-center = [ "hyprland/window" ];
+        modules-center = [ "wlr/taskbar" ];
         modules-right = [ "tray" "wireplumber" "backlight" "battery" "clock" ];
 
         tray = {
           icon-size = 24;
           spacing = 8;
+        };
+
+        "wlr/taskbar" = {
+          icon-size = 32;
+          on-click = "activate";
+          on-click-middle = "activate";
+          on-click-right = "activate";
         };
 
         "hyprland/window" = {
