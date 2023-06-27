@@ -71,7 +71,6 @@ in
 
     dwindle {
       preserve_split = yes
-      no_gaps_when_only = yes
       special_scale_factor = 1
     }
 
@@ -80,7 +79,6 @@ in
       new_on_top = no
       mfact = 0.65
       special_scale_factor = 1
-      no_gaps_when_only = yes
       inherit_fullscreen = no
     }
 
