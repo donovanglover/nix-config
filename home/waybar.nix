@@ -2,6 +2,8 @@
 
 let
   opacity = lib.strings.floatToString config.stylix.opacity.terminal;
+  position = "right";
+  opposite = builtins.replaceStrings ["left" "right" "top" "bottom"] ["right" "left" "bottom" "top"] position;
 in
 {
   programs.waybar = {
@@ -10,7 +12,7 @@ in
     settings = {
       mainBar = {
         layer = "top";
-        position = "right";
+        position = position;
         width = 45;
         spacing = 8;
 
@@ -114,7 +116,7 @@ in
 
       window#waybar {
         background: alpha(@base00, ${opacity});
-        border-left: 1px solid alpha(@base02, 0.67);
+        border-${opposite}: 1px solid alpha(@base02, 0.67);
       }
 
       window#waybar.fullscreen #workspaces button.active {
