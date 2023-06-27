@@ -104,59 +104,63 @@ in
       allow_workspace_cycles = yes
     }
 
-    bind = SUPER_SHIFT, Return, exec, kitty
-    bind = SUPER, Q, killactive,
-    bind = SUPER, P, exec, grimblast save screen && dunstify Screenshot Captured.
+    $SUPER = SUPER
+    $SUPER_SHIFT = SUPER_SHIFT
+    $SUPER_ALT = SUPER_ALT
+
+    bind = $SUPER_SHIFT, Return, exec, kitty
+    bind = $SUPER, Q, killactive,
+    bind = $SUPER, P, exec, grimblast save screen && dunstify Screenshot Captured.
     bind = , Print, exec, grimblast copy area
-    bind = SUPER_ALT, delete, exit
-    bind = SUPER, V, togglefloating,
-    bind = SUPER, V, centerwindow,
-    bind = SUPER, I, exec, hyprctl keyword decoration:dim_inactive $((1 - $(hyprctl getoption decoration:dim_inactive -j | jq -r ".int")))
-    bind = SUPER, U, exec, hyprctl keyword general:gaps_out $((20 - $(hyprctl getoption general:gaps_out -j | jq -r ".int"))) && hyprctl keyword general:gaps_in $((10 - $(hyprctl getoption general:gaps_in -j | jq -r ".int"))) && hyprctl keyword general:border_size $((4 - $(hyprctl getoption general:border_size -j | jq -r ".int"))) && hyprctl keyword decoration:rounding $((10 - $(hyprctl getoption decoration:rounding -j | jq -r ".int")))
-    bind = SUPER, O, exec, killall .waybar-wrapped || waybar
-    bind = SUPER, X, pin
-    bind = SUPER, F, fullscreen
-    bind = SUPER, S, togglespecialworkspace
-    bind = SUPER_SHIFT, S, movetoworkspace, special
-    bind = SUPER_SHIFT, S, focuscurrentorlast
-    bind = SUPER, F1, exec, killall rofi || rofi -show drun
-    bind = SUPER, F2, togglespecialworkspace
+    bind = $SUPER_ALT, delete, exit
+    bind = $SUPER, V, togglefloating,
+    bind = $SUPER, V, centerwindow,
+    bind = $SUPER, I, exec, hyprctl keyword decoration:dim_inactive $((1 - $(hyprctl getoption decoration:dim_inactive -j | jq -r ".int")))
+    bind = $SUPER, U, exec, hyprctl keyword general:gaps_out $((20 - $(hyprctl getoption general:gaps_out -j | jq -r ".int"))) && hyprctl keyword general:gaps_in $((10 - $(hyprctl getoption general:gaps_in -j | jq -r ".int"))) && hyprctl keyword general:border_size $((4 - $(hyprctl getoption general:border_size -j | jq -r ".int"))) && hyprctl keyword decoration:rounding $((10 - $(hyprctl getoption decoration:rounding -j | jq -r ".int")))
+    bind = $SUPER, O, exec, killall .waybar-wrapped || waybar
+    bind = $SUPER, X, pin
+    bind = $SUPER, F, fullscreen
+    bind = $SUPER, S, togglespecialworkspace
+    bind = $SUPER_SHIFT, S, movetoworkspace, special
+    bind = $SUPER_SHIFT, S, focuscurrentorlast
+    bind = $SUPER, F1, exec, killall rofi || rofi -show drun
+    bind = $SUPER, F2, togglespecialworkspace
 
-    bind = SUPER, Return, layoutmsg, swapwithmaster master
-    bind = SUPER, J, layoutmsg, cyclenext
-    bind = SUPER, K, layoutmsg, cycleprev
-    bind = SUPER_SHIFT, J, layoutmsg, swapnext
-    bind = SUPER_SHIFT, K, layoutmsg, swapprev
-    bind = SUPER, C, splitratio, exact 0.80
-    bind = SUPER, C, layoutmsg, orientationtop
-    bind = SUPER_SHIFT, C, splitratio, exact 0.65
-    bind = SUPER_SHIFT, C, layoutmsg, orientationleft
-    bind = SUPER, H, layoutmsg, addmaster
-    bind = SUPER, L, layoutmsg, removemaster
-    bind = SUPER_SHIFT, H, splitratio, -0.05
-    bind = SUPER_SHIFT, L, splitratio, +0.05
+    bind = $SUPER, Return, layoutmsg, swapwithmaster master
+    bind = $SUPER, J, layoutmsg, cyclenext
+    bind = $SUPER, K, layoutmsg, cycleprev
+    bind = $SUPER_SHIFT, J, layoutmsg, swapnext
+    bind = $SUPER_SHIFT, K, layoutmsg, swapprev
+    bind = $SUPER, C, splitratio, exact 0.80
+    bind = $SUPER, C, layoutmsg, orientationtop
+    bind = $SUPER_SHIFT, C, splitratio, exact 0.65
+    bind = $SUPER_SHIFT, C, layoutmsg, orientationleft
+    bind = $SUPER, H, layoutmsg, addmaster
+    bind = $SUPER, L, layoutmsg, removemaster
+    bind = $SUPER_SHIFT, H, splitratio, -0.05
+    bind = $SUPER_SHIFT, L, splitratio, +0.05
 
-    bind = SUPER, grave, workspace, previous
-    bind = SUPER, 1, workspace, 1
-    bind = SUPER, 2, workspace, 2
-    bind = SUPER, 3, workspace, 3
-    bind = SUPER, 4, workspace, 4
-    bind = SUPER, 5, workspace, 5
-    bind = SUPER, 6, workspace, 6
-    bind = SUPER, 7, workspace, 7
-    bind = SUPER, 8, workspace, 8
-    bind = SUPER, 9, workspace, 9
-    bind = SUPER, 0, workspace, 10
-    bind = SUPER_SHIFT, 1, movetoworkspace, 1
-    bind = SUPER_SHIFT, 2, movetoworkspace, 2
-    bind = SUPER_SHIFT, 3, movetoworkspace, 3
-    bind = SUPER_SHIFT, 4, movetoworkspace, 4
-    bind = SUPER_SHIFT, 5, movetoworkspace, 5
-    bind = SUPER_SHIFT, 6, movetoworkspace, 6
-    bind = SUPER_SHIFT, 7, movetoworkspace, 7
-    bind = SUPER_SHIFT, 8, movetoworkspace, 8
-    bind = SUPER_SHIFT, 9, movetoworkspace, 9
-    bind = SUPER_SHIFT, 0, movetoworkspace, 10
+    bind = $SUPER, grave, workspace, previous
+    bind = $SUPER, 1, workspace, 1
+    bind = $SUPER, 2, workspace, 2
+    bind = $SUPER, 3, workspace, 3
+    bind = $SUPER, 4, workspace, 4
+    bind = $SUPER, 5, workspace, 5
+    bind = $SUPER, 6, workspace, 6
+    bind = $SUPER, 7, workspace, 7
+    bind = $SUPER, 8, workspace, 8
+    bind = $SUPER, 9, workspace, 9
+    bind = $SUPER, 0, workspace, 10
+    bind = $SUPER_SHIFT, 1, movetoworkspace, 1
+    bind = $SUPER_SHIFT, 2, movetoworkspace, 2
+    bind = $SUPER_SHIFT, 3, movetoworkspace, 3
+    bind = $SUPER_SHIFT, 4, movetoworkspace, 4
+    bind = $SUPER_SHIFT, 5, movetoworkspace, 5
+    bind = $SUPER_SHIFT, 6, movetoworkspace, 6
+    bind = $SUPER_SHIFT, 7, movetoworkspace, 7
+    bind = $SUPER_SHIFT, 8, movetoworkspace, 8
+    bind = $SUPER_SHIFT, 9, movetoworkspace, 9
+    bind = $SUPER_SHIFT, 0, movetoworkspace, 10
 
     layerrule = blur,waybar
     layerrule = blur,rofi
@@ -169,12 +173,12 @@ in
     windowrulev2 = opacity ${opacity} ${opacity},class:^(thunar)$
 
     # Scroll through existing workspaces with super + scroll
-    bind = SUPER, mouse_down, workspace, e+1
-    bind = SUPER, mouse_up, workspace, e-1
+    bind = $SUPER, mouse_down, workspace, e+1
+    bind = $SUPER, mouse_up, workspace, e-1
 
     # Move/resize windows with super + LMB/RMB and dragging
-    bindm = SUPER, mouse:272, movewindow
-    bindm = SUPER, mouse:273, resizewindow
+    bindm = $SUPER, mouse:272, movewindow
+    bindm = $SUPER, mouse:273, resizewindow
 
     # Change volume with keys
     # TODO: Change notification once at 0/100%
