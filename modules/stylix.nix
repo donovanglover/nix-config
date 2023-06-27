@@ -3,6 +3,7 @@
 let
   theme = "oceanicnext";
   opacity = 0.92;
+  font-size = 11;
 in
 {
   stylix.image = ../assets/wallpaper.png;
@@ -36,10 +37,10 @@ in
     };
 
     sizes = {
-      applications = 11;
-      desktop = 11;
-      popups = 11;
-      terminal = 11;
+      applications = font-size;
+      desktop = font-size;
+      popups = font-size;
+      terminal = font-size;
     };
   };
 }
