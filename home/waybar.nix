@@ -2,6 +2,7 @@
 
 let
   opacity = lib.strings.floatToString config.stylix.opacity.terminal;
+  icons = true;
   position = "top";
   opposite = builtins.replaceStrings ["left" "right" "top" "bottom"] ["right" "left" "bottom" "top"] position;
   isVertical = position == "left" || position == "right";
@@ -18,8 +19,7 @@ in
         height = if isVertical then null else 45;
         spacing = 8;
 
-        modules-left = [ "wlr/workspaces" "custom/new-workspace" ];
-        modules-center = [ "wlr/taskbar" ];
+        modules-left = if icons then [ "wlr/taskbar" ] else [ "wlr/workspaces" "custom/new-workspace" ];
         modules-right = [ "tray" "wireplumber" "backlight" "battery" "clock" ];
 
         tray = {
