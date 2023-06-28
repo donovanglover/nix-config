@@ -38,7 +38,7 @@
 
       "color \"diff-highlight\"" = {
         oldNormal = "red bold";
-        oldHighlight = "red bold ul";
+        oldHighlight = "red bold";
         newNormal = "green bold";
         newHighlight = "green bold ul";
       };
