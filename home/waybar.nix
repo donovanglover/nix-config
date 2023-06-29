@@ -101,7 +101,7 @@ in
         autohide-starthidden = true;
 
         modules-left = if icons then [ "wlr/taskbar" ] else [ "wlr/workspaces" "custom/new-workspace" ];
-        modules-right = [ "tray" "wireplumber" "backlight" "battery" "clock" ];
+        modules-right = [ "wireplumber" "backlight" "battery" "clock" ];
       };
     };
 
