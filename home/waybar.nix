@@ -6,13 +6,90 @@ let
   position = "top";
   opposite = builtins.replaceStrings ["left" "right" "top" "bottom"] ["right" "left" "bottom" "top"] position;
   isVertical = position == "left" || position == "right";
+  modules = {
+    tray = {
+      icon-size = 24;
+      spacing = 8;
+    };
+
+    "wlr/taskbar" = {
+      icon-size = 32;
+      on-click = "activate";
+      on-click-middle = "activate";
+      on-click-right = "activate";
+    };
+
+    "hyprland/window" = {
+      rotate = if isVertical then 90 else 0;
+    };
+
+    "wlr/workspaces" = {
+      on-click = "activate";
+      sort-by-number = true;
+      format = "{icon}";
+      format-icons = {
+        "1" = "一";
+        "2" = "二";
+        "3" = "三";
+        "4" = "四";
+        "5" = "五";
+        "6" = "六";
+        "7" = "七";
+        "8" = "八";
+        "9" = "九";
+        "10" = "十";
+      };
+    };
+
+    wireplumber = {
+      format = "{icon}";
+      tooltip-format = "{volume}% {node_name}";
+      format-muted = "";
+      format-icons = [ "" "" ];
+    };
+
+    battery = {
+      format = "{icon}";
+      tooltip-format = "{capacity}% {timeTo}";
+      format-icons = [ "" "" "" "" "" ];
+    };
+
+    clock = {
+      format = if isVertical then "{:%H\n%M}" else "{:%H:%M}";
+      tooltip-format = "<tt>{calendar}</tt>";
+      calendar = {
+        mode = "month";
+        weeks-pos = "right";
+        format = {
+          months = "<span color='#ffead3'><b>{}</b></span>";
+          days = "<span color='#ecc6d9'><b>{}</b></span>";
+          weeks = "<span size='14pt' color='#99ffdd'><b>W{}</b></span>";
+          weekdays = "<span size='18pt' color='#ffcc66'><b>{}</b></span>";
+          today = "<span color='#ff6699'><b>{}</b></span>";
+        };
+      };
+    };
+
+    backlight = {
+      format = "{icon}";
+      format-icons = [ "" "" ];
+    };
+
+    "custom/new-workspace" = {
+      format = "+";
+      on-click = "hyprctl dispatch workspace empty && sleep 0.1 && rofi -show drun";
+      on-click-right = "sleep 0.1 && rofi -show drun";
+      on-click-middle = "hyprctl dispatch workspace empty";
+      tooltip = false;
+    };
+  };
 in
 {
   programs.waybar = {
     enable = true;
 
     settings = {
-      mainBar = {
+      mainBar = modules // {
         layer = "top";
         position = position;
         width = if isVertical then 45 else null;
@@ -25,82 +102,6 @@ in
 
         modules-left = if icons then [ "wlr/taskbar" ] else [ "wlr/workspaces" "custom/new-workspace" ];
         modules-right = [ "tray" "wireplumber" "backlight" "battery" "clock" ];
-
-        tray = {
-          icon-size = 24;
-          spacing = 8;
-        };
-
-        "wlr/taskbar" = {
-          icon-size = 32;
-          on-click = "activate";
-          on-click-middle = "activate";
-          on-click-right = "activate";
-        };
-
-        "hyprland/window" = {
-          rotate = if isVertical then 90 else 0;
-        };
-
-        "wlr/workspaces" = {
-          on-click = "activate";
-          sort-by-number = true;
-          format = "{icon}";
-          format-icons = {
-            "1" = "一";
-            "2" = "二";
-            "3" = "三";
-            "4" = "四";
-            "5" = "五";
-            "6" = "六";
-            "7" = "七";
-            "8" = "八";
-            "9" = "九";
-            "10" = "十";
-          };
-        };
-
-        wireplumber = {
-          format = "{icon}";
-          tooltip-format = "{volume}% {node_name}";
-          format-muted = "";
-          format-icons = [ "" "" ];
-        };
-
-        battery = {
-          format = "{icon}";
-          tooltip-format = "{capacity}% {timeTo}";
-          format-icons = [ "" "" "" "" "" ];
-        };
-
-        clock = {
-          format = if isVertical then "{:%H\n%M}" else "{:%H:%M}";
-          tooltip-format = "<tt>{calendar}</tt>";
-          calendar = {
-            mode = "month";
-            weeks-pos = "right";
-            format = {
-              months = "<span color='#ffead3'><b>{}</b></span>";
-              days = "<span color='#ecc6d9'><b>{}</b></span>";
-              weeks = "<span size='14pt' color='#99ffdd'><b>W{}</b></span>";
-              weekdays = "<span size='18pt' color='#ffcc66'><b>{}</b></span>";
-              today = "<span color='#ff6699'><b>{}</b></span>";
-            };
-          };
-        };
-
-        backlight = {
-          format = "{icon}";
-          format-icons = [ "" "" ];
-        };
-
-        "custom/new-workspace" = {
-          format = "+";
-          on-click = "hyprctl dispatch workspace empty && sleep 0.1 && rofi -show drun";
-          on-click-right = "sleep 0.1 && rofi -show drun";
-          on-click-middle = "hyprctl dispatch workspace empty";
-          tooltip = false;
-        };
       };
     };
 
