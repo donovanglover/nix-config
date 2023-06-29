@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  theme = "oceanicnext";
+  theme = "monokai";
   opacity = 0.92;
   font-size = 11;
 in
