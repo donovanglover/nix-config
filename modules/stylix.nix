@@ -28,7 +28,7 @@ in
 
     monospace = {
       package = pkgs.maple-mono;
-      name = "MapleMono";
+      name = "Maple Mono";
     };
 
     emoji = {
