@@ -17,9 +17,9 @@ in
     exec-once = swww init
     exec-once = wpctl set-volume @DEFAULT_AUDIO_SINK@ 20%
     exec-once = sleep 0.5 && waybar
-    exec-once = fcitx5                          # Japanese input support
+    exec-once = fcitx5
     exec-once = mullvad-vpn
-    exec-once = wl-paste -p --watch wl-copy -pc # Disable middle click paste
+    exec-once = wl-paste -p --watch wl-copy -pc
     exec-once = ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
 
     input {
