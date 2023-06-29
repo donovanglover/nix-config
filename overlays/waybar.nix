@@ -2,13 +2,13 @@
   nixpkgs.overlays = [
     (final: prev: {
       waybar = prev.waybar.overrideAttrs (old: rec {
-        version = "b0f89f2bc115f4447dbf4565faca9a6122594d68";
+        version = "635e06209dcf14612549864f461847f94b86406b";
 
         src = final.fetchFromGitHub {
-          owner = "Alexays";
+          owner = "varbhat";
           repo = "Waybar";
           rev = version;
-          sha256 = "sha256-wH8UvSYnEBCdF2r6yAtocVuaZM9eIXLlg31n9FKTISE=";
+          sha256 = "sha256-9D+OTPVvjnjCl3OW/YUoFmDi8IJLs/8QTi5JUorLmL8=";
         };
 
         postPatch = /* bash */ ''
