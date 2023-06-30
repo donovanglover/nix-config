@@ -82,6 +82,12 @@ let
       on-click-middle = "hyprctl dispatch workspace empty";
       tooltip = false;
     };
+
+    "custom/wallpaper" = {
+      format = "壁\n紙";
+      on-click = "bash -c ~/.config/waybar/wallpaper.sh";
+      tooltip = false;
+    };
   };
 in
 {
@@ -101,6 +107,7 @@ in
         autohide-starthidden = true;
 
         modules-left = if icons then [ "wlr/taskbar" ] else [ "wlr/workspaces" "custom/new-workspace" ];
+        modules-center = [ "custom/wallpaper" ];
         modules-right = [ "wireplumber" "backlight" "battery" "clock" ];
       };
     };
