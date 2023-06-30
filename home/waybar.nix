@@ -2,7 +2,7 @@
 
 let
   opacity = lib.strings.floatToString config.stylix.opacity.terminal;
-  icons = true;
+  icons = false;
   position = "top";
   opposite = builtins.replaceStrings ["left" "right" "top" "bottom"] ["right" "left" "bottom" "top"] position;
   isVertical = position == "left" || position == "right";
