@@ -108,7 +108,7 @@ in
 
     bind = $SUPER_SHIFT, Return, exec, kitty
     bind = $SUPER, Q, killactive,
-    bind = $SUPER, P, exec, grimblast save screen && dunstify Screenshot Captured.
+    bind = $SUPER, P, exec, dunstify --icon=$(grimblast save screen) Screenshot Captured.
     bind = , Print, exec, grimblast copy area
     bind = $SUPER_ALT, delete, exit
     bind = $SUPER, V, togglefloating,
