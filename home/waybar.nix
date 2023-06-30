@@ -102,10 +102,6 @@ in
         height = if isVertical then null else 45;
         spacing = 8;
 
-        autohide = true;
-        exclusive = false;
-        autohide-starthidden = true;
-
         modules-left = if icons then [ "wlr/taskbar" ] else [ "wlr/workspaces" "custom/new-workspace" ];
         modules-center = [ "custom/wallpaper" ];
         modules-right = [ "wireplumber" "backlight" "battery" "clock" ];
