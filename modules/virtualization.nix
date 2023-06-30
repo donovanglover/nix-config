@@ -15,7 +15,6 @@
     virtualisation.qemu.options = [
       "-device virtio-vga-gl"
       "-display sdl,gl=on,show-cursor=off"
-      "-full-screen"
       "-audio pa,model=hda"
     ];
 
