@@ -84,11 +84,9 @@
 
       c = "tput clear"; # Clear the terminal completely
       e = "exit";
-      k = "kitty @ set-colors -c -a ~/.cache/wal/kitty";
       l = "ls -l";
       n = "nvim";
       j = "joshuto";
-      w = "wal -o ~/.config/wal/done.sh";
       t = "tree";
     };
   };

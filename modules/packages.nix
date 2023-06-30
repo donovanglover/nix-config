@@ -35,7 +35,6 @@
     dig
     yt-dlp
     neofetch
-    pywal
     brightnessctl
     zellij
     hexyl
