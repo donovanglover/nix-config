@@ -5,6 +5,17 @@ let
   modifier = "SUPER";
 in
 {
+  xdg.configFile."hypr/gaps.sh" = {
+    executable = true;
+    text = /* bash */ ''
+      #/usr/bin/env bash
+      hyprctl keyword general:gaps_out $((16 - $(hyprctl getoption general:gaps_out -j | jq -r ".int")))
+      hyprctl keyword general:gaps_in $((8 - $(hyprctl getoption general:gaps_in -j | jq -r ".int")))
+      hyprctl keyword general:border_size $((5 - $(hyprctl getoption general:border_size -j | jq -r ".int")))
+      hyprctl keyword decoration:rounding $((10 - $(hyprctl getoption decoration:rounding -j | jq -r ".int")))
+    '';
+  };
+
   xdg.configFile."hypr/hyprland.conf".text = with config.lib.stylix.colors; /* bash */ ''
     env=XCURSOR_SIZE,24
     env=BROWSER,librewolf
@@ -115,7 +126,7 @@ in
     bind = $SUPER, V, togglefloating,
     bind = $SUPER, V, centerwindow,
     bind = $SUPER, I, exec, hyprctl keyword decoration:dim_inactive $((1 - $(hyprctl getoption decoration:dim_inactive -j | jq -r ".int")))
-    bind = $SUPER, U, exec, hyprctl keyword general:gaps_out $((16 - $(hyprctl getoption general:gaps_out -j | jq -r ".int"))) && hyprctl keyword general:gaps_in $((8 - $(hyprctl getoption general:gaps_in -j | jq -r ".int"))) && hyprctl keyword general:border_size $((5 - $(hyprctl getoption general:border_size -j | jq -r ".int"))) && hyprctl keyword decoration:rounding $((10 - $(hyprctl getoption decoration:rounding -j | jq -r ".int")))
+    bind = $SUPER, U, exec, ~/.config/hypr/gaps.sh
     bind = $SUPER, O, exec, killall .waybar-wrapped || waybar
     bind = $SUPER, X, pin
     bind = $SUPER, F, fullscreen
