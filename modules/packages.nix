@@ -6,9 +6,11 @@
     slade
     typespeed
     osu-lazer-bin
+    (pass.withExtensions (ext: with ext; [ pass-otp ]))
     pass
     treefmt
     jamesdsp
+    zbar
 
     logseq
     mullvad-browser
@@ -63,6 +65,8 @@
     ventoy
     wf-recorder
     mdbook
+    diskonaut
+
     zola
     file
     tessen
@@ -75,11 +79,13 @@
     wl-clipboard
     lnch
     wev
+    python311Packages.icoextract
     swww
     srb2
     crystalline
     go-thumbnailer
     pipe-rename
+    cmus
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
