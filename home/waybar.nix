@@ -8,12 +8,12 @@ let
   isVertical = position == "left" || position == "right";
   modules = {
     tray = {
-      icon-size = 24;
+      icon-size = if isVertical then 24 else 13;
       spacing = 8;
     };
 
     "wlr/taskbar" = {
-      icon-size = 32;
+      icon-size = if isVertical then 32 else 16;
       on-click = "activate";
       on-click-middle = "activate";
       on-click-right = "activate";
@@ -99,7 +99,7 @@ in
         layer = "top";
         position = position;
         width = if isVertical then 45 else null;
-        height = if isVertical then null else 45;
+        height = if isVertical then null else 30;
         spacing = 8;
 
         modules-left = if icons then [ "wlr/taskbar" ] else [ "wlr/workspaces" "custom/new-workspace" ];
@@ -111,7 +111,7 @@ in
     style = with config.lib.stylix.colors; lib.mkForce /* css */ ''
       * {
         color: #${base05};
-        font-size: 16px;
+        font-size: ${if isVertical then "16px" else "13px"};
       }
 
       window#waybar {
@@ -150,7 +150,7 @@ in
 
       #backlight, #battery, #wireplumber {
         font-family: "Font Awesome 6 Free Solid";
-        font-size: 24px;
+        font-size: ${if isVertical then "24px" else "13px"};
       }
 
       #custom-new-workspace {
@@ -161,7 +161,7 @@ in
       }
 
       #clock {
-        font-size: 18px;
+        font-size: ${if isVertical then "18px" else "13px"};
         font-weight: bold;
         padding-${if isVertical then "bottom" else "right"}: 8px;
       }
