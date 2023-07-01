@@ -2,6 +2,7 @@
 
 let
   opacity = lib.strings.floatToString config.stylix.opacity.terminal;
+  modifier = "SUPER";
 in
 {
   xdg.configFile."hypr/hyprland.conf".text = with config.lib.stylix.colors; /* bash */ ''
@@ -102,9 +103,9 @@ in
       allow_workspace_cycles = yes
     }
 
-    $SUPER = SUPER
-    $SUPER_SHIFT = SUPER_SHIFT
-    $SUPER_ALT = SUPER_ALT
+    $SUPER = ${modifier}
+    $SUPER_SHIFT = ${modifier}_SHIFT
+    $SUPER_ALT = ${modifier}_ALT
 
     bind = $SUPER_SHIFT, Return, exec, kitty
     bind = $SUPER, Q, killactive,
