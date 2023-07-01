@@ -5,6 +5,7 @@
     ./overlays
     ./modules/fish.nix
     ./modules/fonts.nix
+    ./modules/gamemode.nix
     ./modules/home-manager.nix
     ./modules/locale.nix
     ./modules/neovim.nix
