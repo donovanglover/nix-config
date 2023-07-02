@@ -2,7 +2,7 @@
 
 let
   theme = "monokai";
-  opacity = 0.92;
+  opacity = 0.95;
   font-size = 11;
 in
 {
