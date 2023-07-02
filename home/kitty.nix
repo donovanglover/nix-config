@@ -1,3 +1,5 @@
+{ config, ... }:
+
 {
   programs.kitty = {
     enable = true;
@@ -17,6 +19,11 @@
       window_padding_width = 5;
       tab_bar_margin_width = 5;
     };
+
+    extraConfig = with config.lib.stylix.colors; ''
+      tab_bar_background #${base00}
+      inactive_tab_background #${base00}
+    '';
   };
 
   xdg.configFile."kitty/diff.conf".text = ''
