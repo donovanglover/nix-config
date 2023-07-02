@@ -166,6 +166,20 @@ in
         color: alpha(#${base0A}, 0.67);
       }
 
+      #custom-wallpaper {
+        border-top: 1px solid alpha(#${base02}, 0.5);
+      }
+
+      #custom-wallpaper, #custom-gaps {
+        font-weight: bold;
+        padding: ${if isVertical then "12px 0" else "0 12px"};
+        border-bottom: 1px solid alpha(#${base02}, 0.5);
+      }
+
+      #custom-wallpaper label:hover {
+        background: alpha(#${base02}, 0.5);
+      }
+
       #clock {
         font-size: ${if isVertical then "18px" else "13px"};
         font-weight: bold;
