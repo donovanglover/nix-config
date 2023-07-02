@@ -5,7 +5,6 @@
     ./dual-function-keys.nix
     ./fish.nix
     ./fonts.nix
-    ./gamemode.nix
     ./greetd.nix
     ./home-manager.nix
     ./hyprland.nix
