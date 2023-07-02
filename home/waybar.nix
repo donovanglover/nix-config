@@ -84,8 +84,14 @@ let
     };
 
     "custom/wallpaper" = {
-      format = "壁\n紙";
-      on-click = "bash -c ~/.config/waybar/wallpaper.sh";
+      format = if isVertical then "壁\n紙" else "壁紙";
+      on-click = "bash -c ~/wallhaven/timer.sh";
+      tooltip = false;
+    };
+
+    "custom/gaps" = {
+      format = if isVertical then "空\nき" else "空き";
+      on-click = "bash -c ~/.config/hypr/gaps.sh";
       tooltip = false;
     };
   };
@@ -102,8 +108,8 @@ in
         height = if isVertical then null else 30;
         spacing = 8;
 
-        modules-left = if icons then [ "wlr/taskbar" ] else [ "wlr/workspaces" "custom/new-workspace" ];
-        modules-center = [ "custom/wallpaper" ];
+        modules-left = if icons then [ "wlr/taskbar" ] else [ "wlr/workspaces" ];
+        modules-center = [ "custom/wallpaper" "custom/gaps" ];
         modules-right = [ "wireplumber" "backlight" "battery" "clock" ];
       };
     };
