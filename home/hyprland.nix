@@ -124,7 +124,7 @@ in
     bind = , Print, exec, grimblast copy area
     bind = $SUPER_ALT, delete, exit
     bind = $SUPER, V, togglefloating,
-    bind = $SUPER, V, centerwindow,
+    bind = $SUPER, B, centerwindow,
     bind = $SUPER, I, exec, hyprctl keyword decoration:dim_inactive $((1 - $(hyprctl getoption decoration:dim_inactive -j | jq -r ".int")))
     bind = $SUPER, U, exec, ~/.config/hypr/gaps.sh
     bind = $SUPER, O, exec, killall .ironbar-wrapper || ironbar
