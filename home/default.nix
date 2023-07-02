@@ -22,7 +22,6 @@
     ./swaylock.nix
     ./thunar.nix
     (lib.mkIf (config.programs.hyprland.enable == true) ./udiskie.nix)
-    ./waybar.nix
     ./xcursor.nix
     ./xdg-user-dirs.nix
     ./xresources.nix

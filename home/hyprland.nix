@@ -28,7 +28,7 @@ in
 
     exec-once = swww init
     exec-once = wpctl set-volume @DEFAULT_AUDIO_SINK@ 20%
-    exec-once = sleep 0.5 && waybar
+    exec-once = sleep 0.5 && ironbar
     exec-once = fcitx5
     exec-once = mullvad-vpn
     exec-once = wl-paste -p --watch wl-copy -pc
@@ -127,7 +127,7 @@ in
     bind = $SUPER, V, centerwindow,
     bind = $SUPER, I, exec, hyprctl keyword decoration:dim_inactive $((1 - $(hyprctl getoption decoration:dim_inactive -j | jq -r ".int")))
     bind = $SUPER, U, exec, ~/.config/hypr/gaps.sh
-    bind = $SUPER, O, exec, killall .waybar-wrapped || waybar
+    bind = $SUPER, O, exec, killall .ironbar-wrapper || ironbar
     bind = $SUPER, X, pin
     bind = $SUPER, F, fullscreen
     bind = $SUPER, S, togglespecialworkspace
@@ -172,7 +172,7 @@ in
     bind = $SUPER_SHIFT, 9, movetoworkspace, 9
     bind = $SUPER_SHIFT, 0, movetoworkspace, 10
 
-    layerrule = blur,waybar
+    layerrule = blur,ironbar
     layerrule = blur,rofi
     layerrule = blur,notifications
 
