@@ -50,8 +50,8 @@ in
       gaps_in = -1
       gaps_out = -1
       border_size = 2
-      col.active_border = rgba(${base0A}ee) rgba(${base09}ee) 45deg
-      col.inactive_border = rgba(${base02}aa)
+      col.active_border = rgba(${base0E}ff) rgba(${base0D}ff) 45deg
+      col.inactive_border = rgba(${base02}ff)
       layout = master
     }
 
