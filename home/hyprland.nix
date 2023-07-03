@@ -91,7 +91,6 @@ in
       new_on_top = no
       mfact = 0.65
       special_scale_factor = 1
-      inherit_fullscreen = no
     }
 
     gestures {
