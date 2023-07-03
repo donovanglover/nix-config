@@ -9,10 +9,10 @@ in
     executable = true;
     text = /* bash */ ''
       #/usr/bin/env bash
-      hyprctl keyword general:gaps_out $((16 - $(hyprctl getoption general:gaps_out -j | jq -r ".int")))
-      hyprctl keyword general:gaps_in $((8 - $(hyprctl getoption general:gaps_in -j | jq -r ".int")))
-      hyprctl keyword general:border_size $((5 - $(hyprctl getoption general:border_size -j | jq -r ".int")))
-      hyprctl keyword decoration:rounding $((10 - $(hyprctl getoption decoration:rounding -j | jq -r ".int")))
+      hyprctl keyword general:gaps_out $((10 - $(hyprctl getoption general:gaps_out -j | jq -r ".int")))
+      hyprctl keyword general:gaps_in $((5 - $(hyprctl getoption general:gaps_in -j | jq -r ".int")))
+      hyprctl keyword general:border_size $((3 - $(hyprctl getoption general:border_size -j | jq -r ".int")))
+      hyprctl keyword decoration:rounding $((8 - $(hyprctl getoption decoration:rounding -j | jq -r ".int")))
     '';
   };
 
