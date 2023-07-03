@@ -17,6 +17,7 @@
     ./mpv.nix
     ./ncmpcpp.nix
     ./neovim.nix
+    ./pqiv.nix
     ./qutebrowser.nix
     ./rofi.nix
     ./swaylock.nix
