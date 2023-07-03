@@ -24,7 +24,6 @@
       };
 
       allowBitmaps = false;
-      hinting.style = "hintfull";
     };
   };
 }
