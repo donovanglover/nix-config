@@ -71,7 +71,7 @@
 
       dl = "yt-dlp";
       vol = "wpctl set-volume '@DEFAULT_AUDIO_SINK@'"; # Change the volume, e.g. vol 10%+, vol 10%-, vol 100%
-      nf = "tput clear; and neofetch --size 56%";
+      nf = "clear; and neofetch --size 56%";
       df = "df --human-readable --type=ext4 --total";
       du = "du --human-readable --summarize";
       jis = "recode shift_jis..utf8"; # Easily convert shift_jis-encoded files to utf8
@@ -82,7 +82,7 @@
       st = "cd ~/nix-config && crystal spec tests/main.cr --progress --verbose --tag local";
       tf = "treefmt";
 
-      c = "tput clear"; # Clear the terminal completely
+      c = "clear"; # Clear the terminal completely
       e = "exit";
       l = "ls -l";
       n = "nvim";
