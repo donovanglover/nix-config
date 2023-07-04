@@ -12,7 +12,6 @@
           "favorites": [
             "librewolf",
             "kitty",
-            "link-test",
             "thunar",
             "osu!",
             "qutebrowser"
