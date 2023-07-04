@@ -20,7 +20,7 @@
       screenshot-format = "png";
 
       title = "\${filename} - mpv";
-      script-opts = "osc-title=\${filename},osc-boxalpha=150,osc-showfullscreen=no,osc-boxvideo=yes";
+      script-opts = "osc-title=\${filename},osc-boxalpha=150,osc-visibility=never,osc-boxvideo=yes";
 
       osc = "no";
       osd-on-seek = "no";
@@ -31,6 +31,10 @@
 
       really-quiet = "yes";
       autofit = "65%";
+    };
+
+    bindings = {
+      "ctrl+shift+a" = "script-message osc-visibility cycle";
     };
 
     scripts = with pkgs.mpvScripts; [
