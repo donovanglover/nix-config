@@ -151,11 +151,11 @@
     }
 
     .launcher .open {
-      border-bottom: 1px solid @color_text;
+      box-shadow: inset 0 -2px;
     }
 
     .launcher .focused {
-      border-bottom: 1px solid @color_border_active;
+      box-shadow: inset 0 -2px @color_border_active;
     }
 
     .launcher .urgent {
