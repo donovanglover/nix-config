@@ -10,6 +10,7 @@
     ./gtk.nix
     ./htop.nix
     ./hyprland.nix
+    ./ironbar.nix
     ./joshuto.nix
     ./kitty.nix
     ./librewolf.nix
