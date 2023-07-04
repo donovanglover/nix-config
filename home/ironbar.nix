@@ -41,22 +41,8 @@
 
       "end": [
         {
-          "type": "sys_info",
-          "format": [
-            " {cpu_percent}%",
-            " {memory_used} GB ({memory_percent}%)",
-            " {disk_used:/} GB ({disk_percent:/}%)"
-          ],
-          "interval": {
-            "cpu": 1,
-            "disks": 300,
-            "memory": 30
-          }
-        },
-
-        {
           "type": "label",
-          "label": "   "
+          "label": " "
         },
 
         {
@@ -186,14 +172,6 @@
 
     .script {
       padding-left: 10px;
-    }
-
-    .sysinfo {
-      margin-left: 10px;
-    }
-
-    .sysinfo .item {
-      margin-left: 5px;
     }
 
     .tray {
