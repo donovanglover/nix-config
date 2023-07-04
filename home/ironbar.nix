@@ -78,18 +78,8 @@
       padding: 1em;
     }
 
-    .clipboard {
-      margin-left: 5px;
-      font-size: 1.1em;
-    }
-
     .popup-clipboard .item {
       padding-bottom: 0.3em;
-    }
-
-    .clock {
-      font-weight: 400;
-      margin-left: 0;
     }
 
     .popup-clock .calendar-clock {
@@ -142,18 +132,6 @@
 
     .popup-launcher .popup-item:not(:first-child) {
       border-top: 1px solid @color_border;
-    }
-
-    .script {
-      padding-left: 10px;
-    }
-
-    .tray {
-      margin-left: 10px;
-    }
-
-    .workspaces .item.focused {
-      box-shadow: inset 0 -2px;
     }
   '';
 }
