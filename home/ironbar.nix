@@ -21,16 +21,6 @@
 
       "end": [
         {
-          "type": "label",
-          "label": " "
-        },
-
-        {
-          "type": "label",
-          "label": "{{cat /sys/class/power_supply/BAT0/capacity}}%"
-        },
-
-        {
           "type": "clipboard",
           "max_items": 3,
           "truncate": {
