@@ -90,7 +90,6 @@
     }
 
     .popup-clock .calendar {
-      background: @color_bg;
       color: @color_text;
     }
 
@@ -100,18 +99,10 @@
       font-size: 1.5em;
     }
 
-    .popup-clock .calendar:selected {
-      background: @color_border_active;
-    }
-
     .launcher .item {
       padding-left: 1em;
       padding-right: 1em;
       margin-right: 4px;
-    }
-
-    .launcher .item:not(.focused):hover {
-      background: @color_bg_dark;
     }
 
     .launcher .open {
