@@ -113,6 +113,8 @@
     }
 
     .launcher .item {
+      padding-left: 1em;
+      padding-right: 1em;
       margin-right: 4px;
     }
 
