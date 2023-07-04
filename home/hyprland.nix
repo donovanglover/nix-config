@@ -149,7 +149,6 @@ in
     bind = $SUPER_SHIFT, H, splitratio, -0.05
     bind = $SUPER_SHIFT, L, splitratio, +0.05
 
-    bind = $SUPER, grave, workspace, previous
     bind = $SUPER, 1, exec, hyprland-relative-workspace b
     bind = $SUPER, 2, exec, hyprland-relative-workspace f
     bind = $SUPER_SHIFT, 1, exec, hyprland-relative-workspace b --with-window
