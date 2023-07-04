@@ -17,7 +17,6 @@
       sub-blur = 10;
       sub-file-paths = "subs:subtitles:字幕";
 
-      fullscreen = "yes";
       screenshot-format = "png";
 
       title = "\${filename} - mpv";
