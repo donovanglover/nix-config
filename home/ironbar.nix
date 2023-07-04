@@ -5,6 +5,17 @@
       "position": "bottom",
       "anchor_to_edges": true,
 
+      "start": [
+        {
+          "type": "clipboard",
+          "max_items": 3,
+          "truncate": {
+            "length": 50,
+            "mode": "end"
+          }
+        }
+      ],
+
       "center": [
         {
           "show_icons": true,
@@ -20,15 +31,6 @@
       ],
 
       "end": [
-        {
-          "type": "clipboard",
-          "max_items": 3,
-          "truncate": {
-            "length": 50,
-            "mode": "end"
-          }
-        },
-
         {
           "type": "clock",
           "format": "%x（%a）%R"
