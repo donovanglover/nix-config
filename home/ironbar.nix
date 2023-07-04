@@ -179,11 +179,7 @@
     }
 
     .workspaces .item.focused {
-      box-shadow: inset 0 -3px;
-    }
-
-    .workspaces .item:hover {
-      box-shadow: inset 0 -3px;
+      box-shadow: inset 0 -2px;
     }
   '';
 }
