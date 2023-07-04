@@ -87,6 +87,15 @@
     pipe-rename
     cmus
     ironbar
+    wallust
+    dmenu-wayland
+    findex
+    lavalauncher
+    sirula
+    kickoff
+    wofi
+    activate-linux-wayland
+    hyprland-relative-workspace
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
