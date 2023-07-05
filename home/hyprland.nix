@@ -32,7 +32,6 @@ in
     exec-once = fcitx5
     exec-once = mullvad-vpn
     exec-once = hyprctl dispatch workspace 5000000
-    exec-once = wl-paste -p --watch wl-copy -pc
     exec-once = ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
 
     input {
