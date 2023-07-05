@@ -20,14 +20,7 @@
 
       "center": [
         {
-          "type": "launcher",
-          "favorites": [
-            "librewolf",
-            "kitty",
-            "thunar",
-            "osu!",
-            "qutebrowser"
-          ]
+          "type": "launcher"
         }
       ],
 
