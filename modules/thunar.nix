@@ -1,4 +1,6 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+
+{
   programs.thunar.enable = true;
   services.tumbler.enable = true; # Thumbnail support
   programs.thunar.plugins = with pkgs.xfce; [ thunar-volman ];
