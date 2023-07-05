@@ -47,7 +47,6 @@
     @define-color color_border #${base01};
     @define-color color_border_active #${base09};
     @define-color color_text #${base05};
-    @define-color color_urgent #8f0a0a;
 
     * {
       font-family: "Noto Sans CJK JP", "Font Awesome 6 Free Solid";
@@ -113,10 +112,6 @@
 
     .launcher .focused {
       box-shadow: inset 0 -2px @color_border_active;
-    }
-
-    .launcher .urgent {
-      border-bottom: @color_urgent;
     }
 
     .popup-launcher {
