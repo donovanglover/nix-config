@@ -1,3 +1,5 @@
+{ config, ... }:
+
 {
   xdg.configFile."ironbar/config.json".text = /* json */ ''
     {
@@ -39,12 +41,12 @@
     }
   '';
 
-  xdg.configFile."ironbar/style.css".text = /* css */ ''
-    @define-color color_bg #272822;
-    @define-color color_bg_dark #383838;
-    @define-color color_border #383838;
-    @define-color color_border_active #fd971f;
-    @define-color color_text #ffffff;
+  xdg.configFile."ironbar/style.css".text = with config.lib.stylix.colors; /* css */ ''
+    @define-color color_bg #${base00};
+    @define-color color_bg_dark #${base01};
+    @define-color color_border #${base01};
+    @define-color color_border_active #${base09};
+    @define-color color_text #${base05};
     @define-color color_urgent #8f0a0a;
 
     * {
