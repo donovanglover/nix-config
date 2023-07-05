@@ -20,7 +20,6 @@
 
       "center": [
         {
-          "show_icons": true,
           "type": "launcher",
           "favorites": [
             "librewolf",
@@ -42,12 +41,6 @@
   '';
 
   xdg.configFile."ironbar/style.css".text = with config.lib.stylix.colors; /* css */ ''
-    @define-color color_bg #${base00};
-    @define-color color_bg_dark #${base01};
-    @define-color color_border #${base01};
-    @define-color color_border_active #${base09};
-    @define-color color_text #${base05};
-
     * {
       font-family: "Noto Sans CJK JP", "Font Awesome 6 Free Solid";
       font-size: 16px;
@@ -56,26 +49,23 @@
       outline: none;
       font-weight: 500;
       background: none;
+      color: #${base05};
     }
 
     .background {
-      background: alpha(@color_bg, 0.95);
-    }
-
-    button, label {
-      color: @color_text;
+      background: alpha(#${base00}, 0.95);
     }
 
     button:hover {
-      background: @color_bg_dark;
+      background: #${base01};
     }
 
     #bar {
-      border-top: 1px solid @color_border;
+      border-top: 1px solid #${base01};
     }
 
     .popup {
-      border: 1px solid @color_border;
+      border: 1px solid #${base01};
       padding: 1em;
     }
 
@@ -84,19 +74,14 @@
     }
 
     .popup-clock .calendar-clock {
-      color: @color_text;
       font-family: "Maple Mono";
       font-size: 2.5em;
       padding-bottom: 0.1em;
     }
 
-    .popup-clock .calendar {
-      color: @color_text;
-    }
-
     .popup-clock .calendar .header {
       padding-top: 1em;
-      border-top: 1px solid @color_border;
+      border-top: 1px solid #${base01};
       font-size: 1.5em;
     }
 
@@ -111,7 +96,7 @@
     }
 
     .launcher .focused {
-      box-shadow: inset 0 -2px @color_border_active;
+      box-shadow: inset 0 -2px #${base09};
     }
 
     .popup-launcher {
@@ -119,7 +104,7 @@
     }
 
     .popup-launcher .popup-item:not(:first-child) {
-      border-top: 1px solid @color_border;
+      border-top: 1px solid #${base01};
     }
   '';
 }
