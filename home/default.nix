@@ -18,7 +18,6 @@
     ./neovim.nix
     ./pqiv.nix
     ./qutebrowser.nix
-    ./rofi.nix
     ./swaylock.nix
     ./thunar.nix
     ./udiskie.nix
