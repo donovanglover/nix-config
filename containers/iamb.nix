@@ -21,7 +21,6 @@
       x11Display = rec {
         hostPath = "/tmp/.X11-unix";
         mountPoint = hostPath;
-        isReadOnly = true;
       };
     };
 
