@@ -39,7 +39,6 @@
     brightnessctl
     zellij
     hexyl
-    gnome.gnome-disk-utility
     nb
     jpegoptim
     playerctl
@@ -89,13 +88,9 @@
     ironbar
     wallust
     dmenu-wayland
-    findex
-    lavalauncher
-    sirula
-    kickoff
-    wofi
     activate-linux-wayland
     hyprland-relative-workspace
+    eww-wayland
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
