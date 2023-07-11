@@ -145,6 +145,7 @@ in
       nnoremap <silent> <leader>j :Buffers<CR>
       nnoremap <silent> <leader>l :Rg<CR>
       nnoremap <silent> <leader>; :NvimTreeToggle<CR>
+      nnoremap <silent> <leader>z :ZenMode<CR>
       vnoremap <C-s> y:silent !notify-send -t 4000 "成果" "$(tango '<C-r>0')"<CR>:<Esc>
 
       autocmd BufNewFile,BufRead *.ecr    setlocal syntax=html
@@ -269,6 +270,31 @@ in
         plugin = comment-nvim;
         type = "lua";
         config = ''require('Comment').setup()'';
+      }
+      {
+        plugin = zen-mode-nvim;
+        type = "lua";
+        config = /* lua */ ''
+          require("zen-mode").setup({
+            window = {
+              backdrop = 1,
+              width = 80,
+              height = 0.9,
+              options = {
+                signcolumn = "no",
+                number = false,
+              },
+            },
+            on_open = function(win)
+              vim.cmd("GitBlameDisable")
+              vim.cmd("ScrollbarHide")
+            end,
+            on_close = function()
+              vim.cmd("GitBlameEnable")
+              vim.cmd("ScrollbarShow")
+            end,
+          })
+        '';
       }
       {
         plugin = plenary-nvim;
