@@ -5,8 +5,8 @@
       cores = 4;
 
       sharedDirectories = {
-        testing = {
-          source = "/home/user/containers/testing";
+        home = {
+          source = "$HOME";
           target = "/mnt";
         };
       };
