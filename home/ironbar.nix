@@ -84,6 +84,10 @@
       margin-right: 4px;
     }
 
+    .launcher .item:active {
+      background: #${base09};
+    }
+
     .launcher .open {
       box-shadow: inset 0 -2px;
     }
