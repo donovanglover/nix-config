@@ -257,7 +257,10 @@ in
           theme.inactive.c.bg = nil
 
           require('lualine').setup {
-            options = { theme = theme },
+            options = {
+              theme = theme,
+              disabled_filetypes = {'NvimTree'}
+            },
             sections = { lualine_c = {'%f'} }
           }
         '';
