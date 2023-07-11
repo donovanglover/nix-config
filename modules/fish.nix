@@ -43,6 +43,7 @@
       gca = "git commit --amend";
       gcl = "git clone";
       gco = "git checkout";
+      gcot = "git checkout --theirs";
       gd = "git diff"; # Show all file changes not staged yet
       gds = "git diff --staged"; # Show changes staged but not committed
       gi = "git init";
