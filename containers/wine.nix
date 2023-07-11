@@ -50,7 +50,7 @@
       environment.sessionVariables = {
         LC_ALL = "ja_JP.UTF-8";
         TZ = "Asia/Tokyo";
-        WINEPREFIX = "/home/user/wine";
+        WINEPREFIX = "/mnt/wine";
       };
     };
   };
