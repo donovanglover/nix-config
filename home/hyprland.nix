@@ -43,6 +43,8 @@ in
         natural_scroll = yes
         disable_while_typing = no
       }
+      repeat_rate = 50
+      repeat_delay = 300
     }
 
     general {
