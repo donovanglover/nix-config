@@ -39,6 +39,11 @@
       XDG_RUNTIME_DIR = "/run/user/1000";
       DISPLAY = ":0";
       XCURSOR_SIZE = "24";
+      GTK_IM_MODULE = "fcitx";
+      QT_IM_MODULE = "fcitx";
+      XMODIFIERS = "@im=fcitx";
+      SDL_IM_MODULE = "fcitx";
+      GLFW_IM_MODULE = "ibus";
     };
   };
 
