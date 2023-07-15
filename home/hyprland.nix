@@ -133,7 +133,7 @@ in
     bind = $SUPER, S, togglespecialworkspace
     bind = $SUPER_SHIFT, S, movetoworkspace, special
     bind = $SUPER_SHIFT, S, focuscurrentorlast
-    bind = $SUPER, F1, exec, killall rofi || rofi -show drun
+    bind = $SUPER, F1, exec, killall bemenu-run || bemenu-run
     bind = $SUPER, F2, togglespecialworkspace
 
     bind = $SUPER, Return, layoutmsg, swapwithmaster master
@@ -156,7 +156,6 @@ in
     bind = $SUPER_SHIFT, 2, exec, hyprland-relative-workspace f --with-window
 
     layerrule = blur,ironbar
-    layerrule = blur,rofi
     layerrule = blur,notifications
 
     windowrulev2 = nomaxsize,class:^(winecfg\.exe)$
