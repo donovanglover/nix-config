@@ -17,5 +17,9 @@
       internalInterfaces = [ "ve-+" ];
       externalInterface = "wg-mullvad";
     };
+
+    firewall = {
+      allowedUDPPorts = [ 5029 ];
+    };
   };
 }
