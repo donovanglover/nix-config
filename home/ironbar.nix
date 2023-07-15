@@ -94,6 +94,7 @@
 
     .launcher .focused {
       box-shadow: inset 0 -2px #${base09};
+      background: #${base01};
     }
 
     .popup-launcher {
