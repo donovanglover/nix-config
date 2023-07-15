@@ -374,6 +374,7 @@ in
       vim-endwise
       csv-vim
       rust-vim
+      yuck-vim
       neoformat
       bufdelete-nvim
       vim-crystal
