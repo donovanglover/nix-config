@@ -37,6 +37,7 @@
     * {
       font-family: "Noto Sans CJK JP", "Font Awesome 6 Free Solid";
       font-size: 16px;
+      text-shadow: 2px 2px #${base00};
       border: none;
       border-radius: 0;
       outline: none;
