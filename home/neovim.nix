@@ -73,7 +73,10 @@ in
         trim_trailing_whitespace = true;
       };
 
-      "*.md".indent_style = "tab";
+      "*.md" = {
+        indent_style = "tab";
+        trim_trailing_whitespace = false;
+      };
 
       "Makefile" = {
         indent_style = "tab";
