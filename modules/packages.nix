@@ -19,8 +19,6 @@
     gdu
     fdupes
     mediainfo
-    ponysay
-    lolcat
     cmatrix
     sox
     httpie
@@ -63,7 +61,6 @@
     timg
     ventoy
     wf-recorder
-    mdbook
     diskonaut
 
     zola
@@ -87,10 +84,10 @@
     cmus
     ironbar
     wallust
-    dmenu-wayland
     activate-linux-wayland
     hyprland-relative-workspace
     eww-wayland
+    tango
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
