@@ -71,6 +71,11 @@
       yin = "yarn install";
       yu = "yarn upgrade-interactive";
 
+      tp = "trash put";
+      tl = "trash list";
+      tr = "trash restore";
+      te = "trash empty";
+
       dl = "yt-dlp";
       vol = "wpctl set-volume '@DEFAULT_AUDIO_SINK@'"; # Change the volume, e.g. vol 10%+, vol 10%-, vol 100%
       nf = "clear; and neofetch --size 56%";
