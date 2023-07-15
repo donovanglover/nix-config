@@ -24,6 +24,11 @@ in
     env=XMODIFIERS,@im=fcitx
     env=SDL_IM_MODULE,fcitx
     env=GLFW_IM_MODULE,ibus
+    env=SWWW_TRANSITION,grow
+    env=SWWW_TRANSITION_STEP,200
+    env=SWWW_TRANSITION_DURATION,1.5
+    env=SWWW_TRANSITION_FPS,240
+    env=SWWW_TRANSITION_WAVE,80,40
     monitor=,preferred,auto,1
 
     exec-once = swww init
