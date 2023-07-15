@@ -23,6 +23,7 @@
     extraConfig = with config.lib.stylix.colors; ''
       tab_bar_background #${base00}
       inactive_tab_background #${base00}
+      map F1 send_text all \x1afg;notify-send "$(pwd)" "Task Completed."\r
     '';
   };
 
