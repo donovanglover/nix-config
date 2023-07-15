@@ -269,6 +269,7 @@
 
           { keys = [ "delete" ]; command = "delete_files"; }
           { keys = [ "d" "D" ]; command = "delete_files"; }
+          { keys = [ "D" ]; command = "delete_files"; }
 
           { keys = [ "p" "p" ]; command = "paste_files"; }
           { keys = [ "p" "o" ]; command = "paste_files --overwrite=true"; }
