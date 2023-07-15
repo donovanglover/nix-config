@@ -4,6 +4,8 @@
   containers.srb2 = {
     privateNetwork = true;
     ephemeral = true;
+    hostAddress = "192.168.100.10";
+    localAddress = "192.168.100.11";
 
     bindMounts = {
       "/home/user/.srb2" = {
@@ -39,6 +41,13 @@
         home-manager.nixosModules.home-manager
         stylix.nixosModules.stylix
         ../setup.nix
+      ];
+
+      networking.nat.forwardPorts = [
+        {
+          destination = "192.168.100.11:5029";
+          sourcePort = 5029;
+        }
       ];
 
       environment.systemPackages = with pkgs; [
