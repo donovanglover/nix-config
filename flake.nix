@@ -3,12 +3,12 @@
     nixpkgs.url = "github:donovanglover/nixpkgs/personal-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager/master";
+      url = "github:donovanglover/home-manager/personal-master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     stylix = {
-      url = "github:danth/stylix";
+      url = "github:donovanglover/stylix/personal-master";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
