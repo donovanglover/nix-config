@@ -133,13 +133,12 @@ in
     bind = $SUPER, B, centerwindow
     bind = $SUPER, I, exec, hyprctl keyword decoration:dim_inactive $((1 - $(hyprctl getoption decoration:dim_inactive -j | jq -r ".int")))
     bind = $SUPER, U, exec, ~/.config/hypr/gaps.sh
-    bind = $SUPER, O, exec, killall .ironbar-wrapper || ironbar
     bind = $SUPER, X, pin
     bind = $SUPER, F, fullscreen
     bind = $SUPER, S, togglespecialworkspace
     bind = $SUPER_SHIFT, S, movetoworkspace, special
     bind = $SUPER_SHIFT, S, focuscurrentorlast
-    bind = $SUPER, F1, exec, killall bemenu-run || bemenu-run
+    bind = $SUPER, F1, exec, killall ..ironbar-wrapper || ironbar
     bind = $SUPER, F2, togglespecialworkspace
 
     bind = $SUPER, Return, layoutmsg, swapwithmaster master
