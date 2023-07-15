@@ -366,6 +366,7 @@ in
         '';
       }
       fzf-vim
+      clipboard-image-nvim
       vim-caddyfile
       vim-graphql
       vim-pug
