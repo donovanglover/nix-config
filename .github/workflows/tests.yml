@@ -14,6 +14,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Run tests
-      run: crystal spec tests/main.cr
+      run: crystal spec tests/main.cr --verbose
     - name: Check formatting
       run: crystal tool format --check
