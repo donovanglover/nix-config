@@ -1,5 +1,4 @@
 require "spec"
-require "colorize"
 
 def check_top_level_imports(directory)
   describe "./#{directory}/default.nix" do
