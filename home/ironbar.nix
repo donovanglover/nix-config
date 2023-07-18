@@ -83,6 +83,10 @@
       padding: 0.2em 0.4em;
     }
 
+    .popup-clock .calendar:selected {
+      color: #${base09};
+    }
+
     .launcher .item {
       padding-left: 1em;
       padding-right: 1em;
