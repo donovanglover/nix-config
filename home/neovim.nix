@@ -312,15 +312,6 @@ in
         config = ''require("auto-save").setup()'';
       }
       {
-        plugin = hologram-nvim;
-        type = "lua";
-        config = /* lua */ ''
-          require('hologram').setup {
-            auto_display = true
-          }
-        '';
-      }
-      {
         plugin = toggleterm-nvim;
         type = "lua";
         config = /* lua */ ''
