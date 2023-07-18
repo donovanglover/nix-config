@@ -79,6 +79,10 @@
       font-size: 1.5em;
     }
 
+    .popup-clock .calendar {
+      padding: 0.2em 0.4em;
+    }
+
     .launcher .item {
       padding-left: 1em;
       padding-right: 1em;
