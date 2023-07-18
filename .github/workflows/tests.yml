@@ -23,3 +23,4 @@ jobs:
     - uses: actions/checkout@v3
     - uses: cachix/install-nix-action@v22
     - run: nix flake check
+    - run: nixos-rebuild build-vm .#nixos
