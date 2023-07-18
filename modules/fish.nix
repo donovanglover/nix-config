@@ -48,6 +48,7 @@
       gcp = "git cherry-pick";
       gd = "git diff";
       gds = "git diff --staged";
+      gf = "git fetch";
       gi = "git init";
       gl = "git log --oneline --decorate --graph -n 10";
       gm = "git merge";
