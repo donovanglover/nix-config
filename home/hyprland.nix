@@ -33,7 +33,7 @@ in
 
     exec-once = swww init && swww query | rg color && swww img ${../assets/wallpaper.png}
     exec-once = wpctl set-volume @DEFAULT_AUDIO_SINK@ 20%
-    exec-once = sleep 0.5 && ironbar
+    exec-once = ironbar
     exec-once = fcitx5
     exec-once = hyprctl dispatch workspace 5000000
     exec-once = ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
