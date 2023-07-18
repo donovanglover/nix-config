@@ -48,7 +48,7 @@
       gd = "git diff";
       gds = "git diff --staged";
       gi = "git init";
-      gl = "git log --oneline --decorate --all --graph -n 10";
+      gl = "git log --oneline --decorate --graph -n 10";
       gm = "git merge";
       gp = "git push";
       gr = "git reset HEAD~";
