@@ -31,7 +31,7 @@ in
     env=SWWW_TRANSITION_WAVE,80,40
     monitor=,preferred,auto,1
 
-    exec-once = swww init
+    exec-once = swww init && swww query | rg color && swww img ${../assets/wallpaper.png}
     exec-once = wpctl set-volume @DEFAULT_AUDIO_SINK@ 20%
     exec-once = sleep 0.5 && ironbar
     exec-once = fcitx5
