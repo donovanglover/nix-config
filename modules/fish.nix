@@ -40,6 +40,7 @@
       gb = "git branch --verbose";
       gbr = "git branch --verbose --remotes";
       gbd = "git branch --delete";
+      gbD = "git branch --delete --force";
       gc = "git commit -m";
       gca = "git commit --amend";
       gcl = "git clone";
