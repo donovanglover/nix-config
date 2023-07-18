@@ -37,7 +37,7 @@
       ga = "git add";
       gaa = "git add --all";
       gap = "git add --patch";
-      gb = "git branch"; # List all branches
+      gb = "git branch";
       gbd = "git branch --delete";
       gc = "git commit -m";
       gca = "git commit --amend";
@@ -45,19 +45,19 @@
       gco = "git checkout";
       gcot = "git checkout --theirs";
       gcp = "git cherry-pick";
-      gd = "git diff"; # Show all file changes not staged yet
-      gds = "git diff --staged"; # Show changes staged but not committed
+      gd = "git diff";
+      gds = "git diff --staged";
       gi = "git init";
       gl = "git log --oneline --decorate --all --graph -n 10";
       gm = "git merge";
-      gp = "git push"; # Push your commits to a remote server
-      gr = "git reset HEAD~"; # Undo the last commit but keep changed files
+      gp = "git push";
+      gr = "git reset HEAD~";
       gR = "git restore";
       gRs = "git restore --staged";
       gra = "git remote add";
-      gre = "git remote --verbose"; # List all remotes
+      gre = "git remote --verbose";
       grh = "git reset HEAD";
-      grr = "git reset --hard HEAD~"; # Remove the last commit and all changes with it
+      grr = "git reset --hard HEAD~";
       gs = "git status";
       gst = "git stash";
       gstp = "git stash pop";
@@ -89,7 +89,7 @@
       st = "cd ~/nix-config && crystal spec tests/main.cr --progress --verbose --tag local";
       tf = "treefmt";
 
-      c = "clear"; # Clear the terminal completely
+      c = "clear";
       e = "exit";
       l = "ls -l";
       n = "nvim";
