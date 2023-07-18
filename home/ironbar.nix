@@ -20,7 +20,17 @@
 
       "center": [
         {
-          "type": "launcher"
+          "type": "launcher",
+          "favorites": [
+            "librewolf",
+            "kitty",
+            "thunar",
+            "srb2",
+            "org.qutebrowser.qutebrowser",
+            "Logseq",
+            "spek",
+            "mullvadbrowser"
+          ]
         }
       ],
 
