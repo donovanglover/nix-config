@@ -351,13 +351,11 @@ in
       {
         plugin = vimtex;
         config = /* vim */ ''
-          " Disable all keybinds so we can define our own
           let g:vimtex_mappings_enabled = 0
           let g:vimtex_imaps_enabled = 0
           let g:vimtex_view_method = 'zathura'
           let g:vimtex_compiler_latexmk = {'build_dir': '.tex'}
 
-          " Set the normal keybinds
           nnoremap <localleader>f <plug>(vimtex-view)
           nnoremap <localleader>g <plug>(vimtex-compile)
           nnoremap <localleader>d <plug>(vimtex-env-delete)
