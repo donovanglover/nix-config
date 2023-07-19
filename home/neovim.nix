@@ -43,6 +43,7 @@ in
     yarn
     deno
     nodePackages.typescript-language-server
+    nodePackages."@astrojs/language-server"
 
     # rust
     rustc
@@ -221,6 +222,7 @@ in
           lspconfig.texlab.setup {}
           lspconfig.crystalline.setup {}
           lspconfig.tsserver.setup {}
+          lspconfig.astro.setup {}
           vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
           vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
           vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
