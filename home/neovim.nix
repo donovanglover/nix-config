@@ -339,6 +339,11 @@ in
         type = "lua";
       }
       {
+        plugin = nvim-autopairs;
+        type = "lua";
+        config = ''require("nvim-autopairs").setup {}'';
+      }
+      {
         plugin = auto-save-nvim;
         type = "lua";
         config = ''require("auto-save").setup()'';
