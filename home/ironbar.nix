@@ -73,6 +73,11 @@
       border-top: 1px solid #${base01};
     }
 
+    .label {
+      padding-left: 1em;
+      padding-right: 1em;
+    }
+
     .popup {
       border: 1px solid #${base01};
       padding: 1em;
