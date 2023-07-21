@@ -113,7 +113,7 @@
       margin-right: 4px;
     }
 
-    .launcher .item:active {
+    button:active {
       background: #${base09};
     }
 
