@@ -61,6 +61,10 @@
       background: alpha(#${base00}, 0.95);
     }
 
+    .clipboard {
+      padding-right: 1em;
+    }
+
     button:hover {
       background: #${base01};
     }
