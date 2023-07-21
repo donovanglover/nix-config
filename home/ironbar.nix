@@ -114,7 +114,7 @@
     }
 
     button:active {
-      background: #${base09};
+      background: #${base04};
     }
 
     .launcher .open {
