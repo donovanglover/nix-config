@@ -51,6 +51,7 @@ in
     cargo
     rust-analyzer
     bacon
+    clippy
 
     # markdown
     marksman
