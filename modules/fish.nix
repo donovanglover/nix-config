@@ -47,6 +47,7 @@
       gco = "git checkout";
       gcot = "git checkout --theirs";
       gcp = "git cherry-pick --strategy-option theirs";
+      gcpx = "git cherry-pick --strategy-option theirs -x";
       gd = "git diff";
       gds = "git diff --staged";
       gf = "git fetch";
