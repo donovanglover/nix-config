@@ -58,7 +58,7 @@
     }
 
     .background {
-      background: alpha(#${base00}, 0.95);
+      background: alpha(#${base00}, 0.9);
     }
 
     .clipboard {
