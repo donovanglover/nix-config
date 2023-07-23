@@ -88,6 +88,9 @@
     hyprland-relative-workspace
     eww-wayland
     tango
+    obs-studio
+    nvd
+    broot
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
