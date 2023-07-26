@@ -39,6 +39,7 @@ in
     exec-once = fcitx5
     exec-once = hyprctl dispatch workspace 5000000
     exec-once = ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
+    exec-once = hyprdim
 
     input {
       kb_layout = us
@@ -74,8 +75,6 @@ in
       shadow_render_power = 3
       col.shadow = rgba(1a1a1aee)
       fullscreen_opacity = 0.9999999
-      dim_inactive = yes
-      dim_strength = 0
     }
 
     animations {
@@ -134,8 +133,6 @@ in
     bind = $SUPER, T, exec, tessen
     bind = $SUPER, V, togglefloating
     bind = $SUPER, B, centerwindow
-    bind = $SUPER, I, exec, hyprctl keyword decoration:dim_strength 0.4
-    bind = $SUPER_SHIFT, I, exec, hyprctl keyword decoration:dim_strength 0
     bind = $SUPER, U, exec, ~/.config/hypr/gaps.sh
     bind = $SUPER, X, pin
     bind = $SUPER, F, fullscreen

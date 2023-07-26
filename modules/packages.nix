@@ -90,6 +90,7 @@
     obs-studio
     nvd
     broot
+    hyprdim
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
