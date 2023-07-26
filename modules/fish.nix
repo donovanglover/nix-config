@@ -37,6 +37,7 @@
       ga = "git add";
       gaa = "git add --all";
       gap = "git add --patch";
+      gapp = "git apply";
       gb = "git branch --verbose";
       gbr = "git branch --verbose --remotes";
       gbd = "git branch --delete";
