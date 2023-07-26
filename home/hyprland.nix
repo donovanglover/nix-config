@@ -137,7 +137,7 @@ in
     bind = $SUPER, U, exec, ~/.config/hypr/gaps.sh
     bind = $SUPER, X, pin
     bind = $SUPER, F, fullscreen
-    bind = $SUPER, S, togglespecialworkspace
+    bind = $SUPER, S, exec, hyprctl dispatch swapactiveworkspaces 0 1
     bind = $SUPER_SHIFT, S, movetoworkspace, special
     bind = $SUPER_SHIFT, S, focuscurrentorlast
     bind = $SUPER, F1, exec, killall ..ironbar-wrapper || ironbar
