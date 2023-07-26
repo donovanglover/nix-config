@@ -420,6 +420,7 @@ in
       vim-crystal
       vim-nix-rummik
       fcitx-vim
+      vim-astro
     ];
   };
 
