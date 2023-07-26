@@ -1,5 +1,8 @@
-{ config, ... }:
+{ config, lib, ... }:
 
+let
+  opacity = lib.strings.floatToString (config.stylix.opacity.terminal - 0.05);
+in
 {
   xdg.configFile."ironbar/config.json".text = /* json */ ''
     {
@@ -58,7 +61,7 @@
     }
 
     .background {
-      background: alpha(#${base00}, 0.9);
+      background: alpha(#${base00}, ${opacity});
     }
 
     .clipboard {
