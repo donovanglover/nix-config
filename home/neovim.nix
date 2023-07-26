@@ -354,6 +354,12 @@ in
             default = {
               img_dir = {"%:p:h", "_"},
               img_dir_txt = "_",
+              img_name = function()
+                vim.fn.inputsave()
+                local name = vim.fn.input('Name: ')
+                vim.fn.inputrestore()
+                return os.date("%Y-%m-%d-") + name
+              end,
             }
           }
         '';
