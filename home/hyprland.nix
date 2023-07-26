@@ -39,7 +39,7 @@ in
     exec-once = fcitx5
     exec-once = hyprctl dispatch workspace 5000000
     exec-once = ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
-    exec-once = hyprdim
+    exec-once = hyprdim --persist
 
     input {
       kb_layout = us
