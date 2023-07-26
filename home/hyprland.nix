@@ -169,7 +169,7 @@ in
     windowrulev2 = noblur,class:^(kitty)$
     windowrulev2 = nodim,title:^(Picture-in-Picture)$
     windowrulev2 = tile,class:^(.qemu-system-x86_64-wrapped)$
-    windowrulev2 = opacity ${opacity} ${opacity},class:^(thunar)$
+    windowrulev2 = opacity ${opacity} ${opacity},class:^(Thunar)$
 
     # Scroll through existing workspaces with super + scroll
     bind = $SUPER, mouse_down, workspace, e+1
