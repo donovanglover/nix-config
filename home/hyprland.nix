@@ -167,6 +167,7 @@ in
     windowrulev2 = nomaxsize,class:^(osu\.exe)$
     windowrulev2 = opaque,class:^(kitty)$
     windowrulev2 = noblur,class:^(kitty)$
+    windowrulev2 = nodim,title:^(Picture-in-Picture)$
     windowrulev2 = tile,class:^(.qemu-system-x86_64-wrapped)$
     windowrulev2 = opacity ${opacity} ${opacity},class:^(thunar)$
 
