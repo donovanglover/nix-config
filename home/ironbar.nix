@@ -121,7 +121,7 @@ in
     }
 
     .launcher .open {
-      box-shadow: inset 0 -2px;
+      box-shadow: inset 0 -2px #${base04};
     }
 
     .launcher .focused {
