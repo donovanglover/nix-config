@@ -14,6 +14,7 @@
       "browser.tabs.insertAfterCurrent" = true;
       "browser.toolbars.bookmarks.visibility" = "never";
       "browser.quitShortcut.disabled" = true;
+      "browser.urlbar.suggest.history" = false;
 
       "sidebar.position_start" = false;
       "findbar.highlightAll" = true;
