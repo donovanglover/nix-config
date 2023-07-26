@@ -159,6 +159,8 @@ in
       autocmd VimEnter * silent! :cd `git rev-parse --show-toplevel`
 
       tnoremap <C-space> <C-\><C-n>
+
+      autocmd BufNewFile,BufRead *.mdx set filetype=markdown
     '';
 
     plugins = with pkgs.vimPlugins; [
