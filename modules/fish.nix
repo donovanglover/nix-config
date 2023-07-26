@@ -66,6 +66,7 @@
       gs = "git status";
       gst = "git stash";
       gstp = "git stash pop";
+      gsw = "git switch";
       gt = "git tag";
       gts = "git tag -s";
 
