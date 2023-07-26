@@ -74,7 +74,8 @@ in
       shadow_render_power = 3
       col.shadow = rgba(1a1a1aee)
       fullscreen_opacity = 0.9999999
-      dim_strength = 0.25
+      dim_inactive = yes
+      dim_strength = 0
     }
 
     animations {
@@ -133,7 +134,8 @@ in
     bind = $SUPER, T, exec, tessen
     bind = $SUPER, V, togglefloating
     bind = $SUPER, B, centerwindow
-    bind = $SUPER, I, exec, hyprctl keyword decoration:dim_inactive $((1 - $(hyprctl getoption decoration:dim_inactive -j | jq -r ".int")))
+    bind = $SUPER, I, exec, hyprctl keyword decoration:dim_strength 0.4
+    bind = $SUPER_SHIFT, I, exec, hyprctl keyword decoration:dim_strength 0
     bind = $SUPER, U, exec, ~/.config/hypr/gaps.sh
     bind = $SUPER, X, pin
     bind = $SUPER, F, fullscreen
