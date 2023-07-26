@@ -25,7 +25,7 @@
           "favorites": [
             "librewolf",
             "kitty",
-            "thunar",
+            "Thunar",
             "srb2",
             "org.qutebrowser.qutebrowser",
             "Logseq",
