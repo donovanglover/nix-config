@@ -49,6 +49,7 @@ in
     rustc
     rustfmt
     cargo
+    cargo-info
     rust-analyzer
     bacon
     clippy
