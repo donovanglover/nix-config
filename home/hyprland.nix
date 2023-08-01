@@ -67,8 +67,7 @@ in
     monitor=,preferred,auto,1
     monitor=HDMI-A-1,preferred,auto,1,mirror,eDP-1
 
-    exec-once = sleep 0.1; swww init && swww query | rg color && swww img ${../assets/wallpaper.png}
-    exec-once = systemd-detect-virt && sleep 1 && swww img ${../assets/wallpaper.png}
+    exec-once = sleep 0.1; swww init
     exec-once = wpctl set-volume @DEFAULT_AUDIO_SINK@ 20%
     exec-once = ironbar
     exec-once = fcitx5
