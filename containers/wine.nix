@@ -1,9 +1,11 @@
-{ stylix, home-manager, ... }:
+{ stylix, home-manager, sakaya, ... }:
 
 {
   containers.wine = {
     privateNetwork = true;
     ephemeral = true;
+    hostAddress = "192.168.100.34";
+    localAddress = "192.168.100.49";
 
     bindMounts = {
       "/mnt" = {
@@ -42,9 +44,21 @@
         ../modules/pipewire.nix
       ];
 
+      networking.nat.forwardPorts = [
+        {
+          destination = "192.168.100.49:39493";
+          sourcePort = 39493;
+        }
+      ];
+
+      networking.firewall = {
+        allowedTCPPorts = [ 39493 ];
+      };
+
       environment.systemPackages = with pkgs; [
         wineWowPackages.stagingFull
         winetricks
+        sakaya.packages."x86_64-linux".sakaya
       ];
 
       environment.sessionVariables = {
