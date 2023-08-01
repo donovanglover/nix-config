@@ -1,4 +1,4 @@
-{ pkgs, hyprland, ... }:
+{ pkgs, ... }:
 
 {
   services.greetd = {
@@ -12,7 +12,7 @@
       };
 
       initial_session = {
-        command = "${hyprland.packages.${pkgs.system}.hyprland}/bin/Hyprland";
+        command = "${pkgs.hyprland}/bin/Hyprland";
         user = "user";
       };
     };
