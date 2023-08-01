@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, hyprland-plugins, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -21,6 +21,7 @@
     sqlitebrowser
     kanjidraw
     libreoffice
+    hyprland-plugins.packages.${pkgs.system}.hyprbars
 
     gdu
     fdupes
