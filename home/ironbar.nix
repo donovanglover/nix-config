@@ -1,7 +1,7 @@
 { config, lib, ... }:
 
 let
-  opacity = lib.strings.floatToString (config.stylix.opacity.terminal - 0.05);
+  opacity = lib.strings.floatToString (config.stylix.opacity.terminal - 0.025);
 in
 {
   xdg.configFile."ironbar/config.json".text = /* json */ ''
