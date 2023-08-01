@@ -40,6 +40,16 @@ in
     '';
   };
 
+  xdg.configFile."hypr/random-bg.fish" = {
+    executable = true;
+    text = /* fish */ ''
+      #!/usr/bin/env fish
+
+      cd ~/.config/hypr
+      ./set-bg.fish "$(random choice $(fd . /run/current-system/sw/share/backgrounds --follow -e jpg -e png))"
+    '';
+  };
+
   xdg.configFile."hypr/hyprland.conf".text = with config.lib.stylix.colors; /* bash */ ''
     env=XCURSOR_SIZE,24
     env=BROWSER,librewolf
