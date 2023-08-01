@@ -102,6 +102,11 @@
     nix-init
   ];
 
+  programs.fish.shellAliases = {
+      hyprbars = "hyprctl plugin load ${hyprland-plugins.packages.${pkgs.system}.hyprbars}/lib/libhyprbars.so";
+      nobars = "hyprctl plugin unload ${hyprland-plugins.packages.${pkgs.system}.hyprbars}/lib/libhyprbars.so";
+  };
+
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "osu-lazer-bin"
   ];
