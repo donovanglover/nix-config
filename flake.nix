@@ -6,11 +6,6 @@
       url = "github:hyprwm/Hyprland";
     };
 
-    hyprland-plugins = {
-      url = "github:snehrbass/sn-hyprland-plugins/sn-win-filter";
-      inputs.hyprland.follows = "hyprland";
-    };
-
     home-manager = {
       url = "github:donovanglover/home-manager/personal-master";
       inputs.nixpkgs.follows = "nixpkgs";
