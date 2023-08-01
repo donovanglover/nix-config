@@ -105,6 +105,7 @@ in
             col.text = rgba(${base05}99)
             bar_text_size = 9
             bar_text_font = Maple Mono
+            exclude_windowrulev2 = floating:0,title:^(Easy Effects|Volume Control|Bluetooth|iwgtk)$
             buttons {
                 button_size = 14
                 col.maximize = rgba(${base04}cc)

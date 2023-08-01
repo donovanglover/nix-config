@@ -7,7 +7,7 @@
     };
 
     hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
+      url = "github:snehrbass/sn-hyprland-plugins/sn-win-filter";
       inputs.hyprland.follows = "hyprland";
     };
 
