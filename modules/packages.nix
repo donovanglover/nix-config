@@ -1,4 +1,4 @@
-{ pkgs, lib, hyprland-plugins, ... }:
+{ pkgs, lib, sakaya, hyprland-plugins, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -11,6 +11,7 @@
     treefmt
     jamesdsp
     zbar
+    sakaya.packages.${pkgs.system}.sakaya
 
     logseq
     mullvad-browser
