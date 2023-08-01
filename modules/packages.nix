@@ -15,6 +15,12 @@
     logseq
     mullvad-browser
     spek
+    audacity
+    gimp
+    anki
+    sqlitebrowser
+    kanjidraw
+    libreoffice
 
     gdu
     fdupes
@@ -91,6 +97,7 @@
     nvd
     broot
     hyprdim
+    nix-init
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
