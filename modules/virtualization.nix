@@ -1,3 +1,5 @@
+{ lib, ... }:
+
 {
   virtualisation.vmVariant = {
     virtualisation = {
@@ -21,5 +23,7 @@
     environment.sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = "1";
     };
+
+    services.interception-tools.enable = lib.mkForce false;
   };
 }
