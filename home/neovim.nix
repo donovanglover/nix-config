@@ -44,6 +44,7 @@ in
     deno
     nodePackages.typescript-language-server
     nodePackages."@astrojs/language-server"
+    nodePackages.pnpm
 
     # rust
     rustc
