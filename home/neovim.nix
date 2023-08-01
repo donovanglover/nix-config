@@ -138,6 +138,7 @@ in
       let mapleader = ' '
       nnoremap <silent> <leader>e :set nu!<CR>
       nnoremap <silent> <leader>t :OverCommandLine<CR>%s/
+      nnoremap <silent> <leader>o :GitBlameToggle<CR>
       nnoremap <silent> <leader>a <C-w>w
       nnoremap <silent> <leader>s :Alpha<CR>
       nnoremap <silent> <leader>d :Bdelete<CR>
@@ -322,11 +323,9 @@ in
               },
             },
             on_open = function(win)
-              vim.cmd("GitBlameDisable")
               vim.cmd("ScrollbarHide")
             end,
             on_close = function()
-              vim.cmd("GitBlameEnable")
               vim.cmd("ScrollbarShow")
             end,
           })
