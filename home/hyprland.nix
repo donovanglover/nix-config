@@ -99,6 +99,21 @@ in
       layout = master
     }
 
+    plugin {
+        hyprbars {
+            bar_color = rgba(${base00}F2)
+            bar_height = 30
+            col.text = rgba(${base05}99)
+            bar_text_size = 9
+            bar_text_font = Maple Mono
+            buttons {
+                button_size = 14
+                col.maximize = rgba(${base04}cc)
+                col.close = rgba(${base05}cc)
+            }
+        }
+    }
+
     decoration {
       rounding = 0
       blur = yes
