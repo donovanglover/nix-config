@@ -1,7 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, hyprland, ... }:
 
 {
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+    package = hyprland.packages.${pkgs.system}.hyprland;
+  };
 
   i18n.inputMethod.enabled = "fcitx5";
   i18n.inputMethod.fcitx5.addons = [ pkgs.fcitx5-mozc ];

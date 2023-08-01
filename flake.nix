@@ -2,6 +2,10 @@
   inputs = {
     nixpkgs.url = "github:donovanglover/nixpkgs/personal-unstable";
 
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+    };
+
     home-manager = {
       url = "github:donovanglover/home-manager/personal-master";
       inputs.nixpkgs.follows = "nixpkgs";
