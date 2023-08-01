@@ -16,6 +16,30 @@ in
     '';
   };
 
+  xdg.configFile."hypr/set-bg.fish" = {
+    executable = true;
+    text = /* fish */ ''
+      #!/usr/bin/env fish
+
+      if [ (hyprctl getoption animations:enabled -j | jq -r ".int") = "1" ]
+        swww img \
+          --transition-type $(random choice grow wave outer) \
+          --transition-wave 80,40 \
+          --transition-angle $(random choice 45 90 135 225 270 315) \
+          --transition-pos $(random choice center top left right bottom top-left top-right bottom-left bottom-right) \
+          --transition-step 200 \
+          --transition-duration 1.5 \
+          --transition-fps 240 \
+          "$argv"
+      else
+        swww img \
+          --transition-type simple \
+          --transition-step 255 \
+          "$argv"
+      end
+    '';
+  };
+
   xdg.configFile."hypr/hyprland.conf".text = with config.lib.stylix.colors; /* bash */ ''
     env=XCURSOR_SIZE,24
     env=BROWSER,librewolf
