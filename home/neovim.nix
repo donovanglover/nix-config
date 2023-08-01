@@ -98,11 +98,6 @@ in
     };
   };
 
-  xdg.configFile."nvim/after/syntax/markdown.vim".text = /* vim */ ''
-    syn region markdownLink matchgroup=markdownLinkDelimiter start="(" end=")" contains=markdownUrl keepend contained conceal
-    syn region markdownLinkText matchgroup=markdownLinkTextDelimiter start="!\=\[\%(\%(\_[^][]\|\[\_[^][]*\]\)*]\%( \=[[(]\)\)\@=" end="\]\%( \=[[(]\)\@=" nextgroup=markdownLink,markdownId skipwhite contains=@markdownInline,markdownLineStart concealends
-  '';
-
   programs.neovim = {
     enable = true;
     extraConfig = /* vim */ ''
@@ -124,7 +119,6 @@ in
       set tabstop=4                  " Show a tab character as 4 spaces
       set softtabstop=0              " Edit soft tabs as if they're regular spaces
       set shiftwidth=4               " Make autoindent appear as 4 spaces
-      set conceallevel=2
 
       set foldmethod=indent
       set foldlevelstart=99
