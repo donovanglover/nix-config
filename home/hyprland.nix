@@ -74,6 +74,7 @@ in
     exec-once = hyprctl dispatch workspace 5000000
     exec-once = ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
     exec-once = hyprdim --persist
+    exec-once = ~/.config/hypr/random-bg.fish
 
     input {
       kb_layout = us
