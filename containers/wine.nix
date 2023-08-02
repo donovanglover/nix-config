@@ -60,6 +60,25 @@
         allowedTCPPorts = [ 39493 ];
       };
 
+      systemd.services.sakaya = {
+        enable = true;
+        description = "sakaya server";
+
+        unitConfig = {
+          Type = "simple";
+        };
+
+        path = with pkgs; [
+          su
+        ];
+
+        serviceConfig = {
+          ExecStart = "/usr/bin/env su user --command=${sakaya.packages.${pkgs.system}.sakaya}/bin/sakaya-server";
+        };
+
+        wantedBy = [ "multi-user.target" ];
+      };
+
       environment.systemPackages = with pkgs; [
         wineWowPackages.stagingFull
         winetricks
