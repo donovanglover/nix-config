@@ -82,9 +82,16 @@
       tr = "trash restore";
       te = "trash empty";
 
+      nf = "nix flake";
+      nfu = "nix flake update";
+      nd = "nix develop --command fish";
+      nb = "nix build";
+      ns = "nix shell";
+      nr = "nix run";
+      ncg = "sudo nix-collect-garbage d";
+
       dl = "yt-dlp";
       vol = "wpctl set-volume '@DEFAULT_AUDIO_SINK@'"; # Change the volume, e.g. vol 10%+, vol 10%-, vol 100%
-      nf = "clear; and neofetch --size 56%";
       df = "df --human-readable --type=ext4 --total";
       du = "du --human-readable --summarize";
       jis = "recode shift_jis..utf8"; # Easily convert shift_jis-encoded files to utf8
