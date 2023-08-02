@@ -1,9 +1,14 @@
 { stylix, home-manager, sakaya, ... }:
 
 {
+  systemd.tmpfiles.rules = [
+    "d /run/user/1000 0700 user users -"
+  ];
+
   containers.wine = {
     privateNetwork = true;
     ephemeral = true;
+    autoStart = true;
     hostAddress = "192.168.100.34";
     localAddress = "192.168.100.49";
 
