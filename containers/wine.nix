@@ -73,7 +73,7 @@
         ];
 
         serviceConfig = {
-          ExecStart = "/usr/bin/env su user --command=${sakaya.packages.${pkgs.system}.sakaya}/bin/sakaya-server";
+          ExecStart = "/usr/bin/env su user --command=${sakaya.packages.${pkgs.system}.sakaya}/bin/sakaya";
         };
 
         wantedBy = [ "multi-user.target" ];
