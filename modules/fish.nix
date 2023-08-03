@@ -116,6 +116,7 @@
 
       c = "clear";
       e = "exit";
+      k = "kitty @ set-background-opacity";
       l = "ls -l";
       n = "nvim";
       j = "joshuto";
