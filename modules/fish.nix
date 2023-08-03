@@ -90,6 +90,18 @@
       nr = "nix run";
       ncg = "sudo nix-collect-garbage d";
 
+      ci = "cargo init";
+      cin = "cargo info";
+      cu = "cargo update";
+      ca = "cargo add";
+      cb = "cargo build";
+      cr = "cargo run";
+      cs = "cargo search";
+      cn = "cargo new";
+      crm = "cargo remove";
+      cc = "cargo clippy";
+      cf = "cargo fmt";
+
       dl = "yt-dlp";
       vol = "wpctl set-volume '@DEFAULT_AUDIO_SINK@'"; # Change the volume, e.g. vol 10%+, vol 10%-, vol 100%
       df = "df --human-readable --type=ext4 --total";
