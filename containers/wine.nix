@@ -82,7 +82,7 @@
       environment.systemPackages = with pkgs; [
         wineWowPackages.stagingFull
         winetricks
-        sakaya.packages."x86_64-linux".sakaya
+        sakaya.packages.${pkgs.system}.sakaya
       ];
 
       environment.sessionVariables = {
