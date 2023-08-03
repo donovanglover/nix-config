@@ -1,4 +1,4 @@
-{ stylix, home-manager, sakaya, ... }:
+{ stylix, home-manager, sakaya, pkgs, ... }:
 
 {
   systemd.tmpfiles.rules = [
@@ -41,7 +41,7 @@
       }
     ];
 
-    config = { pkgs, ... }: {
+    config = {
       imports = [
         stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
