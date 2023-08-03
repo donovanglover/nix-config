@@ -109,9 +109,9 @@
       jis = "recode shift_jis..utf8"; # Easily convert shift_jis-encoded files to utf8
       utf16 = "recode utf16..utf8"; # Rarely, some files from Japan are utf16 instead
       jp = "LANG=ja_JP.UTF-8 LC_ALL=ja_JP.UTF-8";
-      vm = /* fish */ ''cd ~/nix-config && crystal spec tests/main.cr --progress --verbose --tag local && nixos-rebuild build-vm --flake . --verbose && ./result/bin/run-nixos-vm && trash put result nixos.qcow2'';
-      sw = "cd ~/nix-config && crystal spec tests/main.cr --progress --verbose --tag local && sudo nixos-rebuild switch --flake . --verbose";
-      st = "cd ~/nix-config && crystal spec tests/main.cr --progress --verbose --tag local";
+      vm = "nixos-rebuild build-vm --flake . && ./result/bin/run-nixos-vm && trash put result nixos.qcow2";
+      sw = "sudo nixos-rebuild switch --flake .";
+      st = "crystal spec tests/main.cr --progress --verbose";
       tf = "treefmt";
 
       c = "clear";
