@@ -96,11 +96,13 @@
       cin = "cargo info";
       cu = "cargo update";
       ca = "cargo add";
+      cab = "cargo add --build";
       cb = "cargo build";
       cr = "cargo run";
       cs = "cargo search";
       cn = "cargo new";
       crm = "cargo remove";
+      crmb = "cargo remove --build";
       cc = "cargo clippy";
       cf = "cargo fmt";
 
