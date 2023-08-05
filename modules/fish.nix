@@ -63,6 +63,8 @@
       gre = "git remote --verbose";
       grh = "git reset HEAD";
       grr = "git reset --hard HEAD~";
+      grb = "git rebase --interactive";
+      grbc = "git rebase --continue";
       gs = "git status";
       gst = "git stash";
       gstp = "git stash pop";
