@@ -56,6 +56,7 @@
       gl = "git log --oneline --decorate --graph -n 10";
       gm = "git merge";
       gp = "git push";
+      gpu = "git pull";
       gr = "git reset HEAD~";
       gR = "git restore";
       gRs = "git restore --staged";
