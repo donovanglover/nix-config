@@ -51,6 +51,8 @@ in
     rustfmt
     cargo
     cargo-info
+    cargo-audit
+    cargo-license
     rust-analyzer
     bacon
     clippy
