@@ -174,7 +174,6 @@ in
     bind = $SUPER, F, fullscreen
     bind = $SUPER, S, exec, hyprctl dispatch swapactiveworkspaces 0 1
     bind = $SUPER_SHIFT, S, movetoworkspace, special
-    bind = $SUPER_SHIFT, S, focuscurrentorlast
     bind = $SUPER, F1, exec, killall ..ironbar-wrapper || ironbar
     bind = $SUPER, F2, togglespecialworkspace
 
