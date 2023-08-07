@@ -8,6 +8,7 @@
     ./hardware
     ./home
     ./modules
+    ./packages
     ./overlays
   ];
 }
