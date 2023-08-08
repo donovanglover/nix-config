@@ -14,6 +14,11 @@
         home-manager.follows = "home-manager";
       };
     };
+
+    sakaya = {
+      url = "github:donovanglover/sakaya";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, ... } @ attrs: {
