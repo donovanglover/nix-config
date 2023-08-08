@@ -22,6 +22,8 @@
     sqlitebrowser
     kanjidraw
     libreoffice
+    inkscape
+    krita
 
     gdu
     fdupes
@@ -92,7 +94,6 @@
     wallust
     activate-linux-wayland
     hyprland-relative-workspace
-    eww-wayland
     tango
     obs-studio
     nvd
