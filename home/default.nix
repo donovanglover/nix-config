@@ -1,6 +1,7 @@
 {
   home-manager.sharedModules = [
     ./dunst.nix
+    ./eww.nix
     ./fcitx.nix
     ./fish.nix
     ./git.nix
