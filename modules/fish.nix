@@ -102,6 +102,7 @@
       cb = "cargo build";
       cr = "cargo run";
       cs = "cargo search";
+      ct = "cargo tree --depth 1";
       cn = "cargo new";
       crm = "cargo remove";
       crmb = "cargo remove --build";
