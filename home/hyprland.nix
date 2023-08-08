@@ -193,6 +193,8 @@ in
 
     bind = $SUPER, 1, exec, hyprland-relative-workspace b
     bind = $SUPER, 2, exec, hyprland-relative-workspace f
+    bind = $SUPER, F11, exec, hyprland-relative-workspace b
+    bind = $SUPER, F12, exec, hyprland-relative-workspace f
     bind = $SUPER_SHIFT, 1, exec, hyprland-relative-workspace b --with-window
     bind = $SUPER_SHIFT, 2, exec, hyprland-relative-workspace f --with-window
 
