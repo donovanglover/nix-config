@@ -65,7 +65,7 @@
     onefetch
     restic
     watchexec
-    memento
+    # memento
     mpvpaper
     timg
     ventoy
