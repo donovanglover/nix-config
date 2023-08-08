@@ -1,0 +1,8 @@
+(defpoll time :interval "1s"
+  "date '+%H:%M'")
+
+(defwindow overlay
+  :monitor 0
+  :geometry (geometry :y "4px" :x "8px" :anchor "bottom right")
+  :stacking "fg"
+  time)
