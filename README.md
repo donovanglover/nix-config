@@ -2,6 +2,9 @@
 
 My [NixOS] configuration with [Nix Flakes], [Home Manager], [Stylix], and [Hyprland].
 
+![A typical screenshot of what my nix-config looks like.](./cover.png)
+<sub>Background: ["Video game jam"](https://www.peppercarrot.com/en/viewer/misc__2023-06-12_video-game-jam_by-David-Revoy.html) by David Revoy, licensed under [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/deed.en).</sub>
+
 ## Features
 
 - Clean, readable code that can be easily modified to add/remove things as needed.
