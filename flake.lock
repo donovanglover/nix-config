@@ -57,11 +57,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1690391006,
-        "narHash": "sha256-HmL0xqiNTy97nD/TL72tm6//ef0a2eA6NsFbx8drUR8=",
+        "lastModified": 1691518889,
+        "narHash": "sha256-x7kd4J+bYLzhknXy7VXP4bH1+u5QvBTt5HvYShOtZ9E=",
         "owner": "donovanglover",
         "repo": "home-manager",
-        "rev": "c269067326a0c52e5f8ca0b6aadbe3e3030e07d1",
+        "rev": "d3fd8135f74da51ac29c7b16fd7fba079fe552dd",
         "type": "github"
       },
       "original": {
@@ -73,11 +73,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1690400752,
-        "narHash": "sha256-ehwXnXdXtJ41xKqcHWh+9QREJV4HLjHCPCAl+kp7Las=",
+        "lastModified": 1691519678,
+        "narHash": "sha256-rK2bOUfBSNlVGijb4qBX9C411ivBPhJY5Y1QSjaxfWw=",
         "owner": "donovanglover",
         "repo": "nixpkgs",
-        "rev": "9e63fc46a515c7f589ab6c700a3decb3a2de67ca",
+        "rev": "dad2cf60d64eb66493a2c13a6ef2ff60f2d11ef1",
         "type": "github"
       },
       "original": {
@@ -91,7 +91,29 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "sakaya": "sakaya",
         "stylix": "stylix"
+      }
+    },
+    "sakaya": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "utils": "utils"
+      },
+      "locked": {
+        "lastModified": 1691517000,
+        "narHash": "sha256-pfwDQof7vxzzRHjw+F4lsWE8D9+7TpBjs6FRRUlhGPE=",
+        "owner": "donovanglover",
+        "repo": "sakaya",
+        "rev": "240f5d62afd5ceedb9ff4065464ec56b2b29ffaf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "donovanglover",
+        "repo": "sakaya",
+        "type": "github"
       }
     },
     "stylix": {
@@ -106,17 +128,50 @@
         ]
       },
       "locked": {
-        "lastModified": 1690028952,
-        "narHash": "sha256-r/1ywiJzbyXq2OQEHs8tYFlcViL0IOruxovrYqO08y4=",
+        "lastModified": 1690905065,
+        "narHash": "sha256-7RP7PJlHlK7yTsKBwvzzin8TX0Iiu4YcRWCr633wApM=",
         "owner": "donovanglover",
         "repo": "stylix",
-        "rev": "34a6d389f34b2548b3ae9fad77508620a0358817",
+        "rev": "5f7b55cc690b5ca02d1dc19175cab2ccdd408811",
         "type": "github"
       },
       "original": {
         "owner": "donovanglover",
         "ref": "personal-master",
         "repo": "stylix",
+        "type": "github"
+      }
+    },
+    "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "utils": {
+      "inputs": {
+        "systems": "systems"
+      },
+      "locked": {
+        "lastModified": 1689068808,
+        "narHash": "sha256-6ixXo3wt24N/melDWjq70UuHQLxGV8jZvooRanIHXw0=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "919d646de7be200f3bf08cb76ae1f09402b6f9b4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
         "type": "github"
       }
     }
