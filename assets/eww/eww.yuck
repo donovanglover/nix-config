@@ -9,7 +9,7 @@
 
 (defwidget icon [img exec]
   (eventbox :cursor "pointer" :onclick "lnch thunar ${exec}" :tooltip "${exec}"
-    (image :path "/home/user/.config/eww/${img}.png" :image-width 128)))
+    (image :path "/run/current-system/sw/share/eww/Fluent-Icons/${img}.png" :image-width 128)))
 
 (defwindow desktop-icons
   :monitor 0
