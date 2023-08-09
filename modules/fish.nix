@@ -25,7 +25,7 @@
 
     shellAliases = {
       ls = "${pkgs.exa}/bin/exa --group-directories-first -I 'lost+found'";
-      tree = "${pkgs.exa}/bin/exa --group-directories-first --all --long --tree -I 'node_modules|.git|public|lost+found|target'";
+      tree = "${pkgs.exa}/bin/exa --group-directories-first --all --long --tree -I 'node_modules|.git|public|lost+found|target|.next'";
       mv = "mv -i";
       cp = "cp -ia";
       rg = "${pkgs.ripgrep}/bin/rg --max-columns=2000 --smart-case";
