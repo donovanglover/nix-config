@@ -24,7 +24,6 @@ stdenvNoCC.mkDerivation {
     runHook postUnpack
   '';
 
-  #
   installPhase = /* bash */ ''
     runHook preInstall
 
