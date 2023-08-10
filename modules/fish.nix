@@ -75,7 +75,9 @@
 
       y = "yarn";
       ya = "yarn add";
+      yb = "yarn build";
       yar = "yarn remove";
+      yd = "yarn dev";
       yi = "yarn init";
       yin = "yarn install";
       yu = "yarn upgrade-interactive";
