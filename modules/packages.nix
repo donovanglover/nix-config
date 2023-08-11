@@ -53,7 +53,7 @@
     rmlint
     sd
     smartmontools
-    visidata
+    # visidata
     scc
     hwinfo
     stress
