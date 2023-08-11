@@ -14,7 +14,7 @@
   environment.systemPackages = with pkgs; [
     wget
     jq
-    exa
+    eza
     fd
     fzf
     ripgrep
@@ -24,8 +24,8 @@
     enable = true;
 
     shellAliases = {
-      ls = "${pkgs.exa}/bin/exa --icons --group-directories-first --git -I 'lost+found'";
-      tree = "${pkgs.exa}/bin/exa --icons --group-directories-first --all --long --tree --git -I 'node_modules|.git|public|lost+found|target|.next|.cache'";
+      ls = "${pkgs.eza}/bin/eza --icons --group-directories-first --git -I 'lost+found'";
+      tree = "${pkgs.eza}/bin/eza --icons --group-directories-first --all --long --tree --git -I 'node_modules|.git|public|lost+found|target|.next|.cache'";
       mv = "mv -i";
       cp = "cp -ia";
       rg = "${pkgs.ripgrep}/bin/rg --max-columns=2000 --smart-case";
