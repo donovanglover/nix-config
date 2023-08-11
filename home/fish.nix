@@ -17,6 +17,7 @@
     set -x -U LESS_TERMCAP_so (printf "\e[01;44;30m")
     set -x -U LESS_TERMCAP_ue (printf "\e[0m")
     set -x -U LESS_TERMCAP_us (printf "\e[01;32m")
+    set -x -U MANROFFOPT "-c"
 
     # Always use the default keybindings in fish
     fish_default_key_bindings
