@@ -126,11 +126,11 @@
         # Use mouse wheel to go to prev or next page
         WheelForPaging=True
         # Font
-        Font="Noto Sans CJK JP 11"
+        Font="Noto Sans CJK JP 16"
         # Menu Font
-        MenuFont="Noto Sans CJK JP 11"
+        MenuFont="Noto Sans CJK JP 16"
         # Tray Font
-        TrayFont="Noto Sans CJK JP Medium 11"
+        TrayFont="Noto Sans CJK JP Medium 16"
         # Tray Label Outline Color
         TrayOutlineColor=#${base02}
         # Tray Label Text Color
