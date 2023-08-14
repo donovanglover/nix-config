@@ -200,6 +200,11 @@ in
     bind = $SUPER_SHIFT, 1, exec, hyprland-relative-workspace b --with-window
     bind = $SUPER_SHIFT, 2, exec, hyprland-relative-workspace f --with-window
 
+    bind = CTRL, Alt_L, submap, passthrough
+    submap = passthrough
+    bind = CTRL, Alt_L, submap, reset
+    submap = reset
+
     layerrule = blur,ironbar
     layerrule = blur,notifications
 
