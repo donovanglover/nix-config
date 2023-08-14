@@ -1,6 +1,89 @@
 { config, ... }:
 
 {
+  xdg.dataFile = {
+    "fcitx5/themes/base16/theme.conf".text = with config.lib.stylix.colors; /* ini */ ''
+      [Metadata]
+      Name=base16
+      Version=0.1
+      ScaleWithDPI=True
+
+      [InputPanel]
+      Font=Noto Sans CJK JP 16
+      NormalColor=#${base05}
+      HighlightCandidateColor=#${base05}
+      HighlightColor=#${base05}
+      HighlightBackgroundColor=#${base01}
+      Spacing=6
+
+      [InputPanel/TextMargin]
+      Left=5
+      Right=5
+      Top=5
+      Bottom=5
+
+      [InputPanel/ContentMargin]
+      Left=2
+      Right=2
+      Top=2
+      Bottom=2
+
+      [InputPanel/Background/Margin]
+      Left=2
+      Right=2
+      Top=2
+      Bottom=2
+
+      [InputPanel/Background]
+      Color=#${base01}
+
+      [InputPanel/Highlight]
+      Color=#${base02}
+
+      [InputPanel/Highlight/Margin]
+      Left=5
+      Right=7
+      Top=5
+      Bottom=5
+
+      [Menu]
+      NormalColor=#${base01}
+
+      [Menu/Background]
+      Color=#${base01}
+
+      [Menu/Highlight]
+      Color=#${base02}
+
+      [Menu/Separator]
+      Color=#${base02}
+
+      [Menu/Background/Margin]
+      Left=2
+      Right=2
+      Top=2
+      Bottom=2
+
+      [Menu/ContentMargin]
+      Left=2
+      Right=2
+      Top=2
+      Bottom=2
+
+      [Menu/Highlight/Margin]
+      Left=5
+      Right=5
+      Top=5
+      Bottom=5
+
+      [Menu/TextMargin]
+      Left=5
+      Right=5
+      Top=5
+      Bottom=5
+    '';
+  };
+
   xdg.configFile = {
     "mozc/ibus_config.textproto" = {
       force = true;
@@ -142,7 +225,7 @@
         # Use input method language to display text
         UseInputMethodLangaugeToDisplayText=True
         # Theme
-        Theme=default
+        Theme=base16
       '';
     };
 
