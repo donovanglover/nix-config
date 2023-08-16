@@ -9,6 +9,7 @@
     FZF_DEFAULT_OPTS = "--height 40% --reverse --border --color=16";
     NODE_OPTIONS = "--max_old_space_size=16384";
     BAT_THEME = "base16";
+    GATSBY_TELEMETRY_DISABLED = "1";
   };
 
   environment.systemPackages = with pkgs; [
