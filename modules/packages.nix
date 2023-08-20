@@ -87,7 +87,7 @@
     swww
     srb2
     crystalline
-    go-thumbnailer
+    thud
     pipe-rename
     cmus
     ironbar
