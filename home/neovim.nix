@@ -64,6 +64,7 @@ in
     lua-language-server
 
     # tex
+    texlive.combined.scheme-full
     texlab
   ];
 
