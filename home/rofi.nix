@@ -1,9 +1,11 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   programs.rofi = {
     enable = true;
     cycle = false;
+
+    package = pkgs.rofi-wayland;
 
     extraConfig = {
       modi = "drun,filebrowser";
