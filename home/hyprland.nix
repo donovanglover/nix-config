@@ -209,6 +209,7 @@ in
     submap = reset
 
     layerrule = blur,ironbar
+    layerrule = blur,rofi
     layerrule = blur,notifications
 
     windowrulev2 = nomaxsize,class:^(winecfg\.exe)$
