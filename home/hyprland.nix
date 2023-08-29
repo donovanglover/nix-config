@@ -177,8 +177,9 @@ in
     bind = $SUPER, F, fullscreen
     bind = $SUPER, S, exec, hyprctl dispatch swapactiveworkspaces 0 1
     bind = $SUPER_SHIFT, S, movetoworkspace, special
-    bind = $SUPER, F1, exec, killall ..ironbar-wrapper || ironbar
-    bind = $SUPER, F1, exec, eww close overlay || eww open overlay
+    bind = $SUPER, O, exec, killall ..ironbar-wrapper || ironbar
+    bind = $SUPER, O, exec, eww close overlay || eww open overlay
+    bind = $SUPER, F1, exec, killall rofi || rofi -show drun
     bind = $SUPER, F2, togglespecialworkspace
 
     bind = $SUPER, Return, layoutmsg, swapwithmaster master
