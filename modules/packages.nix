@@ -89,7 +89,6 @@
     crystalline
     thud
     pipe-rename
-    cmus
     ironbar
     wallust
     activate-linux-wayland

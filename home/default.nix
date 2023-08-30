@@ -1,5 +1,6 @@
 {
   home-manager.sharedModules = [
+    ./cmus.nix
     ./dunst.nix
     ./eww.nix
     ./fcitx.nix
