@@ -92,7 +92,6 @@
     ironbar
     wallust
     activate-linux-wayland
-    hyprland-relative-workspace
     tango
     obs-studio
     nvd

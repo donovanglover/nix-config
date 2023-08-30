@@ -5,6 +5,8 @@ let
   modifier = "SUPER";
 in
 {
+  home.packages = with pkgs; [ hyprnome ];
+
   xdg.configFile."hypr/gaps.sh" = {
     executable = true;
     text = /* bash */ ''
@@ -196,12 +198,12 @@ in
     bind = $SUPER_SHIFT, H, splitratio, -0.05
     bind = $SUPER_SHIFT, L, splitratio, +0.05
 
-    bind = $SUPER, 1, exec, hyprland-relative-workspace b
-    bind = $SUPER, 2, exec, hyprland-relative-workspace f
-    bind = $SUPER, F11, exec, hyprland-relative-workspace b
-    bind = $SUPER, F12, exec, hyprland-relative-workspace f
-    bind = $SUPER_SHIFT, 1, exec, hyprland-relative-workspace b --with-window
-    bind = $SUPER_SHIFT, 2, exec, hyprland-relative-workspace f --with-window
+    bind = $SUPER, 1, exec, hyprnome --previous
+    bind = $SUPER, 2, exec, hyprnome
+    bind = $SUPER, F11, exec, hyprnome --previous
+    bind = $SUPER, F12, exec, hyprnome
+    bind = $SUPER_SHIFT, 1, exec, hyprnome --previous --move
+    bind = $SUPER_SHIFT, 2, exec, hyprnome --move
 
     bind = CTRL, Alt_L, submap, passthrough
     submap = passthrough
