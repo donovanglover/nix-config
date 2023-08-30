@@ -1,4 +1,5 @@
 { pkgs, config, ... }:
+
 let
   vim-nix-rummik = pkgs.vimUtils.buildVimPluginFrom2Nix {
     pname = "vim-nix";
