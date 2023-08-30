@@ -1,9 +1,6 @@
-{ pkgs, ... }:
-
 {
   programs.qutebrowser = {
     enable = true;
-    package = pkgs.qutebrowser-qt6;
 
     settings = {
       confirm_quit = [
