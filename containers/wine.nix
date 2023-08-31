@@ -1,4 +1,10 @@
-{ stylix, home-manager, sakaya, pkgs, ... }:
+{ stylix
+, home-manager
+, sakaya
+, pkgs
+, lib
+, ...
+}:
 
 {
   systemd.tmpfiles.rules = [
@@ -83,6 +89,13 @@
         wineWowPackages.stagingFull
         winetricks
         sakaya.packages.${pkgs.system}.sakaya
+        rar
+        unrar
+      ];
+
+      nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+        "rar"
+        "unrar"
       ];
 
       environment.sessionVariables = {
