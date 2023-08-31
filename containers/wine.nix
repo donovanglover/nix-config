@@ -60,11 +60,16 @@
           destination = "192.168.100.49:39493";
           sourcePort = 39493;
         }
+        {
+          destination = "192.168.100.49:5029";
+          sourcePort = 5029;
+        }
       ];
 
-      networking.firewall = {
-        allowedTCPPorts = [ 39493 ];
-      };
+      networking.firewall.allowedTCPPorts = [
+        39493
+        5029
+      ];
 
       systemd.services.sakaya = {
         enable = true;
@@ -92,6 +97,7 @@
         rar
         unrar
         iamb
+        srb2
       ];
 
       nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
