@@ -113,6 +113,12 @@
       cc = "cargo clippy";
       cf = "cargo fmt";
 
+      dc = "deno compile";
+      dr = "deno run";
+      di = "deno install";
+      dt = "deno task";
+      dT = "deno test --watch";
+
       dl = "yt-dlp";
       vol = "wpctl set-volume '@DEFAULT_AUDIO_SINK@'"; # Change the volume, e.g. vol 10%+, vol 10%-, vol 100%
       df = "df --human-readable --type=ext4 --total";
