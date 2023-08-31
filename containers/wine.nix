@@ -1,8 +1,6 @@
 { stylix
 , home-manager
 , sakaya
-, pkgs
-, lib
 , ...
 }:
 
@@ -47,7 +45,7 @@
       }
     ];
 
-    config = {
+    config = { lib, pkgs, ... }: {
       imports = [
         stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
