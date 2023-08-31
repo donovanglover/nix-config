@@ -179,7 +179,7 @@ in
     bind = $SUPER, S, exec, hyprctl dispatch swapactiveworkspaces 0 1
     bind = $SUPER_SHIFT, S, movetoworkspace, special
     bind = $SUPER, O, exec, killall .ironbar-wrapper || ironbar
-    bind = $SUPER, O, exec, eww close overlay || eww open overlay
+    bind = $SUPER_SHIFT, O, exec, eww close overlay || eww open overlay
     bind = $SUPER, F1, exec, killall rofi || rofi -show drun
     bind = $SUPER, F2, togglespecialworkspace
 
