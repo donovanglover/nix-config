@@ -1,7 +1,7 @@
 import { assert } from "https://deno.land/std@0.200.0/assert/mod.ts";
 import { walk } from "https://deno.land/std@0.200.0/fs/walk.ts";
 
-const getFilesInDirectory = async (directory: string): Promise<string[]> => {
+async function getFilesInDirectory(directory: string): Promise<string[]> {
   const files = [];
 
   for await (const walkEntry of walk(directory)) {
@@ -14,7 +14,7 @@ const getFilesInDirectory = async (directory: string): Promise<string[]> => {
   return files
 }
 
-const getImportsInFile = async (file: string): Promise<string[]> => {
+async function getImportsInFile(file: string): Promise<string[]> {
   const text = await Deno.readTextFile(file);
   const lines = text.split("\n")
   const imports = [];
@@ -28,14 +28,18 @@ const getImportsInFile = async (file: string): Promise<string[]> => {
   return imports
 }
 
-Deno.test("imports all modules in ./packages", async () => {
-  const packageFiles = await getFilesInDirectory("./packages")
-  const packageImports = await getImportsInFile("./packages/default.nix")
+async function assertAllModulesInDirectory(directory: string) {
+  const files = await getFilesInDirectory(`./${directory}`)
+  const imports = await getImportsInFile(`./${directory}/default.nix`)
 
-  console.log(packageFiles)
-  console.log(packageImports)
+  console.log(files)
+  console.log(imports)
 
-  for (const file of packageFiles) {
-    assert(packageImports.includes(file))
+  for (const file of files) {
+    assert(imports.includes(file))
   }
+}
+
+Deno.test("imports all modules in ./packages", async () => {
+  await assertAllModulesInDirectory("packages")
 })
