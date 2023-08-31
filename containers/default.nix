@@ -49,8 +49,7 @@
       imports = [
         stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
-        ../setup.nix
-        ../modules/pipewire.nix
+        ./common.nix
       ];
 
       networking.nat.forwardPorts = [
