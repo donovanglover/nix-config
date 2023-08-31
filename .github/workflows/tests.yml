@@ -7,16 +7,17 @@ on:
     branches: [ master ]
 
 jobs:
-  crystal:
+  deno:
     runs-on: ubuntu-latest
-    container:
-      image: crystallang/crystal
     steps:
     - uses: actions/checkout@v3
+    - uses: denoland/setup-deno@v1
+      with:
+        deno-version: v1.x
     - name: Run tests
-      run: crystal spec tests/main.cr --verbose
+      run: deno test tests/main.ts --allow-read
     - name: Check formatting
-      run: crystal tool format --check
+      run: deno fmt tests/ --check
   nix:
     runs-on: ubuntu-latest
     steps:
