@@ -3,7 +3,7 @@
     nixpkgs.url = "github:donovanglover/nixpkgs/personal-unstable";
 
     home-manager = {
-      url = "github:donovanglover/home-manager/personal-master";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
