@@ -32,14 +32,15 @@ async function assertAllModulesInDirectory(directory: string) {
   const files = await getFilesInDirectory(`./${directory}`)
   const imports = await getImportsInFile(`./${directory}/default.nix`)
 
-  console.log(files)
-  console.log(imports)
-
   for (const file of files) {
     assert(imports.includes(file))
   }
 }
 
-Deno.test("imports all modules in ./packages", async () => {
-  await assertAllModulesInDirectory("packages")
-})
+const dirs = ["containers", "home", "modules", "overlays", "packages", "specializations"]
+
+for (const dir of dirs) {
+  Deno.test(`imports all modules in ./${dir}`, async () => {
+    await assertAllModulesInDirectory(dir)
+  })
+}
