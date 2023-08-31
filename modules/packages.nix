@@ -24,6 +24,8 @@
     libreoffice
     inkscape
     krita
+    element-desktop
+    signal-desktop
 
     gdu
     fdupes
