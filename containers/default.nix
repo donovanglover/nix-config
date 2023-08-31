@@ -39,7 +39,8 @@ let
       }
     ];
   };
-in {
+in
+{
   systemd.tmpfiles.rules = [
     "d /run/user/1000 0700 user users -"
   ];
