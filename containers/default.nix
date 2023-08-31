@@ -4,17 +4,11 @@
 , ...
 }:
 
-{
-  systemd.tmpfiles.rules = [
-    "d /run/user/1000 0700 user users -"
-  ];
-
-  containers.wine = {
+let
+  template = {
     privateNetwork = true;
     ephemeral = true;
     autoStart = true;
-    hostAddress = "192.168.100.34";
-    localAddress = "192.168.100.49";
 
     bindMounts = {
       "/mnt" = {
@@ -44,6 +38,15 @@
         node = "/dev/dri/renderD128";
       }
     ];
+  };
+in {
+  systemd.tmpfiles.rules = [
+    "d /run/user/1000 0700 user users -"
+  ];
+
+  containers.wine = template // {
+    hostAddress = "192.168.100.34";
+    localAddress = "192.168.100.49";
 
     config = { lib, pkgs, ... }: {
       imports = [
