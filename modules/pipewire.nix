@@ -24,6 +24,7 @@ in
 
   security.rtkit.enable = true;
 
+  # Based on Mihai Fufezan's pipewireLowLatency.nix <https://github.com/fufexan/nix-gaming>
   environment.etc = {
     "pipewire/pipewire.d/99-lowlatency.conf".source = json.generate "99-lowlatency.conf" {
       context.properties.default.clock.min-quantum = quantum;

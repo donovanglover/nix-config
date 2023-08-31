@@ -23,6 +23,7 @@
       me-accept-entry = "MousePrimary";
     };
 
+    # Based on Newman Sánchez's Launchpad theme <https://github.com/newmanls/rofi-themes-collection>
     theme = let inherit (config.lib.formats.rasi) mkLiteral; in with config.lib.stylix.colors; lib.mkForce {
       "*" = {
         font = "Noto Sans CJK JP Bold 12";
