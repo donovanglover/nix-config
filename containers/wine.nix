@@ -91,6 +91,7 @@
         sakaya.packages.${pkgs.system}.sakaya
         rar
         unrar
+        iamb
       ];
 
       nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
