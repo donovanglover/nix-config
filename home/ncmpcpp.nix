@@ -5,7 +5,7 @@
 
   services.mpd = {
     enable = true;
-    musicDirectory = "/home/user/Music";
+    musicDirectory = "/home/user/音楽";
   };
 
   xdg.configFile = {
@@ -18,7 +18,7 @@
       text = /* bash */ ''
         #!/usr/bin/env bash
 
-        music_dir="$HOME/Music"
+        music_dir="$HOME/音楽"
         fallback_image="$HOME/a.jpg"
 
         main () {
