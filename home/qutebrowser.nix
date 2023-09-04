@@ -33,7 +33,7 @@
       };
 
       downloads = {
-        location.directory = "$HOME/Downloads";
+        location.directory = "$HOME/ダウンロード";
         location.prompt = false;
         position = "bottom";
         remove_finished = 5000;
