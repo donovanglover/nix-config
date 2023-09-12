@@ -25,7 +25,7 @@ in
       "center": [
         {
           "type": "launcher",
-          "icon_size": 40,
+          "icon_size": 39,
           "favorites": [
             "librewolf",
             "kitty",
