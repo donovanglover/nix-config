@@ -26,7 +26,7 @@
 
     shellAliases = {
       ls = "${pkgs.eza}/bin/eza --icons --group-directories-first -I 'lost+found'";
-      tree = "${pkgs.eza}/bin/eza --icons --group-directories-first --all --long --tree -I 'node_modules|.git|public|lost+found|target|.next|.cache|.nuxt'";
+      tree = "${pkgs.eza}/bin/eza --icons --group-directories-first --all --long --tree -I 'node_modules|.git|public|lost+found|target|.next|.cache|.nuxt|themes'";
       mv = "mv -i";
       cp = "cp -ia";
       rg = "${pkgs.ripgrep}/bin/rg --max-columns=2000 --smart-case";
