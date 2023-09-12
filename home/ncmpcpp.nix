@@ -19,7 +19,7 @@
         #!/usr/bin/env bash
 
         music_dir="$HOME/音楽"
-        fallback_image="$HOME/a.jpg"
+        fallback_image="${../assets/wallpaper.png}"
 
         main () {
             find_cover 2>/dev/null
