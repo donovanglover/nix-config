@@ -19,7 +19,13 @@
     };
 
     firewall = {
-      allowedUDPPorts = [ 5029 ];
+      allowedUDPPorts = [
+        5029
+      ];
+
+      allowedTCPPorts = [
+        1111
+      ];
     };
   };
 }
