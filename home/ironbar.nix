@@ -6,6 +6,7 @@ in
 {
   xdg.configFile."ironbar/config.json".text = /* json */ ''
     {
+      "name": "main",
       "icon_theme": "Fluent-dark",
       "position": "bottom",
       "anchor_to_edges": true,
