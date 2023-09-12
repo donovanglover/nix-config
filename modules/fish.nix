@@ -68,6 +68,8 @@
       grb = "git rebase --interactive";
       grbc = "git rebase --continue";
       gs = "git status";
+      gsma = "git submodule add";
+      gsmu = "git submodule update --init --remote --recursive";
       gst = "git stash";
       gstp = "git stash pop";
       gsw = "git switch";
