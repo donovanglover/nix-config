@@ -2,8 +2,11 @@
 
 My [NixOS] configuration with [Nix Flakes], [Home Manager], [Stylix], and [Hyprland].
 
-![A typical screenshot of what my nix-config looks like.](./cover.png)
-<sub>Background: ["Video game jam"](https://www.peppercarrot.com/en/viewer/misc__2023-06-12_video-game-jam_by-David-Revoy.html) by David Revoy, licensed under [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/deed.en).</sub>
+![A screenshot of Pepper looking earnestly at declaratively configured Git abbreviations for the fish shell, written in Nix.](./cover.jpg)
+<sub>Background art: [The market](https://www.peppercarrot.com/en/viewer/artworks__2022-02-21_The-market_by-David-Revoy.html), [In Bloom](https://www.peppercarrot.com/en/viewer/artworks__2022-03-02_In-Bloom_by-David-Revoy.html) and [Vertical cover book two screen](https://www.peppercarrot.com/en/viewer/artworks__2016-11-14_vertical-cover-book-two_screen_by-David-Revoy.html) by David Revoy − [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en).</sub>
+
+![A screenshot of a Rust programming environment with Neovim, kitty, and bacon.](./.github/screenshots/neovim.png)
+<sub>Background art: [Video game jam](https://www.peppercarrot.com/en/viewer/misc__2023-06-12_video-game-jam_by-David-Revoy.html) by David Revoy − [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.en).</sub>
 
 ## Features
 
