@@ -57,11 +57,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1693399033,
-        "narHash": "sha256-yXhiMo8MnE86sGtPIHAKaLHhmhe8v9tqGGotlUgKJvY=",
+        "lastModified": 1694469544,
+        "narHash": "sha256-eqZng5dZnAUyb7xXyFk5z871GY/++KVv3Gyld5mVh20=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "f5c15668f9842dd4d5430787d6aa8a28a07f7c10",
+        "rev": "5171f5ef654425e09d9c2100f856d887da595437",
         "type": "github"
       },
       "original": {
@@ -72,16 +72,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1693423196,
-        "narHash": "sha256-7BwjhPQ6Zol9fC6bV9QGrWjWuvRA7g5trB9f65wOM8Q=",
+        "lastModified": 1694550365,
+        "narHash": "sha256-bI2BhjHoApS4B3u8kCG8SSIlXzabir2gVOaRcisqsjc=",
         "owner": "donovanglover",
         "repo": "nixpkgs",
-        "rev": "1ec60d1f2d96bed54149274703cbf229003b533d",
+        "rev": "52d286788d47085678b2755624040890c29a8449",
         "type": "github"
       },
       "original": {
         "owner": "donovanglover",
-        "ref": "personal-unstable",
+        "ref": "personal-unstable-new",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -102,11 +102,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1693174311,
-        "narHash": "sha256-snqHuzaD1Cihs1pEsE8mbCaFNlr3X/lTD/7tPGm0S6k=",
+        "lastModified": 1694550655,
+        "narHash": "sha256-tTupmuwr8sXNxQl7g2qJSimZeBJXvumuLBgTqOX9Vb4=",
         "owner": "donovanglover",
         "repo": "sakaya",
-        "rev": "aeb1e9ed9035350c4f5dcdbeb056d97131d4620f",
+        "rev": "9b1a0aae12d8bf4589d8ed273f84b7cde9fb22bb",
         "type": "github"
       },
       "original": {
@@ -127,11 +127,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1691942466,
-        "narHash": "sha256-bK6FFbsKtyLKJLwgHerWp/EMMoWqE0UJk0KEbgYICbY=",
+        "lastModified": 1694375893,
+        "narHash": "sha256-oJGESNjJ/6o6tfuUavBZ7go4Oun7g9YKv7OqaQaY/80=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "beb35709c9a769a5f279d3177af778a15dcbda46",
+        "rev": "c3c9f4784b4f08f6676340126858d936edbce1fa",
         "type": "github"
       },
       "original": {
