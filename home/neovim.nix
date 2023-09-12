@@ -38,11 +38,12 @@ in
     crystal
     shards
 
-    # node/yarn/deno
+    # node/yarn/deno/bun
     nodejs
     nodePackages.npm
     yarn
     deno
+    bun
     nodePackages.typescript-language-server
     nodePackages."@astrojs/language-server"
     nodePackages.pnpm
