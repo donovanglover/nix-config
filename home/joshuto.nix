@@ -316,7 +316,7 @@
 
           { keys = [ "g" "r" ]; command = "cd /"; }
           { keys = [ "g" "c" ]; command = "cd ~/.config"; }
-          { keys = [ "g" "d" ]; command = "cd ~/Downloads"; }
+          { keys = [ "g" "d" ]; command = "cd ~/ダウンロード"; }
           { keys = [ "g" "e" ]; command = "cd /etc"; }
           { keys = [ "g" "h" ]; command = "cd ~/"; }
           { keys = [ "?" ]; command = "help"; }
