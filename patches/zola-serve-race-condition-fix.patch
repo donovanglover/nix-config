@@ -1,0 +1,40 @@
+From 25bf5d41182e7d15917ec2789dc08b74a7ed054c Mon Sep 17 00:00:00 2001
+From: Andrew Langmeier <raymi306@gmail.com>
+Date: Sun, 17 Sep 2023 14:46:59 -0400
+Subject: [PATCH] Attempt to prevent possible race condition
+
+If the site rebuilds and the config.toml file hasn't been moved over on top of the removed version, the site cannot rebuild correctly
+---
+ src/cmd/serve.rs | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
+
+diff --git a/src/cmd/serve.rs b/src/cmd/serve.rs
+index 35fd85f1f..2f7d48fba 100644
+--- a/src/cmd/serve.rs
++++ b/src/cmd/serve.rs
+@@ -669,6 +669,25 @@ pub fn serve(
+                                     site = s;
+                                 }
+                                 let entry = config_path_rel.to_str().unwrap_or("config.toml");
++                                let mut path_exists = false;
++                                let mut tries = 0;
++                                let max_attempts = 3;
++                                while tries < max_attempts {
++                                    if config_path.exists() {
++                                        path_exists = true;
++                                        break;
++                                    }
++                                    tries += 1;
++                                    thread::sleep(Duration::from_millis(100));
++                                }
++                                if !path_exists {
++                                    return Err(
++                                        std::io::Error::new(
++                                            std::io::ErrorKind::NotFound,
++                                            "Received NotifyRemove on a required file, and file did not reappear in time",
++                                        ).into()
++                                    );
++                                }
+                                 watcher
+                                     .watch(root_dir.join(entry), RecursiveMode::Recursive)
+                                     .with_context(|| format!("Can't watch `{}` for changes in folder `{}`. Does it exist, and do you have correct permissions?", entry, root_dir.display()))?;

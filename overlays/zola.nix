@@ -2,7 +2,10 @@
   nixpkgs.overlays = [
     (final: prev: {
       zola = prev.zola.overrideAttrs (oldAttrs: {
-        patches = (oldAttrs.patches or [ ]) ++ [ ../patches/zola-serve-fix.patch ];
+        patches = (oldAttrs.patches or [ ]) ++ [
+          ../patches/zola-serve-fix.patch
+          ../patches/zola-serve-race-condition-fix.patch
+        ];
       });
     })
   ];
