@@ -55,7 +55,7 @@
     rmlint
     sd
     smartmontools
-    # visidata
+    visidata
     scc
     hwinfo
     stress
@@ -67,7 +67,7 @@
     onefetch
     restic
     watchexec
-    # memento
+    memento
     mpvpaper
     timg
     ventoy
