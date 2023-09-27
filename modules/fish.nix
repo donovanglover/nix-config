@@ -98,6 +98,17 @@
       nr = "nix run";
       ncg = "sudo nix-collect-garbage d";
 
+      b = "bun";
+      br = "bun run";
+      bt = "bun test";
+      bi = "bun init";
+      bc = "bun create";
+      bin = "bun install";
+      ba = "bun add";
+      brm = "bun remove";
+      bu = "bun update";
+      bb = "bun build";
+
       ci = "cargo init";
       cin = "cargo info";
       cu = "cargo update";
