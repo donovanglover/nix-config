@@ -228,7 +228,13 @@ in
           lspconfig.clangd.setup {}
           lspconfig.texlab.setup {}
           lspconfig.crystalline.setup {}
-          lspconfig.tsserver.setup {}
+          lspconfig.denols.setup {
+            root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+          }
+          lspconfig.tsserver.setup {
+            root_dir = lspconfig.util.root_pattern("package.json"),
+            single_file_support = false
+          }
           lspconfig.astro.setup {}
           vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
           vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
