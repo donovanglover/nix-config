@@ -44,6 +44,7 @@ in
     yarn
     deno
     bun
+    biome
     nodePackages.typescript-language-server
     nodePackages."@astrojs/language-server"
     nodePackages.pnpm
