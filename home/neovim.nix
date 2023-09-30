@@ -304,7 +304,7 @@ in
             },
             max_width = 600,
             max_height = 400,
-            max_width_window_percentage = nil,
+            max_width_window_percentage = 40,
             max_height_window_percentage = 50,
             kitty_method = "normal",
             kitty_tmux_write_delay = 10,
