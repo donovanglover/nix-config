@@ -96,7 +96,7 @@
       nb = "nix build";
       ns = "nix shell";
       nr = "nix run";
-      ncg = "sudo nix-collect-garbage d";
+      ncg = "sudo nix-collect-garbage -d";
 
       b = "bun";
       br = "bun run";
