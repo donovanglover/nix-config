@@ -26,6 +26,7 @@
     krita
     element-desktop
     signal-desktop
+    ungoogled-chromium
 
     gdu
     fdupes
@@ -80,6 +81,7 @@
     wtype
     mtr
     cointop
+    tectonic
 
     poppler_utils
     wl-clipboard
@@ -100,6 +102,10 @@
     broot
     hyprdim
     nix-init
+
+    colorpanes
+    sanctity
+    didu
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
