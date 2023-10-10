@@ -9,6 +9,7 @@ let
     privateNetwork = true;
     ephemeral = true;
     autoStart = true;
+    restartIfChanged = false;
 
     bindMounts = {
       "/mnt" = {
