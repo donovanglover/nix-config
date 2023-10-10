@@ -93,7 +93,7 @@
     pipe-rename
     ironbar
     wallust
-    activate-linux-wayland
+    activate-linux
     tango
     obs-studio
     nvd

@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 
 let
-  vim-nix-rummik = pkgs.vimUtils.buildVimPluginFrom2Nix {
+  vim-nix-rummik = with pkgs.vimUtils; buildVimPlugin {
     pname = "vim-nix";
     version = "0def8020f152a51c011a707680780dac61a8989a";
 
@@ -196,7 +196,7 @@ in
         plugin = indent-blankline-nvim;
         type = "lua";
         config = /* lua */ ''
-          require("indent_blankline").setup()
+          require("ibl").setup()
         '';
       }
       {
