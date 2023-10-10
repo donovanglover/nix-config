@@ -24,6 +24,7 @@
 
       web.browser = "librewolf";
       push.default = "simple";
+      pull.rebase = true;
       branch.autosetuprebase = "always";
       init.defaultBranch = "master";
       rerere.enabled = true;
