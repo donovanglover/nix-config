@@ -452,6 +452,7 @@ in
       vim-nix-rummik
       fcitx-vim
       vim-astro
+      vim-svelte
     ];
   };
 
