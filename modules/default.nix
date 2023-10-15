@@ -2,6 +2,7 @@
   imports = [
     ./boot.nix
     ./cdemu.nix
+    ./docker.nix
     ./dual-function-keys.nix
     ./fish.nix
     ./fonts.nix
