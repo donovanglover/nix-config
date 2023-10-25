@@ -607,15 +607,14 @@
     # English
     ".git" = ""
     "Desktop" = ""
-    "Documents" = ""
-    "Downloads" = ""
-    "Dotfiles" = ""
-    "Dropbox" = ""
-    "Music" = ""
-    "Pictures" = ""
+    "ドキュメント" = ""
+    "ダウンロード" = ""
+    "nix-config" = ""
+    "音楽" = ""
+    "画像" = ""
     "Public" = ""
     "Templates" = ""
-    "Videos" = ""
+    "ビデオ" = ""
 
     # File exact match icons
     [file_exact]
