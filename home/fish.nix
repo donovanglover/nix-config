@@ -9,6 +9,7 @@
     export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
     export TERMCMD="kitty --single-instance"
     export XDG_DATA_DIRS="${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}:${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}:$XDG_DATA_DIRS"
+    export DIRENV_LOG_FORMAT=""
 
     # Required to make gpg-agent work in cases like git commit
     export GPG_TTY=(tty)
