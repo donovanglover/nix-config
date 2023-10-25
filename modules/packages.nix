@@ -24,6 +24,7 @@
     libreoffice
     inkscape
     krita
+    aegisub
     element-desktop
     signal-desktop
     ungoogled-chromium
@@ -74,6 +75,7 @@
     ventoy
     wf-recorder
     diskonaut
+    yazi
 
     zola
     file
@@ -82,6 +84,8 @@
     mtr
     cointop
     tectonic
+
+    cargo-tauri
 
     poppler_utils
     wl-clipboard
@@ -102,14 +106,20 @@
     broot
     hyprdim
     nix-init
+    leetcode-cli
+    diesel-cli
+    litecli
 
     colorpanes
     sanctity
     didu
+
+    timer
+    tasktimer
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "osu-lazer-bin"
+    "osu-lazer-bin-2023.1008.1"
   ];
 
   environment.defaultPackages = [ ];
