@@ -66,9 +66,13 @@ in
     # lua
     lua-language-server
 
-    # tex
+    # tex/typst
     texlive.combined.scheme-full
     texlab
+    typst
+    typstfmt
+    typst-lsp
+    typst-live
   ];
 
   editorconfig = {
@@ -236,6 +240,11 @@ in
             single_file_support = false
           }
           lspconfig.astro.setup {}
+          lspconfig.typst_lsp.setup {
+            settings = {
+              exportPdf = "onSave"
+            }
+          }
           vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
           vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
           vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
@@ -453,6 +462,7 @@ in
       fcitx-vim
       vim-astro
       vim-svelte
+      typst-vim
     ];
   };
 
