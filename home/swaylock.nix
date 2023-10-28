@@ -2,7 +2,7 @@
 
 {
   programs.swaylock = {
-    package = pkgs."swaylock-effects";
+    package = pkgs.swaylock-effects;
 
     settings = {
       show-keyboard-layout = true;

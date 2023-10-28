@@ -7,9 +7,9 @@
     "/share/thumbnailers"
   ];
 
-  environment.systemPackages = [
-    (pkgs.callPackage ./osu-backgrounds.nix { })
-    (pkgs.callPackage ./fluent-icons.nix { })
-    (pkgs.callPackage ./webp-thumbnailer.nix { })
+  environment.systemPackages = with pkgs; [
+    (callPackage ./osu-backgrounds.nix { })
+    (callPackage ./fluent-icons.nix { })
+    (callPackage ./webp-thumbnailer.nix { })
   ];
 }

@@ -15,24 +15,24 @@ in
     popups = opacity;
   };
 
-  stylix.fonts = {
+  stylix.fonts = with pkgs; {
     serif = {
-      package = pkgs.noto-fonts-cjk-sans;
+      package = noto-fonts-cjk-sans;
       name = "Noto Sans CJK JP";
     };
 
     sansSerif = {
-      package = pkgs.noto-fonts-cjk-sans;
+      package = noto-fonts-cjk-sans;
       name = "Noto Sans CJK JP";
     };
 
     monospace = {
-      package = pkgs.maple-mono;
+      package = maple-mono;
       name = "Maple Mono";
     };
 
     emoji = {
-      package = pkgs.noto-fonts-emoji;
+      package = noto-fonts-emoji;
       name = "Noto Color Emoji";
     };
 

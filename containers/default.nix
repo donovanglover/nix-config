@@ -95,7 +95,7 @@ in
       environment.systemPackages = with pkgs; [
         wineWowPackages.stagingFull
         winetricks
-        sakaya.packages.${pkgs.system}.sakaya
+        sakaya.packages.${system}.sakaya
         rar
         unrar
         iamb

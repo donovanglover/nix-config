@@ -11,7 +11,7 @@
     treefmt
     jamesdsp
     zbar
-    sakaya.packages.${pkgs.system}.sakaya
+    sakaya.packages.${system}.sakaya
 
     logseq
     mullvad-browser

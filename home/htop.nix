@@ -3,7 +3,7 @@
 {
   programs.htop = {
     enable = true;
-    package = pkgs."htop-vim";
+    package = pkgs.htop-vim;
 
     settings = {
       tree_view = 1;
