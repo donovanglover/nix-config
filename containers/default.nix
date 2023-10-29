@@ -110,7 +110,6 @@ in
       environment.sessionVariables = {
         LC_ALL = "ja_JP.UTF-8";
         TZ = "Asia/Tokyo";
-        WINEPREFIX = "/mnt/wine";
       };
     };
   };
