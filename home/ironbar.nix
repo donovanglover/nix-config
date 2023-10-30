@@ -35,7 +35,7 @@ in
             "org.qutebrowser.qutebrowser",
             "Logseq",
             "spek",
-            "mullvadbrowser"
+            "Mullvad Browser"
           ]
         }
       ],
