@@ -48,7 +48,7 @@ in
       #!/usr/bin/env fish
 
       cd ~/.config/hypr
-      ./set-bg.fish "$(random choice $(fd . /run/current-system/sw/share/backgrounds --follow -e jpg -e png))"
+      ./set-bg.fish "$(random choice $(fd . /run/current-system/sw/share/backgrounds/2023-10-22-Halloween-2023-Fanart-Contest-Finalists --follow -e jpg -e png))"
     '';
   };
 
