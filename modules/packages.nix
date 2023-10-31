@@ -57,7 +57,7 @@
     rmlint
     sd
     smartmontools
-    visidata
+    # visidata
     scc
     hwinfo
     stress
@@ -119,8 +119,12 @@
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "osu-lazer-bin-2023.1008.1"
+    "osu-lazer-bin-2023.1026.0"
   ];
 
   environment.defaultPackages = [ ];
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-24.8.6" # logseq
+  ];
 }

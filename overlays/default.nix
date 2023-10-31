@@ -1,7 +1,7 @@
 {
   imports = [
     ./alejandra.nix
-    ./fzf.nix
+    ./cmus.nix
     ./hyprnome.nix
     ./zola.nix
   ];
