@@ -5,7 +5,7 @@
 
 stdenvNoCC.mkDerivation {
   pname = "osu-backgrounds";
-  version = "2023-07-27";
+  version = "2023-10-22";
 
   srcs = [
     (fetchurl {
@@ -150,6 +150,12 @@ stdenvNoCC.mkDerivation {
       name = "2018-08-09 Summer 2018 Fanart Contest Winners.zip";
       url = "https://files.catbox.moe/sy7yuq.zip";
       hash = "sha256-TYupEImxY2EoIgXj4igw7m5S509KCl5dnE216fZ2QF0=";
+    })
+
+    (fetchurl {
+      name = "2023-10-22 Halloween 2023 Fanart Contest Finalists.zip";
+      url = "https://assets.ppy.sh/contests/186/Halloween2023Finalists.zip";
+      hash = "sha256-PuqK+tz9OXE2KsXIDi59WZ8aGs6V7MFNrlxWs5TYQZY=";
     })
   ];
 
