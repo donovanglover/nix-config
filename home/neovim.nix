@@ -464,6 +464,7 @@ in
       vim-astro
       vim-svelte
       typst-vim
+      nvim-treesitter.withAllGrammars
     ];
   };
 
