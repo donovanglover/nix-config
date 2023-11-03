@@ -57,7 +57,7 @@
     rmlint
     sd
     smartmontools
-    # visidata
+    visidata
     scc
     hwinfo
     stress
@@ -123,8 +123,4 @@
   ];
 
   environment.defaultPackages = [ ];
-
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-24.8.6" # logseq
-  ];
 }
