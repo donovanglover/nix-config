@@ -152,6 +152,7 @@
       n = "nvim";
       j = "joshuto";
       t = "tree";
+      z = "zathura";
     };
   };
 }
