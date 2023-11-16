@@ -87,7 +87,6 @@
         m4v."inherit" = "video_default";
         mov."inherit" = "video_default";
         mp4."inherit" = "video_default";
-        ts."inherit" = "video_default";
         webm."inherit" = "video_default";
         wmv."inherit" = "video_default";
 
@@ -129,6 +128,7 @@
         srt."inherit" = "text_default";
         svelte."inherit" = "text_default";
         toml."inherit" = "text_default";
+        ts."inherit" = "text_default";
         tsx."inherit" = "text_default";
         txt."inherit" = "text_default";
         vim."inherit" = "text_default";
