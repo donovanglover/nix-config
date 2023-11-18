@@ -96,7 +96,6 @@
     srb2
     crystalline
     thud
-    pipe-rename
     ironbar
     wallust
     activate-linux
@@ -116,6 +115,7 @@
 
     timer
     tasktimer
+    nix-search-cli
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
