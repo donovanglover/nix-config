@@ -41,7 +41,6 @@
       MOZ_ENABLE_WAYLAND = "1";
       XDG_RUNTIME_DIR = "/run/user/1000";
       DISPLAY = ":0";
-      XCURSOR_SIZE = "24";
       GTK_IM_MODULE = "fcitx";
       QT_IM_MODULE = "fcitx";
       XMODIFIERS = "@im=fcitx";

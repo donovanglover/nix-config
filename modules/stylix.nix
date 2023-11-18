@@ -15,6 +15,12 @@ in
     popups = opacity;
   };
 
+  stylix.cursor = with pkgs; {
+    package = phinger-cursors;
+    name = "phinger-cursors";
+    size = 24;
+  };
+
   stylix.fonts = with pkgs; {
     serif = {
       package = noto-fonts-cjk-sans;
