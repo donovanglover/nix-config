@@ -32,12 +32,14 @@ in
           --transition-step 200 \
           --transition-duration 1.5 \
           --transition-fps 240 \
-          "$argv"
+          --outputs "$argv[1]" \
+          "$argv[2]"
       else
         swww img \
           --transition-type simple \
           --transition-step 255 \
-          "$argv"
+          --outputs "$argv[1]" \
+          "$argv[2]"
       end
     '';
   };
@@ -48,7 +50,10 @@ in
       #!/usr/bin/env fish
 
       cd ~/.config/hypr
-      ./set-bg.fish "$(random choice $(fd . /run/current-system/sw/share/backgrounds --follow -e jpg -e png))"
+
+      for monitor in (hyprctl monitors -j | jq -r '.[].name')
+        ./set.fish "$monitor" "$(random choice $(fd . /run/current-system/sw/share/backgrounds --follow -e jpg -e png))"
+      end
     '';
   };
 
