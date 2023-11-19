@@ -93,6 +93,7 @@
       nf = "nix flake";
       nfu = "nix flake update";
       nfl = "nix flake lock --update-input";
+      npr = "nixpkgs-review pr --print-result";
       nd = "nix develop --command fish";
       nb = "nix build";
       ns = "nix shell";
