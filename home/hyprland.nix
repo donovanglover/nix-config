@@ -70,7 +70,6 @@ in
     env=SWWW_TRANSITION_DURATION,1.5
     env=SWWW_TRANSITION_FPS,240
     env=SWWW_TRANSITION_WAVE,80,40
-    env=WLR_NO_HARDWARE_CURSORS,1
     monitor=,preferred,auto,1
 
     exec-once = sleep 0.1; swww init
