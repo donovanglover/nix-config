@@ -312,7 +312,6 @@
 
           { keys = [ "m" "s" ]; command = "linemode size"; }
           { keys = [ "m" "m" ]; command = "linemode mtime"; }
-          { keys = [ "m" "M" ]; command = "linemode sizemtime"; }
 
           { keys = [ "g" "r" ]; command = "cd /"; }
           { keys = [ "g" "c" ]; command = "cd ~/.config"; }
