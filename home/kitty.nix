@@ -18,6 +18,8 @@
 
       window_padding_width = 5;
       tab_bar_margin_width = 5;
+
+      scrollback_pager = "less --chop-long-lines --raw-control-chars +INPUT_LINE_NUMBER";
     };
 
     extraConfig = with config.lib.stylix.colors; ''
