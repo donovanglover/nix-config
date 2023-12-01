@@ -58,7 +58,12 @@
       kotlin.symbol = "kt ";
       memory_usage.symbol = "memory ";
       nim.symbol = "nim ";
-      nix_shell.symbol = "nix ";
+
+      nix_shell = {
+        format = "❄️ ";
+        symbol = "nix ";
+      };
+
       ocaml.symbol = "ml ";
       package.symbol = "pkg ";
       perl.symbol = "pl ";
