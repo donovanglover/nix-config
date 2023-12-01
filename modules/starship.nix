@@ -72,6 +72,12 @@
       python.symbol = "python ";
       ruby.symbol = "ruby ";
       rust.symbol = "rust ";
+
+      bun = {
+        symbol = "bun ";
+        disabled = true;
+      };
+
       scala.symbol = "scala ";
       swift.symbol = "swift ";
     };
