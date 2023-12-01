@@ -71,7 +71,11 @@
       purescript.symbol = "purs ";
       python.symbol = "python ";
       ruby.symbol = "ruby ";
-      rust.symbol = "rust ";
+
+      rust = {
+        symbol = "rust ";
+        disabled = true;
+      };
 
       bun = {
         symbol = "bun ";
