@@ -12,6 +12,8 @@
 
     useHostResolvConf = true;
 
+    resolvconf.enable = false;
+
     nat = {
       enable = true;
       internalInterfaces = [ "ve-+" ];
