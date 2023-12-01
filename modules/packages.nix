@@ -116,6 +116,7 @@
     timer
     tasktimer
     nix-search-cli
+    satty
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
