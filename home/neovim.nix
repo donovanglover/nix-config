@@ -74,6 +74,9 @@ in
     typstfmt
     typst-lsp
     typst-live
+
+    # ctags
+    universal-ctags
   ];
 
   editorconfig = {
@@ -161,6 +164,7 @@ in
       nnoremap <silent> <leader>l :Rg<CR>
       nnoremap <silent> <leader>; :NvimTreeToggle<CR>
       nnoremap <silent> <leader>z :ZenMode<CR>
+      nnoremap <silent> <leader>b :TagbarToggle<CR>
       vnoremap <C-s> y:silent !notify-send -t 4000 "成果" "$(tango '<C-r>0')"<CR>:<Esc>
 
       autocmd BufNewFile,BufRead *.ecr    setlocal syntax=html
@@ -289,7 +293,7 @@ in
           require('lualine').setup {
             options = {
               theme = theme,
-              disabled_filetypes = {'NvimTree'}
+              disabled_filetypes = {'NvimTree', 'tagbar'}
             },
             sections = { lualine_c = {'%f'} }
           }
@@ -465,6 +469,7 @@ in
       vim-svelte
       typst-vim
       nvim-treesitter.withAllGrammars
+      tagbar
     ];
   };
 
