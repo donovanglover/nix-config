@@ -298,7 +298,6 @@ in
             'prismals',
             'tailwindcss',
             'emmet_language_server',
-            'denols',
             'tsserver',
             'astro',
             'typst_lsp'
