@@ -282,7 +282,22 @@ in
           local lspconfig = require('lspconfig')
 
           -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-          local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver' }
+          local servers = {
+            'nil_ls',
+            'rust_analyzer',
+            'marksman',
+            'gopls',
+            'lua_ls',
+            'clangd',
+            'texlab',
+            'crystalline',
+            'emmet_language_server',
+            'denols',
+            'tsserver',
+            'astro',
+            'typst_lsp'
+          }
+
           for _, lsp in ipairs(servers) do
             lspconfig[lsp].setup {
               -- on_attach = my_custom_on_attach,
