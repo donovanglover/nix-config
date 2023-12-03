@@ -47,6 +47,7 @@ in
     biome
     nodePackages.typescript-language-server
     nodePackages."@astrojs/language-server"
+    nodePackages."@prisma/language-server"
     nodePackages.pnpm
 
     # rust
@@ -237,6 +238,7 @@ in
           lspconfig.clangd.setup {}
           lspconfig.texlab.setup {}
           lspconfig.crystalline.setup {}
+          lspconfig.prismals.setup {}
           lspconfig.emmet_language_server.setup {}
           lspconfig.denols.setup {
             root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
@@ -291,6 +293,7 @@ in
             'clangd',
             'texlab',
             'crystalline',
+            'prismals',
             'emmet_language_server',
             'denols',
             'tsserver',
