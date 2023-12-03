@@ -525,6 +525,13 @@ in
           require('alpha').setup(startify.config)
         '';
       }
+      {
+        plugin = nvim-ts-autotag;
+        type = "lua";
+        config = /* lua */ ''
+          require('nvim-ts-autotag').setup()
+        '';
+      }
       fzf-vim
       vim-caddyfile
       vim-graphql
