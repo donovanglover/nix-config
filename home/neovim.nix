@@ -77,9 +77,6 @@ in
 
     # ctags
     universal-ctags
-
-    # emmet
-    emmet-ls
   ];
 
   editorconfig = {
@@ -240,7 +237,7 @@ in
           lspconfig.clangd.setup {}
           lspconfig.texlab.setup {}
           lspconfig.crystalline.setup {}
-          lspconfig.emmet_ls.setup {}
+          lspconfig.emmet_language_server.setup {}
           lspconfig.denols.setup {
             root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
           }
