@@ -49,6 +49,7 @@ in
     nodePackages."@astrojs/language-server"
     nodePackages."@prisma/language-server"
     nodePackages.pnpm
+    tailwindcss-language-server
 
     # rust
     rustc
@@ -239,6 +240,7 @@ in
           lspconfig.texlab.setup {}
           lspconfig.crystalline.setup {}
           lspconfig.prismals.setup {}
+          lspconfig.tailwindcss.setup {}
           lspconfig.emmet_language_server.setup {}
           lspconfig.denols.setup {
             root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
@@ -294,6 +296,7 @@ in
             'texlab',
             'crystalline',
             'prismals',
+            'tailwindcss',
             'emmet_language_server',
             'denols',
             'tsserver',
