@@ -34,7 +34,7 @@
     };
 
     bindings = {
-      "ctrl+shift+a" = "script-message osc-visibility cycle";
+      "ctrl+a" = "script-message osc-visibility cycle";
     };
 
     scripts = with pkgs.mpvScripts; [
