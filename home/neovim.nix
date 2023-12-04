@@ -79,6 +79,9 @@ in
 
     # ctags
     universal-ctags
+
+    # emmet
+    emmet-language-server
   ];
 
   editorconfig = {
