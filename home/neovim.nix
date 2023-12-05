@@ -234,26 +234,18 @@ in
         type = "lua";
         config = /* lua */ ''
           local lspconfig = require('lspconfig')
-          lspconfig.nil_ls.setup {}
-          lspconfig.rust_analyzer.setup {}
-          lspconfig.marksman.setup {}
-          lspconfig.gopls.setup {}
-          lspconfig.lua_ls.setup {}
-          lspconfig.clangd.setup {}
-          lspconfig.texlab.setup {}
-          lspconfig.crystalline.setup {}
-          lspconfig.prismals.setup {}
-          lspconfig.tailwindcss.setup {}
-          lspconfig.emmet_language_server.setup {}
+          local capabilities = require("cmp_nvim_lsp").default_capabilities()
           lspconfig.denols.setup {
+            capabilities = capabilities,
             root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
           }
           lspconfig.tsserver.setup {
+            capabilities = capabilities,
             root_dir = lspconfig.util.root_pattern("package.json"),
             single_file_support = false
           }
-          lspconfig.astro.setup {}
           lspconfig.typst_lsp.setup {
+            capabilities = capabilities,
             settings = {
               exportPdf = "onSave"
             }
@@ -301,9 +293,7 @@ in
             'prismals',
             'tailwindcss',
             'emmet_language_server',
-            'tsserver',
             'astro',
-            'typst_lsp'
           }
 
           for _, lsp in ipairs(servers) do
