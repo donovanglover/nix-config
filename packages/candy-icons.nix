@@ -4,13 +4,13 @@
 }:
 
 stdenvNoCC.mkDerivation {
-  pname = "fluent-icons";
-  version = "2023-08-07";
+  pname = "candy-icons";
+  version = "2023-12-07";
 
   src = fetchurl {
-    name = "Fluent Icons.zip";
-    url = "https://files.catbox.moe/a6iswm.zip";
-    hash = "sha256-LsMZr+RedK2Vi21K44A/vpBv54BISjshZ2+iAlMYASU=";
+    name = "Candy Icons.zip";
+    url = "https://files.catbox.moe/zn84ts.zip";
+    hash = "sha256-X2P4SAERpXEkNX0w6qLS3BEbdYtQiST/cimdmrfFY6E=";
   };
 
   nativeBuildInputs = [ unar ];
@@ -34,7 +34,7 @@ stdenvNoCC.mkDerivation {
   '';
 
   meta = {
-    homepage = "https://github.com/vinceliuice/Fluent-icon-theme";
-    description = "Fluent folder icons converted to png";
+    homepage = "https://github.com/EliverLara/candy-icons";
+    description = "Candy folder icons converted to png";
   };
 }

@@ -9,7 +9,7 @@
 
   environment.systemPackages = with pkgs; [
     (callPackage ./osu-backgrounds.nix { })
-    (callPackage ./fluent-icons.nix { })
+    (callPackage ./candy-icons.nix { })
     (callPackage ./webp-thumbnailer.nix { })
   ];
 }
