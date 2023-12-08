@@ -52,7 +52,7 @@ in
       cd ~/.config/hypr
 
       for monitor in (hyprctl monitors -j | jq -r '.[].name')
-        ./set-bg.fish "$monitor" "$(random choice $(fd . /run/current-system/sw/share/backgrounds --follow -e jpg -e png))"
+        ./set-bg.fish "$monitor" "$(random choice $(fd . /run/current-system/sw/share/backgrounds/2023-12-07-Winter-2023-Fanart-Contest-Finalists --follow -e jpg -e png))"
       end
     '';
   };
