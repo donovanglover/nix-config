@@ -171,7 +171,7 @@ in
     bind = $SUPER_SHIFT, Q, killactive
     bind = $SUPER, W, exec, ~/.config/hypr/random-bg.fish
     bind = $SUPER, P, exec, dunstify --icon=$(grimblast save screen) Screenshot Captured.
-    bind = , Print, exec, grimblast copy area
+    bind = , Print, exec, grimblast --freeze copy area
     bind = $SUPER_ALT, delete, exit
     bind = $SUPER, T, exec, tessen
     bind = $SUPER, V, togglefloating
