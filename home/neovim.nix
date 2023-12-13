@@ -74,7 +74,7 @@ in
     texlab
     typst
     typstfmt
-    typst-lsp
+    # typst-lsp
     typst-live
 
     # ctags

@@ -123,5 +123,9 @@
     "osu-lazer-bin-2023.1130.0"
   ];
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-25.9.0"
+  ];
+
   environment.defaultPackages = [ ];
 }
