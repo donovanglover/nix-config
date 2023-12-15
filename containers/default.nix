@@ -93,7 +93,7 @@ in
       };
 
       environment.systemPackages = with pkgs; [
-        wineWowPackages.stagingFull
+        wineWowPackages.waylandFull
         winetricks
         sakaya.packages.${system}.sakaya
         rar
