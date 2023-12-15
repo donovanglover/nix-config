@@ -2,7 +2,7 @@
 
 {
   nix = {
-    package = pkgs.nixFlakes;
+    package = with pkgs.nixVersions; nix_2_19;
 
     settings = {
       experimental-features = [ "nix-command" "flakes" "repl-flake" ];
