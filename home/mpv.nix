@@ -39,6 +39,7 @@
 
     scripts = with pkgs.mpvScripts; [
       mpris
+      uosc
       thumbfast
     ];
   };
