@@ -543,6 +543,13 @@ in
           require('nvim-ts-autotag').setup()
         '';
       }
+      {
+        plugin = nvim-surround;
+        type = "lua";
+        config = /* lua */ ''
+          require('nvim-surround').setup()
+        '';
+      }
       cosco-vim
       fzf-vim
       vim-caddyfile
