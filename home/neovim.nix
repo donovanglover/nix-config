@@ -160,7 +160,7 @@ in
       nnoremap <silent> <leader>e :set nu!<CR>
       nnoremap <silent> <leader>t :OverCommandLine<CR>%s/
       nnoremap <silent> <leader>o :GitBlameToggle<CR>
-      nnoremap <silent> <leader>a <C-w>w
+      nnoremap <silent> <leader>a :NvimTreeFocus<CR>
       nnoremap <silent> <leader>s :Alpha<CR>
       nnoremap <silent> <leader>d :Bdelete<CR>
       nnoremap <silent> <leader>f :Files<CR>
