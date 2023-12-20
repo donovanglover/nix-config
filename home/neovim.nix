@@ -575,6 +575,7 @@ in
       emmet-vim
       nvim-treesitter.withAllGrammars
       tagbar
+      yats-vim
     ];
   };
 
