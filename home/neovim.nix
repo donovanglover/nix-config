@@ -59,6 +59,7 @@ in
     cargo-audit
     cargo-license
     cargo-feature
+    cargo-tarpaulin
     rust-analyzer
     bacon
     clippy
