@@ -482,7 +482,11 @@
 
         handle_extension() {
             case "''${FILE_EXTENSION_LOWER}" in
-                lock)
+                ts | js | lock)
+                    bat --color=always --paging=never \
+                        --style=plain \
+                        --terminal-width="''${PREVIEW_WIDTH}" \
+                        "''${FILE_PATH}" && exit 0
                     cat "''${FILE_PATH}" && exit 0
                     exit 1;;
 
