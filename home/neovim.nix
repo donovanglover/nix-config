@@ -84,6 +84,9 @@ in
 
     # emmet
     emmet-language-server
+
+    # sql
+    sqlite
   ];
 
   editorconfig = {
@@ -303,6 +306,7 @@ in
             'crystalline',
             'prismals',
             'tailwindcss',
+            'sqlls',
             'emmet_language_server',
             'astro',
           }
