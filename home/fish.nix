@@ -10,6 +10,11 @@
     export TERMCMD="kitty --single-instance"
     export XDG_DATA_DIRS="${gsettings-desktop-schemas}/share/gsettings-schemas/${gsettings-desktop-schemas.name}:${gtk3}/share/gsettings-schemas/${gtk3.name}:$XDG_DATA_DIRS"
     export DIRENV_LOG_FORMAT=""
+    export PRISMA_SCHEMA_ENGINE_BINARY="${prisma-engines}/bin/schema-engine"
+    export PRISMA_QUERY_ENGINE_BINARY="${prisma-engines}/bin/query-engine"
+    export PRISMA_QUERY_ENGINE_LIBRARY="${prisma-engines}/lib/libquery_engine.node"
+    export PRISMA_INTROSPECTION_ENGINE_BINARY="${prisma-engines}/bin/introspection-engine"
+    export PRISMA_FMT_BINARY="${prisma-engines}/bin/prisma-fmt"
 
     # Required to make gpg-agent work in cases like git commit
     export GPG_TTY=(tty)
