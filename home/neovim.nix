@@ -50,6 +50,7 @@ in
     nodePackages."@prisma/language-server"
     nodePackages.pnpm
     tailwindcss-language-server
+    vscode-langservers-extracted
 
     # rust
     rustc
@@ -251,6 +252,14 @@ in
             settings = {
               exportPdf = "onSave"
             }
+          }
+          lspconfig.eslint.setup {
+            on_attach = function(client, bufnr)
+              vim.api.nvim_create_autocmd("BufWritePre", {
+                buffer = bufnr,
+                command = "EslintFixAll",
+              })
+            end
           }
           vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
           vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
