@@ -455,7 +455,11 @@ in
       {
         plugin = comment-nvim;
         type = "lua";
-        config = ''require('Comment').setup()'';
+        config = /* lua */ ''
+          require('Comment').setup {
+            pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook()
+          }
+        '';
       }
       {
         plugin = zen-mode-nvim;
@@ -587,6 +591,15 @@ in
         type = "lua";
         config = /* lua */ ''
           require('tailwindcss-colors').setup()
+        '';
+      }
+      {
+        plugin = nvim-ts-context-commentstring;
+        type = "lua";
+        config = /* lua */ ''
+          require('ts_context_commentstring').setup {
+            enable_autocmd = false,
+          }
         '';
       }
       cosco-vim
