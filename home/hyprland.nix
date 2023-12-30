@@ -10,7 +10,7 @@ in
   xdg.configFile."hypr/gaps.sh" = {
     executable = true;
     text = /* bash */ ''
-      #/usr/bin/env bash
+      #!/usr/bin/env bash
       hyprctl keyword general:gaps_out $((10 - $(hyprctl getoption general:gaps_out -j | jq -r ".int")))
       hyprctl keyword general:gaps_in $((5 - $(hyprctl getoption general:gaps_in -j | jq -r ".int")))
       hyprctl keyword general:border_size $((2 - $(hyprctl getoption general:border_size -j | jq -r ".int")))
