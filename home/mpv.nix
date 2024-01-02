@@ -8,6 +8,7 @@
       video-sync = "display-resample";
       interpolation = true;
       tscale = "oversample";
+      fullscreen = true;
 
       sub-auto = "fuzzy";
       sub-font = "Noto Sans CJK JP Medium";
