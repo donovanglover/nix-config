@@ -5,12 +5,12 @@
 
 stdenvNoCC.mkDerivation {
   pname = "fluent-icons";
-  version = "2023-08-07";
+  version = "2024-01-02";
 
   src = fetchurl {
     name = "Fluent Icons.zip";
-    url = "https://files.catbox.moe/a6iswm.zip";
-    hash = "sha256-LsMZr+RedK2Vi21K44A/vpBv54BISjshZ2+iAlMYASU=";
+    url = "https://files.catbox.moe/1we56t.zip";
+    hash = "sha256-J530v9QRGv/c0PBYcCVpGSgqvirlx4eQzsP+Kqhft8A=";
   };
 
   nativeBuildInputs = [ unar ];
