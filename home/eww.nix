@@ -6,12 +6,12 @@
   xdg.configFile."eww/eww.yuck".text = /* yuck */ ''
     (defwidget icons []
       (box :orientation "h" :spacing 32
-        (icon :img "grey-user-home" :exec "/home/user")
-        (icon :img "grey-folder-download" :exec "/home/user/ダウンロード")
-        (icon :img "grey-folder-documents" :exec "/home/user/ドキュメント")
-        (icon :img "grey-folder-music" :exec "/home/user/音楽")
-        (icon :img "grey-folder-pictures" :exec "/home/user/画像")
-        (icon :img "grey-folder-video" :exec "/home/user/ビデオ")))
+        (icon :img "default-user-home" :exec "/home/user")
+        (icon :img "default-folder-download" :exec "/home/user/ダウンロード")
+        (icon :img "default-folder-documents" :exec "/home/user/ドキュメント")
+        (icon :img "default-folder-music" :exec "/home/user/音楽")
+        (icon :img "default-folder-pictures" :exec "/home/user/画像")
+        (icon :img "default-folder-video" :exec "/home/user/ビデオ")))
 
     (defwidget icon [img exec]
       (eventbox :cursor "pointer" :onclick "lnch thunar ''${exec}" :tooltip "''${exec}"
