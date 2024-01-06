@@ -73,6 +73,7 @@ in
     cargo-license
     cargo-feature
     cargo-tarpaulin
+    cargo-edit
     rust-analyzer
     bacon
     clippy
