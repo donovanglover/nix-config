@@ -83,15 +83,6 @@
       c.colors.contextmenu.menu.fg = '#ffffff'
       c.colors.contextmenu.selected.bg = '#909090'
 
-      # Increase the default scroll offset of j/k
-      # NOTE: Unfortunately this breaks websites that use their own keybinds for j/k/etc
-      # config.bind('j', 'run-with-count 5 scroll down')
-      # config.bind('k', 'run-with-count 5 scroll up')
-
-      # NOTE: Use with smooth scrolling enabled to scroll smoothly
-      # config.bind('d', 'run-with-count 12 scroll down')
-      # config.bind('u', 'run-with-count 12 scroll up')
-
       # Don't paste something by accident
       config.unbind('pp', mode='normal')
       config.unbind('pP', mode='normal')
@@ -106,21 +97,8 @@
       config.bind('zpl', 'spawn --userscript qute-pass --password-only')
       config.bind('zol', 'spawn --userscript qute-pass --otp-only')
 
-      # Hide the status bar except under exceptional circumstances
-      # NOTE: This broke more things than not, which is why I ultimately decided
-      #       to always use the status bar. More information can be found in the
-      #       following discussion: https://github.com/qutebrowser/qutebrowser/issues/2236
-      # config.bind('o', 'set statusbar.show always;; set-cmd-text -s :open')
-      # config.bind('O', 'set statusbar.show always;; set-cmd-text -s :open -t')
-      # config.bind('T', 'set statusbar.show always;; set-cmd-text -sr :tab-focus')
-      # config.bind(':', 'set statusbar.show always;; set-cmd-text :')
-      # config.bind('/', 'set statusbar.show always;; set-cmd-text /')
-      # config.bind('<Escape>', 'mode-enter normal;; set statusbar.show in-mode', mode='command')
       config.bind('zM', 'spawn mpv --force-window=immediate {url}')
       config.bind('zm', 'hint links spawn mpv --force-window=immediate {hint-url}')
-
-      # Use proxy websites for popular services
-      config.bind('zu', 'hint links spawn -u untrack-url -O {hint-url}')
 
       # Don't automatically enter/leave insert mode
       # NOTE: This was originally done to prevent insert mode from prematurely exiting
