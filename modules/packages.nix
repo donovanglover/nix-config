@@ -4,7 +4,6 @@
   environment.systemPackages = with pkgs; [
     grimblast
     slade
-    typespeed
     osu-lazer-bin
     (pass.withExtensions (ext: with ext; [ pass-otp ]))
     pass
@@ -28,6 +27,7 @@
     element-desktop
     signal-desktop
     ungoogled-chromium
+    qbittorrent
 
     gdu
     fdupes
@@ -76,6 +76,8 @@
     wf-recorder
     diskonaut
     yazi
+    nodePackages.prisma
+    openssl
 
     zola
     file
@@ -87,10 +89,12 @@
 
     cargo-tauri
 
+    pipe-rename
     poppler_utils
     wl-clipboard
     lnch
     wev
+    dmenu-wayland
     python311Packages.icoextract
     swww
     srb2
@@ -102,10 +106,8 @@
     tango
     obs-studio
     nvd
-    broot
     hyprdim
     nix-init
-    leetcode-cli
     diesel-cli
     litecli
 
@@ -117,6 +119,10 @@
     tasktimer
     nix-search-cli
     satty
+    aaaaxy
+    lutgen
+    sudachi-rs
+    tui-journal
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
