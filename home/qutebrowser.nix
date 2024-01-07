@@ -83,6 +83,9 @@
       c.colors.contextmenu.menu.fg = '#ffffff'
       c.colors.contextmenu.selected.bg = '#909090'
 
+      # Don't artificially change webpage colors
+      c.colors.webpage.darkmode.enabled = False
+
       # Don't paste something by accident
       config.unbind('pp', mode='normal')
       config.unbind('pP', mode='normal')
