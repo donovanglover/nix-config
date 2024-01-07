@@ -100,13 +100,6 @@
       config.bind('zM', 'spawn mpv --force-window=immediate {url}')
       config.bind('zm', 'hint links spawn mpv --force-window=immediate {hint-url}')
 
-      # Don't automatically enter/leave insert mode
-      # NOTE: This was originally done to prevent insert mode from prematurely exiting
-      #       in certain # cases (such as mouse usage), although keeping auto functionality
-      #       seems to be more useful # long-term.
-      c.input.insert_mode.auto_enter = False
-      c.input.insert_mode.auto_leave = False
-
       c.url.start_pages = ['about:blank']
       c.url.default_page = "about:blank"
       c.url.searchengines = {
