@@ -603,6 +603,19 @@ in
           }
         '';
       }
+      {
+        plugin = nvim-treesitter.withAllGrammars;
+        type = "lua";
+        config = /* lua */ ''
+          require'nvim-treesitter.configs'.setup {
+            highlight = {
+              enable = true,
+              disable = { "rust" },
+              additional_vim_regex_highlighting = true,
+            },
+          }
+        '';
+      }
       cosco-vim
       fzf-vim
       vim-caddyfile
@@ -626,7 +639,6 @@ in
       vim-svelte
       typst-vim
       emmet-vim
-      nvim-treesitter.withAllGrammars
       tagbar
       yats-vim
     ];
