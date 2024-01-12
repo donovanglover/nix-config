@@ -19,6 +19,7 @@
     gimp
     anki
     sqlitebrowser
+    sqlcipher
     kanjidraw
     libreoffice
     inkscape
@@ -126,7 +127,7 @@
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "osu-lazer-bin-2023.1229.0"
+    "osu-lazer-bin-2023.1231.0"
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
