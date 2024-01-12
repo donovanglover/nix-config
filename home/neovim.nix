@@ -1,18 +1,6 @@
 { pkgs, config, ... }:
 
 let
-  vim-nix-rummik = with pkgs.vimUtils; buildVimPlugin {
-    pname = "vim-nix";
-    version = "0def8020f152a51c011a707680780dac61a8989a";
-
-    src = pkgs.fetchFromGitHub {
-      owner = "rummik";
-      repo = "vim-nix";
-      rev = "0def8020f152a51c011a707680780dac61a8989a";
-      hash = "sha256-Q+Jx6/MgeE2hsd/a6FqfXpAOaRcNymZW6t75hYCcH4E=";
-    };
-  };
-
   tailwindcss-colors-nvim = with pkgs.vimUtils; buildVimPlugin {
     pname = "tailwindcss-colors-nvim";
     version = "ccb5be2f84673c1a0ef90a0c0a76733e85e5265b";
@@ -633,7 +621,7 @@ in
       neoformat
       bufdelete-nvim
       vim-crystal
-      vim-nix-rummik
+      vim-nix
       fcitx-vim
       vim-astro
       vim-svelte
