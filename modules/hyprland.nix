@@ -3,8 +3,14 @@
 {
   programs.hyprland.enable = true;
 
-  i18n.inputMethod.enabled = "fcitx5";
-  i18n.inputMethod.fcitx5.addons = [ pkgs.fcitx5-mozc ];
+  i18n.inputMethod = {
+    enabled = "fcitx5";
+
+    fcitx5 = {
+      addons = with pkgs; [ fcitx5-mozc ];
+      waylandFrontend = true;
+    };
+  };
 
   security.pam.services.swaylock = { };
 
