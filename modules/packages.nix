@@ -127,7 +127,7 @@
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "osu-lazer-bin-2023.1231.0"
+    "osu-lazer-bin-2024.114.0"
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
