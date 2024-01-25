@@ -18,6 +18,7 @@
     ./packages.nix
     ./piper.nix
     ./pipewire.nix
+    ./postgres.nix
     ./resolved.nix
     ./starship.nix
     ./stylix.nix
