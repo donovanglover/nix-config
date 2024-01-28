@@ -10,12 +10,9 @@
 
       "start": [
         {
-          "type": "clipboard",
-          "max_items": 3,
-          "truncate": {
-            "length": 50,
-            "mode": "end"
-          }
+          "type": "label",
+          "label": "❄",
+          "on_mouse_enter": "rofi -show drun"
         }
       ],
 
@@ -66,10 +63,6 @@
       background: alpha(#${base00}, 0.925);
     }
 
-    .clipboard {
-      padding-right: 1em;
-    }
-
     button:hover {
       background: #${base01};
     }
@@ -86,10 +79,6 @@
     .popup {
       border: 1px solid #${base01};
       padding: 1em;
-    }
-
-    .popup-clipboard .item {
-      padding-bottom: 0.3em;
     }
 
     .popup-clock .calendar-clock {
