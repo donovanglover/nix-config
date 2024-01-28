@@ -18,6 +18,28 @@ in
     '';
   };
 
+  xdg.configFile."hypr/raise-volume.fish" = {
+    executable = true;
+    text = /* fish */ ''
+      #!/usr/bin/env fish
+
+      set VOL $(math "$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | choose 1) * 100")
+
+      wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+ && notify-send -t 2000 "Raised volume to" "$VOL%"
+    '';
+  };
+
+  xdg.configFile."hypr/lower-volume.fish" = {
+    executable = true;
+    text = /* fish */ ''
+      #!/usr/bin/env fish
+
+      set VOL $(math "$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | choose 1) * 100")
+
+      wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && notify-send -t 2000 "Lowered volume to" "$VOL%"
+    '';
+  };
+
   xdg.configFile."hypr/set-bg.fish" = {
     executable = true;
     text = /* fish */ ''
@@ -243,10 +265,9 @@ in
     bindm = $SUPER, mouse:273, resizewindow
 
     # Change volume with keys
-    # TODO: Change notification once at 0/100%
     bindl=, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && notify-send -t 2000 "Muted" "$(wpctl get-volume @DEFAULT_AUDIO_SINK@)"
-    bindl=, XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+ && notify-send -t 2000 "Raised volume to" "$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | tail -c 3)%"
-    bindl=, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && notify-send -t 2000 "Lowered volume to" "$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | tail -c 3)%"
+    bindl=, XF86AudioRaiseVolume, exec, ~/.config/hypr/raise-volume.fish
+    bindl=, XF86AudioLowerVolume, exec, ~/.config/hypr/lower-volume.fish
     bindl=, XF86MonBrightnessDown, exec, brightnessctl set 5%- && notify-send -t 2000 "Decreased brightness to" "$(brightnessctl get)"
     bindl=, XF86MonBrightnessUp, exec, brightnessctl set +5% && notify-send -t 2000 "Increased brightness to" "$(brightnessctl get)"
 
