@@ -39,6 +39,9 @@
 
       "end": [
         {
+          "type": "tray"
+        },
+        {
           "type": "clock",
           "format": "%x（%a）%R"
         }
