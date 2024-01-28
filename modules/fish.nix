@@ -30,7 +30,6 @@
       mv = "mv -i";
       cp = "cp -ia";
       rg = "${pkgs.ripgrep}/bin/rg --max-columns=2000 --smart-case";
-      yarn = "${pkgs.yarn}/bin/yarn --emoji true";
       ncu = "${pkgs.npm-check-updates}/bin/ncu --interactive --format group";
     };
 
