@@ -13,6 +13,12 @@
           "type": "label",
           "label": "❄",
           "on_mouse_enter": "rofi -show drun"
+        },
+        {
+          "type": "script",
+          "cmd": "mullvad status | choose 2..",
+          "mode": "poll",
+          "interval": 5000
         }
       ],
 
