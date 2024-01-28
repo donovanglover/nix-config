@@ -7,10 +7,7 @@
 
       "ui.use_activity_cursor" = true;
 
-      "privacy.resistFingerprinting.letterboxing" = true;
-
       "browser.download.useDownloadDir" = true;
-      "browser.fullscreen.autohide" = false;
       "browser.tabs.insertAfterCurrent" = true;
       "browser.toolbars.bookmarks.visibility" = "never";
       "browser.quitShortcut.disabled" = true;
