@@ -23,9 +23,11 @@ in
     text = /* fish */ ''
       #!/usr/bin/env fish
 
+      wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+
+
       set VOL $(math "$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | choose 1) * 100")
 
-      wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+ && notify-send -t 2000 "Raised volume to" "$VOL%"
+      notify-send -t 2000 "Raised volume to" "$VOL%"
     '';
   };
 
@@ -34,9 +36,11 @@ in
     text = /* fish */ ''
       #!/usr/bin/env fish
 
+      wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+
       set VOL $(math "$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | choose 1) * 100")
 
-      wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && notify-send -t 2000 "Lowered volume to" "$VOL%"
+      notify-send -t 2000 "Lowered volume to" "$VOL%"
     '';
   };
 
