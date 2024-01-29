@@ -45,6 +45,12 @@
           "type": "tray"
         },
         {
+          "type": "script",
+          "cmd": "fish -c 'echo \"音量：$(math \"$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | choose 1) * 100\")%\"'",
+          "mode": "poll",
+          "interval": 2500
+        },
+        {
           "type": "clock",
           "format": "%x（%a）%R"
         }
