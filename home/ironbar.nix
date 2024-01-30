@@ -84,9 +84,9 @@
       border-top: 1px solid #${base01};
     }
 
-    .label {
-      padding-left: 1em;
-      padding-right: 1em;
+    .label, .script, .tray {
+      padding-left: 0.5em;
+      padding-right: 0.5em;
     }
 
     .popup {
