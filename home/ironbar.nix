@@ -16,6 +16,7 @@
         },
         {
           "type": "script",
+          "on_click_left": "notify-send -t 2000 \"Mullvad\" \"Changing location...\" && mullvad relay set location any && mullvad relay set location us",
           "cmd": "mullvad status | choose 2..",
           "mode": "poll",
           "interval": 5000
