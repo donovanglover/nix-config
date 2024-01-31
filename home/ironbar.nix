@@ -82,6 +82,7 @@
 
     #bar {
       border-top: 1px solid #${base01};
+      padding-left: 0.5em;
     }
 
     .label, .script, .tray {
