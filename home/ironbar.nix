@@ -10,6 +10,7 @@
 
       "start": [
         {
+          "name": "startMenu",
           "type": "label",
           "label": "❄",
           "on_mouse_enter": "rofi -show drun"
@@ -82,7 +83,6 @@
 
     #bar {
       border-top: 1px solid #${base01};
-      padding-left: 0.5em;
     }
 
     .label, .script, .tray {
@@ -140,6 +140,11 @@
 
     .popup-launcher .popup-item:not(:first-child) {
       border-top: 1px solid #${base01};
+    }
+
+    #startMenu {
+      padding-left: 1em;
+      padding-right: 0.5em;
     }
   '';
 }
