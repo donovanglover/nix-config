@@ -588,7 +588,11 @@ in
           require'nvim-treesitter.configs'.setup {
             highlight = {
               enable = true,
-              disable = { "rust" },
+              disable = function(lang)
+                if lang ~= "javascript" and lang ~= "tsx" and lang ~= "typescript" then
+                  return true
+                end
+              end,
               additional_vim_regex_highlighting = true,
             },
           }
