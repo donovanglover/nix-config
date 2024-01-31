@@ -26,5 +26,7 @@
 
     services.interception-tools.enable = lib.mkForce false;
     networking.resolvconf.enable = lib.mkForce true;
+
+    boot.enableContainers = false;
   };
 }
