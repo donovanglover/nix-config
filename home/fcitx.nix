@@ -219,7 +219,7 @@
         # Tray Label Text Color
         TrayTextColor=#${base05}
         # Prefer Text Icon
-        PreferTextIcon=True
+        PreferTextIcon=False
         # Show Layout Name In Icon
         ShowLayoutNameInIcon=True
         # Use input method language to display text
