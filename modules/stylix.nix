@@ -23,8 +23,8 @@ in
 
   stylix.fonts = with pkgs; {
     serif = {
-      package = noto-fonts-cjk-sans;
-      name = "Noto Sans CJK JP";
+      package = (callPackage ../packages/aleo-fonts.nix { });
+      name = "Aleo";
     };
 
     sansSerif = {
