@@ -136,7 +136,7 @@
 
       dl = "yt-dlp";
       vol = "wpctl set-volume '@DEFAULT_AUDIO_SINK@'"; # Change the volume, e.g. vol 10%+, vol 10%-, vol 100%
-      df = "df --human-readable --type=ext4 --total";
+      df = "df --human-readable --total";
       du = "du --human-readable --summarize";
       jis = "recode shift_jis..utf8"; # Easily convert shift_jis-encoded files to utf8
       utf16 = "recode utf16..utf8"; # Rarely, some files from Japan are utf16 instead
