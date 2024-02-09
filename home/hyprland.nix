@@ -220,6 +220,8 @@ in
     bind = $SUPER_SHIFT, comma, exec, playerctl -p mpv previous && notify-send -t 2000 "Previous track" "$(playerctl -p mpv metadata xesam:title)"
     bind = $SUPER_SHIFT, period, exec, playerctl -p mpv next && notify-send -t 2000 "Next track" "$(playerctl -p mpv metadata xesam:title)"
     bind = $SUPER, slash, exec, playerctl -p mpv play-pause && notify-send -t 2000 "mpv" "$(playerctl -p mpv status)"
+    bind = $SUPER, M, focusmonitor, +1
+    bind = $SUPER_SHIFT, M, focusmonitor, -1
 
     bind = $SUPER, Return, layoutmsg, swapwithmaster master
     bind = $SUPER, J, layoutmsg, cyclenext
