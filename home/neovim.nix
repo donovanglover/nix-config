@@ -12,18 +12,6 @@ let
       hash = "sha256-Q+Jx6/MgeE2hsd/a6FqfXpAOaRcNymZW6t75hYCcH4E=";
     };
   };
-
-  tailwindcss-colors-nvim = with pkgs.vimUtils; buildVimPlugin {
-    pname = "tailwindcss-colors-nvim";
-    version = "ccb5be2f84673c1a0ef90a0c0a76733e85e5265b";
-
-    src = pkgs.fetchFromGitHub {
-      owner = "themaxmarchuk";
-      repo = "tailwindcss-colors.nvim";
-      rev = "ccb5be2f84673c1a0ef90a0c0a76733e85e5265b";
-      hash = "sha256-2eUr4rB8gpax0xJ8U4O2O93UXUxF+HZV6Co8LwPZ3JE=";
-    };
-  };
 in
 {
   programs.bat.enable = true;
