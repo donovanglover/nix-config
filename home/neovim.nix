@@ -310,15 +310,18 @@ in
             'marksman',
             'gopls',
             'lua_ls',
+            'html',
             'clangd',
             'texlab',
             'crystalline',
             'prismals',
             'docker_compose_language_service',
             'dockerls',
+            'jsonls',
             'sqlls',
             'emmet_language_server',
             'astro',
+            'cssls',
           }
 
           for _, lsp in ipairs(servers) do
