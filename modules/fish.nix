@@ -134,6 +134,14 @@
       dt = "deno task";
       dT = "deno test --watch";
 
+      p = "pnpm";
+      pa = "pnpm add";
+      pr = "pnpm remove";
+      pd = "pnpm dev";
+      pt = "pnpm test";
+      pb = "pnpm build";
+      pbs = "pnpm build && pnpm start";
+
       dl = "yt-dlp";
       vol = "wpctl set-volume '@DEFAULT_AUDIO_SINK@'"; # Change the volume, e.g. vol 10%+, vol 10%-, vol 100%
       df = "df --human-readable --total";
