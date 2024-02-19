@@ -57,7 +57,6 @@ in
     rustfmt
     cargo
     cargo-info
-    cargo-audit
     cargo-license
     cargo-feature
     cargo-tarpaulin
@@ -384,7 +383,7 @@ in
       }
       friendly-snippets
       {
-        plugin = nvim-base16;
+        plugin = base16-nvim;
         type = "lua";
         config = "vim.cmd('colorscheme base16-${config.lib.stylix.scheme.slug}')";
       }
