@@ -153,6 +153,7 @@
       vm = "nixos-rebuild build-vm --flake . && ./result/bin/run-nixos-vm && trash put result nixos.qcow2";
       sw = "sudo nixos-rebuild switch --flake .";
       tf = "treefmt";
+      mgs = "mgitstatus";
 
       c = "clear";
       e = "exit";

@@ -124,6 +124,7 @@
     lutgen
     sudachi-rs
     tui-journal
+    mgitstatus
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
