@@ -482,7 +482,7 @@
 
         handle_extension() {
           case "''${FILE_EXTENSION_LOWER}" in
-            ts | js | tsx | jsx | lock)
+            ts | js | tsx | jsx | astro | lock)
               bat --color=always --paging=never \
                 --style=plain \
                 --terminal-width="''${PREVIEW_WIDTH}" \
