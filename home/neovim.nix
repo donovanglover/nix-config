@@ -572,7 +572,7 @@ in
             highlight = {
               enable = true,
               disable = function(lang)
-                if lang ~= "javascript" and lang ~= "tsx" and lang ~= "typescript" then
+                if lang ~= "javascript" and lang ~= "tsx" and lang ~= "typescript" and lang ~= "astro" and lang ~= "css" then
                   return true
                 end
               end,
@@ -600,7 +600,6 @@ in
       vim-crystal
       vim-nix-rummik
       fcitx-vim
-      vim-astro
       vim-svelte
       typst-vim
       emmet-vim
