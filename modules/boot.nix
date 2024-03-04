@@ -9,6 +9,4 @@
     timeout = 0;
     efi.canTouchEfiVariables = true;
   };
-
-  boot.tmp.useTmpfs = true;
 }
