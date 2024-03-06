@@ -3,7 +3,7 @@
 {
   virtualisation.vmVariant = {
     virtualisation = {
-      memorySize = 8192;
+      memorySize = 4096;
       cores = 4;
 
       sharedDirectories = {
