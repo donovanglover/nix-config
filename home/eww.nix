@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ eww-wayland ];
+  home.packages = with pkgs; [ eww ];
 
   xdg.configFile."eww/eww.yuck".text = /* yuck */ ''
     (defwidget icons []

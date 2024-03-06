@@ -177,14 +177,16 @@ in
       workspace_swipe = yes
     }
 
-    device:synps/2-synaptics-touchpad {
+    device {
+      name = synps/2-synaptics-touchpad
       sensitivity = 0.75
       accel_profile = flat
       natural_scroll = yes
       disable_while_typing = no
     }
 
-    device:tpps/2-elan-trackpoint {
+    device {
+      name = tpps/2-elan-trackpoint
       sensitivity = 0.5
       accel_profile = flat
     }
