@@ -26,6 +26,7 @@
     ./systemd.nix
     ./thunar.nix
     ./timezone.nix
+    ./udev.nix
     ./user.nix
     ./virtualization.nix
     ./wine.nix
