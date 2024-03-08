@@ -103,6 +103,70 @@ in
     '';
   };
 
+  xdg.configFile."hypr/hyprlock.conf".text = /* bash */ ''
+    general {
+      hide_cursor = true
+      grace = 2
+    }
+
+    background {
+      color = rgba(25, 20, 20, 1.0)
+      path = screenshot
+      blur_passes = 2
+      brightness = 0.5
+    }
+
+    label {
+      text = パスワードをご入力ください
+      color = rgba(222, 222, 222, 1.0)
+      font_size = 50
+      font_family = Noto Sans CJK JP
+      position = 0, 70
+      halign = center
+      valign = center
+    }
+
+    input-field {
+      size = 50, 50
+      dots_size = 0.33
+      dots_spacing = 0.15
+      outer_color = rgba(25, 20, 20, 0)
+      inner_color = rgba(25, 20, 20, 0)
+      font_color = rgba(222, 222, 222, 1.0)
+      placeholder_text = パスワード
+    }
+  '';
+
+  xdg.configFile."hypr/hypridle.conf".text = /* bash */ ''
+    general {
+      lock_cmd = pidof hyprlock || hyprlock
+      before_sleep_cmd = loginctl lock-session
+      after_sleep_cmd = hyprctl dispatch dpms on
+    }
+
+    listener {
+      timeout = 150
+      on-timeout = brightnessctl -s set 10
+      on-resume = brightnessctl -r
+    }
+
+    listener {
+      timeout = 300
+      on-timeout = loginctl lock-session
+    }
+
+    listener {
+      timeout = 380
+      on-timeout = hyprctl dispatch dpms off
+      on-resume = hyprctl dispatch dpms on
+    }
+
+    listener {
+      timeout = 1800
+      on-timeout = systemctl suspend
+    }
+  '';
+
   xdg.configFile."hypr/hyprland.conf".text = with config.lib.stylix.colors; /* bash */ ''
     env=XCURSOR_SIZE,24
     env=BROWSER,librewolf
@@ -129,6 +193,7 @@ in
     exec-once = hyprctl dispatch workspace 5000000
     exec-once = ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
     exec-once = hyprdim --no-dim-when-only --persist --ignore-leaving-special --dialog-dim
+    exec-once = hypridle
     exec-once = sleep 1 && eww open desktop-icons
     exec-once = ~/.config/hypr/random-bg.fish
 
