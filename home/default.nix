@@ -20,7 +20,6 @@
     ./pqiv.nix
     ./qutebrowser.nix
     ./rofi.nix
-    ./swaylock.nix
     ./thunar.nix
     ./udiskie.nix
     ./xcursor.nix

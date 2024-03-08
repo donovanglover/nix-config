@@ -5,7 +5,11 @@ let
   modifier = "SUPER";
 in
 {
-  home.packages = with pkgs; [ hyprnome ];
+  home.packages = with pkgs; [
+    hyprnome
+    hypridle
+    hyprlock
+  ];
 
   xdg.configFile."hypr/gaps.sh" = {
     executable = true;
