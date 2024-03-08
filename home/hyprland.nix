@@ -87,6 +87,22 @@ in
     '';
   };
 
+  xdg.configFile."hypr/swap-bg.fish" = {
+    executable = true;
+    text = /* fish */ ''
+      #!/usr/bin/env fish
+
+      set M "$(swww query | choose -1)"
+      set M1 "$(echo "$M" | head -n 1)"
+      set M2 "$(echo "$M" | tail -n 1)"
+
+      cd ~/.config/hypr
+
+      ./set-bg.fish "$(swww query | choose 0 | choose -c 0..-1 | tail -n 1)" $M1
+      ./set-bg.fish "$(swww query | choose 0 | choose -c 0..-1 | head -n 1)" $M2
+    '';
+  };
+
   xdg.configFile."hypr/hyprland.conf".text = with config.lib.stylix.colors; /* bash */ ''
     env=XCURSOR_SIZE,24
     env=BROWSER,librewolf
@@ -206,6 +222,7 @@ in
     bind = $SUPER_SHIFT, Return, exec, kitty
     bind = $SUPER_SHIFT, Q, killactive
     bind = $SUPER, W, exec, ~/.config/hypr/random-bg.fish
+    bind = $SUPER_SHIFT, W, exec, ~/.config/hypr/swap-bg.fish
     bind = $SUPER, P, exec, dunstify --icon=$(grimblast save screen) Screenshot Captured.
     bind = , Print, exec, grimblast --freeze copy area
     bind = $SUPER_ALT, delete, exit
