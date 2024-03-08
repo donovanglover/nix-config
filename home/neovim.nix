@@ -456,18 +456,6 @@ in
         config = ''require("nvim-autopairs").setup {}'';
       }
       {
-        plugin = clipboard-image-nvim;
-        type = "lua";
-        config = /* lua */ ''
-          require("clipboard-image").setup {
-            default = {
-              img_dir = {"%:p:h", "_"},
-              img_dir_txt = "_",
-            }
-          }
-        '';
-      }
-      {
         plugin = auto-save-nvim;
         type = "lua";
         config = ''require("auto-save").setup()'';
