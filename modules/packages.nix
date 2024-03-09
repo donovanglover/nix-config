@@ -88,8 +88,6 @@
     cointop
     tectonic
 
-    cargo-tauri
-
     pipe-rename
     poppler_utils
     wl-clipboard
@@ -116,14 +114,11 @@
     sanctity
     didu
 
-    timer
-    tasktimer
     nix-search-cli
     satty
     aaaaxy
     lutgen
     sudachi-rs
-    tui-journal
     mgitstatus
   ];
 
