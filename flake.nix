@@ -21,11 +21,13 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... } @ attrs: {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = attrs;
-      modules = [ ./. ];
+  outputs = { self, nixpkgs, ... } @ attrs: with nixpkgs.lib; {
+    nixosConfigurations = {
+      nixos = nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = attrs;
+        modules = [ ./. ];
+      };
     };
   };
 }
