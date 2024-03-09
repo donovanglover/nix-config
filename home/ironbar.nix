@@ -18,7 +18,7 @@
         {
           "type": "script",
           "on_click_left": "notify-send -t 2000 \"Mullvad\" \"Changing location...\" && mullvad relay set location any && mullvad relay set location us",
-          "cmd": "mullvad status | choose 2..",
+          "cmd": "mullvad status | choose 4.. | sed -e 's/Chicago.*/シカゴ/g' -e 's/Atlanta.*/アトランタ/g' -e 's/Miami.*/マイアミ/g' -e 's/Ashburn.*/アッシュバーン/g' -e 's/Boston.*/ボストン/g' -e 's/Charlotte.*/シャーロット/g' -e 's/Cleveland.*/クリーブランド/g' -e 's/Dallas.*/ダラス/g' -e 's/Denver.*/デンバー/g' -e 's/Honolulu.*/ホノルル/g' -e 's/Houston.*/ヒューストン/g' -e 's/Jackson.*/ジャクソン/g' -e 's/Los Angeles.*/ロサンゼルス/g' -e 's/Louisville.*/ルイビル/g' -e 's/Milwaukee.*/ミルウォーキー/g' -e 's/Minneapolis.*/ミネアポリス/g' -e 's/New York.*/ニューヨーク/g' -e 's/Oklahoma.*/オクラホマシティ/g' -e 's/Philadelphia.*/フィラデルフィア/g' -e 's/Phoenix.*/フィニックス/g' -e 's/Piscataway.*/ピスカタウェイ/g' -e 's/Portland.*/ポートランド/g' -e 's/Raleigh.*/ローリー/g' -e 's/Richmond.*/リッチモンド/g' -e 's/Salt Lake.*/ソルトレイクシティ/g' -e 's/San Francisco.*/サンフランシスコ/g' -e 's/San Jose.*/サンノゼ/g' -e 's/Seattle.*/シアトル/g' -e 's/Secaucus.*/セコーカス/g' -e 's/Sioux Falls.*/スーフォールズ/g' -e 's/St. Louis.*/セントルイス/g' -e 's/Stamford.*/スタンフォード/g' -e 's/Washington.*/ワシントン/g'",
           "mode": "poll",
           "interval": 2500
         }
