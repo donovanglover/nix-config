@@ -181,7 +181,7 @@ in
       nnoremap <silent> <leader>b :Vista!!<CR>
       vnoremap <C-s> y:silent !notify-send -t 4000 "成果" "$(tango '<C-r>0')"<CR>:<Esc>
 
-      autocmd BufNewFile,BufRead *.ecr    setlocal syntax=html
+      autocmd BufNewFile,BufRead *.ecr setlocal syntax=html
       autocmd BufWritePre,FileWritePre * silent! call mkdir(expand('<afile>:p:h'), 'p')
       autocmd VimEnter * silent! :cd `git rev-parse --show-toplevel`
 
@@ -198,7 +198,9 @@ in
           require("nvim-tree").setup()
 
           vim.api.nvim_create_autocmd({"QuitPre"}, {
-              callback = function() vim.cmd("NvimTreeClose") end
+            callback = function()
+              vim.cmd("NvimTreeClose")
+            end
           })
 
           local function open_nvim_tree(data)
@@ -501,7 +503,7 @@ in
           startify.section.header.val = vim.fn.system("${pkgs.fish}/bin/fish -c 'cat (random choice (${pkgs.fd}/bin/fd . ${pkgs.ponysay}/share/ponysay/quotes --ignore-file ~/.config/fd/ponyignore)) | head -n 1'")
 
           startify.section.top_buttons.val = {
-              startify.button("e", "新しいファイル", "<cmd>ene <CR>")
+            startify.button("e", "新しいファイル", "<cmd>ene <CR>")
           }
 
           startify.section.mru.val = { { type = "padding", val = 0 } }
@@ -510,11 +512,11 @@ in
             { type = "text", val = "歴史", opts = { hl = "SpecialComment", shrink_margin = false } },
             { type = "padding", val = 1 },
             {
-                type = "group",
-                val = function()
-                    return { startify.mru(0, vim.fn.getcwd()) }
-                end,
-                opts = { shrink_margin = false },
+              type = "group",
+              val = function()
+                return { startify.mru(0, vim.fn.getcwd()) }
+              end,
+              opts = { shrink_margin = false },
             }
           }
 
