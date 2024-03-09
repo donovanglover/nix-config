@@ -179,7 +179,6 @@ in
       nnoremap <silent> <leader>; :NvimTreeToggle<CR>
       nnoremap <silent> <leader>z :ZenMode<CR>
       nnoremap <silent> <leader>b :TagbarToggle<CR>
-      nnoremap <silent> <leader>' :CommaOrSemiColon<CR>
       vnoremap <C-s> y:silent !notify-send -t 4000 "成果" "$(tango '<C-r>0')"<CR>:<Esc>
 
       autocmd BufNewFile,BufRead *.ecr    setlocal syntax=html
@@ -569,7 +568,6 @@ in
           }
         '';
       }
-      cosco-vim
       fzf-vim
       vim-caddyfile
       vim-graphql
