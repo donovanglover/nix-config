@@ -324,6 +324,7 @@ in
     bind = $SUPER, L, layoutmsg, removemaster
     bind = $SUPER_SHIFT, H, splitratio, -0.05
     bind = $SUPER_SHIFT, L, splitratio, +0.05
+    bind = $SUPER_ALT, L, exec, hyprlock
 
     bind = $SUPER, 1, exec, hyprnome --previous
     bind = $SUPER, 2, exec, hyprnome
