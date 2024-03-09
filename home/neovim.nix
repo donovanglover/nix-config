@@ -32,7 +32,7 @@ in
     nil
     alejandra
     nixpkgs-fmt
-    nixfmt
+    nixfmt-rfc-style
 
     # crystal
     crystal
