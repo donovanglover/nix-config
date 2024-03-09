@@ -577,7 +577,6 @@ in
       vim-jsx-pretty
       vim-vue
       vim-over
-      vim-endwise
       csv-vim
       rust-vim
       yuck-vim
