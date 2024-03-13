@@ -5,6 +5,7 @@
     ./eza.nix
     ./hyprland.nix
     ./hyprlang.nix
+    ./hyprlock.nix
     ./kitty.nix
     ./zola.nix
   ];
