@@ -6,16 +6,16 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "pnpm-shell-completion";
-  version = "0.5.2";
+  version = "0.5.3";
 
   src = fetchFromGitHub {
     owner = "g-plane";
     repo = "pnpm-shell-completion";
     rev = "v${version}";
-    hash = "sha256-VCIT1HobLXWRe3yK2F3NPIuWkyCgckytLPi6yQEsSIE=";
+    hash = "sha256-UKuAUN1uGNy/1Fm4vXaTWBClHgda+Vns9C4ugfHm+0s=";
   };
 
-  cargoHash = "sha256-SzB5hwh7rIxKM3O9ffQzrzCwbwqPQ+QZP7Pb5PNVqmE=";
+  cargoHash = "sha256-Kf28hQ5PUHeH5ZSRSRdfHljlqIYU8MN0zQsyT0Sa2+4=";
 
   nativeBuildInputs = [
     installShellFiles
@@ -23,7 +23,7 @@ rustPlatform.buildRustPackage rec {
 
   postInstall = /* bash */ ''
     installShellCompletion --cmd pnpm \
-      --fish pnpm-shell-completion.fish \
+      --fish pnpm.fish \
       --zsh pnpm-shell-completion.plugin.zsh
   '';
 
