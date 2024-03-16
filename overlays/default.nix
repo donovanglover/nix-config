@@ -7,6 +7,7 @@
     ./hyprlang.nix
     ./hyprlock.nix
     ./kitty.nix
+    ./srb2.nix
     ./zola.nix
   ];
 }
