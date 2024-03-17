@@ -120,10 +120,11 @@
     lutgen
     sudachi-rs
     mgitstatus
+    pnpm-shell-completion
   ];
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "osu-lazer-bin-2024.302.1"
+    "osu-lazer-bin-2024.312.0"
   ];
 
   nixpkgs.config.permittedInsecurePackages = [

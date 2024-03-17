@@ -12,7 +12,6 @@
     (callPackage ./aleo-fonts.nix { })
     (callPackage ./fluent-icons.nix { })
     (callPackage ./osu-backgrounds.nix { })
-    (callPackage ./pnpm-shell-completion.nix { })
     (callPackage ./webp-thumbnailer.nix { })
   ];
 }
