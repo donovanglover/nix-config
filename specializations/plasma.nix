@@ -4,10 +4,6 @@
   services.xserver = {
     enable = true;
 
-    desktopManager = {
-      plasma5.enable = true;
-    };
-
     displayManager = {
       sddm.enable = true;
 
@@ -19,6 +15,8 @@
 
     excludePackages = [ pkgs.xterm ];
   };
+
+  services.desktopManager.plasma6.enable = true;
 
   systemd.services = {
     "getty@tty1".enable = false;
