@@ -3,7 +3,6 @@
 {
   environment.systemPackages = with pkgs; [
     grimblast
-    slade
     osu-lazer-bin
     (pass.withExtensions (ext: with ext; [ pass-otp ]))
     pass
@@ -125,10 +124,6 @@
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "osu-lazer-bin-2024.312.1"
-  ];
-
-  nixpkgs.config.permittedInsecurePackages = [
-    "freeimage-unstable-2021-11-01"
   ];
 
   environment.defaultPackages = [ ];
