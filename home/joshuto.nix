@@ -365,16 +365,12 @@
       selection = {
         fg = "light_yellow";
         bold = true;
+        prefix = "  ";
       };
 
       visual_mode_selection = {
         fg = "light_red";
         bold = true;
-      };
-
-      selection.prefix = {
-        prefix = "  ";
-        size = 2;
       };
 
       executable = {
