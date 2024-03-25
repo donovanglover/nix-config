@@ -351,6 +351,8 @@ in
     windowrulev2 = nodim,class:^(mpv)$
     windowrulev2 = tile,class:^(.qemu-system-x86_64-wrapped)$
     windowrulev2 = opacity ${opacity} ${opacity},class:^(thunar)$
+    windowrulev2 = float,class:^(librewolf)$
+    windowrulev2 = center 1,class:^(librewolf)$
 
     # Scroll through existing workspaces with super + scroll
     bind = $SUPER, mouse_down, workspace, e+1
