@@ -17,7 +17,7 @@ in
       #!/usr/bin/env bash
       hyprctl keyword general:gaps_out $((10 - $(hyprctl getoption general:gaps_out -j | jq -r ".custom" | choose 1)))
       hyprctl keyword general:gaps_in $((5 - $(hyprctl getoption general:gaps_in -j | jq -r ".custom" | choose 1)))
-      hyprctl keyword general:border_size $((2 - $(hyprctl getoption general:border_size -j | jq -r ".int")))
+      hyprctl keyword general:border_size $((4 - $(hyprctl getoption general:border_size -j | jq -r ".int")))
       hyprctl keyword decoration:rounding $((8 - $(hyprctl getoption decoration:rounding -j | jq -r ".int")))
     '';
   };
@@ -212,16 +212,16 @@ in
     }
 
     general {
-      gaps_in = 0
-      gaps_out = 0
-      border_size = 0
-      col.active_border = rgba(${base03}ee) rgba(${base04}ee) 45deg
-      col.inactive_border = rgba(${base02}99)
+      gaps_in = 5
+      gaps_out = 10
+      border_size = 4
+      col.active_border = rgb(${base04}) rgb(${base05}) 45deg
+      col.inactive_border = rgb(${base02})
       layout = master
     }
 
     decoration {
-      rounding = 0
+      rounding = 8
       drop_shadow = yes
       shadow_range = 4
       shadow_render_power = 3
@@ -254,6 +254,7 @@ in
     master {
       new_is_master = no
       new_on_top = no
+      no_gaps_when_only = yes
       mfact = 0.65
       special_scale_factor = 1
     }
