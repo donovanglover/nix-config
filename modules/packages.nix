@@ -89,7 +89,7 @@
 
     pipe-rename
     poppler_utils
-    wl-clipboard
+    wl-clipboard-rs
     lnch
     wev
     dmenu-wayland
@@ -108,6 +108,7 @@
     nix-init
     diesel-cli
     litecli
+    lychee
 
     colorpanes
     sanctity
@@ -120,11 +121,12 @@
     sudachi-rs
     mgitstatus
     pnpm-shell-completion
+    rclone
+    obsidian
+    gthumb
   ];
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "osu-lazer-bin-2024.312.1"
-  ];
+  nixpkgs.config.allowUnfree = true;
 
   environment.defaultPackages = [ ];
 }
