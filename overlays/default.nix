@@ -1,6 +1,5 @@
 {
   imports = [
-    ./alejandra.nix
     ./base16-schemes.nix
     ./eza.nix
     ./hyprland.nix

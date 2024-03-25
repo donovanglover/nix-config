@@ -30,7 +30,6 @@ in
 
     # nix
     nil
-    alejandra
     nixpkgs-fmt
     nixfmt-rfc-style
 
