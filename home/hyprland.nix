@@ -11,6 +11,14 @@ in
     hyprlock
   ];
 
+  wayland.windowManager.hyprland = {
+    enable = true;
+
+    plugins = [
+      (pkgs.callPackage ../packages/hycov.nix { })
+    ];
+  };
+
   xdg.configFile."hypr/gaps.sh" = {
     executable = true;
     text = /* bash */ ''
@@ -333,6 +341,21 @@ in
     bind = $SUPER, F12, exec, hyprnome
     bind = $SUPER_SHIFT, 1, exec, hyprnome --previous --move
     bind = $SUPER_SHIFT, 2, exec, hyprnome --move
+
+    bind = ALT, tab, hycov:toggleoverview
+    bind = ALT, h, hycov:movefocus,l
+    bind = ALT, l, hycov:movefocus,r
+    bind = ALT, k, hycov:movefocus,u
+    bind = ALT, j, hycov:movefocus,d
+
+    plugin {
+      hycov {
+        hotarea_pos = 2
+        enable_gesture = 1
+        enable_alt_release_exit = 1
+        alt_toggle_auto_next = 1
+      }
+    }
 
     bind = CTRL, Alt_L, submap, passthrough
     submap = passthrough
