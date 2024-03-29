@@ -21,7 +21,6 @@
     sqlcipher
     kanjidraw
     libreoffice
-    inkscape
     krita
     aegisub
     element-desktop
@@ -50,7 +49,6 @@
     brightnessctl
     zellij
     hexyl
-    nb
     jpegoptim
     playerctl
     recode
@@ -122,8 +120,6 @@
     mgitstatus
     pnpm-shell-completion
     rclone
-    obsidian
-    gthumb
   ];
 
   nixpkgs.config.allowUnfree = true;
