@@ -398,6 +398,7 @@ in
       animate_manual_resizes = yes
       animate_mouse_windowdragging = yes
       disable_autoreload = yes
+      new_window_takes_over_fullscreen = 1
     }
   '';
 }
