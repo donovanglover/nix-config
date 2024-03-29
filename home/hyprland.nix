@@ -353,7 +353,6 @@ in
         hotarea_pos = 2
         enable_gesture = 1
         enable_alt_release_exit = 1
-        alt_toggle_auto_next = 1
       }
     }
 
