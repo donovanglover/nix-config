@@ -32,12 +32,9 @@
             "librewolf",
             "kitty",
             "thunar",
-            "audacity",
-            "Gimp-2.10",
             "org.qutebrowser.qutebrowser",
-            "Logseq",
-            "spek",
-            "Mullvad Browser"
+            "anki",
+            "Element"
           ]
         }
       ],
