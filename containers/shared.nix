@@ -21,11 +21,11 @@
     ../home/git.nix
     ../home/gtk.nix
     ../home/htop.nix
-    ../home/joshuto.nix
     ../home/kitty.nix
     ../home/neovim.nix
     ../home/xcursor.nix
     ../home/xresources.nix
+    ../home/yazi.nix
   ];
 
   environment = {

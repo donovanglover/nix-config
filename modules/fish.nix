@@ -160,7 +160,7 @@
       k = "kitty @ set-background-opacity";
       l = "ls -l";
       n = "nvim";
-      j = "joshuto";
+      j = "yazi";
       t = "tree";
       z = "zathura";
     };

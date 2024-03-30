@@ -10,7 +10,6 @@
     ./htop.nix
     ./hyprland.nix
     ./ironbar.nix
-    ./joshuto.nix
     ./kitty.nix
     ./librewolf.nix
     ./mime-apps.nix
@@ -25,6 +24,7 @@
     ./xcursor.nix
     ./xdg-user-dirs.nix
     ./xresources.nix
+    ./yazi.nix
     ./zathura.nix
   ];
 }

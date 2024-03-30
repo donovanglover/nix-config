@@ -27,9 +27,9 @@
 
       fileselect = {
         handler = "external";
-        folder.command = [ "kitty" "-e" "joshuto" "--output-file" "{}" ];
-        multiple_files.command = [ "kitty" "-e" "joshuto" "--output-file" "{}" ];
-        single_file.command = [ "kitty" "-e" "joshuto" "--output-file" "{}" ];
+        folder.command = [ "kitty" "-e" "yazi" "--cwd-file" "{}" ];
+        multiple_files.command = [ "kitty" "-e" "yazi" "--chooser-file" "{}" ];
+        single_file.command = [ "kitty" "-e" "yazi" "--chooser-file" "{}" ];
       };
 
       downloads = {
