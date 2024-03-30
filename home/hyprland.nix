@@ -90,7 +90,7 @@ in
       cd ~/.config/hypr
 
       for monitor in (hyprctl monitors -j | jq -r '.[].name')
-        ./set-bg.fish "$monitor" "$(random choice $(fd . /run/current-system/sw/share/backgrounds --follow -e jpg -e png))"
+        ./set-bg.fish "$monitor" "$(random choice $(fd . /run/current-system/sw/share/backgrounds/Spring2024FanartSubmissions --follow -e jpg -e png))"
       end
     '';
   };
