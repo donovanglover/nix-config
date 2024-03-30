@@ -16,6 +16,10 @@
           inherit src version;
           vendorHash = "sha256-OyZAWefSIiLQO0icxMIHWH3BKgNas8HIxLcse/qWKcU=";
         }).goModules;
+
+        patches = (oldAttrs.patches or [ ]) ++ [
+          ../patches/kitty-wlroots-copying-fix.patch
+        ];
       });
     })
   ];
