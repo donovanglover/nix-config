@@ -1,5 +1,6 @@
 import { assertAllModulesInDirectory } from "./lib.ts";
 
+/** A list of directories to check for all Nix modules being imported */
 const dirs = [
   "containers",
   "home",

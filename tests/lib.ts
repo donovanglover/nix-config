@@ -1,12 +1,20 @@
 import { assert } from "https://deno.land/std@0.200.0/assert/mod.ts";
 import { walk } from "https://deno.land/std@0.200.0/fs/walk.ts";
 
+/** Gets files in a given directory.
+ *
+ * @param directory The directory to get files from.
+ * @returns An array of files in the given directory.
+ */
 async function getFilesInDirectory(directory: string): Promise<string[]> {
   const files = [];
 
   for await (const walkEntry of walk(directory)) {
     if (walkEntry.isFile) {
-      if (walkEntry.path.includes("default.nix")) continue;
+      if (walkEntry.path.includes("default.nix")) {
+        continue;
+      }
+
       files.push(walkEntry.path);
     }
   }
@@ -14,6 +22,11 @@ async function getFilesInDirectory(directory: string): Promise<string[]> {
   return files;
 }
 
+/** Gets imports in a given nix file.
+ *
+ * @param file The file to search for nix imports.
+ * @returns An array of imports in the given nix file.
+ */
 async function getImportsInFile(file: string): Promise<string[]> {
   const text = await Deno.readTextFile(file);
   const lines = text.split("\n");
