@@ -342,11 +342,11 @@ in
     bind = $SUPER_SHIFT, 1, exec, hyprnome --previous --move
     bind = $SUPER_SHIFT, 2, exec, hyprnome --move
 
-    bind = ALT, tab, hycov:toggleoverview
-    bind = ALT, h, hycov:movefocus,l
-    bind = ALT, l, hycov:movefocus,r
-    bind = ALT, k, hycov:movefocus,u
-    bind = ALT, j, hycov:movefocus,d
+    bind = $SUPER, Tab, hycov:toggleoverview
+    bind = $SUPER, H, hycov:movefocus,l
+    bind = $SUPER, L, hycov:movefocus,r
+    bind = $SUPER, K, hycov:movefocus,u
+    bind = $SUPER, J, hycov:movefocus,d
 
     plugin {
       hycov {
