@@ -9,6 +9,7 @@
 
       "browser.download.useDownloadDir" = true;
       "browser.tabs.insertAfterCurrent" = true;
+      "browser.tabs.warnOnClose" = true;
       "browser.toolbars.bookmarks.visibility" = "never";
       "browser.quitShortcut.disabled" = true;
       "browser.urlbar.suggest.history" = false;
