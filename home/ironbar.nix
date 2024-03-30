@@ -55,6 +55,12 @@
         {
           "type": "clock",
           "format": "%x（%a）%R"
+        },
+        {
+          "name": "overview",
+          "type": "label",
+          "label": "🅰",
+          "on_mouse_enter": "hyprctl dispatch hycov:toggleoverview"
         }
       ]
     }
@@ -145,6 +151,11 @@
     #startMenu {
       padding-left: 1em;
       padding-right: 0.5em;
+    }
+
+    #overview {
+      padding-left: 0.5em;
+      padding-right: 1em;
     }
   '';
 }
