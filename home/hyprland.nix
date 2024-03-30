@@ -350,7 +350,7 @@ in
 
     plugin {
       hycov {
-        enable_hotarea = 0
+        hotarea_size = 0
         enable_gesture = 1
       }
     }
