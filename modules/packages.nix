@@ -1,4 +1,4 @@
-{ pkgs, lib, sakaya, ... }:
+{ pkgs, sakaya, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -22,7 +22,6 @@
     kanjidraw
     libreoffice
     krita
-    aegisub
     element-desktop
     signal-desktop
     ungoogled-chromium
@@ -67,7 +66,6 @@
     onefetch
     restic
     watchexec
-    memento
     mpvpaper
     timg
     ventoy
@@ -120,6 +118,7 @@
     mgitstatus
     pnpm-shell-completion
     rclone
+    qdirstat
   ];
 
   nixpkgs.config.allowUnfree = true;
