@@ -31,11 +31,25 @@ async function getImportsInFile(file: string): Promise<string[]> {
   return imports;
 }
 
-export async function assertAllModulesInDirectory(directory: string) {
+/** Assets that all files in a given directory are imported in default.nix.
+ *
+ * @param directory The directory to assert.
+ * @param excludes Files to exclude from assertion. Useful for files imported elsewhere.
+ */
+export async function assertAllModulesInDirectory(
+  directory: string,
+  excludes?: string[],
+) {
   const files = await getFilesInDirectory(`./${directory}`);
   const imports = await getImportsInFile(`./${directory}/default.nix`);
 
   for (const file of files) {
+    const basename = file.split(`${directory}/`)[1];
+
+    if (excludes && excludes.includes(basename)) {
+      continue;
+    }
+
     assert(imports.includes(file));
   }
 }
