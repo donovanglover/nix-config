@@ -29,5 +29,13 @@
         modules = [ ./. ];
       };
     };
+
+    packages."x86_64-linux" = with nixpkgs.legacyPackages."x86_64-linux"; {
+      aleo-fonts = callPackage ./packages/aleo-fonts.nix { };
+      fluent-icons = callPackage ./packages/fluent-icons.nix { };
+      hycov = callPackage ./packages/hycov.nix { };
+      osu-backgrounds = callPackage ./packages/osu-backgrounds.nix { };
+      webp-thumbnailer = callPackage ./packages/webp-thumbnailer.nix { };
+    };
   };
 }
