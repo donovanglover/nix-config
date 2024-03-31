@@ -21,7 +21,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... } @ attrs: with nixpkgs.lib; {
+  outputs = { nixpkgs, ... } @ attrs: with nixpkgs.lib; {
     nixosConfigurations = {
       nixos = nixosSystem {
         system = "x86_64-linux";
