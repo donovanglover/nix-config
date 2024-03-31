@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ../overlays
     ../modules/fish.nix
     ../modules/fonts.nix
     ../modules/home-manager.nix

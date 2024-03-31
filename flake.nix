@@ -21,12 +21,17 @@
     };
   };
 
-  outputs = { nixpkgs, ... } @ attrs: with nixpkgs.lib; {
+  outputs = { self, nixpkgs, ... } @ attrs: with nixpkgs.lib; {
     nixosConfigurations = {
       nixos = nixosSystem {
         system = "x86_64-linux";
         specialArgs = attrs;
-        modules = [ ./. ];
+        modules = [
+          ./.
+          {
+            nixpkgs.overlays = builtins.attrValues self.overlays;
+          }
+        ];
       };
     };
 
@@ -38,11 +43,6 @@
       webp-thumbnailer = callPackage ./packages/webp-thumbnailer.nix { };
     };
 
-    overlays = {
-      base16-schemes = import ./overlays/base16-schemes.nix;
-      kitty = import ./overlays/kitty.nix;
-      srb2 = import ./overlays/srb2.nix;
-      zola = import ./overlays/zola.nix;
-    };
+    overlays = builtins.mapAttrs (name: value: import ./overlays/${name}) (builtins.readDir ./overlays);
   };
 }
