@@ -20,7 +20,7 @@
       defaultFonts = {
         serif = [ "Noto Serif CJK JP" "Noto Serif" ];
         sansSerif = [ "Noto Sans CJK JP" "Noto Sans" ];
-        monospace = [ "Noto Mono CJK JP" "Noto Mono" ];
+        monospace = [ "Noto Sans Mono CJK JP" "Noto Sans Mono" ];
       };
 
       allowBitmaps = false;
