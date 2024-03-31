@@ -1,8 +1,8 @@
 {
-  imports = [
-    ./base16-schemes.nix
-    ./kitty.nix
-    ./srb2.nix
-    ./zola.nix
+  nixpkgs.overlays = [
+    (import ./base16-schemes.nix)
+    (import ./kitty.nix)
+    (import ./srb2.nix)
+    (import ./zola.nix)
   ];
 }

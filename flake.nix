@@ -37,5 +37,12 @@
       osu-backgrounds = callPackage ./packages/osu-backgrounds.nix { };
       webp-thumbnailer = callPackage ./packages/webp-thumbnailer.nix { };
     };
+
+    overlays = {
+      base16-schemes = import ./overlays/base16-schemes.nix;
+      kitty = import ./overlays/kitty.nix;
+      srb2 = import ./overlays/srb2.nix;
+      zola = import ./overlays/zola.nix;
+    };
   };
 }
