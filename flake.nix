@@ -36,9 +36,6 @@
         ];
       };
     };
-
-    packages."x86_64-linux" = with nixpkgs.legacyPackages."x86_64-linux";
-      builtins.mapAttrs (name: value: callPackage ./packages/${name}) (builtins.readDir ./packages);
   } //
     (builtins.listToAttrs
       (builtins.map
@@ -49,12 +46,26 @@
               ["nixosModules" "homeManagerModules"]
               ["modules" "home"]
               attr;
-          in (builtins.listToAttrs
-            (builtins.map
-              (filename: {
-                name = builtins.replaceStrings [".nix"] [""] filename;
-                value = import ./${directory}/${filename}; })
-              (builtins.attrNames
-                (builtins.readDir ./${directory})))); })
-      ["overlays" "nixosModules" "homeManagerModules"]));
+            function = if directory == "packages"
+              then nixpkgs.legacyPackages.x86_64-linux.callPackage
+              else import;
+            filesMap = (builtins.listToAttrs
+              (builtins.map
+                (filename: {
+                  name = builtins.replaceStrings [".nix"] [""] filename;
+                  value = function ./${directory}/${filename}; })
+                (builtins.attrNames
+                (builtins.readDir ./${directory}))));
+            callP = (builtins.listToAttrs
+              (builtins.map
+                (filename: {
+                  name = builtins.replaceStrings [".nix"] [""] filename;
+                  value = function ./${directory}/${filename} { }; })
+                (builtins.attrNames
+                (builtins.readDir ./${directory}))));
+            val = if directory == "packages"
+              then { x86_64-linux = callP; }
+              else filesMap;
+          in (val); })
+      ["overlays" "nixosModules" "homeManagerModules" "packages"]));
 }
