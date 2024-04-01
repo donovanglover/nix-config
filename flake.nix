@@ -41,7 +41,16 @@
       builtins.mapAttrs (name: value: callPackage ./packages/${name}) (builtins.readDir ./packages);
 
     overlays = builtins.mapAttrs (name: value: import ./overlays/${name}) (builtins.readDir ./overlays);
-    nixosModules = builtins.mapAttrs (name: value: import ./modules/${name}) (builtins.readDir ./modules);
+
+    nixosModules =
+      (builtins.listToAttrs
+        (builtins.map
+          (string: {
+            name = builtins.replaceStrings [".nix"] [""] string;
+            value = import ./modules/${string}; })
+          (builtins.attrNames
+            (builtins.readDir ./modules))));
+
     homeManagerModules = builtins.mapAttrs (name: value: import ./home/${name}) (builtins.readDir ./home);
   };
 }
