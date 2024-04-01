@@ -21,7 +21,12 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, ... } @ attrs: with nixpkgs.lib; with nixpkgs.legacyPackages.x86_64-linux; {
+  outputs = { self, nixpkgs, home-manager, stylix, ... } @ attrs: let
+    inherit (nixpkgs.lib) nixosSystem;
+    inherit (nixpkgs.legacyPackages.x86_64-linux) nixpkgs-fmt callPackage;
+  in {
+    formatter.x86_64-linux = nixpkgs-fmt;
+
     nixosConfigurations = {
       nixos = nixosSystem {
         system = "x86_64-linux";
@@ -46,8 +51,6 @@
         ];
       };
     };
-
-    formatter.x86_64-linux = nixpkgs-fmt;
   } //
     (builtins.listToAttrs
       (builtins.map
