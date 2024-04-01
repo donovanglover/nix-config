@@ -39,18 +39,22 @@
 
     packages."x86_64-linux" = with nixpkgs.legacyPackages."x86_64-linux";
       builtins.mapAttrs (name: value: callPackage ./packages/${name}) (builtins.readDir ./packages);
-
-    overlays = builtins.mapAttrs (name: value: import ./overlays/${name}) (builtins.readDir ./overlays);
-
-    nixosModules =
-      (builtins.listToAttrs
-        (builtins.map
-          (string: {
-            name = builtins.replaceStrings [".nix"] [""] string;
-            value = import ./modules/${string}; })
-          (builtins.attrNames
-            (builtins.readDir ./modules))));
-
-    homeManagerModules = builtins.mapAttrs (name: value: import ./home/${name}) (builtins.readDir ./home);
-  };
+  } //
+    (builtins.listToAttrs
+      (builtins.map
+        (attr: {
+          name = attr;
+          value = let
+            directory = builtins.replaceStrings
+              ["nixosModules" "homeManagerModules"]
+              ["modules" "home"]
+              attr;
+          in (builtins.listToAttrs
+            (builtins.map
+              (filename: {
+                name = builtins.replaceStrings [".nix"] [""] filename;
+                value = import ./${directory}/${filename}; })
+              (builtins.attrNames
+                (builtins.readDir ./${directory})))); })
+      ["overlays" "nixosModules" "homeManagerModules"]));
 }
