@@ -24,6 +24,10 @@
   outputs = { self, nixpkgs, home-manager, stylix, ... } @ attrs: let
     inherit (nixpkgs.lib) nixosSystem;
     inherit (nixpkgs.legacyPackages.x86_64-linux) nixpkgs-fmt callPackage;
+
+    flakeOutputs     =  [ "overlays" "nixosModules" "homeManagerModules" "packages" ];
+    flakeDirectories =  [ "overlays" "modules"      "home"               "packages" ];
+    packageDirectory = "packages";
   in {
     formatter.x86_64-linux = nixpkgs-fmt;
 
@@ -57,14 +61,14 @@
         (attributeName: {
           name = attributeName;
           value = let
-            directory = builtins.replaceStrings ["nixosModules" "homeManagerModules"] ["modules" "home"] attributeName;
+            directory = builtins.replaceStrings flakeOutputs flakeDirectories attributeName;
             attributeValue = (builtins.listToAttrs
               (builtins.map
                 (file: {
                   name = builtins.replaceStrings [".nix"] [""] file;
-                  value = if directory == "packages" then callPackage ./${directory}/${file} { } else import ./${directory}/${file}; })
+                  value = if directory == packageDirectory then callPackage ./${directory}/${file} { } else import ./${directory}/${file}; })
                 (builtins.attrNames (builtins.readDir ./${directory}))));
-            attributeSet = if directory == "packages" then { x86_64-linux = attributeValue; } else attributeValue;
+            attributeSet = if directory == packageDirectory then { x86_64-linux = attributeValue; } else attributeValue;
           in (attributeSet); })
-      ["overlays" "nixosModules" "homeManagerModules" "packages"]));
+      (flakeOutputs)));
 }
