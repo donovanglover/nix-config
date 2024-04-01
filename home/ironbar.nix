@@ -56,7 +56,7 @@
         {
           "name": "overview",
           "type": "label",
-          "label": "🅰",
+          "label": "アプリ",
           "on_mouse_enter": "hyprctl dispatch hycov:toggleoverview"
         }
       ]
