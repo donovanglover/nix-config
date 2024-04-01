@@ -21,13 +21,15 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... } @ attrs: with nixpkgs.lib; {
+  outputs = { self, nixpkgs, home-manager, stylix, ... } @ attrs: with nixpkgs.lib; {
     nixosConfigurations = {
       nixos = nixosSystem {
         system = "x86_64-linux";
         specialArgs = attrs;
         modules = [
-          ./.
+          home-manager.nixosModules.home-manager
+          stylix.nixosModules.stylix
+          ./hardware/laptop.nix
           {
             environment.pathsToLink = [
               "/share/backgrounds"
