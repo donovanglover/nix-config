@@ -5,11 +5,11 @@
         "fromYaml": "fromYaml"
       },
       "locked": {
-        "lastModified": 1689633990,
-        "narHash": "sha256-iwvQg2Vx0IIDWZaKo8Xmzxlv1YPHg+Kp/QSv8dRv0RY=",
+        "lastModified": 1708890466,
+        "narHash": "sha256-LlrC09LoPi8OPYOGPXegD72v+//VapgAqhbOFS3i8sc=",
         "owner": "SenchoPens",
         "repo": "base16.nix",
-        "rev": "dddf2e1c04845d43c89a8e9e37d574519649a404",
+        "rev": "665b3c6748534eb766c777298721cece9453fdae",
         "type": "github"
       },
       "original": {
@@ -19,6 +19,22 @@
       }
     },
     "base16-alacritty": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1703982197,
+        "narHash": "sha256-TNxKbwdiUXGi4Z4chT72l3mt3GSvOcz6NZsUH8bQU/k=",
+        "owner": "aarowill",
+        "repo": "base16-alacritty",
+        "rev": "c95c200b3af739708455a03b5d185d3d2d263c6e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "aarowill",
+        "repo": "base16-alacritty",
+        "type": "github"
+      }
+    },
+    "base16-alacritty-yaml": {
       "flake": false,
       "locked": {
         "lastModified": 1674275109,
@@ -31,6 +47,7 @@
       "original": {
         "owner": "aarowill",
         "repo": "base16-alacritty",
+        "rev": "63d8ae5dfefe5db825dd4c699d0cdc2fc2c3eaf7",
         "type": "github"
       }
     },
@@ -162,6 +179,23 @@
         "type": "github"
       }
     },
+    "gnome-shell": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1698794309,
+        "narHash": "sha256-/TIkZ8y5Wv3QHLFp79Poao9fINurKs5pa4z0CRe+F8s=",
+        "owner": "GNOME",
+        "repo": "gnome-shell",
+        "rev": "a7c169c6c29cf02a4c392fa0acbbc5f5072823e7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "GNOME",
+        "ref": "45.1",
+        "repo": "gnome-shell",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -231,6 +265,7 @@
       "inputs": {
         "base16": "base16",
         "base16-alacritty": "base16-alacritty",
+        "base16-alacritty-yaml": "base16-alacritty-yaml",
         "base16-fish": "base16-fish",
         "base16-foot": "base16-foot",
         "base16-helix": "base16-helix",
@@ -238,6 +273,7 @@
         "base16-tmux": "base16-tmux",
         "base16-vim": "base16-vim",
         "flake-compat": "flake-compat",
+        "gnome-shell": "gnome-shell",
         "home-manager": [
           "home-manager"
         ],
@@ -246,15 +282,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1705202953,
-        "narHash": "sha256-G6/A3K2hwyXuTqL59VNLgKzR1gyMt4RLrshPTiBNr/I=",
-        "owner": "bluskript",
+        "lastModified": 1711797803,
+        "narHash": "sha256-7CVR/L+sXNNuQtNG6djzgoaMlP1acFIn8p/gImlDwI4=",
+        "owner": "danth",
         "repo": "stylix",
-        "rev": "19879cb0cefa9cc344a863d622948d45677ef535",
+        "rev": "fdf8fd261eba972e23e8926caeb3aa41c5e3ac68",
         "type": "github"
       },
       "original": {
-        "owner": "bluskript",
+        "owner": "danth",
         "repo": "stylix",
         "type": "github"
       }
