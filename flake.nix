@@ -21,7 +21,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, ... } @ attrs: with nixpkgs.lib; {
+  outputs = { self, nixpkgs, home-manager, stylix, ... } @ attrs: with nixpkgs.lib; with nixpkgs.legacyPackages.x86_64-linux; {
     nixosConfigurations = {
       nixos = nixosSystem {
         system = "x86_64-linux";
@@ -47,37 +47,21 @@
       };
     };
 
-    formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixpkgs-fmt;
+    formatter.x86_64-linux = nixpkgs-fmt;
   } //
     (builtins.listToAttrs
       (builtins.map
-        (attr: {
-          name = attr;
+        (attributeName: {
+          name = attributeName;
           value = let
-            directory = builtins.replaceStrings
-              ["nixosModules" "homeManagerModules"]
-              ["modules" "home"]
-              attr;
-            function = if directory == "packages"
-              then nixpkgs.legacyPackages.x86_64-linux.callPackage
-              else import;
-            filesMap = (builtins.listToAttrs
+            directory = builtins.replaceStrings ["nixosModules" "homeManagerModules"] ["modules" "home"] attributeName;
+            attributeValue = (builtins.listToAttrs
               (builtins.map
-                (filename: {
-                  name = builtins.replaceStrings [".nix"] [""] filename;
-                  value = function ./${directory}/${filename}; })
-                (builtins.attrNames
-                (builtins.readDir ./${directory}))));
-            callP = (builtins.listToAttrs
-              (builtins.map
-                (filename: {
-                  name = builtins.replaceStrings [".nix"] [""] filename;
-                  value = function ./${directory}/${filename} { }; })
-                (builtins.attrNames
-                (builtins.readDir ./${directory}))));
-            val = if directory == "packages"
-              then { x86_64-linux = callP; }
-              else filesMap;
-          in (val); })
+                (file: {
+                  name = builtins.replaceStrings [".nix"] [""] file;
+                  value = if directory == "packages" then callPackage ./${directory}/${file} { } else import ./${directory}/${file}; })
+                (builtins.attrNames (builtins.readDir ./${directory}))));
+            attributeSet = if directory == "packages" then { x86_64-linux = attributeValue; } else attributeValue;
+          in (attributeSet); })
       ["overlays" "nixosModules" "homeManagerModules" "packages"]));
 }
