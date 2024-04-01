@@ -581,7 +581,7 @@ in
             highlight = {
               enable = true,
               disable = function(lang)
-                if lang ~= "javascript" and lang ~= "tsx" and lang ~= "typescript" and lang ~= "astro" and lang ~= "css" then
+                if lang ~= "javascript" and lang ~= "tsx" and lang ~= "typescript" and lang ~= "astro" and lang ~= "css" and lang ~= "glsl" then
                   return true
                 end
               end,
