@@ -65,10 +65,10 @@
             attributeValue = (builtins.listToAttrs
               (builtins.map
                 (file: {
-                  name = builtins.replaceStrings [".nix"] [""] file;
+                  name = builtins.replaceStrings [ ".nix" ] [ "" ] file;
                   value = if directory == packageDirectory then callPackage ./${directory}/${file} { } else import ./${directory}/${file}; })
                 (builtins.attrNames (builtins.readDir ./${directory}))));
             attributeSet = if directory == packageDirectory then { x86_64-linux = attributeValue; } else attributeValue;
           in (attributeSet); })
-      (flakeOutputs)));
+        (flakeOutputs)));
 }

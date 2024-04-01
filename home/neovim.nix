@@ -605,18 +605,18 @@ in
         plugin = obsidian-nvim;
         type = "lua";
         config = /* lua */ ''
-        require('obsidian').setup {
-          workspaces = {
-            {
-              name = "ドキュメント",
-              path = "~/ドキュメント",
+          require('obsidian').setup {
+            workspaces = {
+              {
+                name = "ドキュメント",
+                path = "~/ドキュメント",
+              },
             },
-          },
-          disable_frontmatter = true,
-          ui = {
-            enable = false
+            disable_frontmatter = true,
+            ui = {
+              enable = false
+            }
           }
-        }
         '';
       }
       fzf-vim
