@@ -641,6 +641,7 @@ in
       emmet-vim
       tagbar
       yats-vim
+      rainbow-delimiters-nvim
     ];
   };
 
