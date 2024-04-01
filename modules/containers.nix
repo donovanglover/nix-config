@@ -54,7 +54,7 @@ in
       imports = [
         stylix.nixosModules.stylix
         home-manager.nixosModules.home-manager
-        ./shared.nix
+        ../containers/shared.nix
       ];
 
       networking.nat.forwardPorts = [
