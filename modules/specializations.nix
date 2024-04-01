@@ -1,11 +1,11 @@
 {
   specialisation = {
     gnome.configuration.imports = [
-      ./gnome.nix
+      ../specializations/gnome.nix
     ];
 
     plasma.configuration.imports = [
-      ./plasma.nix
+      ../specializations/plasma.nix
     ];
   };
 }
