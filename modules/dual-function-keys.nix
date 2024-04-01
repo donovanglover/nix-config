@@ -31,8 +31,8 @@
         - KEY: KEY_RIGHTSHIFT
           TAP: [ KEY_LEFTMETA, KEY_F2 ]
           HOLD: KEY_RIGHTSHIFT
-        - KEY: KEY_LEFTSHIFT
+        - KEY: KEY_RIGHTALT
           TAP: KEY_GRAVE
-          HOLD: KEY_LEFTSHIFT
+          HOLD: KEY_RIGHTALT
   '';
 }
