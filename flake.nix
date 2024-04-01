@@ -29,9 +29,17 @@
         modules = [
           ./.
           {
+            environment.pathsToLink = [
+              "/share/backgrounds"
+              "/share/eww"
+              "/share/thumbnailers"
+              "/share/fonts"
+            ];
+
             nixpkgs.overlays = builtins.attrValues self.overlays;
             imports = builtins.attrValues self.nixosModules;
             home-manager.sharedModules = builtins.attrValues self.homeManagerModules;
+            environment.systemPackages = builtins.attrValues self.packages.x86_64-linux;
           }
         ];
       };
