@@ -308,6 +308,7 @@ in
     bind = $SUPER, F, fullscreen
     bind = $SUPER, S, swapactiveworkspaces, 0 1
     bind = $SUPER_SHIFT, S, movetoworkspace, special
+    bind = $SUPER_SHIFT, A, exec, killall activate-linux || activate-linux -s 1.15 -x 412 -y 120 -c 1-1-1-0.05
     bind = $SUPER, O, exec, killall .ironbar-wrapper || ironbar
     bind = $SUPER_SHIFT, O, exec, eww close overlay || eww open overlay
     bind = $SUPER, F1, exec, killall rofi || rofi -show drun
