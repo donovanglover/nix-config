@@ -1,13 +1,26 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
+let
+  inherit (lib) getExe;
+  inherit (builtins) toJSON;
+  inherit (pkgs) interception-tools;
+  inherit (pkgs.interception-tools-plugins) dual-function-keys;
+
+  configFile = "dual-function-keys.yaml";
+in
 {
   services.interception-tools = {
     enable = true;
-    plugins = with pkgs.interception-tools-plugins; [ dual-function-keys ];
+    plugins = [ dual-function-keys ];
 
-    udevmonConfig = with pkgs; builtins.toJSON [
+    udevmonConfig = toJSON [
       {
-        JOB = "${interception-tools}/bin/intercept -g $DEVNODE | ${interception-tools-plugins.dual-function-keys}/bin/dual-function-keys -c /etc/dual-function-keys.yaml | ${interception-tools}/bin/uinput -d $DEVNODE";
+        JOB = /* bash */ ''
+          ${interception-tools}/bin/intercept -g $DEVNODE |
+          ${getExe dual-function-keys} -c /etc/${configFile} |
+          ${interception-tools}/bin/uinput -d $DEVNODE
+        '';
+
         DEVICE = {
           EVENTS = {
             EV_KEY = [ "KEY_CAPSLOCK" "KEY_ESC" ];
@@ -17,7 +30,7 @@
     ];
   };
 
-  environment.etc."dual-function-keys.yaml".text = builtins.toJSON {
+  environment.etc.${configFile}.text = toJSON {
     TIMING = [
       { TAP_MILLISEC = 1000; }
       { DOUBLE_TAP_MILLISEC = 0; }
