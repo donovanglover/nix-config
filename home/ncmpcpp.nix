@@ -6,13 +6,12 @@
   services.mpd = {
     enable = true;
     musicDirectory = "/home/user/音楽";
+    extraConfig = /* config */ ''
+      auto_update "yes"
+    '';
   };
 
   xdg.configFile = {
-    "mpd/mpd.conf".text = ''
-      auto_update "yes"
-    '';
-
     "ncmpcpp/on-song-change.sh" = {
       executable = true;
       text = /* bash */ ''
