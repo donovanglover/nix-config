@@ -25,6 +25,11 @@
     inherit (nixpkgs.lib) nixosSystem;
     inherit (nixpkgs.legacyPackages.x86_64-linux) nixpkgs-fmt callPackage;
 
+    checkArgs = {
+      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      inherit self;
+    };
+
     flakeOutputs     =  [ "overlays" "nixosModules" "homeManagerModules" "packages" ];
     flakeDirectories =  [ "overlays" "modules"      "home"               "packages" ];
     packageDirectory = "packages";
@@ -54,6 +59,11 @@
           }
         ];
       };
+    };
+
+    checks.x86_64-linux = {
+      hyprland = import ./tests/hyprland.nix checkArgs;
+      neovim = import ./tests/neovim.nix checkArgs;
     };
   } //
     (builtins.listToAttrs
