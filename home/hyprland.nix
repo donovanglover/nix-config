@@ -2,7 +2,7 @@
 
 let
   opacity = lib.strings.floatToString config.stylix.opacity.terminal;
-  modifier = "SUPER";
+  super = "SUPER";
 in
 {
   home.packages = with pkgs; [
@@ -17,6 +17,244 @@ in
     plugins = [
       (pkgs.callPackage ../packages/hycov.nix { })
     ];
+
+    settings = with config.lib.stylix.colors; {
+      env = [
+        "XCURSOR_SIZE,24"
+        "BROWSER,librewolf"
+        "QT_IM_MODULE,fcitx"
+        "XMODIFIERS,@im=fcitx"
+        "SDL_IM_MODULE,fcitx"
+        "GLFW_IM_MODULE,ibus"
+        "SWWW_TRANSITION,grow"
+        "SWWW_TRANSITION_STEP,200"
+        "SWWW_TRANSITION_DURATION,1.5"
+        "SWWW_TRANSITION_FPS,240"
+        "SWWW_TRANSITION_WAVE,80,40"
+        "QT_AUTO_SCREEN_SCALE_FACTOR,1"
+        "QT_QPA_PLATFORM,wayland;xcb"
+        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+        "QT_QPA_PLATFORMTHEME,qt5ct"
+        "QT_STYLE_OVERRIDE,kvantum"
+      ];
+
+      monitor = ",preferred,auto,1";
+
+      exec-once = [
+        "sleep 0.1; swww init"
+        "wpctl set-volume @DEFAULT_AUDIO_SINK@ 20%"
+        "ironbar"
+        "fcitx5"
+        "hyprctl dispatch workspace 5000000"
+        "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
+        "hyprdim --no-dim-when-only --persist --ignore-leaving-special --dialog-dim"
+        "hypridle"
+        "sleep 1 && eww open desktop-icons"
+        "~/.config/hypr/random-bg.fish"
+      ];
+
+      input = {
+        kb_layout = "us";
+        repeat_rate = 50;
+        repeat_delay = 300;
+
+        accel_profile = "flat";
+        follow_mouse = 1;
+        sensitivity = 0;
+        mouse_refocus = false;
+
+        touchpad = {
+          natural_scroll = true;
+          disable_while_typing = false;
+        };
+      };
+
+      general = {
+        gaps_in = 5;
+        gaps_out = 10;
+        border_size = 4;
+        layout = "master";
+      };
+
+      decoration = {
+        rounding = 8;
+        drop_shadow = true;
+        shadow_range = 4;
+        shadow_render_power = 3;
+
+        blur = {
+          enabled = true;
+          size = 4;
+          passes = 2;
+        };
+      };
+
+      animations = {
+        enabled = true;
+        bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+        animation = [
+          "windows, 1, 7, myBezier"
+          "windowsOut, 1, 7, default, popin 80%"
+          "border, 1, 10, default"
+          "borderangle, 1, 8, default"
+          "fade, 1, 7, default"
+          "workspaces, 1, 6, default, slidevert"
+          "specialWorkspace, 1, 6, default, fade"
+        ];
+      };
+
+      dwindle = {
+        preserve_split = true;
+        special_scale_factor = 1;
+      };
+
+      master = {
+        new_is_master = false;
+        new_on_top = false;
+        no_gaps_when_only = true;
+        mfact = 0.65;
+        special_scale_factor = 1;
+      };
+
+      gestures = {
+        workspace_swipe = true;
+      };
+
+      device = [
+        {
+          name = "synps/2-synaptics-touchpad";
+          sensitivity = 0.75;
+          accel_profile = "flat";
+          natural_scroll = true;
+          disable_while_typing = false;
+        }
+        {
+          name = "tpps/2-elan-trackpoint";
+          sensitivity = 0.5;
+          accel_profile = "flat";
+        }
+      ];
+
+      binds = {
+        allow_workspace_cycles = true;
+      };
+
+      plugin = {
+        hycov = {
+          hotarea_size = 0;
+          enable_gesture = 1;
+        };
+      };
+
+      layerrule = [
+        "blur,ironbar"
+        "blur,rofi"
+        "blur,notifications"
+      ];
+
+      windowrulev2 = [
+        "nomaxsize,class:^(winecfg\.exe)$"
+        "nomaxsize,class:^(osu\.exe)$"
+        "opaque,class:^(kitty)$"
+        "noblur,class:^(kitty)$"
+        "nodim,title:^(Picture-in-Picture)$"
+        "nodim,title:^(ピクチャーインピクチャー)$"
+        "nodim,class:^(mpv)$"
+        "tile,class:^(.qemu-system-x86_64-wrapped)$"
+        "opacity ${opacity} ${opacity},class:^(thunar)$"
+        "float,class:^(librewolf)$"
+        "center 1,class:^(librewolf)$"
+      ];
+
+      misc = {
+        disable_hyprland_logo = true;
+        animate_manual_resizes = true;
+        animate_mouse_windowdragging = true;
+        disable_autoreload = true;
+        new_window_takes_over_fullscreen = 1;
+      };
+
+      bind = [
+        "${super}_SHIFT, Return, exec, kitty"
+        "${super}_SHIFT, Q, killactive"
+        "${super}, W, exec, ~/.config/hypr/random-bg.fish"
+        "${super}_SHIFT, W, exec, ~/.config/hypr/swap-bg.fish"
+        "${super}, P, exec, dunstify --icon=$(grimblast save screen) Screenshot Captured."
+        ", Print, exec, grimblast --freeze copy area"
+        "${super}_ALT, delete, exit"
+        "${super}, T, exec, tessen"
+        "${super}, V, togglefloating"
+        "${super}, B, centerwindow"
+        "${super}, U, exec, ~/.config/hypr/gaps.sh"
+        "${super}, X, pin"
+        "${super}, F, fullscreen"
+        "${super}, S, swapactiveworkspaces, 0 1"
+        "${super}_SHIFT, S, movetoworkspace, special"
+        "${super}_SHIFT, A, exec, killall activate-linux || activate-linux -s 1.15 -x 412 -y 120 -c 1-1-1-0.05"
+        "${super}, O, exec, killall .ironbar-wrapper || ironbar"
+        "${super}_SHIFT, O, exec, eww close overlay || eww open overlay"
+        "${super}, F1, exec, killall rofi || rofi -show drun"
+        "${super}, F2, togglespecialworkspace"
+        "${super}, comma, exec, playerctl -p mpv position \"5-\" && notify-send -t 2000 \"Minus 5 seconds\" \"$(playerctl -p mpv position)\""
+        "${super}, period, exec, playerctl -p mpv position \"5+\" && notify-send -t 2000 \"Plus 5 seconds\" \"$(playerctl -p mpv position)\""
+        "${super}_SHIFT, comma, exec, playerctl -p mpv previous && notify-send -t 2000 \"Previous track\" \"$(playerctl -p mpv metadata xesam:title)\""
+        "${super}_SHIFT, period, exec, playerctl -p mpv next && notify-send -t 2000 \"Next track\" \"$(playerctl -p mpv metadata xesam:title)\""
+        "${super}, slash, exec, playerctl -p mpv play-pause && notify-send -t 2000 \"mpv\" \"$(playerctl -p mpv status)\""
+        "${super}, M, focusmonitor, +1"
+        "${super}_SHIFT, M, focusmonitor, -1"
+
+        "${super}, Return, layoutmsg, swapwithmaster master"
+        "${super}, J, layoutmsg, cyclenext"
+        "${super}, K, layoutmsg, cycleprev"
+        "${super}_SHIFT, J, layoutmsg, swapnext"
+        "${super}_SHIFT, K, layoutmsg, swapprev"
+        "${super}, C, splitratio, exact 0.80"
+        "${super}, C, layoutmsg, orientationtop"
+        "${super}_SHIFT, C, splitratio, exact 0.65"
+        "${super}_SHIFT, C, layoutmsg, orientationleft"
+        "${super}, H, layoutmsg, addmaster"
+        "${super}, L, layoutmsg, removemaster"
+        "${super}_SHIFT, H, splitratio, -0.05"
+        "${super}_SHIFT, L, splitratio, +0.05"
+        "${super}_ALT, L, exec, hyprlock"
+
+        "${super}, 1, exec, hyprnome --previous"
+        "${super}, 2, exec, hyprnome"
+        "${super}, F11, exec, hyprnome --previous"
+        "${super}, F12, exec, hyprnome"
+        "${super}_SHIFT, 1, exec, hyprnome --previous --move"
+        "${super}_SHIFT, 2, exec, hyprnome --move"
+
+        "${super}, Tab, hycov:toggleoverview"
+        "${super}, H, hycov:movefocus,l"
+        "${super}, L, hycov:movefocus,r"
+        "${super}, K, hycov:movefocus,u"
+        "${super}, J, hycov:movefocus,d"
+
+        "${super}, mouse_down, workspace, e+1"
+        "${super}, mouse_up, workspace, e-1"
+      ];
+
+      bindm = [
+        "${super}, mouse:272, movewindow"
+        "${super}, mouse:273, resizewindow"
+      ];
+
+      bindl = [
+        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && notify-send -t 2000 \"Muted\" \"$(wpctl get-volume @DEFAULT_AUDIO_SINK@)\""
+        ", XF86AudioRaiseVolume, exec, ~/.config/hypr/raise-volume.fish"
+        ", XF86AudioLowerVolume, exec, ~/.config/hypr/lower-volume.fish"
+        ", XF86MonBrightnessDown, exec, brightnessctl set 5%- && notify-send -t 2000 \"Decreased brightness to\" \"$(brightnessctl get)\""
+        ", XF86MonBrightnessUp, exec, brightnessctl set +5% && notify-send -t 2000 \"Increased brightness to\" \"$(brightnessctl get)\""
+      ];
+    };
+
+    extraConfig = /* bash */ ''
+      bind = CTRL, Alt_L, submap, passthrough
+      submap = passthrough
+      bind = CTRL, Alt_L, submap, reset
+      submap = reset
+    '';
   };
 
   xdg.configFile."hypr/gaps.sh" = {
@@ -172,232 +410,6 @@ in
     listener {
       timeout = 1800
       on-timeout = systemctl suspend
-    }
-  '';
-
-  xdg.configFile."hypr/hyprland.conf".text = with config.lib.stylix.colors; /* bash */ ''
-    env=XCURSOR_SIZE,24
-    env=BROWSER,librewolf
-    env=QT_IM_MODULE,fcitx
-    env=XMODIFIERS,@im=fcitx
-    env=SDL_IM_MODULE,fcitx
-    env=GLFW_IM_MODULE,ibus
-    env=SWWW_TRANSITION,grow
-    env=SWWW_TRANSITION_STEP,200
-    env=SWWW_TRANSITION_DURATION,1.5
-    env=SWWW_TRANSITION_FPS,240
-    env=SWWW_TRANSITION_WAVE,80,40
-    env=QT_AUTO_SCREEN_SCALE_FACTOR,1
-    env=QT_QPA_PLATFORM,wayland;xcb
-    env=QT_WAYLAND_DISABLE_WINDOWDECORATION,1
-    env=QT_QPA_PLATFORMTHEME,qt5ct
-    env=QT_STYLE_OVERRIDE,kvantum
-    monitor=,preferred,auto,1
-
-    exec-once = sleep 0.1; swww init
-    exec-once = wpctl set-volume @DEFAULT_AUDIO_SINK@ 20%
-    exec-once = ironbar
-    exec-once = fcitx5
-    exec-once = hyprctl dispatch workspace 5000000
-    exec-once = ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
-    exec-once = hyprdim --no-dim-when-only --persist --ignore-leaving-special --dialog-dim
-    exec-once = hypridle
-    exec-once = sleep 1 && eww open desktop-icons
-    exec-once = ~/.config/hypr/random-bg.fish
-
-    input {
-      kb_layout = us
-      accel_profile = flat
-      follow_mouse = 1
-      mouse_refocus = 0
-      sensitivity = 0
-      touchpad {
-        natural_scroll = yes
-        disable_while_typing = no
-      }
-      repeat_rate = 50
-      repeat_delay = 300
-    }
-
-    general {
-      gaps_in = 5
-      gaps_out = 10
-      border_size = 4
-      col.active_border = rgb(${base04}) rgb(${base05}) 45deg
-      col.inactive_border = rgb(${base02})
-      layout = master
-    }
-
-    decoration {
-      rounding = 8
-      drop_shadow = yes
-      shadow_range = 4
-      shadow_render_power = 3
-      col.shadow = rgba(1a1a1aee)
-
-      blur {
-        enabled = yes
-        size = 4
-        passes = 2
-      }
-    }
-
-    animations {
-      enabled = yes
-      bezier = myBezier, 0.05, 0.9, 0.1, 1.05
-      animation = windows, 1, 7, myBezier
-      animation = windowsOut, 1, 7, default, popin 80%
-      animation = border, 1, 10, default
-      animation = borderangle, 1, 8, default
-      animation = fade, 1, 7, default
-      animation = workspaces, 1, 6, default, slidevert
-      animation = specialWorkspace, 1, 6, default, fade
-    }
-
-    dwindle {
-      preserve_split = yes
-      special_scale_factor = 1
-    }
-
-    master {
-      new_is_master = no
-      new_on_top = no
-      no_gaps_when_only = yes
-      mfact = 0.65
-      special_scale_factor = 1
-    }
-
-    gestures {
-      workspace_swipe = yes
-    }
-
-    device {
-      name = synps/2-synaptics-touchpad
-      sensitivity = 0.75
-      accel_profile = flat
-      natural_scroll = yes
-      disable_while_typing = no
-    }
-
-    device {
-      name = tpps/2-elan-trackpoint
-      sensitivity = 0.5
-      accel_profile = flat
-    }
-
-    binds {
-      allow_workspace_cycles = yes
-    }
-
-    $SUPER = ${modifier}
-    $SUPER_SHIFT = ${modifier}_SHIFT
-    $SUPER_ALT = ${modifier}_ALT
-
-    bind = $SUPER_SHIFT, Return, exec, kitty
-    bind = $SUPER_SHIFT, Q, killactive
-    bind = $SUPER, W, exec, ~/.config/hypr/random-bg.fish
-    bind = $SUPER_SHIFT, W, exec, ~/.config/hypr/swap-bg.fish
-    bind = $SUPER, P, exec, dunstify --icon=$(grimblast save screen) Screenshot Captured.
-    bind = , Print, exec, grimblast --freeze copy area
-    bind = $SUPER_ALT, delete, exit
-    bind = $SUPER, T, exec, tessen
-    bind = $SUPER, V, togglefloating
-    bind = $SUPER, B, centerwindow
-    bind = $SUPER, U, exec, ~/.config/hypr/gaps.sh
-    bind = $SUPER, X, pin
-    bind = $SUPER, F, fullscreen
-    bind = $SUPER, S, swapactiveworkspaces, 0 1
-    bind = $SUPER_SHIFT, S, movetoworkspace, special
-    bind = $SUPER_SHIFT, A, exec, killall activate-linux || activate-linux -s 1.15 -x 412 -y 120 -c 1-1-1-0.05
-    bind = $SUPER, O, exec, killall .ironbar-wrapper || ironbar
-    bind = $SUPER_SHIFT, O, exec, eww close overlay || eww open overlay
-    bind = $SUPER, F1, exec, killall rofi || rofi -show drun
-    bind = $SUPER, F2, togglespecialworkspace
-    bind = $SUPER, comma, exec, playerctl -p mpv position "5-" && notify-send -t 2000 "Minus 5 seconds" "$(playerctl -p mpv position)"
-    bind = $SUPER, period, exec, playerctl -p mpv position "5+" && notify-send -t 2000 "Plus 5 seconds" "$(playerctl -p mpv position)"
-    bind = $SUPER_SHIFT, comma, exec, playerctl -p mpv previous && notify-send -t 2000 "Previous track" "$(playerctl -p mpv metadata xesam:title)"
-    bind = $SUPER_SHIFT, period, exec, playerctl -p mpv next && notify-send -t 2000 "Next track" "$(playerctl -p mpv metadata xesam:title)"
-    bind = $SUPER, slash, exec, playerctl -p mpv play-pause && notify-send -t 2000 "mpv" "$(playerctl -p mpv status)"
-    bind = $SUPER, M, focusmonitor, +1
-    bind = $SUPER_SHIFT, M, focusmonitor, -1
-
-    bind = $SUPER, Return, layoutmsg, swapwithmaster master
-    bind = $SUPER, J, layoutmsg, cyclenext
-    bind = $SUPER, K, layoutmsg, cycleprev
-    bind = $SUPER_SHIFT, J, layoutmsg, swapnext
-    bind = $SUPER_SHIFT, K, layoutmsg, swapprev
-    bind = $SUPER, C, splitratio, exact 0.80
-    bind = $SUPER, C, layoutmsg, orientationtop
-    bind = $SUPER_SHIFT, C, splitratio, exact 0.65
-    bind = $SUPER_SHIFT, C, layoutmsg, orientationleft
-    bind = $SUPER, H, layoutmsg, addmaster
-    bind = $SUPER, L, layoutmsg, removemaster
-    bind = $SUPER_SHIFT, H, splitratio, -0.05
-    bind = $SUPER_SHIFT, L, splitratio, +0.05
-    bind = $SUPER_ALT, L, exec, hyprlock
-
-    bind = $SUPER, 1, exec, hyprnome --previous
-    bind = $SUPER, 2, exec, hyprnome
-    bind = $SUPER, F11, exec, hyprnome --previous
-    bind = $SUPER, F12, exec, hyprnome
-    bind = $SUPER_SHIFT, 1, exec, hyprnome --previous --move
-    bind = $SUPER_SHIFT, 2, exec, hyprnome --move
-
-    bind = $SUPER, Tab, hycov:toggleoverview
-    bind = $SUPER, H, hycov:movefocus,l
-    bind = $SUPER, L, hycov:movefocus,r
-    bind = $SUPER, K, hycov:movefocus,u
-    bind = $SUPER, J, hycov:movefocus,d
-
-    plugin {
-      hycov {
-        hotarea_size = 0
-        enable_gesture = 1
-      }
-    }
-
-    bind = CTRL, Alt_L, submap, passthrough
-    submap = passthrough
-    bind = CTRL, Alt_L, submap, reset
-    submap = reset
-
-    layerrule = blur,ironbar
-    layerrule = blur,rofi
-    layerrule = blur,notifications
-
-    windowrulev2 = nomaxsize,class:^(winecfg\.exe)$
-    windowrulev2 = nomaxsize,class:^(osu\.exe)$
-    windowrulev2 = opaque,class:^(kitty)$
-    windowrulev2 = noblur,class:^(kitty)$
-    windowrulev2 = nodim,title:^(Picture-in-Picture)$
-    windowrulev2 = nodim,title:^(ピクチャーインピクチャー)$
-    windowrulev2 = nodim,class:^(mpv)$
-    windowrulev2 = tile,class:^(.qemu-system-x86_64-wrapped)$
-    windowrulev2 = opacity ${opacity} ${opacity},class:^(thunar)$
-    windowrulev2 = float,class:^(librewolf)$
-    windowrulev2 = center 1,class:^(librewolf)$
-
-    # Scroll through existing workspaces with super + scroll
-    bind = $SUPER, mouse_down, workspace, e+1
-    bind = $SUPER, mouse_up, workspace, e-1
-
-    # Move/resize windows with super + LMB/RMB and dragging
-    bindm = $SUPER, mouse:272, movewindow
-    bindm = $SUPER, mouse:273, resizewindow
-
-    # Change volume with keys
-    bindl=, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && notify-send -t 2000 "Muted" "$(wpctl get-volume @DEFAULT_AUDIO_SINK@)"
-    bindl=, XF86AudioRaiseVolume, exec, ~/.config/hypr/raise-volume.fish
-    bindl=, XF86AudioLowerVolume, exec, ~/.config/hypr/lower-volume.fish
-    bindl=, XF86MonBrightnessDown, exec, brightnessctl set 5%- && notify-send -t 2000 "Decreased brightness to" "$(brightnessctl get)"
-    bindl=, XF86MonBrightnessUp, exec, brightnessctl set +5% && notify-send -t 2000 "Increased brightness to" "$(brightnessctl get)"
-
-    misc {
-      disable_hyprland_logo = yes
-      animate_manual_resizes = yes
-      animate_mouse_windowdragging = yes
-      disable_autoreload = yes
-      new_window_takes_over_fullscreen = 1
     }
   '';
 }
