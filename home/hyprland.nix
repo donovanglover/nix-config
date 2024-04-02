@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  opacity = 0.95;
+  opacity = "0.95";
   super = "SUPER";
 in
 {
