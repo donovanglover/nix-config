@@ -1,7 +1,7 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, ... }:
 
 let
-  opacity = lib.strings.floatToString config.stylix.opacity.terminal;
+  opacity = 0.95;
   super = "SUPER";
 in
 {
@@ -18,7 +18,7 @@ in
       (pkgs.callPackage ../packages/hycov.nix { })
     ];
 
-    settings = with config.lib.stylix.colors; {
+    settings = {
       env = [
         "XCURSOR_SIZE,24"
         "BROWSER,librewolf"
