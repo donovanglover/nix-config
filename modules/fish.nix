@@ -97,7 +97,7 @@
       nb = "nix build";
       ns = "nix shell";
       nr = "nix run";
-      ncg = "sudo nix-collect-garbage -d";
+      ncg = "sudo nix-collect-garbage -d && nix-collect-garbage -d";
       nvd = "nvd --color always diff /run/current-system result | less -R";
 
       b = "bun";
