@@ -1,5 +1,8 @@
-{ config, ... }:
+{ config, lib, ... }:
 
+let
+  inherit (lib) singleton;
+in
 {
   xdg.configFile."ironbar/config.json".text = builtins.toJSON {
     name = "main";
@@ -23,20 +26,18 @@
       }
     ];
 
-    center = [
-      {
-        type = "launcher";
-        icon_size = 39;
-        favorites = [
-          "librewolf"
-          "kitty"
-          "thunar"
-          "org.qutebrowser.qutebrowser"
-          "anki"
-          "Element"
-        ];
-      }
-    ];
+    center = singleton {
+      type = "launcher";
+      icon_size = 39;
+      favorites = [
+        "librewolf"
+        "kitty"
+        "thunar"
+        "org.qutebrowser.qutebrowser"
+        "anki"
+        "Element"
+      ];
+    };
 
     end = [
       {

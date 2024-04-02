@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 
 let
-  inherit (lib) getExe;
+  inherit (lib) getExe singleton;
   inherit (builtins) toJSON;
   inherit (pkgs) interception-tools;
   inherit (pkgs.interception-tools-plugins) dual-function-keys;
@@ -13,21 +13,19 @@ in
     enable = true;
     plugins = [ dual-function-keys ];
 
-    udevmonConfig = toJSON [
-      {
-        JOB = /* bash */ ''
-          ${interception-tools}/bin/intercept -g $DEVNODE |
-          ${getExe dual-function-keys} -c /etc/${configFile} |
-          ${interception-tools}/bin/uinput -d $DEVNODE
-        '';
+    udevmonConfig = toJSON (singleton {
+      JOB = /* bash */ ''
+        ${interception-tools}/bin/intercept -g $DEVNODE |
+        ${getExe dual-function-keys} -c /etc/${configFile} |
+        ${interception-tools}/bin/uinput -d $DEVNODE
+      '';
 
-        DEVICE = {
-          EVENTS = {
-            EV_KEY = [ "KEY_CAPSLOCK" "KEY_ESC" ];
-          };
+      DEVICE = {
+        EVENTS = {
+          EV_KEY = [ "KEY_CAPSLOCK" "KEY_ESC" ];
         };
-      }
-    ];
+      };
+    });
   };
 
   environment.etc.${configFile}.text = toJSON {
