@@ -6,7 +6,7 @@ stdenvNoCC.mkDerivation {
   pname = "webp-thumbnailer";
   version = "1.0.0";
 
-  src = ../assets;
+  dontUnpack = true;
 
   postInstall = /* bash */ ''
     mkdir -p $out/share/thumbnailers
