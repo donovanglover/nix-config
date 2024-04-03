@@ -1,15 +1,23 @@
 { pkgs, ... }:
 
+let
+  inherit (pkgs.xfce) thunar-volman exo;
+  inherit (pkgs) glib;
+in
 {
-  programs.thunar.enable = true;
-  services.tumbler.enable = true; # Thumbnail support
-  programs.thunar.plugins = with pkgs.xfce; [ thunar-volman ];
+  programs.thunar = {
+    enable = true;
+    plugins = [ thunar-volman ];
+  };
 
-  environment.systemPackages = with pkgs; [
-    xfce.exo # Open with kitty support
+  services = {
+    tumbler.enable = true;
+    gvfs.enable = true;
+    gnome.gnome-keyring.enable = true;
+  };
+
+  environment.systemPackages = [
+    exo
     glib
   ];
-
-  services.gvfs.enable = true; # Trash support
-  services.gnome.gnome-keyring.enable = true; # Mount support
 }
