@@ -30,4 +30,6 @@
       ];
     };
   };
+
+  services.resolved.llmnr = "false";
 }

@@ -1,3 +1,0 @@
-{
-  services.resolved.llmnr = "false";
-}
