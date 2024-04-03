@@ -1,54 +1,47 @@
 { pkgs, ... }:
 
+let
+  inherit (pkgs) mpc-cli;
+
+  musicDirectory = "/home/user/音楽";
+  changeScript = "ncmpcpp/on-song-change.sh";
+  fallbackImage = ../assets/wallpaper.png;
+in
 {
-  home.packages = with pkgs; [ mpc-cli ];
+  home.packages = [ mpc-cli ];
 
   services.mpd = {
     enable = true;
-    musicDirectory = "/home/user/音楽";
+    inherit musicDirectory;
+
     extraConfig = /* config */ ''
       auto_update "yes"
     '';
   };
 
-  xdg.configFile = {
-    "ncmpcpp/on-song-change.sh" = {
-      executable = true;
-      text = /* bash */ ''
-        #!/usr/bin/env bash
+  xdg.configFile.${changeScript} = {
+    executable = true;
+    text = /* bash */ ''
+      #!/usr/bin/env bash
 
-        music_dir="$HOME/音楽"
-        fallback_image="${../assets/wallpaper.png}"
+      find_cover () {
+        ext="$(mpc --format %file% current | sed 's/^.*\.//')"
 
-        main () {
-            find_cover 2>/dev/null
-            send       2>/dev/null
-        }
+        if [ "$ext" == "flac" ]; then
+          metaflac --export-picture-to=/tmp/cover.jpg \
+          "$(mpc --format "${musicDirectory}"/%file% current)" && cover_path="/tmp/cover.jpg" && return
+        else
+          ffmpeg -y -i "$(mpc --format "${musicDirectory}"/%file% | head -n 1)"} \
+          /tmp/cover.jpg && cover_path="/tmp/cover.jpg" && return
+        fi
 
-        find_cover () {
-            ext="$(mpc --format %file% current | sed 's/^.*\.//')"
-            if [ "$ext" != "flac" ]; then
-                ffmpeg -y -i "$(mpc --format "$music_dir"/%file% | head -n 1)" \
-                /tmp/cover.jpg && cover_path="/tmp/cover.jpg" && return
-            else
-                # ffmpeg doesn't work for flacs
-                metaflac --export-picture-to=/tmp/cover.jpg \
-                "$(mpc --format "$music_dir"/%file% current)" && cover_path="/tmp/cover.jpg" && return
-            fi
-            #without embedded images this is used as a fallback
-            file="$music_dir/$(mpc --format %file% current)"
-            album="''${file%/*}"
-            #search for cover image
-            cover_path=$(find "$album"  -maxdepth 1 | grep -m 1 ".*\.\(jpg\|png\|gif\|bmp\)")
-        }
+        file="${musicDirectory}/$(mpc --format %file% current)"
+        album="''${file%/*}"
+        cover_path=$(find "$album" -maxdepth 1 | grep -m 1 ".*\.\(jpg\|png\|gif\|bmp\)")
+      }
 
-        send () {
-            notify-send -i "''${cover_path:-$fallback_image}" "Now Playing" "$(mpc current)"
-        }
-
-        main
-      '';
-    };
+      find_cover && notify-send -i "''${cover_path:-${fallbackImage}}" "Now Playing" "$(mpc current)"
+    '';
   };
 
   programs.ncmpcpp = {
@@ -91,7 +84,7 @@
       autocenter_mode = "yes";
       allow_for_physical_item_deletion = "no";
       mouse_support = "no";
-      execute_on_song_change = "~/.config/ncmpcpp/on-song-change.sh";
+      execute_on_song_change = "~/.config/${changeScript}";
       mpd_crossfade_time = 3;
     };
   };
