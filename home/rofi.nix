@@ -1,11 +1,17 @@
 { config, lib, pkgs, ... }:
 
+let
+  inherit (pkgs) rofi-wayland;
+  inherit (lib) mkForce;
+  inherit (config.lib.formats.rasi) mkLiteral;
+  inherit (config.lib.stylix.colors) base00 base05;
+in
 {
   programs.rofi = {
     enable = true;
     cycle = false;
 
-    package = pkgs.rofi-wayland;
+    package = rofi-wayland;
 
     extraConfig = {
       modi = "drun,filebrowser";
@@ -25,7 +31,7 @@
     };
 
     # Based on Newman Sánchez's Launchpad theme <https://github.com/newmanls/rofi-themes-collection>
-    theme = let inherit (config.lib.formats.rasi) mkLiteral; in with config.lib.stylix.colors; lib.mkForce {
+    theme = mkForce {
       "*" = {
         font = "Noto Sans CJK JP Bold 12";
         background-color = mkLiteral "transparent";
