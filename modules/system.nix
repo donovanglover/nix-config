@@ -1,3 +1,8 @@
+{ pkgs, ... }:
+
+let
+  inherit (pkgs.nixVersions) nix_2_19;
+in
 {
   boot.loader = {
     systemd-boot = {
@@ -8,6 +13,21 @@
 
     timeout = 0;
     efi.canTouchEfiVariables = true;
+  };
+
+  systemd = {
+    extraConfig = "DefaultTimeoutStopSec=10s";
+    services.NetworkManager-wait-online.enable = false;
+  };
+
+  nix = {
+    package = nix_2_19;
+
+    settings = {
+      experimental-features = [ "nix-command" "flakes" "repl-flake" ];
+      auto-optimise-store = true;
+      warn-dirty = false;
+    };
   };
 
   time.timeZone = "America/New_York";
