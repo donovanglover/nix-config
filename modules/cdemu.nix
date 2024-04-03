@@ -1,5 +1,0 @@
-{
-  programs.cdemu = {
-    enable = true;
-  };
-}
