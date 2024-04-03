@@ -5,13 +5,11 @@
     ../modules/fish.nix
     ../modules/fonts.nix
     ../modules/home-manager.nix
-    ../modules/locale.nix
     ../modules/neovim.nix
-    ../modules/nix.nix
     ../modules/pipewire.nix
     ../modules/starship.nix
     ../modules/stylix.nix
-    ../modules/timezone.nix
+    ../modules/system.nix
     ../modules/wine.nix
   ];
 
