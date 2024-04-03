@@ -30,6 +30,11 @@ in
     };
   };
 
+  zramSwap = {
+    enable = true;
+    memoryPercent = 100;
+  };
+
   time.timeZone = "America/New_York";
 
   i18n.defaultLocale = "ja_JP.UTF-8";
