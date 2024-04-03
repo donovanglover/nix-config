@@ -2,6 +2,12 @@
 
 let
   inherit (pkgs.nixVersions) nix_2_19;
+
+  # TODO: Make these variables options
+  timeZone = "America/New_York";
+  defaultLocale = "ja_JP.UTF-8";
+  supportedLocales = [ "ja_JP.UTF-8/UTF-8" "en_US.UTF-8/UTF-8" "fr_FR.UTF-8/UTF-8" ];
+  stateVersion = "22.11";
 in
 {
   boot.loader = {
@@ -35,10 +41,15 @@ in
     memoryPercent = 100;
   };
 
-  time.timeZone = "America/New_York";
+  time = {
+    inherit timeZone;
+  };
 
-  i18n.defaultLocale = "ja_JP.UTF-8";
-  i18n.supportedLocales = [ "ja_JP.UTF-8/UTF-8" "en_US.UTF-8/UTF-8" "fr_FR.UTF-8/UTF-8" ];
+  i18n = {
+    inherit defaultLocale supportedLocales;
+  };
 
-  system.stateVersion = "22.11";
+  system = {
+    inherit stateVersion;
+  };
 }
