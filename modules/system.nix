@@ -10,15 +10,19 @@ let
   stateVersion = "22.11";
 in
 {
-  boot.loader = {
-    systemd-boot = {
-      enable = true;
-      editor = false;
-      configurationLimit = 10;
-    };
+  boot = {
+    tmp.cleanOnBoot = true;
 
-    timeout = 0;
-    efi.canTouchEfiVariables = true;
+    loader = {
+      systemd-boot = {
+        enable = true;
+        editor = false;
+        configurationLimit = 10;
+      };
+
+      timeout = 0;
+      efi.canTouchEfiVariables = true;
+    };
   };
 
   systemd = {
