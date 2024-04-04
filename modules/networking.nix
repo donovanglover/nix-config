@@ -2,7 +2,7 @@
 
 let
   inherit (lib) mkEnableOption mkOption mkIf;
-  inherit (lib.types) string;
+  inherit (lib.types) str;
 
   cfg = config.modules.networking;
 in
@@ -11,7 +11,7 @@ in
     mullvad = mkEnableOption "mullvad vpn";
 
     hostName = mkOption {
-      type = string;
+      type = str;
       default = "nixos";
     };
 
