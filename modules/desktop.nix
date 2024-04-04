@@ -2,6 +2,8 @@
 
 let
   inherit (lib) mkEnableOption mkIf;
+  inherit (pkgs.xfce) thunar-volman exo;
+  inherit (pkgs) glib;
 
   cfg = config.modules.desktop;
 in
@@ -12,7 +14,14 @@ in
   };
 
   config = with cfg; {
-    programs.hyprland.enable = true;
+    programs = {
+      hyprland.enable = true;
+
+      thunar = {
+        enable = true;
+        plugins = [ thunar-volman ];
+      };
+    };
 
     i18n.inputMethod = mkIf japanese {
       enabled = "fcitx5";
@@ -44,6 +53,10 @@ in
 
         pulse.enable = true;
       };
+
+      tumbler.enable = true;
+      gvfs.enable = true;
+      gnome.gnome-keyring.enable = true;
     };
 
     environment.systemPackages = with pkgs; [
@@ -63,6 +76,8 @@ in
       signal-desktop
       ungoogled-chromium
       qbittorrent
+      exo
+      glib
     ];
 
     services.greetd = {
