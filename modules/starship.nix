@@ -1,4 +1,14 @@
 {
+  programs = {
+    neovim.enable = true;
+    direnv.enable = true;
+  };
+
+  environment.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
+  };
+
   programs.starship = {
     enable = true;
 
