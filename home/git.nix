@@ -1,7 +1,10 @@
 { pkgs, ... }:
 
+let
+  inherit (builtins) attrValues;
+in
 {
-  home.packages = builtins.attrValues {
+  home.packages = attrValues {
     inherit (pkgs) tig mgitstatus;
   };
 

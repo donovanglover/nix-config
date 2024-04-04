@@ -24,6 +24,7 @@
   outputs = { self, nixpkgs, home-manager, stylix, ... } @ attrs: let
     inherit (nixpkgs.lib) nixosSystem;
     inherit (nixpkgs.legacyPackages.x86_64-linux) nixpkgs-fmt callPackage;
+    inherit (builtins) attrValues attrNames listToAttrs map replaceStrings readDir;
 
     checkArgs = {
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
@@ -52,10 +53,10 @@
               "/share/fonts"
             ];
 
-            nixpkgs.overlays = builtins.attrValues self.overlays;
-            imports = builtins.attrValues self.nixosModules;
-            home-manager.sharedModules = builtins.attrValues self.homeManagerModules;
-            environment.systemPackages = builtins.attrValues self.packages.x86_64-linux;
+            nixpkgs.overlays = attrValues self.overlays;
+            imports = attrValues self.nixosModules;
+            home-manager.sharedModules = attrValues self.homeManagerModules;
+            environment.systemPackages = attrValues self.packages.x86_64-linux;
 
             modules = {
               hardware = {
@@ -83,18 +84,18 @@
       neovim = import ./tests/neovim.nix checkArgs;
     };
   } //
-    (builtins.listToAttrs
-      (builtins.map
+    (listToAttrs
+      (map
         (attributeName: {
           name = attributeName;
           value = let
-            directory = builtins.replaceStrings flakeOutputs flakeDirectories attributeName;
-            attributeValue = (builtins.listToAttrs
-              (builtins.map
+            directory = replaceStrings flakeOutputs flakeDirectories attributeName;
+            attributeValue = (listToAttrs
+              (map
                 (file: {
-                  name = builtins.replaceStrings [ ".nix" ] [ "" ] file;
+                  name = replaceStrings [ ".nix" ] [ "" ] file;
                   value = if directory == packageDirectory then callPackage ./${directory}/${file} { } else import ./${directory}/${file}; })
-                (builtins.attrNames (builtins.readDir ./${directory}))));
+                (attrNames (readDir ./${directory}))));
             attributeSet = if directory == packageDirectory then { x86_64-linux = attributeValue; } else attributeValue;
           in (attributeSet); })
         (flakeOutputs)));

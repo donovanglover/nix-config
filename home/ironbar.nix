@@ -1,12 +1,15 @@
 { config, lib, pkgs, ... }:
 
 let
+  inherit (builtins) attrValues toJSON;
   inherit (lib) singleton;
 in
 {
-  home.packages = with pkgs; [ ironbar ];
+  home.packages = attrValues {
+    inherit (pkgs) ironbar;
+  };
 
-  xdg.configFile."ironbar/config.json".text = builtins.toJSON {
+  xdg.configFile."ironbar/config.json".text = toJSON {
     name = "main";
     icon_theme = "Fluent-dark";
     position = "bottom";
