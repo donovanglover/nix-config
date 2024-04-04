@@ -1,10 +1,8 @@
-{ stylix
-, home-manager
-, sakaya
-, ...
-}:
+{ config, stylix, home-manager, sakaya, ... }:
 
 let
+  inherit (config.modules.system) username;
+
   template = {
     privateNetwork = true;
     ephemeral = true;
@@ -13,7 +11,7 @@ let
 
     bindMounts = {
       "/mnt" = {
-        hostPath = "/home/user/containers/wine";
+        hostPath = "/home/${username}/containers/wine";
         isReadOnly = false;
       };
 

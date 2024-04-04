@@ -1,9 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 let
   inherit (pkgs) mpc-cli;
+  inherit (config.xdg.userDirs) music;
 
-  musicDirectory = "/home/user/音楽";
+  musicDirectory = music;
   changeScript = "ncmpcpp/on-song-change.sh";
   fallbackImage = ../assets/wallpaper.png;
 in

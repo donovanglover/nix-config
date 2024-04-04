@@ -1,3 +1,8 @@
+{ config, ... }:
+
+let
+  inherit (config.home) homeDirectory;
+in
 {
   xdg.userDirs = {
     enable = true;
@@ -7,11 +12,11 @@
     templates = null;
     publicShare = null;
 
-    download = "/home/user/ダウンロード";
-    documents = "/home/user/ドキュメント";
-    music = "/home/user/音楽";
-    pictures = "/home/user/画像";
-    videos = "/home/user/ビデオ";
+    download = "${homeDirectory}/ダウンロード";
+    documents = "${homeDirectory}/ドキュメント";
+    music = "${homeDirectory}/音楽";
+    pictures = "${homeDirectory}/画像";
+    videos = "${homeDirectory}/ビデオ";
   };
 
   xdg.configFile."user-dirs.locale".text = "ja_JP";
