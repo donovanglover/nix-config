@@ -1,32 +1,33 @@
 { pkgs, config, lib, ... }:
 
 let
-  inherit (lib) mkEnableOption;
+  inherit (lib) mkEnableOption mkIf;
   inherit (pkgs) piper;
 
   cfg = config.modules.hardware;
 in
 {
   options.modules.hardware = {
-    enable = mkEnableOption "hardware-specific configuration";
-    mouseSettings = mkEnableOption "piper for mouse settings";
-    laptopKeyboard = mkEnableOption "laptop keyboard";
-    lidIgnore = mkEnableOption "lid switch to standby";
-    powerIgnore = mkEnableOption "ignoring the power key";
+    mouseSettings = mkEnableOption "piper for gaming mice";
+    disableLaptopKeyboard = mkEnableOption "udev rule to disable laptop keyboard";
+    lidIgnore = mkEnableOption "ignoring the laptop lid on close";
+    powerIgnore = mkEnableOption "ignoring the power button on press";
   };
 
-  # TODO: lib.mkIf cfg.enable
-  config = {
-    services.ratbagd.enable = true;
-    environment.systemPackages = [ piper ];
+  config = with cfg; {
+    services = {
+      ratbagd.enable = mkIf mouseSettings true;
 
-    services.udev.extraRules = ''
-      KERNEL=="event*", ATTRS{name}=="AT Translated Set 2 keyboard", ENV{LIBINPUT_IGNORE_DEVICE}="1"
-    '';
+      udev.extraRules = mkIf disableLaptopKeyboard ''
+        KERNEL=="event*", ATTRS{name}=="AT Translated Set 2 keyboard", ENV{LIBINPUT_IGNORE_DEVICE}="1"
+      '';
 
-    services.logind = {
-      lidSwitch = "ignore";
-      extraConfig = "HandlePowerKey=ignore";
+      logind = {
+        lidSwitch = mkIf lidIgnore "ignore";
+        extraConfig = mkIf powerIgnore "HandlePowerKey=ignore";
+      };
     };
+
+    environment.systemPackages = mkIf mouseSettings [ piper ];
   };
 }
