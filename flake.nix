@@ -57,10 +57,16 @@
             home-manager.sharedModules = builtins.attrValues self.homeManagerModules;
             environment.systemPackages = builtins.attrValues self.packages.x86_64-linux;
 
-            modules.hardware = {
-              disableLaptopKeyboard = true;
-              lidIgnore = true;
-              powerIgnore = true;
+            modules = {
+              hardware = {
+                disableLaptopKeyboard = true;
+                lidIgnore = true;
+                powerIgnore = true;
+              };
+
+              networking = {
+                mullvad = true;
+              };
             };
           }
         ];
