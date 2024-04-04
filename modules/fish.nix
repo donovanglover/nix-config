@@ -1,8 +1,11 @@
 { pkgs, ... }:
 
+let
+  inherit (pkgs) fish;
+in
 {
-  users.defaultUserShell = pkgs.fish;
-  environment.shells = [ pkgs.fish ];
+  users.defaultUserShell = fish;
+  environment.shells = [ fish ];
 
   environment.sessionVariables = {
     GIT_DISCOVERY_ACROSS_FILESYSTEM = "1";
@@ -12,14 +15,9 @@
     GATSBY_TELEMETRY_DISABLED = "1";
   };
 
-  environment.systemPackages = with pkgs; [
-    wget
-    jq
-    eza
-    fd
-    fzf
-    ripgrep
-  ];
+  environment.systemPackages = builtins.attrValues {
+    inherit (pkgs) wget jq eza fd fzf ripgrep;
+  };
 
   programs.fish = {
     enable = true;
