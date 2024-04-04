@@ -32,7 +32,7 @@ in
           metaflac --export-picture-to=/tmp/cover.jpg \
           "$(mpc --format "${musicDirectory}"/%file% current)" && cover_path="/tmp/cover.jpg" && return
         else
-          ffmpeg -y -i "$(mpc --format "${musicDirectory}"/%file% | head -n 1)"} \
+          ffmpeg -y -i "$(mpc --format "${musicDirectory}"/%file% | head -n 1)" \
           /tmp/cover.jpg && cover_path="/tmp/cover.jpg" && return
         fi
 
@@ -41,7 +41,8 @@ in
         cover_path=$(find "$album" -maxdepth 1 | grep -m 1 ".*\.\(jpg\|png\|gif\|bmp\)")
       }
 
-      find_cover && notify-send -i "''${cover_path:-${fallbackImage}}" "Now Playing" "$(mpc current)"
+      find_cover 2>/dev/null
+      notify-send -i "''${cover_path:-${fallbackImage}}" "Now Playing" "$(mpc current)" 2>/dev/null
     '';
   };
 
