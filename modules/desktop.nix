@@ -4,6 +4,7 @@ let
   inherit (lib) mkEnableOption mkIf;
   inherit (pkgs.xfce) thunar-volman exo;
   inherit (pkgs) glib;
+  inherit (config.modules.system) username;
 
   theme = "monokai";
   opacity = 0.95;
@@ -100,7 +101,7 @@ in
 
         initial_session = {
           command = "${pkgs.hyprland}/bin/Hyprland";
-          user = "user";
+          user = username;
         };
       };
     };

@@ -4,11 +4,17 @@ let
   inherit (lib) mkOption;
   inherit (lib.types) str listOf;
   inherit (pkgs.nixVersions) nix_2_19;
+  inherit (cfg) username;
 
   cfg = config.modules.system;
 in
 {
   options.modules.system = {
+    username = mkOption {
+      type = str;
+      default = "user";
+    };
+
     timeZone = mkOption {
       type = str;
       default = "America/New_York";
@@ -81,13 +87,11 @@ in
     users = {
       mutableUsers = false;
 
-      users = {
-        user = {
-          isNormalUser = true;
-          uid = 1000;
-          password = "user";
-          extraGroups = [ "wheel" "networkmanager" ];
-        };
+      users.${username} = {
+        isNormalUser = true;
+        uid = 1000;
+        password = "user";
+        extraGroups = [ "wheel" "networkmanager" ];
       };
     };
 
@@ -100,11 +104,10 @@ in
         programs.man.generateCaches = true;
       }];
 
-      users = {
-        user = {
-          home.username = "user";
-          home.homeDirectory = "/home/user";
-        };
+      users.${username}.home = {
+        inherit username;
+
+        homeDirectory = "/home/${username}";
       };
     };
   };

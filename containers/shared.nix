@@ -1,5 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, config, ... }:
 
+let
+  inherit (config.modules.system) username;
+in
 {
   imports = [
     ../modules/fish.nix
@@ -52,11 +55,9 @@
   users = {
     allowNoPasswordLogin = true;
 
-    users = {
-      user = {
-        password = lib.mkForce null;
-        extraGroups = lib.mkForce [ ];
-      };
+    users.${username} = {
+      password = lib.mkForce null;
+      extraGroups = lib.mkForce [ ];
     };
   };
 

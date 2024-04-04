@@ -1,5 +1,8 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 
+let
+  inherit (config.modules.system) username;
+in
 {
   services.xserver = {
     enable = true;
@@ -13,7 +16,7 @@
 
       autoLogin = {
         enable = true;
-        user = "user";
+        user = username;
       };
     };
 
