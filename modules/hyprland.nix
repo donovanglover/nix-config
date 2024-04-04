@@ -53,4 +53,30 @@
       };
     };
   };
+
+  fonts = {
+    enableDefaultPackages = false;
+
+    packages = with pkgs; [
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
+      noto-fonts-emoji
+      maple-mono
+      font-awesome
+      nerdfonts
+      kanji-stroke-order-font
+      liberation_ttf
+    ];
+
+    fontconfig = {
+      defaultFonts = {
+        serif = [ "Noto Serif CJK JP" "Noto Serif" ];
+        sansSerif = [ "Noto Sans CJK JP" "Noto Sans" ];
+        monospace = [ "Noto Sans Mono CJK JP" "Noto Sans Mono" ];
+      };
+
+      allowBitmaps = false;
+    };
+  };
 }
