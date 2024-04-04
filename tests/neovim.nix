@@ -4,7 +4,8 @@
 
   nodes.machine = { self, pkgs, ... }: {
     imports = with self.nixosModules; [
-      neovim
+      system
+      shell
     ];
   };
 
