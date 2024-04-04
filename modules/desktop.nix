@@ -15,11 +15,15 @@ in
   options.modules.desktop = {
     japanese = mkEnableOption "Japanese support (fcitx, anki, kanjidraw, etc.)";
     bloat = mkEnableOption "GUI applications like Logseq";
+    wine = mkEnableOption "wine support";
   };
 
   config = with cfg; {
+    hardware.opengl.driSupport32Bit = mkIf wine true;
+
     programs = {
       hyprland.enable = true;
+      cdemu.enable = mkIf wine true;
 
       thunar = {
         enable = true;
