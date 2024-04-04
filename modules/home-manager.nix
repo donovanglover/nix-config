@@ -5,6 +5,7 @@
 
     sharedModules = [{
       home.stateVersion = "22.11";
+      programs.man.generateCaches = true;
     }];
 
     users = {
