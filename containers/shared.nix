@@ -50,13 +50,12 @@
   ];
 
   users = {
-    mutableUsers = false;
     allowNoPasswordLogin = true;
 
     users = {
       user = {
-        isNormalUser = true;
-        home = "/home/user";
+        password = lib.mkForce null;
+        extraGroups = lib.mkForce [ ];
       };
     };
   };
