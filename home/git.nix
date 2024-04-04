@@ -35,6 +35,10 @@ in
       rerere.enabled = true;
       color.ui = true;
 
+      blame = {
+        date = "relative";
+      };
+
       alias = {
         contrib = "shortlog -n -s";
         remotes = "remote -v";
