@@ -13,155 +13,250 @@ in
     NODE_OPTIONS = "--max_old_space_size=16384";
     BAT_THEME = "base16";
     GATSBY_TELEMETRY_DISABLED = "1";
+    EDITOR = "nvim";
+    VISUAL = "nvim";
   };
 
   environment.systemPackages = builtins.attrValues {
     inherit (pkgs) wget jq eza fd fzf ripgrep;
   };
 
-  programs.fish = {
-    enable = true;
+  programs = {
+    fish = {
+      enable = true;
 
-    shellAliases = {
-      ls = "${pkgs.eza}/bin/eza --icons --group-directories-first --no-quotes -I 'lost+found'";
-      tree = "${pkgs.eza}/bin/eza --icons --group-directories-first --no-quotes --all --long --tree -I 'node_modules|.git|public|lost+found|target|.next|.cache|.nuxt|themes|.direnv|.wrangler|.vercel|dist'";
-      mv = "mv -i";
-      cp = "cp -ia";
-      rg = "${pkgs.ripgrep}/bin/rg --max-columns=2000 --smart-case";
-      ncu = "${pkgs.npm-check-updates}/bin/ncu --interactive --format group";
+      shellAliases = {
+        ls = "${pkgs.eza}/bin/eza --icons --group-directories-first --no-quotes -I 'lost+found'";
+        tree = "${pkgs.eza}/bin/eza --icons --group-directories-first --no-quotes --all --long --tree -I 'node_modules|.git|public|lost+found|target|.next|.cache|.nuxt|themes|.direnv|.wrangler|.vercel|dist'";
+        mv = "mv -i";
+        cp = "cp -ia";
+        rg = "${pkgs.ripgrep}/bin/rg --max-columns=2000 --smart-case";
+        ncu = "${pkgs.npm-check-updates}/bin/ncu --interactive --format group";
+      };
+
+      shellAbbrs = {
+        g = "git";
+        ga = "git add";
+        gaa = "git add --all";
+        gap = "git add --patch";
+        gapp = "git apply";
+        gb = "git branch --verbose";
+        gbr = "git branch --verbose --remotes";
+        gbd = "git branch --delete";
+        gbD = "git branch --delete --force";
+        gc = "git commit -m";
+        gca = "git commit --amend";
+        gcl = "git clone";
+        gco = "git checkout";
+        gcot = "git checkout --theirs";
+        gcp = "git cherry-pick --strategy-option theirs";
+        gcpx = "git cherry-pick --strategy-option theirs -x";
+        gd = "git diff";
+        gds = "git diff --staged";
+        gf = "git fetch";
+        gi = "git init";
+        gl = "git log --oneline --decorate --graph -n 10";
+        gm = "git merge";
+        gp = "git push";
+        gpu = "git pull";
+        gr = "git reset HEAD~";
+        gR = "git restore";
+        gRs = "git restore --staged";
+        gra = "git remote add";
+        gre = "git remote --verbose";
+        grh = "git reset HEAD";
+        grr = "git reset --hard HEAD~";
+        grb = "git rebase --interactive";
+        grbc = "git rebase --continue";
+        gs = "git status";
+        gsma = "git submodule add";
+        gsmu = "git submodule update --init --remote --recursive";
+        gst = "git stash";
+        gstp = "git stash pop";
+        gsw = "git switch";
+        gt = "git tag";
+        gts = "git tag -s";
+
+        y = "yarn";
+        ya = "yarn add";
+        yb = "yarn build";
+        yar = "yarn remove";
+        yd = "yarn dev";
+        yi = "yarn init";
+        yin = "yarn install";
+        yu = "yarn upgrade-interactive";
+
+        tp = "trash put";
+        tl = "trash list";
+        tr = "trash restore";
+        te = "trash empty";
+
+        nf = "nix flake";
+        nfc = "nix flake check";
+        nfu = "nix flake update";
+        npr = "nixpkgs-review pr --run fish --print-result";
+        nd = "nix develop --command fish";
+        nb = "nix build";
+        ns = "nix shell";
+        nr = "nix run";
+        ncg = "sudo nix-collect-garbage -d && nix-collect-garbage -d";
+        nvd = "nvd --color always diff /run/current-system result | less -R";
+
+        b = "bun";
+        br = "bun run";
+        bt = "bun test";
+        bi = "bun init";
+        bc = "bun create";
+        bin = "bun install";
+        ba = "bun add";
+        brm = "bun remove";
+        bu = "bun update";
+        bb = "bun build";
+
+        ci = "cargo init";
+        cin = "cargo info";
+        cu = "cargo update";
+        ca = "cargo add";
+        cab = "cargo add --build";
+        cad = "cargo add --dev";
+        cb = "cargo build";
+        cr = "cargo run";
+        cs = "cargo search";
+        ct = "cargo test";
+        cT = "cargo tree --depth 1";
+        cn = "cargo new";
+        crm = "cargo remove";
+        crmb = "cargo remove --build";
+        crmd = "cargo remove --dev";
+        cc = "cargo clippy";
+        cf = "cargo fmt";
+
+        dc = "deno compile";
+        dr = "deno run";
+        di = "deno install";
+        dt = "deno task";
+        dT = "deno test --watch";
+
+        p = "pnpm";
+        pa = "pnpm add";
+        pr = "pnpm remove";
+        pd = "pnpm dev";
+        pt = "pnpm test";
+        pb = "pnpm build";
+        pbs = "pnpm build && pnpm start";
+
+        dl = "yt-dlp";
+        vol = "wpctl set-volume '@DEFAULT_AUDIO_SINK@'"; # Change the volume, e.g. vol 10%+, vol 10%-, vol 100%
+        df = "df --human-readable --total";
+        du = "du --human-readable --summarize";
+        jis = "recode shift_jis..utf8"; # Easily convert shift_jis-encoded files to utf8
+        utf16 = "recode utf16..utf8"; # Rarely, some files from Japan are utf16 instead
+        jp = "LANG=ja_JP.UTF-8 LC_ALL=ja_JP.UTF-8";
+        vm = "nixos-rebuild build-vm --flake . && ./result/bin/run-nixos-vm && trash put result nixos.qcow2";
+        sw = "sudo nixos-rebuild switch --flake .";
+        tf = "treefmt";
+        mgs = "mgitstatus";
+
+        c = "clear";
+        e = "exit";
+        k = "kitty @ set-background-opacity";
+        l = "ls -l";
+        n = "nvim";
+        j = "yazi";
+        t = "tree";
+        z = "zathura";
+      };
     };
 
-    shellAbbrs = {
-      g = "git";
-      ga = "git add";
-      gaa = "git add --all";
-      gap = "git add --patch";
-      gapp = "git apply";
-      gb = "git branch --verbose";
-      gbr = "git branch --verbose --remotes";
-      gbd = "git branch --delete";
-      gbD = "git branch --delete --force";
-      gc = "git commit -m";
-      gca = "git commit --amend";
-      gcl = "git clone";
-      gco = "git checkout";
-      gcot = "git checkout --theirs";
-      gcp = "git cherry-pick --strategy-option theirs";
-      gcpx = "git cherry-pick --strategy-option theirs -x";
-      gd = "git diff";
-      gds = "git diff --staged";
-      gf = "git fetch";
-      gi = "git init";
-      gl = "git log --oneline --decorate --graph -n 10";
-      gm = "git merge";
-      gp = "git push";
-      gpu = "git pull";
-      gr = "git reset HEAD~";
-      gR = "git restore";
-      gRs = "git restore --staged";
-      gra = "git remote add";
-      gre = "git remote --verbose";
-      grh = "git reset HEAD";
-      grr = "git reset --hard HEAD~";
-      grb = "git rebase --interactive";
-      grbc = "git rebase --continue";
-      gs = "git status";
-      gsma = "git submodule add";
-      gsmu = "git submodule update --init --remote --recursive";
-      gst = "git stash";
-      gstp = "git stash pop";
-      gsw = "git switch";
-      gt = "git tag";
-      gts = "git tag -s";
+    neovim.enable = true;
+    direnv.enable = true;
 
-      y = "yarn";
-      ya = "yarn add";
-      yb = "yarn build";
-      yar = "yarn remove";
-      yd = "yarn dev";
-      yi = "yarn init";
-      yin = "yarn install";
-      yu = "yarn upgrade-interactive";
+    starship = {
+      enable = true;
 
-      tp = "trash put";
-      tl = "trash list";
-      tr = "trash restore";
-      te = "trash empty";
+      settings = {
+        add_newline = false;
 
-      nf = "nix flake";
-      nfc = "nix flake check";
-      nfu = "nix flake update";
-      npr = "nixpkgs-review pr --run fish --print-result";
-      nd = "nix develop --command fish";
-      nb = "nix build";
-      ns = "nix shell";
-      nr = "nix run";
-      ncg = "sudo nix-collect-garbage -d && nix-collect-garbage -d";
-      nvd = "nvd --color always diff /run/current-system result | less -R";
+        directory = {
+          style = "purple";
+          read_only = " ro";
+        };
 
-      b = "bun";
-      br = "bun run";
-      bt = "bun test";
-      bi = "bun init";
-      bc = "bun create";
-      bin = "bun install";
-      ba = "bun add";
-      brm = "bun remove";
-      bu = "bun update";
-      bb = "bun build";
+        git_branch = {
+          style = "yellow";
+          symbol = "";
+        };
 
-      ci = "cargo init";
-      cin = "cargo info";
-      cu = "cargo update";
-      ca = "cargo add";
-      cab = "cargo add --build";
-      cad = "cargo add --dev";
-      cb = "cargo build";
-      cr = "cargo run";
-      cs = "cargo search";
-      ct = "cargo test";
-      cT = "cargo tree --depth 1";
-      cn = "cargo new";
-      crm = "cargo remove";
-      crmb = "cargo remove --build";
-      crmd = "cargo remove --dev";
-      cc = "cargo clippy";
-      cf = "cargo fmt";
+        character = {
+          success_symbol = "[>](red)[>](green)[>](blue)";
+          error_symbol = "[>](cyan)[>](purple)[>](yellow)";
+          vicmd_symbol = "[<](bold green)";
+        };
 
-      dc = "deno compile";
-      dr = "deno run";
-      di = "deno install";
-      dt = "deno task";
-      dT = "deno test --watch";
+        line_break.disabled = true;
 
-      p = "pnpm";
-      pa = "pnpm add";
-      pr = "pnpm remove";
-      pd = "pnpm dev";
-      pt = "pnpm test";
-      pb = "pnpm build";
-      pbs = "pnpm build && pnpm start";
+        nodejs = {
+          format = "with [$symbol($version )]($style)";
+          symbol = "node ";
+          version_format = "\${major}";
+          disabled = true;
+        };
 
-      dl = "yt-dlp";
-      vol = "wpctl set-volume '@DEFAULT_AUDIO_SINK@'"; # Change the volume, e.g. vol 10%+, vol 10%-, vol 100%
-      df = "df --human-readable --total";
-      du = "du --human-readable --summarize";
-      jis = "recode shift_jis..utf8"; # Easily convert shift_jis-encoded files to utf8
-      utf16 = "recode utf16..utf8"; # Rarely, some files from Japan are utf16 instead
-      jp = "LANG=ja_JP.UTF-8 LC_ALL=ja_JP.UTF-8";
-      vm = "nixos-rebuild build-vm --flake . && ./result/bin/run-nixos-vm && trash put result nixos.qcow2";
-      sw = "sudo nixos-rebuild switch --flake .";
-      tf = "treefmt";
-      mgs = "mgitstatus";
+        git_commit.tag_symbol = " tag ";
 
-      c = "clear";
-      e = "exit";
-      k = "kitty @ set-background-opacity";
-      l = "ls -l";
-      n = "nvim";
-      j = "yazi";
-      t = "tree";
-      z = "zathura";
+        git_status = {
+          ahead = ">";
+          behind = "<";
+          diverged = "<>";
+          renamed = "r";
+          deleted = "x";
+        };
+
+        aws.symbol = "aws ";
+        cobol.symbol = "cobol ";
+        conda.symbol = "conda ";
+        crystal.symbol = "cr ";
+        cmake.symbol = "cmake ";
+        dart.symbol = "dart ";
+        deno.symbol = "deno ";
+        dotnet.symbol = ".NET ";
+        docker_context.symbol = "docker ";
+        elixir.symbol = "exs ";
+        elm.symbol = "elm ";
+        golang.symbol = "go ";
+        hg_branch.symbol = "hg ";
+        java.symbol = "java ";
+        julia.symbol = "jl ";
+        kotlin.symbol = "kt ";
+        memory_usage.symbol = "memory ";
+        nim.symbol = "nim ";
+
+        nix_shell = {
+          format = "❄️ ";
+          symbol = "nix ";
+        };
+
+        ocaml.symbol = "ml ";
+        package.symbol = "pkg ";
+        perl.symbol = "pl ";
+        php.symbol = "php ";
+        purescript.symbol = "purs ";
+        python.symbol = "python ";
+        ruby.symbol = "ruby ";
+
+        rust = {
+          symbol = "rust ";
+          disabled = true;
+        };
+
+        bun = {
+          symbol = "bun ";
+          disabled = true;
+        };
+
+        scala.symbol = "scala ";
+        swift.symbol = "swift ";
+      };
     };
   };
 }
