@@ -2,15 +2,19 @@
 
 let
   inherit (pkgs) fish htop-vim;
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib) mkEnableOption mkIf mkMerge singleton;
+  inherit (builtins) attrValues;
+  inherit (cfg) postgres;
+  inherit (config.modules.system) username;
 
   cfg = config.modules.shell;
 in
 {
   options.modules.shell = {
+    postgres = mkEnableOption "postgres database and pgcli for containers";
   };
 
-  config = with cfg; {
+  config = {
     users.defaultUserShell = fish;
     environment.shells = [ fish ];
 
@@ -24,8 +28,24 @@ in
       VISUAL = "nvim";
     };
 
-    environment.systemPackages = builtins.attrValues {
-      inherit (pkgs) wget jq eza fd fzf ripgrep;
+    environment.systemPackages = mkMerge [
+      (attrValues {
+        inherit (pkgs) wget jq eza fd fzf ripgrep;
+      })
+
+      (mkIf postgres (attrValues {
+        inherit (pkgs) pgcli;
+      }))
+    ];
+
+    services.postgresql = mkIf postgres {
+      enable = true;
+
+      ensureUsers = singleton {
+        name = username;
+      };
+
+      ensureDatabases = [ username ];
     };
 
     programs = {
