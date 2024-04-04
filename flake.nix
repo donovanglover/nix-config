@@ -67,6 +67,11 @@
               networking = {
                 mullvad = true;
               };
+
+              desktop = {
+                japanese = true;
+                bloat = true;
+              };
             };
           }
         ];

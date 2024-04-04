@@ -7,12 +7,14 @@ let
 in
 {
   options.modules.desktop = {
+    japanese = mkEnableOption "Japanese support (fcitx, anki, kanjidraw, etc.)";
+    bloat = mkEnableOption "GUI applications like Logseq";
   };
 
-  config = {
+  config = with cfg; {
     programs.hyprland.enable = true;
 
-    i18n.inputMethod = {
+    i18n.inputMethod = mkIf japanese {
       enabled = "fcitx5";
 
       fcitx5 = {
@@ -21,29 +23,46 @@ in
       };
     };
 
-    services.udisks2 = {
-      enable = true;
-      mountOnMedia = true;
-    };
-
-    services.xserver = {
-      enable = true;
-      excludePackages = [ pkgs.xterm ];
-    };
-
-    services.pipewire = {
-      enable = true;
-
-      alsa = {
+    services = {
+      udisks2 = {
         enable = true;
-        support32Bit = true;
+        mountOnMedia = true;
       };
 
-      pulse.enable = true;
+      xserver = {
+        enable = true;
+        excludePackages = [ pkgs.xterm ];
+      };
+
+      pipewire = {
+        enable = true;
+
+        alsa = {
+          enable = true;
+          support32Bit = true;
+        };
+
+        pulse.enable = true;
+      };
     };
 
     environment.systemPackages = with pkgs; [
       pulseaudio
+      anki
+      kanjidraw
+      logseq
+      mullvad-browser
+      spek
+      audacity
+      gimp
+      sqlitebrowser
+      qdirstat
+      libreoffice
+      krita
+      element-desktop
+      signal-desktop
+      ungoogled-chromium
+      qbittorrent
     ];
 
     services.greetd = {

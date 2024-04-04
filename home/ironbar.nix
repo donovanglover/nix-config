@@ -1,9 +1,11 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   inherit (lib) singleton;
 in
 {
+  home.packages = with pkgs; [ ironbar ];
+
   xdg.configFile."ironbar/config.json".text = builtins.toJSON {
     name = "main";
     icon_theme = "Fluent-dark";

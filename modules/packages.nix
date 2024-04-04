@@ -11,21 +11,7 @@
     zbar
     sakaya.packages.${system}.sakaya
 
-    logseq
-    mullvad-browser
-    spek
-    audacity
-    gimp
-    anki
-    sqlitebrowser
     sqlcipher
-    kanjidraw
-    libreoffice
-    krita
-    element-desktop
-    signal-desktop
-    ungoogled-chromium
-    qbittorrent
 
     gdu
     fdupes
@@ -94,7 +80,6 @@
     srb2
     crystalline
     thud
-    ironbar
     wallust
     activate-linux
     tango
@@ -115,10 +100,8 @@
     aaaaxy
     lutgen
     sudachi-rs
-    mgitstatus
     pnpm-shell-completion
     rclone
-    qdirstat
   ];
 
   nixpkgs.config.allowUnfree = true;

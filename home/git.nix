@@ -1,7 +1,9 @@
 { pkgs, ... }:
 
 {
-  home.packages = with pkgs; [ tig ];
+  home.packages = builtins.attrValues {
+    inherit (pkgs) tig mgitstatus;
+  };
 
   xdg.configFile."tig/config".text = ''
     color cursor black green bold
