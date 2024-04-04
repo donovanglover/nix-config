@@ -89,6 +89,7 @@ in
       te = "trash empty";
 
       nf = "nix flake";
+      nfc = "nix flake check";
       nfu = "nix flake update";
       npr = "nixpkgs-review pr --run fish --print-result";
       nd = "nix develop --command fish";
