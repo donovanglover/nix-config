@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ lib, config, ... }:
 
 let
   inherit (config.modules.system) username;
@@ -46,10 +46,6 @@ in
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    kitty
-  ];
-
   users = {
     allowNoPasswordLogin = true;
 
@@ -59,8 +55,5 @@ in
     };
   };
 
-  services.xserver.enable = true;
   hardware.opengl.enable = true;
-
-  system.stateVersion = "22.11";
 }
