@@ -1,10 +1,11 @@
 { pkgs, config, lib, ... }:
 
 let
-  inherit (lib) mkEnableOption mkIf;
+  inherit (lib) mkEnableOption mkIf mkMerge;
   inherit (pkgs.xfce) thunar-volman exo;
   inherit (pkgs) glib;
   inherit (config.modules.system) username;
+  inherit (cfg) japanese bloat wine;
 
   theme = "monokai";
   opacity = 0.95;
@@ -19,7 +20,7 @@ in
     wine = mkEnableOption "wine support";
   };
 
-  config = with cfg; {
+  config = {
     hardware.opengl.driSupport32Bit = mkIf wine true;
 
     programs = {
