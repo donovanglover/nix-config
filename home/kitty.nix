@@ -1,5 +1,8 @@
 { config, ... }:
 
+let
+  inherit (config.lib.stylix.colors) base00;
+in
 {
   programs.kitty = {
     enable = true;
@@ -23,7 +26,7 @@
       scrollback_pager = "less --chop-long-lines --raw-control-chars +INPUT_LINE_NUMBER";
     };
 
-    extraConfig = with config.lib.stylix.colors; ''
+    extraConfig = ''
       tab_bar_background #${base00}
       inactive_tab_background #${base00}
       map F1 send_text all \x1afg;notify-send "$(pwd)" "Task Completed."\r

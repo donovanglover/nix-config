@@ -1,5 +1,8 @@
 { pkgs, ... }:
 
+let
+  inherit (pkgs.mpvScripts) mpris uosc thumbfast;
+in
 {
   programs.mpv = {
     enable = true;
@@ -35,7 +38,7 @@
       "ctrl+a" = "script-message osc-visibility cycle";
     };
 
-    scripts = with pkgs.mpvScripts; [
+    scripts = [
       mpris
       uosc
       thumbfast

@@ -1,9 +1,12 @@
 { pkgs, ... }:
 
+let
+  inherit (pkgs) pinentry-curses;
+in
 {
   programs.gpg = {
     enable = true;
-    # homedir = "${config.xdg.dataHome}/gnupg"
+
     settings = {
       personal-digest-preferences = "SHA512";
       cert-digest-algo = "SHA512";
@@ -18,7 +21,7 @@
 
   services.gpg-agent = {
     enable = true;
-    pinentryPackage = pkgs.pinentry-curses;
+    pinentryPackage = pinentry-curses;
     defaultCacheTtl = 43200;
     maxCacheTtl = 43200;
   };

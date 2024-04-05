@@ -1,13 +1,13 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (builtins) attrValues toJSON;
+  inherit (builtins) toJSON;
   inherit (lib) singleton;
+  inherit (config.lib.stylix.colors) base00 base01 base04 base05 base09;
+  inherit (pkgs) ironbar;
 in
 {
-  home.packages = attrValues {
-    inherit (pkgs) ironbar;
-  };
+  home.packages = [ ironbar ];
 
   xdg.configFile."ironbar/config.json".text = toJSON {
     name = "main";
@@ -67,7 +67,7 @@ in
     ];
   };
 
-  xdg.configFile."ironbar/style.css".text = with config.lib.stylix.colors; /* css */ ''
+  xdg.configFile."ironbar/style.css".text = /* css */ ''
     * {
       font-family: "Noto Sans CJK JP", "Font Awesome 6 Free Solid";
       font-size: 16px;

@@ -1,11 +1,15 @@
 { pkgs, config, ... }:
 
 let
-  vim-nix-rummik = with pkgs.vimUtils; buildVimPlugin {
-    pname = "vim-nix";
-    version = "0def8020f152a51c011a707680780dac61a8989a";
+  inherit (pkgs) fetchFromGitHub;
+  inherit (pkgs.vimUtils) buildVimPlugin;
+  inherit (config.lib.stylix.scheme) slug;
 
-    src = pkgs.fetchFromGitHub {
+  vim-nix-rummik = buildVimPlugin {
+    pname = "vim-nix-rummik";
+    version = "2022-11-16";
+
+    src = fetchFromGitHub {
       owner = "rummik";
       repo = "vim-nix";
       rev = "0def8020f152a51c011a707680780dac61a8989a";
@@ -406,7 +410,7 @@ in
       {
         plugin = base16-nvim;
         type = "lua";
-        config = "vim.cmd('colorscheme base16-${config.lib.stylix.scheme.slug}')";
+        config = "vim.cmd('colorscheme base16-${slug}')";
       }
       {
         plugin = lualine-nvim;

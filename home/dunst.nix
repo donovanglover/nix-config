@@ -1,13 +1,16 @@
 { pkgs, ... }:
 
+let
+  inherit (pkgs) libnotify papirus-icon-theme;
+in
 {
-  home.packages = with pkgs; [ libnotify ];
+  home.packages = [ libnotify ];
 
   services.dunst = {
     enable = true;
 
     iconTheme = {
-      package = pkgs.papirus-icon-theme;
+      package = papirus-icon-theme;
       name = "Papirus";
     };
 

@@ -5,6 +5,7 @@ let
   inherit (config.modules.system) username;
   inherit (cfg) japanese bloat wine;
   inherit (builtins) attrValues;
+  inherit (nix-config.packages.${pkgs.system}) aleo-fonts;
 
   theme = "monokai";
   opacity = 0.95;
@@ -33,6 +34,7 @@ in
 
       thunar = {
         enable = true;
+
         plugins = attrValues {
           inherit (pkgs.xfce) thunar-volman;
         };
@@ -169,7 +171,7 @@ in
 
       fonts = with pkgs; {
         serif = {
-          package = (callPackage ../packages/aleo-fonts.nix { });
+          package = aleo-fonts;
           name = "Aleo";
         };
 

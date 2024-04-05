@@ -1,11 +1,14 @@
 { pkgs, ... }:
 
+let
+  inherit (pkgs) phinger-cursors fluent-icon-theme;
+in
 {
   gtk = {
     enable = true;
 
     cursorTheme = {
-      package = pkgs.phinger-cursors;
+      package = phinger-cursors;
       name = "phinger-cursors";
     };
 
@@ -19,7 +22,7 @@
     };
 
     iconTheme = {
-      package = pkgs.fluent-icon-theme;
+      package = fluent-icon-theme;
       name = "Fluent-dark";
     };
   };

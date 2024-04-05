@@ -1,15 +1,21 @@
 { config, ... }:
 
+let
+  inherit (config.lib.stylix.colors) base01 base02 base05;
+
+  font = "Noto Sans CJK JP 16";
+  themeName = "base16";
+in
 {
   xdg.dataFile = {
-    "fcitx5/themes/base16/theme.conf".text = with config.lib.stylix.colors; /* ini */ ''
+    "fcitx5/themes/${themeName}/theme.conf".text = /* ini */ ''
       [Metadata]
-      Name=base16
+      Name=${themeName}
       Version=0.1
       ScaleWithDPI=True
 
       [InputPanel]
-      Font=Noto Sans CJK JP 16
+      Font=${font}
       NormalColor=#${base05}
       HighlightCandidateColor=#${base05}
       HighlightColor=#${base05}
@@ -104,23 +110,14 @@
       force = true;
       text = /* ini */ ''
         [Hotkey]
-        # Enumerate when press trigger key repeatedly
         EnumerateWithTriggerKeys=True
-        # Temporally switch between first and current Input Method
         AltTriggerKeys=
-        # Enumerate Input Method Forward
         EnumerateForwardKeys=
-        # Enumerate Input Method Backward
         EnumerateBackwardKeys=
-        # Skip first input method while enumerating
         EnumerateSkipFirst=False
-        # Enumerate Input Method Group Forward
         EnumerateGroupForwardKeys=
-        # Enumerate Input Method Group Backward
         EnumerateGroupBackwardKeys=
-        # Activate Input Method
         ActivateKeys=
-        # Deactivate Input Method
         DeactivateKeys=
 
         [Hotkey/TriggerKeys]
@@ -142,31 +139,18 @@
         0=Control+Alt+P
 
         [Behavior]
-        # Active By Default
         ActiveByDefault=False
-        # Share Input State
         ShareInputState=No
-        # Show preedit in application
         PreeditEnabledByDefault=True
-        # Show Input Method Information when switch input method
         ShowInputMethodInformation=True
-        # Show Input Method Information when changing focus
         showInputMethodInformationWhenFocusIn=False
-        # Show compact input method information
         CompactInputMethodInformation=True
-        # Show first input method information
         ShowFirstInputMethodInformation=True
-        # Default page size
         DefaultPageSize=5
-        # Override Xkb Option
         OverrideXkbOption=False
-        # Custom Xkb Option
         CustomXkbOption=
-        # Force Enabled Addons
         EnabledAddons=
-        # Force Disabled Addons
         DisabledAddons=
-        # Preload input method to be used by default
         PreloadInputMethod=True
       '';
     };
@@ -175,23 +159,16 @@
       force = true;
       text = /* ini */ ''
         [Groups/0]
-        # Group Name
         Name="Group 1"
-        # Layout
         Default Layout=us
-        # Default Input Method
         DefaultIM=mozc
 
         [Groups/0/Items/0]
-        # Name
         Name=keyboard-us
-        # Layout
         Layout=
 
         [Groups/0/Items/1]
-        # Name
         Name=mozc
-        # Layout
         Layout=
 
         [GroupOrder]
@@ -199,44 +176,29 @@
       '';
     };
 
-    "fcitx5/conf/classicui.conf" = with config.lib.stylix.colors; {
+    "fcitx5/conf/classicui.conf" = {
       force = true;
       text = /* ini */ ''
-        # Vertical Candidate List
         Vertical Candidate List=False
-        # Use Per Screen DPI
         PerScreenDPI=True
-        # Use mouse wheel to go to prev or next page
         WheelForPaging=True
-        # Font
-        Font="Noto Sans CJK JP 16"
-        # Menu Font
-        MenuFont="Noto Sans CJK JP 16"
-        # Tray Font
-        TrayFont="Noto Sans CJK JP Medium 16"
-        # Tray Label Outline Color
+        Font="${font}"
+        MenuFont="${font}"
+        TrayFont="${font}"
         TrayOutlineColor=#${base02}
-        # Tray Label Text Color
         TrayTextColor=#${base05}
-        # Prefer Text Icon
         PreferTextIcon=False
-        # Show Layout Name In Icon
         ShowLayoutNameInIcon=True
-        # Use input method language to display text
         UseInputMethodLangaugeToDisplayText=True
-        # Theme
-        Theme=base16
+        Theme=${themeName}
       '';
     };
 
     "fcitx5/conf/clipboard.conf" = {
       force = true;
       text = /* ini */ ''
-        # Trigger Key
         TriggerKey=
-        # Paste Primary
         PastePrimaryKey=
-        # Number of entries
         Number of entries=5
       '';
     };
@@ -244,15 +206,10 @@
     "fcitx5/conf/mozc.conf" = {
       force = true;
       text = /* ini */ ''
-        # Initial Mode
         InitialMode=Hiragana
-        # Vertical candidate list
         Vertical=True
-        # Expand Usage (Requires vertical candidate list)
         ExpandMode="On Focus"
-        # Fix embedded preedit cursor at the beginning of the preedit
         PreeditCursorPositionAtBeginning=False
-        # Hotkey to expand usage
         ExpandKey=Control+Alt+H
       '';
     };
