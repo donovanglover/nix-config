@@ -1,10 +1,10 @@
 { nix-config, pkgs, lib, config, ... }:
 
 let
-  inherit (lib) mkOption;
+  inherit (lib) mkOption mkEnableOption mkIf;
   inherit (lib.types) str listOf;
   inherit (pkgs.nixVersions) nix_2_19;
-  inherit (cfg) username;
+  inherit (cfg) username iHaveLotsOfRam;
   inherit (builtins) attrValues;
 
   cfg = config.modules.system;
@@ -39,11 +39,15 @@ in
       type = str;
       default = "22.11";
     };
+
+    iHaveLotsOfRam = mkEnableOption "tmpfs on /tmp";
   };
 
   config = {
     boot = {
-      tmp.cleanOnBoot = true;
+      tmp = if iHaveLotsOfRam
+        then { useTmpfs = true; }
+        else { cleanOnBoot = true; };
 
       loader = {
         systemd-boot = {
