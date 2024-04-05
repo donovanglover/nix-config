@@ -68,23 +68,35 @@ in
       gnome.gnome-keyring.enable = true;
     };
 
-    environment.systemPackages = with pkgs; [
+    environment.systemPackages = mkMerge [
+      (attrValues {
+        inherit (pkgs) wget jq eza fd fzf ripgrep;
+      })
+
+      (mkIf japanese (attrValues {
+        inherit (pkgs) anki kanjidraw;
+      }))
+
+      (mkIf bloat (attrValues {
+        inherit (pkgs)
+          logseq
+          mullvad-browser
+          spek
+          audacity
+          gimp
+          sqlitebrowser
+          qdirstat
+          libreoffice
+          krita
+          element-desktop
+          signal-desktop
+          ungoogled-chromium
+          qbittorrent
+          obs-studio
+        ;
+      }))
+
       pulseaudio
-      anki
-      kanjidraw
-      logseq
-      mullvad-browser
-      spek
-      audacity
-      gimp
-      sqlitebrowser
-      qdirstat
-      libreoffice
-      krita
-      element-desktop
-      signal-desktop
-      ungoogled-chromium
-      qbittorrent
       exo
       glib
     ];

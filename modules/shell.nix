@@ -33,6 +33,40 @@ in
         inherit (pkgs) wget jq eza fd fzf ripgrep;
       })
 
+      (attrValues {
+        inherit (pkgs) treefmt;
+      })
+
+      (attrValues {
+        inherit (pkgs)
+          neofetch
+          onefetch
+          scc
+          genact
+          dwt1-shell-color-scripts
+          colorpanes
+          sanctity
+          cmatrix
+        ;
+      })
+      (attrValues {
+        inherit (pkgs)
+          gdu
+          hexyl
+          visidata
+          zellij
+        ;
+      })
+
+      (attrValues {
+        inherit (pkgs)
+          p7zip
+          unar
+          rsync
+          rclone
+        ;
+      })
+
       (mkIf postgres (attrValues {
         inherit (pkgs) pgcli;
       }))

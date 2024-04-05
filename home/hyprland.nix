@@ -6,9 +6,12 @@ let
 in
 {
   home.packages = with pkgs; [
+    hyprdim
     hyprnome
     hypridle
     hyprlock
+    swww
+    grimblast
   ];
 
   wayland.windowManager.hyprland = {
