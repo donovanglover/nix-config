@@ -1,14 +1,19 @@
-{ pkgs, lib, config, ... }:
+{ nix-config, pkgs, lib, config, ... }:
 
 let
   inherit (lib) mkOption;
   inherit (lib.types) str listOf;
   inherit (pkgs.nixVersions) nix_2_19;
   inherit (cfg) username;
+  inherit (builtins) attrValues;
 
   cfg = config.modules.system;
 in
 {
+  imports = attrValues {
+    inherit (nix-config.inputs.home-manager.nixosModules) home-manager;
+  };
+
   options.modules.system = {
     username = mkOption {
       type = str;

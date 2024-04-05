@@ -40,7 +40,7 @@
     nixosConfigurations = {
       nixos = nixosSystem {
         system = "x86_64-linux";
-        specialArgs = attrs;
+        specialArgs = attrs // { nix-config = self; };
         modules = [
           ./hardware/laptop.nix
           {

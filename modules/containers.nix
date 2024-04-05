@@ -1,4 +1,4 @@
-{ config, stylix, home-manager, sakaya, ... }:
+{ config, nix-config, sakaya, ... }:
 
 let
   inherit (config.modules.system) username;
@@ -39,8 +39,7 @@ let
     ];
 
     specialArgs = {
-      inherit home-manager;
-      inherit stylix;
+      inherit nix-config;
     };
   };
 in

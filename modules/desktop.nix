@@ -1,4 +1,4 @@
-{ home-manager, stylix, pkgs, config, lib, ... }:
+{ nix-config, pkgs, config, lib, ... }:
 
 let
   inherit (lib) mkEnableOption mkIf mkMerge;
@@ -14,8 +14,8 @@ let
 in
 {
   imports = attrValues {
-    inherit (home-manager.nixosModules) home-manager;
-    inherit (stylix.nixosModules) stylix;
+    inherit (nix-config.inputs.home-manager.nixosModules) home-manager;
+    inherit (nix-config.inputs.stylix.nixosModules) stylix;
   };
 
   options.modules.desktop = {
