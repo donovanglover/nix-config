@@ -28,8 +28,9 @@
       inherit (builtins) attrValues attrNames listToAttrs map replaceStrings readDir;
 
       checkArgs = {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
         inherit self;
+
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
       };
 
       flakeOutputs = [ "overlays" "nixosModules" "homeManagerModules" "packages" ];

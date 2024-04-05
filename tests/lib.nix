@@ -1,6 +1,7 @@
 test: { self, pkgs }:
 let
   inherit (pkgs.lib) mkDefault;
+
   nixos-lib = import (pkgs.path + "/nixos/lib") { };
 in
 (nixos-lib.runTest {

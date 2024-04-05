@@ -153,6 +153,7 @@ in
         allowBitmaps = false;
       };
     };
+
     stylix = {
       image = ../assets/wallpaper.png;
       polarity = "dark";
