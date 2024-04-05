@@ -100,7 +100,7 @@ in
           ungoogled-chromium
           qbittorrent
           obs-studio
-        ;
+          ;
       }))
 
       (attrValues {

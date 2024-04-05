@@ -19,7 +19,7 @@
     killall
     trashy
     whois
-    
+
     dig
     yt-dlp
     brightnessctl

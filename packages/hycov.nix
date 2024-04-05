@@ -1,9 +1,8 @@
-{
-  lib,
-  stdenv,
-  hyprland,
-  fetchFromGitHub,
-  fetchpatch,
+{ lib
+, stdenv
+, hyprland
+, fetchFromGitHub
+, fetchpatch
 }:
 
 stdenv.mkDerivation (finalAttrs: {

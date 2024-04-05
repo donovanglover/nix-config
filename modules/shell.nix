@@ -47,7 +47,7 @@ in
           colorpanes
           sanctity
           cmatrix
-        ;
+          ;
       })
       (attrValues {
         inherit (pkgs)
@@ -55,7 +55,7 @@ in
           hexyl
           visidata
           zellij
-        ;
+          ;
       })
 
       (attrValues {
@@ -64,7 +64,7 @@ in
           unar
           rsync
           rclone
-        ;
+          ;
       })
 
       (mkIf postgres (attrValues {

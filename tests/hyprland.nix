@@ -1,7 +1,8 @@
 # TODO: Write test to ensure that Hyprland starts with basic config
 let
   inherit (builtins) attrValues;
-in (import ./lib.nix) {
+in
+(import ./lib.nix) {
   name = "hyprland";
 
   nodes.machine = { self, pkgs, ... }: {

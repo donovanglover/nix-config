@@ -45,7 +45,8 @@ in
 
   config = {
     boot = {
-      tmp = if iHaveLotsOfRam
+      tmp =
+        if iHaveLotsOfRam
         then { useTmpfs = true; }
         else { cleanOnBoot = true; };
 
