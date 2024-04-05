@@ -1,12 +1,14 @@
 # TODO: Ensure that neovim config works without errors on startup
-(import ./lib.nix) {
+let
+  inherit (builtins) attrValues;
+in (import ./lib.nix) {
   name = "neovim";
 
   nodes.machine = { self, pkgs, ... }: {
-    imports = with self.nixosModules; [
-      system
-      shell
-    ];
+    imports = attrValues {
+      inherit (self.inputs.home-manager.nixosModules) home-manager;
+      inherit (self.nixosModules) system shell;
+    };
   };
 
   testScript = /* python */ ''

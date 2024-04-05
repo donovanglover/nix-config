@@ -1,12 +1,15 @@
 # TODO: Write test to ensure that Hyprland starts with basic config
-(import ./lib.nix) {
+let
+  inherit (builtins) attrValues;
+in (import ./lib.nix) {
   name = "hyprland";
 
   nodes.machine = { self, pkgs, ... }: {
-    imports = with self.nixosModules; [
-      system
-      desktop
-    ];
+    imports = attrValues {
+      inherit (self.inputs.home-manager.nixosModules) home-manager;
+      inherit (self.inputs.stylix.nixosModules) stylix;
+      inherit (self.nixosModules) system desktop;
+    };
   };
 
   testScript = /* python */ ''
