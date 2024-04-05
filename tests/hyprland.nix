@@ -6,8 +6,6 @@ in (import ./lib.nix) {
 
   nodes.machine = { self, pkgs, ... }: {
     imports = attrValues {
-      inherit (self.inputs.home-manager.nixosModules) home-manager;
-      inherit (self.inputs.stylix.nixosModules) stylix;
       inherit (self.nixosModules) system desktop;
     };
   };

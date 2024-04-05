@@ -37,6 +37,11 @@ let
         node = "/dev/dri/renderD128";
       }
     ];
+
+    specialArgs = {
+      inherit home-manager;
+      inherit stylix;
+    };
   };
 in
 {
@@ -50,8 +55,6 @@ in
 
     config = { lib, pkgs, ... }: {
       imports = [
-        stylix.nixosModules.stylix
-        home-manager.nixosModules.home-manager
         ../containers/shared.nix
       ];
 

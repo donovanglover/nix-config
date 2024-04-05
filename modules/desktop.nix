@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ home-manager, stylix, pkgs, config, lib, ... }:
 
 let
   inherit (lib) mkEnableOption mkIf mkMerge;
@@ -13,6 +13,11 @@ let
   cfg = config.modules.desktop;
 in
 {
+  imports = attrValues {
+    inherit (home-manager.nixosModules) home-manager;
+    inherit (stylix.nixosModules) stylix;
+  };
+
   options.modules.desktop = {
     japanese = mkEnableOption "Japanese support (fcitx, anki, kanjidraw, etc.)";
     bloat = mkEnableOption "GUI applications like Logseq";

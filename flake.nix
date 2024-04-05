@@ -42,8 +42,6 @@
         system = "x86_64-linux";
         specialArgs = attrs;
         modules = [
-          home-manager.nixosModules.home-manager
-          stylix.nixosModules.stylix
           ./hardware/laptop.nix
           {
             environment.pathsToLink = [
