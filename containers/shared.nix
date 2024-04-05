@@ -5,22 +5,15 @@ let
 in
 {
   imports = [
-    ../modules/fish.nix
-    ../modules/fonts.nix
-    ../modules/home-manager.nix
-    ../modules/neovim.nix
-    ../modules/pipewire.nix
-    ../modules/starship.nix
-    ../modules/stylix.nix
+    ../modules/shell.nix
+    ../modules/desktop.nix
     ../modules/system.nix
-    ../modules/wine.nix
   ];
 
   home-manager.sharedModules = [
     ../home/fish.nix
     ../home/git.nix
     ../home/gtk.nix
-    ../home/htop.nix
     ../home/kitty.nix
     ../home/neovim.nix
     ../home/xcursor.nix
