@@ -1,7 +1,7 @@
 { nix-config, pkgs, lib, config, ... }:
 
 let
-  inherit (lib) mkOption mkEnableOption mkIf;
+  inherit (lib) mkOption mkEnableOption;
   inherit (lib.types) str listOf;
   inherit (pkgs.nixVersions) nix_2_19;
   inherit (cfg) username iHaveLotsOfRam;
@@ -119,6 +119,28 @@ in
 
         homeDirectory = "/home/${username}";
       };
+    };
+
+    virtualisation.vmVariant = {
+      virtualisation = {
+        memorySize = 4096;
+        cores = 4;
+
+        qemu.options = [
+          "-device virtio-vga-gl"
+          "-display sdl,gl=on,show-cursor=off"
+          "-audio pa,model=hda"
+        ];
+      };
+
+      environment.sessionVariables = {
+        WLR_NO_HARDWARE_CURSORS = "1";
+      };
+
+      services.interception-tools.enable = lib.mkForce false;
+      networking.resolvconf.enable = lib.mkForce true;
+
+      boot.enableContainers = false;
     };
   };
 }
