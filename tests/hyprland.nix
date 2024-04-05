@@ -5,9 +5,9 @@ in
 (import ./lib.nix) {
   name = "hyprland";
 
-  nodes.machine = { self, pkgs, ... }: {
+  nodes.machine = { nix-config, ... }: {
     imports = attrValues {
-      inherit (self.nixosModules) system desktop;
+      inherit (nix-config.nixosModules) system desktop;
     };
   };
 

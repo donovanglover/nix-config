@@ -5,9 +5,9 @@ in
 (import ./lib.nix) {
   name = "neovim";
 
-  nodes.machine = { self, pkgs, ... }: {
+  nodes.machine = { nix-config, ... }: {
     imports = attrValues {
-      inherit (self.nixosModules) system shell;
+      inherit (nix-config.nixosModules) system shell;
     };
   };
 

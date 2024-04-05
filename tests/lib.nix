@@ -1,14 +1,15 @@
-test: { pkgs, self }:
+test: { self, pkgs }:
 let
-  inherit (pkgs) lib;
+  inherit (pkgs.lib) mkDefault;
   nixos-lib = import (pkgs.path + "/nixos/lib") { };
 in
 (nixos-lib.runTest {
+  imports = [ test ];
+
   hostPkgs = pkgs;
-  defaults.documentation.enable = lib.mkDefault false;
+  defaults.documentation.enable = mkDefault false;
+
   node.specialArgs = {
-    inherit self;
     nix-config = self;
   };
-  imports = [ test ];
 }).config.result
