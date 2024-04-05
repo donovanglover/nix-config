@@ -5,13 +5,6 @@
     virtualisation = {
       memorySize = 4096;
       cores = 4;
-
-      sharedDirectories = {
-        home = {
-          source = "$HOME";
-          target = "/mnt";
-        };
-      };
     };
 
     virtualisation.qemu.options = [
