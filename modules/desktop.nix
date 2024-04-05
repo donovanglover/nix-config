@@ -2,10 +2,9 @@
 
 let
   inherit (lib) mkEnableOption mkIf mkMerge;
-  inherit (pkgs.xfce) thunar-volman exo;
-  inherit (pkgs) glib;
   inherit (config.modules.system) username;
   inherit (cfg) japanese bloat wine;
+  inherit (builtins) attrValues;
 
   theme = "monokai";
   opacity = 0.95;
@@ -29,7 +28,9 @@ in
 
       thunar = {
         enable = true;
-        plugins = [ thunar-volman ];
+        plugins = attrValues {
+          inherit (pkgs.xfce) thunar-volman;
+        };
       };
     };
 
@@ -97,9 +98,10 @@ in
         ;
       }))
 
-      pulseaudio
-      exo
-      glib
+      (attrValues {
+        inherit (pkgs) pulseaudio glib;
+        inherit (pkgs.xfce) exo;
+      })
     ];
 
     services.greetd = {
