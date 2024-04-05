@@ -41,7 +41,7 @@ let
 in
 {
   systemd.tmpfiles.rules = [
-    "d /run/user/1000 0700 user users -"
+    "d /run/user/1000 0700 ${username} users -"
   ];
 
   containers.wine = template // {
@@ -84,7 +84,7 @@ in
         ];
 
         serviceConfig = {
-          ExecStart = "/usr/bin/env su user --command=${sakaya.packages.${pkgs.system}.sakaya}/bin/sakaya";
+          ExecStart = "/usr/bin/env su ${username} --command=${sakaya.packages.${pkgs.system}.sakaya}/bin/sakaya";
         };
 
         wantedBy = [ "multi-user.target" ];
