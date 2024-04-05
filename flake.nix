@@ -21,11 +21,11 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, stylix, ... } @ attrs:
+  outputs = { self, nixpkgs, ... } @ attrs:
     let
       inherit (nixpkgs.lib) nixosSystem;
       inherit (nixpkgs.legacyPackages.x86_64-linux) nixpkgs-fmt callPackage;
-      inherit (builtins) attrValues attrNames listToAttrs map replaceStrings readDir;
+      inherit (builtins) attrNames listToAttrs map replaceStrings readDir;
 
       checkArgs = {
         inherit self;
@@ -44,40 +44,7 @@
         nixos = nixosSystem {
           system = "x86_64-linux";
           specialArgs = attrs // { nix-config = self; };
-          modules = [
-            ./hardware/laptop.nix
-            {
-              environment.pathsToLink = [
-                "/share/backgrounds"
-                "/share/eww"
-                "/share/thumbnailers"
-                "/share/fonts"
-              ];
-
-              nixpkgs.overlays = attrValues self.overlays;
-              imports = attrValues self.nixosModules;
-              home-manager.sharedModules = attrValues self.homeManagerModules;
-              environment.systemPackages = attrValues self.packages.x86_64-linux;
-
-              modules = {
-                hardware = {
-                  disableLaptopKeyboard = true;
-                  lidIgnore = true;
-                  powerIgnore = true;
-                };
-
-                networking = {
-                  mullvad = true;
-                };
-
-                desktop = {
-                  japanese = true;
-                  bloat = true;
-                  wine = true;
-                };
-              };
-            }
-          ];
+          modules = [ ./. ];
         };
       };
 
