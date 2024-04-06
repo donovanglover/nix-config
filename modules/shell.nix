@@ -30,14 +30,34 @@ in
 
     environment.systemPackages = mkMerge [
       (attrValues {
-        inherit (pkgs) wget jq eza fd fzf ripgrep;
-      })
-
-      (attrValues {
-        inherit (pkgs) treefmt;
-      })
-
-      (attrValues {
+        inherit (pkgs)
+          wget
+          jq
+          eza
+          fd
+          fzf
+          ripgrep
+          file
+          timg
+          choose
+          sd
+          ;
+        inherit (pkgs)
+          treefmt
+          httpie
+          yt-dlp
+          sox
+          dig
+          mtr
+          mediainfo
+          fdupes
+          whois
+          killall
+          trashy
+          hwinfo
+          stress
+          hdparm
+          ;
         inherit (pkgs)
           neofetch
           onefetch
@@ -48,22 +68,21 @@ in
           sanctity
           cmatrix
           ;
-      })
-      (attrValues {
         inherit (pkgs)
           gdu
           hexyl
           visidata
           zellij
+          diskonaut
           ;
-      })
-
-      (attrValues {
         inherit (pkgs)
           p7zip
           unar
           rsync
           rclone
+          ffmpeg
+          imagemagick
+          nixpkgs-review
           ;
       })
 

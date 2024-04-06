@@ -11,60 +11,22 @@
 
     sqlcipher
 
-    fdupes
-    mediainfo
-    sox
-    httpie
-    ffmpeg
-    killall
-    trashy
-    whois
-
-    dig
-    yt-dlp
-    brightnessctl
     jpegoptim
-    playerctl
     recode
     rmlint
-    sd
     smartmontools
-    hwinfo
-    stress
-    nixpkgs-review
-    choose
-    hdparm
-    imagemagick
     restic
     watchexec
-    mpvpaper
-    timg
     ventoy
-    wf-recorder
-    diskonaut
     nodePackages.prisma
     openssl
 
     zola
-    file
-    tessen
-    wtype
-    mtr
-    cointop
     tectonic
 
     pipe-rename
     poppler_utils
-    wl-clipboard-rs
-    lnch
-    wev
-    dmenu-wayland
-    python311Packages.icoextract
-    srb2
     crystalline
-    thud
-    wallust
-    activate-linux
     tango
     nvd
     nix-init
@@ -73,8 +35,6 @@
     lychee
 
     nix-search-cli
-    satty
-    aaaaxy
     lutgen
     sudachi-rs
     pnpm-shell-completion

@@ -80,10 +80,6 @@ in
     };
 
     environment.systemPackages = mkMerge [
-      (attrValues {
-        inherit (pkgs) wget jq eza fd fzf ripgrep;
-      })
-
       (mkIf japanese (attrValues {
         inherit (pkgs) anki kanjidraw;
       }))
@@ -104,6 +100,9 @@ in
           ungoogled-chromium
           qbittorrent
           obs-studio
+          satty
+          aaaaxy
+          srb2
           ;
       }))
 

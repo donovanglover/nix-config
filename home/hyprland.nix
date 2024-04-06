@@ -1,8 +1,6 @@
 { pkgs, ... }:
 
 let
-  inherit (pkgs) hyprdim hyprnome hypridle hyprlock swww grimblast polkit_gnome;
-
   opacity = "0.95";
   super = "SUPER";
 
@@ -13,13 +11,27 @@ let
   swapBackgroundScript = "hypr/swap-bg.fish";
 in
 {
-  home.packages = [
+  home.packages = with pkgs; [
     hyprdim
     hyprnome
     hypridle
     hyprlock
     swww
     grimblast
+    brightnessctl
+    playerctl
+    mpvpaper
+    lnch
+    wev
+    tessen
+    wtype
+    dmenu-wayland
+    thud
+    python311Packages.icoextract
+    wallust
+    activate-linux
+    wl-clipboard-rs
+    wf-recorder
   ];
 
   wayland.windowManager.hyprland = {
