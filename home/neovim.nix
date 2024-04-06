@@ -1,9 +1,10 @@
 { pkgs, config, ... }:
 
 let
-  inherit (pkgs) fetchFromGitHub;
+  inherit (pkgs) fetchFromGitHub vimPlugins;
   inherit (pkgs.vimUtils) buildVimPlugin;
   inherit (config.lib.stylix.scheme) slug;
+  inherit (config.xdg.userDirs) documents;
 
   vim-nix-rummik = buildVimPlugin {
     pname = "vim-nix-rummik";
@@ -187,7 +188,7 @@ in
       autocmd BufNewFile,BufRead *.mdx set filetype=markdown
     '';
 
-    plugins = with pkgs.vimPlugins; [
+    plugins = with vimPlugins; [
       {
         plugin = nvim-tree-lua;
         type = "lua";
@@ -235,7 +236,9 @@ in
       {
         plugin = nvim-scrollbar;
         type = "lua";
-        config = /* lua */ ''require("scrollbar").setup()'';
+        config = /* lua */ ''
+          require("scrollbar").setup()
+        '';
       }
       {
         plugin = nvim-lspconfig;
@@ -472,12 +475,16 @@ in
       {
         plugin = nvim-autopairs;
         type = "lua";
-        config = ''require("nvim-autopairs").setup {}'';
+        config = /* lua */ ''
+          require("nvim-autopairs").setup()
+        '';
       }
       {
         plugin = auto-save-nvim;
         type = "lua";
-        config = ''require("auto-save").setup()'';
+        config = /* lua */ ''
+          require("auto-save").setup()
+        '';
       }
       {
         plugin = toggleterm-nvim;
@@ -607,7 +614,7 @@ in
             workspaces = {
               {
                 name = "ドキュメント",
-                path = "~/ドキュメント",
+                path = "${documents}",
               },
             },
             disable_frontmatter = true,
