@@ -218,6 +218,8 @@ in
       (pass.withExtensions (ext: with ext; [ pass-otp ]))
     ];
 
+    programs.command-not-found.enable = false;
+
     environment.defaultPackages = [ ];
   };
 }
