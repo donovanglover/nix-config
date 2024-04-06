@@ -1,8 +1,3 @@
-{ lib, config, ... }:
-
-let
-  inherit (config.modules.system) username;
-in
 {
   imports = [
     ../modules/shell.nix
@@ -21,6 +16,10 @@ in
     ../home/yazi.nix
   ];
 
+  modules = {
+    system.noRoot = true;
+  };
+
   environment = {
     defaultPackages = [ ];
     variables.TERM = "xterm-kitty";
@@ -38,15 +37,6 @@ in
       XMODIFIERS = "@im=fcitx";
       SDL_IM_MODULE = "fcitx";
       GLFW_IM_MODULE = "ibus";
-    };
-  };
-
-  users = {
-    allowNoPasswordLogin = true;
-
-    users.${username} = {
-      password = lib.mkForce null;
-      extraGroups = lib.mkForce [ ];
     };
   };
 

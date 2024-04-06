@@ -4,7 +4,7 @@ let
   inherit (lib) mkOption mkEnableOption mkIf;
   inherit (lib.types) nullOr str listOf;
   inherit (pkgs.nixVersions) nix_2_19;
-  inherit (cfg) username iHaveLotsOfRam hashedPassword mullvad allowSRB2Port allowZolaPort;
+  inherit (cfg) username iHaveLotsOfRam hashedPassword mullvad allowSRB2Port allowZolaPort noRoot;
   inherit (builtins) attrValues;
 
   cfg = config.modules.system;
@@ -51,6 +51,8 @@ in
       type = str;
       default = "nixos";
     };
+
+    noRoot = mkEnableOption "disable access to root";
 
     mullvad = mkEnableOption "mullvad vpn";
 
@@ -111,14 +113,15 @@ in
 
     users = {
       mutableUsers = false;
+      allowNoPasswordLogin = mkIf noRoot true;
 
       users.${username} = {
         inherit hashedPassword;
 
         isNormalUser = true;
         uid = 1000;
-        password = mkIf (hashedPassword == null) username;
-        extraGroups = [ "wheel" "networkmanager" ];
+        password = mkIf (hashedPassword == null && !noRoot) username;
+        extraGroups = if noRoot then [ ] else [ "wheel" "networkmanager" ];
       };
     };
 
