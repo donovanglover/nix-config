@@ -15,7 +15,6 @@ in
   environment.pathsToLink = [
     "/share/backgrounds"
     "/share/eww"
-    "/share/thumbnailers"
     "/share/fonts"
   ];
 
