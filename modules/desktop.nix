@@ -3,7 +3,7 @@
 let
   inherit (lib) mkEnableOption mkIf mkMerge;
   inherit (config.modules.system) username;
-  inherit (cfg) japanese bloat wine;
+  inherit (cfg) japanese bloat wine gnome plasma;
   inherit (builtins) attrValues;
   inherit (nix-config.packages.${pkgs.system}) aleo-fonts;
 
@@ -23,6 +23,8 @@ in
     japanese = mkEnableOption "Japanese support (fcitx, anki, kanjidraw, etc.)";
     bloat = mkEnableOption "GUI applications like Logseq";
     wine = mkEnableOption "wine support";
+    gnome = mkEnableOption "GNOME specialization";
+    plasma = mkEnableOption "Plasma specialization";
   };
 
   config = {
@@ -198,6 +200,11 @@ in
           terminal = font-size;
         };
       };
+    };
+
+    specialisation = {
+      gnome.configuration.imports = mkIf gnome [ ../specializations/gnome.nix ];
+      plasma.configuration.imports = mkIf plasma [ ../specializations/plasma.nix ];
     };
   };
 }
