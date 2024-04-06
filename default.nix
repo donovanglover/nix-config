@@ -14,6 +14,7 @@ in
 
   modules = {
     hardware = {
+      keyboardBinds = true;
       disableLaptopKeyboard = true;
       lidIgnore = true;
       powerIgnore = true;
