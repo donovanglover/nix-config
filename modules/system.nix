@@ -1,10 +1,10 @@
 { nix-config, pkgs, lib, config, ... }:
 
 let
-  inherit (lib) mkOption mkEnableOption;
-  inherit (lib.types) str listOf;
+  inherit (lib) mkOption mkEnableOption mkIf;
+  inherit (lib.types) nullOr str listOf;
   inherit (pkgs.nixVersions) nix_2_19;
-  inherit (cfg) username iHaveLotsOfRam;
+  inherit (cfg) username iHaveLotsOfRam hashedPassword;
   inherit (builtins) attrValues;
 
   cfg = config.modules.system;
@@ -18,6 +18,11 @@ in
     username = mkOption {
       type = str;
       default = "user";
+    };
+
+    hashedPassword = mkOption {
+      type = nullOr str;
+      default = null;
     };
 
     timeZone = mkOption {
@@ -98,9 +103,11 @@ in
       mutableUsers = false;
 
       users.${username} = {
+        inherit hashedPassword;
+
         isNormalUser = true;
         uid = 1000;
-        password = username;
+        password = mkIf (hashedPassword == null) username;
         extraGroups = [ "wheel" "networkmanager" ];
       };
     };
