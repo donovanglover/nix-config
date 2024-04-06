@@ -17,6 +17,7 @@
   ];
 
   modules = {
+    desktop.container = true;
     system.noRoot = true;
   };
 

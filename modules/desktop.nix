@@ -3,7 +3,7 @@
 let
   inherit (lib) mkEnableOption mkIf mkMerge;
   inherit (config.modules.system) username;
-  inherit (cfg) bloat gnome plasma;
+  inherit (cfg) bloat gnome plasma container;
   inherit (builtins) attrValues;
   inherit (nix-config.packages.${pkgs.system}) aleo-fonts;
 
@@ -23,13 +23,14 @@ in
     bloat = mkEnableOption "GUI applications like Logseq";
     gnome = mkEnableOption "GNOME specialization";
     plasma = mkEnableOption "Plasma specialization";
+    container = mkEnableOption "disable some options for container performance";
   };
 
   config = {
     hardware.opengl.driSupport32Bit = true;
 
     programs = {
-      hyprland.enable = true;
+      hyprland.enable = mkIf (!container) true;
       cdemu.enable = true;
 
       thunar = {
@@ -108,7 +109,7 @@ in
       })
     ];
 
-    services.greetd = {
+    services.greetd = mkIf (!container) {
       enable = true;
       restart = false;
 
