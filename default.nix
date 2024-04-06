@@ -12,12 +12,6 @@ in
   home-manager.sharedModules = attrValues self.homeManagerModules;
   environment.systemPackages = attrValues self.packages.${pkgs.system};
 
-  environment.pathsToLink = [
-    "/share/backgrounds"
-    "/share/eww"
-    "/share/fonts"
-  ];
-
   modules = {
     hardware = {
       disableLaptopKeyboard = true;

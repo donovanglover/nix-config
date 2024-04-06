@@ -207,5 +207,11 @@ in
       enable = true;
       enableExcludeWrapper = false;
     };
+
+    environment.pathsToLink = [
+      "/share/backgrounds"
+      "/share/eww"
+      "/share/fonts"
+    ];
   };
 }
