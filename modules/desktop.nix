@@ -203,8 +203,13 @@ in
     };
 
     specialisation = {
-      gnome.configuration.imports = mkIf gnome [ ../specializations/gnome.nix ];
-      plasma.configuration.imports = mkIf plasma [ ../specializations/plasma.nix ];
+      gnome = mkIf gnome {
+        configuration.imports = [ ../specializations/gnome.nix ];
+      };
+
+      plasma = mkIf plasma {
+        configuration.imports = [ ../specializations/plasma.nix ];
+      };
     };
   };
 }
