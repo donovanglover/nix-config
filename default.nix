@@ -20,7 +20,7 @@ in
       powerIgnore = true;
     };
 
-    networking = {
+    system = {
       mullvad = true;
     };
 
