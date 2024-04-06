@@ -40,7 +40,6 @@ in
         "thunar"
         "org.qutebrowser.qutebrowser"
         "anki"
-        "Element"
       ];
     };
 
