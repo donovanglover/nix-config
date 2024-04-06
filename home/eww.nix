@@ -3,9 +3,10 @@
 let
   inherit (config.home) homeDirectory;
   inherit (config.xdg.userDirs) download documents music pictures videos;
+  inherit (pkgs) eww;
 in
 {
-  home.packages = with pkgs; [ eww ];
+  home.packages = [ eww ];
 
   xdg.configFile."eww/eww.yuck".text = /* yuck */ ''
     (defwidget icons []

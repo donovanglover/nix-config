@@ -1,11 +1,19 @@
 { pkgs, ... }:
 
 let
+  inherit (pkgs) hyprdim hyprnome hypridle hyprlock swww grimblast polkit_gnome;
+
   opacity = "0.95";
   super = "SUPER";
+
+  raiseVolumeScript = "hypr/raise-volume.fish";
+  lowerVolumeScript = "hypr/lower-volume.fish";
+  gapsScript = "hypr/gaps.sh";
+  randomBackgroundScript = "hypr/random-bg.fish";
+  swapBackgroundScript = "hypr/swap-bg.fish";
 in
 {
-  home.packages = with pkgs; [
+  home.packages = [
     hyprdim
     hyprnome
     hypridle
@@ -49,11 +57,11 @@ in
         "ironbar"
         "fcitx5"
         "hyprctl dispatch workspace 5000000"
-        "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
+        "${polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
         "hyprdim --no-dim-when-only --persist --ignore-leaving-special --dialog-dim"
         "hypridle"
         "sleep 1 && eww open desktop-icons"
-        "~/.config/hypr/random-bg.fish"
+        "~/.config/${randomBackgroundScript}"
       ];
 
       input = {
@@ -180,15 +188,15 @@ in
       bind = [
         "${super}_SHIFT, Return, exec, kitty"
         "${super}_SHIFT, Q, killactive"
-        "${super}, W, exec, ~/.config/hypr/random-bg.fish"
-        "${super}_SHIFT, W, exec, ~/.config/hypr/swap-bg.fish"
+        "${super}, W, exec, ~/.config/${randomBackgroundScript}"
+        "${super}_SHIFT, W, exec, ~/.config/${swapBackgroundScript}"
         "${super}, P, exec, dunstify --icon=$(grimblast save screen) Screenshot Captured."
         ", Print, exec, grimblast --freeze copy area"
         "${super}_ALT, delete, exit"
         "${super}, T, exec, tessen"
         "${super}, V, togglefloating"
         "${super}, B, centerwindow"
-        "${super}, U, exec, ~/.config/hypr/gaps.sh"
+        "${super}, U, exec, ~/.config/${gapsScript}"
         "${super}, X, pin"
         "${super}, F, fullscreen"
         "${super}, S, swapactiveworkspaces, 0 1"
@@ -245,8 +253,8 @@ in
 
       bindl = [
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && notify-send -t 2000 \"Muted\" \"$(wpctl get-volume @DEFAULT_AUDIO_SINK@)\""
-        ", XF86AudioRaiseVolume, exec, ~/.config/hypr/raise-volume.fish"
-        ", XF86AudioLowerVolume, exec, ~/.config/hypr/lower-volume.fish"
+        ", XF86AudioRaiseVolume, exec, ~/.config/${raiseVolumeScript}"
+        ", XF86AudioLowerVolume, exec, ~/.config/${lowerVolumeScript}"
         ", XF86MonBrightnessDown, exec, brightnessctl set 5%- && notify-send -t 2000 \"Decreased brightness to\" \"$(brightnessctl get)\""
         ", XF86MonBrightnessUp, exec, brightnessctl set +5% && notify-send -t 2000 \"Increased brightness to\" \"$(brightnessctl get)\""
       ];
@@ -260,7 +268,7 @@ in
     '';
   };
 
-  xdg.configFile."hypr/gaps.sh" = {
+  xdg.configFile.${gapsScript} = {
     executable = true;
     text = /* bash */ ''
       #!/usr/bin/env bash
@@ -271,7 +279,7 @@ in
     '';
   };
 
-  xdg.configFile."hypr/raise-volume.fish" = {
+  xdg.configFile.${raiseVolumeScript} = {
     executable = true;
     text = /* fish */ ''
       #!/usr/bin/env fish
@@ -284,7 +292,7 @@ in
     '';
   };
 
-  xdg.configFile."hypr/lower-volume.fish" = {
+  xdg.configFile.${lowerVolumeScript} = {
     executable = true;
     text = /* fish */ ''
       #!/usr/bin/env fish
@@ -323,7 +331,7 @@ in
     '';
   };
 
-  xdg.configFile."hypr/random-bg.fish" = {
+  xdg.configFile.${randomBackgroundScript} = {
     executable = true;
     text = /* fish */ ''
       #!/usr/bin/env fish
@@ -336,7 +344,7 @@ in
     '';
   };
 
-  xdg.configFile."hypr/swap-bg.fish" = {
+  xdg.configFile.${swapBackgroundScript} = {
     executable = true;
     text = /* fish */ ''
       #!/usr/bin/env fish

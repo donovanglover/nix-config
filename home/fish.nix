@@ -1,7 +1,10 @@
 { pkgs, ... }:
 
+let
+  inherit (pkgs) gsettings-desktop-schemas prisma-engines gtk3;
+in
 {
-  xdg.configFile."fish/config.fish".text = with pkgs; /* fish */ ''
+  xdg.configFile."fish/config.fish".text = /* fish */ ''
     set -U fish_greeting ""
 
     export PATH="$HOME/.deno/bin:$HOME/.cargo/bin:$HOME/.yarn/bin:$HOME/.local/bin:$HOME/.go/bin:$PATH"
@@ -33,31 +36,31 @@
 
     # Convert unnecessarily large wav files to flac
     function wav2flac
-        set ORIGINAL_SIZE (du -hs | cut -f1)
+      set ORIGINAL_SIZE (du -hs | cut -f1)
 
-        fd -e wav -x ffmpeg -i "{}" -loglevel quiet -stats "{.}.flac"
-        fd -e wav -X trash
+      fd -e wav -x ffmpeg -i "{}" -loglevel quiet -stats "{.}.flac"
+      fd -e wav -X trash
 
-        set NEW_SIZE (du -hs | cut -f1)
+      set NEW_SIZE (du -hs | cut -f1)
 
-        echo "Done. Reduced file size from $ORIGINAL_SIZE to $NEW_SIZE"
+      echo "Done. Reduced file size from $ORIGINAL_SIZE to $NEW_SIZE"
     end
 
     # Convert wav/flac to opus
     function opus
-        set ORIGINAL_SIZE (du -hs | cut -f1)
+      set ORIGINAL_SIZE (du -hs | cut -f1)
 
-        fd -e wav -e flac -x ffmpeg -i "{}" -c:a libopus -b:a 128K -loglevel quiet -stats "{.}.opus"
-        fd -e wav -e flac -X rm -I
+      fd -e wav -e flac -x ffmpeg -i "{}" -c:a libopus -b:a 128K -loglevel quiet -stats "{.}.opus"
+      fd -e wav -e flac -X rm -I
 
-        set NEW_SIZE (du -hs | cut -f1)
+      set NEW_SIZE (du -hs | cut -f1)
 
-        echo "Done. Reduced file size from $ORIGINAL_SIZE to $NEW_SIZE"
+      echo "Done. Reduced file size from $ORIGINAL_SIZE to $NEW_SIZE"
     end
 
     # Always use kitty ssh since it's our default terminal
     if string match -qe -- "/dev/pts/" (tty)
-        alias ssh="kitty +kitten ssh"
+      alias ssh="kitty +kitten ssh"
     end
   '';
 }

@@ -60,14 +60,22 @@
           value =
             let
               directory = replaceStrings flakeOutputs flakeDirectories attributeName;
+
               attributeValue = (listToAttrs
                 (map
                   (file: {
                     name = replaceStrings [ ".nix" ] [ "" ] file;
-                    value = if directory == packageDirectory then callPackage ./${directory}/${file} { } else import ./${directory}/${file};
+                    value =
+                      if directory == packageDirectory
+                      then callPackage ./${directory}/${file} { }
+                      else import ./${directory}/${file};
                   })
                   (attrNames (readDir ./${directory}))));
-              attributeSet = if directory == packageDirectory then { x86_64-linux = attributeValue; } else attributeValue;
+
+              attributeSet =
+                if directory == packageDirectory
+                then { x86_64-linux = attributeValue; }
+                else attributeValue;
             in
             (attributeSet);
         })
