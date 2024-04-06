@@ -12,7 +12,7 @@ in
       close_on_child_death = true;
       cursor_blink_interval = 0;
 
-      enabled_layouts = "grid, fat, tall, vertical, stack";
+      enabled_layouts = "fat, tall, vertical";
       open_url_with = "librewolf";
       wayland_titlebar_color = "background";
 
