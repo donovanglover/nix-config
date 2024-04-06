@@ -1,7 +1,9 @@
-{ config, nix-config, sakaya, ... }:
+{ config, nix-config, sakaya, lib, ... }:
 
 let
+  inherit (lib) mkIf;
   inherit (config.modules.system) username;
+  inherit (config.boot) enableContainers;
 
   template = {
     privateNetwork = true;
@@ -48,68 +50,70 @@ in
     "d /run/user/1000 0700 ${username} users -"
   ];
 
-  containers.wine = template // {
-    hostAddress = "192.168.100.34";
-    localAddress = "192.168.100.49";
+  containers = mkIf enableContainers {
+    wine = template // {
+      hostAddress = "192.168.100.34";
+      localAddress = "192.168.100.49";
 
-    config = { lib, pkgs, ... }: {
-      imports = [
-        ../containers/shared.nix
-      ];
-
-      networking.nat.forwardPorts = [
-        {
-          destination = "192.168.100.49:39493";
-          sourcePort = 39493;
-        }
-        {
-          destination = "192.168.100.49:5029";
-          sourcePort = 5029;
-        }
-      ];
-
-      networking.firewall.allowedTCPPorts = [
-        39493
-        5029
-      ];
-
-      systemd.services.sakaya = {
-        enable = true;
-        description = "sakaya server";
-
-        unitConfig = {
-          Type = "simple";
-        };
-
-        path = with pkgs; [
-          su
+      config = { lib, pkgs, ... }: {
+        imports = [
+          ../containers/shared.nix
         ];
 
-        serviceConfig = {
-          ExecStart = "/usr/bin/env su ${username} --command=${sakaya.packages.${pkgs.system}.sakaya}/bin/sakaya";
+        networking.nat.forwardPorts = [
+          {
+            destination = "192.168.100.49:39493";
+            sourcePort = 39493;
+          }
+          {
+            destination = "192.168.100.49:5029";
+            sourcePort = 5029;
+          }
+        ];
+
+        networking.firewall.allowedTCPPorts = [
+          39493
+          5029
+        ];
+
+        systemd.services.sakaya = {
+          enable = true;
+          description = "sakaya server";
+
+          unitConfig = {
+            Type = "simple";
+          };
+
+          path = with pkgs; [
+            su
+          ];
+
+          serviceConfig = {
+            ExecStart = "/usr/bin/env su ${username} --command=${sakaya.packages.${pkgs.system}.sakaya}/bin/sakaya";
+          };
+
+          wantedBy = [ "multi-user.target" ];
         };
 
-        wantedBy = [ "multi-user.target" ];
-      };
+        environment.systemPackages = with pkgs; [
+          wineWowPackages.waylandFull
+          winetricks
+          sakaya.packages.${system}.sakaya
+          rar
+          unrar
+          iamb
+          srb2
+        ];
 
-      environment.systemPackages = with pkgs; [
-        wineWowPackages.waylandFull
-        winetricks
-        sakaya.packages.${system}.sakaya
-        rar
-        unrar
-        iamb
-        srb2
-      ];
+        nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+          "rar"
+          "unrar"
+        ];
 
-      nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-        "rar"
-        "unrar"
-      ];
-
-      environment.sessionVariables = {
-        LC_ALL = "ja_JP.UTF-8";
-        TZ = "Asia/Tokyo";
+        environment.sessionVariables = {
+          LC_ALL = "ja_JP.UTF-8";
+          TZ = "Asia/Tokyo";
+        };
       };
     };
   };
