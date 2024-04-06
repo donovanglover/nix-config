@@ -4,7 +4,7 @@ let
   inherit (lib) mkOption mkEnableOption mkIf;
   inherit (lib.types) nullOr str listOf;
   inherit (pkgs.nixVersions) nix_2_19;
-  inherit (cfg) username iHaveLotsOfRam hashedPassword;
+  inherit (cfg) username iHaveLotsOfRam hashedPassword mullvad allowSRB2Port allowZolaPort;
   inherit (builtins) attrValues;
 
   cfg = config.modules.system;
@@ -46,6 +46,16 @@ in
     };
 
     iHaveLotsOfRam = mkEnableOption "tmpfs on /tmp";
+
+    hostName = mkOption {
+      type = str;
+      default = "nixos";
+    };
+
+    mullvad = mkEnableOption "mullvad vpn";
+
+    allowSRB2Port = mkEnableOption "port for srb2";
+    allowZolaPort = mkEnableOption "port for zola";
   };
 
   config = {
@@ -157,6 +167,45 @@ in
       zramSwap.enable = lib.mkForce false;
 
       boot.enableContainers = false;
+    };
+
+    networking = {
+      inherit (cfg) hostName;
+
+      networkmanager = {
+        enable = true;
+        wifi.macAddress = "random";
+        ethernet.macAddress = "random";
+
+        unmanaged = [ "interface-name:ve-*" ];
+      };
+
+      useHostResolvConf = true;
+
+      resolvconf.enable = mkIf mullvad false;
+
+      nat = mkIf mullvad {
+        enable = true;
+        internalInterfaces = [ "ve-+" ];
+        externalInterface = "wg-mullvad";
+      };
+
+      firewall = {
+        allowedUDPPorts = mkIf allowSRB2Port [
+          5029
+        ];
+
+        allowedTCPPorts = mkIf allowZolaPort [
+          1111
+        ];
+      };
+    };
+
+    services.resolved.llmnr = "false";
+
+    services.mullvad-vpn = mkIf mullvad {
+      enable = true;
+      enableExcludeWrapper = false;
     };
   };
 }
