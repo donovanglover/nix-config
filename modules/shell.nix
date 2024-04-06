@@ -1,7 +1,7 @@
 { pkgs, config, lib, ... }:
 
 let
-  inherit (pkgs) fish htop-vim;
+  inherit (pkgs) fish;
   inherit (lib) mkEnableOption mkIf mkMerge singleton;
   inherit (builtins) attrValues;
   inherit (cfg) postgres;
@@ -270,110 +270,6 @@ in
 
       neovim.enable = true;
       direnv.enable = true;
-
-      starship = {
-        enable = true;
-
-        settings = {
-          add_newline = false;
-
-          directory = {
-            style = "purple";
-            read_only = " ro";
-          };
-
-          git_branch = {
-            style = "yellow";
-            symbol = "";
-          };
-
-          character = {
-            success_symbol = "[>](red)[>](green)[>](blue)";
-            error_symbol = "[>](cyan)[>](purple)[>](yellow)";
-            vicmd_symbol = "[<](bold green)";
-          };
-
-          line_break.disabled = true;
-
-          nodejs = {
-            format = "with [$symbol($version )]($style)";
-            symbol = "node ";
-            version_format = "\${major}";
-            disabled = true;
-          };
-
-          git_commit.tag_symbol = " tag ";
-
-          git_status = {
-            ahead = ">";
-            behind = "<";
-            diverged = "<>";
-            renamed = "r";
-            deleted = "x";
-          };
-
-          aws.symbol = "aws ";
-          cobol.symbol = "cobol ";
-          conda.symbol = "conda ";
-          crystal.symbol = "cr ";
-          cmake.symbol = "cmake ";
-          dart.symbol = "dart ";
-          deno.symbol = "deno ";
-          dotnet.symbol = ".NET ";
-          docker_context.symbol = "docker ";
-          elixir.symbol = "exs ";
-          elm.symbol = "elm ";
-          golang.symbol = "go ";
-          hg_branch.symbol = "hg ";
-          java.symbol = "java ";
-          julia.symbol = "jl ";
-          kotlin.symbol = "kt ";
-          memory_usage.symbol = "memory ";
-          nim.symbol = "nim ";
-
-          nix_shell = {
-            format = "❄️ ";
-            symbol = "nix ";
-          };
-
-          ocaml.symbol = "ml ";
-          package.symbol = "pkg ";
-          perl.symbol = "pl ";
-          php.symbol = "php ";
-          purescript.symbol = "purs ";
-          python.symbol = "python ";
-          ruby.symbol = "ruby ";
-
-          rust = {
-            symbol = "rust ";
-            disabled = true;
-          };
-
-          bun = {
-            symbol = "bun ";
-            disabled = true;
-          };
-
-          scala.symbol = "scala ";
-          swift.symbol = "swift ";
-        };
-      };
-
-      htop = {
-        enable = true;
-        package = htop-vim;
-
-        settings = {
-          tree_view = true;
-          hide_userland_threads = true;
-          highlight_changes = true;
-          show_cpu_frequency = true;
-          show_cpu_temperature = true;
-          highlight_base_name = true;
-
-          show_program_path = false;
-        };
-      };
     };
   };
 }
