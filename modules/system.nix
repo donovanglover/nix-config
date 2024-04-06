@@ -130,6 +130,7 @@ in
           "-device virtio-vga-gl"
           "-display sdl,gl=on,show-cursor=off"
           "-audio pa,model=hda"
+          "-full-screen"
         ];
       };
 
