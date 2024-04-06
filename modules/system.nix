@@ -139,6 +139,7 @@ in
 
       services.interception-tools.enable = lib.mkForce false;
       networking.resolvconf.enable = lib.mkForce true;
+      zramSwap.enable = lib.mkForce false;
 
       boot.enableContainers = false;
     };
