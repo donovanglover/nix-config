@@ -100,7 +100,7 @@ in
       users.${username} = {
         isNormalUser = true;
         uid = 1000;
-        password = "user";
+        password = username;
         extraGroups = [ "wheel" "networkmanager" ];
       };
     };
