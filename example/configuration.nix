@@ -1,28 +1,24 @@
-{ nix-config, pkgs, ... }:
+{ nix-config, pkgs, lib, ... }:
 
 let
   inherit (builtins) attrValues;
+  inherit (lib) singleton;
 in
 {
   imports = attrValues {
-    inherit (nix-config.nixosModules) system shell;
+    inherit (nix-config.nixosModules) system shell desktop;
 
     customConfig = {
-      modules.system.username = "demo";
+      modules.system.username = "asuna";
     };
   };
 
-  home-manager.sharedModules = attrValues {
-    inherit (nix-config.homeManagerModules) yazi;
-
-    youCanNameThisAnything = {
-      programs.btop.enable = true;
-    };
+  home-manager.sharedModules = attrValues nix-config.homeManagerModules ++ singleton {
+    programs.btop.enable = true;
   };
 
   environment.systemPackages = attrValues {
-    inherit (nix-config.packages.x86_64-linux) webp-thumbnailer;
-
+    inherit (nix-config.packages.x86_64-linux) fluent-icons hycov osu-backgrounds;
     inherit (pkgs) ruby php;
   };
 
