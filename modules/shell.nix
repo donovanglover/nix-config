@@ -57,6 +57,16 @@ in
           hwinfo
           stress
           hdparm
+          recode
+          rmlint
+          jpegoptim
+          watchexec
+          zola
+          pass
+          ;
+        inherit (pkgs)
+          sudachi-rs
+          tango
           ;
         inherit (pkgs)
           neofetch
@@ -82,7 +92,17 @@ in
           rclone
           ffmpeg
           imagemagick
+          smartmontools
+          restic
+          zbar
+          lychee
+          ventoy
+          ;
+        inherit (pkgs)
           nixpkgs-review
+          nix-init
+          nvd
+          nix-search-cli
           ;
       })
 

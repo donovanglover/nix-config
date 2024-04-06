@@ -1,4 +1,4 @@
-{ nix-config, pkgs, config, lib, ... }:
+{ nix-config, sakaya, pkgs, config, lib, ... }:
 
 let
   inherit (lib) mkEnableOption mkIf mkMerge;
@@ -82,6 +82,7 @@ in
     environment.systemPackages = mkMerge [
       (mkIf japanese (attrValues {
         inherit (pkgs) anki kanjidraw;
+        inherit (sakaya.packages.${pkgs.system}) sakaya;
       }))
 
       (mkIf bloat (attrValues {
@@ -103,6 +104,7 @@ in
           satty
           aaaaxy
           srb2
+          jamesdsp
           ;
       }))
 

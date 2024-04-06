@@ -213,5 +213,11 @@ in
       "/share/eww"
       "/share/fonts"
     ];
+
+    environment.systemPackages = with pkgs; [
+      (pass.withExtensions (ext: with ext; [ pass-otp ]))
+    ];
+
+    environment.defaultPackages = [ ];
   };
 }

@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 let
+  inherit (pkgs) polkit_gnome;
+
   opacity = "0.95";
   super = "SUPER";
 
@@ -32,6 +34,7 @@ in
     activate-linux
     wl-clipboard-rs
     wf-recorder
+    lutgen
   ];
 
   wayland.windowManager.hyprland = {

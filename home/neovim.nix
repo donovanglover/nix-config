@@ -21,27 +21,23 @@ in
   programs.bat.enable = true;
 
   home.packages = with pkgs; [
-    # c
     gcc
     clang-tools
     pkg-config
     gnumake
     cmake
 
-    # go
     go
     gopls
 
-    # nix
     nil
     nixpkgs-fmt
     nixfmt-rfc-style
 
-    # crystal
     crystal
+    crystalline
     shards
 
-    # node/yarn/deno/bun
     nodejs
     nodePackages.npm
     yarn
@@ -52,10 +48,12 @@ in
     nodePackages."@astrojs/language-server"
     nodePackages."@prisma/language-server"
     nodePackages.pnpm
+    nodePackages.prisma
+    openssl
+    pnpm-shell-completion
     tailwindcss-language-server
     vscode-langservers-extracted
 
-    # rust
     rustc
     rustfmt
     cargo
@@ -68,30 +66,26 @@ in
     bacon
     clippy
 
-    # markdown
     marksman
 
-    # lua
     lua-language-server
 
-    # tex/typst
     texlive.combined.scheme-full
     texlab
+    tectonic
     typst
     typstfmt
     typst-lsp
     typst-live
 
-    # ctags
     universal-ctags
 
-    # emmet
     emmet-language-server
 
-    # sql
     sqlite
+    sqlcipher
+    litecli
 
-    # docker
     dockerfile-language-server-nodejs
     docker-compose-language-service
   ];
