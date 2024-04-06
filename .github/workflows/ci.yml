@@ -34,5 +34,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: cachix/install-nix-action@v22
-      - run: ln -s hardware/laptop.nix examples/hardware-configuration.nix
+      - run: ln -s hardware/laptop.nix example/hardware-configuration.nix
       - run: nix flake check ./example --no-write-lock-file --override-input nix-config "git+file://$(pwd | sed -e 's/\s/%20/g')"
