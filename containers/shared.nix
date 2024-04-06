@@ -21,11 +21,6 @@ in
     ../home/yazi.nix
   ];
 
-  modules.desktop = {
-    japanese = true;
-    wine = true;
-  };
-
   environment = {
     defaultPackages = [ ];
     variables.TERM = "xterm-kitty";

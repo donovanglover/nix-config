@@ -25,9 +25,7 @@ in
     };
 
     desktop = {
-      japanese = true;
       bloat = true;
-      wine = true;
     };
   };
 }

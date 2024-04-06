@@ -3,7 +3,7 @@
 let
   inherit (lib) mkEnableOption mkIf mkMerge;
   inherit (config.modules.system) username;
-  inherit (cfg) japanese bloat wine gnome plasma;
+  inherit (cfg) bloat gnome plasma;
   inherit (builtins) attrValues;
   inherit (nix-config.packages.${pkgs.system}) aleo-fonts;
 
@@ -20,19 +20,17 @@ in
   };
 
   options.modules.desktop = {
-    japanese = mkEnableOption "Japanese support (fcitx, anki, kanjidraw, etc.)";
     bloat = mkEnableOption "GUI applications like Logseq";
-    wine = mkEnableOption "wine support";
     gnome = mkEnableOption "GNOME specialization";
     plasma = mkEnableOption "Plasma specialization";
   };
 
   config = {
-    hardware.opengl.driSupport32Bit = mkIf wine true;
+    hardware.opengl.driSupport32Bit = true;
 
     programs = {
       hyprland.enable = true;
-      cdemu.enable = mkIf wine true;
+      cdemu.enable = true;
 
       thunar = {
         enable = true;
@@ -43,7 +41,7 @@ in
       };
     };
 
-    i18n.inputMethod = mkIf japanese {
+    i18n.inputMethod = {
       enabled = "fcitx5";
 
       fcitx5 = {
@@ -80,11 +78,6 @@ in
     };
 
     environment.systemPackages = mkMerge [
-      (mkIf japanese (attrValues {
-        inherit (pkgs) anki kanjidraw;
-        inherit (nix-config.inputs.sakaya.packages.${pkgs.system}) sakaya;
-      }))
-
       (mkIf bloat (attrValues {
         inherit (pkgs)
           logseq
@@ -109,7 +102,8 @@ in
       }))
 
       (attrValues {
-        inherit (pkgs) pulseaudio glib;
+        inherit (pkgs) anki kanjidraw pulseaudio glib;
+        inherit (nix-config.inputs.sakaya.packages.${pkgs.system}) sakaya;
         inherit (pkgs.xfce) exo;
       })
     ];
