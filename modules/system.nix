@@ -211,10 +211,6 @@ in
       enableExcludeWrapper = false;
     };
 
-    environment.pathsToLink = [
-      "/share/backgrounds"
-    ];
-
     environment.systemPackages = with pkgs; [
       (pass.withExtensions (ext: with ext; [ pass-otp ]))
     ];

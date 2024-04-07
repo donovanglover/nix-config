@@ -7,6 +7,7 @@ let
   super = "SUPER";
 
   hycov = callPackage ../packages/hycov.nix { };
+  osu-backgrounds = callPackage ../packages/osu-backgrounds.nix { };
 
   raiseVolumeScript = "hypr/raise-volume.fish";
   lowerVolumeScript = "hypr/lower-volume.fish";
@@ -355,7 +356,7 @@ in
       #!/usr/bin/env fish
 
       for monitor in (hyprctl monitors -j | jq -r '.[].name')
-        ~/.config/${setBackgroundScript} "$monitor" "$(random choice $(fd . /run/current-system/sw/share/backgrounds/Spring2024FanartSubmissions --follow -e jpg -e png))"
+        ~/.config/${setBackgroundScript} "$monitor" "$(random choice $(fd . ${osu-backgrounds}/2024-03-30-Spring-2024-Fanart-Contest-All-Entries --follow -e jpg -e png))"
       end
     '';
   };
