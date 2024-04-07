@@ -18,6 +18,7 @@ in
       font = "Noto Sans CJK JP 12";
       show-icons = true;
       disable-history = true;
+      hover-select = true;
       bw = 0;
       display-drun = "";
       display-window = "";
