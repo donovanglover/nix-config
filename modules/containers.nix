@@ -55,7 +55,7 @@ in
       hostAddress = "192.168.100.34";
       localAddress = "192.168.100.49";
 
-      config = { lib, pkgs, ... }: {
+      config = { ... }: {
         imports = [
           ../containers
           ../containers/wine.nix

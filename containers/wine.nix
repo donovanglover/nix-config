@@ -1,9 +1,9 @@
 { nix-config, config, lib, pkgs, ... }:
 
 let
-  inherit (nix-config.inputs) sakaya;
+  inherit (nix-config.inputs.sakaya.packages.${pkgs.system}) sakaya;
   inherit (config.modules.system) username;
-  inherit (lib) singleton;
+  inherit (lib) singleton getExe;
 
   sakayaPort = 39493;
 in
@@ -30,7 +30,7 @@ in
     ];
 
     serviceConfig = {
-      ExecStart = "/usr/bin/env su ${username} --command=${sakaya.packages.${pkgs.system}.sakaya}/bin/sakaya";
+      ExecStart = "/usr/bin/env su ${username} --command=${getExe sakaya}";
     };
 
     wantedBy = [ "multi-user.target" ];

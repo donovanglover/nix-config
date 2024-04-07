@@ -1,16 +1,19 @@
 { pkgs, ... }:
 
 let
-  inherit (pkgs) polkit_gnome;
+  inherit (pkgs) polkit_gnome callPackage;
 
   opacity = "0.95";
   super = "SUPER";
+
+  hycov = callPackage ../packages/hycov.nix { };
 
   raiseVolumeScript = "hypr/raise-volume.fish";
   lowerVolumeScript = "hypr/lower-volume.fish";
   gapsScript = "hypr/gaps.sh";
   randomBackgroundScript = "hypr/random-bg.fish";
   swapBackgroundScript = "hypr/swap-bg.fish";
+  setBackgroundScript = "hypr/set-bg.fish";
 in
 {
   home.packages = with pkgs; [
@@ -41,7 +44,7 @@ in
     enable = true;
 
     plugins = [
-      (pkgs.callPackage ../packages/hycov.nix { })
+      hycov
     ];
 
     settings = {
@@ -320,7 +323,7 @@ in
     '';
   };
 
-  xdg.configFile."hypr/set-bg.fish" = {
+  xdg.configFile.${setBackgroundScript} = {
     executable = true;
     text = /* fish */ ''
       #!/usr/bin/env fish
@@ -351,10 +354,8 @@ in
     text = /* fish */ ''
       #!/usr/bin/env fish
 
-      cd ~/.config/hypr
-
       for monitor in (hyprctl monitors -j | jq -r '.[].name')
-        ./set-bg.fish "$monitor" "$(random choice $(fd . /run/current-system/sw/share/backgrounds/Spring2024FanartSubmissions --follow -e jpg -e png))"
+        ~/.config/${setBackgroundScript} "$monitor" "$(random choice $(fd . /run/current-system/sw/share/backgrounds/Spring2024FanartSubmissions --follow -e jpg -e png))"
       end
     '';
   };
@@ -368,10 +369,8 @@ in
       set M1 "$(echo "$M" | head -n 1)"
       set M2 "$(echo "$M" | tail -n 1)"
 
-      cd ~/.config/hypr
-
-      ./set-bg.fish "$(swww query | choose 0 | choose -c 0..-1 | tail -n 1)" $M1
-      ./set-bg.fish "$(swww query | choose 0 | choose -c 0..-1 | head -n 1)" $M2
+      ~/.config/${setBackgroundScript} "$(swww query | choose 0 | choose -c 0..-1 | tail -n 1)" $M1
+      ~/.config/${setBackgroundScript} "$(swww query | choose 0 | choose -c 0..-1 | head -n 1)" $M2
     '';
   };
 
