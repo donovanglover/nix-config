@@ -139,6 +139,7 @@ in
         nerdfonts
         kanji-stroke-order-font
         liberation_ttf
+        aleo-fonts
       ];
 
       fontconfig = {

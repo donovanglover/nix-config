@@ -214,7 +214,6 @@ in
     environment.pathsToLink = [
       "/share/backgrounds"
       "/share/eww"
-      "/share/fonts"
     ];
 
     environment.systemPackages = with pkgs; [
