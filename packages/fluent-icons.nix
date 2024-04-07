@@ -1,34 +1,22 @@
 { stdenvNoCC
-, fetchurl
-, unar
+, fetchzip
 }:
 
 stdenvNoCC.mkDerivation {
   pname = "fluent-icons";
   version = "2024-01-02";
 
-  src = fetchurl {
-    name = "Fluent Icons.zip";
+  src = fetchzip {
     url = "https://files.catbox.moe/1we56t.zip";
-    hash = "sha256-J530v9QRGv/c0PBYcCVpGSgqvirlx4eQzsP+Kqhft8A=";
+    hash = "sha256-gs33iDv+u6O03a+/QvDtKt/aHduZww4F3Fm3F40d1GI=";
+    stripRoot = false;
   };
-
-  nativeBuildInputs = [ unar ];
-
-  unpackPhase = /* bash */ ''
-    runHook preUnpack
-
-    cp "$src" $(stripHash "$src")
-    unar $(stripHash "$src")
-
-    runHook postUnpack
-  '';
 
   installPhase = /* bash */ ''
     runHook preInstall
 
-    mkdir -p $out/share/eww
-    cp -r */ $out/share/eww
+    mkdir -p $out
+    cp -r * $out
 
     runHook postInstall
   '';
