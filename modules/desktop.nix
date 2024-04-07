@@ -1,15 +1,13 @@
 { nix-config, pkgs, config, lib, ... }:
 
 let
-  inherit (lib) mkEnableOption mkIf mkMerge;
+  inherit (lib) mkEnableOption mkIf mkMerge mkOption;
+  inherit (lib.types) str float int;
   inherit (config.modules.system) username;
-  inherit (cfg) bloat gnome plasma container;
+  inherit (cfg) bloat gnome plasma container theme opacity fontSize;
   inherit (builtins) attrValues;
   inherit (nix-config.packages.${pkgs.system}) aleo-fonts;
-
-  theme = "monokai";
-  opacity = 0.95;
-  font-size = 11;
+  inherit (pkgs) phinger-cursors noto-fonts-cjk-sans maple-mono noto-fonts-emoji;
 
   cfg = config.modules.desktop;
 in
@@ -20,6 +18,21 @@ in
   };
 
   options.modules.desktop = {
+    theme = mkOption {
+      type = str;
+      default = "monokai";
+    };
+
+    opacity = mkOption {
+      type = float;
+      default = 0.95;
+    };
+
+    fontSize = mkOption {
+      type = int;
+      default = 11;
+    };
+
     bloat = mkEnableOption "GUI applications like Logseq";
     gnome = mkEnableOption "GNOME specialization";
     plasma = mkEnableOption "Plasma specialization";
@@ -163,13 +176,13 @@ in
         popups = opacity;
       };
 
-      cursor = with pkgs; {
+      cursor = {
         package = phinger-cursors;
         name = "phinger-cursors";
         size = 24;
       };
 
-      fonts = with pkgs; {
+      fonts = {
         serif = {
           package = aleo-fonts;
           name = "Aleo";
@@ -191,10 +204,10 @@ in
         };
 
         sizes = {
-          applications = font-size;
-          desktop = font-size;
-          popups = font-size;
-          terminal = font-size;
+          applications = fontSize;
+          desktop = fontSize;
+          popups = fontSize;
+          terminal = fontSize;
         };
       };
     };
