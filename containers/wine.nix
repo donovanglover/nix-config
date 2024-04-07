@@ -4,6 +4,7 @@ let
   inherit (nix-config.inputs.sakaya.packages.${pkgs.system}) sakaya;
   inherit (config.modules.system) username;
   inherit (lib) singleton getExe;
+  inherit (pkgs) su winetricks wineWowPackages;
 
   sakayaPort = 39493;
 in
@@ -25,7 +26,7 @@ in
       Type = "simple";
     };
 
-    path = with pkgs; [
+    path = [
       su
     ];
 
@@ -36,10 +37,10 @@ in
     wantedBy = [ "multi-user.target" ];
   };
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = [
     wineWowPackages.waylandFull
     winetricks
-    sakaya.packages.${system}.sakaya
+    sakaya
   ];
 
   environment.sessionVariables = {
