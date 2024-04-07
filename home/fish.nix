@@ -22,10 +22,8 @@ in
       export PRISMA_INTROSPECTION_ENGINE_BINARY="${prisma-engines}/bin/introspection-engine"
       export PRISMA_FMT_BINARY="${prisma-engines}/bin/prisma-fmt"
 
-      # Required to make gpg-agent work in cases like git commit
       export GPG_TTY=(tty)
 
-      # Add color to man pages
       set -x -U LESS_TERMCAP_md (printf "\e[01;31m")
       set -x -U LESS_TERMCAP_me (printf "\e[0m")
       set -x -U LESS_TERMCAP_se (printf "\e[0m")
@@ -34,10 +32,8 @@ in
       set -x -U LESS_TERMCAP_us (printf "\e[01;32m")
       set -x -U MANROFFOPT "-c"
 
-      # Always use the default keybindings in fish
       fish_default_key_bindings
 
-      # Always use kitty ssh since it's our default terminal
       if string match -qe -- "/dev/pts/" (tty)
         alias ssh="kitty +kitten ssh"
       end
@@ -164,11 +160,11 @@ in
       pbs = "pnpm build && pnpm start";
 
       dl = "yt-dlp";
-      vol = "wpctl set-volume '@DEFAULT_AUDIO_SINK@'"; # Change the volume, e.g. vol 10%+, vol 10%-, vol 100%
+      vol = "wpctl set-volume '@DEFAULT_AUDIO_SINK@'";
       df = "df --human-readable --total";
       du = "du --human-readable --summarize";
-      jis = "recode shift_jis..utf8"; # Easily convert shift_jis-encoded files to utf8
-      utf16 = "recode utf16..utf8"; # Rarely, some files from Japan are utf16 instead
+      jis = "recode shift_jis..utf8";
+      utf16 = "recode utf16..utf8";
       jp = "LANG=ja_JP.UTF-8 LC_ALL=ja_JP.UTF-8";
       vm = "nixos-rebuild build-vm --flake . && ./result/bin/run-nixos-vm && trash put result nixos.qcow2";
       sw = "sudo nixos-rebuild switch --flake .";

@@ -72,21 +72,18 @@
     };
 
     extraConfig = /* python */ ''
-      # Mute tabs by default
       from qutebrowser.mainwindow import tabwidget
+
       tabwidget.TabWidget.MUTE_STRING = ""
       tabwidget.TabWidget.AUDIBLE_STRING = "[A]"
 
-      # Better context menu colors
       c.colors.contextmenu.disabled.fg = '#808080'
       c.colors.contextmenu.menu.bg = '#353535'
       c.colors.contextmenu.menu.fg = '#ffffff'
       c.colors.contextmenu.selected.bg = '#909090'
 
-      # Don't artificially change webpage colors
       c.colors.webpage.darkmode.enabled = False
 
-      # Don't paste something by accident
       config.unbind('pp', mode='normal')
       config.unbind('pP', mode='normal')
       config.unbind('Pp', mode='normal')
@@ -94,8 +91,6 @@
       config.unbind('wp', mode='normal')
       config.unbind('wP', mode='normal')
 
-      # Easily enter account information
-      # NOTE: I re-evaluated pass when I was focusing on a terminal-centric workflow.
       config.bind('zl', 'spawn --userscript qute-pass')
       config.bind('zpl', 'spawn --userscript qute-pass --password-only')
       config.bind('zol', 'spawn --userscript qute-pass --otp-only')
