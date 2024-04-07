@@ -4,6 +4,8 @@ let
   inherit (config.home) homeDirectory;
   inherit (config.xdg.userDirs) download documents music pictures videos;
   inherit (pkgs) eww;
+
+  fluent-icons = pkgs.callPackage ../packages/fluent-icons.nix { };
 in
 {
   home.packages = [ eww ];
@@ -20,7 +22,7 @@ in
 
     (defwidget icon [img exec]
       (eventbox :cursor "pointer" :onclick "lnch thunar ''${exec}" :tooltip "''${exec}"
-        (image :path "/run/current-system/sw/share/eww/Fluent-Icons/''${img}.png" :image-width 128)))
+        (image :path "${fluent-icons}/''${img}.png" :image-width 128)))
 
     (defwindow desktop-icons
       :monitor 0
