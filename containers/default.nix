@@ -22,8 +22,9 @@
   };
 
   environment = {
-    defaultPackages = [ ];
-    variables.TERM = "xterm-kitty";
+    variables = {
+      TERM = "xterm-kitty";
+    };
 
     sessionVariables = {
       WAYLAND_DISPLAY = "wayland-1";

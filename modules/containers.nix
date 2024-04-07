@@ -57,7 +57,7 @@ in
 
       config = { lib, pkgs, ... }: {
         imports = [
-          ../containers/shared.nix
+          ../containers
           ../containers/wine.nix
         ];
       };
