@@ -3,22 +3,18 @@
 let
   inherit (nix-config.inputs) sakaya;
   inherit (config.modules.system) username;
+  inherit (lib) singleton;
+
+  sakayaPort = 39493;
 in
 {
-  networking.nat.forwardPorts = [
-    {
-      destination = "192.168.100.49:39493";
-      sourcePort = 39493;
-    }
-    {
-      destination = "192.168.100.49:5029";
-      sourcePort = 5029;
-    }
-  ];
+  networking.nat.forwardPorts = singleton {
+    destination = "192.168.100.49:${sakayaPort}";
+    sourcePort = sakayaPort;
+  };
 
   networking.firewall.allowedTCPPorts = [
-    39493
-    5029
+    sakayaPort
   ];
 
   systemd.services.sakaya = {
@@ -44,15 +40,6 @@ in
     wineWowPackages.waylandFull
     winetricks
     sakaya.packages.${system}.sakaya
-    rar
-    unrar
-    iamb
-    srb2
-  ];
-
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "rar"
-    "unrar"
   ];
 
   environment.sessionVariables = {
