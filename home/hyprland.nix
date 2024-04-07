@@ -256,10 +256,10 @@ in
         "${super}_SHIFT, 2, exec, hyprnome --move"
 
         "${super}, Tab, hycov:toggleoverview"
-        "${super}, H, hycov:movefocus,l"
-        "${super}, L, hycov:movefocus,r"
-        "${super}, K, hycov:movefocus,u"
-        "${super}, J, hycov:movefocus,d"
+        "${super}, Left, hycov:movefocus,l"
+        "${super}, Right, hycov:movefocus,r"
+        "${super}, Up, hycov:movefocus,u"
+        "${super}, Down, hycov:movefocus,d"
 
         "${super}, mouse_down, workspace, e+1"
         "${super}, mouse_up, workspace, e-1"
