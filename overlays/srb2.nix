@@ -1,4 +1,4 @@
-(final: prev: {
+final: prev: {
   srb2 = prev.srb2.overrideAttrs (oldAttrs: {
     desktopItems = [
       (prev.makeDesktopItem rec {
@@ -13,4 +13,4 @@
       })
     ];
   });
-})
+}

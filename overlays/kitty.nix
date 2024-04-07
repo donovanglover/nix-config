@@ -1,4 +1,4 @@
-(final: prev: {
+final: prev: {
   kitty = prev.kitty.overrideAttrs (oldAttrs: rec {
     version = "0.31.0";
 
@@ -19,4 +19,4 @@
       ../patches/kitty-wlroots-copying-fix.patch
     ];
   });
-})
+}
