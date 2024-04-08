@@ -7,6 +7,7 @@ let
   inherit (pkgs) ironbar inotify-tools;
 
   mullvadScript = "ironbar/mullvad.fish";
+  mullvadNotification = "ironbar/mullvad-notification.fish";
 in
 {
   home.packages = [ ironbar ];
@@ -26,7 +27,7 @@ in
       }
       {
         type = "script";
-        on_click_left = "notify-send -t 2000 \"Mullvad\" \"Changing location...\" && mullvad relay set location any && mullvad relay set location us";
+        on_click_left = "~/.config/${mullvadNotification}";
         cmd = "~/.config/${mullvadScript}";
         mode = "watch";
       }
@@ -159,6 +160,20 @@ in
       padding-right: 1em;
     }
   '';
+
+  xdg.configFile.${mullvadNotification} = {
+    executable = true;
+    text = /* fish */ ''
+      #!/usr/bin/env fish
+
+      mullvad relay set location any
+      mullvad relay set location us
+
+      sleep 0.2
+
+      notify-send -t 2000 "Mullvad" "$(mullvad status | choose 2)"
+    '';
+  };
 
   xdg.configFile.${mullvadScript} = {
     executable = true;
