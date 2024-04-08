@@ -27,19 +27,11 @@
       inherit (nixpkgs.legacyPackages.x86_64-linux) nixpkgs-fmt callPackage;
       inherit (builtins) attrNames listToAttrs map replaceStrings readDir;
 
-      flakeOutputs = [ "overlays" "nixosModules" "homeManagerModules" "packages" "checks" ];
-      flakeDirectories = [ "overlays" "modules" "home" "packages" "tests" ];
+      flakeOutputs = [ "overlays" "nixosModules" "nixosConfigurations" "homeManagerModules" "packages" "checks" ];
+      flakeDirectories = [ "overlays" "modules" "hardware" "home" "packages" "tests" ];
     in
     {
       formatter.x86_64-linux = nixpkgs-fmt;
-
-      nixosConfigurations = {
-        nixos = nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = attrs // { nix-config = self; };
-          modules = [ ./. ];
-        };
-      };
     } //
     (listToAttrs
       (map
@@ -52,7 +44,10 @@
               attributeValue = (listToAttrs
                 (map
                   (file: {
-                    name = replaceStrings [ ".nix" ] [ "" ] file;
+                    name =
+                      if file == "laptop.nix"
+                      then "nixos"
+                      else replaceStrings [ ".nix" ] [ "" ] file;
                     value =
                       if directory == "packages"
                       then callPackage ./${directory}/${file} { }
@@ -62,7 +57,17 @@
                           inherit self;
                           pkgs = nixpkgs.legacyPackages.x86_64-linux;
                         }
-                        else import ./${directory}/${file};
+                        else
+                          if directory == "hardware"
+                          then nixosSystem {
+                            system = "x86_64-linux";
+                            specialArgs = attrs // { nix-config = self; };
+                            modules = [
+                              ./.
+                              ./${directory}/${file}
+                            ];
+                          }
+                          else import ./${directory}/${file};
                   })
                   (attrNames (readDir ./${directory}))));
 
