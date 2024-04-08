@@ -1,7 +1,7 @@
 { nix-config, pkgs, lib, config, ... }:
 
 let
-  inherit (lib) mkOption mkEnableOption mkIf;
+  inherit (lib) mkOption mkEnableOption mkIf singleton;
   inherit (lib.types) nullOr str listOf;
   inherit (pkgs.nixVersions) nix_2_19;
   inherit (cfg) username iHaveLotsOfRam hashedPassword mullvad allowSRB2Port allowZolaPort noRoot;
@@ -129,10 +129,10 @@ in
       useGlobalPkgs = true;
       useUserPackages = true;
 
-      sharedModules = [{
+      sharedModules = singleton {
         home.stateVersion = "22.11";
         programs.man.generateCaches = true;
-      }];
+      };
 
       users.${username}.home = {
         inherit username;
