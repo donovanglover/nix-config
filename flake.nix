@@ -27,15 +27,8 @@
       inherit (nixpkgs.legacyPackages.x86_64-linux) nixpkgs-fmt callPackage;
       inherit (builtins) attrNames listToAttrs map replaceStrings readDir;
 
-      checkArgs = {
-        inherit self;
-
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-      };
-
-      flakeOutputs = [ "overlays" "nixosModules" "homeManagerModules" "packages" ];
-      flakeDirectories = [ "overlays" "modules" "home" "packages" ];
-      packageDirectory = "packages";
+      flakeOutputs = [ "overlays" "nixosModules" "homeManagerModules" "packages" "checks" ];
+      flakeDirectories = [ "overlays" "modules" "home" "packages" "tests" ];
     in
     {
       formatter.x86_64-linux = nixpkgs-fmt;
@@ -46,11 +39,6 @@
           specialArgs = attrs // { nix-config = self; };
           modules = [ ./. ];
         };
-      };
-
-      checks.x86_64-linux = {
-        hyprland = import ./tests/hyprland.nix checkArgs;
-        neovim = import ./tests/neovim.nix checkArgs;
       };
     } //
     (listToAttrs
@@ -66,14 +54,20 @@
                   (file: {
                     name = replaceStrings [ ".nix" ] [ "" ] file;
                     value =
-                      if directory == packageDirectory
+                      if directory == "packages"
                       then callPackage ./${directory}/${file} { }
-                      else import ./${directory}/${file};
+                      else
+                        if directory == "tests"
+                        then import ./${directory}/${file} {
+                          inherit self;
+                          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+                        }
+                        else import ./${directory}/${file};
                   })
                   (attrNames (readDir ./${directory}))));
 
               attributeSet =
-                if directory == packageDirectory
+                if directory == "packages" || directory == "tests"
                 then { x86_64-linux = attributeValue; }
                 else attributeValue;
             in

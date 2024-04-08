@@ -2,7 +2,7 @@
 let
   inherit (builtins) attrValues;
 in
-(import ./lib.nix) {
+(import ../lib.nix) {
   name = "neovim";
 
   nodes.machine = { nix-config, ... }: {
