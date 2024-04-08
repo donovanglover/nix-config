@@ -130,7 +130,10 @@ in
       useUserPackages = true;
 
       sharedModules = singleton {
-        home.stateVersion = "22.11";
+        home = {
+          inherit (cfg) stateVersion;
+        };
+
         programs.man.generateCaches = true;
       };
 
