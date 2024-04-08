@@ -8,6 +8,8 @@ let
 
   mullvadScript = "ironbar/mullvad.fish";
   mullvadNotification = "ironbar/mullvad-notification.fish";
+  volumeScript = "ironbar/volume.fish";
+  volumeGet = "ironbar/volume-get.fish";
 in
 {
   home.packages = [ ironbar ];
@@ -51,9 +53,8 @@ in
       }
       {
         type = "script";
-        cmd = "fish -c 'echo \"音量：$(math \"$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | choose 1) * 100\")%\"'";
-        mode = "poll";
-        interval = 2500;
+        cmd = "~/.config/${volumeScript}";
+        mode = "watch";
       }
       {
         type = "clock";
@@ -237,6 +238,32 @@ in
       while read directory events filename
         get_mullvad_status
       end
+    '';
+  };
+
+  xdg.configFile.${volumeScript} = {
+    executable = true;
+    text = /* fish */ ''
+      #!/usr/bin/env fish
+
+      function get_volume
+        set VOLUME (wpctl get-volume @DEFAULT_AUDIO_SINK@ | choose 1)
+        echo "音量：$(math "$VOLUME * 100")%"
+      end
+
+      ~/.config/${volumeGet}
+
+      pactl subscribe | grep --line-buffered -e "シンク" | xargs -L 1 ~/.config/${volumeGet}
+    '';
+  };
+
+  xdg.configFile.${volumeGet} = {
+    executable = true;
+    text = /* fish */ ''
+      #!/usr/bin/env fish
+
+      set VOLUME (wpctl get-volume @DEFAULT_AUDIO_SINK@ | choose 1)
+      echo "音量：$(math "$VOLUME * 100")%"
     '';
   };
 }
