@@ -221,7 +221,7 @@ in
         "${super}, S, swapactiveworkspaces, 0 1"
         "${super}_SHIFT, S, movetoworkspace, special"
         "${super}_SHIFT, A, exec, killall activate-linux || activate-linux -s 1.15 -x 412 -y 120 -c 1-1-1-0.05"
-        "${super}, O, exec, killall .ironbar-wrapper || ironbar"
+        "${super}, O, exec, killall .ironbar-wrapper inotifywait pactl || ironbar"
         "${super}_SHIFT, O, exec, eww close overlay || eww open overlay"
         "${super}, F1, exec, killall rofi || rofi -show drun"
         "${super}, F2, togglespecialworkspace"
