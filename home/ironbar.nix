@@ -4,7 +4,9 @@ let
   inherit (builtins) toJSON;
   inherit (lib) singleton;
   inherit (config.lib.stylix.colors) base00 base01 base04 base05 base09;
-  inherit (pkgs) ironbar;
+  inherit (pkgs) ironbar inotify-tools;
+
+  mullvadScript = "ironbar/mullvad.fish";
 in
 {
   home.packages = [ ironbar ];
@@ -25,9 +27,8 @@ in
       {
         type = "script";
         on_click_left = "notify-send -t 2000 \"Mullvad\" \"Changing location...\" && mullvad relay set location any && mullvad relay set location us";
-        cmd = "mullvad status | choose 4.. | sed -e 's/Chicago.*/シカゴ/g' -e 's/Atlanta.*/アトランタ/g' -e 's/Miami.*/マイアミ/g' -e 's/Ashburn.*/アッシュバーン/g' -e 's/Boston.*/ボストン/g' -e 's/Charlotte.*/シャーロット/g' -e 's/Cleveland.*/クリーブランド/g' -e 's/Dallas.*/ダラス/g' -e 's/Detroit.*/デトロイト/g' -e 's/Denver.*/デンバー/g' -e 's/Honolulu.*/ホノルル/g' -e 's/Houston.*/ヒューストン/g' -e 's/Jackson.*/ジャクソン/g' -e 's/Los Angeles.*/ロサンゼルス/g' -e 's/Louisville.*/ルイビル/g' -e 's/Milwaukee.*/ミルウォーキー/g' -e 's/Minneapolis.*/ミネアポリス/g' -e 's/New York.*/ニューヨーク/g' -e 's/Oklahoma.*/オクラホマシティ/g' -e 's/Philadelphia.*/フィラデルフィア/g' -e 's/Phoenix.*/フィニックス/g' -e 's/Piscataway.*/ピスカタウェイ/g' -e 's/Portland.*/ポートランド/g' -e 's/Raleigh.*/ローリー/g' -e 's/Richmond.*/リッチモンド/g' -e 's/Salt Lake.*/ソルトレイクシティ/g' -e 's/San Francisco.*/サンフランシスコ/g' -e 's/San Jose.*/サンノゼ/g' -e 's/Seattle.*/シアトル/g' -e 's/Secaucus.*/セコーカス/g' -e 's/Sioux Falls.*/スーフォールズ/g' -e 's/St. Louis.*/セントルイス/g' -e 's/Stamford.*/スタンフォード/g' -e 's/Washington.*/ワシントン/g'";
-        mode = "poll";
-        interval = 2500;
+        cmd = "~/.config/${mullvadScript}";
+        mode = "watch";
       }
     ];
 
@@ -158,4 +159,69 @@ in
       padding-right: 1em;
     }
   '';
+
+  xdg.configFile.${mullvadScript} = {
+    executable = true;
+    text = /* fish */ ''
+      #!/usr/bin/env fish
+
+      function get_mullvad_status
+        if test -z "$inside"
+          set inside true
+          test -n "$initialized" && sleep 0.2
+
+          set MULLVAD (mullvad status)
+
+          set LOCATION (echo "$MULLVAD" | choose 4.. | sed \
+            -e 's/Ashburn.*/アッシュバーン/g' \
+            -e 's/Atlanta.*/アトランタ/g' \
+            -e 's/Boston.*/ボストン/g' \
+            -e 's/Charlotte.*/シャーロット/g' \
+            -e 's/Chicago.*/シカゴ/g' \
+            -e 's/Cleveland.*/クリーブランド/g' \
+            -e 's/Dallas.*/ダラス/g' \
+            -e 's/Detroit.*/デトロイト/g' \
+            -e 's/Denver.*/デンバー/g' \
+            -e 's/Honolulu.*/ホノルル/g' \
+            -e 's/Houston.*/ヒューストン/g' \
+            -e 's/Jackson.*/ジャクソン/g' \
+            -e 's/Los Angeles.*/ロサンゼルス/g' \
+            -e 's/Louisville.*/ルイビル/g' \
+            -e 's/Miami.*/マイアミ/g' \
+            -e 's/Milwaukee.*/ミルウォーキー/g' \
+            -e 's/Minneapolis.*/ミネアポリス/g' \
+            -e 's/New York.*/ニューヨーク/g' \
+            -e 's/Oklahoma.*/オクラホマシティ/g' \
+            -e 's/Philadelphia.*/フィラデルフィア/g' \
+            -e 's/Phoenix.*/フィニックス/g' \
+            -e 's/Piscataway.*/ピスカタウェイ/g' \
+            -e 's/Portland.*/ポートランド/g' \
+            -e 's/Raleigh.*/ローリー/g' \
+            -e 's/Richmond.*/リッチモンド/g' \
+            -e 's/Salt Lake.*/ソルトレイクシティ/g' \
+            -e 's/San Francisco.*/サンフランシスコ/g' \
+            -e 's/San Jose.*/サンノゼ/g' \
+            -e 's/Seattle.*/シアトル/g' \
+            -e 's/Secaucus.*/セコーカス/g' \
+            -e 's/Sioux Falls.*/スーフォールズ/g' \
+            -e 's/St. Louis.*/セントルイス/g' \
+            -e 's/Stamford.*/スタンフォード/g' \
+            -e 's/Washington.*/ワシントン/g'
+          )
+
+          echo "$LOCATION"
+
+          set -e inside
+        end
+      end
+
+      get_mullvad_status
+      set initialized true
+
+      ${inotify-tools}/bin/inotifywait -q -e close_write,moved_to,create -m /etc/mullvad-vpn |
+      while read directory events filename
+        get_mullvad_status
+      end
+    '';
+  };
 }
