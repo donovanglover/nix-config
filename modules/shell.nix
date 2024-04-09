@@ -3,9 +3,9 @@
 let
   inherit (pkgs) fish;
   inherit (lib) mkEnableOption mkIf mkMerge singleton;
-  inherit (builtins) attrValues;
   inherit (cfg) postgres;
   inherit (config.modules.system) username;
+  inherit (builtins) attrValues;
 
   cfg = config.modules.shell;
 in

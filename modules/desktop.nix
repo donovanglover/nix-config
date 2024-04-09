@@ -5,9 +5,9 @@ let
   inherit (lib.types) str float int;
   inherit (config.modules.system) username;
   inherit (cfg) bloat gnome plasma container theme opacity fontSize;
-  inherit (builtins) attrValues;
   inherit (nix-config.packages.${pkgs.system}) aleo-fonts;
   inherit (pkgs) phinger-cursors noto-fonts-cjk-sans maple-mono noto-fonts-emoji;
+  inherit (builtins) attrValues;
 
   cfg = config.modules.desktop;
 in

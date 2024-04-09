@@ -1,8 +1,8 @@
 { nix-config, pkgs, lib, ... }:
 
 let
-  inherit (builtins) attrValues;
   inherit (lib) singleton;
+  inherit (builtins) attrValues;
 in
 {
   imports = attrValues {

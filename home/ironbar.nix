@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 
 let
-  inherit (builtins) toJSON;
   inherit (lib) singleton;
   inherit (config.lib.stylix.colors) base00 base01 base04 base05 base09;
   inherit (pkgs) ironbar inotify-tools;
+  inherit (builtins) toJSON;
 
   mullvadScript = "ironbar/mullvad.fish";
   mullvadNotification = "ironbar/mullvad-notification.fish";

@@ -1,11 +1,11 @@
 { pkgs, config, lib, ... }:
 
 let
-  inherit (builtins) toJSON;
   inherit (lib) mkEnableOption mkIf getExe singleton;
   inherit (pkgs) piper interception-tools;
   inherit (pkgs.interception-tools-plugins) dual-function-keys;
   inherit (cfg) mouseSettings disableLaptopKeyboard lidIgnore powerIgnore keyboardBinds;
+  inherit (builtins) toJSON;
 
   dualFunctionKeysConfig = "dual-function-keys.yaml";
 
