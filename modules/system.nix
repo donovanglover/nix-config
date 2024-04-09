@@ -4,7 +4,7 @@ let
   inherit (lib) mkOption mkEnableOption mkIf singleton;
   inherit (lib.types) nullOr str listOf;
   inherit (pkgs.nixVersions) nix_2_19;
-  inherit (cfg) username iHaveLotsOfRam hashedPassword mullvad allowSRB2Port allowZolaPort noRoot;
+  inherit (cfg) username iHaveLotsOfRam hashedPassword mullvad allowSRB2Port allowZolaPort noRoot postgres;
   inherit (builtins) attrValues;
 
   cfg = config.modules.system;
@@ -55,6 +55,7 @@ in
     noRoot = mkEnableOption "disable access to root";
 
     mullvad = mkEnableOption "mullvad vpn";
+    postgres = mkEnableOption "postgres database for containers";
 
     allowSRB2Port = mkEnableOption "port for srb2";
     allowZolaPort = mkEnableOption "port for zola";
@@ -207,11 +208,23 @@ in
       };
     };
 
-    services.resolved.llmnr = "false";
+    services = {
+      resolved.llmnr = "false";
 
-    services.mullvad-vpn = mkIf mullvad {
-      enable = true;
-      enableExcludeWrapper = false;
+      mullvad-vpn = mkIf mullvad {
+        enable = true;
+        enableExcludeWrapper = false;
+      };
+
+      postgresql = mkIf postgres {
+        enable = true;
+
+        ensureUsers = singleton {
+          name = username;
+        };
+
+        ensureDatabases = [ username ];
+      };
     };
 
     environment.systemPackages = with pkgs; [

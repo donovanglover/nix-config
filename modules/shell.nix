@@ -1,19 +1,11 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, lib, ... }:
 
 let
   inherit (pkgs) fish;
-  inherit (lib) mkEnableOption mkIf mkMerge singleton;
-  inherit (cfg) postgres;
-  inherit (config.modules.system) username;
+  inherit (lib) mkMerge;
   inherit (builtins) attrValues;
-
-  cfg = config.modules.shell;
 in
 {
-  options.modules.shell = {
-    postgres = mkEnableOption "postgres database and pgcli for containers";
-  };
-
   config = {
     users.defaultUserShell = fish;
     environment.shells = [ fish ];
@@ -84,6 +76,7 @@ in
           visidata
           zellij
           diskonaut
+          pgcli
           ;
         inherit (pkgs)
           p7zip
@@ -105,21 +98,7 @@ in
           nix-search-cli
           ;
       })
-
-      (mkIf postgres (attrValues {
-        inherit (pkgs) pgcli;
-      }))
     ];
-
-    services.postgresql = mkIf postgres {
-      enable = true;
-
-      ensureUsers = singleton {
-        name = username;
-      };
-
-      ensureDatabases = [ username ];
-    };
 
     programs = {
       fish.enable = true;
