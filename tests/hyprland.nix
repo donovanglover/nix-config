@@ -2,7 +2,7 @@
 let
   inherit (builtins) attrValues;
 in
-(import ../lib.nix) {
+(import ../lib/test.nix) {
   name = "hyprland";
 
   nodes.machine = { nix-config, ... }: {
