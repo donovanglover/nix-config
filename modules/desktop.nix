@@ -86,6 +86,23 @@ in
         pulse.enable = true;
       };
 
+      greetd = mkIf (!container) {
+        enable = true;
+        restart = false;
+
+        settings = {
+          default_session = {
+            command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland --time-format '%F %R'";
+            user = "greeter";
+          };
+
+          initial_session = {
+            command = "${pkgs.hyprland}/bin/Hyprland";
+            user = username;
+          };
+        };
+      };
+
       tumbler.enable = true;
       gvfs.enable = true;
       gnome.gnome-keyring.enable = true;
@@ -121,23 +138,6 @@ in
         inherit (pkgs.xfce) exo;
       })
     ];
-
-    services.greetd = mkIf (!container) {
-      enable = true;
-      restart = false;
-
-      settings = {
-        default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd Hyprland --time-format '%F %R'";
-          user = "greeter";
-        };
-
-        initial_session = {
-          command = "${pkgs.hyprland}/bin/Hyprland";
-          user = username;
-        };
-      };
-    };
 
     fonts = {
       enableDefaultPackages = false;
