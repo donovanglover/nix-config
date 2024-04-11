@@ -15,9 +15,18 @@ in
   programs.git = {
     enable = true;
 
+    attributes = [
+      "*.lockb binary diff=lockb"
+    ];
+
     extraConfig = {
       include.path = "~/.gituser";
       commit.gpgsign = true;
+
+      diff.lockb = {
+        textconv = "bun";
+        binary = true;
+      };
 
       core = {
         editor = "nvim";
