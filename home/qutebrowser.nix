@@ -1,3 +1,8 @@
+{ config, ... }:
+
+let
+  inherit (config.xdg.userDirs) download;
+in
 {
   programs.qutebrowser = {
     enable = true;
@@ -33,7 +38,7 @@
       };
 
       downloads = {
-        location.directory = "$HOME/ダウンロード";
+        location.directory = download;
         location.prompt = false;
         position = "bottom";
         remove_finished = 5000;
