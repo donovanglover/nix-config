@@ -78,6 +78,10 @@ in
         timeout = 0;
         efi.canTouchEfiVariables = true;
       };
+
+      blacklistedKernelModules = [
+        "floppy"
+      ];
     };
 
     systemd = {
