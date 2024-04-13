@@ -22,6 +22,7 @@ in
     hyprnome
     hypridle
     hyprlock
+    hyprshade
     swww
     grimblast
     brightnessctl
