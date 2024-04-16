@@ -3,7 +3,6 @@
 let
   inherit (lib) mkOption mkEnableOption mkIf singleton;
   inherit (lib.types) nullOr str listOf;
-  inherit (pkgs.nixVersions) nix_2_19;
   inherit (cfg) username iHaveLotsOfRam hashedPassword mullvad allowSRB2Port allowZolaPort noRoot postgres;
   inherit (builtins) attrValues;
 
@@ -90,8 +89,6 @@ in
     };
 
     nix = {
-      package = nix_2_19;
-
       settings = {
         experimental-features = [ "nix-command" "flakes" "repl-flake" ];
         auto-optimise-store = true;
