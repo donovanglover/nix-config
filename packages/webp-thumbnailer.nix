@@ -1,4 +1,5 @@
-{ stdenvNoCC
+{ lib
+, stdenvNoCC
 , libwebp
 }:
 
@@ -16,8 +17,10 @@ stdenvNoCC.mkDerivation {
     echo "MimeType=image/x-webp;image/webp;"              >> $out/share/thumbnailers/webp.thumbnailer
   '';
 
-  meta = {
+  meta = with lib; {
     homepage = "https://github.com/liquuid/nautilus-webp-thumbnailer";
     description = "Create thumbnails from webp files";
+    maintainers = with maintainers; [ donovanglover ];
+    platforms = platforms.linux;
   };
 }

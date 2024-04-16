@@ -23,10 +23,10 @@ stdenvNoCC.mkDerivation {
   '';
 
   meta = with lib; {
-    homepage = "https://github.com/AlessioLaiso/aleo";
     description = "Slab serif typeface designed by Alessio Laiso";
-    platforms = platforms.all;
-    maintainers = with maintainers; [ donovanglover ];
+    homepage = "https://github.com/AlessioLaiso/aleo";
     license = licenses.ofl;
+    maintainers = with maintainers; [ donovanglover ];
+    platforms = platforms.all;
   };
 }

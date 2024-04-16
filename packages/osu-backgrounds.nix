@@ -1,4 +1,5 @@
-{ stdenvNoCC
+{ lib
+, stdenvNoCC
 , fetchzip
 }:
 
@@ -213,8 +214,10 @@ stdenvNoCC.mkDerivation {
     runHook postInstall
   '';
 
-  meta = {
-    homepage = "https://osu.ppy.sh/home/news";
+  meta = with lib; {
     description = "A collection of osu! fanart entries since 2017";
+    homepage = "https://osu.ppy.sh/home/news";
+    maintainers = with maintainers; [ donovanglover ];
+    platforms = platforms.all;
   };
 }

@@ -29,9 +29,10 @@ stdenv.mkDerivation (finalAttrs: {
   buildInputs = [ hyprland ] ++ hyprland.buildInputs;
 
   meta = with lib; {
-    homepage = "https://github.com/Ayuei/hycov";
     description = "Clients overview for hyprland plugin";
+    homepage = "https://github.com/Ayuei/hycov";
     license = licenses.mit;
+    maintainers = with maintainers; [ donovanglover ];
     platforms = platforms.linux;
   };
 })

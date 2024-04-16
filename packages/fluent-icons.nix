@@ -1,4 +1,5 @@
-{ stdenvNoCC
+{ lib
+, stdenvNoCC
 , fetchzip
 }:
 
@@ -21,8 +22,11 @@ stdenvNoCC.mkDerivation {
     runHook postInstall
   '';
 
-  meta = {
-    homepage = "https://github.com/vinceliuice/Fluent-icon-theme";
+  meta = with lib; {
     description = "Fluent folder icons converted to png";
+    homepage = "https://github.com/vinceliuice/Fluent-icon-theme";
+    license = licenses.gpl3Plus;
+    maintainers = with maintainers; [ donovanglover ];
+    platforms = platforms.all;
   };
 }
