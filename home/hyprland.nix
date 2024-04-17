@@ -105,7 +105,7 @@ in
       decoration = {
         rounding = 0;
         drop_shadow = true;
-        shadow_range = 4;
+        shadow_range = 30;
         shadow_render_power = 3;
 
         blur = {
