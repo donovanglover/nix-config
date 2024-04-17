@@ -584,7 +584,6 @@ in
       vim-crystal
       vim-nix-rummik
       fcitx-vim
-      vim-svelte
       typst-vim
       emmet-vim
       tagbar
