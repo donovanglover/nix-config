@@ -4,7 +4,6 @@ let
   inherit (pkgs) fetchFromGitHub vimPlugins;
   inherit (pkgs.vimUtils) buildVimPlugin;
   inherit (config.lib.stylix.scheme) slug;
-  inherit (config.xdg.userDirs) documents;
 
   vim-nix-rummik = buildVimPlugin {
     pname = "vim-nix-rummik";

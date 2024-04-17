@@ -53,20 +53,24 @@
                       then callPackage ./${directory}/${file} { }
                       else
                         if directory == "tests"
-                        then import ./${directory}/${file} {
-                          inherit self;
-                          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-                        }
+                        then
+                          import ./${directory}/${file}
+                            {
+                              inherit self;
+                              pkgs = nixpkgs.legacyPackages.x86_64-linux;
+                            }
                         else
                           if directory == "hardware"
-                          then nixosSystem {
-                            system = "x86_64-linux";
-                            specialArgs = attrs // { nix-config = self; };
-                            modules = [
-                              ./.
-                              ./${directory}/${file}
-                            ];
-                          }
+                          then
+                            nixosSystem
+                              {
+                                system = "x86_64-linux";
+                                specialArgs = attrs // { nix-config = self; };
+                                modules = [
+                                  ./.
+                                  ./${directory}/${file}
+                                ];
+                              }
                           else import ./${directory}/${file};
                   })
                   (attrNames (readDir ./${directory}))));
