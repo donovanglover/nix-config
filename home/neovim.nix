@@ -567,24 +567,6 @@ in
           autocmd QuitPre * silent! :Vista!
         '';
       }
-      {
-        plugin = obsidian-nvim;
-        type = "lua";
-        config = /* lua */ ''
-          require('obsidian').setup {
-            workspaces = {
-              {
-                name = "ドキュメント",
-                path = "${documents}",
-              },
-            },
-            disable_frontmatter = true,
-            ui = {
-              enable = false
-            }
-          }
-        '';
-      }
       fzf-vim
       vim-caddyfile
       vim-graphql
