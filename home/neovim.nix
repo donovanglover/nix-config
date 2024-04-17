@@ -486,15 +486,6 @@ in
         '';
       }
       {
-        plugin = toggleterm-nvim;
-        type = "lua";
-        config = /* lua */ ''
-          require("toggleterm").setup {
-            shade_terminals = false
-          }
-        '';
-      }
-      {
         plugin = vimtex;
         config = /* vim */ ''
           let g:vimtex_mappings_enabled = 0
