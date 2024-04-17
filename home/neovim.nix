@@ -86,9 +86,6 @@ in
     sqlite
     sqlcipher
     litecli
-
-    dockerfile-language-server-nodejs
-    docker-compose-language-service
   ];
 
   editorconfig = {
@@ -335,8 +332,6 @@ in
             'texlab',
             'crystalline',
             'prismals',
-            'docker_compose_language_service',
-            'dockerls',
             'jsonls',
             'sqlls',
             'emmet_language_server',
