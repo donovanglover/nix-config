@@ -62,12 +62,6 @@ in
         type = "clock";
         format = "%x（%a）%R";
       }
-      {
-        name = "overview";
-        type = "label";
-        label = "アプリ";
-        on_mouse_enter = "hyprctl dispatch hycov:toggleoverview";
-      }
     ];
   };
 
@@ -156,11 +150,6 @@ in
     #startMenu {
       padding-left: 1em;
       padding-right: 0.5em;
-    }
-
-    #overview {
-      padding-left: 0.5em;
-      padding-right: 1em;
     }
   '';
 

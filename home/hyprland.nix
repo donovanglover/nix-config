@@ -6,7 +6,6 @@ let
   opacity = "0.95";
   super = "SUPER";
 
-  hycov = callPackage ../packages/hycov.nix { };
   osu-backgrounds = callPackage ../packages/osu-backgrounds.nix { };
 
   raiseVolumeScript = "hypr/raise-volume.fish";
@@ -44,10 +43,6 @@ in
 
   wayland.windowManager.hyprland = {
     enable = true;
-
-    plugins = [
-      hycov
-    ];
 
     settings = {
       env = [
@@ -169,13 +164,6 @@ in
         allow_workspace_cycles = true;
       };
 
-      plugin = {
-        hycov = {
-          hotarea_size = 0;
-          enable_gesture = 1;
-        };
-      };
-
       layerrule = [
         "blur,ironbar"
         "blur,rofi"
@@ -254,12 +242,6 @@ in
         "${super}, F12, exec, hyprnome"
         "${super}_SHIFT, 1, exec, hyprnome --previous --move"
         "${super}_SHIFT, 2, exec, hyprnome --move"
-
-        "${super}, Tab, hycov:toggleoverview"
-        "${super}, Left, hycov:movefocus,l"
-        "${super}, Right, hycov:movefocus,r"
-        "${super}, Up, hycov:movefocus,u"
-        "${super}, Down, hycov:movefocus,d"
 
         "${super}, mouse_down, workspace, e+1"
         "${super}, mouse_up, workspace, e-1"
