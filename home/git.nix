@@ -15,6 +15,13 @@ in
   programs.git = {
     enable = true;
 
+    aliases = {
+      contrib = "shortlog -n -s";
+      remotes = "remote -v";
+      praise = "blame";
+      verify = "log --show-signature";
+    };
+
     attributes = [
       "*.lockb binary diff=lockb"
     ];
@@ -44,13 +51,6 @@ in
 
       blame = {
         date = "relative";
-      };
-
-      alias = {
-        contrib = "shortlog -n -s";
-        remotes = "remote -v";
-        praise = "blame";
-        verify = "log --show-signature";
       };
 
       "color \"diff-highlight\"" = {
