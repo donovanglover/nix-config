@@ -28,9 +28,6 @@ in
     gnumake
     cmake
 
-    go
-    gopls
-
     nil
     nixpkgs-fmt
     nixfmt-rfc-style
@@ -107,11 +104,6 @@ in
       };
 
       "*.html" = {
-        indent_style = "tab";
-        indent_size = 4;
-      };
-
-      "*.go" = {
         indent_style = "tab";
         indent_size = 4;
       };
@@ -325,7 +317,6 @@ in
             'nil_ls',
             'rust_analyzer',
             'marksman',
-            'gopls',
             'lua_ls',
             'html',
             'clangd',
