@@ -168,7 +168,6 @@ in
       nnoremap <silent> <leader>t :OverCommandLine<CR>%s/
       nnoremap <silent> <leader>o :GitBlameToggle<CR>
       nnoremap <silent> <leader>a :NvimTreeFocus<CR>
-      nnoremap <silent> <leader>s :Alpha<CR>
       nnoremap <silent> <leader>d :Bdelete<CR>
       nnoremap <silent> <leader>f :Files<CR>
       nnoremap <silent> <leader>g :set hlsearch!<CR>
@@ -520,35 +519,6 @@ in
         '';
       }
       {
-        plugin = alpha-nvim;
-        type = "lua";
-        config = /* lua */ ''
-          local startify = require('alpha.themes.startify')
-
-          startify.section.header.val = vim.fn.system("${pkgs.fish}/bin/fish -c 'cat (random choice (${pkgs.fd}/bin/fd . ${pkgs.ponysay}/share/ponysay/quotes --ignore-file ~/.config/fd/ponyignore)) | head -n 1'")
-
-          startify.section.top_buttons.val = {
-            startify.button("e", "新しいファイル", "<cmd>ene <CR>")
-          }
-
-          startify.section.mru.val = { { type = "padding", val = 0 } }
-          startify.section.mru_cwd.val = {
-            { type = "padding", val = 1 },
-            { type = "text", val = "歴史", opts = { hl = "SpecialComment", shrink_margin = false } },
-            { type = "padding", val = 1 },
-            {
-              type = "group",
-              val = function()
-                return { startify.mru(0, vim.fn.getcwd()) }
-              end,
-              opts = { shrink_margin = false },
-            }
-          }
-
-          require('alpha').setup(startify.config)
-        '';
-      }
-      {
         plugin = nvim-ts-autotag;
         type = "lua";
         config = /* lua */ ''
@@ -649,9 +619,4 @@ in
       rainbow-delimiters-nvim
     ];
   };
-
-  xdg.configFile."fd/ponyignore".text = ''
-    snowflake+horsepower+bulkbiceps.1
-    snowflake+horsepower+bulkbiceps.2
-  '';
 }
