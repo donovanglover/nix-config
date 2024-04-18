@@ -13,12 +13,10 @@ in
     gnumake
     cmake
 
-    nil
     nixpkgs-fmt
     nixfmt-rfc-style
 
     crystal
-    crystalline
     shards
 
     nodejs
@@ -27,15 +25,10 @@ in
     deno
     bun
     biome
-    nodePackages.typescript-language-server
-    nodePackages."@astrojs/language-server"
-    nodePackages."@prisma/language-server"
     nodePackages.pnpm
     nodePackages.prisma
     openssl
     pnpm-shell-completion
-    tailwindcss-language-server
-    vscode-langservers-extracted
 
     rustc
     rustfmt
@@ -45,25 +38,16 @@ in
     cargo-feature
     cargo-tarpaulin
     cargo-edit
-    rust-analyzer
     bacon
     clippy
 
-    marksman
-
-    lua-language-server
-
     texlive.combined.scheme-full
-    texlab
     tectonic
     typst
     typstfmt
-    typst-lsp
     typst-live
 
     universal-ctags
-
-    emmet-language-server
 
     sqlite
     sqlcipher
@@ -102,6 +86,23 @@ in
 
   programs.neovim = {
     enable = true;
+
+    extraPackages = with pkgs; [
+      nodePackages.typescript-language-server
+      nodePackages."@astrojs/language-server"
+      nodePackages."@prisma/language-server"
+      lua-language-server
+      emmet-language-server
+      crystalline
+      marksman
+      tailwindcss-language-server
+      vscode-langservers-extracted
+      rust-analyzer
+      texlab
+      typst-lsp
+      nil
+    ];
+
     extraConfig = /* vim */ ''
       filetype plugin indent on
       set undofile
