@@ -7,12 +7,6 @@ in
   programs.bat.enable = true;
 
   home.packages = with pkgs; [
-    gcc
-    clang-tools
-    pkg-config
-    gnumake
-    cmake
-
     nixpkgs-fmt
     nixfmt-rfc-style
 
