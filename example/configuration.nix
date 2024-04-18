@@ -23,7 +23,7 @@ in
   };
 
   nixpkgs.overlays = attrValues {
-    inherit (nix-config.overlays) kitty;
+    inherit (nix-config.overlays) hyprland;
 
     exampleOverlay = final: prev: {
       btop = prev.btop.overrideAttrs (oldAttrs: {
