@@ -16,8 +16,6 @@ in
       NODE_OPTIONS = "--max-old-space-size=16384";
       BAT_THEME = "base16";
       GATSBY_TELEMETRY_DISABLED = "1";
-      EDITOR = "nvim";
-      VISUAL = "nvim";
     };
 
     environment.systemPackages = mkMerge [

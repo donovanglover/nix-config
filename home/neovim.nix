@@ -86,6 +86,7 @@ in
 
   programs.neovim = {
     enable = true;
+    defaultEditor = true;
 
     extraPackages = with pkgs; [
       nodePackages.typescript-language-server
