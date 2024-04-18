@@ -439,10 +439,6 @@ in
         '';
       }
       {
-        plugin = plenary-nvim;
-        type = "lua";
-      }
-      {
         plugin = nvim-autopairs;
         type = "lua";
         config = /* lua */ ''
