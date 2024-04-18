@@ -1,21 +1,7 @@
 { pkgs, config, ... }:
 
 let
-  inherit (pkgs) fetchFromGitHub vimPlugins;
-  inherit (pkgs.vimUtils) buildVimPlugin;
   inherit (config.lib.stylix.scheme) slug;
-
-  vim-nix-rummik = buildVimPlugin {
-    pname = "vim-nix-rummik";
-    version = "2022-11-16";
-
-    src = fetchFromGitHub {
-      owner = "rummik";
-      repo = "vim-nix";
-      rev = "0def8020f152a51c011a707680780dac61a8989a";
-      hash = "sha256-Q+Jx6/MgeE2hsd/a6FqfXpAOaRcNymZW6t75hYCcH4E=";
-    };
-  };
 in
 {
   programs.bat.enable = true;
@@ -175,7 +161,7 @@ in
       autocmd BufNewFile,BufRead *.mdx set filetype=markdown
     '';
 
-    plugins = with vimPlugins; [
+    plugins = with pkgs.vimPlugins; [
       {
         plugin = nvim-tree-lua;
         type = "lua";
@@ -532,7 +518,7 @@ in
             highlight = {
               enable = true,
               disable = function(lang)
-                if lang ~= "javascript" and lang ~= "tsx" and lang ~= "typescript" and lang ~= "astro" and lang ~= "css" and lang ~= "glsl" then
+                if lang ~= "javascript" and lang ~= "tsx" and lang ~= "typescript" and lang ~= "astro" and lang ~= "css" and lang ~= "glsl" and lang ~= "nix" then
                   return true
                 end
               end,
@@ -567,7 +553,7 @@ in
       neoformat
       bufdelete-nvim
       vim-crystal
-      vim-nix-rummik
+      vim-nix
       fcitx-vim
       typst-vim
       emmet-vim
