@@ -178,7 +178,7 @@ in
 
       cursor = {
         package = phinger-cursors;
-        name = "phinger-cursors";
+        name = "phinger-cursors-dark";
         size = 24;
       };
 

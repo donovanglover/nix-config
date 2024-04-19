@@ -1,6 +1,6 @@
 {
   home.file.".icons/default/index.theme".text = /* ini */ ''
     [icon theme]
-    Inherits=phinger-cursors
+    Inherits=phinger-cursors-dark
   '';
 }

@@ -9,7 +9,7 @@ in
 
     cursorTheme = {
       package = phinger-cursors;
-      name = "phinger-cursors";
+      name = "phinger-cursors-dark";
     };
 
     gtk3.extraConfig = {
