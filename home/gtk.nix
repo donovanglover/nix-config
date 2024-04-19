@@ -1,16 +1,11 @@
 { pkgs, ... }:
 
 let
-  inherit (pkgs) phinger-cursors fluent-icon-theme;
+  inherit (pkgs) fluent-icon-theme;
 in
 {
   gtk = {
     enable = true;
-
-    cursorTheme = {
-      package = phinger-cursors;
-      name = "phinger-cursors-dark";
-    };
 
     gtk3.extraConfig = {
       gtk-decoration-layout = "menu:";
