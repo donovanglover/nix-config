@@ -11,7 +11,6 @@
     ../home/gtk.nix
     ../home/kitty.nix
     ../home/neovim.nix
-    ../home/xcursor.nix
     ../home/xresources.nix
     ../home/yazi.nix
   ];

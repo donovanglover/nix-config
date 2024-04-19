@@ -46,7 +46,6 @@ in
 
     settings = {
       env = [
-        "XCURSOR_SIZE,24"
         "BROWSER,librewolf"
         "QT_IM_MODULE,fcitx"
         "XMODIFIERS,@im=fcitx"
