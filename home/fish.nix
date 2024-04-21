@@ -91,15 +91,6 @@ in
       gt = "git tag";
       gts = "git tag -s";
 
-      y = "yarn";
-      ya = "yarn add";
-      yb = "yarn build";
-      yar = "yarn remove";
-      yd = "yarn dev";
-      yi = "yarn init";
-      yin = "yarn install";
-      yu = "yarn upgrade-interactive";
-
       tp = "trash put";
       tl = "trash list";
       tr = "trash restore";
