@@ -550,7 +550,6 @@ in
       typst-vim
       emmet-vim
       tagbar
-      yats-vim
       rainbow-delimiters-nvim
     ];
   };
