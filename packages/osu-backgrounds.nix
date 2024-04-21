@@ -200,7 +200,7 @@ stdenvNoCC.mkDerivation {
 
   sourceRoot = ".";
 
-  installPhase = /* bash */ ''
+  installPhase = ''
     runHook preInstall
 
     BASE="2024-03-30-Spring-2024-Fanart-Contest-All-Entries"

@@ -13,7 +13,7 @@ stdenvNoCC.mkDerivation {
     stripRoot = false;
   };
 
-  installPhase = /* bash */ ''
+  installPhase = ''
     runHook preInstall
 
     mkdir -p $out

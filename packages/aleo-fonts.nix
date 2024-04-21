@@ -14,7 +14,7 @@ stdenvNoCC.mkDerivation {
     hash = "sha256-HSxP5/sLHQTujBVt1u93625EXEc42lxpt8W1//6ngWM=";
   };
 
-  installPhase = /* bash */ ''
+  installPhase = ''
     runHook preInstall
 
     install -Dm644 fonts/variable/*.ttf -t $out/share/fonts/truetype/AleoFonts
