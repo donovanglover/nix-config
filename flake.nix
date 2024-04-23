@@ -8,7 +8,7 @@
     };
 
     stylix = {
-      url = "github:danth/stylix";
+      url = "github:bluskript/stylix";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
