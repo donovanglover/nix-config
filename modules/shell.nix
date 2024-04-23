@@ -57,6 +57,7 @@ in
         inherit (pkgs)
           sudachi-rs
           tango
+          npm-check-updates
           ;
         inherit (pkgs)
           neofetch

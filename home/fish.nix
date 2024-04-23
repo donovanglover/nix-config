@@ -44,8 +44,7 @@ in
       tree = "eza --all --long --tree";
       mv = "mv -i";
       cp = "cp -ia";
-      rg = "${pkgs.ripgrep}/bin/rg --max-columns=2000 --smart-case";
-      ncu = "${pkgs.npm-check-updates}/bin/ncu --interactive --format group";
+      rg = "rg --max-columns=2000 --smart-case";
     };
 
     shellAbbrs = {
@@ -153,6 +152,7 @@ in
       sw = "sudo nixos-rebuild switch --flake .";
       tf = "treefmt";
       mgs = "mgitstatus";
+      ncu = "ncu --interactive --format group";
 
       c = "clear";
       e = "exit";

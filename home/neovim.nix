@@ -18,7 +18,6 @@ in
     yarn
     deno
     bun
-    biome
     nodePackages.pnpm
     nodePackages.prisma
     openssl
