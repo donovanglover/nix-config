@@ -177,7 +177,7 @@ in
           set inside true
           test -n "$initialized" && sleep 0.2
 
-          set MULLVAD (mullvad status)
+          set MULLVAD (mullvad status | head -1)
 
           set LOCATION (echo "$MULLVAD" | choose 4.. | sed \
             -e 's/Ashburn.*/アッシュバーン/g' \
