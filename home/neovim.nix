@@ -2,6 +2,18 @@
 
 let
   inherit (config.lib.stylix.scheme) slug;
+
+  base16-nvim = pkgs.vimUtils.buildVimPlugin {
+    pname = "base16-nvim";
+    version = "2024-02-17";
+
+    src = pkgs.fetchFromGitHub {
+      owner = "RRethy";
+      repo = "base16-nvim";
+      rev = "b3e9ec6a82c05b562cd71f40fe8964438a9ba64a";
+      sha256 = "1qb8g6q8vwq99030nqw719xgrizbqcnmj4n25fqakjq8pbclwh4p";
+    };
+  };
 in
 {
   programs.bat.enable = true;
