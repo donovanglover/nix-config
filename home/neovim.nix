@@ -146,7 +146,6 @@ in
 
       let mapleader = ' '
       nnoremap <silent> <leader>e :set nu!<CR>
-      nnoremap <silent> <leader>t :OverCommandLine<CR>%s/
       nnoremap <silent> <leader>o :GitBlameToggle<CR>
       nnoremap <silent> <leader>a :NvimTreeFocus<CR>
       nnoremap <silent> <leader>d :Bdelete<CR>
@@ -522,7 +521,6 @@ in
       vim-prisma
       vim-javascript
       vim-vue
-      vim-over
       csv-vim
       rust-vim
       yuck-vim
