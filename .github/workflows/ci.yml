@@ -8,21 +8,12 @@ on:
 
 jobs:
   test:
-    name: nix flake check
+    name: nix flake check --no-build
     runs-on: ubuntu-latest
     steps:
-    - uses: easimon/maximize-build-space@v10
-      with:
-        root-reserve-mb: 512
-        swap-size-mb: 1024
-        remove-dotnet: 'true'
-        remove-android: 'true'
-        remove-haskell: 'true'
-        remove-codeql: 'true'
-        remove-docker-images: 'true'
     - uses: actions/checkout@v4
     - uses: cachix/install-nix-action@v26
-    - run: nix flake check
+    - run: nix flake check --no-build
   format:
     name: nix fmt -- --check **/*.nix
     runs-on: ubuntu-latest
