@@ -1,0 +1,44 @@
+From 31d055f6d487bd72fca5b10822e3f3bd95e94cc9 Mon Sep 17 00:00:00 2001
+From: drendog <53359960+drendog@users.noreply.github.com>
+Date: Wed, 24 Apr 2024 00:30:35 +0200
+Subject: [PATCH] input: fix active keyboard for seat after destroying one
+ (#5725)
+
+* fix: manage active keyboard for seat after destroying one
+
+* chore: clang-format
+---
+ src/managers/input/InputManager.cpp | 19 +++++++++----------
+ 1 file changed, 9 insertions(+), 10 deletions(-)
+
+diff --git a/src/managers/input/InputManager.cpp b/src/managers/input/InputManager.cpp
+index 0aad318918a..b5d6bb5c331 100644
+--- a/src/managers/input/InputManager.cpp
++++ b/src/managers/input/InputManager.cpp
+@@ -1152,17 +1152,16 @@ void CInputManager::destroyKeyboard(SKeyboard* pKeyboard) {
+
+     xkb_state_unref(pKeyboard->xkbTranslationState);
+
+-    if (pKeyboard->active) {
+-        m_lKeyboards.remove(*pKeyboard);
++    m_lKeyboards.remove(*pKeyboard);
+
+-        if (m_lKeyboards.size() > 0) {
+-            m_pActiveKeyboard         = &m_lKeyboards.back();
+-            m_pActiveKeyboard->active = true;
+-        } else {
+-            m_pActiveKeyboard = nullptr;
+-        }
+-    } else
+-        m_lKeyboards.remove(*pKeyboard);
++    if (m_lKeyboards.size() > 0) {
++        m_pActiveKeyboard         = &m_lKeyboards.back();
++        m_pActiveKeyboard->active = true;
++        wlr_seat_set_keyboard(g_pCompositor->m_sSeat.seat, wlr_keyboard_from_input_device(m_pActiveKeyboard->keyboard));
++    } else {
++        m_pActiveKeyboard = nullptr;
++        wlr_seat_set_keyboard(g_pCompositor->m_sSeat.seat, nullptr);
++    }
+ }
+
+ void CInputManager::destroyMouse(wlr_input_device* mouse) {
