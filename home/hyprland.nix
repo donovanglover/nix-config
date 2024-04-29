@@ -66,7 +66,7 @@ in
       monitor = ",preferred,auto,1";
 
       exec-once = [
-        "sleep 0.1; swww init"
+        "sleep 0.1; swww-daemon"
         "wpctl set-volume @DEFAULT_AUDIO_SINK@ 20%"
         "ironbar"
         "fcitx5"
