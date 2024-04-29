@@ -148,7 +148,7 @@ in
       nnoremap <silent> <leader>e :set nu!<CR>
       nnoremap <silent> <leader>o :GitBlameToggle<CR>
       nnoremap <silent> <leader>a :NvimTreeFocus<CR>
-      nnoremap <silent> <leader>d :Bdelete<CR>
+      nnoremap <silent> <leader>d :bp\|bd #<CR>
       nnoremap <silent> <leader>f :Files<CR>
       nnoremap <silent> <leader>g :set hlsearch!<CR>
       nnoremap <silent> <leader>j :Buffers<CR>
@@ -525,7 +525,6 @@ in
       rust-vim
       yuck-vim
       neoformat
-      bufdelete-nvim
       vim-crystal
       vim-nix
       fcitx-vim
