@@ -155,7 +155,6 @@ in
       nnoremap <silent> <leader>j :Buffers<CR>
       nnoremap <silent> <leader>l :Rg<CR>
       nnoremap <silent> <leader>; :NvimTreeToggle<CR>
-      nnoremap <silent> <leader>z :ZenMode<CR>
       nnoremap <silent> <leader>b :Vista!!<CR>
       vnoremap <C-s> y:silent !notify-send -t 4000 "成果" "$(tango '<C-r>0')"<CR>:<Esc>
 
@@ -418,29 +417,6 @@ in
           require('Comment').setup {
             pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook()
           }
-        '';
-      }
-      {
-        plugin = zen-mode-nvim;
-        type = "lua";
-        config = /* lua */ ''
-          require("zen-mode").setup({
-            window = {
-              backdrop = 1,
-              width = 80,
-              height = 0.9,
-              options = {
-                signcolumn = "no",
-                number = false,
-              },
-            },
-            on_open = function(win)
-              vim.cmd("ScrollbarHide")
-            end,
-            on_close = function()
-              vim.cmd("ScrollbarShow")
-            end,
-          })
         '';
       }
       {
