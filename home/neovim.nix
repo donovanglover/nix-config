@@ -521,7 +521,6 @@ in
       vim-pug
       vim-prisma
       vim-javascript
-      vim-jsx-pretty
       vim-vue
       vim-over
       csv-vim
