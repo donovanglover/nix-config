@@ -520,6 +520,7 @@ in
       vim-pug
       vim-prisma
       vim-javascript
+      vim-jsx-pretty
       vim-vue
       csv-vim
       rust-vim
