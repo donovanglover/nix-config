@@ -27,8 +27,8 @@
       inherit (nixpkgs.legacyPackages.x86_64-linux) nixpkgs-fmt callPackage;
       inherit (builtins) attrNames listToAttrs map replaceStrings readDir;
 
-      flakeOutputs = [ "overlays" "nixosModules" "nixosConfigurations" "homeManagerModules" "packages" "checks" ];
-      flakeDirectories = [ "overlays" "modules" "hardware" "home" "packages" "tests" ];
+      flakeOutputs = [ "overlays" "nixosModules" "nixosConfigurations" "homeManagerModules" "packages" ];
+      flakeDirectories = [ "overlays" "modules" "hardware" "home" "packages" ];
     in
     {
       formatter.x86_64-linux = nixpkgs-fmt;
