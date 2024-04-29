@@ -533,7 +533,6 @@ in
       vim-nix
       fcitx-vim
       typst-vim
-      emmet-vim
       tagbar
       rainbow-delimiters-nvim
     ];
