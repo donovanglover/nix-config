@@ -496,7 +496,16 @@ in
             highlight = {
               enable = true,
               disable = function(lang)
-                if lang ~= "javascript" and lang ~= "tsx" and lang ~= "typescript" and lang ~= "astro" and lang ~= "css" and lang ~= "glsl" and lang ~= "nix" and lang ~= "vue" then
+                if lang ~= "javascript"
+                  and lang ~= "tsx"
+                  and lang ~= "typescript"
+                  and lang ~= "astro"
+                  and lang ~= "css"
+                  and lang ~= "glsl"
+                  and lang ~= "nix"
+                  and lang ~= "vue"
+                  and lang ~= "pug"
+                then
                   return true
                 end
               end,
@@ -519,7 +528,6 @@ in
       fzf-vim
       vim-caddyfile
       vim-graphql
-      vim-pug
       vim-prisma
       vim-javascript
       vim-jsx-pretty
