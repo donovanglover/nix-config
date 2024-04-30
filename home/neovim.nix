@@ -94,6 +94,7 @@ in
     defaultEditor = true;
 
     extraPackages = with pkgs; [
+      nodePackages.vls
       nodePackages.typescript-language-server
       nodePackages."@astrojs/language-server"
       nodePackages."@prisma/language-server"
@@ -312,6 +313,7 @@ in
             'crystalline',
             'prismals',
             'jsonls',
+            'vuels',
             'sqlls',
             'emmet_language_server',
             'astro',
@@ -494,7 +496,7 @@ in
             highlight = {
               enable = true,
               disable = function(lang)
-                if lang ~= "javascript" and lang ~= "tsx" and lang ~= "typescript" and lang ~= "astro" and lang ~= "css" and lang ~= "glsl" and lang ~= "nix" then
+                if lang ~= "javascript" and lang ~= "tsx" and lang ~= "typescript" and lang ~= "astro" and lang ~= "css" and lang ~= "glsl" and lang ~= "nix" and lang ~= "vue" then
                   return true
                 end
               end,
@@ -521,7 +523,6 @@ in
       vim-prisma
       vim-javascript
       vim-jsx-pretty
-      vim-vue
       csv-vim
       rust-vim
       yuck-vim
