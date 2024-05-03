@@ -194,6 +194,7 @@ in
             -e 's/Jackson.*/ジャクソン/g' \
             -e 's/Los Angeles.*/ロサンゼルス/g' \
             -e 's/Louisville.*/ルイビル/g' \
+            -e 's/McAllen.*/マッカレン/g' \
             -e 's/Miami.*/マイアミ/g' \
             -e 's/Milwaukee.*/ミルウォーキー/g' \
             -e 's/Minneapolis.*/ミネアポリス/g' \
