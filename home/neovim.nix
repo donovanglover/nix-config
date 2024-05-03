@@ -26,7 +26,6 @@ in
     shards
 
     nodejs
-    nodePackages.npm
     yarn
     deno
     bun
