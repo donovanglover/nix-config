@@ -19,19 +19,19 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "ringracers";
-  version = "2.1";
+  version = "2.2";
 
   src = fetchFromGitHub {
     owner = "KartKrewDev";
     repo = "RingRacers";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-iK0+1B9+cqOaZ87ON72ituBmilHyjiRIos1AcOt0iJ0=";
+    hash = "sha256-mvRa2Kc9t++IuAXFnplvLKiUQv4uPohay0NG9kr9UQs=";
   };
 
   assets = fetchzip {
     name = "${finalAttrs.pname}-${finalAttrs.version}-assets";
     url = "https://github.com/KartKrewDev/RingRacers/releases/download/v${finalAttrs.version}/Dr.Robotnik.s-Ring-Racers-v${finalAttrs.version}-Assets.zip";
-    hash = "sha256-qNG36aEUealHSgqqZ1I51UWkOoefxKJQNWLt9QCE6yc=";
+    hash = "sha256-Flfrv1vbL8NeN3sxafsHuqPPaxZMgvvohizXefUFoVg=";
     stripRoot = false;
   };
 
