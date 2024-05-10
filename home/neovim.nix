@@ -493,7 +493,7 @@ in
             highlight = {
               enable = true,
               disable = function(lang)
-                if lang ~= "javascript"
+                return lang ~= "javascript"
                   and lang ~= "tsx"
                   and lang ~= "typescript"
                   and lang ~= "astro"
@@ -502,9 +502,6 @@ in
                   and lang ~= "nix"
                   and lang ~= "vue"
                   and lang ~= "pug"
-                then
-                  return true
-                end
               end,
               additional_vim_regex_highlighting = true,
             },
