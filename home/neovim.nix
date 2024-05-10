@@ -30,8 +30,6 @@ in
     deno
     bun
     nodePackages.pnpm
-    nodePackages.prisma
-    openssl
     pnpm-shell-completion
 
     rustc
