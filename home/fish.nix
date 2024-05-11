@@ -10,7 +10,7 @@ in
     shellInit = /* fish */ ''
       set -U fish_greeting ""
 
-      export PATH="$HOME/.deno/bin:$HOME/.cargo/bin:$HOME/.yarn/bin:$HOME/.npm-packages/bin:$HOME/.local/bin:$HOME/.go/bin:$PATH"
+      export PATH="$HOME/.deno/bin:$HOME/.cargo/bin:$HOME/.npm-packages/bin:$HOME/.local/bin:$HOME/.go/bin:$PATH"
       export GOPATH="$HOME/.go"
       export NODE_PATH="$HOME/.npm-packages/lib/node_modules"
       export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
