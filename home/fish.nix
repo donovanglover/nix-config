@@ -1,8 +1,5 @@
-{ pkgs, ... }:
+{ ... }:
 
-let
-  inherit (pkgs) gsettings-desktop-schemas gtk3;
-in
 {
   programs.fish = {
     enable = true;
@@ -15,7 +12,6 @@ in
       export NODE_PATH="$HOME/.npm-packages/lib/node_modules"
       export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
       export TERMCMD="kitty --single-instance"
-      export XDG_DATA_DIRS="${gsettings-desktop-schemas}/share/gsettings-schemas/${gsettings-desktop-schemas.name}:${gtk3}/share/gsettings-schemas/${gtk3.name}:$XDG_DATA_DIRS"
       export DIRENV_LOG_FORMAT=""
 
       export GPG_TTY=(tty)
