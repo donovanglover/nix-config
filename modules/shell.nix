@@ -75,6 +75,7 @@ in
           zellij
           diskonaut
           pgcli
+          litecli
           ;
         inherit (pkgs)
           p7zip

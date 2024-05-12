@@ -43,10 +43,6 @@ in
     typst-live
 
     universal-ctags
-
-    sqlite
-    sqlcipher
-    litecli
   ];
 
   editorconfig = {
