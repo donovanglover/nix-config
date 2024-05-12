@@ -95,17 +95,6 @@
       ncg = "sudo nix-collect-garbage -d && nix-collect-garbage -d";
       nvd = "nvd --color always diff /run/current-system result | less -R";
 
-      b = "bun";
-      br = "bun run";
-      bt = "bun test";
-      bi = "bun init";
-      bc = "bun create";
-      bin = "bun install";
-      ba = "bun add";
-      brm = "bun remove";
-      bu = "bun update";
-      bb = "bun build";
-
       ci = "cargo init";
       cin = "cargo info";
       cu = "cargo update";
