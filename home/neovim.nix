@@ -502,6 +502,7 @@ in
                   and lang ~= "nix"
                   and lang ~= "vue"
                   and lang ~= "pug"
+                  and lang ~= "prisma"
               end,
               additional_vim_regex_highlighting = true,
             },
@@ -522,7 +523,6 @@ in
       fzf-vim
       vim-caddyfile
       vim-graphql
-      vim-prisma
       vim-javascript
       vim-jsx-pretty
       csv-vim
