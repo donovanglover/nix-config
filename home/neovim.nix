@@ -23,11 +23,7 @@ in
     nixfmt-rfc-style
 
     nodejs
-    yarn
     deno
-    bun
-    nodePackages.pnpm
-    pnpm-shell-completion
 
     rustc
     rustfmt
