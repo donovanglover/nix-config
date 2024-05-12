@@ -22,9 +22,6 @@ in
     nixpkgs-fmt
     nixfmt-rfc-style
 
-    crystal
-    shards
-
     nodejs
     yarn
     deno
