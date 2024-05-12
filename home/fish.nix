@@ -8,7 +8,6 @@
       set -U fish_greeting ""
 
       export PATH="$HOME/.deno/bin:$HOME/.cargo/bin:$HOME/.npm-packages/bin:$HOME/.local/bin:$PATH"
-      export GOPATH="$HOME/.go"
       export NODE_PATH="$HOME/.npm-packages/lib/node_modules"
       export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
       export TERMCMD="kitty --single-instance"
