@@ -7,8 +7,7 @@
     shellInit = /* fish */ ''
       set -U fish_greeting ""
 
-      export PATH="$HOME/.npm-packages/bin:$HOME/.local/bin:$PATH"
-      export NODE_PATH="$HOME/.npm-packages/lib/node_modules"
+      export PATH="$HOME/.local/bin:$PATH"
       export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
       export TERMCMD="kitty --single-instance"
       export DIRENV_LOG_FORMAT=""
