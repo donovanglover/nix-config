@@ -1,4 +1,3 @@
-# TODO: Ensure that neovim config works without errors on startup
 let
   inherit (builtins) attrValues;
 in
@@ -12,7 +11,35 @@ in
   };
 
   testScript = /* python */ ''
-    output = machine.succeed("echo 'Hello world'")
-    assert "Hello world" in output
+    machine.wait_for_unit("default.target")
+
+    machine.send_chars("user")
+    machine.sleep(1)
+    machine.send_key("ret")
+    machine.sleep(1)
+    machine.send_chars("user")
+    machine.sleep(1)
+    machine.send_key("ret")
+    machine.sleep(5)
+
+    machine.send_chars("nvim hello.txt")
+    machine.sleep(1)
+    machine.send_key("ret")
+    machine.sleep(5)
+
+    machine.send_chars("i")
+    machine.sleep(1)
+    machine.send_chars("Hello world")
+    machine.sleep(1)
+    machine.send_key("esc")
+    machine.sleep(1)
+    machine.send_chars(":wq")
+    machine.sleep(1)
+    machine.send_key("ret")
+    machine.sleep(1)
+
+    text = machine.succeed("cat /home/user/hello.txt")
+
+    assert "Hello world" in text
   '';
 }
