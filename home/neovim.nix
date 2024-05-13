@@ -29,9 +29,6 @@ in
 
     texlive.combined.scheme-full
     tectonic
-    typst
-    typstfmt
-    typst-live
 
     universal-ctags
   ];
@@ -83,7 +80,6 @@ in
       vscode-langservers-extracted
       rust-analyzer
       texlab
-      typst-lsp
       nil
     ];
 
@@ -210,13 +206,6 @@ in
             capabilities = capabilities,
             root_dir = lspconfig.util.root_pattern("package.json"),
             single_file_support = false
-          }
-
-          lspconfig.typst_lsp.setup {
-            capabilities = capabilities,
-            settings = {
-              exportPdf = "onSave"
-            }
           }
 
           lspconfig.eslint.setup {
@@ -512,7 +501,6 @@ in
       vim-crystal
       vim-nix
       fcitx-vim
-      typst-vim
       tagbar
       rainbow-delimiters-nvim
     ];
