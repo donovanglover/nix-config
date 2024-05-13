@@ -59,6 +59,9 @@ in
         mode = "watch";
       }
       {
+        type = "upower";
+      }
+      {
         type = "clock";
         format = "%x（%a）%R";
       }
@@ -93,6 +96,16 @@ in
     .label, .script, .tray {
       padding-left: 0.5em;
       padding-right: 0.5em;
+    }
+
+    .upower {
+      padding-left: 0.2em;
+      padding-right: 0.2em;
+    }
+
+    .upower .label {
+      padding-left: 0;
+      padding-right: 0;
     }
 
     .popup {
