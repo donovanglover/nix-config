@@ -75,7 +75,7 @@ in
       lua-language-server
       emmet-language-server
       crystalline
-      marksman
+      markdown-oxide
       tailwindcss-language-server
       vscode-langservers-extracted
       rust-analyzer
@@ -271,7 +271,7 @@ in
           local servers = {
             'nil_ls',
             'rust_analyzer',
-            'marksman',
+            'markdown_oxide',
             'lua_ls',
             'html',
             'clangd',
