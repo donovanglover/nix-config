@@ -31,7 +31,7 @@ nixos-rebuild build-vm --flake .#nixos
 The code base is designed to be small so it's easy to adjust things as needed. Have fun!
 
 [NixOS]: https://nixos.org/
-[Nix Flakes]: https://nixos.wiki/wiki/Flakes
+[Nix Flakes]: https://wiki.nixos.org/wiki/Flakes
 [Home Manager]: https://nix-community.github.io/home-manager/
 [Stylix]: https://danth.github.io/stylix/
 [Hyprland]: https://hyprland.org/
