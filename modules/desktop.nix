@@ -70,7 +70,7 @@ in
         mountOnMedia = true;
       };
 
-      xserver = {
+      xserver = mkIf (!container) {
         enable = true;
         excludePackages = [ pkgs.xterm ];
       };

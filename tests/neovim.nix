@@ -6,7 +6,15 @@ in
 
   nodes.machine = { nix-config, ... }: {
     imports = attrValues {
-      inherit (nix-config.nixosModules) system shell;
+      inherit (nix-config.nixosModules) desktop system shell;
+
+      customConfig = {
+        modules.desktop.container = true;
+      };
+    };
+
+    home-manager.sharedModules = attrValues {
+      inherit (nix-config.homeManagerModules) neovim;
     };
   };
 
