@@ -4,7 +4,7 @@ let
   inherit (lib) mkEnableOption mkIf mkMerge mkOption;
   inherit (lib.types) str float int;
   inherit (config.modules.system) username;
-  inherit (cfg) bloat gnome plasma container theme opacity fontSize;
+  inherit (cfg) bloat gnome plasma container theme opacity fontSize graphical;
   inherit (nix-config.packages.${pkgs.system}) aleo-fonts;
   inherit (pkgs) phinger-cursors noto-fonts-cjk-sans maple-mono noto-fonts-emoji;
   inherit (builtins) attrValues;
@@ -37,6 +37,7 @@ in
     gnome = mkEnableOption "GNOME specialization";
     plasma = mkEnableOption "Plasma specialization";
     container = mkEnableOption "disable some options for container performance";
+    graphical = mkEnableOption "xserver for graphical containers";
   };
 
   config = {
@@ -70,7 +71,7 @@ in
         mountOnMedia = true;
       };
 
-      xserver = mkIf (!container) {
+      xserver = mkIf (!container || graphical) {
         enable = true;
         excludePackages = [ pkgs.xterm ];
       };
