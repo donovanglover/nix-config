@@ -13,6 +13,7 @@
       "browser.toolbars.bookmarks.visibility" = "never";
       "browser.quitShortcut.disabled" = true;
       "browser.urlbar.suggest.history" = false;
+      "browser.urlbar.suggest.topsites" = false;
 
       "sidebar.position_start" = false;
       "findbar.highlightAll" = true;
