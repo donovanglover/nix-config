@@ -17,6 +17,8 @@
 
       "sidebar.position_start" = false;
       "findbar.highlightAll" = true;
+
+      "xpinstall.signatures.required" = false;
     };
   };
 }
