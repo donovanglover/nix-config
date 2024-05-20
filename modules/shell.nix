@@ -50,7 +50,6 @@ in
           recode
           rmlint
           jpegoptim
-          zola
           pass
           ;
         inherit (pkgs)
