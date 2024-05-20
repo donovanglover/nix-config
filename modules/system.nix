@@ -3,7 +3,7 @@
 let
   inherit (lib) mkOption mkEnableOption mkIf singleton;
   inherit (lib.types) nullOr str listOf;
-  inherit (cfg) username iHaveLotsOfRam hashedPassword mullvad allowSRB2Port allowZolaPort noRoot postgres;
+  inherit (cfg) username iHaveLotsOfRam hashedPassword mullvad allowSRB2Port allowDevPort noRoot postgres;
   inherit (builtins) attrValues;
 
   cfg = config.modules.system;
@@ -57,7 +57,7 @@ in
     postgres = mkEnableOption "postgres database for containers";
 
     allowSRB2Port = mkEnableOption "port for srb2";
-    allowZolaPort = mkEnableOption "port for zola";
+    allowDevPort = mkEnableOption "port for development server";
   };
 
   config = {
@@ -203,8 +203,8 @@ in
           5029
         ];
 
-        allowedTCPPorts = mkIf allowZolaPort [
-          1111
+        allowedTCPPorts = mkIf allowDevPort [
+          3000
         ];
       };
     };
