@@ -6,7 +6,6 @@
       set -U fish_greeting ""
 
       export PATH="$HOME/.local/bin:$PATH"
-      export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
       set -x -U LESS_TERMCAP_md (printf "\e[01;31m")
       set -x -U LESS_TERMCAP_me (printf "\e[0m")
