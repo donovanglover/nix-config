@@ -102,7 +102,11 @@ in
     programs = {
       fish.enable = true;
       neovim.enable = true;
-      direnv.enable = true;
+
+      direnv = {
+        enable = true;
+        silent = true;
+      };
     };
   };
 }
