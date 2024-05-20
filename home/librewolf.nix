@@ -13,7 +13,9 @@
       "browser.toolbars.bookmarks.visibility" = "never";
       "browser.quitShortcut.disabled" = true;
       "browser.sessionstore.restore_pinned_tabs_on_demand" = true;
+
       "browser.urlbar.suggest.bookmark" = false;
+      "browser.urlbar.suggest.engines" = false;
       "browser.urlbar.suggest.history" = false;
       "browser.urlbar.suggest.topsites" = false;
 
