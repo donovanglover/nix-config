@@ -10,9 +10,6 @@ in
   programs.bat.enable = true;
 
   home.packages = with pkgs; [
-    nixpkgs-fmt
-    nixfmt-rfc-style
-
     nodejs
     deno
 
