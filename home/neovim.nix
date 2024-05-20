@@ -9,27 +9,6 @@ in
 {
   programs.bat.enable = true;
 
-  home.packages = with pkgs; [
-    nodejs
-    deno
-
-    rustc
-    rustfmt
-    cargo
-    cargo-info
-    cargo-license
-    cargo-feature
-    cargo-tarpaulin
-    cargo-edit
-    bacon
-    clippy
-
-    texlive.combined.scheme-full
-    tectonic
-
-    universal-ctags
-  ];
-
   editorconfig = {
     enable = true;
 
@@ -78,6 +57,7 @@ in
       rust-analyzer
       texlab
       nil
+      universal-ctags
     ];
 
     extraConfig = /* vim */ ''
