@@ -12,6 +12,7 @@
       "browser.tabs.warnOnClose" = true;
       "browser.toolbars.bookmarks.visibility" = "never";
       "browser.quitShortcut.disabled" = true;
+      "browser.urlbar.suggest.bookmark" = false;
       "browser.urlbar.suggest.history" = false;
       "browser.urlbar.suggest.topsites" = false;
 
