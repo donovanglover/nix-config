@@ -151,7 +151,7 @@ in
         noto-fonts-emoji
         maple-mono
         font-awesome
-        nerdfonts
+        (nerdfonts.override { fonts = [ "Noto" ]; })
         kanji-stroke-order-font
         liberation_ttf
         aleo-fonts
