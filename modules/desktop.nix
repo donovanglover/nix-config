@@ -124,7 +124,6 @@ in
           krita
           element-desktop
           signal-desktop
-          ungoogled-chromium
           qbittorrent
           obs-studio
           satty
