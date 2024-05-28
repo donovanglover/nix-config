@@ -168,6 +168,32 @@
           echo "Usage: epub2pdf [file.epub]"
         end
       '';
+
+      tmp = /* fish */ ''
+        set MULLVAD_CACHE "/tmp/mullvad.json"
+
+        if not test -e $MULLVAD_CACHE
+          curl https://api.mullvad.net/www/relays/wireguard > $MULLVAD_CACHE
+        end
+
+        set CONTAINER_PROXY (random choice (cat $MULLVAD_CACHE | jq -r '.[] | select(.active) | select(.hostname | startswith("jp")) | .socks_name'))
+        set CONTAINER_ID "qtb-$(uuidgen)"
+        set SHORT (string split "." "$CONTAINER_PROXY" -f 1)
+
+        mkdir -p "/tmp/$CONTAINER_ID/config/bookmarks"
+        mkdir -p "/tmp/$CONTAINER_ID/data/userscripts"
+
+        ln -s ~/.config/qutebrowser/bookmarks/urls "/tmp/$CONTAINER_ID/config/bookmarks/urls"
+        ln -s ~/.config/qutebrowser/quickmarks "/tmp/$CONTAINER_ID/config/quickmarks"
+
+        TZ="Asia/Tokyo" lnch qutebrowser \
+          --set content.proxy "socks5://$CONTAINER_PROXY:1080" \
+          --set window.title_format "{perc}[$SHORT]{title_sep}{current_title}" \
+          --basedir "/tmp/$CONTAINER_ID" \
+          --config-py "$HOME/.config/qutebrowser/config.py" \
+          :adblock-update \
+          "$argv"
+      '';
     };
   };
 }
