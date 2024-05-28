@@ -33,7 +33,7 @@ in
       default = 11;
     };
 
-    bloat = mkEnableOption "GUI applications like Logseq";
+    bloat = mkEnableOption "GUI applications";
     gnome = mkEnableOption "GNOME specialization";
     plasma = mkEnableOption "Plasma specialization";
     container = mkEnableOption "disable some options for container performance";
@@ -113,7 +113,6 @@ in
     environment.systemPackages = mkMerge [
       (mkIf bloat (attrValues {
         inherit (pkgs)
-          logseq
           mullvad-browser
           spek
           audacity
