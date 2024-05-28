@@ -194,6 +194,20 @@
           :adblock-update \
           "$argv"
       '';
+
+      ex = /* fish */ ''
+        if string match -qe -- ".part1." "$argv";
+          set BASE (string split -f 1 ".part1." "$argv")
+
+          unar "$argv" && fd -d 1 "$BASE.part" -X trash
+        else if string match -qe -- ".part01." "$argv";
+          set BASE (string split -f 1 ".part01." "$argv")
+
+          unar "$argv" && fd -d 1 "$BASE.part" -X trash
+        else
+          unar "$argv" && trash "$argv"
+        end
+      '';
     };
   };
 }
