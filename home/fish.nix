@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   programs.fish = {
     enable = true;
@@ -156,6 +158,15 @@
         set NEW_SIZE (du -hs | cut -f1)
 
         echo "Done. Reduced file size from $ORIGINAL_SIZE to $NEW_SIZE"
+      '';
+
+      epub2pdf = /* fish */ ''
+        if string match -qe -- ".epub" "$argv";
+          set BASE (string split -f 1 ".epub" "$argv")
+          ${pkgs.calibre}/bin/ebook-convert "$argv" "$BASE.pdf"; and trash "$argv"
+        else
+          echo "Usage: epub2pdf [file.epub]"
+        end
       '';
     };
   };
