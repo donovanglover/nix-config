@@ -19,7 +19,6 @@ in
   home.packages = with pkgs; [
     hyprdim
     hyprnome
-    hypridle
     hyprlock
     hyprshade
     swww
@@ -73,7 +72,6 @@ in
         "hyprctl dispatch workspace 5000000"
         "${polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
         "hyprdim --no-dim-when-only --persist --ignore-leaving-special --dialog-dim"
-        "hypridle"
         "sleep 1 && eww open desktop-icons"
         "~/.config/${randomBackgroundScript}"
       ];
@@ -389,33 +387,36 @@ in
     }
   '';
 
-  xdg.configFile."hypr/hypridle.conf".text = /* bash */ ''
-    general {
-      lock_cmd = pidof hyprlock || hyprlock
-      before_sleep_cmd = loginctl lock-session
-      after_sleep_cmd = hyprctl dispatch dpms on
-    }
+  services.hypridle = {
+    enable = true;
 
-    listener {
-      timeout = 150
-      on-timeout = brightnessctl -s set 10
-      on-resume = brightnessctl -r
-    }
+    settings = {
+      general = {
+        lock_cmd = "pidof hyprlock || hyprlock";
+        before_sleep_cmd = "loginctl lock-session";
+        after_sleep_cmd = "hyprctl dispatch dpms on";
+      };
 
-    listener {
-      timeout = 300
-      on-timeout = loginctl lock-session
-    }
-
-    listener {
-      timeout = 380
-      on-timeout = hyprctl dispatch dpms off
-      on-resume = hyprctl dispatch dpms on
-    }
-
-    listener {
-      timeout = 1800
-      on-timeout = systemctl suspend
-    }
-  '';
+      listener = [
+        {
+          timeout = 150;
+          on-timeout = "brightnessctl -s set 10";
+          on-resume = "brightnessctl -r";
+        }
+        {
+          timeout = 300;
+          on-timeout = "loginctl lock-session";
+        }
+        {
+          timeout = 380;
+          on-timeout = "hyprctl dispatch dpms off";
+          on-resume = "hyprctl dispatch dpms on";
+        }
+        {
+          timeout = 1800;
+          on-timeout = "systemctl suspend";
+        }
+      ];
+    };
+  };
 }
