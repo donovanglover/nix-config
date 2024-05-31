@@ -471,7 +471,6 @@ in
       vim-graphql
       vim-javascript
       vim-jsx-pretty
-      csv-vim
       rust-vim
       yuck-vim
       neoformat
