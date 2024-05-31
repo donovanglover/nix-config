@@ -70,7 +70,6 @@ in
         inherit (pkgs)
           gdu
           hexyl
-          visidata
           zellij
           diskonaut
           pgcli
