@@ -134,6 +134,8 @@ in
       sharedModules = singleton {
         home = {
           inherit (cfg) stateVersion;
+
+          enableNixpkgsReleaseCheck = false;
         };
 
         programs.man.generateCaches = true;
