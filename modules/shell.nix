@@ -94,6 +94,26 @@ in
           nvd
           nix-search-cli
           ;
+        inherit (pkgs)
+          nodejs
+          deno
+          ;
+        inherit (pkgs)
+          rustc
+          rustfmt
+          cargo
+          cargo-info
+          cargo-license
+          cargo-feature
+          cargo-tarpaulin
+          cargo-edit
+          bacon
+          clippy
+          ;
+        inherit (pkgs)
+          texliveFull
+          tectonic
+          ;
       })
     ];
 
