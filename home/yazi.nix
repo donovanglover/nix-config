@@ -6,6 +6,7 @@
       manager = {
         ratio = [ 1 2 4 ];
         sort_dir_first = true;
+        linemode = "mtime";
       };
 
       preview = {
