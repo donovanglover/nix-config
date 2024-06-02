@@ -18,7 +18,7 @@ in
   };
 
   environment.systemPackages = attrValues {
-    inherit (nix-config.packages.${pkgs.system}) fluent-icons osu-backgrounds;
+    inherit (nix-config.packages.${pkgs.system}) webp-thumbnailer;
     inherit (pkgs) ruby php;
   };
 
