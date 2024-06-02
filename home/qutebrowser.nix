@@ -8,6 +8,16 @@ in
     enable = true;
 
     settings = {
+      url = {
+        start_pages = [
+          "about:blank"
+        ];
+
+        default_page = "about:blank";
+      };
+
+      colors.webpage.darkmode.enabled = false;
+
       confirm_quit = [
         "multiple-tabs"
         "downloads"
@@ -90,19 +100,15 @@ in
       };
     };
 
+    searchEngines = {
+      DEFAULT = "https://search.goo.ne.jp/web.jsp?MT={}";
+    };
+
     extraConfig = /* python */ ''
       from qutebrowser.mainwindow import tabwidget
 
       tabwidget.TabWidget.MUTE_STRING = ""
       tabwidget.TabWidget.AUDIBLE_STRING = "[A]"
-
-      c.colors.webpage.darkmode.enabled = False
-
-      c.url.start_pages = ['about:blank']
-      c.url.default_page = "about:blank"
-      c.url.searchengines = {
-        'DEFAULT': 'https://search.goo.ne.jp/web.jsp?MT={}'
-      }
     '';
   };
 }
