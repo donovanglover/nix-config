@@ -73,6 +73,13 @@ in
         sTj = "set tabs.position bottom";
         sTk = "set tabs.position top";
         sTl = "set tabs.position right";
+
+        pp = null;
+        pP = null;
+        Pp = null;
+        PP = null;
+        wp = null;
+        wP = null;
       };
     };
 
@@ -88,13 +95,6 @@ in
       c.colors.contextmenu.selected.bg = '#909090'
 
       c.colors.webpage.darkmode.enabled = False
-
-      config.unbind('pp', mode='normal')
-      config.unbind('pP', mode='normal')
-      config.unbind('Pp', mode='normal')
-      config.unbind('PP', mode='normal')
-      config.unbind('wp', mode='normal')
-      config.unbind('wP', mode='normal')
 
       config.bind('zl', 'spawn --userscript qute-pass')
       config.bind('zpl', 'spawn --userscript qute-pass --password-only')
