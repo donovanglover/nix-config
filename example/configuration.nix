@@ -22,10 +22,8 @@ in
     inherit (pkgs) ruby php;
   };
 
-  nixpkgs.overlays = attrValues {
-    inherit (nix-config.overlays) hyprland;
-
-    exampleOverlay = final: prev: {
+  nixpkgs.overlays = attrValues nix-config.overlays ++ [
+    (final: prev: {
       btop = prev.btop.overrideAttrs (oldAttrs: {
         postInstall = (oldAttrs.postInstall or "") + /* bash */ ''
           echo "#!/usr/bin/env sh"  >> btop-overlay
@@ -34,6 +32,6 @@ in
           install -Dm755 btop-overlay $out/bin/btop-overlay
         '';
       });
-    };
-  };
+    })
+  ];
 }
