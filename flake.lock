@@ -247,16 +247,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1714260190,
-        "narHash": "sha256-S86VmYe2YBfX9cIdOPrHQKEIZDV4hsCRRus8uj1mNSM=",
+        "lastModified": 1713897030,
+        "narHash": "sha256-ZPr1R0d9MVmyRX/+XpYsBdLBEBqYMtuyaAjYgWHMloU=",
         "owner": "bluskript",
         "repo": "stylix",
-        "rev": "e53d92d442abfd8706ebff9afa4cdeeba8206159",
+        "rev": "6bc871ab352c9f18d1179daab9e392a4d46393af",
         "type": "github"
       },
       "original": {
         "owner": "bluskript",
         "repo": "stylix",
+        "rev": "6bc871ab352c9f18d1179daab9e392a4d46393af",
         "type": "github"
       }
     }
