@@ -7,8 +7,6 @@
     shellInit = /* fish */ ''
       set -U fish_greeting ""
 
-      export PATH="$HOME/.local/bin:$PATH"
-
       set -x -U LESS_TERMCAP_md (printf "\e[01;31m")
       set -x -U LESS_TERMCAP_me (printf "\e[0m")
       set -x -U LESS_TERMCAP_se (printf "\e[0m")
