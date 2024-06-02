@@ -88,18 +88,12 @@
       ncg = "sudo nix-collect-garbage -d && nix-collect-garbage -d";
       nvd = "nvd --color always diff /run/current-system result | less -R";
 
-      ci = "cargo init";
-      cin = "cargo info";
-      cu = "cargo update";
       ca = "cargo add";
       cab = "cargo add --build";
       cad = "cargo add --dev";
       cb = "cargo build";
       cr = "cargo run";
-      cs = "cargo search";
       ct = "cargo test";
-      cT = "cargo tree --depth 1";
-      cn = "cargo new";
       crm = "cargo remove";
       crmb = "cargo remove --build";
       crmd = "cargo remove --dev";
