@@ -89,11 +89,6 @@ in
       tabwidget.TabWidget.MUTE_STRING = ""
       tabwidget.TabWidget.AUDIBLE_STRING = "[A]"
 
-      c.colors.contextmenu.disabled.fg = '#808080'
-      c.colors.contextmenu.menu.bg = '#353535'
-      c.colors.contextmenu.menu.fg = '#ffffff'
-      c.colors.contextmenu.selected.bg = '#909090'
-
       c.colors.webpage.darkmode.enabled = False
 
       config.bind('zl', 'spawn --userscript qute-pass')
