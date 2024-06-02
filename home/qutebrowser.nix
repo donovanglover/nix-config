@@ -74,6 +74,13 @@ in
         sTk = "set tabs.position top";
         sTl = "set tabs.position right";
 
+        zl = "spawn --userscript qute-pass')";
+        zpl = "spawn --userscript qute-pass --password-only')";
+        zol = "spawn --userscript qute-pass --otp-only')";
+
+        zM = "spawn mpv --force-window=immediate {url}')";
+        zm = "hint links spawn mpv --force-window=immediate {hint-url}')";
+
         pp = null;
         pP = null;
         Pp = null;
@@ -90,13 +97,6 @@ in
       tabwidget.TabWidget.AUDIBLE_STRING = "[A]"
 
       c.colors.webpage.darkmode.enabled = False
-
-      config.bind('zl', 'spawn --userscript qute-pass')
-      config.bind('zpl', 'spawn --userscript qute-pass --password-only')
-      config.bind('zol', 'spawn --userscript qute-pass --otp-only')
-
-      config.bind('zM', 'spawn mpv --force-window=immediate {url}')
-      config.bind('zm', 'hint links spawn mpv --force-window=immediate {hint-url}')
 
       c.url.start_pages = ['about:blank']
       c.url.default_page = "about:blank"
