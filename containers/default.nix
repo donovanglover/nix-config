@@ -1,3 +1,8 @@
+{ nix-config, ... }:
+
+let
+  inherit (builtins) attrValues;
+in
 {
   imports = [
     ../modules/shell.nix
@@ -14,6 +19,8 @@
     ../home/xresources.nix
     ../home/yazi.nix
   ];
+
+  nixpkgs.overlays = attrValues nix-config.overlays;
 
   modules = {
     desktop.container = true;
