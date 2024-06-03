@@ -2,10 +2,14 @@
 
 let
   inherit (config.modules.system) username;
+  inherit (pkgs) xterm;
 in
 {
-  services.xserver = {
-    enable = true;
+  services = {
+    xserver = {
+      enable = true;
+      excludePackages = [ xterm ];
+    };
 
     displayManager = {
       sddm.enable = true;
@@ -15,8 +19,6 @@ in
         user = username;
       };
     };
-
-    excludePackages = [ pkgs.xterm ];
   };
 
   services.desktopManager.plasma6.enable = true;

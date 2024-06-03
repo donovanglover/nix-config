@@ -4,23 +4,20 @@ let
   inherit (config.modules.system) username;
 in
 {
-  services.xserver = {
-    enable = true;
+  services = {
+    xserver = {
+      enable = true;
 
-    desktopManager = {
-      gnome.enable = true;
+      desktopManager.gnome.enable = true;
+      displayManager.gdm.enable = true;
+
+      excludePackages = [ pkgs.xterm ];
     };
 
-    displayManager = {
-      gdm.enable = true;
-
-      autoLogin = {
-        enable = true;
-        user = username;
-      };
+    displayManager.autoLogin = {
+      enable = true;
+      user = username;
     };
-
-    excludePackages = [ pkgs.xterm ];
   };
 
   systemd.services = {
