@@ -74,6 +74,7 @@ in
           diskonaut
           pgcli
           litecli
+          iamb
           ;
         inherit (pkgs)
           p7zip
@@ -84,15 +85,18 @@ in
           imagemagick
           smartmontools
           restic
+          borgbackup
           zbar
           lychee
           ventoy
+          taskwarrior3
           ;
         inherit (pkgs)
           nixpkgs-review
           nix-init
           nvd
           nix-search-cli
+          nix-tree
           ;
         inherit (pkgs)
           nodejs
