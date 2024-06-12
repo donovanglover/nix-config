@@ -98,7 +98,7 @@ in
           };
 
           initial_session = {
-            command = "${pkgs.hyprland}/bin/Hyprland";
+            command = "${nix-config.inputs.hyprland.packages.${pkgs.system}.hyprland}/bin/Hyprland";
             user = username;
           };
         };

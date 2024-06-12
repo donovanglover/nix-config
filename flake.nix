@@ -15,6 +15,11 @@
       };
     };
 
+    hyprland = {
+      url = "github:donovanglover/Hyprland/v0.39.1-patched";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     sakaya = {
       url = "github:donovanglover/sakaya";
       inputs.nixpkgs.follows = "nixpkgs";
