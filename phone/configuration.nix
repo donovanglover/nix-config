@@ -1,12 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports = [
-    (import <mobile-nixos/lib/configuration.nix> { device = "pine64-pinephone"; })
-    ./hardware-configuration.nix
-    <mobile-nixos/examples/phosh/phosh.nix>
-  ];
-
   networking.hostName = "mobile-nixos";
 
   #
@@ -31,6 +25,8 @@
 
   # It's recommended to keep enabled on these constrained devices
   zramSwap.enable = true;
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" "repl-flake" ];
 
   # Auto-login for phosh
   services.xserver.desktopManager.phosh = {
