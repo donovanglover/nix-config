@@ -19,6 +19,11 @@
       url = "github:donovanglover/sakaya";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    mobile-nixos = {
+      url = "github:NixOS/mobile-nixos";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, ... } @ attrs:
@@ -47,7 +52,10 @@
                     name =
                       if file == "laptop.nix"
                       then "nixos"
-                      else replaceStrings [ ".nix" ] [ "" ] file;
+                      else
+                        if file == "phone.nix"
+                        then "mobile-nixos"
+                        else replaceStrings [ ".nix" ] [ "" ] file;
                     value =
                       if directory == "packages"
                       then callPackage ./${directory}/${file} { }
@@ -64,10 +72,13 @@
                           then
                             nixosSystem
                               {
-                                system = "x86_64-linux";
+                                system =
+                                  if file == "phone.nix"
+                                  then "aarch64-linux"
+                                  else "x86_64-linux";
                                 specialArgs = attrs // { nix-config = self; };
                                 modules = [
-                                  ./.
+                                  ./${file}
                                   ./${directory}/${file}
                                 ];
                               }
