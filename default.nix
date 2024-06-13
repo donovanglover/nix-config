@@ -15,6 +15,7 @@ in
       disableLaptopKeyboard = true;
       lidIgnore = true;
       powerIgnore = true;
+      bluetooth = true;
     };
 
     system = {
