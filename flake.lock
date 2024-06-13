@@ -185,16 +185,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1718230896,
-        "narHash": "sha256-tNQPIB/JlNo7TqL764tQ8oCHvB8hVNBtkRFPq5H5hQo=",
+        "lastModified": 1718297587,
+        "narHash": "sha256-hQWC4wtlgaULMQvC7xjGAy5PlULdWApi8zx3iV1q0rw=",
         "owner": "donovanglover",
         "repo": "nixpkgs",
-        "rev": "565cf92e34d3e872cfa6c75d4f6e6686f84cd076",
+        "rev": "b55b2a9bb5a91b82d57ee5cdb830af5aead912d0",
         "type": "github"
       },
       "original": {
         "owner": "donovanglover",
-        "ref": "unstable-hyprland-v0.41.0",
+        "ref": "unstable-hyprland-v0.41.1",
         "repo": "nixpkgs",
         "type": "github"
       }
