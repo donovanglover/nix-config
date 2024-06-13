@@ -1,6 +1,38 @@
 { pkgs, ... }:
 
 {
+  environment.systemPackages = with pkgs; [
+    neovim
+    fish
+    yazi
+    bat
+    w3m
+    librewolf
+    git
+    htop
+    gnupg
+    mpv
+    ncmpcpp
+    pqiv
+    qutebrowser
+    starship
+    eza
+    fd
+    fzf
+    ripgrep
+    yt-dlp
+    neofetch
+    genact
+    zellij
+    p7zip
+    unar
+  ];
+
+  programs.fish.enable = true;
+  programs.neovim.enable = true;
+  users.defaultUserShell = pkgs.fish;
+  environment.shells = [ pkgs.fish ];
+
   networking = {
     hostName = "mobile-nixos";
     wireless.enable = false;
