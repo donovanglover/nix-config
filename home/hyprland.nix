@@ -185,6 +185,7 @@ in
         animate_manual_resizes = true;
         disable_autoreload = true;
         new_window_takes_over_fullscreen = 1;
+        initial_workspace_tracking = 0;
       };
 
       bind = [
