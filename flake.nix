@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:donovanglover/nixpkgs/unstable-hyprland-v0.41.0";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
@@ -13,11 +13,6 @@
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
       };
-    };
-
-    hyprland = {
-      url = "github:donovanglover/Hyprland/v0.39.1-patched";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     sakaya = {
