@@ -125,6 +125,7 @@ in
           signal-desktop
           qbittorrent
           obs-studio
+          popsicle
           satty
           aaaaxy
           srb2
