@@ -11,13 +11,9 @@ in
 
   modules = {
     system = {
-      mullvad = true;
+      phone = true;
       hostName = "mobile-nixos";
       stateVersion = "23.11";
-    };
-
-    desktop = {
-      phone = true;
     };
   };
 }
