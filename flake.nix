@@ -26,7 +26,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... } @ attrs:
+  outputs = { self, nixpkgs, mobile-nixos, ... } @ attrs:
     let
       inherit (nixpkgs.lib) nixosSystem;
       inherit (nixpkgs.legacyPackages.x86_64-linux) nixpkgs-fmt callPackage;
@@ -77,10 +77,22 @@
                                   then "aarch64-linux"
                                   else "x86_64-linux";
                                 specialArgs = attrs // { nix-config = self; };
-                                modules = [
-                                  ./${file}
-                                  ./${directory}/${file}
-                                ];
+                                modules =
+                                  [
+                                    ./${file}
+                                    ./${directory}/${file}
+                                  ] ++ nixpkgs.lib.optionals (file == "phone.nix") [
+                                    (import "${mobile-nixos}/lib/configuration.nix" {
+                                      device = "pine64-pinephone";
+                                    })
+
+                                    {
+                                      mobile.beautification = {
+                                        silentBoot = nixpkgs.lib.mkDefault true;
+                                        splash = nixpkgs.lib.mkDefault true;
+                                      };
+                                    }
+                                  ];
                               }
                           else import ./${directory}/${file};
                   })

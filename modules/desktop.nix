@@ -43,7 +43,7 @@ in
 
   config = {
     hardware = {
-      opengl.driSupport32Bit = true;
+      opengl.driSupport32Bit = mkIf (!phone) true;
 
       pulseaudio = mkIf phone {
         enable = true;
