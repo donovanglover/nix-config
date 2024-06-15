@@ -48,6 +48,8 @@ in
       p7zip
       unar
     ];
+
+    defaultPackages = [ ];
   };
 
   programs = {
