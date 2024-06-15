@@ -19,9 +19,14 @@
       url = "github:donovanglover/sakaya";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    mobile-nixos = {
+      url = "github:NixOS/mobile-nixos";
+      flake = false;
+    };
   };
 
-  outputs = { self, nixpkgs, ... } @ attrs:
+  outputs = { self, nixpkgs, mobile-nixos, ... } @ attrs:
     let
       inherit (nixpkgs.lib) nixosSystem;
       inherit (nixpkgs.legacyPackages.x86_64-linux) nixpkgs-fmt callPackage;
@@ -32,6 +37,12 @@
     in
     {
       nixosConfigurations =
+        let
+          phoneModules = [
+            ./phone/configuration.nix
+            ./phone/hardware-configuration.nix
+          ];
+        in
         {
           nixos = nixosSystem {
             system = "x86_64-linux";
@@ -41,6 +52,30 @@
               ./.
               ./hardware/laptop.nix
             ];
+          };
+
+          mobile-nixos = nixosSystem {
+            system = "aarch64-linux";
+            specialArgs = attrs;
+
+            modules = phoneModules ++ [
+              (import "${mobile-nixos}/lib/configuration.nix" {
+                device = "pine64-pinephone";
+              })
+
+              {
+                mobile.beautification = {
+                  silentBoot = true;
+                  splash = true;
+                };
+              }
+            ];
+          };
+
+          mobile-nixos-vm = nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = attrs;
+            modules = phoneModules;
           };
         };
 

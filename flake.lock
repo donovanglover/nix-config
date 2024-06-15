@@ -183,6 +183,22 @@
         "type": "github"
       }
     },
+    "mobile-nixos": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1715627339,
+        "narHash": "sha256-HJ6V7hc64iBqXlZ8kH4sXmUzPH+0Hn6wYURmZmL5LFk=",
+        "owner": "NixOS",
+        "repo": "mobile-nixos",
+        "rev": "655c8830d5fe2eae79c8fc0bab8033b34c8456eb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "mobile-nixos",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1718297587,
@@ -202,6 +218,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "mobile-nixos": "mobile-nixos",
         "nixpkgs": "nixpkgs",
         "sakaya": "sakaya",
         "stylix": "stylix"
