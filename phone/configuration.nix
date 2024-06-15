@@ -81,6 +81,7 @@ in
 
   services = {
     openssh.enable = true;
+    resolved.llmnr = "false";
 
     xserver.desktopManager.phosh = {
       enable = true;
