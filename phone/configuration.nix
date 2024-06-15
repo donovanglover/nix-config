@@ -61,7 +61,12 @@ in
     hostName = "mobile-nixos";
     wireless.enable = false;
     wireguard.enable = true;
-    networkmanager.enable = true;
+
+    networkmanager = {
+      enable = true;
+      wifi.macAddress = "random";
+      ethernet.macAddress = "random";
+    };
   };
 
   hardware = {
