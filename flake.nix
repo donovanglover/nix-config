@@ -19,14 +19,9 @@
       url = "github:donovanglover/sakaya";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    mobile-nixos = {
-      url = "github:NixOS/mobile-nixos";
-      flake = false;
-    };
   };
 
-  outputs = { self, nixpkgs, mobile-nixos, ... } @ attrs:
+  outputs = { self, nixpkgs, ... } @ attrs:
     let
       inherit (nixpkgs.lib) nixosSystem;
       inherit (nixpkgs.legacyPackages.x86_64-linux) nixpkgs-fmt callPackage;
@@ -52,10 +47,7 @@
                     name =
                       if file == "laptop.nix"
                       then "nixos"
-                      else
-                        if file == "phone.nix"
-                        then "mobile-nixos"
-                        else replaceStrings [ ".nix" ] [ "" ] file;
+                      else replaceStrings [ ".nix" ] [ "" ] file;
                     value =
                       if directory == "packages"
                       then callPackage ./${directory}/${file} { }
@@ -72,27 +64,12 @@
                           then
                             nixosSystem
                               {
-                                system =
-                                  if file == "phone.nix"
-                                  then "aarch64-linux"
-                                  else "x86_64-linux";
+                                system = "x86_64-linux";
                                 specialArgs = attrs // { nix-config = self; };
-                                modules =
-                                  [
-                                    ./${file}
-                                    ./${directory}/${file}
-                                  ] ++ nixpkgs.lib.optionals (file == "phone.nix") [
-                                    (import "${mobile-nixos}/lib/configuration.nix" {
-                                      device = "pine64-pinephone";
-                                    })
-
-                                    {
-                                      mobile.beautification = {
-                                        silentBoot = nixpkgs.lib.mkDefault true;
-                                        splash = nixpkgs.lib.mkDefault true;
-                                      };
-                                    }
-                                  ];
+                                modules = [
+                                  ./.
+                                  ./${directory}/${file}
+                                ];
                               }
                           else import ./${directory}/${file};
                   })

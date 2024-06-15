@@ -3,7 +3,7 @@
 let
   inherit (lib) mkEnableOption mkIf mkMerge mkOption;
   inherit (lib.types) str float int;
-  inherit (config.modules.system) username phone;
+  inherit (config.modules.system) username;
   inherit (cfg) bloat gnome plasma container theme opacity fontSize graphical;
   inherit (nix-config.packages.${pkgs.system}) aleo-fonts;
   inherit (pkgs) phinger-cursors noto-fonts-cjk-sans maple-mono noto-fonts-emoji;
@@ -15,7 +15,6 @@ in
   imports = attrValues {
     inherit (nix-config.inputs.home-manager.nixosModules) home-manager;
     inherit (nix-config.inputs.stylix.nixosModules) stylix;
-
   };
 
   options.modules.desktop = {
@@ -42,22 +41,11 @@ in
   };
 
   config = {
-    hardware = {
-      opengl.driSupport32Bit = mkIf (!phone) true;
-
-      pulseaudio = mkIf phone {
-        enable = true;
-        package = pkgs.pulseaudioFull;
-      };
-
-      bluetooth.enable = mkIf phone true;
-      sensor.iio.enable = mkIf phone true;
-    };
+    hardware.opengl.driSupport32Bit = true;
 
     programs = {
-      hyprland.enable = mkIf (!container && !phone) true;
+      hyprland.enable = mkIf (!container) true;
       cdemu.enable = true;
-      calls.enable = mkIf phone true;
 
       thunar = {
         enable = true;
@@ -68,7 +56,7 @@ in
       };
     };
 
-    i18n.inputMethod = mkIf (!phone) {
+    i18n.inputMethod = {
       enabled = "fcitx5";
 
       fcitx5 = {
@@ -86,15 +74,9 @@ in
       xserver = mkIf (!container || graphical) {
         enable = true;
         excludePackages = [ pkgs.xterm ];
-
-        desktopManager.phosh = mkIf phone {
-          enable = true;
-          user = username;
-          group = "users";
-        };
       };
 
-      pipewire = mkIf (!phone) {
+      pipewire = {
         enable = true;
 
         alsa = {
@@ -105,7 +87,7 @@ in
         pulse.enable = true;
       };
 
-      greetd = mkIf (!container && !phone) {
+      greetd = mkIf (!container) {
         enable = true;
         restart = false;
 
@@ -148,13 +130,6 @@ in
           aaaaxy
           srb2
           jamesdsp
-          ;
-      }))
-
-      (mkIf phone (attrValues {
-        inherit (pkgs)
-          chatty
-          megapixels
           ;
       }))
 

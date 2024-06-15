@@ -3,7 +3,7 @@
 let
   inherit (lib) mkOption mkEnableOption mkIf singleton;
   inherit (lib.types) nullOr str listOf;
-  inherit (cfg) username iHaveLotsOfRam hashedPassword mullvad allowSRB2Port allowDevPort noRoot postgres phone;
+  inherit (cfg) username iHaveLotsOfRam hashedPassword mullvad allowSRB2Port allowDevPort noRoot postgres;
   inherit (builtins) attrValues;
 
   cfg = config.modules.system;
@@ -45,8 +45,6 @@ in
     };
 
     iHaveLotsOfRam = mkEnableOption "tmpfs on /tmp";
-
-    phone = mkEnableOption "PinePhone support";
 
     hostName = mkOption {
       type = str;
@@ -125,19 +123,7 @@ in
         isNormalUser = true;
         uid = 1000;
         password = mkIf (hashedPassword == null && !noRoot) username;
-        extraGroups =
-          if noRoot
-          then [ ]
-          else
-            if phone
-            then [
-              "dialout"
-              "feedbackd"
-              "networkmanager"
-              "video"
-              "wheel"
-            ]
-            else [ "wheel" "networkmanager" ];
+        extraGroups = if noRoot then [ ] else [ "wheel" "networkmanager" ];
       };
     };
 
