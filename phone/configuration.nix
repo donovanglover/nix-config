@@ -54,6 +54,7 @@ in
   networking = {
     hostName = "mobile-nixos";
     wireless.enable = false;
+    wireguard.enable = true;
     networkmanager.enable = true;
   };
 
