@@ -14,6 +14,11 @@ in
     ];
 
     systemPackages = with pkgs; [
+      flare-signal
+      gurk-rs
+      anki
+      android-tools
+      wget
       chatty
       gnome-console
       megapixels
@@ -25,7 +30,7 @@ in
       w3m
       librewolf
       git
-      htop
+      htop-vim
       gnupg
       mpv
       ncmpcpp
