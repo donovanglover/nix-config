@@ -54,6 +54,7 @@ in
     fish.enable = true;
     neovim.enable = true;
     calls.enable = true;
+    command-not-found.enable = false;
   };
 
   networking = {
