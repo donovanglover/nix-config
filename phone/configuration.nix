@@ -1,45 +1,55 @@
 { pkgs, ... }:
 
+let
+  username = "user";
+in
 {
-  environment.sessionVariables = {
-    LIBGL_ALWAYS_SOFTWARE = true;
+  environment = {
+    sessionVariables = {
+      LIBGL_ALWAYS_SOFTWARE = true;
+    };
+
+    shells = with pkgs; [
+      fish
+    ];
+
+    systemPackages = with pkgs; [
+      chatty
+      gnome-console
+      megapixels
+      kitty
+      neovim
+      fish
+      yazi
+      bat
+      w3m
+      librewolf
+      git
+      htop
+      gnupg
+      mpv
+      ncmpcpp
+      pqiv
+      qutebrowser
+      starship
+      eza
+      fd
+      fzf
+      ripgrep
+      yt-dlp
+      neofetch
+      genact
+      zellij
+      p7zip
+      unar
+    ];
   };
 
-  environment.systemPackages = with pkgs; [
-    chatty
-    gnome-console
-    megapixels
-    kitty
-    neovim
-    fish
-    yazi
-    bat
-    w3m
-    librewolf
-    git
-    htop
-    gnupg
-    mpv
-    ncmpcpp
-    pqiv
-    qutebrowser
-    starship
-    eza
-    fd
-    fzf
-    ripgrep
-    yt-dlp
-    neofetch
-    genact
-    zellij
-    p7zip
-    unar
-  ];
-
-  programs.fish.enable = true;
-  programs.neovim.enable = true;
-  users.defaultUserShell = pkgs.fish;
-  environment.shells = [ pkgs.fish ];
+  programs = {
+    fish.enable = true;
+    neovim.enable = true;
+    calls.enable = true;
+  };
 
   networking = {
     hostName = "mobile-nixos";
@@ -54,36 +64,35 @@
     };
 
     bluetooth.enable = true;
+    sensor.iio.enable = true;
   };
-
-  powerManagement.enable = true;
-
-  zramSwap.enable = true;
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" "repl-flake" ];
 
   services.xserver.desktopManager.phosh = {
     enable = true;
     group = "users";
-    user = "user";
+    user = username;
   };
 
-  users.users."user" = {
-    isNormalUser = true;
-    description = "User";
-    password = "user";
-    extraGroups = [
-      "dialout"
-      "feedbackd"
-      "networkmanager"
-      "video"
-      "wheel"
-    ];
+  users = {
+    defaultUserShell = pkgs.fish;
+
+    users.${username} = {
+      isNormalUser = true;
+      description = username;
+      password = username;
+
+      extraGroups = [
+        "dialout"
+        "feedbackd"
+        "networkmanager"
+        "video"
+        "wheel"
+      ];
+    };
   };
 
+  powerManagement.enable = true;
+  zramSwap.enable = true;
+  nix.settings.experimental-features = [ "nix-command" "flakes" "repl-flake" ];
   system.stateVersion = "23.11";
-
-  programs.calls.enable = true;
-
-  hardware.sensor.iio.enable = true;
 }
