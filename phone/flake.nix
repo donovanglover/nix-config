@@ -19,9 +19,15 @@
             device = "pine64-pinephone";
           })
 
+          {
+            mobile.beautification = {
+              silentBoot = nixpkgs.lib.mkDefault true;
+              splash = nixpkgs.lib.mkDefault true;
+            };
+          }
+
           ./configuration.nix
           ./hardware-configuration.nix
-          ./phosh.nix
         ];
       };
     };

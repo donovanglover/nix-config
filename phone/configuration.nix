@@ -2,6 +2,10 @@
 
 {
   environment.systemPackages = with pkgs; [
+    chatty              # IM and SMS
+    epiphany            # Web browser
+    gnome-console       # Terminal
+    megapixels          # Camera
     neovim
     fish
     yazi
@@ -55,6 +59,8 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" "repl-flake" ];
 
   services.xserver.desktopManager.phosh = {
+    enable = true;
+    group = "users";
     user = "user";
   };
 
@@ -72,4 +78,8 @@
   };
 
   system.stateVersion = "23.11";
+
+  programs.calls.enable = true;
+
+  hardware.sensor.iio.enable = true;
 }
