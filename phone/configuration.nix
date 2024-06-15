@@ -110,6 +110,27 @@ in
     };
   };
 
+  virtualisation.vmVariant = {
+    virtualisation = {
+      memorySize = 4096;
+      cores = 4;
+
+      sharedDirectories = {
+        tmp = {
+          source = "/tmp";
+          target = "/mnt";
+        };
+      };
+
+      qemu.options = [
+        "-device virtio-vga-gl"
+        "-display sdl,gl=on,show-cursor=off"
+        "-audio pa,model=hda"
+        "-full-screen"
+      ];
+    };
+  };
+
   powerManagement.enable = true;
   zramSwap.enable = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" "repl-flake" ];
