@@ -10,11 +10,19 @@
 
   outputs = { self, nixpkgs, mobile-nixos } @ attrs:
   {
-    nixosConfigurations = {
+    nixosConfigurations =
+    let
+      modules = [
+        ./configuration.nix
+        ./hardware-configuration.nix
+      ];
+    in
+    {
       mobile-nixos = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         specialArgs = attrs;
-        modules = [
+
+        modules = modules ++ [
           (import "${mobile-nixos}/lib/configuration.nix" {
             device = "pine64-pinephone";
           })
@@ -25,10 +33,14 @@
               splash = nixpkgs.lib.mkDefault true;
             };
           }
-
-          ./configuration.nix
-          ./hardware-configuration.nix
         ];
+      };
+
+      mobile-nixos-vm = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = attrs;
+
+        inherit modules;
       };
     };
   };
