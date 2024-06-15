@@ -67,10 +67,14 @@ in
     sensor.iio.enable = true;
   };
 
-  services.xserver.desktopManager.phosh = {
-    enable = true;
-    group = "users";
-    user = username;
+  services = {
+    openssh.enable = true;
+
+    xserver.desktopManager.phosh = {
+      enable = true;
+      group = "users";
+      user = username;
+    };
   };
 
   users = {
