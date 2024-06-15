@@ -75,7 +75,11 @@
           mobile-nixos-vm = nixosSystem {
             system = "x86_64-linux";
             specialArgs = attrs;
-            modules = phoneModules;
+            modules = phoneModules ++ [
+              {
+                boot.loader.systemd-boot.enable = true;
+              }
+            ];
           };
         };
 
