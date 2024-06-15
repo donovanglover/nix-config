@@ -2,10 +2,9 @@
 
 {
   environment.systemPackages = with pkgs; [
-    chatty              # IM and SMS
-    epiphany            # Web browser
-    gnome-console       # Terminal
-    megapixels          # Camera
+    chatty
+    gnome-console
+    megapixels
     neovim
     fish
     yazi
