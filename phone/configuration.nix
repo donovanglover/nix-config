@@ -1,10 +1,15 @@
 { pkgs, ... }:
 
 {
+  environment.sessionVariables = {
+    LIBGL_ALWAYS_SOFTWARE = true;
+  };
+
   environment.systemPackages = with pkgs; [
     chatty
     gnome-console
     megapixels
+    kitty
     neovim
     fish
     yazi
