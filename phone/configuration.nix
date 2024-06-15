@@ -6,7 +6,7 @@ in
 {
   environment = {
     sessionVariables = {
-      LIBGL_ALWAYS_SOFTWARE = true;
+      LIBGL_ALWAYS_SOFTWARE = "true";
     };
 
     shells = with pkgs; [
