@@ -129,6 +129,7 @@ in
           satty
           aaaaxy
           srb2
+          ringracers
           jamesdsp
           ;
       }))
