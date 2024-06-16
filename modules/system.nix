@@ -67,6 +67,8 @@ in
         then { useTmpfs = true; }
         else { cleanOnBoot = true; };
 
+      binfmt.emulatedSystems = [ "aarch64-linux" ];
+
       loader = {
         systemd-boot = {
           enable = true;
