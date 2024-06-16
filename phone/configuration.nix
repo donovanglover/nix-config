@@ -1,13 +1,15 @@
-{ self, pkgs, ... }:
+{ self, pkgs, lib, ... }:
 
 let
   inherit (self.packages.${pkgs.system}) aleo-fonts;
   inherit (pkgs) phinger-cursors noto-fonts-cjk-sans maple-mono noto-fonts-emoji;
+  inherit (lib) singleton;
   inherit (builtins) attrValues;
 
   username = "user";
   theme = "monokai";
   fontSize = 11;
+  stateVersion = "23.11";
 in
 {
   imports = attrValues {
@@ -17,6 +19,25 @@ in
 
   nixpkgs.overlays = attrValues {
     inherit (self.overlays) phinger-cursors;
+  };
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+
+    sharedModules = attrValues self.homeManagerModules ++ singleton {
+      home = {
+        inherit stateVersion;
+      };
+
+      programs.man.generateCaches = true;
+    };
+
+    users.${username}.home = {
+      inherit username;
+
+      homeDirectory = "/home/${username}";
+    };
   };
 
   fonts = {
@@ -222,5 +243,8 @@ in
   powerManagement.enable = true;
   zramSwap.enable = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" "repl-flake" ];
-  system.stateVersion = "23.11";
+
+  system = {
+    inherit stateVersion;
+  };
 }
