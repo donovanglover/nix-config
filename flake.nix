@@ -100,14 +100,33 @@
                     name = replaceStrings [ ".nix" ] [ "" ] file;
                     value =
                       if directory == "packages"
-                      then callPackage ./${directory}/${file} { }
+                      then x86_64-linux.callPackage ./${directory}/${file} { }
                       else
                         if directory == "tests"
                         then
                           import ./${directory}/${file}
                             {
                               inherit self;
-                              pkgs = nixpkgs.legacyPackages.x86_64-linux;
+                              pkgs = x86_64-linux;
+                            }
+                        else import ./${directory}/${file};
+                  })
+                  (attrNames (readDir ./${directory}))));
+
+              aarch64Packages = (listToAttrs
+                (map
+                  (file: {
+                    name = replaceStrings [ ".nix" ] [ "" ] file;
+                    value =
+                      if directory == "packages"
+                      then aarch64-linux.callPackage ./${directory}/${file} { }
+                      else
+                        if directory == "tests"
+                        then
+                          import ./${directory}/${file}
+                            {
+                              inherit self;
+                              pkgs = aarch64-linux;
                             }
                         else import ./${directory}/${file};
                   })
@@ -115,7 +134,10 @@
 
               attributeSet =
                 if directory == "packages" || directory == "tests"
-                then { x86_64-linux = attributeValue; }
+                then {
+                  x86_64-linux = attributeValue;
+                  aarch64-linux = aarch64Packages;
+                }
                 else attributeValue;
             in
             (attributeSet);
