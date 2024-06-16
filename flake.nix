@@ -29,7 +29,7 @@
   outputs = { self, nixpkgs, mobile-nixos, ... } @ attrs:
     let
       inherit (nixpkgs.lib) nixosSystem;
-      inherit (nixpkgs.legacyPackages.x86_64-linux) nixpkgs-fmt callPackage;
+      inherit (nixpkgs.legacyPackages) x86_64-linux aarch64-linux;
       inherit (builtins) attrNames listToAttrs map replaceStrings readDir;
 
       flakeOutputs = [ "overlays" "nixosModules" "homeManagerModules" "packages" "checks" ];
@@ -83,7 +83,8 @@
           };
         };
 
-      formatter.x86_64-linux = nixpkgs-fmt;
+      formatter.x86_64-linux = x86_64-linux.nixpkgs-fmt;
+      formatter.aarch64-linux = aarch64-linux.nixpkgs-fmt;
     } //
     (listToAttrs
       (map
