@@ -1,9 +1,97 @@
-{ pkgs, ... }:
+{ self, pkgs, ... }:
 
 let
+  inherit (self.packages.${pkgs.system}) aleo-fonts;
+  inherit (pkgs) phinger-cursors noto-fonts-cjk-sans maple-mono noto-fonts-emoji;
+  inherit (builtins) attrValues;
+
   username = "user";
+  theme = "monokai";
+  fontSize = 11;
 in
 {
+  imports = attrValues {
+    inherit (self.inputs.home-manager.nixosModules) home-manager;
+    inherit (self.inputs.stylix.nixosModules) stylix;
+  };
+
+  nixpkgs.overlays = attrValues {
+    inherit (self.overlays) phinger-cursors;
+  };
+
+  fonts = {
+    enableDefaultPackages = false;
+
+    packages = with pkgs; [
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
+      noto-fonts-emoji
+      maple-mono
+      font-awesome
+      (nerdfonts.override { fonts = [ "Noto" ]; })
+      kanji-stroke-order-font
+      liberation_ttf
+      aleo-fonts
+    ];
+
+    fontconfig = {
+      defaultFonts = {
+        serif = [ "Noto Serif CJK JP" "Noto Serif" ];
+        sansSerif = [ "Noto Sans CJK JP" "Noto Sans" ];
+        monospace = [ "Noto Sans Mono CJK JP" "Noto Sans Mono" ];
+      };
+
+      allowBitmaps = false;
+    };
+  };
+
+  stylix = {
+    image = ../assets/wallpaper.png;
+    polarity = "dark";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme}.yaml";
+
+    opacity = {
+      terminal = 0.95;
+      popups = 0.95;
+    };
+
+    cursor = {
+      package = phinger-cursors;
+      name = "phinger-cursors";
+      size = 24;
+    };
+
+    fonts = {
+      serif = {
+        package = aleo-fonts;
+        name = "Aleo";
+      };
+
+      sansSerif = {
+        package = noto-fonts-cjk-sans;
+        name = "Noto Sans CJK JP";
+      };
+
+      monospace = {
+        package = maple-mono;
+        name = "Maple Mono";
+      };
+
+      emoji = {
+        package = noto-fonts-emoji;
+        name = "Noto Color Emoji";
+      };
+
+      sizes = {
+        applications = fontSize;
+        desktop = fontSize;
+        popups = fontSize;
+        terminal = fontSize;
+      };
+    };
+  };
+
   environment = {
     sessionVariables = {
       LIBGL_ALWAYS_SOFTWARE = "true";
