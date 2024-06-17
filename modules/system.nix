@@ -95,6 +95,11 @@ in
         experimental-features = [ "nix-command" "flakes" "repl-flake" ];
         auto-optimise-store = true;
         warn-dirty = false;
+
+        trusted-users = [
+          "root"
+          "@wheel"
+        ];
       };
     };
 
