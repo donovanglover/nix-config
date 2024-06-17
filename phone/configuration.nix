@@ -250,9 +250,21 @@ in
     };
   };
 
+  nix = {
+    settings = {
+      experimental-features = [ "nix-command" "flakes" "repl-flake" ];
+      auto-optimise-store = true;
+      warn-dirty = false;
+
+      trusted-users = [
+        "root"
+        "@wheel"
+      ];
+    };
+  };
+
   powerManagement.enable = true;
   zramSwap.enable = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" "repl-flake" ];
 
   system = {
     inherit stateVersion;
