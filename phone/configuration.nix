@@ -40,6 +40,16 @@ in
     };
   };
 
+  programs.thunar = {
+    enable = true;
+
+    plugins = attrValues {
+      inherit (pkgs.xfce) thunar-volman;
+    };
+  };
+
+  services.tumbler.enable = true;
+
   fonts = {
     enableDefaultPackages = false;
 
