@@ -17,9 +17,7 @@ in
     inherit (self.inputs.stylix.nixosModules) stylix;
   };
 
-  nixpkgs.overlays = attrValues {
-    inherit (self.overlays) phinger-cursors;
-  };
+  nixpkgs.overlays = attrValues self.overlays;
 
   home-manager = {
     useGlobalPkgs = true;
