@@ -188,16 +188,6 @@ in
     };
   };
 
-  hardware = {
-    pulseaudio = {
-      enable = true;
-      package = pkgs.pulseaudioFull;
-    };
-
-    bluetooth.enable = true;
-    sensor.iio.enable = true;
-  };
-
   services = {
     openssh.enable = true;
     resolved.llmnr = "false";
