@@ -3,7 +3,7 @@
 let
   inherit (lib) mkOption mkEnableOption mkIf singleton;
   inherit (lib.types) nullOr str listOf;
-  inherit (cfg) username iHaveLotsOfRam hashedPassword mullvad allowSRB2Port allowDevPort noRoot postgres;
+  inherit (cfg) username iHaveLotsOfRam hashedPassword mullvad allowSRB2Port allowDevPort noRoot postgres phone;
   inherit (builtins) attrValues;
 
   cfg = config.modules.system;
@@ -45,6 +45,7 @@ in
     };
 
     iHaveLotsOfRam = mkEnableOption "tmpfs on /tmp";
+    phone = mkEnableOption "Phone support";
 
     hostName = mkOption {
       type = str;
@@ -61,7 +62,7 @@ in
   };
 
   config = {
-    boot = {
+    boot = mkIf (!phone) {
       tmp =
         if iHaveLotsOfRam
         then { useTmpfs = true; }
@@ -85,7 +86,7 @@ in
       ];
     };
 
-    systemd = {
+    systemd = mkIf (!phone) {
       extraConfig = "DefaultTimeoutStopSec=10s";
       services.NetworkManager-wait-online.enable = false;
     };
