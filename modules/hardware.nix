@@ -4,7 +4,7 @@ let
   inherit (lib) mkEnableOption mkIf getExe singleton;
   inherit (pkgs) piper interception-tools;
   inherit (pkgs.interception-tools-plugins) dual-function-keys;
-  inherit (cfg) mouseSettings disableLaptopKeyboard lidIgnore powerIgnore keyboardBinds bluetooth;
+  inherit (cfg) mouseSettings disableLaptopKeyboard lidIgnore powerIgnore keyboardBinds bluetooth phone;
   inherit (builtins) toJSON;
 
   dualFunctionKeysConfig = "dual-function-keys.yaml";
@@ -19,6 +19,7 @@ in
     disableLaptopKeyboard = mkEnableOption "udev rule to disable laptop keyboard";
     lidIgnore = mkEnableOption "ignoring the laptop lid on close";
     powerIgnore = mkEnableOption "ignoring the power button on press";
+    phone = mkEnableOption "Phone support";
   };
 
   config = {
@@ -35,6 +36,8 @@ in
       logind = {
         lidSwitch = mkIf lidIgnore "ignore";
         extraConfig = mkIf powerIgnore "HandlePowerKey=ignore";
+        powerKey = mkIf phone "suspend";
+        powerKeyLongPress = mkIf phone "poweroff";
       };
 
       interception-tools = {
