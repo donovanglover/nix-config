@@ -4,7 +4,7 @@ let
   inherit (lib) mkEnableOption mkIf mkMerge mkOption;
   inherit (lib.types) str float int;
   inherit (config.modules.system) username;
-  inherit (cfg) bloat gnome plasma container theme opacity fontSize graphical;
+  inherit (cfg) bloat gnome plasma container theme opacity fontSize graphical phone;
   inherit (nix-config.packages.${pkgs.system}) aleo-fonts;
   inherit (pkgs) phinger-cursors noto-fonts-cjk-sans maple-mono noto-fonts-emoji;
   inherit (builtins) attrValues;
@@ -34,6 +34,7 @@ in
     };
 
     bloat = mkEnableOption "GUI applications";
+    phone = mkEnableOption "Phone support";
     gnome = mkEnableOption "GNOME specialization";
     plasma = mkEnableOption "Plasma specialization";
     container = mkEnableOption "disable some options for container performance";
@@ -41,11 +42,11 @@ in
   };
 
   config = {
-    hardware.opengl.driSupport32Bit = true;
+    hardware.opengl.driSupport32Bit = mkIf (!phone) true;
 
     programs = {
       hyprland.enable = mkIf (!container) true;
-      cdemu.enable = true;
+      cdemu.enable = mkIf (!phone) true;
 
       thunar = {
         enable = true;
@@ -81,7 +82,7 @@ in
 
         alsa = {
           enable = true;
-          support32Bit = true;
+          support32Bit = mkIf (!phone) true;
         };
 
         pulse.enable = true;
