@@ -131,7 +131,16 @@ in
         isNormalUser = true;
         uid = 1000;
         password = mkIf (hashedPassword == null && !noRoot) username;
-        extraGroups = if noRoot then [ ] else [ "wheel" "networkmanager" ];
+        extraGroups =
+          if noRoot
+          then [ ]
+          else [
+            "dialout"
+            "feedbackd"
+            "video"
+            "wheel"
+            "networkmanager"
+          ];
       };
     };
 
