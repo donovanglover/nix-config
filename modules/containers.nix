@@ -2,7 +2,7 @@
 
 let
   inherit (lib) mkIf;
-  inherit (config.modules.system) username;
+  inherit (config.modules.system) username phone;
   inherit (config.boot) enableContainers;
 
   template = {
@@ -50,7 +50,7 @@ in
     "d /run/user/1000 0700 ${username} users -"
   ];
 
-  containers = mkIf enableContainers {
+  containers = mkIf (enableContainers && !phone) {
     wine = template // {
       hostAddress = "192.168.100.34";
       localAddress = "192.168.100.49";
