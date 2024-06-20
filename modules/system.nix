@@ -144,6 +144,8 @@ in
       };
     };
 
+    documentation.man.generateCaches = mkIf (phone) false;
+
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
@@ -153,7 +155,7 @@ in
           inherit (cfg) stateVersion;
         };
 
-        programs.man.generateCaches = true;
+        programs.man.generateCaches = mkIf (!phone) true;
       };
 
       users.${username}.home = {
