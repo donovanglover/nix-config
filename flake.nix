@@ -120,15 +120,7 @@
                     value =
                       if directory == "packages"
                       then aarch64-linux.callPackage ./${directory}/${file} { }
-                      else
-                        if directory == "tests"
-                        then
-                          import ./${directory}/${file}
-                            {
-                              inherit self;
-                              pkgs = aarch64-linux;
-                            }
-                        else import ./${directory}/${file};
+                      else null;
                   })
                   (attrNames (readDir ./${directory}))));
 
