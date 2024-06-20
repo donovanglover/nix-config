@@ -1,7 +1,7 @@
 { nix-config, pkgs, lib, config, ... }:
 
 let
-  inherit (lib) mkOption mkEnableOption mkIf singleton;
+  inherit (lib) mkOption mkEnableOption mkIf singleton optionals;
   inherit (lib.types) nullOr str listOf;
   inherit (cfg) username iHaveLotsOfRam hashedPassword mullvad allowSRB2Port allowDevPort noRoot postgres phone;
   inherit (builtins) attrValues;
@@ -135,12 +135,13 @@ in
           if noRoot
           then [ ]
           else [
+            "wheel"
+            "networkmanager"
+          ] ++ (optionals (phone) [
             "dialout"
             "feedbackd"
             "video"
-            "wheel"
-            "networkmanager"
-          ];
+          ]);
       };
     };
 
