@@ -1,7 +1,6 @@
-{ nix-config, pkgs, lib, ... }:
+{ nix-config, pkgs, ... }:
 
 let
-  inherit (lib) singleton mkForce;
   inherit (builtins) attrValues;
 in
 {
@@ -11,18 +10,7 @@ in
 
   nixpkgs.overlays = attrValues nix-config.overlays;
 
-  home-manager.sharedModules = attrValues nix-config.homeManagerModules ++ singleton {
-    services.hypridle.enable = mkForce false;
-
-    wayland.windowManager.hyprland.settings = mkForce {
-      decoration = {
-        drop_shadow = false;
-        blur.enabled = false;
-      };
-
-      animations.enabled = false;
-    };
-  };
+  home-manager.sharedModules = attrValues nix-config.homeManagerModules;
 
   environment.systemPackages = attrValues nix-config.packages.${pkgs.system};
 
