@@ -152,6 +152,20 @@ in
         inherit (nix-config.inputs.sakaya.packages.${pkgs.system}) sakaya;
       }))
 
+      (mkIf phone (attrValues {
+        inherit (pkgs)
+          flare-signal
+          gurk-rs
+          android-tools
+          chatty
+          gnome-console
+          megapixels
+          wvkbd
+          maliit-keyboard
+          squeekboard
+          ;
+      }))
+
       (attrValues {
         inherit (pkgs) anki kanjidraw pulseaudio glib;
         inherit (pkgs.xfce) exo;
