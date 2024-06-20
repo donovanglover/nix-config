@@ -22,7 +22,13 @@ in
     };
 
     desktop.phone = true;
-    hardware.phone = true;
+
+    hardware = {
+      keyboardBinds = true;
+      bluetooth = true;
+      phone = true;
+      sensor = true;
+    };
   };
 
   environment = {
