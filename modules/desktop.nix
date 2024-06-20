@@ -139,9 +139,12 @@ in
           ;
       }))
 
+      (mkIf (!phone) (attrValues {
+        inherit (nix-config.inputs.sakaya.packages.${pkgs.system}) sakaya;
+      }))
+
       (attrValues {
         inherit (pkgs) anki kanjidraw pulseaudio glib;
-        inherit (nix-config.inputs.sakaya.packages.${pkgs.system}) sakaya;
         inherit (pkgs.xfce) exo;
       })
     ];
