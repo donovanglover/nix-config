@@ -12,21 +12,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-    - uses: cachix/install-nix-action@v26
+    - uses: cachix/install-nix-action@v27
     - run: nix flake check
   format:
     name: nix fmt -- --check **/*.nix
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: cachix/install-nix-action@v26
+      - uses: cachix/install-nix-action@v27
       - run: nix fmt -- --check **/*.nix
   example:
     name: nix flake check ./example
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: cachix/install-nix-action@v26
+      - uses: cachix/install-nix-action@v27
       - run: cp ./hardware/laptop.nix ./example/hardware-configuration.nix
       - run: git add .
       - run: nix flake check ./example --no-write-lock-file --override-input nix-config "git+file://$(pwd | sed -e 's/\s/%20/g')?shallow=1"
