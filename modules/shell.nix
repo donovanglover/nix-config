@@ -115,7 +115,6 @@ in
           clippy
           ;
         inherit (pkgs)
-          texliveFull
           tectonic
           ;
       })

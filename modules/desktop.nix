@@ -150,6 +150,7 @@ in
 
       (mkIf (!phone) (attrValues {
         inherit (nix-config.inputs.sakaya.packages.${pkgs.system}) sakaya;
+        inherit (pkgs) texliveFull;
       }))
 
       (mkIf phone (attrValues {
