@@ -61,7 +61,7 @@ in
       };
     };
 
-    i18n.inputMethod = {
+    i18n.inputMethod = mkIf (!phone) {
       enabled = "fcitx5";
 
       fcitx5 = {
@@ -71,7 +71,7 @@ in
     };
 
     services = {
-      udisks2 = {
+      udisks2 = mkIf (!phone) {
         enable = true;
         mountOnMedia = true;
       };
@@ -81,12 +81,12 @@ in
         excludePackages = [ pkgs.xterm ];
       };
 
-      pipewire = {
+      pipewire = mkIf (!phone) {
         enable = true;
 
         alsa = {
           enable = true;
-          support32Bit = mkIf (!phone) true;
+          support32Bit = true;
         };
 
         pulse.enable = true;
