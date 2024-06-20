@@ -12,6 +12,8 @@ in
   nixpkgs.overlays = attrValues nix-config.overlays;
 
   home-manager.sharedModules = attrValues nix-config.homeManagerModules ++ singleton {
+    services.hypridle.enable = mkForce false;
+
     wayland.windowManager.hyprland.settings = mkForce {
       decoration = {
         drop_shadow = false;
