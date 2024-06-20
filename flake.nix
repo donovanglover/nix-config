@@ -133,12 +133,17 @@
                   (attrNames (readDir ./${directory}))));
 
               attributeSet =
-                if directory == "packages" || directory == "tests"
+                if directory == "packages"
                 then {
                   x86_64-linux = attributeValue;
                   aarch64-linux = aarch64Packages;
                 }
-                else attributeValue;
+                else
+                  if directory == "tests"
+                  then {
+                    x86_64-linux = attributeValue;
+                  }
+                  else attributeValue;
             in
             (attributeSet);
         })
