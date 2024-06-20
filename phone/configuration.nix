@@ -21,7 +21,10 @@ in
       phone = true;
     };
 
-    desktop.phone = true;
+    desktop = {
+      phone = true;
+      phosh = true;
+    };
 
     hardware = {
       keyboardBinds = true;
