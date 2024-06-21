@@ -8,14 +8,14 @@ on:
 
 jobs:
   test:
-    name: nix flake check
+    name: nix flake check --all-systems
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
     - uses: cachix/install-nix-action@v27
       with:
         extra_nix_config: "extra-platforms = aarch64-linux"
-    - run: nix flake check
+    - run: nix flake check --all-systems
   format:
     name: nix fmt -- --check **/*.nix
     runs-on: ubuntu-latest
