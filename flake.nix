@@ -39,8 +39,8 @@
       nixosConfigurations =
         let
           phoneModules = [
-            ./phone/configuration.nix
-            ./phone/hardware-configuration.nix
+            ./hosts/phone/configuration.nix
+            ./hosts/phone/hardware-configuration.nix
           ];
         in
         {
@@ -49,8 +49,8 @@
             specialArgs = attrs // { nix-config = self; };
 
             modules = [
-              ./.
-              ./hardware/laptop.nix
+              ./hosts/laptop/configuration.nix
+              ./hosts/laptop/hardware-configuration.nix
             ];
           };
 
