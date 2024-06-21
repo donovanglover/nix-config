@@ -149,6 +149,23 @@ in
       }))
 
       (mkIf phone (attrValues {
+        inherit (pkgs.gnome)
+          eog
+          geary
+          gnome-calculator
+          gnome-calendar
+          gnome-characters
+          gnome-disk-utility
+          gnome-font-viewer
+          gnome-contacts
+          gnome-clocks
+          gnome-chess
+          gnome-sudoku
+          gnome-weather
+          gnome-sound-recorder
+          gnome-maps
+          nautilus
+          ;
         inherit (pkgs)
           flare-signal
           gurk-rs
@@ -159,6 +176,95 @@ in
           wvkbd
           maliit-keyboard
           squeekboard
+          animatch
+          audio-sharing
+          authenticator
+          badwolf
+          blackbox
+          blanket
+          cpupower-gui
+          gnome-2048
+          snapshot
+          castor
+          celluloid
+          chess-clock
+          clapper
+          collision
+          contrast
+          cozy
+          delfin
+          dialect
+          done
+          deja-dup
+          entangle
+          gnome-feeds
+          flowtime
+          folio
+          fractal
+          freetube
+          gnome-frog
+          furtherance
+          g4music
+          gnuchess
+          giara
+          glide-media-player
+          gnote
+          goodvibes
+          gnome-graphs
+          health
+          identity
+          image-roll
+          loupe
+          imaginer
+          iotas
+          kana
+          karlender
+          khronos
+          komikku
+          livi
+          localsend
+          lollypop
+          lorem
+          marble
+          marker
+          mepo
+          metadata-cleaner
+          monophony
+          mousai
+          muzika
+          newsflash
+          notejot
+          numberstation
+          papers
+          parabolic
+          passes
+          phosh-mobile-settings
+          pika-backup
+          planify
+          portfolio
+          powersupply
+          ptyxis
+          pure-maps
+          read-it-later
+          resources
+          shattered-pixel-dungeon
+          sgt-puzzles
+          smile
+          solanum
+          stellarium
+          tangram
+          tuba
+          unciv
+          gnome-usage
+          warp
+          whatip
+          wike
+          wildcard
+          wordbook
+          caerbannog
+          shipments
+          drawing
+          markets
           ;
       }))
 
