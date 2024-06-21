@@ -10,11 +10,11 @@ jobs:
   test:
     name: nix flake check
     runs-on: ubuntu-latest
-    with:
-      extra_nix_config: "extra-platforms = aarch64-linux"
     steps:
     - uses: actions/checkout@v4
     - uses: cachix/install-nix-action@v27
+      with:
+        extra_nix_config: "extra-platforms = aarch64-linux"
     - run: nix flake check
   format:
     name: nix fmt -- --check **/*.nix
