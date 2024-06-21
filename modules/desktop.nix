@@ -177,8 +177,6 @@ in
           maliit-keyboard
           squeekboard
           animatch
-          audio-sharing
-          authenticator
           badwolf
           blackbox
           blanket
@@ -206,7 +204,6 @@ in
           furtherance
           g4music
           gnuchess
-          giara
           glide-media-player
           gnote
           goodvibes
@@ -217,7 +214,6 @@ in
           loupe
           imaginer
           iotas
-          kana
           karlender
           khronos
           komikku
@@ -229,15 +225,11 @@ in
           marker
           mepo
           metadata-cleaner
-          monophony
-          mousai
           muzika
           newsflash
           notejot
-          numberstation
           papers
           parabolic
-          passes
           phosh-mobile-settings
           pika-backup
           planify
@@ -255,16 +247,11 @@ in
           tangram
           tuba
           unciv
-          gnome-usage
           warp
           whatip
           wike
-          wildcard
           wordbook
           caerbannog
-          shipments
-          drawing
-          markets
           ;
       }))
 
