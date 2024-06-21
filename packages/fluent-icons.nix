@@ -22,11 +22,11 @@ stdenvNoCC.mkDerivation {
     runHook postInstall
   '';
 
-  meta = with lib; {
+  meta = {
     description = "Fluent folder icons converted to png";
     homepage = "https://github.com/vinceliuice/Fluent-icon-theme";
-    license = licenses.gpl3Plus;
-    maintainers = with maintainers; [ donovanglover ];
-    platforms = platforms.all;
+    license = lib.licenses.gpl3Plus;
+    maintainers = with lib.maintainers; [ donovanglover ];
+    platforms = lib.platforms.all;
   };
 }

@@ -22,11 +22,11 @@ stdenvNoCC.mkDerivation {
     runHook postInstall
   '';
 
-  meta = with lib; {
+  meta = {
     description = "Slab serif typeface designed by Alessio Laiso";
     homepage = "https://github.com/AlessioLaiso/aleo";
-    license = licenses.ofl;
-    maintainers = with maintainers; [ donovanglover ];
-    platforms = platforms.all;
+    license = lib.licenses.ofl;
+    maintainers = with lib.maintainers; [ donovanglover ];
+    platforms = lib.platforms.all;
   };
 }

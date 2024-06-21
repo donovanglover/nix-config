@@ -214,10 +214,10 @@ stdenvNoCC.mkDerivation {
     runHook postInstall
   '';
 
-  meta = with lib; {
+  meta = {
     description = "A collection of osu! fanart entries since 2017";
     homepage = "https://osu.ppy.sh/home/news";
-    maintainers = with maintainers; [ donovanglover ];
-    platforms = platforms.all;
+    maintainers = with lib.maintainers; [ donovanglover ];
+    platforms = lib.platforms.all;
   };
 }
