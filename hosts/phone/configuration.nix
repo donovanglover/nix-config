@@ -27,6 +27,10 @@ in
       phone = true;
       sensor = true;
     };
+
+    system = {
+      mullvad = true;
+    };
   };
 
   environment = {
