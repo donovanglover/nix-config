@@ -2,9 +2,9 @@
 
 let
   inherit (lib) mkEnableOption mkIf mkMerge mkOption;
-  inherit (lib.types) str float int;
+  inherit (lib.types) float int;
   inherit (config.modules.system) username;
-  inherit (cfg) bloat gnome plasma container theme opacity fontSize graphical phone phosh;
+  inherit (cfg) bloat gnome plasma container opacity fontSize graphical phone phosh;
   inherit (nix-config.packages.${pkgs.system}) aleo-fonts;
   inherit (pkgs) phinger-cursors noto-fonts-cjk-sans maple-mono noto-fonts-emoji;
   inherit (builtins) attrValues;
@@ -22,11 +22,6 @@ in
   };
 
   options.modules.desktop = {
-    theme = mkOption {
-      type = str;
-      default = "monokai";
-    };
-
     opacity = mkOption {
       type = float;
       default = 0.95;
@@ -203,7 +198,7 @@ in
     stylix = {
       image = ../assets/wallpaper.png;
       polarity = "dark";
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/${theme}.yaml";
+      base16Scheme = ../assets/selenized-black.yaml;
 
       opacity = {
         terminal = opacity;

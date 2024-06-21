@@ -24,7 +24,6 @@ in
 
     desktop = {
       bloat = true;
-      theme = "selenized-black";
     };
   };
 }
