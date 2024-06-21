@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 
 let
-  inherit (config.lib.stylix.scheme) slug;
+  inherit (config.lib.stylix.scheme) scheme;
   inherit (pkgs) callPackage;
 
   base16-nvim = callPackage ../packages/base16-nvim.nix { };
@@ -325,7 +325,7 @@ in
       {
         plugin = base16-nvim;
         type = "lua";
-        config = "vim.cmd('colorscheme base16-${slug}')";
+        config = "vim.cmd('colorscheme base16-${scheme}')";
       }
       {
         plugin = lualine-nvim;
