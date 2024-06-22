@@ -158,13 +158,10 @@ in
           geary
           gnome-calculator
           gnome-calendar
-          gnome-characters
           gnome-disk-utility
-          gnome-font-viewer
           gnome-contacts
           gnome-clocks
           gnome-chess
-          gnome-sudoku
           gnome-weather
           gnome-sound-recorder
           gnome-maps
@@ -180,9 +177,6 @@ in
           wvkbd
           maliit-keyboard
           squeekboard
-          animatch
-          badwolf
-          blackbox
           blanket
           cpupower-gui
           gnome-2048
@@ -198,34 +192,27 @@ in
           dialect
           done
           deja-dup
-          entangle
           gnome-feeds
           flowtime
           folio
           fractal
           freetube
-          gnome-frog
           furtherance
           g4music
           gnuchess
           glide-media-player
-          gnote
-          goodvibes
           gnome-graphs
           health
           identity
           image-roll
           loupe
           imaginer
-          iotas
           karlender
           khronos
           komikku
           livi
-          localsend
           lollypop
           lorem
-          marble
           marker
           mepo
           metadata-cleaner
@@ -233,28 +220,18 @@ in
           newsflash
           notejot
           papers
-          parabolic
           phosh-mobile-settings
           pika-backup
           planify
-          portfolio
           powersupply
           ptyxis
-          pure-maps
           read-it-later
           resources
-          shattered-pixel-dungeon
-          sgt-puzzles
           smile
           solanum
-          stellarium
-          tangram
           tuba
-          unciv
-          warp
           whatip
           wike
-          wordbook
           caerbannog
           ;
       }))
