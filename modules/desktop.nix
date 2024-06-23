@@ -165,7 +165,6 @@ in
           gnome-weather
           gnome-sound-recorder
           gnome-maps
-          nautilus
           ;
         inherit (pkgs)
           flare-signal
@@ -175,24 +174,15 @@ in
           gnome-console
           megapixels
           wvkbd
-          maliit-keyboard
-          squeekboard
           blanket
-          cpupower-gui
           gnome-2048
           snapshot
-          castor
-          celluloid
           chess-clock
-          clapper
           collision
-          contrast
           cozy
           delfin
           dialect
-          done
           deja-dup
-          gnome-feeds
           flowtime
           folio
           fractal
@@ -200,21 +190,12 @@ in
           furtherance
           g4music
           gnuchess
-          glide-media-player
-          gnome-graphs
           health
           identity
           image-roll
-          loupe
-          imaginer
-          karlender
-          khronos
           komikku
           livi
           lollypop
-          lorem
-          marker
-          mepo
           metadata-cleaner
           muzika
           newsflash
@@ -222,7 +203,6 @@ in
           papers
           phosh-mobile-settings
           pika-backup
-          planify
           powersupply
           ptyxis
           read-it-later
