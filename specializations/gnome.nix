@@ -30,8 +30,6 @@ in
     ibus.engines = with pkgs.ibus-engines; [ mozc ];
   };
 
-  environment.gnome.excludePackages = [ pkgs.gnome-tour ];
-
   hardware.pulseaudio.enable = false;
   programs.hyprland.enable = lib.mkForce false;
   services.greetd.enable = lib.mkForce false;

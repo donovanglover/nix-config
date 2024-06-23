@@ -252,12 +252,16 @@ in
       };
     };
 
-    environment.systemPackages = with pkgs; [
-      (pass.withExtensions (ext: with ext; [ pass-otp ]))
-    ];
+    environment = {
+      systemPackages = with pkgs; [
+        (pass.withExtensions (ext: with ext; [ pass-otp ]))
+      ];
+
+      defaultPackages = [ ];
+
+      gnome.excludePackages = with pkgs; [ gnome-tour ];
+    };
 
     programs.command-not-found.enable = false;
-
-    environment.defaultPackages = [ ];
   };
 }
