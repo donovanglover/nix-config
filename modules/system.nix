@@ -105,7 +105,7 @@ in
       };
     };
 
-    zramSwap = mkIf (!phone) {
+    zramSwap = {
       enable = true;
       memoryPercent = 100;
     };
