@@ -156,18 +156,14 @@ in
         inherit (pkgs.gnome)
           eog
           geary
-          gnome-calculator
           gnome-calendar
-          gnome-disk-utility
           gnome-contacts
           gnome-clocks
           gnome-chess
-          gnome-weather
           gnome-sound-recorder
           gnome-maps
           ;
         inherit (pkgs)
-          flare-signal
           gurk-rs
           android-tools
           chatty
@@ -176,41 +172,20 @@ in
           wvkbd
           blanket
           gnome-2048
-          snapshot
-          chess-clock
-          collision
-          cozy
-          delfin
           dialect
           deja-dup
-          flowtime
           folio
           fractal
           freetube
           furtherance
           g4music
-          gnuchess
-          health
-          identity
-          image-roll
-          komikku
           livi
-          lollypop
-          metadata-cleaner
-          muzika
           newsflash
-          notejot
           papers
           phosh-mobile-settings
-          pika-backup
-          powersupply
-          ptyxis
-          read-it-later
           resources
           smile
-          solanum
           tuba
-          whatip
           wike
           caerbannog
           ;
