@@ -6,7 +6,25 @@ in
 {
   imports = attrValues self.nixosModules;
   nixpkgs.overlays = attrValues self.overlays;
-  home-manager.sharedModules = attrValues self.homeManagerModules;
+
+  home-manager.sharedModules = attrValues {
+    inherit (self.homeManagerModules)
+      eza
+      fcitx
+      fish
+      git
+      gpg
+      gtk
+      htop
+      librewolf
+      neovim
+      starship
+      thunar
+      xdg-user-dirs
+      xresources
+      ;
+  };
+
   environment.systemPackages = attrValues self.packages.${pkgs.system};
 
   modules = {
