@@ -21,12 +21,7 @@ in
       phosh = true;
     };
 
-    hardware = {
-      keyboardBinds = true;
-      bluetooth = true;
-      phone = true;
-      sensor = true;
-    };
+    hardware.keyboardBinds = true;
 
     system = {
       mullvad = true;
