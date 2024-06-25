@@ -5,7 +5,10 @@ let
 in
 {
   imports = attrValues self.nixosModules;
-  nixpkgs.overlays = attrValues self.overlays;
+
+  nixpkgs.overlays = attrValues {
+    inherit (self.overlays) phinger-cursors;
+  };
 
   home-manager.sharedModules = attrValues {
     inherit (self.homeManagerModules)
