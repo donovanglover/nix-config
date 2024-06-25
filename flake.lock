@@ -170,11 +170,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1718141734,
-        "narHash": "sha256-cA+6l8ZCZ7MXGijVuY/1f55+wF/RT4PlTR9+g4bx86w=",
+        "lastModified": 1719180626,
+        "narHash": "sha256-vZAzm5KQpR6RGple1dzmSJw5kPivES2heCFM+ZWkt0I=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "892f76bd0aa09a0f7f73eb41834b8a904b6d0fad",
+        "rev": "6b1f90a8ff92e81638ae6eb48cd62349c3e387bb",
         "type": "github"
       },
       "original": {
@@ -201,16 +201,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1718917609,
-        "narHash": "sha256-/MFCEwQtI3kB9fFh5BDGGwWQ2/+PJSnAyXH0swzQD3A=",
-        "owner": "donovanglover",
+        "lastModified": 1719075281,
+        "narHash": "sha256-CyyxvOwFf12I91PBWz43iGT1kjsf5oi6ax7CrvaMyAo=",
+        "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "032ddc04be95f4d2e45aa821655f19dbb89bd883",
+        "rev": "a71e967ef3694799d0c418c98332f7ff4cc5f6af",
         "type": "github"
       },
       "original": {
-        "owner": "donovanglover",
-        "ref": "unstable-hyprland-v0.41.1",
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
