@@ -49,12 +49,6 @@ in
     };
   };
 
-  environment = {
-    sessionVariables = {
-      LIBGL_ALWAYS_SOFTWARE = "true";
-    };
-  };
-
   programs = {
     calls.enable = true;
   };
