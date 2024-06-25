@@ -42,7 +42,7 @@ in
   };
 
   config = {
-    hardware.opengl.driSupport32Bit = mkIf (!phone) true;
+    hardware.graphics.enable32Bit = mkIf (!phone) true;
 
     programs = {
       hyprland.enable = mkIf (!container) true;
