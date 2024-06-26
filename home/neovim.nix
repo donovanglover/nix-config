@@ -476,7 +476,6 @@ in
       neoformat
       vim-crystal
       vim-nix
-      fcitx-vim
       tagbar
       rainbow-delimiters-nvim
     ];
