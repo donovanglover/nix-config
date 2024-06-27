@@ -21,7 +21,7 @@
     };
 
     mobile-nixos = {
-      url = "github:NixOS/mobile-nixos";
+      url = "github:donovanglover/mobile-nixos";
       flake = false;
     };
   };
