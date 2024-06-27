@@ -152,10 +152,7 @@ in
         inherit (pkgs.gnome)
           eog
           geary
-          gnome-calendar
           gnome-contacts
-          gnome-clocks
-          gnome-chess
           gnome-sound-recorder
           gnome-maps
           ;
@@ -165,24 +162,13 @@ in
           chatty
           gnome-console
           megapixels
-          wvkbd
-          blanket
-          gnome-2048
-          dialect
-          deja-dup
-          folio
           fractal
-          freetube
-          furtherance
           g4music
           livi
-          newsflash
           papers
           phosh-mobile-settings
           resources
-          smile
           tuba
-          wike
           caerbannog
           ;
       }))
