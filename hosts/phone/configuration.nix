@@ -1,4 +1,4 @@
-{ self, pkgs, ... }:
+{ self, pkgs, lib, ... }:
 
 let
   inherit (builtins) attrValues;
@@ -52,6 +52,8 @@ in
   programs = {
     calls.enable = true;
   };
+
+  services.pipewire.enable = lib.mkForce false;
 
   networking = {
     wireless.enable = false;
