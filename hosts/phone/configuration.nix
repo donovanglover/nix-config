@@ -22,7 +22,6 @@ in
       librewolf
       neovim
       starship
-      thunar
       xdg-user-dirs
       xresources
       ;

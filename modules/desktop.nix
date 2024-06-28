@@ -44,7 +44,7 @@ in
       hyprland.enable = mkIf (!container && !phone) true;
       cdemu.enable = mkIf (!phone) true;
 
-      thunar = {
+      thunar = mkIf (!phone) {
         enable = true;
 
         plugins = attrValues {
