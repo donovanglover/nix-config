@@ -146,21 +146,6 @@
         "type": "github"
       }
     },
-    "gnome-mobile": {
-      "locked": {
-        "lastModified": 1714963121,
-        "narHash": "sha256-L5+alPQZ7oW9Sjf2y4EN6SnXxG0rhexqe1u9LbtERBA=",
-        "owner": "chuangzhu",
-        "repo": "nixpkgs-gnome-mobile",
-        "rev": "56824cb5737d0870ec8ac56c3013d9ae85ee8a98",
-        "type": "github"
-      },
-      "original": {
-        "owner": "chuangzhu",
-        "repo": "nixpkgs-gnome-mobile",
-        "type": "github"
-      }
-    },
     "gnome-shell": {
       "flake": false,
       "locked": {
@@ -232,7 +217,6 @@
     },
     "root": {
       "inputs": {
-        "gnome-mobile": "gnome-mobile",
         "home-manager": "home-manager",
         "mobile-nixos": "mobile-nixos",
         "nixpkgs": "nixpkgs",

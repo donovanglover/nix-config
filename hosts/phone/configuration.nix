@@ -4,9 +4,7 @@ let
   inherit (builtins) attrValues;
 in
 {
-  imports = attrValues self.nixosModules ++ attrValues {
-    inherit (self.inputs.gnome-mobile.nixosModules) gnome-mobile;
-  };
+  imports = attrValues self.nixosModules;
 
   nixpkgs.overlays = attrValues {
     inherit (self.overlays) phinger-cursors;
@@ -41,6 +39,7 @@ in
 
     desktop = {
       phone = true;
+      phosh = true;
     };
 
     hardware.keyboardBinds = true;

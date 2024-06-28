@@ -24,8 +24,6 @@
       url = "github:donovanglover/mobile-nixos";
       flake = false;
     };
-
-    gnome-mobile.url = "github:chuangzhu/nixpkgs-gnome-mobile";
   };
 
   outputs = { self, nixpkgs, mobile-nixos, ... } @ attrs:

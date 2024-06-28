@@ -53,7 +53,7 @@ in
       };
     };
 
-    i18n.inputMethod = mkIf (!phone) {
+    i18n.inputMethod = mkIf (!phosh) {
       enabled = "fcitx5";
 
       fcitx5 = {
@@ -72,7 +72,7 @@ in
         enable = true;
         excludePackages = [ pkgs.xterm ];
 
-        displayManager.lightdm.enable = mkIf phone false;
+        displayManager.lightdm.enable = mkIf phosh false;
 
         desktopManager.phosh = mkIf phosh {
           enable = true;
@@ -85,7 +85,7 @@ in
         };
       };
 
-      pipewire = mkIf (!phone) {
+      pipewire = mkIf (!phosh) {
         enable = true;
 
         alsa = {
@@ -96,7 +96,7 @@ in
         pulse.enable = true;
       };
 
-      greetd = mkIf (!container && !phone) {
+      greetd = mkIf (!container && !phosh) {
         enable = true;
         restart = false;
 
