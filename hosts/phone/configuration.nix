@@ -64,5 +64,14 @@ in
     openssh.enable = true;
   };
 
-  powerManagement.enable = true;
+  powerManagement = {
+    enable = true;
+
+    cpufreq = rec {
+      min = 648000;
+      max = min;
+    };
+
+    cpuFreqGovernor = "powersave";
+  };
 }
