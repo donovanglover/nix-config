@@ -61,7 +61,6 @@ in
 
   services = {
     openssh.enable = true;
-    irqbalance.enable = true;
   };
 
   powerManagement = {
