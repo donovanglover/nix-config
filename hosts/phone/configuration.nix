@@ -13,7 +13,6 @@ in
   home-manager.sharedModules = attrValues {
     inherit (self.homeManagerModules)
       eza
-      fcitx
       fish
       git
       gpg
