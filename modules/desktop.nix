@@ -174,7 +174,13 @@ in
       }))
 
       (attrValues {
-        inherit (pkgs) anki kanjidraw pulseaudio glib;
+        inherit (pkgs)
+          anki
+          kanjidraw
+          pulseaudio
+          glib
+          grim
+          ;
         inherit (pkgs.xfce) exo;
       })
     ];
