@@ -1,7 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 let
   inherit (pkgs) polkit_gnome callPackage;
+  inherit (lib) mkForce;
 
   opacity = "0.95";
   super = "SUPER";
@@ -424,4 +425,6 @@ in
       ];
     };
   };
+
+  services.hyprpaper.enable = mkForce false;
 }

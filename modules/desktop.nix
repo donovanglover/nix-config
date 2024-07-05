@@ -209,6 +209,7 @@ in
     };
 
     stylix = {
+      enable = true;
       image = ../assets/wallpaper.png;
       polarity = "dark";
       base16Scheme = ../assets/selenized-black.yaml;
