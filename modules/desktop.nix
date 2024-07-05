@@ -126,17 +126,13 @@ in
           spek
           audacity
           gimp
-          sqlitebrowser
-          qdirstat
           libreoffice
-          krita
           element-desktop
           signal-desktop
           qbittorrent
           obs-studio
           popsicle
           satty
-          aaaaxy
           srb2
           ringracers
           jamesdsp
