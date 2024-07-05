@@ -19,7 +19,6 @@ in
     disableLaptopKeyboard = mkEnableOption "udev rule to disable laptop keyboard";
     lidIgnore = mkEnableOption "ignoring the laptop lid on close";
     powerIgnore = mkEnableOption "ignoring the power button on press";
-    sensor = mkEnableOption "IIO sensor";
   };
 
   config = {
