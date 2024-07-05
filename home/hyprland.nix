@@ -11,6 +11,7 @@ let
 
   raiseVolumeScript = "hypr/raise-volume.fish";
   lowerVolumeScript = "hypr/lower-volume.fish";
+  muteScript = "hypr/mute.fish";
   gapsScript = "hypr/gaps.sh";
   randomBackgroundScript = "hypr/random-bg.fish";
   swapBackgroundScript = "hypr/swap-bg.fish";
@@ -251,9 +252,10 @@ in
       ];
 
       bindl = [
-        ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && notify-send -t 2000 \"Muted\" \"$(wpctl get-volume @DEFAULT_AUDIO_SINK@)\""
+        ", XF86AudioMute, exec, ~/.config/${muteScript} Volume @DEFAULT_AUDIO_SINK@"
         ", XF86AudioRaiseVolume, exec, ~/.config/${raiseVolumeScript}"
         ", XF86AudioLowerVolume, exec, ~/.config/${lowerVolumeScript}"
+        ", XF86AudioMicMute, exec, ~/.config/${muteScript} Microphone @DEFAULT_AUDIO_SOURCE@"
         ", XF86MonBrightnessDown, exec, brightnessctl set 5%- && notify-send -t 2000 \"Decreased brightness to\" \"$(brightnessctl get)\""
         ", XF86MonBrightnessUp, exec, brightnessctl set +5% && notify-send -t 2000 \"Increased brightness to\" \"$(brightnessctl get)\""
       ];
@@ -301,6 +303,23 @@ in
       set VOL $(math "$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | choose 1) * 100")
 
       notify-send -t 2000 "Lowered volume to" "$VOL%"
+    '';
+  };
+
+  xdg.configFile.${muteScript} = {
+    executable = true;
+    text = /* fish */ ''
+      #!/usr/bin/env fish
+
+      wpctl set-mute "$argv[2]" toggle
+
+      set SINK $(wpctl get-volume "$argv[2]")
+
+      if test -n "$(echo $SINK | choose 2)"
+        notify-send -t 2000 "$argv[1]" "Muted"
+      else
+        notify-send -t 2000 "$argv[1]" "$(math "$(echo $SINK | choose 1) * 100")%"
+      end
     '';
   };
 
