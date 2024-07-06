@@ -1,8 +1,9 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 
 let
   inherit (config.lib.stylix.scheme) scheme;
   inherit (pkgs) callPackage;
+  inherit (lib.strings) toLower;
 
   base16-nvim = callPackage ../packages/base16-nvim.nix { };
 in
@@ -325,7 +326,7 @@ in
       {
         plugin = base16-nvim;
         type = "lua";
-        config = "vim.cmd('colorscheme base16-${scheme}')";
+        config = "vim.cmd('colorscheme base16-${toLower scheme}')";
       }
       {
         plugin = lualine-nvim;
