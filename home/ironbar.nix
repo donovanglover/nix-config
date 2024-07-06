@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, vars, ... }:
 
 let
   inherit (lib) singleton;
@@ -176,7 +176,7 @@ in
 
       sleep 0.2
 
-      notify-send -t 2000 "Mullvad" "$(mullvad status | choose 2)"
+      notify-send -t ${vars.notifications.duration} "Mullvad" "$(mullvad status | choose 2)"
     '';
   };
 

@@ -165,6 +165,14 @@ in
 
         homeDirectory = "/home/${username}";
       };
+
+      extraSpecialArgs = {
+        vars = {
+          notifications = {
+            duration = "2000";
+          };
+        };
+      };
     };
 
     virtualisation.vmVariant = {
