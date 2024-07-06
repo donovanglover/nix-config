@@ -146,8 +146,6 @@ in
 
       (mkIf phone (attrValues {
         inherit (pkgs.gnome)
-          eog
-          geary
           gnome-contacts
           gnome-sound-recorder
           gnome-maps
@@ -166,6 +164,8 @@ in
           resources
           tuba
           caerbannog
+          eog
+          geary
           ;
       }))
 
