@@ -4,7 +4,7 @@ let
   inherit (lib) mkEnableOption mkIf getExe singleton;
   inherit (pkgs) piper interception-tools;
   inherit (pkgs.interception-tools-plugins) dual-function-keys;
-  inherit (cfg) mouseSettings disableLaptopKeyboard lidIgnore powerIgnore keyboardBinds bluetooth;
+  inherit (cfg) mouseSettings lidIgnore powerIgnore keyboardBinds bluetooth;
   inherit (builtins) toJSON;
 
   dualFunctionKeysConfig = "dual-function-keys.yaml";
@@ -16,7 +16,6 @@ in
     keyboardBinds = mkEnableOption "start button for rofi, caps lock as escape, etc.";
     mouseSettings = mkEnableOption "piper for gaming mice";
     bluetooth = mkEnableOption "bluetooth support";
-    disableLaptopKeyboard = mkEnableOption "udev rule to disable laptop keyboard";
     lidIgnore = mkEnableOption "ignoring the laptop lid on close";
     powerIgnore = mkEnableOption "ignoring the power button on press";
   };
@@ -27,10 +26,6 @@ in
     services = {
       ratbagd.enable = mkIf mouseSettings true;
       blueman.enable = mkIf bluetooth true;
-
-      udev.extraRules = mkIf disableLaptopKeyboard ''
-        KERNEL=="event*", ATTRS{name}=="AT Translated Set 2 keyboard", ENV{LIBINPUT_IGNORE_DEVICE}="1"
-      '';
 
       logind = {
         lidSwitch = mkIf lidIgnore "ignore";
