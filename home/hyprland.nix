@@ -133,7 +133,6 @@ in
       };
 
       master = {
-        new_is_master = false;
         new_on_top = false;
         mfact = 0.65;
         special_scale_factor = 1;
