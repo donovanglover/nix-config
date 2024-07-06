@@ -176,7 +176,7 @@ in
 
       sleep 0.2
 
-      notify-send -t ${vars.notifications.duration} "Mullvad" "$(mullvad status | choose 2)"
+      ${vars.notifySend} "Mullvad" "$(mullvad status | choose 2)"
     '';
   };
 

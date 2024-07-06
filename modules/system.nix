@@ -168,9 +168,7 @@ in
 
       extraSpecialArgs = {
         vars = {
-          notifications = {
-            duration = "2000";
-          };
+          notifySend = "notify-send -t 2000";
         };
       };
     };

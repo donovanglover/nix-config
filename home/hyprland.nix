@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, vars, ... }:
 
 let
   inherit (pkgs) polkit_gnome callPackage;
@@ -212,11 +212,11 @@ in
         "${super}_SHIFT, O, exec, eww close overlay || eww open overlay"
         "${super}, F1, exec, killall rofi || rofi -show drun"
         "${super}, F2, togglespecialworkspace"
-        "${super}, comma, exec, playerctl -p mpv position \"5-\" && notify-send -t 2000 \"Minus 5 seconds\" \"$(playerctl -p mpv position)\""
-        "${super}, period, exec, playerctl -p mpv position \"5+\" && notify-send -t 2000 \"Plus 5 seconds\" \"$(playerctl -p mpv position)\""
-        "${super}_SHIFT, comma, exec, playerctl -p mpv previous && notify-send -t 2000 \"Previous track\" \"$(playerctl -p mpv metadata xesam:title)\""
-        "${super}_SHIFT, period, exec, playerctl -p mpv next && notify-send -t 2000 \"Next track\" \"$(playerctl -p mpv metadata xesam:title)\""
-        "${super}, slash, exec, playerctl -p mpv play-pause && notify-send -t 2000 \"mpv\" \"$(playerctl -p mpv status)\""
+        "${super}, comma, exec, playerctl -p mpv position \"5-\" && ${vars.notifySend} \"Minus 5 seconds\" \"$(playerctl -p mpv position)\""
+        "${super}, period, exec, playerctl -p mpv position \"5+\" && ${vars.notifySend} \"Plus 5 seconds\" \"$(playerctl -p mpv position)\""
+        "${super}_SHIFT, comma, exec, playerctl -p mpv previous && ${vars.notifySend} \"Previous track\" \"$(playerctl -p mpv metadata xesam:title)\""
+        "${super}_SHIFT, period, exec, playerctl -p mpv next && ${vars.notifySend} \"Next track\" \"$(playerctl -p mpv metadata xesam:title)\""
+        "${super}, slash, exec, playerctl -p mpv play-pause && ${vars.notifySend} \"mpv\" \"$(playerctl -p mpv status)\""
         "${super}, M, focusmonitor, +1"
         "${super}_SHIFT, M, focusmonitor, -1"
 
@@ -256,8 +256,8 @@ in
         ", XF86AudioRaiseVolume, exec, ~/.config/${raiseVolumeScript}"
         ", XF86AudioLowerVolume, exec, ~/.config/${lowerVolumeScript}"
         ", XF86AudioMicMute, exec, ~/.config/${muteScript} Microphone @DEFAULT_AUDIO_SOURCE@"
-        ", XF86MonBrightnessDown, exec, brightnessctl set 5%- && notify-send -t 2000 \"Decreased brightness to\" \"$(brightnessctl get)\""
-        ", XF86MonBrightnessUp, exec, brightnessctl set +5% && notify-send -t 2000 \"Increased brightness to\" \"$(brightnessctl get)\""
+        ", XF86MonBrightnessDown, exec, brightnessctl set 5%- && ${vars.notifySend} \"Decreased brightness to\" \"$(brightnessctl get)\""
+        ", XF86MonBrightnessUp, exec, brightnessctl set +5% && ${vars.notifySend} \"Increased brightness to\" \"$(brightnessctl get)\""
       ];
     };
 
@@ -289,7 +289,7 @@ in
 
       set VOL $(math "$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | choose 1) * 100")
 
-      notify-send -t 2000 "Raised volume to" "$VOL%"
+      ${vars.notifySend} "Raised volume to" "$VOL%"
     '';
   };
 
@@ -302,7 +302,7 @@ in
 
       set VOL $(math "$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | choose 1) * 100")
 
-      notify-send -t 2000 "Lowered volume to" "$VOL%"
+      ${vars.notifySend} "Lowered volume to" "$VOL%"
     '';
   };
 
@@ -316,9 +316,9 @@ in
       set SINK $(wpctl get-volume "$argv[2]")
 
       if test -n "$(echo $SINK | choose 2)"
-        notify-send -t 2000 "$argv[1]" "Muted"
+        ${vars.notifySend} "$argv[1]" "Muted"
       else
-        notify-send -t 2000 "$argv[1]" "$(math "$(echo $SINK | choose 1) * 100")%"
+        ${vars.notifySend} "$argv[1]" "$(math "$(echo $SINK | choose 1) * 100")%"
       end
     '';
   };
