@@ -44,6 +44,10 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
 
+    plugins = [
+      (callPackage ../packages/hyprspace.nix { })
+    ];
+
     settings = {
       env = [
         "BROWSER,librewolf"
@@ -167,6 +171,20 @@ in
         "blur,notifications"
       ];
 
+      plugin = {
+        overview = {
+          affectStrut = false;
+          showEmptyWorkspace = false;
+          exitOnSwitch = true;
+          exitOnClick = true;
+          drawActiveWorkspace = true;
+          hideRealLayers = false;
+          hideOverlayLayers = false;
+          hideTopLayers = false;
+          hideBackgroundLayers = false;
+        };
+      };
+
       windowrulev2 = [
         "nomaxsize,class:^(winecfg\.exe)$"
         "nomaxsize,class:^(osu\.exe)$"
@@ -204,6 +222,7 @@ in
         "${super}, U, exec, ~/.config/${gapsScript}"
         "${super}, X, pin"
         "${super}, F, fullscreen"
+        "${super}, Tab, overview:toggle, all"
         "${super}, S, swapactiveworkspaces, 0 1"
         "${super}_SHIFT, S, movetoworkspace, special"
         "${super}_SHIFT, A, exec, killall activate-linux || activate-linux -s 1.15 -x 412 -y 120 -c 1-1-1-0.05"
