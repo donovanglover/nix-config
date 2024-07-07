@@ -444,8 +444,8 @@ in
       listener = [
         {
           timeout = 150;
-          on-timeout = "brightnessctl -s set 10";
-          on-resume = "brightnessctl -r";
+          on-timeout = "brightnessctl -s set 10 && brightnessctl --device=tpacpi::kbd_backlight set 0 --save";
+          on-resume = "brightnessctl -r && brightnessctl --device=tpacpi::kbd_backlight --restore";
         }
         {
           timeout = 300;
