@@ -12,7 +12,7 @@ let
   raiseVolumeScript = "hypr/raise-volume.fish";
   lowerVolumeScript = "hypr/lower-volume.fish";
   muteScript = "hypr/mute.fish";
-  gapsScript = "hypr/gaps.sh";
+  gapsScript = "hypr/gaps.fish";
   randomBackgroundScript = "hypr/random-bg.fish";
   swapBackgroundScript = "hypr/swap-bg.fish";
   setBackgroundScript = "hypr/set-bg.fish";
@@ -290,12 +290,13 @@ in
 
   xdg.configFile.${gapsScript} = {
     executable = true;
-    text = /* bash */ ''
-      #!/usr/bin/env bash
-      hyprctl keyword general:gaps_out $((10 - $(hyprctl getoption general:gaps_out -j | jq -r ".custom" | choose 1)))
-      hyprctl keyword general:gaps_in $((5 - $(hyprctl getoption general:gaps_in -j | jq -r ".custom" | choose 1)))
-      hyprctl keyword general:border_size $((2 - $(hyprctl getoption general:border_size -j | jq -r ".int")))
-      hyprctl keyword decoration:rounding $((8 - $(hyprctl getoption decoration:rounding -j | jq -r ".int")))
+    text = /* fish */ ''
+      #!/usr/bin/env fish
+
+      hyprctl keyword general:gaps_out $(math 10 - $(hyprctl getoption general:gaps_out -j | jq -r ".custom" | choose 1))
+      hyprctl keyword general:gaps_in $(math 5 - $(hyprctl getoption general:gaps_in -j | jq -r ".custom" | choose 1))
+      hyprctl keyword general:border_size $(math 2 - $(hyprctl getoption general:border_size -j | jq -r ".int"))
+      hyprctl keyword decoration:rounding $(math 8 - $(hyprctl getoption decoration:rounding -j | jq -r ".int"))
     '';
   };
 
