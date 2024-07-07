@@ -276,6 +276,7 @@ in
         ", XF86AudioMicMute, exec, ~/.config/${muteScript} Microphone @DEFAULT_AUDIO_SOURCE@"
         ", XF86MonBrightnessDown, exec, brightnessctl set 5%- && ${vars.notifySend} \"Decreased brightness to\" \"$(brightnessctl get)\""
         ", XF86MonBrightnessUp, exec, brightnessctl set +5% && ${vars.notifySend} \"Increased brightness to\" \"$(brightnessctl get)\""
+        ", XF86WLAN, exec, sleep 0.2 && ${vars.notifySend} \"WiFi\" \"$(nmcli radio wifi)\""
       ];
     };
 
