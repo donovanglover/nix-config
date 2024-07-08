@@ -26,7 +26,11 @@ in
       ;
   };
 
-  environment.systemPackages = attrValues self.packages.${pkgs.system};
+  environment.systemPackages = attrValues {
+    inherit (self.packages.${pkgs.system})
+      webp-thumbnailer
+      ;
+  };
 
   modules = {
     system = {
