@@ -16,6 +16,7 @@ let
   randomBackgroundScript = "hypr/random-bg.fish";
   swapBackgroundScript = "hypr/swap-bg.fish";
   setBackgroundScript = "hypr/set-bg.fish";
+  monitorScript = "hypr/monitor-script.fish";
 in
 {
   home.packages = with pkgs; [
@@ -280,6 +281,7 @@ in
         ", XF86AudioMicMute, exec, ~/.config/${muteScript} Microphone @DEFAULT_AUDIO_SOURCE@"
         ", XF86MonBrightnessDown, exec, brightnessctl set 5%- && ${vars.notifySend} \"Decreased brightness to\" \"$(brightnessctl get)\""
         ", XF86MonBrightnessUp, exec, brightnessctl set +5% && ${vars.notifySend} \"Increased brightness to\" \"$(brightnessctl get)\""
+        ", XF86Display, exec, ~/.config/${monitorScript}"
         ", XF86WLAN, exec, sleep 0.2 && ${vars.notifySend} \"WiFi\" \"$(nmcli radio wifi)\""
       ];
     };
@@ -395,6 +397,19 @@ in
 
       ~/.config/${setBackgroundScript} "$(swww query | choose 0 | choose -c 0..-1 | tail -n 1)" "$M1"
       ~/.config/${setBackgroundScript} "$(swww query | choose 0 | choose -c 0..-1 | head -n 1)" "$M2"
+    '';
+  };
+
+  xdg.configFile.${monitorScript} = {
+    executable = true;
+    text = /* fish */ ''
+      #!/usr/bin/env fish
+
+      if test -n "$(hyprctl monitors -j | jq -r '.[] | select(.name | contains("eDP-1"))')"
+        hyprctl keyword monitor eDP-1,disable
+      else
+        hyprctl keyword monitor eDP-1,preferred,auto-left,1
+      end
     '';
   };
 
