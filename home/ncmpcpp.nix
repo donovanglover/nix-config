@@ -5,8 +5,6 @@ let
   inherit (config.xdg.userDirs) music;
 
   musicDirectory = music;
-  changeScript = "ncmpcpp/on-song-change.sh";
-  fallbackImage = ../assets/wallpaper.png;
 in
 {
   home.packages = [ mpc-cli ];
@@ -17,32 +15,6 @@ in
 
     extraConfig = /* config */ ''
       auto_update "yes"
-    '';
-  };
-
-  xdg.configFile.${changeScript} = {
-    executable = true;
-    text = /* bash */ ''
-      #!/usr/bin/env bash
-
-      find_cover () {
-        ext="$(mpc --format %file% current | sed 's/^.*\.//')"
-
-        if [ "$ext" == "flac" ]; then
-          metaflac --export-picture-to=/tmp/cover.jpg \
-          "$(mpc --format "${musicDirectory}"/%file% current)" && cover_path="/tmp/cover.jpg" && return
-        else
-          ffmpeg -y -i "$(mpc --format "${musicDirectory}"/%file% | head -n 1)" \
-          /tmp/cover.jpg && cover_path="/tmp/cover.jpg" && return
-        fi
-
-        file="${musicDirectory}/$(mpc --format %file% current)"
-        album="''${file%/*}"
-        cover_path=$(find "$album" -maxdepth 1 | grep -m 1 ".*\.\(jpg\|png\|gif\|bmp\)")
-      }
-
-      find_cover 2>/dev/null
-      notify-send -i "''${cover_path:-${fallbackImage}}" "Now Playing" "$(mpc current)" 2>/dev/null
     '';
   };
 
@@ -86,7 +58,6 @@ in
       autocenter_mode = "yes";
       allow_for_physical_item_deletion = "no";
       mouse_support = "no";
-      execute_on_song_change = "~/.config/${changeScript}";
       mpd_crossfade_time = 3;
     };
   };

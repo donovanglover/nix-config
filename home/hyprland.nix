@@ -76,6 +76,7 @@ in
         "wpctl set-volume @DEFAULT_AUDIO_SINK@ 20%"
         "ironbar"
         "fcitx5"
+        "mpdris2-rs"
         "hyprctl dispatch workspace 5000000"
         "${polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
         "hyprdim --no-dim-when-only --persist --ignore-leaving-special --dialog-dim"
