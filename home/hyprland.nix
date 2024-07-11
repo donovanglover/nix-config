@@ -421,5 +421,8 @@ in
     };
   };
 
-  services.hyprpaper.enable = mkForce false;
+  services = {
+    batsignal.enable = true;
+    hyprpaper.enable = mkForce false;
+  };
 }
