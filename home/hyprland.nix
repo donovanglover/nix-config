@@ -42,10 +42,6 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
 
-    plugins = [
-      (callPackage ../packages/hyprspace.nix { })
-    ];
-
     settings = {
       env = [
         "BROWSER,librewolf"
@@ -173,20 +169,6 @@ in
         "blur,rofi"
         "blur,notifications"
       ];
-
-      plugin = {
-        overview = {
-          affectStrut = false;
-          showEmptyWorkspace = false;
-          exitOnSwitch = true;
-          exitOnClick = true;
-          drawActiveWorkspace = true;
-          hideRealLayers = false;
-          hideOverlayLayers = false;
-          hideTopLayers = false;
-          hideBackgroundLayers = false;
-        };
-      };
 
       windowrulev2 = [
         "nomaxsize,class:^(winecfg\.exe)$"
