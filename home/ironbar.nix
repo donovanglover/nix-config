@@ -54,8 +54,8 @@ in
       {
         type = "script";
         cmd = "~/.config/${volumeScript}";
-        on_click_left = "~/.config/hypr/raise-volume.fish";
-        on_click_right = "~/.config/hypr/lower-volume.fish";
+        on_click_left = "swayosd-client --output-volume raise";
+        on_click_right = "swayosd-client --output-volume lower";
         mode = "watch";
       }
       {

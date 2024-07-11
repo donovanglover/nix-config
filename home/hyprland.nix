@@ -9,9 +9,6 @@ let
 
   osu-backgrounds = callPackage ../packages/osu-backgrounds.nix { };
 
-  raiseVolumeScript = "hypr/raise-volume.fish";
-  lowerVolumeScript = "hypr/lower-volume.fish";
-  muteScript = "hypr/mute.fish";
   gapsScript = "hypr/gaps.fish";
   randomBackgroundScript = "hypr/random-bg.fish";
   swapBackgroundScript = "hypr/swap-bg.fish";
@@ -275,12 +272,12 @@ in
       ];
 
       bindl = [
-        ", XF86AudioMute, exec, ~/.config/${muteScript} Volume @DEFAULT_AUDIO_SINK@"
-        ", XF86AudioRaiseVolume, exec, ~/.config/${raiseVolumeScript}"
-        ", XF86AudioLowerVolume, exec, ~/.config/${lowerVolumeScript}"
-        ", XF86AudioMicMute, exec, ~/.config/${muteScript} Microphone @DEFAULT_AUDIO_SOURCE@"
-        ", XF86MonBrightnessDown, exec, brightnessctl set 5%- && ${vars.notifySend} \"Decreased brightness to\" \"$(brightnessctl get)\""
-        ", XF86MonBrightnessUp, exec, brightnessctl set +5% && ${vars.notifySend} \"Increased brightness to\" \"$(brightnessctl get)\""
+        ", XF86AudioMute, exec, swayosd-client --output-volume mute-toggle"
+        ", XF86AudioRaiseVolume, exec, swayosd-client --output-volume raise"
+        ", XF86AudioLowerVolume, exec, swayosd-client --output-volume lower"
+        ", XF86AudioMicMute, exec, swayosd-client --input-volume mute-toggle"
+        ", XF86MonBrightnessDown, exec, swayosd-client --brightness lower"
+        ", XF86MonBrightnessUp, exec, swayosd-client --brightness raise"
         ", XF86Display, exec, ~/.config/${monitorScript}"
         ", XF86WLAN, exec, sleep 0.2 && ${vars.notifySend} \"WiFi\" \"$(nmcli radio wifi)\""
       ];
@@ -303,49 +300,6 @@ in
       hyprctl keyword general:gaps_in $(math 5 - $(hyprctl getoption general:gaps_in -j | jq -r ".custom" | choose 1))
       hyprctl keyword general:border_size $(math 2 - $(hyprctl getoption general:border_size -j | jq -r ".int"))
       hyprctl keyword decoration:rounding $(math 8 - $(hyprctl getoption decoration:rounding -j | jq -r ".int"))
-    '';
-  };
-
-  xdg.configFile.${raiseVolumeScript} = {
-    executable = true;
-    text = /* fish */ ''
-      #!/usr/bin/env fish
-
-      wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+
-
-      set VOL $(math "$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | choose 1) * 100")
-
-      ${vars.notifySend} "Raised volume to" "$VOL%"
-    '';
-  };
-
-  xdg.configFile.${lowerVolumeScript} = {
-    executable = true;
-    text = /* fish */ ''
-      #!/usr/bin/env fish
-
-      wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-
-      set VOL $(math "$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | choose 1) * 100")
-
-      ${vars.notifySend} "Lowered volume to" "$VOL%"
-    '';
-  };
-
-  xdg.configFile.${muteScript} = {
-    executable = true;
-    text = /* fish */ ''
-      #!/usr/bin/env fish
-
-      wpctl set-mute "$argv[2]" toggle
-
-      set SINK $(wpctl get-volume "$argv[2]")
-
-      if test -n "$(echo $SINK | choose 2)"
-        ${vars.notifySend} "$argv[1]" "Muted"
-      else
-        ${vars.notifySend} "$argv[1]" "$(math "$(echo $SINK | choose 1) * 100")%"
-      end
     '';
   };
 
