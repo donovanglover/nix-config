@@ -4,21 +4,25 @@ let
   inherit (builtins) attrValues;
 in
 {
-  imports = [
-    ../modules/shell.nix
-    ../modules/desktop.nix
-    ../modules/system.nix
-  ];
+  imports = attrValues {
+    inherit (nix-config.nixosModules)
+      shell
+      desktop
+      system
+      ;
+  };
 
-  home-manager.sharedModules = [
-    ../home/fish.nix
-    ../home/git.nix
-    ../home/gtk.nix
-    ../home/kitty.nix
-    ../home/neovim.nix
-    ../home/xresources.nix
-    ../home/yazi.nix
-  ];
+  home-manager.sharedModules = attrValues {
+    inherit (nix-config.homeManagerModules)
+      fish
+      git
+      gtk
+      kitty
+      neovim
+      xresources
+      yazi
+      ;
+  };
 
   nixpkgs.overlays = attrValues nix-config.overlays;
 
