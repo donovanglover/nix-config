@@ -185,7 +185,7 @@ in
     text = /* fish */ ''
       #!/usr/bin/env fish
 
-      sleep 1
+      sleep 2
 
       function get_mullvad_status
         if test -z "$inside"
