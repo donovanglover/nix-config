@@ -7,20 +7,33 @@ in
   imports = attrValues self.nixosModules;
 
   nixpkgs.overlays = attrValues {
-    inherit (self.overlays) phinger-cursors;
+    inherit (self.overlays)
+      phinger-cursors
+      hyprland
+      ;
   };
 
   home-manager.sharedModules = attrValues {
     inherit (self.homeManagerModules)
+      dunst
+      eww
       eza
+      fcitx
       fish
       git
       gpg
       gtk
       htop
+      hyprland
+      ironbar
+      kitty
       librewolf
+      mpv
+      ncmpcpp
       neovim
       starship
+      swayosd
+      thunar
       xdg-user-dirs
       xresources
       ;

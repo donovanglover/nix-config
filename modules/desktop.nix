@@ -9,6 +9,10 @@ let
   inherit (pkgs) phinger-cursors noto-fonts-cjk-sans maple-mono noto-fonts-emoji;
   inherit (builtins) attrValues;
 
+  legacyHyprland = pkgs.hyprland.override {
+    legacyRenderer = true;
+  };
+
   cfg = config.modules.desktop;
 in
 {
@@ -40,7 +44,7 @@ in
     hardware.graphics.enable32Bit = mkIf (!phone) true;
 
     programs = {
-      hyprland.enable = mkIf (!container && !phone) true;
+      hyprland.enable = mkIf (!container) true;
       cdemu.enable = mkIf (!phone) true;
 
       thunar = mkIf (!phone) {
@@ -94,7 +98,7 @@ in
           };
 
           initial_session = {
-            command = "${pkgs.hyprland}/bin/Hyprland";
+            command = "${if phone then legacyHyprland else pkgs.hyprland}/bin/Hyprland";
             user = username;
           };
         };
