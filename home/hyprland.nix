@@ -32,7 +32,6 @@ in
     wtype
     dmenu-wayland
     thud
-    python311Packages.icoextract
     wallust
     activate-linux
     wl-clipboard-rs
