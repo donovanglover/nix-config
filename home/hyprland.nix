@@ -23,12 +23,12 @@ in
     hyprshade
     swww
     grimblast
+    wvkbd
     brightnessctl
     playerctl
     mpvpaper
     lnch
     wev
-    squeekboard
     tessen
     wtype
     dmenu-wayland
@@ -78,10 +78,10 @@ in
         "ironbar"
         "fcitx5"
         "mpdris2-rs"
-        "squeekboard"
         "hyprctl dispatch workspace 5000000"
         "${polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
         "hyprdim --no-dim-when-only --persist --ignore-leaving-special --dialog-dim"
+        "wvkbd-mobintl"
         "sleep 1 && eww open desktop-icons"
         "~/.config/${randomBackgroundScript}"
       ];
@@ -262,7 +262,7 @@ in
         "${super}, mouse_down, workspace, e+1"
         "${super}, mouse_up, workspace, e-1"
 
-        ", edge:d:u, exec, busctl call --user sm.puri.OSK0 /sm/puri/OSK0 sm.puri.OSK0 SetVisible b true"
+        '', edge:d:u, exec, kill -34 "$(pgrep -x "wvkbd-mobintl")" || wvkbd-mobintl''
         ", edge:u:d, exec, kgx"
         ", edge:r:l, exec, hyprnome"
         ", edge:l:r, exec, hyprnome -p"
@@ -272,7 +272,7 @@ in
         ", swipe:3:rd, exec, gnome-control-center"
         ", swipe:4:d, killactive"
         ", swipe:4:u, exec, librewolf"
-        ", tap:3, exec, busctl call --user sm.puri.OSK0 /sm/puri/OSK0 sm.puri.OSK0 SetVisible b true"
+        '', tap:3, exec, kill -34 "$(pgrep -x "wvkbd-mobintl")" || wvkbd-mobintl''
       ];
 
       bindm = [
