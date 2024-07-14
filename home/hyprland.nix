@@ -28,6 +28,7 @@ in
     mpvpaper
     lnch
     wev
+    squeekboard
     tessen
     wtype
     dmenu-wayland
@@ -41,6 +42,10 @@ in
 
   wayland.windowManager.hyprland = {
     enable = true;
+
+    plugins = with pkgs.hyprlandPlugins; [
+      hyprgrass
+    ];
 
     settings = {
       env = [
@@ -73,6 +78,7 @@ in
         "ironbar"
         "fcitx5"
         "mpdris2-rs"
+        "squeekboard"
         "hyprctl dispatch workspace 5000000"
         "${polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
         "hyprdim --no-dim-when-only --persist --ignore-leaving-special --dialog-dim"
@@ -143,6 +149,7 @@ in
 
       gestures = {
         workspace_swipe = true;
+        workspace_swipe_cancel_ratio = 0.15;
       };
 
       device = [
@@ -162,6 +169,13 @@ in
 
       binds = {
         allow_workspace_cycles = true;
+      };
+
+      plugin = {
+        touch_gestures = {
+          sensitivity = 4.0;
+          workspace_swipe_edge = false;
+        };
       };
 
       layerrule = [
@@ -247,11 +261,25 @@ in
 
         "${super}, mouse_down, workspace, e+1"
         "${super}, mouse_up, workspace, e-1"
+
+        ", edge:d:u, exec, busctl call --user sm.puri.OSK0 /sm/puri/OSK0 sm.puri.OSK0 SetVisible b true"
+        ", edge:u:d, exec, kgx"
+        ", edge:r:l, exec, hyprnome"
+        ", edge:l:r, exec, hyprnome -p"
+        ", swipe:3:lu, exec, chatty"
+        ", swipe:3:ru, exec, gnome-calls"
+        ", swipe:3:ld, exec, gnome-contacts"
+        ", swipe:3:rd, exec, gnome-control-center"
+        ", swipe:4:d, killactive"
+        ", swipe:4:u, exec, librewolf"
+        ", tap:3, exec, busctl call --user sm.puri.OSK0 /sm/puri/OSK0 sm.puri.OSK0 SetVisible b true"
       ];
 
       bindm = [
         "${super}, mouse:272, movewindow"
         "${super}, mouse:273, resizewindow"
+        ", longpress:3, movewindow"
+        ", longpress:4, resizewindow"
       ];
 
       bindl = [
