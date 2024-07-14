@@ -45,6 +45,7 @@ in
 
     plugins = with pkgs.hyprlandPlugins; [
       hyprgrass
+      hyprscroller
     ];
 
     settings = {
@@ -106,7 +107,7 @@ in
         gaps_in = 0;
         gaps_out = 0;
         border_size = 0;
-        layout = "master";
+        layout = "scroller";
       };
 
       decoration = {
@@ -264,14 +265,14 @@ in
 
         '', edge:d:u, exec, kill -34 "$(pgrep -x "wvkbd-mobintl")" || wvkbd-mobintl''
         ", edge:u:d, exec, kgx"
-        ", edge:r:l, exec, hyprnome"
-        ", edge:l:r, exec, hyprnome -p"
-        ", swipe:3:lu, exec, chatty"
-        ", swipe:3:ru, exec, gnome-calls"
-        ", swipe:3:ld, exec, gnome-contacts"
-        ", swipe:3:rd, exec, gnome-control-center"
+        ", edge:r:l, exec, hyprctl dispatch scroller:movefocus left"
+        ", edge:l:r, exec, hyprctl dispatch scoller:movefoucs right"
+        ", swipe:3:lu, exec, hyprctl dispatch scroller:admitwindow"
+        ", swipe:3:ru, exec, hyprctl dispatch scroller:expelwindow"
+        ", swipe:3:ld, exec, hyprctl dispatch scroller:movewindow left"
+        ", swipe:3:rd, exec, hyprctl dispatch scroller:movewindow right"
         ", swipe:4:d, killactive"
-        ", swipe:4:u, exec, librewolf"
+        ", swipe:4:u, exec, hyprctl dispatch scroller:toggleoverview"
         '', tap:3, exec, kill -34 "$(pgrep -x "wvkbd-mobintl")" || wvkbd-mobintl''
       ];
 
