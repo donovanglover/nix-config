@@ -1,11 +1,7 @@
-{ self, pkgs, lib, config, ... }:
+{ self, pkgs, lib, ... }:
 
 let
   inherit (builtins) attrValues;
-
-  transparency = "0.7";
-  getColorCh = colorName: channel: config.lib.stylix.colors."${colorName}-rgb-${channel}";
-  rgba = color: ''rgba(${getColorCh color "r"}, ${getColorCh color "g"}, ${getColorCh color "b"}, ${transparency})'';
 in
 {
   imports = attrValues self.nixosModules;
@@ -28,34 +24,6 @@ in
       xdg-user-dirs
       xresources
       ;
-
-    background = {
-      stylix.targets.gtk.extraCss = /* css */ ''
-        phosh-lockscreen, .phosh-lockshield {
-          background-image: linear-gradient(${rgba "base00"}, ${rgba "base00"}), url('file:///home/user/wall-lock.jpg');
-          background-size: cover;
-          background-position: center;
-        }
-
-        phosh-app-grid {
-          background-image: linear-gradient(${rgba "base00"}, ${rgba "base00"}), url('file:///home/user/wall-grid.jpg');
-          background-size: cover;
-          background-position: center;
-        }
-
-        phosh-top-panel {
-          background-image: linear-gradient(${rgba "base00"}, ${rgba "base00"}), url('file:///home/user/wall-panel.jpg');
-          background-size: cover;
-          background-position: center;
-        }
-
-        phosh-home {
-          background-image: linear-gradient(${rgba "base00"}, ${rgba "base00"}), url('file:///home/user/wall-home.jpg');
-          background-size: cover;
-          background-position: center;
-        }
-      '';
-    };
   };
 
   environment.systemPackages = attrValues {
@@ -73,7 +41,6 @@ in
 
     desktop = {
       phone = true;
-      phosh = true;
     };
 
     hardware.keyboardBinds = true;

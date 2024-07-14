@@ -4,7 +4,7 @@ let
   inherit (lib) mkEnableOption mkIf mkMerge mkOption;
   inherit (lib.types) float int;
   inherit (config.modules.system) username;
-  inherit (cfg) bloat gnome plasma container opacity fontSize graphical phone phosh;
+  inherit (cfg) bloat gnome plasma container opacity fontSize graphical phone;
   inherit (nix-config.packages.${pkgs.system}) aleo-fonts;
   inherit (pkgs) phinger-cursors noto-fonts-cjk-sans maple-mono noto-fonts-emoji;
   inherit (builtins) attrValues;
@@ -34,7 +34,6 @@ in
     plasma = mkEnableOption "Plasma specialization";
     container = mkEnableOption "disable some options for container performance";
     graphical = mkEnableOption "xserver for graphical containers";
-    phosh = mkEnableOption "use phosh instead of hyprland";
   };
 
   config = {
@@ -53,7 +52,7 @@ in
       };
     };
 
-    i18n.inputMethod = mkIf (!phosh) {
+    i18n.inputMethod = {
       enabled = "fcitx5";
 
       fcitx5 = {
@@ -71,21 +70,9 @@ in
       xserver = mkIf (!container || graphical) {
         enable = true;
         excludePackages = [ pkgs.xterm ];
-
-        displayManager.lightdm.enable = mkIf phosh false;
-
-        desktopManager.phosh = mkIf phosh {
-          enable = true;
-          group = "users";
-          user = username;
-
-          phocConfig = {
-            xwayland = "immediate";
-          };
-        };
       };
 
-      pipewire = mkIf (!phosh) {
+      pipewire = mkIf (!phone) {
         enable = true;
 
         alsa = {
@@ -96,7 +83,7 @@ in
         pulse.enable = true;
       };
 
-      greetd = mkIf (!container && !phosh) {
+      greetd = mkIf (!container) {
         enable = true;
         restart = false;
 
