@@ -4,14 +4,10 @@ let
   inherit (lib) mkEnableOption mkIf mkMerge mkOption;
   inherit (lib.types) float int;
   inherit (config.modules.system) username;
-  inherit (cfg) bloat gnome plasma container opacity fontSize graphical phone;
+  inherit (cfg) bloat gnome plasma container opacity fontSize graphical;
   inherit (nix-config.packages.${pkgs.system}) aleo-fonts;
   inherit (pkgs) phinger-cursors noto-fonts-cjk-sans maple-mono noto-fonts-emoji;
   inherit (builtins) attrValues;
-
-  legacyHyprland = pkgs.hyprland.override {
-    legacyRenderer = true;
-  };
 
   cfg = config.modules.desktop;
 in
@@ -33,7 +29,6 @@ in
     };
 
     bloat = mkEnableOption "GUI applications";
-    phone = mkEnableOption "Phone support";
     gnome = mkEnableOption "GNOME specialization";
     plasma = mkEnableOption "Plasma specialization";
     container = mkEnableOption "disable some options for container performance";
@@ -41,13 +36,13 @@ in
   };
 
   config = {
-    hardware.graphics.enable32Bit = mkIf (!phone) true;
+    hardware.graphics.enable32Bit = true;
 
     programs = {
       hyprland.enable = mkIf (!container) true;
-      cdemu.enable = mkIf (!phone) true;
+      cdemu.enable = true;
 
-      thunar = mkIf (!phone) {
+      thunar = {
         enable = true;
 
         plugins = attrValues {
@@ -66,7 +61,7 @@ in
     };
 
     services = {
-      udisks2 = mkIf (!phone) {
+      udisks2 = {
         enable = true;
         mountOnMedia = true;
       };
@@ -76,12 +71,12 @@ in
         excludePackages = [ pkgs.xterm ];
       };
 
-      pipewire = mkIf (!phone) {
+      pipewire = {
         enable = true;
 
         alsa = {
           enable = true;
-          support32Bit = mkIf (!phone) true;
+          support32Bit = true;
         };
 
         pulse.enable = true;
@@ -98,7 +93,7 @@ in
           };
 
           initial_session = {
-            command = "${if phone then legacyHyprland else pkgs.hyprland}/bin/Hyprland";
+            command = "${pkgs.hyprland}/bin/Hyprland";
             user = username;
           };
         };

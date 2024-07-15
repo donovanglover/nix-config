@@ -63,8 +63,12 @@ in
     };
   };
 
+  hardware.graphics.enable32Bit = lib.mkForce false;
+  virtualisation.virtualbox.host.enable = lib.mkForce false;
+
   programs = {
     calls.enable = true;
+    cdemu.enable = lib.mkForce false;
   };
 
   services.pipewire.enable = lib.mkForce false;
@@ -76,6 +80,7 @@ in
 
   services = {
     openssh.enable = true;
+    udisks2.enable = lib.mkForce false;
   };
 
   powerManagement = {
