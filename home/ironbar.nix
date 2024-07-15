@@ -1,4 +1,4 @@
-{ config, lib, pkgs, vars, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   inherit (lib) singleton;
@@ -7,7 +7,6 @@ let
   inherit (builtins) toJSON;
 
   mullvadScript = "ironbar/mullvad.fish";
-  mullvadNotification = "ironbar/mullvad-notification.fish";
   volumeScript = "ironbar/volume.fish";
   volumeGet = "ironbar/volume-get.fish";
 in
@@ -29,7 +28,7 @@ in
       }
       {
         type = "script";
-        on_click_left = "~/.config/${mullvadNotification}";
+        on_click_left = "mullvad relay set location any && mullvad relay set location us";
         cmd = "~/.config/${mullvadScript}";
         mode = "watch";
       }
@@ -165,20 +164,6 @@ in
       padding-right: 0.5em;
     }
   '';
-
-  xdg.configFile.${mullvadNotification} = {
-    executable = true;
-    text = /* fish */ ''
-      #!/usr/bin/env fish
-
-      mullvad relay set location any
-      mullvad relay set location us
-
-      sleep 0.2
-
-      ${vars.notifySend} "Mullvad" "$(mullvad status | choose 2)"
-    '';
-  };
 
   xdg.configFile.${mullvadScript} = {
     executable = true;
