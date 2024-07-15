@@ -214,8 +214,6 @@ in
         "${super}_SHIFT, A, exec, killall activate-linux || activate-linux -s 1.15 -x 412 -y 120 -c 1-1-1-0.05"
         "${super}, O, exec, killall .ironbar-wrapper inotifywait pactl || ironbar"
         "${super}_SHIFT, O, exec, eww close overlay || eww open overlay"
-        "${super}, F1, exec, killall rofi || rofi -show drun"
-        "${super}, F2, togglespecialworkspace"
         ''${super}, comma, exec, playerctl -p mpv position "5-" && ${notifySend} "Minus 5 seconds" "$(playerctl -p mpv position)"''
         ''${super}, period, exec, playerctl -p mpv position "5+" && ${notifySend} "Plus 5 seconds" "$(playerctl -p mpv position)"''
         ''${super}_SHIFT, comma, exec, playerctl -p mpv previous && ${notifySend} "Previous track" "$(playerctl -p mpv metadata xesam:title)"''
@@ -264,6 +262,8 @@ in
         ", XF86MonBrightnessUp, exec, swayosd-client --brightness raise"
         ", XF86Display, exec, ~/.config/${monitorScript}"
         ", XF86WLAN, exec, sleep 0.2 && ${vars.notifySend} \"WiFi\" \"$(nmcli radio wifi)\""
+        ", XF86Messenger, togglespecialworkspace"
+        ", XF86Favorites, exec, killall rofi || rofi -show drun"
       ];
     };
 

@@ -74,12 +74,12 @@ in
         }
         {
           KEY = "KEY_LEFTMETA";
-          TAP = [ "KEY_LEFTMETA" "KEY_F1" ];
+          TAP = "KEY_FAVORITES";
           HOLD = "KEY_LEFTMETA";
         }
         {
           KEY = "KEY_RIGHTSHIFT";
-          TAP = [ "KEY_LEFTMETA" "KEY_F2" ];
+          TAP = "KEY_MESSENGER";
           HOLD = "KEY_RIGHTSHIFT";
         }
         {
