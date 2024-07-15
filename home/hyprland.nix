@@ -152,6 +152,10 @@ in
         workspace_swipe_cancel_ratio = 0.15;
       };
 
+      cursor = {
+        hide_on_touch = true;
+      };
+
       device = [
         {
           name = "synps/2-synaptics-touchpad";
