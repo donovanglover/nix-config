@@ -43,10 +43,6 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
 
-    plugins = with pkgs.hyprlandPlugins; [
-      hyprgrass
-    ];
-
     settings = {
       env = [
         "BROWSER,librewolf"
@@ -81,7 +77,6 @@ in
         "hyprctl dispatch workspace 5000000"
         "${polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
         "hyprdim --no-dim-when-only --persist --ignore-leaving-special --dialog-dim"
-        "wvkbd-mobintl"
         "sleep 1 && eww open desktop-icons"
         "~/.config/${randomBackgroundScript}"
       ];
@@ -149,11 +144,6 @@ in
 
       gestures = {
         workspace_swipe = true;
-        workspace_swipe_cancel_ratio = 0.15;
-      };
-
-      cursor = {
-        hide_on_touch = true;
       };
 
       device = [
@@ -173,13 +163,6 @@ in
 
       binds = {
         allow_workspace_cycles = true;
-      };
-
-      plugin = {
-        touch_gestures = {
-          sensitivity = 4.0;
-          workspace_swipe_edge = false;
-        };
       };
 
       layerrule = [
@@ -265,25 +248,11 @@ in
 
         "${super}, mouse_down, workspace, e+1"
         "${super}, mouse_up, workspace, e-1"
-
-        '', edge:d:u, exec, kill -34 "$(pgrep -x "wvkbd-mobintl")" || wvkbd-mobintl''
-        ", edge:u:d, exec, kgx"
-        ", edge:r:l, exec, hyprnome"
-        ", edge:l:r, exec, hyprnome -p"
-        ", swipe:3:lu, exec, chatty"
-        ", swipe:3:ru, exec, gnome-calls"
-        ", swipe:3:ld, exec, gnome-contacts"
-        ", swipe:3:rd, exec, gnome-control-center"
-        ", swipe:4:d, killactive"
-        ", swipe:4:u, exec, librewolf"
-        '', tap:3, exec, kill -34 "$(pgrep -x "wvkbd-mobintl")" || wvkbd-mobintl''
       ];
 
       bindm = [
         "${super}, mouse:272, movewindow"
         "${super}, mouse:273, resizewindow"
-        ", longpress:3, movewindow"
-        ", longpress:4, resizewindow"
       ];
 
       bindl = [
