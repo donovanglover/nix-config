@@ -7,8 +7,6 @@ let
   inherit (builtins) toJSON;
 
   mullvadScript = "ironbar/mullvad.fish";
-  volumeScript = "ironbar/volume.fish";
-  volumeGet = "ironbar/volume-get.fish";
 in
 {
   home.packages = [ ironbar ];
@@ -51,11 +49,11 @@ in
         type = "tray";
       }
       {
-        type = "script";
-        cmd = "~/.config/${volumeScript}";
+        type = "volume";
+        format = "{icon}  {percentage}%";
         on_click_left = "swayosd-client --output-volume raise";
         on_click_right = "swayosd-client --output-volume lower";
-        mode = "watch";
+        disable_popup = true;
       }
       {
         type = "upower";
@@ -96,6 +94,10 @@ in
     .label, .script, .tray {
       padding-left: 0.5em;
       padding-right: 0.5em;
+    }
+
+    .volume:hover {
+      background: inherit;
     }
 
     .upower {
@@ -231,32 +233,6 @@ in
       while read directory events filename
         get_mullvad_status
       end
-    '';
-  };
-
-  xdg.configFile.${volumeScript} = {
-    executable = true;
-    text = /* fish */ ''
-      #!/usr/bin/env fish
-
-      function get_volume
-        set VOLUME (wpctl get-volume @DEFAULT_AUDIO_SINK@ | choose 1)
-        echo "音量：$(math "$VOLUME * 100")%"
-      end
-
-      ~/.config/${volumeGet}
-
-      pactl subscribe | grep --line-buffered -e "シンク" | xargs -L 1 ~/.config/${volumeGet}
-    '';
-  };
-
-  xdg.configFile.${volumeGet} = {
-    executable = true;
-    text = /* fish */ ''
-      #!/usr/bin/env fish
-
-      set VOLUME (wpctl get-volume @DEFAULT_AUDIO_SINK@ | choose 1)
-      echo "音量：$(math "$VOLUME * 100")%"
     '';
   };
 }
