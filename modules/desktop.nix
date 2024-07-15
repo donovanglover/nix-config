@@ -176,7 +176,6 @@ in
         noto-fonts-cjk-serif
         noto-fonts-emoji
         maple-mono
-        hachimarupop
         font-awesome
         (nerdfonts.override { fonts = [ "Noto" ]; })
         kanji-stroke-order-font
@@ -218,14 +217,10 @@ in
           name = "Aleo";
         };
 
-        sansSerif =
-          if phone then {
-            package = pkgs.hachimarupop;
-            name = "はちまるポップ";
-          } else {
-            package = noto-fonts-cjk-sans;
-            name = "Noto Sans CJK JP";
-          };
+        sansSerif = {
+          package = noto-fonts-cjk-sans;
+          name = "Noto Sans CJK JP";
+        };
 
         monospace = {
           package = maple-mono;
