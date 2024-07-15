@@ -59,6 +59,7 @@ in
       }
       {
         type = "upower";
+        show_if = "upower -e | grep BAT";
       }
       {
         type = "clock";
