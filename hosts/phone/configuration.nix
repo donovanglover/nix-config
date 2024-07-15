@@ -9,7 +9,6 @@ in
   nixpkgs.overlays = attrValues {
     inherit (self.overlays)
       phinger-cursors
-      hyprland
       ;
   };
 
