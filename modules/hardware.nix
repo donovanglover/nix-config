@@ -13,7 +13,7 @@ let
 in
 {
   options.modules.hardware = {
-    keyboardBinds = mkEnableOption "start button for rofi, caps lock as escape, etc.";
+    keyboardBinds = mkEnableOption "caps lock as ctrl when held and esc when tapped";
     mouseSettings = mkEnableOption "piper for gaming mice";
     bluetooth = mkEnableOption "bluetooth support";
     lidIgnore = mkEnableOption "ignoring the laptop lid on close";
@@ -66,26 +66,6 @@ in
           KEY = "KEY_CAPSLOCK";
           TAP = "KEY_ESC";
           HOLD = "KEY_LEFTCTRL";
-        }
-        {
-          KEY = "KEY_SYSRQ";
-          TAP = "KEY_SYSRQ";
-          HOLD = "KEY_RIGHTMETA";
-        }
-        {
-          KEY = "KEY_LEFTMETA";
-          TAP = "KEY_FAVORITES";
-          HOLD = "KEY_LEFTMETA";
-        }
-        {
-          KEY = "KEY_RIGHTSHIFT";
-          TAP = "KEY_MESSENGER";
-          HOLD = "KEY_RIGHTSHIFT";
-        }
-        {
-          KEY = "KEY_RIGHTALT";
-          TAP = "KEY_GRAVE";
-          HOLD = "KEY_RIGHTALT";
         }
       ];
     };
