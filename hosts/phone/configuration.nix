@@ -42,6 +42,29 @@ in
     inherit (self.packages.${pkgs.system})
       webp-thumbnailer
       ;
+    inherit (pkgs.gnome)
+      gnome-contacts
+      gnome-sound-recorder
+      gnome-maps
+      ;
+
+    inherit (pkgs)
+      gurk-rs
+      android-tools
+      chatty
+      gnome-console
+      megapixels
+      fractal
+      g4music
+      livi
+      papers
+      phosh-mobile-settings
+      resources
+      tuba
+      caerbannog
+      eog
+      geary
+    ;
   };
 
   modules = {

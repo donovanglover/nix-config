@@ -123,37 +123,10 @@ in
           srb2
           ringracers
           jamesdsp
+          texliveFull
           ;
-      }))
 
-      (mkIf (!phone) (attrValues {
         inherit (nix-config.inputs.sakaya.packages.${pkgs.system}) sakaya;
-        inherit (pkgs) texliveFull;
-      }))
-
-      (mkIf phone (attrValues {
-        inherit (pkgs.gnome)
-          gnome-contacts
-          gnome-sound-recorder
-          gnome-maps
-          ;
-        inherit (pkgs)
-          gurk-rs
-          android-tools
-          chatty
-          gnome-console
-          megapixels
-          fractal
-          g4music
-          livi
-          papers
-          phosh-mobile-settings
-          resources
-          tuba
-          caerbannog
-          eog
-          geary
-          ;
       }))
 
       (attrValues {
