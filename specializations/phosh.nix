@@ -11,7 +11,7 @@ let
 in
 {
   programs.hyprland.enable = mkForce false;
-  i18n.inputMethod.enabled = mkForce null;
+  i18n.inputMethod.enable = mkForce false;
   services.greetd.enable = mkForce false;
 
   xserver = {

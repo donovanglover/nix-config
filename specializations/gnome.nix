@@ -26,7 +26,7 @@ in
   };
 
   i18n.inputMethod = lib.mkForce {
-    enabled = "ibus";
+    type = "ibus";
     ibus.engines = with pkgs.ibus-engines; [ mozc ];
   };
 
