@@ -30,6 +30,7 @@ in
     lnch
     wev
     tessen
+    icoextract
     wtype
     dmenu-wayland
     thud
