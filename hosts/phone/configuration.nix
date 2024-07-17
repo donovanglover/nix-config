@@ -14,24 +14,18 @@ in
 
   home-manager.sharedModules = attrValues {
     inherit (self.homeManagerModules)
-      dunst
-      eww
       eza
-      fcitx
       fish
       git
       gpg
       gtk
       htop
-      hyprland
-      ironbar
       kitty
       librewolf
       mpv
       ncmpcpp
       neovim
       starship
-      swayosd
       thunar
       xdg-user-dirs
       xresources
