@@ -1,6 +1,7 @@
 { self, pkgs, lib, ... }:
 
 let
+  inherit (lib) mkForce;
   inherit (builtins) attrValues;
 in
 {
@@ -32,7 +33,7 @@ in
       ;
 
     config = {
-      programs.man.generateCaches = lib.mkForce false;
+      programs.man.generateCaches = mkForce false;
     };
   };
 
@@ -74,31 +75,38 @@ in
     hardware.keyboardBinds = true;
   };
 
-  hardware.graphics.enable32Bit = lib.mkForce false;
-  virtualisation.virtualbox.host.enable = lib.mkForce false;
-
   programs = {
     calls.enable = true;
-    cdemu.enable = lib.mkForce false;
+
+    cdemu.enable = mkForce false;
   };
 
-  services.pipewire.enable = lib.mkForce false;
-  boot.enableContainers = false;
 
   networking = {
     wireless.enable = false;
     wireguard.enable = true;
+
+    firewall.checkReversePath = mkForce false;
   };
 
   services = {
     openssh.enable = true;
-    udisks2.enable = lib.mkForce false;
+
+    udisks2.enable = mkForce false;
+    pipewire.enable = mkForce false;
   };
 
-  boot.binfmt.emulatedSystems = lib.mkForce [ ];
-  boot.loader.systemd-boot.enable = lib.mkForce false;
-  networking.firewall.checkReversePath = lib.mkForce false;
+  boot = {
+    enableContainers = false;
+
+    binfmt.emulatedSystems = mkForce [ ];
+    loader.systemd-boot.enable = mkForce false;
+  };
+
   documentation.man.generateCaches = false;
+
+  hardware.graphics.enable32Bit = mkForce false;
+  virtualisation.virtualbox.host.enable = mkForce false;
 
   powerManagement = {
     enable = true;
