@@ -13,7 +13,6 @@ in
       cursor_blink_interval = 0;
 
       enabled_layouts = "fat, tall, vertical";
-      open_url_with = "librewolf";
       wayland_titlebar_color = "background";
 
       allow_remote_control = true;
