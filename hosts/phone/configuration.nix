@@ -30,6 +30,10 @@ in
       xdg-user-dirs
       xresources
       ;
+
+    config = {
+      programs.man.generateCaches = lib.mkForce false;
+    };
   };
 
   environment.systemPackages = attrValues {
@@ -65,18 +69,10 @@ in
     system = {
       hostName = "mobile-nixos";
       stateVersion = "23.11";
-      phone = true;
-    };
-
-    desktop = {
-      phone = true;
+      mullvad = true;
     };
 
     hardware.keyboardBinds = true;
-
-    system = {
-      mullvad = true;
-    };
   };
 
   hardware.graphics.enable32Bit = lib.mkForce false;
@@ -99,6 +95,11 @@ in
     openssh.enable = true;
     udisks2.enable = lib.mkForce false;
   };
+
+  boot.binfmt.emulatedSystems = lib.mkForce [ ];
+  boot.loader.systemd-boot.enable = lib.mkForce false;
+  networking.firewall.checkReversePath = lib.mkForce false;
+  documentation.man.generateCaches = false;
 
   powerManagement = {
     enable = true;

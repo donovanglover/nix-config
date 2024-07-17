@@ -3,7 +3,7 @@
 let
   inherit (lib) mkOption mkEnableOption mkIf singleton optionals;
   inherit (lib.types) nullOr str listOf;
-  inherit (cfg) username iHaveLotsOfRam hashedPassword mullvad allowSRB2Port allowDevPort noRoot postgres phone;
+  inherit (cfg) username iHaveLotsOfRam hashedPassword mullvad allowSRB2Port allowDevPort noRoot postgres;
   inherit (builtins) attrValues;
 
   cfg = config.modules.system;
@@ -45,7 +45,6 @@ in
     };
 
     iHaveLotsOfRam = mkEnableOption "tmpfs on /tmp";
-    phone = mkEnableOption "Phone support";
 
     hostName = mkOption {
       type = str;
@@ -62,7 +61,7 @@ in
   };
 
   config = {
-    boot = mkIf (!phone) {
+    boot = {
       tmp =
         if iHaveLotsOfRam
         then { useTmpfs = true; }
@@ -138,15 +137,12 @@ in
           else [
             "wheel"
             "networkmanager"
-          ] ++ (optionals (phone) [
             "dialout"
             "feedbackd"
             "video"
-          ]);
+          ];
       };
     };
-
-    documentation.man.generateCaches = mkIf (phone) false;
 
     home-manager = {
       useGlobalPkgs = true;
@@ -157,7 +153,7 @@ in
           inherit (cfg) stateVersion;
         };
 
-        programs.man.generateCaches = mkIf (!phone) true;
+        programs.man.generateCaches = true;
       };
 
       users.${username}.home = {
@@ -233,8 +229,6 @@ in
         allowedTCPPorts = mkIf allowDevPort [
           3000
         ];
-
-        checkReversePath = mkIf phone (lib.mkForce false);
       };
     };
 
