@@ -14,13 +14,13 @@ in
 
   home-manager.sharedModules = attrValues {
     inherit (self.homeManagerModules)
+      alacritty
       eza
       fish
       git
       gpg
       gtk
       htop
-      kitty
       librewolf
       mpv
       ncmpcpp
@@ -50,7 +50,6 @@ in
       gurk-rs
       android-tools
       chatty
-      gnome-console
       megapixels
       fractal
       g4music
