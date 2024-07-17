@@ -2,10 +2,7 @@
 
 let
   inherit (config.lib.stylix.scheme) scheme;
-  inherit (pkgs) callPackage;
   inherit (lib.strings) toLower;
-
-  base16-nvim = callPackage ../packages/base16-nvim.nix { };
 in
 {
   programs.bat.enable = true;
