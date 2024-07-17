@@ -58,7 +58,7 @@ in
           npm-check-updates
           ;
         inherit (pkgs)
-          neofetch
+          fastfetch
           onefetch
           scc
           genact
