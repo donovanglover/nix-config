@@ -51,9 +51,6 @@ in
       {
         type = "volume";
         format = "{icon}  {percentage}%";
-        on_click_left = "swayosd-client --output-volume raise";
-        on_click_right = "swayosd-client --output-volume lower";
-        disable_popup = true;
       }
       {
         type = "upower";
@@ -94,10 +91,6 @@ in
     .label, .script, .tray {
       padding-left: 0.5em;
       padding-right: 0.5em;
-    }
-
-    .volume:hover {
-      background: inherit;
     }
 
     .upower {
