@@ -94,6 +94,7 @@ in
   };
 
   services.pipewire.enable = lib.mkForce false;
+  boot.enableContainers = false;
 
   networking = {
     wireless.enable = false;
