@@ -93,6 +93,14 @@ in
       padding-right: 0.5em;
     }
 
+    slider {
+      background: #${base09};
+    }
+
+    trough {
+      background: alpha(#${base04}, 0.4);
+    }
+
     .upower {
       padding-left: 0.2em;
       padding-right: 0.2em;
