@@ -4,10 +4,27 @@ let
   inherit (lib) mkEnableOption mkIf mkMerge mkOption;
   inherit (lib.types) float int;
   inherit (config.modules.system) username;
+  inherit (config.lib.stylix.colors) base00;
   inherit (cfg) bloat gnome plasma container opacity fontSize graphical;
   inherit (nix-config.packages.${pkgs.system}) aleo-fonts;
-  inherit (pkgs) phinger-cursors noto-fonts-cjk-sans maple-mono noto-fonts-emoji;
+  inherit (pkgs) phinger-cursors noto-fonts-cjk-sans maple-mono noto-fonts-emoji stdenvNoCC imagemagick;
   inherit (builtins) attrValues;
+
+  stylix-background = stdenvNoCC.mkDerivation {
+    pname = "stylix-background";
+    version = base00;
+
+    dontUnpack = true;
+
+    nativeBuildInputs = [
+      imagemagick
+    ];
+
+    postInstall = ''
+      mkdir -p $out
+      magick -size 1x1 xc:#${base00} $out/wallpaper.png
+    '';
+  };
 
   cfg = config.modules.desktop;
 in
@@ -170,7 +187,7 @@ in
 
     stylix = {
       enable = true;
-      image = ../assets/wallpaper.png;
+      image = "${stylix-background}/wallpaper.png";
       polarity = "dark";
       base16Scheme = ../assets/selenized-black.yaml;
 
