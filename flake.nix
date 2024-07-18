@@ -24,6 +24,11 @@
       url = "github:donovanglover/mobile-nixos";
       flake = false;
     };
+
+    flake-programs-sqlite = {
+      url = "github:wamserma/flake-programs-sqlite";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, mobile-nixos, ... } @ attrs:

@@ -11,6 +11,7 @@ in
 {
   imports = attrValues {
     inherit (nix-config.inputs.home-manager.nixosModules) home-manager;
+    inherit (nix-config.inputs.flake-programs-sqlite.nixosModules) programs-sqlite;
   };
 
   options.modules.system = {
@@ -260,7 +261,5 @@ in
 
       gnome.excludePackages = with pkgs; [ gnome-tour ];
     };
-
-    programs.command-not-found.enable = false;
   };
 }
