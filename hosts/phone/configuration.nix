@@ -36,6 +36,10 @@ in
       programs.man.generateCaches = mkForce false;
 
       dconf.settings = {
+        "sm/puri/phosh" = {
+          enable-suspend = true;
+        };
+
         "sm/puri/phosh/lockscreen" = {
           shuffle-keypad = true;
         };
