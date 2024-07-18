@@ -43,6 +43,11 @@ in
         "org/gnome/desktop/interface" = {
           show-battery-percentage = true;
         };
+
+        "org/gnome/eog/ui" = {
+          image-gallery = true;
+          sidebar = false;
+        };
       };
     };
   };
