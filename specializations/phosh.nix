@@ -5,9 +5,9 @@ let
   inherit (config.modules.system) username;
   inherit (builtins) attrValues;
 
-  transparency = "0.7";
   getColorCh = colorName: channel: config.lib.stylix.colors."${colorName}-rgb-${channel}";
-  rgba = color: ''rgba(${getColorCh color "r"}, ${getColorCh color "g"}, ${getColorCh color "b"}, ${transparency})'';
+  rgba = color: transparency: ''rgba(${getColorCh color "r"}, ${getColorCh color "g"}, ${getColorCh color "b"}, ${transparency})'';
+  bg = ''linear-gradient(${rgba "base00" "0.7"}, ${rgba "base00" "0.7"})'';
 in
 {
   programs.hyprland.enable = mkForce false;
@@ -31,26 +31,23 @@ in
   home-manager.sharedModules = attrValues {
     background = {
       stylix.targets.gtk.extraCss = /* css */ ''
-        phosh-lockscreen, .phosh-lockshield {
-          background-image: linear-gradient(${rgba "base00"}, ${rgba "base00"}), url('file:///home/${username}/wall-lock.jpg');
-          background-size: cover;
-          background-position: center;
+        phosh-lockscreen {
+          background: ${bg}, url('file:///home/${username}/wall-lock.jpg');
         }
 
         phosh-app-grid {
-          background-image: linear-gradient(${rgba "base00"}, ${rgba "base00"}), url('file:///home/${username}/wall-grid.jpg');
-          background-size: cover;
-          background-position: center;
+          background: ${bg}, url('file:///home/${username}/wall-grid.jpg');
         }
 
         phosh-top-panel {
-          background-image: linear-gradient(${rgba "base00"}, ${rgba "base00"}), url('file:///home/${username}/wall-panel.jpg');
-          background-size: cover;
-          background-position: center;
+          background: ${bg}, url('file:///home/${username}/wall-panel.jpg');
         }
 
         phosh-home {
-          background-image: linear-gradient(${rgba "base00"}, ${rgba "base00"}), url('file:///home/${username}/wall-home.jpg');
+          background: ${bg}, url('file:///home/${username}/wall-home.jpg');
+        }
+
+        phosh-lockscreen, phosh-app-grid, phosh-top-panel, phosh-home {
           background-size: cover;
           background-position: center;
         }
