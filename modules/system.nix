@@ -1,7 +1,7 @@
 { nix-config, pkgs, lib, config, ... }:
 
 let
-  inherit (lib) mkOption mkEnableOption mkIf singleton optionals;
+  inherit (lib) mkOption mkEnableOption mkIf singleton;
   inherit (lib.types) nullOr str listOf;
   inherit (cfg) username iHaveLotsOfRam hashedPassword mullvad allowSRB2Port allowDevPort noRoot postgres;
   inherit (builtins) attrValues;
@@ -44,18 +44,15 @@ in
       default = "22.11";
     };
 
-    iHaveLotsOfRam = mkEnableOption "tmpfs on /tmp";
-
     hostName = mkOption {
       type = str;
       default = "nixos";
     };
 
+    iHaveLotsOfRam = mkEnableOption "tmpfs on /tmp";
     noRoot = mkEnableOption "disable access to root";
-
     mullvad = mkEnableOption "mullvad vpn";
     postgres = mkEnableOption "postgres database for containers";
-
     allowSRB2Port = mkEnableOption "port for srb2";
     allowDevPort = mkEnableOption "port for development server";
   };

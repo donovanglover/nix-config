@@ -14,7 +14,7 @@ in
   i18n.inputMethod.enable = mkForce false;
   services.greetd.enable = mkForce false;
 
-  xserver = {
+  services.xserver = {
     displayManager.lightdm.enable = false;
 
     desktopManager.phosh = {
