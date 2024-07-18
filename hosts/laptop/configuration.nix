@@ -6,7 +6,7 @@ in
 {
   imports = attrValues self.nixosModules;
   nixpkgs.overlays = attrValues self.overlays;
-  home-manager.sharedModules = attrValues self.homeManagerModules;
+  home-manager.sharedModules = attrValues self.homeModules;
   environment.systemPackages = attrValues self.packages.${pkgs.system};
 
   modules = {

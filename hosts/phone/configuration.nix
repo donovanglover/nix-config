@@ -20,7 +20,7 @@ in
   };
 
   home-manager.sharedModules = attrValues {
-    inherit (self.homeManagerModules)
+    inherit (self.homeModules)
       alacritty
       eza
       fish

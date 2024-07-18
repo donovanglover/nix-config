@@ -13,7 +13,7 @@ in
     };
   };
 
-  home-manager.sharedModules = attrValues nix-config.homeManagerModules ++ singleton {
+  home-manager.sharedModules = attrValues nix-config.homeModules ++ singleton {
     programs.btop.enable = true;
   };
 

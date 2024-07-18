@@ -32,7 +32,7 @@
       inherit (nixpkgs.legacyPackages) x86_64-linux aarch64-linux;
       inherit (builtins) attrNames listToAttrs map replaceStrings readDir;
 
-      flakeOutputs = [ "overlays" "nixosModules" "homeManagerModules" "packages" "checks" ];
+      flakeOutputs = [ "overlays" "nixosModules" "homeModules" "packages" "checks" ];
       flakeDirectories = [ "overlays" "modules" "home" "packages" "tests" ];
     in
     {

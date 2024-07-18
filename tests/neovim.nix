@@ -14,7 +14,7 @@ in
     };
 
     home-manager.sharedModules = attrValues {
-      inherit (nix-config.homeManagerModules) neovim;
+      inherit (nix-config.homeModules) neovim;
     };
   };
 

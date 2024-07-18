@@ -13,7 +13,7 @@ in
   };
 
   home-manager.sharedModules = attrValues {
-    inherit (nix-config.homeManagerModules)
+    inherit (nix-config.homeModules)
       fish
       git
       gtk
