@@ -39,6 +39,10 @@ in
         "sm/puri/phosh/lockscreen" = {
           shuffle-keypad = true;
         };
+
+        "org/gnome/desktop/interface" = {
+          show-battery-percentage = true;
+        };
       };
     };
   };
