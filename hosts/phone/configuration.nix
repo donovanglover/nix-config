@@ -1,7 +1,7 @@
 { self, pkgs, config, lib, ... }:
 
 let
-  inherit (lib) mkForce;
+  inherit (lib) mkIf mkForce;
   inherit (lib.gvariant) mkTuple;
   inherit (config.modules.system) username;
   inherit (builtins) attrValues;
@@ -180,7 +180,7 @@ in
     enableContainers = false;
 
     binfmt.emulatedSystems = mkForce [ ];
-    loader.systemd-boot.enable = mkForce false;
+    loader.systemd-boot.enable = mkIf (pkgs.system == "aarch64-linux") (mkForce false);
   };
 
   documentation.man.generateCaches = false;
