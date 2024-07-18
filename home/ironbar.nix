@@ -46,9 +46,6 @@ in
 
     end = [
       {
-        type = "tray";
-      }
-      {
         type = "volume";
         format = "{icon}  {percentage}%";
       }
