@@ -91,8 +91,10 @@ in
     };
 
     nix = {
+      package = pkgs.nixVersions.latest;
+
       settings = {
-        experimental-features = [ "nix-command" "flakes" "repl-flake" ];
+        experimental-features = [ "nix-command" "flakes" ];
         auto-optimise-store = true;
         warn-dirty = false;
         allow-import-from-derivation = false;
