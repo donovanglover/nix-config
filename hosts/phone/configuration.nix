@@ -2,6 +2,7 @@
 
 let
   inherit (lib) mkForce;
+  inherit (lib.gvariant) mkTuple;
   inherit (builtins) attrValues;
 in
 {
@@ -46,6 +47,13 @@ in
 
         "org/gnome/desktop/interface" = {
           show-battery-percentage = true;
+        };
+
+        "org/gnome/desktop/input-sources" = {
+          sources = [
+            (mkTuple [ "xkb" "us" ])
+            (mkTuple [ "xkb" "jp+kana" ])
+          ];
         };
 
         "org/gnome/eog/ui" = {
