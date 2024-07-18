@@ -268,7 +268,7 @@ in
       ];
     };
 
-    extraConfig = /* bash */ ''
+    extraConfig = /* hyprlang */ ''
       bind = CTRL, Alt_L, submap, passthrough
       submap = passthrough
       bind = CTRL, Alt_L, submap, reset

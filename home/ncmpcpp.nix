@@ -13,7 +13,7 @@ in
     enable = true;
     inherit musicDirectory;
 
-    extraConfig = /* config */ ''
+    extraConfig = ''
       auto_update "yes"
     '';
   };

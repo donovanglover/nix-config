@@ -9,7 +9,7 @@ stdenvNoCC.mkDerivation {
 
   dontUnpack = true;
 
-  postInstall = /* bash */ ''
+  postInstall = ''
     mkdir -p $out/share/thumbnailers
 
     echo "[Thumbnailer Entry]"                            >> $out/share/thumbnailers/webp.thumbnailer

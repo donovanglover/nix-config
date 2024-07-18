@@ -93,7 +93,7 @@ in
   xdg.configFile = {
     "mozc/ibus_config.textproto" = {
       force = true;
-      text = /* config */ ''
+      text = /* textproto */ ''
         engines {
           name : "mozc-jp"
           longname : "Mozc"
