@@ -51,6 +51,12 @@ in
           shuffle-keypad = true;
         };
 
+        "sm/puri/phosh/plugins" = {
+          quick-settings = [
+            "night-light-quick-setting"
+          ];
+        };
+
         "org/gnome/desktop/interface" = {
           show-battery-percentage = true;
         };
