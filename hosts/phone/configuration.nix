@@ -43,6 +43,7 @@ in
 
       dconf.settings = {
         "sm/puri/phosh" = {
+          app-filter-mode = [ ];
           enable-suspend = true;
         };
 
