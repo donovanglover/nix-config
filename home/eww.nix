@@ -57,7 +57,7 @@ in
       font-weight: bold;
       text-shadow: 0 0 0.075em #${base00};
       font-size: 32px;
-      opacity: 0.1;
+      opacity: 0.4;
     }
   '';
 }
