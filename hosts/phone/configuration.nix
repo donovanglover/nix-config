@@ -200,10 +200,10 @@ in
     enable = true;
 
     cpufreq = rec {
-      min = 648000;
+      min = 1152000;
       max = min;
     };
 
-    cpuFreqGovernor = "powersave";
+    cpuFreqGovernor = "performance";
   };
 }
