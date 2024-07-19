@@ -184,6 +184,8 @@ in
         "opacity ${opacity} ${opacity},class:^(thunar)$"
         "float,class:^(librewolf)$"
         "center 1,class:^(librewolf)$"
+        "float,class:^(Mullvad Browser)$"
+        "center 1,class:^(Mullvad Browser)$"
       ];
 
       misc = {
