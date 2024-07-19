@@ -242,8 +242,6 @@ in
 
         "${super}, 1, exec, hyprnome --previous"
         "${super}, 2, exec, hyprnome"
-        "${super}, F11, exec, hyprnome --previous"
-        "${super}, F12, exec, hyprnome"
         "${super}_SHIFT, 1, exec, hyprnome --previous --move"
         "${super}_SHIFT, 2, exec, hyprnome --move"
 
