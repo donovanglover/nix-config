@@ -104,6 +104,7 @@ in
     inherit (self.packages.${pkgs.system})
       webp-thumbnailer
       ;
+
     inherit (pkgs.gnome)
       gnome-contacts
       gnome-sound-recorder
@@ -125,7 +126,7 @@ in
       caerbannog
       eog
       geary
-    ;
+      ;
   };
 
   modules = {
