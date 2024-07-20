@@ -2,7 +2,7 @@
 
 let
   inherit (lib) singleton;
-  inherit (config.lib.stylix.colors) base00 base01 base04 base05 base09;
+  inherit (config.lib.stylix.colors) base00 base01 base04 base05 base0D;
   inherit (pkgs) ironbar inotify-tools;
   inherit (builtins) toJSON;
 
@@ -91,7 +91,7 @@ in
     }
 
     slider {
-      background: #${base09};
+      background: #${base0D};
     }
 
     trough {
@@ -130,7 +130,7 @@ in
     }
 
     .popup-clock .calendar:selected {
-      color: #${base09};
+      color: #${base0D};
     }
 
     .launcher .item {
@@ -148,7 +148,7 @@ in
     }
 
     .launcher .focused {
-      box-shadow: inset 0 -2px #${base09};
+      box-shadow: inset 0 -2px #${base0D};
       background: #${base01};
     }
 
