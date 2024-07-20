@@ -173,19 +173,15 @@ in
       ];
 
       windowrulev2 = [
-        "nomaxsize,class:^(winecfg\.exe)$"
-        "nomaxsize,class:^(osu\.exe)$"
+        "nomaxsize,class:^(winecfg\.exe|osu\.exe)$"
         "opaque,class:^(kitty)$"
         "noblur,class:^(kitty)$"
-        "nodim,title:^(Picture-in-Picture)$"
-        "nodim,title:^(ピクチャーインピクチャー)$"
+        "nodim,title:^(Picture-in-Picture|ピクチャーインピクチャー)$"
         "nodim,class:^(mpv)$"
         "tile,class:^(.qemu-system-x86_64-wrapped)$"
         "opacity ${opacity} ${opacity},class:^(thunar)$"
-        "float,class:^(librewolf)$"
-        "center 1,class:^(librewolf)$"
-        "float,class:^(Mullvad Browser)$"
-        "center 1,class:^(Mullvad Browser)$"
+        "float,class:^(librewolf|Mullvad Browser)$"
+        "center 1,class:^(librewolf|Mullvad Browser)$"
       ];
 
       misc = {
