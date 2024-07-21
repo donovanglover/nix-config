@@ -33,6 +33,8 @@ in
       "findbar.highlightAll" = true;
 
       "xpinstall.signatures.required" = false;
+
+      "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
     };
   };
 }
