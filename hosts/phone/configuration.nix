@@ -2,7 +2,7 @@
 
 let
   inherit (lib) mkIf mkForce;
-  inherit (lib.gvariant) mkTuple;
+  inherit (lib.gvariant) mkTuple mkUint32;
   inherit (config.modules.system) username;
   inherit (builtins) attrValues;
 
@@ -59,6 +59,10 @@ in
 
         "org/gnome/desktop/interface" = {
           show-battery-percentage = true;
+        };
+
+        "org/gnome/desktop/session" = {
+          idle-delay = mkUint32 60;
         };
 
         "org/gnome/desktop/input-sources" = {
