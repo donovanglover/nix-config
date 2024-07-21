@@ -54,6 +54,7 @@ in
         "sm/puri/phosh/plugins" = {
           quick-settings = [
             "night-light-quick-setting"
+            "caffeine-quick-setting"
           ];
         };
 
