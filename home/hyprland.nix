@@ -26,6 +26,7 @@ in
     wvkbd
     brightnessctl
     playerctl
+    libnotify
     mpvpaper
     lnch
     wev
