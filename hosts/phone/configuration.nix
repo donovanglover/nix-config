@@ -199,7 +199,7 @@ in
   documentation.man.generateCaches = false;
 
   hardware.graphics.enable32Bit = mkForce false;
-  virtualisation.virtualbox.host.enable = mkForce false;
+  virtualisation.libvirtd.enable = mkForce false;
 
   powerManagement = {
     enable = true;

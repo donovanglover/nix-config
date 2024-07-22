@@ -78,6 +78,11 @@ in
       };
     };
 
+    virtualisation.libvirtd = {
+      enable = true;
+      onBoot = "ignore";
+    };
+
     services = {
       udisks2 = {
         enable = true;
@@ -141,6 +146,7 @@ in
           ringracers
           jamesdsp
           texliveFull
+          vagrant
           ;
 
         inherit (nix-config.inputs.sakaya.packages.${pkgs.system}) sakaya;
@@ -156,6 +162,10 @@ in
           ;
         inherit (pkgs.xfce) exo;
       })
+    ];
+
+    nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+      "vagrant"
     ];
 
     fonts = {
