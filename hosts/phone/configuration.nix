@@ -114,6 +114,7 @@ in
   environment.systemPackages = attrValues {
     inherit (self.packages.${pkgs.system})
       webp-thumbnailer
+      pinephone-toolkit
       ;
 
     inherit (pkgs.gnome)
@@ -123,7 +124,6 @@ in
       ;
 
     inherit (pkgs)
-      gurk-rs
       android-tools
       chatty
       megapixels
@@ -131,10 +131,9 @@ in
       g4music
       livi
       papers
-      phosh-mobile-settings
       resources
+      gnome-calendar
       tuba
-      caerbannog
       eog
       geary
       ;
