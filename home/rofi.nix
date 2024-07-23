@@ -29,6 +29,7 @@ in
       drun-display-format = "{name}";
       me-select-entry = "";
       me-accept-entry = "MousePrimary";
+      kb-cancel = "Escape,MouseMiddle";
     };
 
     # Based on Newman Sánchez's Launchpad theme <https://github.com/newmanls/rofi-themes-collection>
