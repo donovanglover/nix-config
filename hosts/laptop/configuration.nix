@@ -13,7 +13,6 @@ in
     hardware = {
       keyboardBinds = true;
       lidIgnore = true;
-      powerIgnore = true;
       bluetooth = true;
     };
 
