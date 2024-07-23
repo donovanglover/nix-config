@@ -14,6 +14,11 @@ in
     inherit musicDirectory;
 
     extraConfig = ''
+      audio_output {
+        type "pipewire"
+        name "PipeWire Sound Server"
+      }
+
       auto_update "yes"
     '';
   };
