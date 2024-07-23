@@ -204,7 +204,7 @@ in
     enable = true;
 
     cpufreq = rec {
-      min = 1008000;
+      min = 912000;
       max = min;
     };
 
