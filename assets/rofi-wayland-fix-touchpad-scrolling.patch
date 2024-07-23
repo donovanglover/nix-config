@@ -1,0 +1,96 @@
+From 93ad86da10b1747f4e584bc6bfbfbc3eddb280a3 Mon Sep 17 00:00:00 2001
+From: lbonn <github@lbonnans.net>
+Date: Fri, 7 Jun 2024 00:14:29 +0200
+Subject: [PATCH] [Wayland] Fix touchpad scrolling
+
+Magic values were determined empirically...
+
+Fixes #134
+---
+ include/wayland-internal.h |  5 +++++
+ source/wayland/display.c   | 29 +++++++++++++++++++++++++++--
+ 2 files changed, 32 insertions(+), 2 deletions(-)
+
+diff --git a/include/wayland-internal.h b/include/wayland-internal.h
+index 2a5e173d3..b4d2f849f 100644
+--- a/include/wayland-internal.h
++++ b/include/wayland-internal.h
+@@ -109,12 +109,17 @@ struct _wayland_seat {
+   struct wl_data_device *data_device;
+   struct zwp_primary_selection_device_v1 *primary_selection_device;
+
++  enum wl_pointer_axis_source axis_source;
+   widget_button_event button;
+   widget_motion_event motion;
+   struct {
+     gint vertical;
+     gint horizontal;
+   } wheel;
++  struct {
++    double vertical;
++    double horizontal;
++  } wheel_continuous;
+ };
+
+ /* Supported interface versions */
+diff --git a/source/wayland/display.c b/source/wayland/display.c
+index e8c590424..ac503844d 100644
+--- a/source/wayland/display.c
++++ b/source/wayland/display.c
+@@ -613,6 +613,12 @@ static void wayland_pointer_send_events(wayland_seat *self) {
+     self->button.button = 0;
+   }
+
++  if (self->axis_source == WL_POINTER_AXIS_SOURCE_FINGER ||
++      self->axis_source == WL_POINTER_AXIS_SOURCE_CONTINUOUS) {
++    self->wheel.vertical += 20 * self->wheel_continuous.vertical;
++    self->wheel.horizontal += 20 * self->wheel_continuous.horizontal;
++  }
++
+   if (abs(self->wheel.vertical) >= 120) {
+     gint v120 = self->wheel.vertical;
+     nk_bindings_seat_handle_scroll(wayland->bindings_seat, NULL,
+@@ -637,6 +643,10 @@ static void wayland_pointer_send_events(wayland_seat *self) {
+     }
+   }
+
++  self->axis_source = 0;
++  self->wheel_continuous.vertical = 0;
++  self->wheel_continuous.horizontal = 0;
++
+   rofi_view_maybe_update(state);
+ }
+
+@@ -804,7 +814,18 @@ static void wayland_pointer_button(void *data, struct wl_pointer *pointer,
+
+ static void wayland_pointer_axis(void *data, struct wl_pointer *pointer,
+                                  uint32_t time, enum wl_pointer_axis axis,
+-                                 wl_fixed_t value) {}
++                                 wl_fixed_t value) {
++  wayland_seat *self = data;
++
++  switch (axis) {
++  case WL_POINTER_AXIS_VERTICAL_SCROLL:
++    self->wheel_continuous.vertical += wl_fixed_to_double(value);
++    break;
++  case WL_POINTER_AXIS_HORIZONTAL_SCROLL:
++    self->wheel_continuous.horizontal += wl_fixed_to_double(value);
++    break;
++  }
++}
+
+ static void wayland_pointer_frame(void *data, struct wl_pointer *pointer) {
+   wayland_seat *self = data;
+@@ -813,7 +834,11 @@ static void wayland_pointer_frame(void *data, struct wl_pointer *pointer) {
+
+ static void
+ wayland_pointer_axis_source(void *data, struct wl_pointer *pointer,
+-                            enum wl_pointer_axis_source axis_source) {}
++                            enum wl_pointer_axis_source axis_source) {
++
++  wayland_seat *self = data;
++  self->axis_source = axis_source;
++}
+
+ static void wayland_pointer_axis_stop(void *data, struct wl_pointer *pointer,
+                                       uint32_t time,
