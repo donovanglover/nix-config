@@ -30,7 +30,6 @@ in
     mpvpaper
     lnch
     wev
-    tessen
     icoextract
     wtype
     dmenu-wayland
@@ -202,7 +201,6 @@ in
         "${super}, P, exec, notify-send --icon=$(grimblast save screen) Screenshot Captured."
         ", Print, exec, grimblast --freeze copy area"
         "${super}_ALT, delete, exit"
-        "${super}, T, exec, tessen"
         "${super}, V, togglefloating"
         "${super}, B, centerwindow"
         "${super}, U, exec, ~/.config/${gapsScript}"
