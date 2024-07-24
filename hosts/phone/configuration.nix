@@ -29,11 +29,8 @@ in
       gtk
       htop
       librewolf
-      mpv
-      ncmpcpp
       neovim
       starship
-      thunar
       xdg-user-dirs
       xresources
       ;
@@ -124,18 +121,14 @@ in
       ;
 
     inherit (pkgs)
-      android-tools
       chatty
       megapixels
       fractal
       g4music
       livi
-      papers
-      resources
       gnome-calendar
       tuba
       eog
-      geary
       ;
   };
 
@@ -156,6 +149,7 @@ in
 
     cdemu.enable = mkForce false;
     hyprland.enable = mkForce false;
+    thunar.enable = mkForce false;
   };
 
 
