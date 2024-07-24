@@ -110,7 +110,6 @@ in
           cargo-license
           cargo-feature
           cargo-tarpaulin
-          cargo-edit
           bacon
           clippy
           ;
