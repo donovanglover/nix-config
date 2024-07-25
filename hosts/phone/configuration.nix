@@ -38,6 +38,14 @@ in
     config = {
       programs.man.generateCaches = mkForce false;
 
+      xdg.userDirs = {
+        download = mkForce null;
+        documents = mkForce null;
+        music = mkForce null;
+        pictures = mkForce null;
+        videos = mkForce null;
+      };
+
       dconf.settings = {
         "sm/puri/phosh" = {
           app-filter-mode = [ ];
