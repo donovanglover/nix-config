@@ -2,34 +2,44 @@
 
 let
   inherit (config.home) homeDirectory;
+
+  no = { name = ""; noDisplay = true; };
 in
 {
   xdg = {
     desktopEntries = {
-      htop = {
-        name = "htop";
-        noDisplay = true;
-      };
+      htop = no;
+      fish = no;
+      nvim = no;
+      yazi = no;
+      gcdemu = no;
+      tectonic = no;
+      mullvad-vpn = no;
+      nixos-manual = no;
+      image-analyzer = no;
+      activate-linux = no;
 
-      fish = {
-        name = "fish";
-        noDisplay = true;
-      };
+      thunar-settings = no;
+      thunar-bulk-rename = no;
+      thunar-volman-settings = no;
 
-      nvim = {
-        name = "nvim";
-        noDisplay = true;
-      };
+      fcitx5-configtool = no;
 
-      yazi = {
-        name = "yazi";
-        noDisplay = true;
-      };
+      base = no;
+      calc = no;
+      draw = no;
+      math = no;
+      writer = no;
+      impress = no;
+      startcenter = no;
 
-      tectonic = {
-        name = "tectonic";
-        noDisplay = true;
-      };
+      "org.fcitx.Fcitx5" = no;
+      "org.fcitx.fcitx5-migrator" = no;
+      "org.gnome.Extensions" = no;
+      "org.pwmt.zathura" = no;
+      "org.gnome.eog" = no;
+      "org.gnome.Settings" = no;
+      "org.sigxcpu.Livi" = no;
     };
 
     userDirs = {
