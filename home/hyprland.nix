@@ -23,7 +23,6 @@ in
     hyprshade
     swww
     grimblast
-    wvkbd
     brightnessctl
     playerctl
     libnotify
@@ -31,10 +30,7 @@ in
     lnch
     wev
     icoextract
-    wtype
-    dmenu-wayland
     thud
-    wallust
     activate-linux
     wl-clipboard-rs
     wf-recorder

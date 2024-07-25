@@ -139,7 +139,6 @@ in
           element-desktop
           signal-desktop
           qbittorrent
-          obs-studio
           popsicle
           satty
           srb2
@@ -155,7 +154,6 @@ in
       (attrValues {
         inherit (pkgs)
           anki
-          kanjidraw
           pulseaudio
           glib
           grim
