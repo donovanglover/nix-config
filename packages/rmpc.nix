@@ -5,24 +5,22 @@
 , cmake
 }:
 
-rustPlatform.buildRustPackage rec {
+rustPlatform.buildRustPackage {
   pname = "rmpc";
-  version = "0.2.1";
+  version = "0.2.1-unstable-2024-07-27";
 
   src = fetchFromGitHub {
     owner = "mierak";
     repo = "rmpc";
-    rev = "v${version}";
-    hash = "sha256-g+yzW0DfaBhJKTikYZ8eqe4pX8nJvbpJ1xaZ3W/O/bo=";
+    rev = "f12be6f606f5319523f41576e7c463b6008b9069";
+    hash = "sha256-mKTl2sZdrkecd9fMBllHC0YiVHK8rUdoRmN2YF4T9O0=";
   };
 
-  cargoHash = "sha256-wFrHgB4wYGeXvfdGf4SJAAL8fE6dAKDLL51Ohmn+1HQ=";
+  cargoHash = "sha256-/00WGuuxtwtpNuEEeapJhVedbg3RMUtTEQbYYu518po=";
 
   cargoPatches = [
     ../assets/rmpc-support-older-rustc.patch
   ];
-
-  buildType = "debug";
 
   nativeBuildInputs = [
     pkg-config
