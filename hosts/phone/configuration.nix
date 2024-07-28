@@ -71,6 +71,11 @@ in
           idle-delay = mkUint32 60;
         };
 
+        "org/gnome/maps" = {
+          map-type = "MapsVectorSource";
+          transportation-type = "car";
+        };
+
         "org/gnome/desktop/input-sources" = {
           sources = [
             (mkTuple [ "xkb" "us" ])
