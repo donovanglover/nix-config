@@ -129,7 +129,6 @@ in
 
     inherit (pkgs.gnome)
       gnome-contacts
-      gnome-sound-recorder
       gnome-maps
       ;
 

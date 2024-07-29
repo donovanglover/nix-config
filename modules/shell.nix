@@ -37,6 +37,7 @@ in
           httpie
           yt-dlp
           sox
+          asak
           dig
           mtr
           mediainfo
