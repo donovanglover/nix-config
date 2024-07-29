@@ -1,14 +1,11 @@
-{ pkgs, config, ... }:
+{ config, ... }:
 
 let
-  inherit (pkgs) mpc-cli;
   inherit (config.xdg.userDirs) music;
 
   musicDirectory = music;
 in
 {
-  home.packages = [ mpc-cli ];
-
   services.mpd = {
     enable = true;
     inherit musicDirectory;
