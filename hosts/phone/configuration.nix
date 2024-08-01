@@ -71,11 +71,6 @@ in
           idle-delay = mkUint32 60;
         };
 
-        "org/gnome/maps" = {
-          map-type = "MapsVectorSource";
-          transportation-type = "car";
-        };
-
         "org/gnome/desktop/input-sources" = {
           sources = [
             (mkTuple [ "xkb" "us" ])
@@ -129,7 +124,6 @@ in
 
     inherit (pkgs.gnome)
       gnome-contacts
-      gnome-maps
       ;
 
     inherit (pkgs)
