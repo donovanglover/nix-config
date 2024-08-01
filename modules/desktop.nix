@@ -157,7 +157,9 @@ in
           pulseaudio
           glib
           grim
+          wl-clipboard-rs
           ;
+
         inherit (pkgs.xfce) exo;
       })
     ];

@@ -32,7 +32,6 @@ in
     icoextract
     thud
     activate-linux
-    wl-clipboard-rs
     wf-recorder
     lutgen
   ];
