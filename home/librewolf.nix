@@ -7,9 +7,7 @@ in
   programs.librewolf = {
     enable = true;
 
-    package = librewolf.override {
-      cfg.speechSynthesisSupport = false;
-    };
+    package = librewolf.override { cfg.speechSynthesisSupport = false; };
 
     settings = {
       "middlemouse.paste" = false;

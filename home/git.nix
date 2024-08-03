@@ -4,7 +4,10 @@ let
   inherit (pkgs) tig mgitstatus;
 in
 {
-  home.packages = [ tig mgitstatus ];
+  home.packages = [
+    tig
+    mgitstatus
+  ];
 
   xdg.configFile."tig/config".text = ''
     color cursor black green bold
@@ -22,9 +25,7 @@ in
       verify = "log --show-signature";
     };
 
-    attributes = [
-      "*.lockb binary diff=lockb"
-    ];
+    attributes = [ "*.lockb binary diff=lockb" ];
 
     extraConfig = {
       include.path = "~/.gituser";

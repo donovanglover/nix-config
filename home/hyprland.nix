@@ -1,4 +1,9 @@
-{ pkgs, lib, vars, ... }:
+{
+  pkgs,
+  lib,
+  vars,
+  ...
+}:
 
 let
   inherit (pkgs) polkit_gnome callPackage;
@@ -258,89 +263,95 @@ in
       ];
     };
 
-    extraConfig = /* hyprlang */ ''
-      bind = CTRL, Alt_L, submap, passthrough
-      submap = passthrough
-      bind = CTRL, Alt_L, submap, reset
-      submap = reset
-    '';
+    extraConfig = # hyprlang
+      ''
+        bind = CTRL, Alt_L, submap, passthrough
+        submap = passthrough
+        bind = CTRL, Alt_L, submap, reset
+        submap = reset
+      '';
   };
 
   xdg.configFile = {
     ${gapsScript} = {
       executable = true;
-      text = /* fish */ ''
-        #!/usr/bin/env fish
+      text = # fish
+        ''
+          #!/usr/bin/env fish
 
-        hyprctl keyword general:gaps_out $(math 10 - $(hyprctl getoption general:gaps_out -j | jq -r ".custom" | choose 1))
-        hyprctl keyword general:gaps_in $(math 5 - $(hyprctl getoption general:gaps_in -j | jq -r ".custom" | choose 1))
-        hyprctl keyword general:border_size $(math 2 - $(hyprctl getoption general:border_size -j | jq -r ".int"))
-        hyprctl keyword decoration:rounding $(math 8 - $(hyprctl getoption decoration:rounding -j | jq -r ".int"))
-      '';
+          hyprctl keyword general:gaps_out $(math 10 - $(hyprctl getoption general:gaps_out -j | jq -r ".custom" | choose 1))
+          hyprctl keyword general:gaps_in $(math 5 - $(hyprctl getoption general:gaps_in -j | jq -r ".custom" | choose 1))
+          hyprctl keyword general:border_size $(math 2 - $(hyprctl getoption general:border_size -j | jq -r ".int"))
+          hyprctl keyword decoration:rounding $(math 8 - $(hyprctl getoption decoration:rounding -j | jq -r ".int"))
+        '';
     };
 
     ${setBackgroundScript} = {
       executable = true;
-      text = /* fish */ ''
-        #!/usr/bin/env fish
+      text = # fish
+        ''
+          #!/usr/bin/env fish
 
-        if [ (hyprctl getoption animations:enabled -j | jq -r ".int") = "1" ]
-          swww img \
-            --transition-type $(random choice grow wave outer) \
-            --transition-wave 80,40 \
-            --transition-angle $(random choice 45 90 135 225 270 315) \
-            --transition-pos $(random choice center top left right bottom top-left top-right bottom-left bottom-right) \
-            --transition-step 200 \
-            --transition-duration 1.5 \
-            --transition-fps 240 \
-            --outputs "$argv[1]" \
-            "$argv[2]"
-        else
-          swww img \
-            --transition-type simple \
-            --transition-step 255 \
-            --outputs "$argv[1]" \
-            "$argv[2]"
-        end
-      '';
+          if [ (hyprctl getoption animations:enabled -j | jq -r ".int") = "1" ]
+            swww img \
+              --transition-type $(random choice grow wave outer) \
+              --transition-wave 80,40 \
+              --transition-angle $(random choice 45 90 135 225 270 315) \
+              --transition-pos $(random choice center top left right bottom top-left top-right bottom-left bottom-right) \
+              --transition-step 200 \
+              --transition-duration 1.5 \
+              --transition-fps 240 \
+              --outputs "$argv[1]" \
+              "$argv[2]"
+          else
+            swww img \
+              --transition-type simple \
+              --transition-step 255 \
+              --outputs "$argv[1]" \
+              "$argv[2]"
+          end
+        '';
     };
 
     ${randomBackgroundScript} = {
       executable = true;
-      text = /* fish */ ''
-        #!/usr/bin/env fish
+      text = # fish
+        ''
+          #!/usr/bin/env fish
 
-        for monitor in (hyprctl monitors -j | jq -r '.[].name')
-          ~/.config/${setBackgroundScript} "$monitor" "$(random choice $(fd . ${osu-backgrounds}/2024-07-15-Aerial-Antics-Art-Contest-All-Entries --follow -e jpg -e png))"
-        end
-      '';
+          for monitor in (hyprctl monitors -j | jq -r '.[].name')
+            ~/.config/${setBackgroundScript} "$monitor" "$(random choice $(fd . ${osu-backgrounds}/2024-07-15-Aerial-Antics-Art-Contest-All-Entries --follow -e jpg -e png))"
+          end
+        '';
     };
 
     ${swapBackgroundScript} = {
       executable = true;
-      text = /* fish */ ''
-        #!/usr/bin/env fish
+      text = # fish
+        ''
+          #!/usr/bin/env fish
 
-        set M "$(swww query | cut -d ':' -f 5)"
-        set M1 "$(echo "$M" | head -n 1 | awk '{$1=$1};1')"
-        set M2 "$(echo "$M" | tail -n 1 | awk '{$1=$1};1')"
+          set M "$(swww query | cut -d ':' -f 5)"
+          set M1 "$(echo "$M" | head -n 1 | awk '{$1=$1};1')"
+          set M2 "$(echo "$M" | tail -n 1 | awk '{$1=$1};1')"
 
-        ~/.config/${setBackgroundScript} "$(swww query | choose 0 | choose -c 0..-1 | tail -n 1)" "$M1"
-        ~/.config/${setBackgroundScript} "$(swww query | choose 0 | choose -c 0..-1 | head -n 1)" "$M2"
-      '';
+          ~/.config/${setBackgroundScript} "$(swww query | choose 0 | choose -c 0..-1 | tail -n 1)" "$M1"
+          ~/.config/${setBackgroundScript} "$(swww query | choose 0 | choose -c 0..-1 | head -n 1)" "$M2"
+        '';
     };
 
     ${monitorScript} = {
       executable = true;
-      text = /* fish */ ''
-        #!/usr/bin/env fish
+      text = # fish
+        ''
+          #!/usr/bin/env fish
 
-        if test -n "$(hyprctl monitors -j | jq -r '.[] | select(.name | contains("eDP-1"))')"
-          hyprctl keyword monitor eDP-1,disable
-        else
-          hyprctl keyword monitor eDP-1,preferred,auto-left,1
-        end
-      '';
+          if test -n "$(hyprctl monitors -j | jq -r '.[] | select(.name | contains("eDP-1"))')"
+            hyprctl keyword monitor eDP-1,disable
+          else
+            hyprctl keyword monitor eDP-1,preferred,auto-left,1
+          end
+        '';
     };
   };
 

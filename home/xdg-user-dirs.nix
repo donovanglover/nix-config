@@ -3,7 +3,10 @@
 let
   inherit (config.home) homeDirectory;
 
-  no = { name = ""; noDisplay = true; };
+  no = {
+    name = "";
+    noDisplay = true;
+  };
 in
 {
   xdg = {

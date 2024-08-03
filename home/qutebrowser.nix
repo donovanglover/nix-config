@@ -9,10 +9,7 @@ in
 
     settings = {
       url = {
-        start_pages = [
-          "about:blank"
-        ];
-
+        start_pages = [ "about:blank" ];
         default_page = "about:blank";
       };
 
@@ -42,9 +39,30 @@ in
 
       fileselect = {
         handler = "external";
-        folder.command = [ "kitty" "-e" "yazi" "--cwd-file" "{}" ];
-        multiple_files.command = [ "kitty" "-e" "yazi" "--chooser-file" "{}" ];
-        single_file.command = [ "kitty" "-e" "yazi" "--chooser-file" "{}" ];
+
+        folder.command = [
+          "kitty"
+          "-e"
+          "yazi"
+          "--cwd-file"
+          "{}"
+        ];
+
+        multiple_files.command = [
+          "kitty"
+          "-e"
+          "yazi"
+          "--chooser-file"
+          "{}"
+        ];
+
+        single_file.command = [
+          "kitty"
+          "-e"
+          "yazi"
+          "--chooser-file"
+          "{}"
+        ];
       };
 
       downloads = {
@@ -55,11 +73,21 @@ in
       };
 
       qt = {
-        args = [ "disable-backing-store-limit" "enable-accelerated-video-decode" "disable-gpu-driver-bug-workarounds" ];
+        args = [
+          "disable-backing-store-limit"
+          "enable-accelerated-video-decode"
+          "disable-gpu-driver-bug-workarounds"
+        ];
+
         chromium.low_end_device_mode = "never";
       };
 
-      editor.command = [ "kitty" "-e" "nvim" "{}" ];
+      editor.command = [
+        "kitty"
+        "-e"
+        "nvim"
+        "{}"
+      ];
     };
 
     keyBindings = {
@@ -104,11 +132,12 @@ in
       DEFAULT = "https://search.goo.ne.jp/web.jsp?MT={}";
     };
 
-    extraConfig = /* python */ ''
-      from qutebrowser.mainwindow import tabwidget
+    extraConfig = # python
+      ''
+        from qutebrowser.mainwindow import tabwidget
 
-      tabwidget.TabWidget.MUTE_STRING = ""
-      tabwidget.TabWidget.AUDIBLE_STRING = "[A]"
-    '';
+        tabwidget.TabWidget.MUTE_STRING = ""
+        tabwidget.TabWidget.AUDIBLE_STRING = "[A]"
+      '';
   };
 }

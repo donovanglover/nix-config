@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   inherit (pkgs) rofi-wayland;
@@ -64,7 +69,10 @@ in
         border-radius = mkLiteral "2px";
         border-color = mkLiteral "${base05}40";
 
-        children = map mkLiteral [ "icon-search" "entry" ];
+        children = map mkLiteral [
+          "icon-search"
+          "entry"
+        ];
       };
 
       prompt = {
