@@ -38,6 +38,7 @@ in
           yt-dlp
           sox
           asak
+          timer
           dig
           mtr
           mediainfo
@@ -88,6 +89,7 @@ in
           restic
           borgbackup
           zbar
+          phraze
           lychee
           ventoy
           taskwarrior3
@@ -95,6 +97,7 @@ in
         inherit (pkgs)
           nixpkgs-review
           nix-init
+          statix
           nvd
           nix-search-cli
           nix-tree
@@ -107,9 +110,6 @@ in
           rustc
           rustfmt
           cargo
-          cargo-info
-          cargo-license
-          cargo-feature
           cargo-tarpaulin
           bacon
           clippy
