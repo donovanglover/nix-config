@@ -1,8 +1,9 @@
-{ lib
-, rustPlatform
-, fetchFromGitHub
-, pkg-config
-, cmake
+{
+  lib,
+  rustPlatform,
+  fetchFromGitHub,
+  pkg-config,
+  cmake,
 }:
 
 rustPlatform.buildRustPackage {
@@ -18,9 +19,7 @@ rustPlatform.buildRustPackage {
 
   cargoHash = "sha256-/00WGuuxtwtpNuEEeapJhVedbg3RMUtTEQbYYu518po=";
 
-  cargoPatches = [
-    ../assets/rmpc-support-older-rustc.patch
-  ];
+  cargoPatches = [ ../assets/rmpc-support-older-rustc.patch ];
 
   nativeBuildInputs = [
     pkg-config

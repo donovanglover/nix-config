@@ -1,6 +1,7 @@
-{ lib
-, buildNpmPackage
-, fetchurl
+{
+  lib,
+  buildNpmPackage,
+  fetchurl,
 }:
 
 buildNpmPackage rec {

@@ -1,6 +1,7 @@
-{ lib
-, stdenvNoCC
-, libwebp
+{
+  lib,
+  stdenvNoCC,
+  libwebp,
 }:
 
 stdenvNoCC.mkDerivation {
