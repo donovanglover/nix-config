@@ -2,7 +2,7 @@
 
 let
   inherit (lib) singleton;
-  inherit (config.lib.stylix.colors) base00 base01 base04 base05 base0D;
+  inherit (config.lib.stylix.colors.withHashtag) base00 base01 base04 base05 base0D;
   inherit (pkgs) ironbar inotify-tools;
   inherit (builtins) toJSON;
 
@@ -73,25 +73,25 @@ in
       * {
         font-family: "Noto Sans CJK JP", "Font Awesome 6 Free Solid";
         font-size: 16px;
-        text-shadow: 2px 2px #${base00};
+        text-shadow: 2px 2px ${base00};
         border: none;
         border-radius: 0;
         outline: none;
         font-weight: 500;
         background: none;
-        color: #${base05};
+        color: ${base05};
       }
 
       .background {
-        background: alpha(#${base00}, 0.925);
+        background: alpha(${base00}, 0.925);
       }
 
       button:hover {
-        background: #${base01};
+        background: ${base01};
       }
 
       #bar {
-        border-top: 1px solid #${base01};
+        border-top: 1px solid ${base01};
       }
 
       .label, .script, .tray {
@@ -115,7 +115,7 @@ in
       }
 
       .popup {
-        border: 1px solid #${base01};
+        border: 1px solid ${base01};
         padding: 1em;
       }
 
@@ -131,7 +131,7 @@ in
 
       .popup-clock .calendar .header {
         padding-top: 1em;
-        border-top: 1px solid #${base01};
+        border-top: 1px solid ${base01};
         font-size: 1.5em;
       }
 
@@ -140,7 +140,7 @@ in
       }
 
       .popup-clock .calendar:selected {
-        color: #${base0D};
+        color: ${base0D};
       }
 
       .launcher .item {
@@ -150,16 +150,16 @@ in
       }
 
       button:active {
-        background: #${base04};
+        background: ${base04};
       }
 
       .launcher .open {
-        box-shadow: inset 0 -2px #${base04};
+        box-shadow: inset 0 -2px ${base04};
       }
 
       .launcher .focused {
-        box-shadow: inset 0 -2px #${base0D};
-        background: #${base01};
+        box-shadow: inset 0 -2px ${base0D};
+        background: ${base01};
       }
 
       .popup-launcher {
@@ -167,7 +167,7 @@ in
       }
 
       .popup-launcher .popup-item:not(:first-child) {
-        border-top: 1px solid #${base01};
+        border-top: 1px solid ${base01};
       }
 
       #startMenu {

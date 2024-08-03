@@ -1,7 +1,7 @@
 { config, ... }:
 
 let
-  inherit (config.lib.stylix.colors) base01 base02 base05;
+  inherit (config.lib.stylix.colors.withHashtag) base01 base02 base05;
 
   font = "Noto Sans CJK JP 16";
   themeName = "base16";
@@ -16,10 +16,10 @@ in
 
       [InputPanel]
       Font=${font}
-      NormalColor=#${base05}
-      HighlightCandidateColor=#${base05}
-      HighlightColor=#${base05}
-      HighlightBackgroundColor=#${base01}
+      NormalColor=${base05}
+      HighlightCandidateColor=${base05}
+      HighlightColor=${base05}
+      HighlightBackgroundColor=${base01}
       Spacing=6
 
       [InputPanel/TextMargin]
@@ -41,10 +41,10 @@ in
       Bottom=2
 
       [InputPanel/Background]
-      Color=#${base01}
+      Color=${base01}
 
       [InputPanel/Highlight]
-      Color=#${base02}
+      Color=${base02}
 
       [InputPanel/Highlight/Margin]
       Left=5
@@ -53,16 +53,16 @@ in
       Bottom=5
 
       [Menu]
-      NormalColor=#${base01}
+      NormalColor=${base01}
 
       [Menu/Background]
-      Color=#${base01}
+      Color=${base01}
 
       [Menu/Highlight]
-      Color=#${base02}
+      Color=${base02}
 
       [Menu/Separator]
-      Color=#${base02}
+      Color=${base02}
 
       [Menu/Background/Margin]
       Left=2
@@ -185,8 +185,8 @@ in
         Font="${font}"
         MenuFont="${font}"
         TrayFont="${font}"
-        TrayOutlineColor=#${base02}
-        TrayTextColor=#${base05}
+        TrayOutlineColor=${base02}
+        TrayTextColor=${base05}
         PreferTextIcon=False
         ShowLayoutNameInIcon=True
         UseInputMethodLangaugeToDisplayText=True

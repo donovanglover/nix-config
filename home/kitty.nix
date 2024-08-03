@@ -1,7 +1,7 @@
 { config, ... }:
 
 let
-  inherit (config.lib.stylix.colors) base00;
+  inherit (config.lib.stylix.colors.withHashtag) base00;
 in
 {
   programs.kitty = {
@@ -26,8 +26,8 @@ in
     };
 
     extraConfig = ''
-      tab_bar_background #${base00}
-      inactive_tab_background #${base00}
+      tab_bar_background ${base00}
+      inactive_tab_background ${base00}
     '';
   };
 

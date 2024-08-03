@@ -3,7 +3,7 @@
 let
   inherit (config.home) homeDirectory;
   inherit (config.xdg.userDirs) download documents music pictures videos;
-  inherit (config.lib.stylix.colors) base00 base05;
+  inherit (config.lib.stylix.colors.withHashtag) base00 base05;
   inherit (pkgs) eww;
 
   fluent-icons = pkgs.callPackage ../packages/fluent-icons.nix { };
@@ -53,9 +53,9 @@ in
 
     .overlay {
       background: transparent;
-      color: #${base05};
+      color: ${base05};
       font-weight: bold;
-      text-shadow: 0 0 0.075em #${base00};
+      text-shadow: 0 0 0.075em ${base00};
       font-size: 32px;
       opacity: 0.4;
     }

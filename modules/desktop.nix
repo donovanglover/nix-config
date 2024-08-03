@@ -4,7 +4,7 @@ let
   inherit (lib) mkEnableOption mkIf mkMerge mkOption;
   inherit (lib.types) float int;
   inherit (config.modules.system) username;
-  inherit (config.lib.stylix.colors) base00;
+  inherit (config.lib.stylix.colors.withHashtag) base00;
   inherit (cfg) bloat gnome plasma container opacity fontSize graphical;
   inherit (nix-config.packages.${pkgs.system}) aleo-fonts;
   inherit (pkgs) phinger-cursors noto-fonts-cjk-sans maple-mono noto-fonts-emoji stdenvNoCC imagemagick;
@@ -22,7 +22,7 @@ let
 
     postInstall = ''
       mkdir -p $out
-      magick -size 1x1 xc:#${base00} $out/wallpaper.png
+      magick -size 1x1 xc:${base00} $out/wallpaper.png
     '';
   };
 
