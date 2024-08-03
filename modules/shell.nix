@@ -6,11 +6,12 @@ let
   inherit (builtins) attrValues;
 in
 {
-  config = {
-    users.defaultUserShell = fish;
-    environment.shells = [ fish ];
+  users.defaultUserShell = fish;
 
-    environment.sessionVariables = {
+  environment = {
+    shells = [ fish ];
+
+    sessionVariables = {
       GIT_DISCOVERY_ACROSS_FILESYSTEM = "1";
       FZF_DEFAULT_OPTS = "--height 40% --reverse --border --color=16";
       NODE_OPTIONS = "--max-old-space-size=16384";
@@ -18,7 +19,7 @@ in
       GATSBY_TELEMETRY_DISABLED = "1";
     };
 
-    environment.systemPackages = mkMerge [
+    systemPackages = mkMerge [
       (attrValues {
         inherit (pkgs)
           wget
@@ -119,15 +120,15 @@ in
           ;
       })
     ];
+  };
 
-    programs = {
-      fish.enable = true;
-      neovim.enable = true;
+  programs = {
+    fish.enable = true;
+    neovim.enable = true;
 
-      direnv = {
-        enable = true;
-        silent = true;
-      };
+    direnv = {
+      enable = true;
+      silent = true;
     };
   };
 }

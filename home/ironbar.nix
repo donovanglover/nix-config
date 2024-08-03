@@ -13,259 +13,261 @@ in
 {
   home.packages = [ ironbar ];
 
-  xdg.configFile."ironbar/config.json".text = toJSON {
-    name = "main";
-    icon_theme = "Fluent-dark";
-    position = "bottom";
-    anchor_to_edges = true;
+  xdg.configFile = {
+    "ironbar/config.json".text = toJSON {
+      name = "main";
+      icon_theme = "Fluent-dark";
+      position = "bottom";
+      anchor_to_edges = true;
 
-    start = [
-      {
-        name = "startMenu";
-        type = "label";
-        label = "❄";
-        on_mouse_enter = "rofi -show drun";
-      }
-      {
-        type = "script";
-        on_click_left = "mullvad relay set location any && mullvad relay set location us";
-        cmd = "~/.config/${mullvadScript}";
-        mode = "watch";
-      }
-    ];
+      start = [
+        {
+          name = "startMenu";
+          type = "label";
+          label = "❄";
+          on_mouse_enter = "rofi -show drun";
+        }
+        {
+          type = "script";
+          on_click_left = "mullvad relay set location any && mullvad relay set location us";
+          cmd = "~/.config/${mullvadScript}";
+          mode = "watch";
+        }
+      ];
 
-    center = singleton {
-      type = "launcher";
-      icon_size = 39;
-      favorites = [
-        "librewolf"
-        "kitty"
-        "thunar"
-        "org.qutebrowser.qutebrowser"
-        "anki"
+      center = singleton {
+        type = "launcher";
+        icon_size = 39;
+        favorites = [
+          "librewolf"
+          "kitty"
+          "thunar"
+          "org.qutebrowser.qutebrowser"
+          "anki"
+        ];
+      };
+
+      end = [
+        {
+          type = "script";
+          cmd = "~/.config/${volumeScript}";
+          on_click_left = "swayosd-client --output-volume raise";
+          on_click_right = "swayosd-client --output-volume lower";
+          mode = "watch";
+        }
+        {
+          type = "upower";
+          show_if = "upower -e | grep BAT";
+        }
+        {
+          type = "clock";
+          format = "%x（%a）%R";
+        }
+        {
+          type = "notifications";
+        }
       ];
     };
 
-    end = [
-      {
-        type = "script";
-        cmd = "~/.config/${volumeScript}";
-        on_click_left = "swayosd-client --output-volume raise";
-        on_click_right = "swayosd-client --output-volume lower";
-        mode = "watch";
+    "ironbar/style.css".text = /* css */ ''
+      * {
+        font-family: "Noto Sans CJK JP", "Font Awesome 6 Free Solid";
+        font-size: 16px;
+        text-shadow: 2px 2px #${base00};
+        border: none;
+        border-radius: 0;
+        outline: none;
+        font-weight: 500;
+        background: none;
+        color: #${base05};
       }
-      {
-        type = "upower";
-        show_if = "upower -e | grep BAT";
+
+      .background {
+        background: alpha(#${base00}, 0.925);
       }
-      {
-        type = "clock";
-        format = "%x（%a）%R";
+
+      button:hover {
+        background: #${base01};
       }
-      {
-        type = "notifications";
+
+      #bar {
+        border-top: 1px solid #${base01};
       }
-    ];
-  };
 
-  xdg.configFile."ironbar/style.css".text = /* css */ ''
-    * {
-      font-family: "Noto Sans CJK JP", "Font Awesome 6 Free Solid";
-      font-size: 16px;
-      text-shadow: 2px 2px #${base00};
-      border: none;
-      border-radius: 0;
-      outline: none;
-      font-weight: 500;
-      background: none;
-      color: #${base05};
-    }
+      .label, .script, .tray {
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+      }
 
-    .background {
-      background: alpha(#${base00}, 0.925);
-    }
+      .notifications button {
+        padding-left: 0.2em;
+        padding-right: 0.7em;
+      }
 
-    button:hover {
-      background: #${base01};
-    }
+      .upower {
+        padding-left: 0.2em;
+        padding-right: 0.2em;
+      }
 
-    #bar {
-      border-top: 1px solid #${base01};
-    }
+      .upower .label {
+        padding-left: 0;
+        padding-right: 0;
+      }
 
-    .label, .script, .tray {
-      padding-left: 0.5em;
-      padding-right: 0.5em;
-    }
+      .popup {
+        border: 1px solid #${base01};
+        padding: 1em;
+      }
 
-    .notifications button {
-      padding-left: 0.2em;
-      padding-right: 0.7em;
-    }
+      .clock {
+        padding-right: 0.4em;
+      }
 
-    .upower {
-      padding-left: 0.2em;
-      padding-right: 0.2em;
-    }
+      .popup-clock .calendar-clock {
+        font-family: "Maple Mono";
+        font-size: 2.5em;
+        padding-bottom: 0.1em;
+      }
 
-    .upower .label {
-      padding-left: 0;
-      padding-right: 0;
-    }
+      .popup-clock .calendar .header {
+        padding-top: 1em;
+        border-top: 1px solid #${base01};
+        font-size: 1.5em;
+      }
 
-    .popup {
-      border: 1px solid #${base01};
-      padding: 1em;
-    }
+      .popup-clock .calendar {
+        padding: 0.2em 0.4em;
+      }
 
-    .clock {
-      padding-right: 0.4em;
-    }
+      .popup-clock .calendar:selected {
+        color: #${base0D};
+      }
 
-    .popup-clock .calendar-clock {
-      font-family: "Maple Mono";
-      font-size: 2.5em;
-      padding-bottom: 0.1em;
-    }
+      .launcher .item {
+        padding-left: 1em;
+        padding-right: 1em;
+        margin-right: 4px;
+      }
 
-    .popup-clock .calendar .header {
-      padding-top: 1em;
-      border-top: 1px solid #${base01};
-      font-size: 1.5em;
-    }
+      button:active {
+        background: #${base04};
+      }
 
-    .popup-clock .calendar {
-      padding: 0.2em 0.4em;
-    }
+      .launcher .open {
+        box-shadow: inset 0 -2px #${base04};
+      }
 
-    .popup-clock .calendar:selected {
-      color: #${base0D};
-    }
+      .launcher .focused {
+        box-shadow: inset 0 -2px #${base0D};
+        background: #${base01};
+      }
 
-    .launcher .item {
-      padding-left: 1em;
-      padding-right: 1em;
-      margin-right: 4px;
-    }
+      .popup-launcher {
+        padding: 0;
+      }
 
-    button:active {
-      background: #${base04};
-    }
+      .popup-launcher .popup-item:not(:first-child) {
+        border-top: 1px solid #${base01};
+      }
 
-    .launcher .open {
-      box-shadow: inset 0 -2px #${base04};
-    }
-
-    .launcher .focused {
-      box-shadow: inset 0 -2px #${base0D};
-      background: #${base01};
-    }
-
-    .popup-launcher {
-      padding: 0;
-    }
-
-    .popup-launcher .popup-item:not(:first-child) {
-      border-top: 1px solid #${base01};
-    }
-
-    #startMenu {
-      padding-left: 1em;
-      padding-right: 0.5em;
-    }
-  '';
-
-  xdg.configFile.${mullvadScript} = {
-    executable = true;
-    text = /* fish */ ''
-      #!/usr/bin/env fish
-
-      sleep 2
-
-      function get_mullvad_status
-        if test -z "$inside"
-          set inside true
-          test -n "$initialized" && sleep 0.2
-
-          set MULLVAD (mullvad status | head -1)
-
-          set LOCATION (echo "$MULLVAD" | choose 4.. | sed \
-            -e 's/Ashburn.*/アッシュバーン/g' \
-            -e 's/Atlanta.*/アトランタ/g' \
-            -e 's/Boston.*/ボストン/g' \
-            -e 's/Charlotte.*/シャーロット/g' \
-            -e 's/Chicago.*/シカゴ/g' \
-            -e 's/Cleveland.*/クリーブランド/g' \
-            -e 's/Dallas.*/ダラス/g' \
-            -e 's/Detroit.*/デトロイト/g' \
-            -e 's/Denver.*/デンバー/g' \
-            -e 's/Honolulu.*/ホノルル/g' \
-            -e 's/Houston.*/ヒューストン/g' \
-            -e 's/Jackson.*/ジャクソン/g' \
-            -e 's/Los Angeles.*/ロサンゼルス/g' \
-            -e 's/Louisville.*/ルイビル/g' \
-            -e 's/McAllen.*/マッカレン/g' \
-            -e 's/Miami.*/マイアミ/g' \
-            -e 's/Milwaukee.*/ミルウォーキー/g' \
-            -e 's/Minneapolis.*/ミネアポリス/g' \
-            -e 's/New York.*/ニューヨーク/g' \
-            -e 's/Oklahoma.*/オクラホマシティ/g' \
-            -e 's/Philadelphia.*/フィラデルフィア/g' \
-            -e 's/Phoenix.*/フィニックス/g' \
-            -e 's/Piscataway.*/ピスカタウェイ/g' \
-            -e 's/Portland.*/ポートランド/g' \
-            -e 's/Raleigh.*/ローリー/g' \
-            -e 's/Richmond.*/リッチモンド/g' \
-            -e 's/Salt Lake.*/ソルトレイクシティ/g' \
-            -e 's/San Francisco.*/サンフランシスコ/g' \
-            -e 's/San Jose.*/サンノゼ/g' \
-            -e 's/Seattle.*/シアトル/g' \
-            -e 's/Secaucus.*/セコーカス/g' \
-            -e 's/Sioux Falls.*/スーフォールズ/g' \
-            -e 's/St. Louis.*/セントルイス/g' \
-            -e 's/Stamford.*/スタンフォード/g' \
-            -e 's/Washington.*/ワシントン/g'
-          )
-
-          echo "$LOCATION"
-
-          set -e inside
-        end
-      end
-
-      get_mullvad_status
-      set initialized true
-
-      ${inotify-tools}/bin/inotifywait -q -e close_write,moved_to,create -m /etc/mullvad-vpn |
-      while read directory events filename
-        get_mullvad_status
-      end
+      #startMenu {
+        padding-left: 1em;
+        padding-right: 0.5em;
+      }
     '';
-  };
 
-  xdg.configFile.${volumeScript} = {
-    executable = true;
-    text = /* fish */ ''
-      #!/usr/bin/env fish
+    ${mullvadScript} = {
+      executable = true;
+      text = /* fish */ ''
+        #!/usr/bin/env fish
 
-      function get_volume
+        sleep 2
+
+        function get_mullvad_status
+          if test -z "$inside"
+            set inside true
+            test -n "$initialized" && sleep 0.2
+
+            set MULLVAD (mullvad status | head -1)
+
+            set LOCATION (echo "$MULLVAD" | choose 4.. | sed \
+              -e 's/Ashburn.*/アッシュバーン/g' \
+              -e 's/Atlanta.*/アトランタ/g' \
+              -e 's/Boston.*/ボストン/g' \
+              -e 's/Charlotte.*/シャーロット/g' \
+              -e 's/Chicago.*/シカゴ/g' \
+              -e 's/Cleveland.*/クリーブランド/g' \
+              -e 's/Dallas.*/ダラス/g' \
+              -e 's/Detroit.*/デトロイト/g' \
+              -e 's/Denver.*/デンバー/g' \
+              -e 's/Honolulu.*/ホノルル/g' \
+              -e 's/Houston.*/ヒューストン/g' \
+              -e 's/Jackson.*/ジャクソン/g' \
+              -e 's/Los Angeles.*/ロサンゼルス/g' \
+              -e 's/Louisville.*/ルイビル/g' \
+              -e 's/McAllen.*/マッカレン/g' \
+              -e 's/Miami.*/マイアミ/g' \
+              -e 's/Milwaukee.*/ミルウォーキー/g' \
+              -e 's/Minneapolis.*/ミネアポリス/g' \
+              -e 's/New York.*/ニューヨーク/g' \
+              -e 's/Oklahoma.*/オクラホマシティ/g' \
+              -e 's/Philadelphia.*/フィラデルフィア/g' \
+              -e 's/Phoenix.*/フィニックス/g' \
+              -e 's/Piscataway.*/ピスカタウェイ/g' \
+              -e 's/Portland.*/ポートランド/g' \
+              -e 's/Raleigh.*/ローリー/g' \
+              -e 's/Richmond.*/リッチモンド/g' \
+              -e 's/Salt Lake.*/ソルトレイクシティ/g' \
+              -e 's/San Francisco.*/サンフランシスコ/g' \
+              -e 's/San Jose.*/サンノゼ/g' \
+              -e 's/Seattle.*/シアトル/g' \
+              -e 's/Secaucus.*/セコーカス/g' \
+              -e 's/Sioux Falls.*/スーフォールズ/g' \
+              -e 's/St. Louis.*/セントルイス/g' \
+              -e 's/Stamford.*/スタンフォード/g' \
+              -e 's/Washington.*/ワシントン/g'
+            )
+
+            echo "$LOCATION"
+
+            set -e inside
+          end
+        end
+
+        get_mullvad_status
+        set initialized true
+
+        ${inotify-tools}/bin/inotifywait -q -e close_write,moved_to,create -m /etc/mullvad-vpn |
+        while read directory events filename
+          get_mullvad_status
+        end
+      '';
+    };
+
+    ${volumeScript} = {
+      executable = true;
+      text = /* fish */ ''
+        #!/usr/bin/env fish
+
+        function get_volume
+          set VOLUME (wpctl get-volume @DEFAULT_AUDIO_SINK@ | choose 1)
+          echo "音量：$(math "$VOLUME * 100")%"
+        end
+
+        ~/.config/${volumeGet}
+
+        pactl subscribe | grep --line-buffered -e "シンク" | xargs -L 1 ~/.config/${volumeGet}
+      '';
+    };
+
+    ${volumeGet} = {
+      executable = true;
+      text = /* fish */ ''
+        #!/usr/bin/env fish
+
         set VOLUME (wpctl get-volume @DEFAULT_AUDIO_SINK@ | choose 1)
         echo "音量：$(math "$VOLUME * 100")%"
-      end
-
-      ~/.config/${volumeGet}
-
-      pactl subscribe | grep --line-buffered -e "シンク" | xargs -L 1 ~/.config/${volumeGet}
-    '';
-  };
-
-  xdg.configFile.${volumeGet} = {
-    executable = true;
-    text = /* fish */ ''
-      #!/usr/bin/env fish
-
-      set VOLUME (wpctl get-volume @DEFAULT_AUDIO_SINK@ | choose 1)
-      echo "音量：$(math "$VOLUME * 100")%"
-    '';
+      '';
+    };
   };
 }

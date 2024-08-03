@@ -90,7 +90,7 @@
             let
               directory = replaceStrings flakeOutputs flakeDirectories attributeName;
 
-              attributeValue = (listToAttrs
+              attributeValue = listToAttrs
                 (map
                   (file: {
                     name = replaceStrings [ ".nix" ] [ "" ] file;
@@ -107,9 +107,9 @@
                             }
                         else import ./${directory}/${file};
                   })
-                  (attrNames (readDir ./${directory}))));
+                  (attrNames (readDir ./${directory})));
 
-              aarch64Packages = (listToAttrs
+              aarch64Packages = listToAttrs
                 (map
                   (file: {
                     name = replaceStrings [ ".nix" ] [ "" ] file;
@@ -118,7 +118,7 @@
                       then aarch64-linux.callPackage ./${directory}/${file} { }
                       else null;
                   })
-                  (attrNames (readDir ./${directory}))));
+                  (attrNames (readDir ./${directory})));
 
               attributeSet =
                 if directory == "packages"
@@ -133,7 +133,7 @@
                   }
                   else attributeValue;
             in
-            (attributeSet);
+            attributeSet;
         })
-        (flakeOutputs)));
+        flakeOutputs));
 }

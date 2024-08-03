@@ -171,18 +171,19 @@ in
     fonts = {
       enableDefaultPackages = false;
 
-      packages = with pkgs; [
-        noto-fonts
+      packages = [
         noto-fonts-cjk-sans
-        noto-fonts-cjk-serif
         noto-fonts-emoji
         maple-mono
+        aleo-fonts
+      ] ++ (with pkgs; [
+        noto-fonts
+        noto-fonts-cjk-serif
         font-awesome
         (nerdfonts.override { fonts = [ "Noto" ]; })
         kanji-stroke-order-font
         liberation_ttf
-        aleo-fonts
-      ];
+      ]);
 
       fontconfig = {
         defaultFonts = {
