@@ -1,4 +1,9 @@
-{ nix-config, pkgs, lib, ... }:
+{
+  nix-config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   inherit (lib) singleton;
@@ -13,9 +18,9 @@ in
     };
   };
 
-  home-manager.sharedModules = attrValues nix-config.homeModules ++ singleton {
-    programs.btop.enable = true;
-  };
+  home-manager.sharedModules =
+    attrValues nix-config.homeModules
+    ++ singleton { programs.btop.enable = true; };
 
   environment.systemPackages = attrValues {
     inherit (nix-config.packages.${pkgs.system}) webp-thumbnailer;
@@ -25,12 +30,15 @@ in
   nixpkgs.overlays = attrValues nix-config.overlays ++ [
     (final: prev: {
       btop = prev.btop.overrideAttrs (oldAttrs: {
-        postInstall = (oldAttrs.postInstall or "") + /* bash */ ''
-          echo "#!/usr/bin/env sh"  >> btop-overlay
-          echo "echo 'hello world'" >> btop-overlay
+        postInstall =
+          (oldAttrs.postInstall or "")
+          # bash
+          + ''
+            echo "#!/usr/bin/env sh"  >> btop-overlay
+            echo "echo 'hello world'" >> btop-overlay
 
-          install -Dm755 btop-overlay $out/bin/btop-overlay
-        '';
+            install -Dm755 btop-overlay $out/bin/btop-overlay
+          '';
       });
     })
   ];

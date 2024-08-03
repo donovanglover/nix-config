@@ -5,7 +5,8 @@
     nix-config.url = "github:donovanglover/nix-config";
   };
 
-  outputs = { nix-config, ... } @ attrs:
+  outputs =
+    { nix-config, ... }@attrs:
     let
       inherit (nix-config.inputs) nixpkgs;
       inherit (nixpkgs.lib) nixosSystem optional;
