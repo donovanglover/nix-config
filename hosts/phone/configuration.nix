@@ -193,6 +193,11 @@ in
 
     binfmt.emulatedSystems = mkForce [ ];
     loader.systemd-boot.enable = mkIf (pkgs.system == "aarch64-linux") (mkForce false);
+
+    kernel.sysctl = {
+      "vm.dirty_background_ratio" = 5;
+      "vm.dirty_ratio" = 10;
+    };
   };
 
   documentation.man.generateCaches = false;
