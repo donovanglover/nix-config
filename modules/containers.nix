@@ -1,4 +1,9 @@
-{ config, nix-config, lib, ... }:
+{
+  config,
+  nix-config,
+  lib,
+  ...
+}:
 
 let
   inherit (lib) mkIf;
@@ -46,21 +51,21 @@ let
   };
 in
 {
-  systemd.tmpfiles.rules = [
-    "d /run/user/1000 0700 ${username} users -"
-  ];
+  systemd.tmpfiles.rules = [ "d /run/user/1000 0700 ${username} users -" ];
 
   containers = mkIf enableContainers {
     wine = template // {
       hostAddress = "192.168.100.34";
       localAddress = "192.168.100.49";
 
-      config = { ... }: {
-        imports = [
-          ../containers
-          ../containers/wine.nix
-        ];
-      };
+      config =
+        { ... }:
+        {
+          imports = [
+            ../containers
+            ../containers/wine.nix
+          ];
+        };
     };
   };
 }

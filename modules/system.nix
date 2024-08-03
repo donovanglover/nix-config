@@ -1,17 +1,38 @@
-{ nix-config, pkgs, lib, config, ... }:
+{
+  nix-config,
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 let
-  inherit (lib) mkOption mkEnableOption mkIf singleton;
   inherit (lib.types) nullOr str listOf;
-  inherit (cfg) username iHaveLotsOfRam hashedPassword mullvad allowSRB2Port allowDevPort noRoot postgres;
-  inherit (builtins) attrValues;
+
+  inherit (lib)
+    mkOption
+    mkEnableOption
+    mkIf
+    singleton
+    ;
+
+  inherit (cfg)
+    username
+    iHaveLotsOfRam
+    hashedPassword
+    mullvad
+    allowSRB2Port
+    allowDevPort
+    noRoot
+    postgres
+    ;
 
   cfg = config.modules.system;
 in
 {
-  imports = attrValues {
-    inherit (nix-config.inputs.home-manager.nixosModules) home-manager;
-  };
+  imports = with nix-config.inputs.home-manager.nixosModules; [
+    home-manager
+  ];
 
   options.modules.system = {
     username = mkOption {
@@ -36,7 +57,12 @@ in
 
     supportedLocales = mkOption {
       type = listOf str;
-      default = [ "ja_JP.UTF-8/UTF-8" "en_US.UTF-8/UTF-8" "fr_FR.UTF-8/UTF-8" ];
+
+      default = [
+        "ja_JP.UTF-8/UTF-8"
+        "en_US.UTF-8/UTF-8"
+        "fr_FR.UTF-8/UTF-8"
+      ];
     };
 
     stateVersion = mkOption {
@@ -59,10 +85,7 @@ in
 
   config = {
     boot = {
-      tmp =
-        if iHaveLotsOfRam
-        then { useTmpfs = true; }
-        else { cleanOnBoot = true; };
+      tmp = if iHaveLotsOfRam then { useTmpfs = true; } else { cleanOnBoot = true; };
 
       binfmt.emulatedSystems = [ "aarch64-linux" ];
 
@@ -77,9 +100,7 @@ in
         efi.canTouchEfiVariables = true;
       };
 
-      blacklistedKernelModules = [
-        "floppy"
-      ];
+      blacklistedKernelModules = [ "floppy" ];
     };
 
     systemd = {
@@ -91,10 +112,14 @@ in
       package = pkgs.nixVersions.nix_2_22;
 
       settings = {
-        experimental-features = [ "nix-command" "flakes" ];
         auto-optimise-store = true;
         warn-dirty = false;
         allow-import-from-derivation = false;
+
+        experimental-features = [
+          "nix-command"
+          "flakes"
+        ];
 
         trusted-users = [
           "root"
@@ -130,16 +155,18 @@ in
         isNormalUser = true;
         uid = 1000;
         password = mkIf (hashedPassword == null && !noRoot) username;
+
         extraGroups =
-          if noRoot
-          then [ ]
-          else [
-            "wheel"
-            "networkmanager"
-            "dialout"
-            "feedbackd"
-            "video"
-          ];
+          if noRoot then
+            [ ]
+          else
+            [
+              "wheel"
+              "networkmanager"
+              "dialout"
+              "feedbackd"
+              "video"
+            ];
       };
     };
 
@@ -221,13 +248,8 @@ in
       };
 
       firewall = {
-        allowedUDPPorts = mkIf allowSRB2Port [
-          5029
-        ];
-
-        allowedTCPPorts = mkIf allowDevPort [
-          3000
-        ];
+        allowedUDPPorts = mkIf allowSRB2Port [ 5029 ];
+        allowedTCPPorts = mkIf allowDevPort [ 3000 ];
       };
     };
 
@@ -242,22 +264,14 @@ in
 
       postgresql = mkIf postgres {
         enable = true;
-
-        ensureUsers = singleton {
-          name = username;
-        };
-
+        ensureUsers = singleton { name = username; };
         ensureDatabases = [ username ];
       };
     };
 
     environment = {
-      systemPackages = with pkgs; [
-        (pass.withExtensions (ext: with ext; [ pass-otp ]))
-      ];
-
+      systemPackages = with pkgs; [ (pass.withExtensions (ext: with ext; [ pass-otp ])) ];
       defaultPackages = [ ];
-
       gnome.excludePackages = with pkgs; [ gnome-tour ];
     };
 

@@ -1,14 +1,44 @@
-{ nix-config, pkgs, config, lib, ... }:
+{
+  nix-config,
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 let
-  inherit (lib) mkEnableOption mkIf mkMerge mkOption;
+
   inherit (lib.types) float int;
   inherit (config.modules.system) username;
   inherit (config.lib.stylix.colors.withHashtag) base00;
-  inherit (cfg) bloat gnome plasma container opacity fontSize graphical;
   inherit (nix-config.packages.${pkgs.system}) aleo-fonts;
-  inherit (pkgs) phinger-cursors noto-fonts-cjk-sans maple-mono noto-fonts-emoji stdenvNoCC imagemagick;
   inherit (builtins) attrValues;
+
+  inherit (lib)
+    mkEnableOption
+    mkIf
+    mkMerge
+    mkOption
+    ;
+
+  inherit (cfg)
+    bloat
+    gnome
+    plasma
+    container
+    opacity
+    fontSize
+    graphical
+    ;
+
+  inherit (pkgs)
+    phinger-cursors
+    noto-fonts-cjk-sans
+    maple-mono
+    noto-fonts-emoji
+    stdenvNoCC
+    imagemagick
+    ;
 
   stylix-background = stdenvNoCC.mkDerivation {
     pname = "stylix-background";
@@ -16,9 +46,7 @@ let
 
     dontUnpack = true;
 
-    nativeBuildInputs = [
-      imagemagick
-    ];
+    nativeBuildInputs = [ imagemagick ];
 
     postInstall = ''
       mkdir -p $out
@@ -62,9 +90,7 @@ in
       thunar = {
         enable = true;
 
-        plugins = attrValues {
-          inherit (pkgs.xfce) thunar-volman;
-        };
+        plugins = with pkgs.xfce; [ thunar-volman ];
       };
     };
 
@@ -91,7 +117,7 @@ in
 
       xserver = mkIf (!container || graphical) {
         enable = true;
-        excludePackages = [ pkgs.xterm ];
+        excludePackages = with pkgs; [ xterm ];
       };
 
       pipewire = {
@@ -164,32 +190,43 @@ in
       })
     ];
 
-    nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-      "vagrant"
-    ];
+    nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "vagrant" ];
 
     fonts = {
       enableDefaultPackages = false;
 
-      packages = [
-        noto-fonts-cjk-sans
-        noto-fonts-emoji
-        maple-mono
-        aleo-fonts
-      ] ++ (with pkgs; [
-        noto-fonts
-        noto-fonts-cjk-serif
-        font-awesome
-        (nerdfonts.override { fonts = [ "Noto" ]; })
-        kanji-stroke-order-font
-        liberation_ttf
-      ]);
+      packages =
+        [
+          noto-fonts-cjk-sans
+          noto-fonts-emoji
+          maple-mono
+          aleo-fonts
+        ]
+        ++ (with pkgs; [
+          noto-fonts
+          noto-fonts-cjk-serif
+          font-awesome
+          (nerdfonts.override { fonts = [ "Noto" ]; })
+          kanji-stroke-order-font
+          liberation_ttf
+        ]);
 
       fontconfig = {
         defaultFonts = {
-          serif = [ "Noto Serif CJK JP" "Noto Serif" ];
-          sansSerif = [ "Noto Sans CJK JP" "Noto Sans" ];
-          monospace = [ "Noto Sans Mono CJK JP" "Noto Sans Mono" ];
+          serif = [
+            "Noto Serif CJK JP"
+            "Noto Serif"
+          ];
+
+          sansSerif = [
+            "Noto Sans CJK JP"
+            "Noto Sans"
+          ];
+
+          monospace = [
+            "Noto Sans Mono CJK JP"
+            "Noto Sans Mono"
+          ];
         };
 
         allowBitmaps = false;
@@ -244,13 +281,8 @@ in
     };
 
     specialisation = {
-      gnome = mkIf gnome {
-        configuration.imports = [ ../specializations/gnome.nix ];
-      };
-
-      plasma = mkIf plasma {
-        configuration.imports = [ ../specializations/plasma.nix ];
-      };
+      gnome = mkIf gnome { configuration.imports = [ ../specializations/gnome.nix ]; };
+      plasma = mkIf plasma { configuration.imports = [ ../specializations/plasma.nix ]; };
     };
   };
 }

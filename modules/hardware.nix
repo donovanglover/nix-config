@@ -1,11 +1,28 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 let
-  inherit (lib) mkEnableOption mkIf getExe singleton;
   inherit (pkgs) piper interception-tools;
   inherit (pkgs.interception-tools-plugins) dual-function-keys;
-  inherit (cfg) mouseSettings lidIgnore keyboardBinds bluetooth;
   inherit (builtins) toJSON;
+
+  inherit (lib)
+    mkEnableOption
+    mkIf
+    getExe
+    singleton
+    ;
+
+  inherit (cfg)
+    mouseSettings
+    lidIgnore
+    keyboardBinds
+    bluetooth
+    ;
 
   dualFunctionKeysConfig = "dual-function-keys.yaml";
 
@@ -36,15 +53,19 @@ in
         plugins = [ dual-function-keys ];
 
         udevmonConfig = toJSON (singleton {
-          JOB = /* bash */ ''
-            ${interception-tools}/bin/intercept -g $DEVNODE |
-            ${getExe dual-function-keys} -c /etc/${dualFunctionKeysConfig} |
-            ${interception-tools}/bin/uinput -d $DEVNODE
-          '';
+          JOB = # bash
+            ''
+              ${interception-tools}/bin/intercept -g $DEVNODE |
+              ${getExe dual-function-keys} -c /etc/${dualFunctionKeysConfig} |
+              ${interception-tools}/bin/uinput -d $DEVNODE
+            '';
 
           DEVICE = {
             EVENTS = {
-              EV_KEY = [ "KEY_CAPSLOCK" "KEY_ESC" ];
+              EV_KEY = [
+                "KEY_CAPSLOCK"
+                "KEY_ESC"
+              ];
             };
           };
         });

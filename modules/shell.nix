@@ -54,8 +54,6 @@ in
           rmlint
           jpegoptim
           pass
-          ;
-        inherit (pkgs)
           sudachi-rs
           tango
           npm-check-updates
@@ -104,18 +102,14 @@ in
           nix-tree
           ;
         inherit (pkgs)
-          nodejs
-          deno
-          ;
-        inherit (pkgs)
           rustc
           rustfmt
           cargo
           cargo-tarpaulin
           bacon
           clippy
-          ;
-        inherit (pkgs)
+          nodejs
+          deno
           tectonic
           ;
       })
