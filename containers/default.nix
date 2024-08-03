@@ -1,30 +1,23 @@
 { nix-config, ... }:
 
-let
-  inherit (builtins) attrValues;
-in
 {
-  imports = attrValues {
-    inherit (nix-config.nixosModules)
-      shell
-      desktop
-      system
-      ;
-  };
+  imports = with nix-config.nixosModules; [
+    shell
+    desktop
+    system
+  ];
 
-  home-manager.sharedModules = attrValues {
-    inherit (nix-config.homeModules)
-      fish
-      git
-      gtk
-      kitty
-      neovim
-      xresources
-      yazi
-      ;
-  };
+  home-manager.sharedModules = with nix-config.homeModules; [
+    fish
+    git
+    gtk
+    kitty
+    neovim
+    xresources
+    yazi
+  ];
 
-  nixpkgs.overlays = attrValues nix-config.overlays;
+  nixpkgs.overlays = builtins.attrValues nix-config.overlays;
 
   modules = {
     desktop.container = true;

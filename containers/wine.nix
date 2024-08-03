@@ -1,4 +1,10 @@
-{ nix-config, config, lib, pkgs, ... }:
+{
+  nix-config,
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   inherit (nix-config.inputs.sakaya.packages.${pkgs.system}) sakaya;
@@ -16,9 +22,7 @@ in
     sourcePort = sakayaPort;
   };
 
-  networking.firewall.allowedTCPPorts = [
-    sakayaPort
-  ];
+  networking.firewall.allowedTCPPorts = [ sakayaPort ];
 
   systemd.services.sakaya = {
     enable = true;
@@ -28,9 +32,7 @@ in
       Type = "simple";
     };
 
-    path = [
-      su
-    ];
+    path = [ su ];
 
     serviceConfig = {
       ExecStart = "/usr/bin/env su ${username} --command=${getExe sakaya}";
