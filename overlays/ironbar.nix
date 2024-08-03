@@ -9,10 +9,12 @@ final: prev: {
       hash = "sha256-Se+Pg81W8R+SFGFlhF1dU+NnMWSdLo3nC9TdPHa2IL4=";
     };
 
-    cargoDeps = oldAttrs.cargoDeps.overrideAttrs (prev.lib.const {
-      name = "${oldAttrs.pname}-${version}-vendor.tar.gz";
-      inherit src;
-      outputHash = "sha256-VkSznG2REXNhUKEVWwqlfA7BF9zXC+fxTgNeRfYaHi4=";
-    });
+    cargoDeps = oldAttrs.cargoDeps.overrideAttrs (
+      prev.lib.const {
+        name = "${oldAttrs.pname}-${version}-vendor.tar.gz";
+        inherit src;
+        outputHash = "sha256-VkSznG2REXNhUKEVWwqlfA7BF9zXC+fxTgNeRfYaHi4=";
+      }
+    );
   });
 }
