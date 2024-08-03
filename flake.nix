@@ -113,8 +113,8 @@
           };
         };
 
-      formatter.x86_64-linux = x86_64-linux.nixpkgs-fmt;
-      formatter.aarch64-linux = aarch64-linux.nixpkgs-fmt;
+      formatter.x86_64-linux = x86_64-linux.nixfmt-rfc-style;
+      formatter.aarch64-linux = aarch64-linux.nixfmt-rfc-style;
     }
     // (listToAttrs (
       map (attributeName: {
