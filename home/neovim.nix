@@ -1,9 +1,5 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, ... }:
 
-let
-  inherit (config.lib.stylix.scheme) scheme;
-  inherit (lib.strings) toLower;
-in
 {
   programs.bat.enable = true;
 
@@ -327,11 +323,6 @@ in
         '';
       }
       friendly-snippets
-      {
-        plugin = base16-nvim;
-        type = "lua";
-        config = "vim.cmd('colorscheme base16-${toLower scheme}')";
-      }
       {
         plugin = lualine-nvim;
         type = "lua";
