@@ -32,3 +32,10 @@ jobs:
       - run: cp ./hosts/laptop/hardware-configuration.nix ./example/hardware-configuration.nix
       - run: git add .
       - run: nix flake check ./example --no-write-lock-file --override-input nix-config "git+file://$(pwd | sed -e 's/\s/%20/g')?shallow=1"
+  statix:
+    name: statix check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cachix/install-nix-action@v27
+      - run: nix run nixpkgs#statix check
