@@ -54,7 +54,7 @@ in
       vscode-langservers-extracted
       rust-analyzer
       texlab
-      nil
+      nixd
       universal-ctags
     ];
 
@@ -251,7 +251,7 @@ in
           local lspconfig = require('lspconfig')
 
           local servers = {
-            'nil_ls',
+            'nixd',
             'rust_analyzer',
             'markdown_oxide',
             'lua_ls',
