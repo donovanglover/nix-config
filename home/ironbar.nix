@@ -262,6 +262,8 @@ in
         ''
           #!/usr/bin/env fish
 
+          sleep 2
+
           function get_volume
             set VOLUME (wpctl get-volume @DEFAULT_AUDIO_SINK@ | choose 1)
             echo "音量：$(math "$VOLUME * 100")%"
