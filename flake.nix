@@ -26,14 +26,40 @@
     };
   };
 
-  outputs = { self, nixpkgs, mobile-nixos, ... } @ attrs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      mobile-nixos,
+      ...
+    }@attrs:
     let
       inherit (nixpkgs.lib) nixosSystem;
       inherit (nixpkgs.legacyPackages) x86_64-linux aarch64-linux;
-      inherit (builtins) attrNames listToAttrs map replaceStrings readDir;
 
-      flakeOutputs = [ "overlays" "nixosModules" "homeModules" "packages" "checks" ];
-      flakeDirectories = [ "overlays" "modules" "home" "packages" "tests" ];
+      inherit (builtins)
+        attrNames
+        listToAttrs
+        map
+        replaceStrings
+        readDir
+        ;
+
+      flakeOutputs = [
+        "overlays"
+        "nixosModules"
+        "homeModules"
+        "packages"
+        "checks"
+      ];
+
+      flakeDirectories = [
+        "overlays"
+        "modules"
+        "home"
+        "packages"
+        "tests"
+      ];
     in
     {
       nixosConfigurations =
@@ -46,7 +72,10 @@
         {
           nixos = nixosSystem {
             system = "x86_64-linux";
-            specialArgs = attrs // { nix-config = self; };
+
+            specialArgs = attrs // {
+              nix-config = self;
+            };
 
             modules = [
               ./hosts/laptop/configuration.nix
@@ -56,12 +85,13 @@
 
           mobile-nixos = nixosSystem {
             system = "aarch64-linux";
-            specialArgs = attrs // { nix-config = self; };
+
+            specialArgs = attrs // {
+              nix-config = self;
+            };
 
             modules = phoneModules ++ [
-              (import "${mobile-nixos}/lib/configuration.nix" {
-                device = "pine64-pinephone";
-              })
+              (import "${mobile-nixos}/lib/configuration.nix" { device = "pine64-pinephone"; })
 
               {
                 mobile.beautification = {
@@ -74,66 +104,61 @@
 
           mobile-nixos-vm = nixosSystem {
             system = "x86_64-linux";
-            specialArgs = attrs // { nix-config = self; };
+
+            specialArgs = attrs // {
+              nix-config = self;
+            };
+
             modules = phoneModules;
           };
         };
 
       formatter.x86_64-linux = x86_64-linux.nixpkgs-fmt;
       formatter.aarch64-linux = aarch64-linux.nixpkgs-fmt;
-    } //
-    (listToAttrs
-      (map
-        (attributeName: {
-          name = attributeName;
-          value =
-            let
-              directory = replaceStrings flakeOutputs flakeDirectories attributeName;
+    }
+    // (listToAttrs (
+      map (attributeName: {
+        name = attributeName;
+        value =
+          let
+            directory = replaceStrings flakeOutputs flakeDirectories attributeName;
 
-              attributeValue = listToAttrs
-                (map
-                  (file: {
-                    name = replaceStrings [ ".nix" ] [ "" ] file;
-                    value =
-                      if directory == "packages"
-                      then x86_64-linux.callPackage ./${directory}/${file} { }
-                      else
-                        if directory == "tests"
-                        then
-                          import ./${directory}/${file}
-                            {
-                              inherit self;
-                              pkgs = x86_64-linux;
-                            }
-                        else import ./${directory}/${file};
-                  })
-                  (attrNames (readDir ./${directory})));
+            attributeValue = listToAttrs (
+              map (file: {
+                name = replaceStrings [ ".nix" ] [ "" ] file;
+                value =
+                  if directory == "packages" then
+                    x86_64-linux.callPackage ./${directory}/${file} { }
+                  else if directory == "tests" then
+                    import ./${directory}/${file} {
+                      inherit self;
+                      pkgs = x86_64-linux;
+                    }
+                  else
+                    import ./${directory}/${file};
+              }) (attrNames (readDir ./${directory}))
+            );
 
-              aarch64Packages = listToAttrs
-                (map
-                  (file: {
-                    name = replaceStrings [ ".nix" ] [ "" ] file;
-                    value =
-                      if directory == "packages"
-                      then aarch64-linux.callPackage ./${directory}/${file} { }
-                      else null;
-                  })
-                  (attrNames (readDir ./${directory})));
+            aarch64Packages = listToAttrs (
+              map (file: {
+                name = replaceStrings [ ".nix" ] [ "" ] file;
+                value =
+                  if directory == "packages" then aarch64-linux.callPackage ./${directory}/${file} { } else null;
+              }) (attrNames (readDir ./${directory}))
+            );
 
-              attributeSet =
-                if directory == "packages"
-                then {
+            attributeSet =
+              if directory == "packages" then
+                {
                   x86_64-linux = attributeValue;
                   aarch64-linux = aarch64Packages;
                 }
-                else
-                  if directory == "tests"
-                  then {
-                    x86_64-linux = attributeValue;
-                  }
-                  else attributeValue;
-            in
-            attributeSet;
-        })
-        flakeOutputs));
+              else if directory == "tests" then
+                { x86_64-linux = attributeValue; }
+              else
+                attributeValue;
+          in
+          attributeSet;
+      }) flakeOutputs
+    ));
 }

@@ -1,4 +1,7 @@
-test: { self, pkgs }:
+test:
+
+{ self, pkgs }:
+
 let
   inherit (pkgs.lib) mkDefault;
 

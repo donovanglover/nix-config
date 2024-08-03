@@ -1,4 +1,10 @@
-{ self, pkgs, config, lib, ... }:
+{
+  self,
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 let
   inherit (lib) mkIf mkForce;
@@ -7,17 +13,19 @@ let
   inherit (builtins) attrValues;
 
   getColorCh = colorName: channel: config.lib.stylix.colors."${colorName}-rgb-${channel}";
-  rgba = color: transparency: ''rgba(${getColorCh color "r"}, ${getColorCh color "g"}, ${getColorCh color "b"}, ${transparency})'';
+
+  rgba =
+    color: transparency:
+    ''rgba(${getColorCh color "r"}, ${getColorCh color "g"}, ${getColorCh color "b"}, ${transparency})'';
+
   bg = ''linear-gradient(${rgba "base00" "0.7"}, ${rgba "base00" "0.7"})'';
 in
 {
   imports = attrValues self.nixosModules;
 
-  nixpkgs.overlays = attrValues {
-    inherit (self.overlays)
-      phinger-cursors
-      ;
-  };
+  nixpkgs.overlays = with self.overlays; [
+    phinger-cursors
+  ];
 
   home-manager.sharedModules = attrValues {
     inherit (self.homeModules)
@@ -73,8 +81,15 @@ in
 
         "org/gnome/desktop/input-sources" = {
           sources = [
-            (mkTuple [ "xkb" "us" ])
-            (mkTuple [ "xkb" "jp+kana" ])
+            (mkTuple [
+              "xkb"
+              "us"
+            ])
+
+            (mkTuple [
+              "xkb"
+              "jp+kana"
+            ])
           ];
         };
 
@@ -91,40 +106,35 @@ in
     };
 
     background = {
-      stylix.targets.gtk.extraCss = /* css */ ''
-        phosh-lockscreen {
-          background: ${bg}, url('file:///home/${username}/wall-lock.jpg');
-        }
+      stylix.targets.gtk.extraCss = # css
+        ''
+          phosh-lockscreen {
+            background: ${bg}, url('file:///home/${username}/wall-lock.jpg');
+          }
 
-        phosh-app-grid {
-          background: ${bg}, url('file:///home/${username}/wall-grid.jpg');
-        }
+          phosh-app-grid {
+            background: ${bg}, url('file:///home/${username}/wall-grid.jpg');
+          }
 
-        phosh-top-panel {
-          background: ${bg}, url('file:///home/${username}/wall-panel.jpg');
-        }
+          phosh-top-panel {
+            background: ${bg}, url('file:///home/${username}/wall-panel.jpg');
+          }
 
-        phosh-home {
-          background: ${bg}, url('file:///home/${username}/wall-home.jpg');
-        }
+          phosh-home {
+            background: ${bg}, url('file:///home/${username}/wall-home.jpg');
+          }
 
-        phosh-lockscreen, phosh-app-grid, phosh-top-panel, phosh-home {
-          background-size: cover;
-          background-position: center;
-        }
-      '';
+          phosh-lockscreen, phosh-app-grid, phosh-top-panel, phosh-home {
+            background-size: cover;
+            background-position: center;
+          }
+        '';
     };
   };
 
   environment.systemPackages = attrValues {
-    inherit (self.packages.${pkgs.system})
-      webp-thumbnailer
-      pinephone-toolkit
-      ;
-
-    inherit (pkgs.gnome)
-      gnome-contacts
-      ;
+    inherit (self.packages.${pkgs.system}) webp-thumbnailer pinephone-toolkit;
+    inherit (pkgs.gnome) gnome-contacts;
 
     inherit (pkgs)
       chatty
@@ -157,7 +167,6 @@ in
     hyprland.enable = mkForce false;
     thunar.enable = mkForce false;
   };
-
 
   networking = {
     wireless.enable = false;
