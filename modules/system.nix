@@ -30,9 +30,7 @@ let
   cfg = config.modules.system;
 in
 {
-  imports = with nix-config.inputs.home-manager.nixosModules; [
-    home-manager
-  ];
+  imports = with nix-config.inputs.home-manager.nixosModules; [ home-manager ];
 
   options.modules.system = {
     username = mkOption {

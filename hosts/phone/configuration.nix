@@ -23,9 +23,7 @@ in
 {
   imports = attrValues self.nixosModules;
 
-  nixpkgs.overlays = with self.overlays; [
-    phinger-cursors
-  ];
+  nixpkgs.overlays = with self.overlays; [ phinger-cursors ];
 
   home-manager.sharedModules = attrValues {
     inherit (self.homeModules)

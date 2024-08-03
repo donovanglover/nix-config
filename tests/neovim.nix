@@ -15,9 +15,7 @@ in
         };
       };
 
-      home-manager.sharedModules = with nix-config.homeModules; [
-        neovim
-      ];
+      home-manager.sharedModules = with nix-config.homeModules; [ neovim ];
     };
 
   testScript = # python
