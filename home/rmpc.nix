@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 
 let
   inherit (config.xdg.userDirs) music;
@@ -6,6 +6,8 @@ let
   musicDirectory = music;
 in
 {
+  home.packages = with pkgs; [ rmpc ];
+
   services.mpd = {
     enable = true;
     inherit musicDirectory;
