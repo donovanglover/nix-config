@@ -5,7 +5,9 @@ let
 
   no = {
     name = "";
-    noDisplay = true;
+    settings = {
+      Hidden = "true";
+    };
   };
 in
 {
