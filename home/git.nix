@@ -1,10 +1,7 @@
 { pkgs, ... }:
 
-let
-  inherit (pkgs) tig mgitstatus;
-in
 {
-  home.packages = [
+  home.packages = with pkgs; [
     tig
     mgitstatus
   ];

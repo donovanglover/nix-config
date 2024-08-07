@@ -7,13 +7,12 @@
 
 let
   inherit (config.modules.system) username;
-  inherit (pkgs) xterm;
 in
 {
   services = {
     xserver = {
       enable = true;
-      excludePackages = [ xterm ];
+      excludePackages = with pkgs; [ xterm ];
     };
 
     displayManager = {

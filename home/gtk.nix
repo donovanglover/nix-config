@@ -1,8 +1,5 @@
 { pkgs, ... }:
 
-let
-  inherit (pkgs) fluent-icon-theme;
-in
 {
   gtk = {
     enable = true;
@@ -17,7 +14,7 @@ in
     };
 
     iconTheme = {
-      package = fluent-icon-theme;
+      package = pkgs.fluent-icon-theme;
       name = "Fluent-dark";
     };
   };

@@ -1,12 +1,9 @@
 { pkgs, ... }:
 
-let
-  inherit (pkgs) htop-vim;
-in
 {
   programs.htop = {
     enable = true;
-    package = htop-vim;
+    package = pkgs.htop-vim;
 
     settings = {
       tree_view = true;

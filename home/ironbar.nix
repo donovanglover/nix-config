@@ -7,7 +7,6 @@
 
 let
   inherit (lib) singleton;
-  inherit (pkgs) ironbar inotify-tools;
   inherit (builtins) toJSON;
 
   inherit (config.lib.stylix.colors.withHashtag)
@@ -23,7 +22,7 @@ let
   volumeGet = "ironbar/volume-get.fish";
 in
 {
-  home.packages = [ ironbar ];
+  home.packages = with pkgs; [ ironbar ];
 
   xdg.configFile = {
     "ironbar/config.json".text = toJSON {
@@ -249,7 +248,7 @@ in
           get_mullvad_status
           set initialized true
 
-          ${inotify-tools}/bin/inotifywait -q -e close_write,moved_to,create -m /etc/mullvad-vpn |
+          ${pkgs.inotify-tools}/bin/inotifywait -q -e close_write,moved_to,create -m /etc/mullvad-vpn |
           while read directory events filename
             get_mullvad_status
           end

@@ -1,8 +1,5 @@
 { pkgs, ... }:
 
-let
-  inherit (pkgs) pinentry-curses;
-in
 {
   programs.gpg = {
     enable = true;
@@ -21,7 +18,7 @@ in
 
   services.gpg-agent = {
     enable = true;
-    pinentryPackage = pinentry-curses;
+    pinentryPackage = pkgs.pinentry-curses;
     defaultCacheTtl = 43200;
     maxCacheTtl = 43200;
   };

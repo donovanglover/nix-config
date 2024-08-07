@@ -6,14 +6,13 @@
 }:
 
 let
-  inherit (pkgs) polkit_gnome callPackage;
   inherit (lib) mkForce;
   inherit (vars) notifySend;
 
   opacity = "0.95";
   super = "SUPER";
 
-  osu-backgrounds = callPackage ../packages/osu-backgrounds.nix { };
+  osu-backgrounds = pkgs.callPackage ../packages/osu-backgrounds.nix { };
 
   gapsScript = "hypr/gaps.fish";
   randomBackgroundScript = "hypr/random-bg.fish";
@@ -76,7 +75,7 @@ in
         "fcitx5"
         "mpdris2-rs"
         "hyprctl dispatch workspace 5000000"
-        "${polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
+        "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
         "hyprdim --no-dim-when-only --persist --ignore-leaving-special --dialog-dim"
         "sleep 1 && eww open desktop-icons"
         "~/.config/${randomBackgroundScript}"

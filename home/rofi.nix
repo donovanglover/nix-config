@@ -6,7 +6,6 @@
 }:
 
 let
-  inherit (pkgs) rofi-wayland;
   inherit (lib) mkForce;
   inherit (config.lib.formats.rasi) mkLiteral;
   inherit (config.lib.stylix.colors.withHashtag) base00 base05;
@@ -16,7 +15,7 @@ in
     enable = true;
     cycle = false;
 
-    package = rofi-wayland;
+    package = pkgs.rofi-wayland;
 
     extraConfig = {
       modi = "drun,filebrowser";

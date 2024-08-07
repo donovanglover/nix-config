@@ -1,13 +1,10 @@
 { pkgs, ... }:
 
-let
-  inherit (pkgs) librewolf;
-in
 {
   programs.librewolf = {
     enable = true;
 
-    package = librewolf.override { cfg.speechSynthesisSupport = false; };
+    package = pkgs.librewolf.override { cfg.speechSynthesisSupport = false; };
 
     settings = {
       "middlemouse.paste" = false;

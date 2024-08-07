@@ -1,12 +1,9 @@
 { pkgs, ... }:
 
-let
-  inherit (pkgs) ungoogled-chromium;
-in
 {
   programs.chromium = {
     enable = true;
-    package = ungoogled-chromium;
+    package = pkgs.ungoogled-chromium;
 
     commandLineArgs = [
       "--ozone-platform=wayland"

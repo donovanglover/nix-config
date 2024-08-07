@@ -3,7 +3,6 @@
 let
   inherit (config.home) homeDirectory;
   inherit (config.lib.stylix.colors.withHashtag) base00 base05;
-  inherit (pkgs) eww;
 
   inherit (config.xdg.userDirs)
     download
@@ -16,7 +15,7 @@ let
   fluent-icons = pkgs.callPackage ../packages/fluent-icons.nix { };
 in
 {
-  home.packages = [ eww ];
+  home.packages = with pkgs; [ eww ];
 
   xdg.configFile."eww/eww.yuck".text = # yuck
     ''
