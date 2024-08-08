@@ -43,7 +43,6 @@
       nodePackages."@astrojs/language-server"
       nodePackages."@prisma/language-server"
       emmet-language-server
-      crystalline
       markdown-oxide
       tailwindcss-language-server
       vscode-langservers-extracted
@@ -259,7 +258,6 @@
               'markdown_oxide',
               'html',
               'texlab',
-              'crystalline',
               'prismals',
               'jsonls',
               'vuels',
@@ -487,7 +485,6 @@
       rust-vim
       yuck-vim
       neoformat
-      vim-crystal
       vim-nix
       tagbar
       rainbow-delimiters-nvim
