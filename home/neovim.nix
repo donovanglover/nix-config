@@ -42,7 +42,6 @@
       nodePackages.typescript-language-server
       nodePackages."@astrojs/language-server"
       nodePackages."@prisma/language-server"
-      lua-language-server
       emmet-language-server
       crystalline
       markdown-oxide
@@ -258,15 +257,12 @@
               'nixd',
               'rust_analyzer',
               'markdown_oxide',
-              'lua_ls',
               'html',
-              'clangd',
               'texlab',
               'crystalline',
               'prismals',
               'jsonls',
               'vuels',
-              'sqlls',
               'emmet_language_server',
               'astro',
               'cssls',
