@@ -19,6 +19,13 @@ let
     ''rgba(${getColorCh color "r"}, ${getColorCh color "g"}, ${getColorCh color "b"}, ${transparency})'';
 
   bg = ''linear-gradient(${rgba "base00" "0.7"}, ${rgba "base00" "0.7"})'';
+
+  no = {
+    name = "";
+    settings = {
+      Hidden = "true";
+    };
+  };
 in
 {
   imports = attrValues self.nixosModules;
@@ -40,6 +47,24 @@ in
       xdg-user-dirs
       xresources
       ;
+
+    xdg.desktopEntries = {
+      htop = no;
+      fish = no;
+      nvim = no;
+      yazi = no;
+      gcdemu = no;
+      mullvad-vpn = no;
+      nixos-manual = no;
+      image-analyzer = no;
+      activate-linux = no;
+
+      "org.gnome.Extensions" = no;
+      "org.pwmt.zathura" = no;
+      "org.gnome.eog" = no;
+      "org.gnome.Settings" = no;
+      "org.sigxcpu.Livi" = no;
+    };
 
     config = {
       programs.man.generateCaches = mkForce false;
