@@ -99,7 +99,6 @@
         nnoremap <silent> <leader>b :Vista!!<CR>
         vnoremap <C-s> y:silent !notify-send -t 4000 "成果" "$(tango '<C-r>0')"<CR>:<Esc>
 
-        autocmd BufNewFile,BufRead *.ecr setlocal syntax=html
         autocmd BufWritePre,FileWritePre * silent! call mkdir(expand('<afile>:p:h'), 'p')
         autocmd VimEnter * silent! :cd `git rev-parse --show-toplevel`
 
@@ -453,7 +452,6 @@
                     and lang ~= "css"
                     and lang ~= "glsl"
                     and lang ~= "nix"
-                    and lang ~= "pug"
                     and lang ~= "prisma"
                 end,
                 additional_vim_regex_highlighting = true,
