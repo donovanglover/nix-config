@@ -38,7 +38,6 @@
     defaultEditor = true;
 
     extraPackages = with pkgs; [
-      nodePackages.vls
       nodePackages.typescript-language-server
       nodePackages."@astrojs/language-server"
       nodePackages."@prisma/language-server"
@@ -259,7 +258,6 @@
               'texlab',
               'prismals',
               'jsonls',
-              'vuels',
               'emmet_language_server',
               'astro',
               'cssls',
@@ -455,7 +453,6 @@
                     and lang ~= "css"
                     and lang ~= "glsl"
                     and lang ~= "nix"
-                    and lang ~= "vue"
                     and lang ~= "pug"
                     and lang ~= "prisma"
                 end,
