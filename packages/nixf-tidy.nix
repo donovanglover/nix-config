@@ -3,6 +3,7 @@
   stdenvNoCC,
   writeTextFile,
   makeWrapper,
+  fish,
   git,
   fd,
   jq,
@@ -64,6 +65,7 @@ stdenvNoCC.mkDerivation {
     wrapProgram $out/bin/nixf-tidy \
       --prefix PATH ":" "${
         lib.makeBinPath [
+          fish
           git
           fd
           jq
