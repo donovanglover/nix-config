@@ -60,17 +60,17 @@
         set number
         set linebreak
         set clipboard=unnamedplus
-        set fileencoding=utf-8         " Ensure that we always save files as utf-8
-        set fileencodings=utf-8,sjis   " Automatically open shiftjis files with their proper encoding
-        set spelllang=en_us,cjk        " Don't show errors for CJK characters
-        set noshowmode                 " Disable the --MODE-- text (enable if not using the status line)
+        set fileencoding=utf-8
+        set fileencodings=utf-8,sjis
+        set spelllang=en_us,cjk
+        set noshowmode
         set mouse=a
-        set ignorecase                 " By default use case-insensitive search (combine with smartcase)
-        set smartcase                  " Make search case-sensitive when using capital letters
-        set scrolloff=1                " The minimal number of rows to show when scrolling up/down
-        set sidescrolloff=5            " The minimal number of columns to show when scrolling left/right
-        set tabstop=4                  " Show a tab character as 4 spaces
-        set shiftwidth=4               " Make autoindent appear as 4 spaces
+        set ignorecase
+        set smartcase
+        set scrolloff=1
+        set sidescrolloff=5
+        set tabstop=4
+        set shiftwidth=4
 
         set foldmethod=indent
         set foldlevelstart=99
