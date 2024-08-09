@@ -143,14 +143,6 @@
           '';
       }
       {
-        plugin = pkgs.callPackage ../packages/chameleon-nvim.nix { };
-        type = "lua";
-        config = # lua
-          ''
-            require("chameleon").setup()
-          '';
-      }
-      {
         plugin = gitsigns-nvim;
         type = "lua";
         config = # lua
