@@ -41,6 +41,7 @@
 
       push.default = "simple";
       pull.rebase = true;
+      fetch.prune = true;
       branch.autosetuprebase = "always";
       init.defaultBranch = "master";
       rerere.enabled = true;
