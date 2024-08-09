@@ -25,6 +25,7 @@ let
     bloat
     gnome
     plasma
+    dwm
     container
     opacity
     fontSize
@@ -76,6 +77,7 @@ in
     bloat = mkEnableOption "GUI applications";
     gnome = mkEnableOption "GNOME specialization";
     plasma = mkEnableOption "Plasma specialization";
+    dwm = mkEnableOption "dwm specialization";
     container = mkEnableOption "disable some options for container performance";
     graphical = mkEnableOption "xserver for graphical containers";
   };
@@ -281,6 +283,7 @@ in
     specialisation = {
       gnome = mkIf gnome { configuration.imports = [ ../specializations/gnome.nix ]; };
       plasma = mkIf plasma { configuration.imports = [ ../specializations/plasma.nix ]; };
+      dwm = mkIf dwm { configuration.imports = [ ../specializations/dwm.nix ]; };
     };
   };
 }
