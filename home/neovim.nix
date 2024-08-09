@@ -85,6 +85,7 @@
 
         highlight Search ctermbg=240 ctermfg=255
         highlight IncSearch ctermbg=255 ctermfg=240
+        highlight Folded ctermbg=NONE guibg=NONE
 
         let mapleader = ' '
         nnoremap <silent> <leader>e :set nu!<CR>
