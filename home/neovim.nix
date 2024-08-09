@@ -70,7 +70,6 @@
         set scrolloff=1                " The minimal number of rows to show when scrolling up/down
         set sidescrolloff=5            " The minimal number of columns to show when scrolling left/right
         set tabstop=4                  " Show a tab character as 4 spaces
-        set softtabstop=0              " Edit soft tabs as if they're regular spaces
         set shiftwidth=4               " Make autoindent appear as 4 spaces
 
         set foldmethod=indent
