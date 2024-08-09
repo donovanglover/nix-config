@@ -1,5 +1,4 @@
 {
-  pkgs,
   lib,
   config,
   ...
@@ -10,11 +9,6 @@ let
 in
 {
   services = {
-    xserver = {
-      enable = true;
-      excludePackages = with pkgs; [ xterm ];
-    };
-
     displayManager = {
       sddm.enable = true;
 
