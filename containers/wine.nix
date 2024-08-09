@@ -40,12 +40,12 @@ in
     wantedBy = [ "multi-user.target" ];
   };
 
-  environment.systemPackages = (with pkgs; [
-    wineWowPackages.waylandFull
-    winetricks
-  ]) ++ [
-    sakaya
-  ];
+  environment.systemPackages =
+    (with pkgs; [
+      wineWowPackages.waylandFull
+      winetricks
+    ])
+    ++ [ sakaya ];
 
   environment.sessionVariables = {
     LC_ALL = "ja_JP.UTF-8";

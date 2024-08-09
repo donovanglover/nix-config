@@ -50,9 +50,7 @@ stdenvNoCC.mkDerivation {
 
   dontUnpack = true;
 
-  nativeBuildInputs = [
-    makeWrapper
-  ];
+  nativeBuildInputs = [ makeWrapper ];
 
   installPhase = ''
     runHook preInstall
@@ -64,12 +62,14 @@ stdenvNoCC.mkDerivation {
 
   postInstall = ''
     wrapProgram $out/bin/nixf-tidy \
-      --prefix PATH ":" "${lib.makeBinPath [
-        git
-        fd
-        jq
-        nixf
-      ]}"
+      --prefix PATH ":" "${
+        lib.makeBinPath [
+          git
+          fd
+          jq
+          nixf
+        ]
+      }"
   '';
 
   meta = {

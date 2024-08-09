@@ -7,7 +7,6 @@
 }:
 
 let
-
   inherit (lib.types) float int;
   inherit (config.modules.system) username;
   inherit (config.lib.stylix.colors.withHashtag) base00;
