@@ -9,8 +9,6 @@
     settings = {
       "middlemouse.paste" = false;
 
-      "ui.use_activity_cursor" = true;
-
       "browser.download.useDownloadDir" = true;
       "browser.tabs.insertAfterCurrent" = true;
       "browser.tabs.warnOnClose" = true;
