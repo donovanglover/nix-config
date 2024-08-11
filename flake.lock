@@ -262,11 +262,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1722701340,
-        "narHash": "sha256-WjbcJF7dJ0mvCKGRWuqqdlGvCtUG5MGkynONEkQ7zZc=",
+        "lastModified": 1723392884,
+        "narHash": "sha256-ufBJOEEU+RPcnLQ+6JogESjionq37wjuS4A2/k2bUSU=",
         "owner": "donovanglover",
         "repo": "stylix",
-        "rev": "f76b04561ae6a1bdf3fe851df0d0233809aab88f",
+        "rev": "709cbbdf5458cbcddef2e72e85d62b2ffad3a799",
         "type": "github"
       },
       "original": {
