@@ -15,10 +15,6 @@
       set -g status-bg black
       set -g status-fg white
       set -g default-terminal "tmux-256color"
-
-      bind -n S-Left previous-window
-      bind -n S-Right next-window
-      bind -n S-Up set status
     '';
   };
 }
