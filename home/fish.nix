@@ -101,11 +101,6 @@
       cc = "cargo clippy";
       cf = "cargo fmt";
 
-      da = "deno add";
-      dr = "deno run";
-      dt = "deno task";
-      dtw = "deno test --watch";
-
       dl = "yt-dlp";
       vol = "wpctl set-volume '@DEFAULT_AUDIO_SINK@'";
       df = "df --human-readable --total";
