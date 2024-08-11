@@ -32,6 +32,7 @@ in
           timg
           choose
           sd
+          rustscan
           ;
         inherit (pkgs)
           treefmt
@@ -95,6 +96,7 @@ in
         inherit (pkgs)
           nixpkgs-review
           nix-init
+          nix-update
           statix
           nvd
           nix-search-cli
