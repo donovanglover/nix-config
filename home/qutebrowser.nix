@@ -115,13 +115,6 @@ in
         sTk = "set tabs.position top";
         sTl = "set tabs.position right";
 
-        zl = "spawn --userscript qute-pass')";
-        zpl = "spawn --userscript qute-pass --password-only')";
-        zol = "spawn --userscript qute-pass --otp-only')";
-
-        zM = "spawn mpv --force-window=immediate {url}')";
-        zm = "hint links spawn mpv --force-window=immediate {hint-url}')";
-
         pp = null;
         pP = null;
         Pp = null;
