@@ -15,21 +15,6 @@
         indent_style = "space";
         trim_trailing_whitespace = false;
       };
-
-      "Makefile" = {
-        indent_style = "tab";
-        indent_size = 4;
-      };
-
-      "*.html" = {
-        indent_style = "tab";
-        indent_size = 4;
-      };
-
-      "*.rs" = {
-        indent_style = "space";
-        indent_size = 4;
-      };
     };
   };
 
