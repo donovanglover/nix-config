@@ -109,7 +109,6 @@ in
           clippy
           nodejs
           deno
-          tectonic
           ;
       })
     ];
