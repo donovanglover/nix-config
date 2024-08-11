@@ -16,12 +16,14 @@ in
 {
   modules.desktop.graphical = true;
 
-  networking.nat.forwardPorts = singleton {
-    destination = "192.168.100.49:${sakayaPort}";
-    sourcePort = sakayaPort;
-  };
+  networking = {
+    nat.forwardPorts = singleton {
+      destination = "192.168.100.49:${sakayaPort}";
+      sourcePort = sakayaPort;
+    };
 
-  networking.firewall.allowedTCPPorts = [ sakayaPort ];
+    firewall.allowedTCPPorts = [ sakayaPort ];
+  };
 
   systemd.services.sakaya = {
     enable = true;
@@ -40,15 +42,17 @@ in
     wantedBy = [ "multi-user.target" ];
   };
 
-  environment.systemPackages =
-    (with pkgs; [
-      wineWowPackages.waylandFull
-      winetricks
-    ])
-    ++ [ sakaya ];
+  environment = {
+    systemPackages =
+      (with pkgs; [
+        wineWowPackages.waylandFull
+        winetricks
+      ])
+      ++ [ sakaya ];
 
-  environment.sessionVariables = {
-    LC_ALL = "ja_JP.UTF-8";
-    TZ = "Asia/Tokyo";
+    sessionVariables = {
+      LC_ALL = "ja_JP.UTF-8";
+      TZ = "Asia/Tokyo";
+    };
   };
 }

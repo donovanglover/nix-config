@@ -19,6 +19,8 @@ in
       enable = true;
       user = username;
     };
+
+    greetd.enable = lib.mkForce false;
   };
 
   systemd.services = {
@@ -33,5 +35,4 @@ in
 
   hardware.pulseaudio.enable = false;
   programs.hyprland.enable = lib.mkForce false;
-  services.greetd.enable = lib.mkForce false;
 }

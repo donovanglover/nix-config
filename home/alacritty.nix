@@ -3,9 +3,9 @@
     enable = true;
 
     settings = {
-      window = {
-        padding.x = 10;
-        padding.y = 10;
+      window.padding = {
+        x = 10;
+        y = 10;
       };
 
       mouse.hide_when_typing = true;

@@ -5,57 +5,59 @@ let
 in
 {
   home-manager.sharedModules = singleton {
-    services.picom = rec {
-      enable = true;
-      backend = "glx";
+    services = {
+      picom = rec {
+        enable = true;
+        backend = "glx";
 
-      vSync = true;
-      fade = true;
-      shadow = true;
+        vSync = true;
+        fade = true;
+        shadow = true;
 
-      fadeDelta = 5;
+        fadeDelta = 5;
 
-      fadeExclude = [
-        "window_type = 'menu'"
-        "window_type = 'dropdown_menu'"
-        "window_type = 'popup_menu'"
-        "window_type = 'tooltip'"
-      ];
+        fadeExclude = [
+          "window_type = 'menu'"
+          "window_type = 'dropdown_menu'"
+          "window_type = 'popup_menu'"
+          "window_type = 'tooltip'"
+        ];
 
-      shadowExclude = fadeExclude;
+        shadowExclude = fadeExclude;
 
-      settings = {
-        blur = {
-          method = "dual_kawase";
-          size = 10;
+        settings = {
+          blur = {
+            method = "dual_kawase";
+            size = 10;
+          };
         };
       };
-    };
 
-    services.dunst = {
-      enable = true;
+      dunst = {
+        enable = true;
 
-      iconTheme = {
-        package = pkgs.papirus-icon-theme;
-        name = "Papirus";
-      };
+        iconTheme = {
+          package = pkgs.papirus-icon-theme;
+          name = "Papirus";
+        };
 
-      settings = {
-        global = {
-          geometry = "1870x5-25+45";
-          width = 350;
-          separator_height = 5;
-          padding = 24;
-          horizontal_padding = 24;
-          frame_width = 3;
-          idle_threshold = 120;
-          alignment = "center";
-          word_wrap = "yes";
-          transparency = 5;
-          format = "<b>%s</b>: %b";
-          markup = "full";
-          min_icon_size = 32;
-          max_icon_size = 128;
+        settings = {
+          global = {
+            geometry = "1870x5-25+45";
+            width = 350;
+            separator_height = 5;
+            padding = 24;
+            horizontal_padding = 24;
+            frame_width = 3;
+            idle_threshold = 120;
+            alignment = "center";
+            word_wrap = "yes";
+            transparency = 5;
+            format = "<b>%s</b>: %b";
+            markup = "full";
+            min_icon_size = 32;
+            max_icon_size = 128;
+          };
         };
       };
     };

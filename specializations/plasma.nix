@@ -13,9 +13,11 @@ in
         user = username;
       };
     };
-  };
 
-  services.desktopManager.plasma6.enable = true;
+    desktopManager.plasma6.enable = true;
+
+    greetd.enable = lib.mkForce false;
+  };
 
   systemd.services = {
     "getty@tty1".enable = false;
@@ -23,5 +25,4 @@ in
   };
 
   programs.hyprland.enable = lib.mkForce false;
-  services.greetd.enable = lib.mkForce false;
 }

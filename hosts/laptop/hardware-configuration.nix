@@ -10,6 +10,8 @@
 
   boot = {
     initrd = {
+      luks.devices."root".device = "/dev/disk/by-label/nixos-luks";
+
       availableKernelModules = [
         "nvme"
         "xhci_pci"
@@ -24,16 +26,16 @@
     extraModulePackages = [ ];
   };
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-label/nixos";
-    fsType = "btrfs";
-  };
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-label/nixos";
+      fsType = "btrfs";
+    };
 
-  boot.initrd.luks.devices."root".device = "/dev/disk/by-label/nixos-luks";
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-label/boot";
-    fsType = "vfat";
+    "/boot" = {
+      device = "/dev/disk/by-label/boot";
+      fsType = "vfat";
+    };
   };
 
   swapDevices = [ ];

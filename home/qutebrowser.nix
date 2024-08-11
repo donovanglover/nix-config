@@ -66,8 +66,11 @@ in
       };
 
       downloads = {
-        location.directory = download;
-        location.prompt = false;
+        location = {
+          directory = download;
+          prompt = false;
+        };
+
         position = "bottom";
         remove_finished = 5000;
       };

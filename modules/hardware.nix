@@ -72,22 +72,24 @@ in
       };
     };
 
-    environment.systemPackages = mkIf mouseSettings [ piper ];
+    environment = {
+      systemPackages = mkIf mouseSettings [ piper ];
 
-    environment.etc.${dualFunctionKeysConfig}.text = toJSON {
-      TIMING = [
-        { TAP_MILLISEC = 1000; }
-        { DOUBLE_TAP_MILLISEC = 0; }
-        { SYNTHETIC_KEYS_PAUSE_MILLISEC = 0; }
-      ];
+      etc.${dualFunctionKeysConfig}.text = toJSON {
+        TIMING = [
+          { TAP_MILLISEC = 1000; }
+          { DOUBLE_TAP_MILLISEC = 0; }
+          { SYNTHETIC_KEYS_PAUSE_MILLISEC = 0; }
+        ];
 
-      MAPPINGS = [
-        {
-          KEY = "KEY_CAPSLOCK";
-          TAP = "KEY_ESC";
-          HOLD = "KEY_LEFTCTRL";
-        }
-      ];
+        MAPPINGS = [
+          {
+            KEY = "KEY_CAPSLOCK";
+            TAP = "KEY_ESC";
+            HOLD = "KEY_LEFTCTRL";
+          }
+        ];
+      };
     };
   };
 }
