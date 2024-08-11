@@ -40,6 +40,7 @@ in
       gpg
       gtk
       htop
+      kitty
       librewolf
       neovim
       starship
@@ -48,23 +49,7 @@ in
       ;
 
     config = {
-      programs = {
-        alacritty = {
-          enable = true;
-
-          settings = {
-            window.padding = {
-              x = 10;
-              y = 10;
-            };
-
-            mouse.hide_when_typing = true;
-            selection.save_to_clipboard = true;
-          };
-        };
-
-        man.generateCaches = mkForce false;
-      };
+      programs.man.generateCaches = mkForce false;
 
       xdg = {
         desktopEntries = {
@@ -181,20 +166,26 @@ in
     };
   };
 
-  environment.systemPackages = attrValues {
-    inherit (self.packages.${pkgs.system}) webp-thumbnailer;
-    inherit (pkgs.gnome) gnome-contacts;
+  environment = {
+    sessionVariables = {
+      LIBGL_ALWAYS_SOFTWARE = "true";
+    };
 
-    inherit (pkgs)
-      chatty
-      megapixels
-      fractal
-      g4music
-      livi
-      gnome-calendar
-      tuba
-      eog
-      ;
+    systemPackages = attrValues {
+      inherit (self.packages.${pkgs.system}) webp-thumbnailer;
+      inherit (pkgs.gnome) gnome-contacts;
+
+      inherit (pkgs)
+        chatty
+        megapixels
+        fractal
+        g4music
+        livi
+        gnome-calendar
+        tuba
+        eog
+        ;
+    };
   };
 
   modules = {
