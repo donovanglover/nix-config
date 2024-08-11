@@ -265,6 +265,14 @@ in
         ensureUsers = singleton { name = username; };
         ensureDatabases = [ username ];
       };
+
+      openssh = {
+        enable = true;
+
+        settings = {
+          PasswordAuthentication = false;
+        };
+      };
     };
 
     environment = {

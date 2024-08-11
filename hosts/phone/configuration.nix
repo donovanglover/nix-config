@@ -239,8 +239,6 @@ in
       };
     };
 
-    openssh.enable = true;
-
     udisks2.enable = mkForce false;
     pipewire.enable = mkForce false;
     greetd.enable = mkForce false;
