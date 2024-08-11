@@ -98,6 +98,13 @@ in
         "sm/puri/phosh" = {
           app-filter-mode = [ ];
           enable-suspend = true;
+
+          favorites = [
+            "org.gnome.Calls.desktop"
+            "sm.puri.Chatty.desktop"
+            "org.gnome.Contacts.desktop"
+            "org.gnome.Calendar.desktop"
+          ];
         };
 
         "sm/puri/phosh/lockscreen" = {
