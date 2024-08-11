@@ -71,7 +71,6 @@ in
         inherit (pkgs)
           gdu
           hexyl
-          zellij
           diskonaut
           pgcli
           litecli
