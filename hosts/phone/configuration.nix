@@ -112,6 +112,8 @@ in
         };
 
         "sm/puri/phosh/plugins" = {
+          lock-screen = [ "upcoming-events" ];
+
           quick-settings = [
             "night-light-quick-setting"
             "caffeine-quick-setting"
