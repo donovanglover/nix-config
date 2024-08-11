@@ -34,7 +34,6 @@ in
 
   home-manager.sharedModules = attrValues {
     inherit (self.homeModules)
-      alacritty
       eza
       fish
       git
@@ -49,7 +48,23 @@ in
       ;
 
     config = {
-      programs.man.generateCaches = mkForce false;
+      programs = {
+        alacritty = {
+          enable = true;
+
+          settings = {
+            window.padding = {
+              x = 10;
+              y = 10;
+            };
+
+            mouse.hide_when_typing = true;
+            selection.save_to_clipboard = true;
+          };
+        };
+
+        man.generateCaches = mkForce false;
+      };
 
       xdg = {
         desktopEntries = {
