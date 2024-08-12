@@ -57,11 +57,14 @@ in
           fish = no;
           nvim = no;
           yazi = no;
+          qt5ct = no;
+          qt6ct = no;
           gcdemu = no;
           mullvad-vpn = no;
           nixos-manual = no;
           image-analyzer = no;
           activate-linux = no;
+          kvantummanager = no;
 
           "org.gnome.Extensions" = no;
           "org.pwmt.zathura" = no;
