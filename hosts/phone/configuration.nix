@@ -178,11 +178,8 @@ in
       inherit (pkgs)
         chatty
         megapixels
-        fractal
-        g4music
         livi
         gnome-calendar
-        tuba
         eog
         ;
     };
