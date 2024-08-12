@@ -271,6 +271,7 @@ in
 
         settings = {
           PasswordAuthentication = false;
+          KbdInteractiveAuthentication = false;
         };
       };
     };
