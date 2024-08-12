@@ -3,14 +3,8 @@
 {
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-uuid/0a242de8-703e-46c1-a419-56109833aef5";
+      device = "/dev/disk/by-uuid/c27b4193-56f0-44e8-bc45-6f64e4b721da";
       fsType = "ext4";
-    };
-  };
-
-  boot.initrd.luks.devices = {
-    "LUKS-IPHONE-ROOTFS" = {
-      device = "/dev/disk/by-uuid/969741b3-6cc3-4667-92e8-5f0240253e6f";
     };
   };
 
