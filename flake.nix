@@ -3,7 +3,7 @@
     nixpkgs.url = "github:donovanglover/nixpkgs";
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:donovanglover/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
