@@ -212,6 +212,23 @@ in
     wireless.enable = false;
     wireguard.enable = true;
 
+    networkmanager.ensureProfiles.profiles = {
+      mobile = {
+        connection = {
+          id = "4G";
+          type = "gsm";
+        };
+
+        gsm.apn = "NXTGENPHONE";
+        ipv4.method = "auto";
+
+        ipv6 = {
+          addr-gen-mode = "default";
+          method = "auto";
+        };
+      };
+    };
+
     firewall.checkReversePath = mkForce false;
   };
 
