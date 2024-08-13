@@ -22,12 +22,12 @@ in
     systemPackages = mkMerge [
       (attrValues {
         inherit (pkgs)
-          wget
           jq
           eza
           fd
           fzf
           ripgrep
+          xh
           file
           timg
           choose
@@ -36,7 +36,6 @@ in
           ;
         inherit (pkgs)
           treefmt
-          httpie
           yt-dlp
           sox
           asak
