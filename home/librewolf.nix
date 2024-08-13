@@ -36,6 +36,7 @@
       "browser.urlbar.suggest.history" = false;
       "browser.urlbar.suggest.openpage" = false;
       "browser.urlbar.suggest.topsites" = false;
+      "browser.urlbar.trimHttps" = true;
 
       "sidebar.position_start" = false;
       "findbar.highlightAll" = true;
