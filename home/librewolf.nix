@@ -6,6 +6,21 @@
 
     package = pkgs.librewolf.override { cfg.speechSynthesisSupport = false; };
 
+    profiles.default = {
+      search = {
+        force = true;
+        default = "Mullvad";
+        privateDefault = "Mullvad";
+
+        engines = {
+          Mullvad = {
+            urls = [{ template = "https://leta.mullvad.net/?q={searchTerms}"; }];
+            icon = "${pkgs.mullvad-vpn}/share/icons/hicolor/32x32/apps/mullvad-vpn.png";
+          };
+        };
+      };
+    };
+
     settings = {
       "middlemouse.paste" = false;
 
