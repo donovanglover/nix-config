@@ -14,6 +14,7 @@ let
     mkEnableOption
     mkIf
     singleton
+    optional
     ;
 
   inherit (cfg)
@@ -23,6 +24,7 @@ let
     mullvad
     allowSRB2Port
     allowDevPort
+    hotspot
     noRoot
     postgres
     ;
@@ -79,6 +81,7 @@ in
     postgres = mkEnableOption "postgres database for containers";
     allowSRB2Port = mkEnableOption "port for srb2";
     allowDevPort = mkEnableOption "port for development server";
+    hotspot = mkEnableOption "mobile hotspot support";
   };
 
   config = {
@@ -246,7 +249,13 @@ in
       };
 
       firewall = {
-        allowedUDPPorts = mkIf allowSRB2Port [ 5029 ];
+        allowedUDPPorts =
+          optional hotspot [
+            67
+            68
+          ]
+          ++ optional allowSRB2Port [ 5029 ];
+
         allowedTCPPorts = mkIf allowDevPort [ 3000 ];
       };
     };
