@@ -45,7 +45,7 @@ in
 
         engines = {
           Mullvad = {
-            urls = [{ template = "https://leta.mullvad.net/?q={searchTerms}"; }];
+            urls = [ { template = "https://leta.mullvad.net/?q={searchTerms}"; } ];
             icon = "${pkgs.mullvad-vpn}/share/icons/hicolor/32x32/apps/mullvad-vpn.png";
           };
         };
