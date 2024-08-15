@@ -74,7 +74,6 @@ in
           diskonaut
           pgcli
           litecli
-          iamb
           ;
         inherit (pkgs)
           p7zip
@@ -94,7 +93,6 @@ in
           ;
         inherit (pkgs)
           nixpkgs-review
-          nix-init
           nix-update
           statix
           nvd
