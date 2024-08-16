@@ -29,6 +29,10 @@ let
 
       runHook postInstall
     '';
+
+    postInstall = ''
+      echo ".urlbarView { display: none !important; }" >> $out/userChrome.css
+    '';
   });
 in
 {
