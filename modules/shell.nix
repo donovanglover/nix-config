@@ -50,7 +50,7 @@ in
       sudachi-rs
       tango
       npm-check-updates
-      fastfetch
+      microfetch
       onefetch
       scc
       genact
