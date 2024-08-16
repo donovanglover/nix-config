@@ -83,7 +83,6 @@
         nnoremap <silent> <leader>l :Rg<CR>
         nnoremap <silent> <leader>; :NvimTreeToggle<CR>
         nnoremap <silent> <leader>b :Vista!!<CR>
-        vnoremap <C-s> y:silent !notify-send -t 4000 "成果" "$(tango '<C-r>0')"<CR>:<Esc>
 
         autocmd BufWritePre,FileWritePre * silent! call mkdir(expand('<afile>:p:h'), 'p')
         autocmd VimEnter * silent! :cd `git rev-parse --show-toplevel`
