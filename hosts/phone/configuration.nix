@@ -193,6 +193,7 @@ in
       hostName = "mobile-nixos";
       stateVersion = "23.11";
       mullvad = true;
+      phone = true;
     };
 
     hardware.keyboardBinds = true;

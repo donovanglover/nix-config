@@ -1,6 +1,14 @@
-{ pkgs, firefox-addons, ... }:
+{
+  pkgs,
+  lib,
+  firefox-addons,
+  phone,
+  ...
+}:
 
 let
+  inherit (lib) mkIf;
+
   friendlyfox = pkgs.stdenvNoCC.mkDerivation (finalAttrs: {
     pname = "mobile-friendly-firefox";
     version = "2.11.1";
@@ -90,7 +98,7 @@ in
     };
   };
 
-  home.file = {
+  home.file = mkIf phone {
     ".librewolf/default/chrome/userChrome.css".source = "${friendlyfox}/userChrome.css";
     ".librewolf/default/chrome/userContent.css".source = "${friendlyfox}/userContent.css";
   };

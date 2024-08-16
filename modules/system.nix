@@ -25,7 +25,7 @@ let
     mullvad
     allowSRB2Port
     allowDevPort
-    hotspot
+    phone
     noRoot
     postgres
     ;
@@ -82,7 +82,7 @@ in
     postgres = mkEnableOption "postgres database for containers";
     allowSRB2Port = mkEnableOption "port for srb2";
     allowDevPort = mkEnableOption "port for development server";
-    hotspot = mkEnableOption "mobile hotspot support";
+    phone = mkEnableOption "phone support";
   };
 
   config = {
@@ -192,6 +192,7 @@ in
 
       extraSpecialArgs = {
         inherit firefox-addons;
+        inherit phone;
       };
     };
 
@@ -249,7 +250,7 @@ in
 
       firewall = {
         allowedUDPPorts =
-          optional hotspot [
+          optional phone [
             67
             68
           ]
