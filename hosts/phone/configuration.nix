@@ -78,6 +78,7 @@ in
 
       xdg = {
         desktopEntries = {
+          anki = no;
           htop = no;
           fish = no;
           nvim = no;
@@ -85,11 +86,10 @@ in
           qt5ct = no;
           qt6ct = no;
           gcdemu = no;
-          mullvad-vpn = no;
           nixos-manual = no;
           image-analyzer = no;
-          activate-linux = no;
           kvantummanager = no;
+          chromium-browser = no;
 
           "org.gnome.Extensions" = no;
           "org.pwmt.zathura" = no;
