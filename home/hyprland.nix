@@ -406,6 +406,8 @@ in
     };
 
     batsignal.enable = true;
+    swaync.enable = true;
+    swayosd.enable = true;
     hyprpaper.enable = mkForce false;
   };
 }
