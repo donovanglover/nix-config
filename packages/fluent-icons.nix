@@ -45,7 +45,7 @@ stdenvNoCC.mkDerivation {
     runHook preInstall
 
     cp ${fluent-icon-theme}/share/icons/Fluent/scalable/places/default-* .
-    fd -e svg -x inkscape -w 512 -h 512 "{}" -o "{.}.png"
+    fd -e svg -x inkscape -w 128 -h 128 "{}" -o "{.}.png"
     fd -e png -x lutgen apply -o "{}" -p monokai-base16 --transparency "{}"
 
     install -Dm644 *.png -t $out
