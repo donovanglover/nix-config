@@ -54,6 +54,10 @@ in
           };
         };
       };
+
+      settings = {
+        "extensions.autoDisableScopes" = 0;
+      };
     };
 
     settings = {
