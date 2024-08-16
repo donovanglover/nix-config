@@ -239,7 +239,6 @@ in
         ", XF86MonBrightnessDown, exec, swayosd-client --brightness lower"
         ", XF86MonBrightnessUp, exec, swayosd-client --brightness raise"
         ", XF86Display, exec, ~/.config/${monitorScript}"
-        ", XF86WLAN, exec, sleep 0.2 && ${vars.notifySend} \"WiFi\" \"$(nmcli radio wifi)\""
         ", XF86Messenger, togglespecialworkspace"
         ", XF86Favorites, exec, killall rofi || rofi -show drun"
       ];
