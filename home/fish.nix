@@ -103,8 +103,6 @@
 
       dl = "yt-dlp";
       vol = "wpctl set-volume '@DEFAULT_AUDIO_SINK@'";
-      df = "df --human-readable --total";
-      du = "du --human-readable --summarize";
       jis = "recode shift_jis..utf8";
       utf16 = "recode utf16..utf8";
       jp = "LANG=ja_JP.UTF-8 LC_ALL=ja_JP.UTF-8";

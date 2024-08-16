@@ -40,6 +40,7 @@ in
       killall
       trashy
       hwinfo
+      duf
       stress
       hdparm
       recode
