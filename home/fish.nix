@@ -197,6 +197,15 @@
             unar "$argv" && trash "$argv"
           end
         '';
+
+      mullvad-init = # fish
+        ''
+          mullvad auto-connect set on
+          mullvad lan set allow
+          mullvad relay set location us
+          mullvad lockdown-mode set on
+          mullvad account login "$argv"
+        '';
     };
   };
 }
