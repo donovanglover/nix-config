@@ -51,6 +51,7 @@ in
 
     profiles.default = {
       extensions = with firefox-addons.packages.${pkgs.system}; [
+        ublock-origin
         yomitan
       ];
 
