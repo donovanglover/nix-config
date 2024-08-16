@@ -18,7 +18,6 @@ in
   home.packages = with pkgs; [
     hyprdim
     hyprnome
-    hyprshade
     swww
     grimblast
     brightnessctl
@@ -26,7 +25,6 @@ in
     lnch
     wev
     wf-recorder
-    lutgen
   ];
 
   wayland.windowManager.hyprland = {

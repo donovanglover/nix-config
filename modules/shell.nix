@@ -19,7 +19,6 @@ in
 
     systemPackages = with pkgs; [
       jq
-      eza
       fd
       fzf
       ripgrep
@@ -29,7 +28,6 @@ in
       choose
       sd
       rustscan
-      treefmt
       yt-dlp
       sox
       asak

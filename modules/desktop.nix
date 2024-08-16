@@ -176,7 +176,6 @@ in
         inherit (pkgs)
           anki
           pulseaudio
-          glib
           grim
           wl-clipboard-rs
           ;
