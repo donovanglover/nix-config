@@ -266,7 +266,6 @@ in
       mullvad-vpn = mkIf mullvad {
         enable = true;
         enableExcludeWrapper = false;
-        package = pkgs.mullvad-vpn;
       };
 
       postgresql = mkIf postgres {
