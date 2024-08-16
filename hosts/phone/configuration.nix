@@ -12,6 +12,8 @@ let
   inherit (config.modules.system) username;
   inherit (builtins) attrValues;
 
+  phosh-backgrounds = pkgs.callPackage ../../packages/phosh-backgrounds.nix { };
+
   getColorCh = colorName: channel: config.lib.stylix.colors."${colorName}-rgb-${channel}";
 
   rgba =
@@ -169,19 +171,19 @@ in
       stylix.targets.gtk.extraCss = # css
         ''
           phosh-lockscreen {
-            background: ${bg}, url('file:///home/${username}/wall-lock.jpg');
+            background: ${bg}, url('${phosh-backgrounds}/wall-lock.jpg');
           }
 
           phosh-app-grid {
-            background: ${bg}, url('file:///home/${username}/wall-grid.jpg');
+            background: ${bg}, url('${phosh-backgrounds}/wall-grid.jpg');
           }
 
           phosh-top-panel {
-            background: ${bg}, url('file:///home/${username}/wall-panel.jpg');
+            background: ${bg}, url('${phosh-backgrounds}/wall-panel.jpg');
           }
 
           phosh-home {
-            background: ${bg}, url('file:///home/${username}/wall-home.jpg');
+            background: ${bg}, url('${phosh-backgrounds}/wall-home.jpg');
           }
 
           phosh-lockscreen, phosh-app-grid, phosh-top-panel, phosh-home {
