@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, firefox-addons, ... }:
 
 let
   friendlyfox = pkgs.stdenvNoCC.mkDerivation (finalAttrs: {
@@ -38,6 +38,10 @@ in
     package = pkgs.librewolf.override { cfg.speechSynthesisSupport = false; };
 
     profiles.default = {
+      extensions = with firefox-addons.packages.${pkgs.system}; [
+        yomitan
+      ];
+
       search = {
         force = true;
         default = "Mullvad";

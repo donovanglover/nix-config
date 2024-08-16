@@ -3,6 +3,7 @@
   pkgs,
   lib,
   config,
+  firefox-addons,
   ...
 }:
 
@@ -187,6 +188,10 @@ in
         inherit username;
 
         homeDirectory = "/home/${username}";
+      };
+
+      extraSpecialArgs = {
+        inherit firefox-addons;
       };
     };
 
