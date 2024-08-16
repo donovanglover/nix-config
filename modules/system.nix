@@ -3,7 +3,6 @@
   pkgs,
   lib,
   config,
-  firefox-addons,
   ...
 }:
 
@@ -191,7 +190,7 @@ in
       };
 
       extraSpecialArgs = {
-        inherit firefox-addons;
+        inherit (nix-config.inputs) firefox-addons;
         inherit phone;
       };
     };
