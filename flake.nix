@@ -24,6 +24,11 @@
       url = "github:donovanglover/mobile-nixos";
       flake = false;
     };
+
+    firefox-addons = {
+      url = "git+https://git.sr.ht/~rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
