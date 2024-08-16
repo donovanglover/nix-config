@@ -197,7 +197,7 @@ in
         "${super}_SHIFT, Q, killactive"
         "${super}, W, exec, ~/.config/${randomBackgroundScript}"
         "${super}_SHIFT, W, exec, ~/.config/${swapBackgroundScript}"
-        "${super}, P, exec, notify-send --icon=$(grimblast save screen) Screenshot Captured."
+        "${super}, P, exec, grimblast --notify save screen"
         ", Print, exec, grimblast --freeze copy area"
         "${super}_ALT, delete, exit"
         "${super}, V, togglefloating"
