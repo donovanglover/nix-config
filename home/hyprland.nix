@@ -25,8 +25,6 @@ in
     mpvpaper
     lnch
     wev
-    icoextract
-    thud
     wf-recorder
     lutgen
   ];
