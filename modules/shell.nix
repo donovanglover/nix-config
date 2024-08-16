@@ -1,9 +1,7 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 
 let
   inherit (pkgs) fish;
-  inherit (lib) mkMerge;
-  inherit (builtins) attrValues;
 in
 {
   users.defaultUserShell = fish;
@@ -19,97 +17,81 @@ in
       GATSBY_TELEMETRY_DISABLED = "1";
     };
 
-    systemPackages = mkMerge [
-      (attrValues {
-        inherit (pkgs)
-          jq
-          eza
-          fd
-          fzf
-          ripgrep
-          xh
-          file
-          timg
-          choose
-          sd
-          rustscan
-          ;
-        inherit (pkgs)
-          treefmt
-          yt-dlp
-          sox
-          asak
-          timer
-          dig
-          mtr
-          mediainfo
-          fdupes
-          whois
-          killall
-          trashy
-          hwinfo
-          stress
-          hdparm
-          recode
-          rmlint
-          jpegoptim
-          pass
-          sudachi-rs
-          tango
-          npm-check-updates
-          ;
-        inherit (pkgs)
-          fastfetch
-          onefetch
-          scc
-          genact
-          dwt1-shell-color-scripts
-          colorpanes
-          sanctity
-          cmatrix
-          ;
-        inherit (pkgs)
-          gdu
-          hexyl
-          diskonaut
-          pgcli
-          litecli
-          ;
-        inherit (pkgs)
-          p7zip
-          unar
-          rsync
-          rclone
-          ffmpeg
-          imagemagick
-          smartmontools
-          restic
-          borgbackup
-          zbar
-          phraze
-          lychee
-          ventoy
-          taskwarrior3
-          ;
-        inherit (pkgs)
-          nixpkgs-review
-          nix-update
-          statix
-          nvd
-          nix-search-cli
-          nix-tree
-          ;
-        inherit (pkgs)
-          rustc
-          rustfmt
-          cargo
-          cargo-tarpaulin
-          bacon
-          clippy
-          nodejs
-          deno
-          ;
-      })
+    systemPackages = with pkgs; [
+      jq
+      eza
+      fd
+      fzf
+      ripgrep
+      xh
+      file
+      timg
+      choose
+      sd
+      rustscan
+      treefmt
+      yt-dlp
+      sox
+      asak
+      timer
+      dig
+      mtr
+      mediainfo
+      fdupes
+      whois
+      killall
+      trashy
+      hwinfo
+      stress
+      hdparm
+      recode
+      rmlint
+      jpegoptim
+      pass
+      sudachi-rs
+      tango
+      npm-check-updates
+      fastfetch
+      onefetch
+      scc
+      genact
+      dwt1-shell-color-scripts
+      colorpanes
+      sanctity
+      cmatrix
+      gdu
+      hexyl
+      diskonaut
+      pgcli
+      litecli
+      p7zip
+      unar
+      rsync
+      rclone
+      ffmpeg
+      imagemagick
+      smartmontools
+      restic
+      borgbackup
+      zbar
+      phraze
+      lychee
+      ventoy
+      taskwarrior3
+      nixpkgs-review
+      nix-update
+      statix
+      nvd
+      nix-search-cli
+      nix-tree
+      rustc
+      rustfmt
+      cargo
+      cargo-tarpaulin
+      bacon
+      clippy
+      nodejs
+      deno
     ];
   };
 
