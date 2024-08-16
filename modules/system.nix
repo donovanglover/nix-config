@@ -188,12 +188,6 @@ in
 
         homeDirectory = "/home/${username}";
       };
-
-      extraSpecialArgs = {
-        vars = {
-          notifySend = "notify-send -t 2000";
-        };
-      };
     };
 
     virtualisation.vmVariant = {

@@ -1,13 +1,7 @@
-{
-  pkgs,
-  lib,
-  vars,
-  ...
-}:
+{ pkgs, lib, ... }:
 
 let
   inherit (lib) mkForce;
-  inherit (vars) notifySend;
 
   opacity = "0.95";
   super = "SUPER";
@@ -28,8 +22,6 @@ in
     swww
     grimblast
     brightnessctl
-    playerctl
-    libnotify
     mpvpaper
     lnch
     wev
@@ -211,11 +203,6 @@ in
         "${super}_SHIFT, A, exec, killall activate-linux || activate-linux -s 1.15 -x 412 -y 120 -c 1-1-1-0.05"
         "${super}, O, exec, killall .ironbar-wrapper inotifywait pactl || ironbar"
         "${super}_SHIFT, O, exec, eww close overlay || eww open overlay"
-        ''${super}, comma, exec, playerctl -p mpv position "5-" && ${notifySend} "Minus 5 seconds" "$(playerctl -p mpv position)"''
-        ''${super}, period, exec, playerctl -p mpv position "5+" && ${notifySend} "Plus 5 seconds" "$(playerctl -p mpv position)"''
-        ''${super}_SHIFT, comma, exec, playerctl -p mpv previous && ${notifySend} "Previous track" "$(playerctl -p mpv metadata xesam:title)"''
-        ''${super}_SHIFT, period, exec, playerctl -p mpv next && ${notifySend} "Next track" "$(playerctl -p mpv metadata xesam:title)"''
-        ''${super}, slash, exec, playerctl -p mpv play-pause && ${notifySend} "mpv" "$(playerctl -p mpv status)"''
         "${super}, M, focusmonitor, +1"
         "${super}_SHIFT, M, focusmonitor, -1"
 
