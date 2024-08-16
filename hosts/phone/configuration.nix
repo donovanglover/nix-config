@@ -74,11 +74,11 @@ in
         };
 
         userDirs = {
-          download = mkForce null;
-          documents = mkForce null;
-          music = mkForce null;
-          pictures = mkForce null;
-          videos = mkForce null;
+          download = mkForce "/home/${username}";
+          documents = mkForce "/home/${username}";
+          music = mkForce "/home/${username}";
+          pictures = mkForce "/home/${username}";
+          videos = mkForce "/home/${username}";
         };
       };
 
