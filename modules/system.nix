@@ -249,12 +249,10 @@ in
       };
 
       firewall = {
-        allowedUDPPorts =
-          optional phone [
-            67
-            68
-          ]
-          ++ optional allowSRB2Port [ 5029 ];
+        allowedUDPPorts = [
+          67
+          68
+        ] ++ optional allowSRB2Port [ 5029 ];
 
         allowedTCPPorts = mkIf allowDevPort [ 3000 ];
       };
