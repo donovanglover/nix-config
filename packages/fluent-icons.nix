@@ -1,24 +1,30 @@
 {
   lib,
   stdenvNoCC,
-  fetchzip,
+  fluent-icon-theme,
+  fd,
+  inkscape,
 }:
 
 stdenvNoCC.mkDerivation {
   pname = "fluent-icons";
   version = "2024-01-02";
 
-  src = fetchzip {
-    url = "https://files.catbox.moe/1we56t.zip";
-    hash = "sha256-gs33iDv+u6O03a+/QvDtKt/aHduZww4F3Fm3F40d1GI=";
-    stripRoot = false;
-  };
+  dontUnpack = true;
+
+  nativeBuildInputs = [
+    fd
+    inkscape
+    fluent-icon-theme
+  ];
 
   installPhase = ''
     runHook preInstall
 
-    mkdir -p $out
-    cp -r * $out
+    cp ${fluent-icon-theme}/share/icons/Fluent/scalable/places/default-* .
+    fd -e svg -x inkscape -w 512 -h 512 "{}" -o "{.}.png"
+
+    install -Dm644 *.png -t $out
 
     runHook postInstall
   '';
