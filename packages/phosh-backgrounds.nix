@@ -6,7 +6,7 @@
 
 stdenvNoCC.mkDerivation {
   pname = "phosh-backgrounds";
-  version = "2024-07-15";
+  version = "1.0.0";
 
   srcs = [
     (fetchurl {
