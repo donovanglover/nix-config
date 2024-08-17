@@ -292,7 +292,10 @@ in
     };
   };
 
-  documentation.man.generateCaches = false;
+  documentation = {
+    enable = false;
+    man.generateCaches = false;
+  };
 
   hardware.graphics.enable32Bit = mkForce false;
 
