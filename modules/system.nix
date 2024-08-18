@@ -155,7 +155,7 @@ in
 
         isNormalUser = true;
         uid = 1000;
-        password = mkIf (hashedPassword == null && !noRoot) username;
+        password = mkIf (hashedPassword == null && !noRoot) (if phone then "1234" else username);
 
         extraGroups =
           if noRoot then
