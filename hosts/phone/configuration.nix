@@ -259,8 +259,6 @@ in
   };
 
   services = {
-    mmsd.enable = true;
-
     xserver = {
       displayManager.lightdm.enable = false;
 
