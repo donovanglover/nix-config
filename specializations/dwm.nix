@@ -114,6 +114,108 @@ in
         enable = true;
 
         package = pkgs.dwm.override {
+          conf = # c
+            ''
+              #include <X11/XF86keysym.h>
+
+              static const unsigned int borderpx = 0;
+              static const unsigned int snap = 32;
+              static const int showbar = 1;
+              static const int topbar = 1;
+              static const char *fonts[] = { "monospace:size=10" };
+              static const char col_gray1[] = "#252525";
+              static const char col_gray2[] = "#3b3b3b";
+              static const char col_gray3[] = "#b9b9b9";
+              static const char col_gray4[] = "#dedede";
+              static const char col_cyan[] = "#005577";
+              static const char *colors[][3] = {
+                [SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+                [SchemeSel] = { col_gray4, col_gray1, col_gray3 },
+              };
+
+              static const unsigned int baralpha = 0xd0;
+
+              static const unsigned int alphas[][3] = {
+                [SchemeNorm] = { OPAQUE, baralpha, baralpha },
+                [SchemeSel] = { OPAQUE, baralpha, baralpha },
+              };
+
+              static const char *tags[] = { "一", "二", "三" };
+
+              static const Rule rules[] = {
+                { "librewolf", NULL, NULL, 0, 1, -1 },
+              };
+
+              static const float mfact = 0.55;
+              static const int nmaster = 1;
+              static const int resizehints = 1;
+              static const int lockfullscreen = 1;
+
+              static const Layout layouts[] = {
+                { "[]=", tile },
+                { "><>", NULL },
+                { "[M]", monocle },
+              };
+
+              #define MODKEY Mod4Mask
+              #define TAGKEYS(KEY,TAG) \
+                { MODKEY, KEY, view, {.ui = 1 << TAG} }, \
+                { MODKEY|ShiftMask, KEY, tag, {.ui = 1 << TAG} },
+
+              static char dmenumon[2] = "0";
+              static const char *dmenucmd[] = { "rofi", "-show", "drun" };
+              static const char *termcmd[] = { "kitty", NULL };
+              static const char *brighter[] = { "brightnessctl", "set", "5%+", NULL };
+              static const char *dimmer[] = { "brightnessctl", "set", "5%-", NULL };
+              static const char *up_vol[] = { "wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%+", NULL };
+              static const char *down_vol[] = { "wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%-", NULL };
+              static const char *mute_vol[] = { "wpctl", "set-mute", "@DEFAULT_AUDIO_SINK@", "toggle", NULL };
+
+              static const Key keys[] = {
+                { 0, XF86XK_AudioMute, spawn, {.v = mute_vol } },
+                { 0, XF86XK_AudioLowerVolume, spawn, {.v = down_vol } },
+                { 0, XF86XK_AudioRaiseVolume, spawn, {.v = up_vol } },
+                { 0, XF86XK_MonBrightnessDown, spawn, {.v = dimmer } },
+                { 0, XF86XK_MonBrightnessUp, spawn, {.v = brighter } },
+                { MODKEY, XK_p, spawn, {.v = dmenucmd } },
+                { MODKEY, XK_b, togglebar, {0} },
+                { MODKEY, XK_j, focusstack, {.i = +1 } },
+                { MODKEY, XK_k, focusstack, {.i = -1 } },
+                { MODKEY, XK_h, setmfact, {.f = -0.05} },
+                { MODKEY, XK_l, setmfact, {.f = +0.05} },
+                { MODKEY, XK_t, setlayout, {.v = &layouts[0]} },
+                { MODKEY, XK_m, setlayout, {.v = &layouts[2]} },
+                { MODKEY, XK_4, view, {.ui = ~0 } },
+                { MODKEY, XK_Return, zoom, {0} },
+                { MODKEY, XK_comma, focusmon, {.i = -1 } },
+                { MODKEY, XK_period, focusmon, {.i = +1 } },
+                TAGKEYS(XK_1, 0)
+                TAGKEYS(XK_2, 1)
+                TAGKEYS(XK_3, 2)
+                { MODKEY|ShiftMask, XK_4, tag, {.ui = ~0 } },
+                { MODKEY|ShiftMask, XK_Return, spawn, {.v = termcmd } },
+                { MODKEY|ShiftMask, XK_c, killclient, {0} },
+                { MODKEY|ShiftMask, XK_comma, tagmon, {.i = -1 } },
+                { MODKEY|ShiftMask, XK_period, tagmon, {.i = +1 } },
+                { MODKEY|ShiftMask, XK_q, quit, {0} },
+              };
+
+              /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
+              static const Button buttons[] = {
+                /* click                event mask      button          function        argument */
+                { ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
+                { ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
+                { ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
+                { ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
+                { ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
+                { ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
+                { ClkTagBar,            0,              Button1,        view,           {0} },
+                { ClkTagBar,            0,              Button3,        toggleview,     {0} },
+                { ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
+                { ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
+              };
+            '';
+
           patches = [
             ../assets/dwm-actualfullscreen.patch
 
