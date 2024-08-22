@@ -123,6 +123,11 @@ in
             })
 
             (pkgs.fetchpatch {
+              url = "https://dwm.suckless.org/patches/alwayscenter/dwm-alwayscenter-20200625-f04cac6.diff";
+              hash = "sha256-xQEwrNphaLOkhX3ER09sRPB3EEvxC73oNWMVkqo4iSY=";
+            })
+
+            (pkgs.fetchpatch {
               url = "https://dwm.suckless.org/patches/alpha/dwm-alpha-20230401-348f655.diff";
               hash = "sha256-ZhuqyDpY+nQQgrjniQ9DNheUgE9o/MUXKaJYRU3Uyl4=";
             })
