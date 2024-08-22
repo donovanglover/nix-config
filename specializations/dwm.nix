@@ -9,6 +9,7 @@ in
   home-manager.sharedModules = singleton {
     home.packages = with pkgs; [
       feh
+      xclip
     ];
 
     home.file.".xinitrc" = {
