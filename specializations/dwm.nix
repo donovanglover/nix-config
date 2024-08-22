@@ -2,9 +2,42 @@
 
 let
   inherit (lib) singleton;
+
+  osu-backgrounds = pkgs.callPackage ../packages/osu-backgrounds.nix { };
 in
 {
   home-manager.sharedModules = singleton {
+    home.packages = with pkgs; [
+      feh
+    ];
+
+    home.file.".xinitrc" = {
+      executable = true;
+      text = # bash
+        ''
+          #!/usr/bin/env sh
+
+          export XDG_SESSION_TYPE=x11
+          export GDK_BACKEND=x11
+          export XDG_CURRENT_DESKTOP=dwm
+
+          xrdb -merge ~/.Xresources
+          xset r rate 300 50
+          feh --bg-fill "$(fish -c 'random choice (fd . ${osu-backgrounds}/2024-07-15-Aerial-Antics-Art-Contest-All-Entries --follow -e jpg -e png)')" &
+
+          while true; do
+            xsetroot -name "$(date +"%F %R")"
+            sleep 1m
+          done &
+
+          picom --backend glx --vsync --shadow --fading --blur-background --blur-method dual_kawase --blur-size 10 --daemon
+
+          while true; do
+            dwm >/dev/null 2>&1
+          done
+        '';
+    };
+
     services = {
       picom = rec {
         enable = true;
