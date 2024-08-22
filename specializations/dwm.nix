@@ -113,7 +113,7 @@ in
 
         package = pkgs.dwm.overrideAttrs (oldAttrs: {
           patches = oldAttrs.patches ++ [
-            ../assets/dwm-fix-monocle-transparency-background.patch
+            ../assets/dwm-actualfullscreen.patch
 
             (pkgs.fetchpatch {
               url = "https://dwm.suckless.org/patches/hide_vacant_tags/dwm-hide_vacant_tags-6.4.diff";

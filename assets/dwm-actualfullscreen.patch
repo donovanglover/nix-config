@@ -1,0 +1,52 @@
+diff --git a/config.def.h b/config.def.h
+index 9efa774..5150c08 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -79,6 +79,7 @@ static const Key keys[] = {
+ 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+ 	{ MODKEY,                       XK_space,  setlayout,      {0} },
+ 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
++	{ MODKEY|ShiftMask,             XK_f,      togglefullscr,  {0} },
+ 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
+ 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
+ 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
+diff --git a/dwm.1 b/dwm.1
+index ddc8321..3d310ac 100644
+--- a/dwm.1
++++ b/dwm.1
+@@ -116,6 +116,9 @@ Zooms/cycles focused window to/from master area (tiled layouts only).
+ .B Mod1\-Shift\-c
+ Close focused window.
+ .TP
++.B Mod1\-Shift\-f
++Toggle fullscreen for focused window.
++.TP
+ .B Mod1\-Shift\-space
+ Toggle focused window between tiled and floating state.
+ .TP
+diff --git a/dwm.c b/dwm.c
+index 67c6b2b..4c20b38 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -211,6 +211,7 @@ static void tagmon(const Arg *arg);
+ static void tile(Monitor *m);
+ static void togglebar(const Arg *arg);
+ static void togglefloating(const Arg *arg);
++static void togglefullscr(const Arg *arg);
+ static void toggletag(const Arg *arg);
+ static void toggleview(const Arg *arg);
+ static void unfocus(Client *c, int setfocus);
+@@ -1735,6 +1736,13 @@ togglefloating(const Arg *arg)
+ 	arrange(selmon);
+ }
+ 
++void
++togglefullscr(const Arg *arg)
++{
++  if(selmon->sel)
++    setfullscreen(selmon->sel, !selmon->sel->isfullscreen);
++}
++
+ void
+ toggletag(const Arg *arg)
+ {
