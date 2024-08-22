@@ -418,7 +418,7 @@
         type = "lua";
         config = # lua
           ''
-            require'nvim-treesitter.configs'.setup {
+            require('nvim-treesitter.configs').setup {
               highlight = {
                 enable = true,
                 disable = function(lang)

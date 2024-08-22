@@ -7,43 +7,45 @@ let
 in
 {
   home-manager.sharedModules = singleton {
-    home.packages = with pkgs; [
-      feh
-      xclip
-    ];
+    home = {
+      packages = with pkgs; [
+        feh
+        xclip
+      ];
 
-    home.file.".xinitrc" = {
-      executable = true;
-      text = # bash
-        ''
-          #!/usr/bin/env sh
+      file.".xinitrc" = {
+        executable = true;
+        text = # bash
+          ''
+            #!/usr/bin/env sh
 
-          export XDG_SESSION_TYPE=x11
-          export GDK_BACKEND=x11
-          export XDG_CURRENT_DESKTOP=dwm
-          export GTK_IM_MODULE=fcitx
-          export QT_IM_MODULE=fcitx
-          export XMODIFIERS=@im=fcitx
-          export SDL_IM_MODULE=fcitx
-          export GLFW_IM_MODULE=ibus
+            export XDG_SESSION_TYPE=x11
+            export GDK_BACKEND=x11
+            export XDG_CURRENT_DESKTOP=dwm
+            export GTK_IM_MODULE=fcitx
+            export QT_IM_MODULE=fcitx
+            export XMODIFIERS=@im=fcitx
+            export SDL_IM_MODULE=fcitx
+            export GLFW_IM_MODULE=ibus
 
-          xrdb -merge ~/.Xresources
-          xset r rate 300 50
-          feh --bg-fill "$(fish -c 'random choice (fd . ${osu-backgrounds}/2024-07-15-Aerial-Antics-Art-Contest-All-Entries --follow -e jpg -e png)')" &
+            xrdb -merge ~/.Xresources
+            xset r rate 300 50
+            feh --bg-fill "$(fish -c 'random choice (fd . ${osu-backgrounds}/2024-07-15-Aerial-Antics-Art-Contest-All-Entries --follow -e jpg -e png)')" &
 
-          while true; do
-            xsetroot -name "$(date +"%F %R")"
-            sleep 1m
-          done &
+            while true; do
+              xsetroot -name "$(date +"%F %R")"
+              sleep 1m
+            done &
 
-          picom --backend glx --vsync --shadow --fading --blur-background --blur-method dual_kawase --blur-size 10 --daemon
+            picom --daemon
 
-          fcitx5 &
+            fcitx5 &
 
-          while true; do
-            dwm >/dev/null 2>&1
-          done
-        '';
+            while true; do
+              dwm >/dev/null 2>&1
+            done
+          '';
+      };
     };
 
     services = {
@@ -111,8 +113,8 @@ in
       windowManager.dwm = {
         enable = true;
 
-        package = pkgs.dwm.overrideAttrs (oldAttrs: {
-          patches = oldAttrs.patches ++ [
+        package = pkgs.dwm.override {
+          patches = [
             ../assets/dwm-actualfullscreen.patch
 
             (pkgs.fetchpatch {
@@ -120,7 +122,7 @@ in
               hash = "sha256-GIbRW0Inwbp99rsKLfIDGvPwZ3pqihROMBp5vFlHx5Q=";
             })
           ];
-        });
+        };
       };
 
     };
