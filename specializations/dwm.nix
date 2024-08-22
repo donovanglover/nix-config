@@ -121,6 +121,11 @@ in
               url = "https://dwm.suckless.org/patches/hide_vacant_tags/dwm-hide_vacant_tags-6.4.diff";
               hash = "sha256-GIbRW0Inwbp99rsKLfIDGvPwZ3pqihROMBp5vFlHx5Q=";
             })
+
+            (pkgs.fetchpatch {
+              url = "https://dwm.suckless.org/patches/alpha/dwm-alpha-20230401-348f655.diff";
+              hash = "sha256-ZhuqyDpY+nQQgrjniQ9DNheUgE9o/MUXKaJYRU3Uyl4=";
+            })
           ];
         };
       };
