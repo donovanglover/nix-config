@@ -20,6 +20,11 @@ in
           export XDG_SESSION_TYPE=x11
           export GDK_BACKEND=x11
           export XDG_CURRENT_DESKTOP=dwm
+          export GTK_IM_MODULE=fcitx
+          export QT_IM_MODULE=fcitx
+          export XMODIFIERS=@im=fcitx
+          export SDL_IM_MODULE=fcitx
+          export GLFW_IM_MODULE=ibus
 
           xrdb -merge ~/.Xresources
           xset r rate 300 50
@@ -31,6 +36,8 @@ in
           done &
 
           picom --backend glx --vsync --shadow --fading --blur-background --blur-method dual_kawase --blur-size 10 --daemon
+
+          fcitx5 &
 
           while true; do
             dwm >/dev/null 2>&1
