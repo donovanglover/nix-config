@@ -106,7 +106,20 @@ in
   services = {
     xserver = {
       displayManager.startx.enable = true;
-      windowManager.dwm.enable = true;
+
+      windowManager.dwm = {
+        enable = true;
+
+        package = pkgs.dwm.overrideAttrs (oldAttrs: {
+          patches = oldAttrs.patches ++ [
+            (pkgs.fetchpatch {
+              url = "https://dwm.suckless.org/patches/hide_vacant_tags/dwm-hide_vacant_tags-6.4.diff";
+              hash = "sha256-GIbRW0Inwbp99rsKLfIDGvPwZ3pqihROMBp5vFlHx5Q=";
+            })
+          ];
+        });
+      };
+
     };
 
     libinput = {
