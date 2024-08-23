@@ -206,6 +206,7 @@ in
             ../assets/dwm-actualfullscreen.patch
             ../assets/dwm-adjacenttag.patch
             ../assets/dwm-remove-layout-indicator.patch
+            ../assets/dwm-remove-floating-indicator.patch
 
             (pkgs.fetchpatch {
               url = "https://dwm.suckless.org/patches/hide_vacant_tags/dwm-hide_vacant_tags-6.4.diff";
