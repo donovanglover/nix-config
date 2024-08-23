@@ -133,7 +133,7 @@ in
                 [SchemeSel] = { col_gray4, col_gray1, col_gray3 },
               };
 
-              static const unsigned int baralpha = 0xd0;
+              static const unsigned int baralpha = 243;
 
               static const unsigned int alphas[][3] = {
                 [SchemeNorm] = { OPAQUE, baralpha, baralpha },
