@@ -1,0 +1,112 @@
+diff --git a/config.def.h b/config.def.h
+index 9efa774..8d45ea7 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -85,6 +85,10 @@ static const Key keys[] = {
+ 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
+ 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
+ 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
++	{ MODKEY,                       XK_Right,  viewnext,       {0} },
++	{ MODKEY,                       XK_Left,   viewprev,       {0} },
++	{ MODKEY|ShiftMask,             XK_Right,  tagtonext,      {0} },
++	{ MODKEY|ShiftMask,             XK_Left,   tagtoprev,      {0} },
+ 	TAGKEYS(                        XK_1,                      0)
+ 	TAGKEYS(                        XK_2,                      1)
+ 	TAGKEYS(                        XK_3,                      2)
+diff --git a/dwm.c b/dwm.c
+index 67c6b2b..6fd967c 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -227,6 +227,12 @@ static void updatetitle(Client *c);
+ static void updatewindowtype(Client *c);
+ static void updatewmhints(Client *c);
+ static void view(const Arg *arg);
++static unsigned int nexttag(void);
++static unsigned int prevtag(void);
++static void tagtonext(const Arg *arg);
++static void tagtoprev(const Arg *arg);
++static void viewnext(const Arg *arg);
++static void viewprev(const Arg *arg);
+ static Client *wintoclient(Window w);
+ static Monitor *wintomon(Window w);
+ static int xerror(Display *dpy, XErrorEvent *ee);
+@@ -1202,6 +1208,13 @@ movemouse(const Arg *arg)
+ 	}
+ }
+ 
++unsigned int
++nexttag(void)
++{
++	unsigned int seltag = selmon->tagset[selmon->seltags];
++	return seltag == (1 << (LENGTH(tags) - 1)) ? 1 : seltag << 1;
++}
++
+ Client *
+ nexttiled(Client *c)
+ {
+@@ -1218,6 +1231,13 @@ pop(Client *c)
+ 	arrange(c->mon);
+ }
+ 
++unsigned int
++prevtag(void)
++{
++	unsigned int seltag = selmon->tagset[selmon->seltags];
++	return seltag == 1 ? (1 << (LENGTH(tags) - 1)) : seltag >> 1;
++}
++
+ void
+ propertynotify(XEvent *e)
+ {
+@@ -1684,6 +1704,32 @@ tagmon(const Arg *arg)
+ 	sendmon(selmon->sel, dirtomon(arg->i));
+ }
+ 
++void
++tagtonext(const Arg *arg)
++{
++	unsigned int tmp;
++
++	if (selmon->sel == NULL)
++		return;
++
++	tmp = nexttag();
++	tag(&(const Arg){.ui = tmp });
++	view(&(const Arg){.ui = tmp });
++}
++
++void
++tagtoprev(const Arg *arg)
++{
++	unsigned int tmp;
++
++	if (selmon->sel == NULL)
++		return;
++
++	tmp = prevtag();
++	tag(&(const Arg){.ui = tmp });
++	view(&(const Arg){.ui = tmp });
++}
++
+ void
+ tile(Monitor *m)
+ {
+@@ -2062,6 +2108,18 @@ view(const Arg *arg)
+ 	arrange(selmon);
+ }
+ 
++void
++viewnext(const Arg *arg)
++{
++	view(&(const Arg){.ui = nexttag()});
++}
++
++void
++viewprev(const Arg *arg)
++{
++	view(&(const Arg){.ui = prevtag()});
++}
++
+ Client *
+ wintoclient(Window w)
+ {

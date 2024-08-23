@@ -181,14 +181,13 @@ in
                 { MODKEY, XK_k, focusstack, {.i = -1 } },
                 { MODKEY, XK_h, setmfact, {.f = -0.05} },
                 { MODKEY, XK_l, setmfact, {.f = +0.05} },
-                { MODKEY, XK_4, view, {.ui = ~0 } },
                 { MODKEY, XK_Return, zoom, {0} },
                 { MODKEY, XK_comma, focusmon, {.i = -1 } },
                 { MODKEY, XK_period, focusmon, {.i = +1 } },
-                TAGKEYS(XK_1, 0)
-                TAGKEYS(XK_2, 1)
-                TAGKEYS(XK_3, 2)
-                { MODKEY|ShiftMask, XK_4, tag, {.ui = ~0 } },
+                { MODKEY, XK_1, viewprev, {0} },
+                { MODKEY, XK_2, viewnext, {0} },
+                { MODKEY|ShiftMask, XK_1, tagtoprev, {0} },
+                { MODKEY|ShiftMask, XK_2, tagtonext, {0} },
                 { MODKEY|ShiftMask, XK_Return, spawn, {.v = termcmd } },
                 { MODKEY|ShiftMask, XK_c, killclient, {0} },
                 { MODKEY|ShiftMask, XK_comma, tagmon, {.i = -1 } },
@@ -205,6 +204,7 @@ in
 
           patches = [
             ../assets/dwm-actualfullscreen.patch
+            ../assets/dwm-adjacenttag.patch
 
             (pkgs.fetchpatch {
               url = "https://dwm.suckless.org/patches/hide_vacant_tags/dwm-hide_vacant_tags-6.4.diff";
