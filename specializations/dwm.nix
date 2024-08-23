@@ -190,7 +190,9 @@ in
                 { MODKEY, XK_1, viewprev, {0} },
                 { MODKEY, XK_2, viewnext, {0} },
                 { MODKEY|ShiftMask, XK_1, tagtoprev, {0} },
+                { MODKEY|ShiftMask, XK_1, reorganizetags, {0} },
                 { MODKEY|ShiftMask, XK_2, tagtonext, {0} },
+                { MODKEY|ShiftMask, XK_2, reorganizetags, {0} },
                 { MODKEY|ShiftMask, XK_Return, spawn, {.v = termcmd } },
                 { MODKEY|ShiftMask, XK_c, killclient, {0} },
                 { MODKEY|ShiftMask, XK_comma, tagmon, {.i = -1 } },
@@ -224,6 +226,11 @@ in
             (pkgs.fetchpatch {
               url = "https://dwm.suckless.org/patches/alpha/dwm-alpha-20230401-348f655.diff";
               hash = "sha256-ZhuqyDpY+nQQgrjniQ9DNheUgE9o/MUXKaJYRU3Uyl4=";
+            })
+
+            (pkgs.fetchpatch {
+              url = "https://dwm.suckless.org/patches/reorganizetags/dwm-reorganizetags-6.2.diff";
+              hash = "sha256-Fj+cfw+5d7i6UrakMbebhZsfmu8ZfooduQA08STovK4=";
             })
           ];
         };
