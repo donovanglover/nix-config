@@ -169,7 +169,11 @@ in
               static const unsigned int snap = 32;
               static const int showbar = 1;
               static const int topbar = 1;
-              static const char *fonts[] = { "monospace:size=10" };
+              static const char *fonts[] = {
+                "Maple Mono:size=10",
+                "Noto Sans Mono CJK JP:size=10",
+                "Noto Color Emoji:size=10",
+              };
 
               static const char *colors[][3] = {
                 [SchemeNorm] = { "${base03}", "${base00}", "${base02}" },
