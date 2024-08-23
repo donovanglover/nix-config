@@ -58,6 +58,7 @@ in
         shadow = true;
 
         fadeDelta = 5;
+        shadowOpacity = 0.2;
 
         fadeExclude = [
           "window_type = 'menu'"
