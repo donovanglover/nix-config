@@ -1,0 +1,14 @@
+diff --git a/dwm.c b/dwm.c
+index 67c6b2b..da9bb87 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -730,9 +730,6 @@ drawbar(Monitor *m)
+ 				urg & 1 << i);
+ 		x += w;
+ 	}
+-	w = TEXTW(m->ltsymbol);
+-	drw_setscheme(drw, scheme[SchemeNorm]);
+-	x = drw_text(drw, x, 0, w, bh, lrpad / 2, m->ltsymbol, 0);
+ 
+ 	if ((w = m->ww - tw - x) > bh) {
+ 		if (m->sel) {
