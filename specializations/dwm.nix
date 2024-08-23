@@ -1,7 +1,13 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 let
   inherit (lib) singleton;
+  inherit (config.lib.stylix.colors.withHashtag)
+    base00
+    base02
+    base03
+    base05
+    ;
 
   osu-backgrounds = pkgs.callPackage ../packages/osu-backgrounds.nix { };
 in
@@ -124,14 +130,10 @@ in
               static const int showbar = 1;
               static const int topbar = 1;
               static const char *fonts[] = { "monospace:size=10" };
-              static const char col_gray1[] = "#252525";
-              static const char col_gray2[] = "#3b3b3b";
-              static const char col_gray3[] = "#b9b9b9";
-              static const char col_gray4[] = "#dedede";
-              static const char col_cyan[] = "#005577";
+
               static const char *colors[][3] = {
-                [SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-                [SchemeSel] = { col_gray4, col_gray1, col_gray3 },
+                [SchemeNorm] = { "${base03}", "${base00}", "${base02}" },
+                [SchemeSel] = { "${base05}", "${base00}", "${base03}" },
               };
 
               static const unsigned int baralpha = 243;
