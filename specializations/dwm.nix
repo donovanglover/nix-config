@@ -116,6 +116,10 @@ in
             method = "dual_kawase";
             size = 10;
           };
+
+          clip-shadow-above = [
+            "class_g = 'dwm'"
+          ];
         };
       };
 
