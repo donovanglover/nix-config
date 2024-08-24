@@ -21,7 +21,6 @@ in
       jq
       fd
       fzf
-      ripgrep
       xh
       file
       timg
