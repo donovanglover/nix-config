@@ -11,7 +11,6 @@ in
 
     sessionVariables = {
       GIT_DISCOVERY_ACROSS_FILESYSTEM = "1";
-      FZF_DEFAULT_OPTS = "--height 40% --reverse --border --color=16";
       NODE_OPTIONS = "--max-old-space-size=16384";
       BAT_THEME = "base16";
       GATSBY_TELEMETRY_DISABLED = "1";
@@ -20,7 +19,6 @@ in
     systemPackages = with pkgs; [
       jq
       fd
-      fzf
       xh
       file
       timg
