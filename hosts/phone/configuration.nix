@@ -266,10 +266,6 @@ in
         enable = true;
         group = "users";
         user = username;
-
-        phocConfig = {
-          xwayland = "immediate";
-        };
       };
     };
 
