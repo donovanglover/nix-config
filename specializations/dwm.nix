@@ -168,6 +168,7 @@ in
 
               static const unsigned int borderpx = 0;
               static const unsigned int snap = 32;
+              static const int user_bh = 16;
               static const int showbar = 1;
               static const int topbar = 1;
               static const char *fonts[] = {
@@ -272,6 +273,11 @@ in
             (pkgs.fetchpatch {
               url = "https://dwm.suckless.org/patches/reorganizetags/dwm-reorganizetags-6.2.diff";
               hash = "sha256-Fj+cfw+5d7i6UrakMbebhZsfmu8ZfooduQA08STovK4=";
+            })
+
+            (pkgs.fetchpatch {
+              url = "https://dwm.suckless.org/patches/bar_height/dwm-bar-height-spacing-6.3.diff";
+              hash = "sha256-usMIMmloUG4NrX10AVbgr8kFs9ZG6Krn1NxXTVcLq70=";
             })
           ];
         };
