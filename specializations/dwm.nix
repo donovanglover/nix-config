@@ -35,6 +35,7 @@ in
             export XMODIFIERS=@im=fcitx
             export SDL_IM_MODULE=fcitx
             export GLFW_IM_MODULE=ibus
+            export GTK_CSD=0
 
             xrdb -merge ~/.Xresources
             xset r rate 300 50
