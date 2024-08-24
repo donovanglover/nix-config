@@ -45,7 +45,7 @@ in
             fcitx5 &
 
             while true; do
-              dwm >/dev/null 2>&1
+              dbus-launch --sh-syntax --exit-with-session dwm
             done
           '';
       };
