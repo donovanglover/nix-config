@@ -1,8 +1,6 @@
 { pkgs, ... }:
 
 {
-  programs.bat.enable = true;
-
   editorconfig = {
     enable = true;
 
