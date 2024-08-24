@@ -256,15 +256,11 @@ in
             ../assets/dwm-adjacenttag.patch
             ../assets/dwm-remove-layout-indicator.patch
             ../assets/dwm-remove-floating-indicator.patch
+            ../assets/dwm-savefloats-alwayscenter.patch
 
             (pkgs.fetchpatch {
               url = "https://dwm.suckless.org/patches/hide_vacant_tags/dwm-hide_vacant_tags-6.4.diff";
               hash = "sha256-GIbRW0Inwbp99rsKLfIDGvPwZ3pqihROMBp5vFlHx5Q=";
-            })
-
-            (pkgs.fetchpatch {
-              url = "https://dwm.suckless.org/patches/alwayscenter/dwm-alwayscenter-20200625-f04cac6.diff";
-              hash = "sha256-xQEwrNphaLOkhX3ER09sRPB3EEvxC73oNWMVkqo4iSY=";
             })
 
             (pkgs.fetchpatch {
