@@ -215,10 +215,6 @@ in
         ];
       };
 
-      environment.sessionVariables = {
-        WLR_NO_HARDWARE_CURSORS = "1";
-      };
-
       services.interception-tools.enable = lib.mkForce false;
       networking.resolvconf.enable = lib.mkForce true;
       zramSwap.enable = lib.mkForce false;
