@@ -9,39 +9,7 @@
 let
   inherit (lib) mkIf;
 
-  friendlyfox = pkgs.stdenvNoCC.mkDerivation (finalAttrs: {
-    pname = "mobile-friendly-firefox";
-    version = "2.11.1";
-
-    src = pkgs.fetchFromGitea {
-      domain = "codeberg.org";
-      owner = "user0";
-      repo = "Mobile-Friendly-Firefox";
-      rev = "v${finalAttrs.version}";
-      hash = "sha256-rA5lnfW5zOyfJ6pbcrsTBEhMEof5h/heGaHxST+q+AY=";
-    };
-
-    patches = [
-      # Fix for Firefox 127 and later (renamed id)
-      (pkgs.fetchpatch2 {
-        url = "https://codeberg.org/user0/Mobile-Friendly-Firefox/commit/bfb7946973bf707d0494714679df47ec66017f97.patch";
-        hash = "sha256-wJLXgNUUaNHVgCMi8sGnC5cx2yNwZwh2JoDaVMsVehY=";
-      })
-    ];
-
-    installPhase = ''
-      runHook preInstall
-
-      install -Dm644 src/userContent/styles/fenix-colors/userContent.css -t $out
-      cat src/userChrome/fenix_one.css src/userChrome/dynamic_popups_pro.css > $out/userChrome.css
-
-      runHook postInstall
-    '';
-
-    postInstall = ''
-      echo ".urlbarView { display: none !important; }" >> $out/userChrome.css
-    '';
-  });
+  friendlyfox = pkgs.callPackage ../packages/friendlyfox.nix { };
 in
 {
   programs.librewolf = {
