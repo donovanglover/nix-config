@@ -147,35 +147,31 @@ in
     };
 
     environment.systemPackages = mkMerge [
-      (mkIf bloat (attrValues {
-        inherit (pkgs)
-          mullvad-browser
-          spek
-          audacity
-          gimp
-          libreoffice
-          element-desktop
-          signal-desktop
-          qbittorrent
-          popsicle
-          satty
-          srb2
-          ringracers
-          jamesdsp
-          texliveFull
-          ;
+      (mkIf bloat (with pkgs; [
+        mullvad-browser
+        spek
+        audacity
+        gimp
+        libreoffice
+        element-desktop
+        signal-desktop
+        qbittorrent
+        popsicle
+        satty
+        srb2
+        ringracers
+        jamesdsp
+        texliveFull
+      ]))
 
-        inherit (nix-config.inputs.sakaya.packages.${pkgs.system}) sakaya;
-      }))
+      (with nix-config.inputs.sakaya.packages.${pkgs.system}; [ sakaya ])
 
-      (attrValues {
-        inherit (pkgs)
-          anki
-          pulseaudio
-          grim
-          wl-clipboard-rs
-          ;
-      })
+      (with pkgs; [
+        anki
+        pulseaudio
+        grim
+        wl-clipboard-rs
+      ])
     ];
 
     fonts = {
