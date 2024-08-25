@@ -18,7 +18,7 @@ buildNpmPackage rec {
   npmDepsHash = "sha256-F5kJJ5oA69xmv9VXVpegjcLHEnRtzGL3DV2kAghfDqY=";
 
   meta = {
-    description = "A list of all the public package names on npm";
+    description = "List of all the public package names on npm";
     homepage = "https://github.com/nice-registry/all-the-package-names";
     license = lib.licenses.mit;
     mainProgram = "all-the-package-names";

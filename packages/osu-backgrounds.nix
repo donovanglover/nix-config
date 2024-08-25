@@ -223,7 +223,7 @@ stdenvNoCC.mkDerivation {
   '';
 
   meta = {
-    description = "A collection of osu! fanart entries since 2017";
+    description = "Collection of osu! fanart entries";
     homepage = "https://osu.ppy.sh/home/news";
     maintainers = with lib.maintainers; [ donovanglover ];
     platforms = lib.platforms.all;
