@@ -79,7 +79,7 @@ in
 
             set BATTERY "$(get_icon $capacity)$capacity%"
 
-            xsetroot -name "$VOLUME・$BATTERY・$TIME"
+            xsetroot -name " $VOLUME・$BATTERY・$TIME "
           end
 
           while true
