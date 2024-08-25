@@ -287,6 +287,7 @@ in
       touchpad = {
         naturalScrolling = true;
         accelProfile = "flat";
+        accelSpeed = "0.75";
       };
 
       mouse = {
