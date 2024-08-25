@@ -241,9 +241,9 @@ in
 
     extraConfig = # hyprlang
       ''
-        bind = CTRL, Alt_L, submap, passthrough
+        bind = ${super}_ALT, BackSpace, submap, passthrough
         submap = passthrough
-        bind = CTRL, Alt_L, submap, reset
+        bind = ${super}_ALT, BackSpace, submap, reset
         submap = reset
       '';
   };
