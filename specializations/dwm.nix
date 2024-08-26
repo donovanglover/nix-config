@@ -216,6 +216,7 @@ in
 
               static char dmenumon[2] = "0";
               static const char *dmenucmd[] = { "rofi", "-show", "drun" };
+              static const char *quitcmd[] = { "kill", "xinit" };
               static const char *termcmd[] = { "kitty", NULL };
               static const char *brighter[] = { "brightnessctl", "set", "5%+", NULL };
               static const char *dimmer[] = { "brightnessctl", "set", "5%-", NULL };
@@ -230,13 +231,11 @@ in
                 { 0, XF86XK_MonBrightnessDown, spawn, {.v = dimmer } },
                 { 0, XF86XK_MonBrightnessUp, spawn, {.v = brighter } },
                 { MODKEY, XK_p, spawn, {.v = dmenucmd } },
-                { MODKEY, XK_b, togglebar, {0} },
+                { MODKEY, XK_o, togglebar, {0} },
                 { MODKEY, XK_f, togglefullscr, {0} },
                 { MODKEY, XK_v, togglefloating, {0} },
                 { MODKEY, XK_j, focusstack, {.i = +1 } },
                 { MODKEY, XK_k, focusstack, {.i = -1 } },
-                { MODKEY, XK_h, setmfact, {.f = -0.05} },
-                { MODKEY, XK_l, setmfact, {.f = +0.05} },
                 { MODKEY, XK_Return, zoom, {0} },
                 { MODKEY, XK_comma, focusmon, {.i = -1 } },
                 { MODKEY, XK_period, focusmon, {.i = +1 } },
@@ -246,11 +245,13 @@ in
                 { MODKEY|ShiftMask, XK_1, reorganizetags, {0} },
                 { MODKEY|ShiftMask, XK_2, tagtonext, {0} },
                 { MODKEY|ShiftMask, XK_2, reorganizetags, {0} },
+                { MODKEY|ShiftMask, XK_h, setmfact, {.f = -0.05} },
+                { MODKEY|ShiftMask, XK_l, setmfact, {.f = +0.05} },
                 { MODKEY|ShiftMask, XK_Return, spawn, {.v = termcmd } },
-                { MODKEY|ShiftMask, XK_c, killclient, {0} },
+                { MODKEY|ShiftMask, XK_q, killclient, {0} },
                 { MODKEY|ShiftMask, XK_comma, tagmon, {.i = -1 } },
                 { MODKEY|ShiftMask, XK_period, tagmon, {.i = +1 } },
-                { MODKEY|ShiftMask, XK_q, quit, {0} },
+                { MODKEY|Mod1Mask, XK_Delete, spawn, {.v = quitcmd } },
               };
 
               static const Button buttons[] = {
