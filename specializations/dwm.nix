@@ -42,6 +42,7 @@ in
             feh --bg-fill "$(fish -c 'random choice (fd . ${osu-backgrounds}/2024-07-15-Aerial-Antics-Art-Contest-All-Entries --follow -e jpg -e png)')" &
             ~/.config/${barScript} &
             picom --daemon
+            ${pkgs.nemo}/bin/nemo-desktop &
             fcitx5 &
 
             while true; do
@@ -121,6 +122,10 @@ in
             method = "dual_kawase";
             size = 10;
           };
+
+          blur-background-exclude = [
+            "class_g = 'Nemo-desktop'"
+          ];
 
           clip-shadow-above = [
             "class_g = 'dwm'"
@@ -280,6 +285,11 @@ in
             (fetchpatch {
               url = "https://dwm.suckless.org/patches/bar_height/dwm-bar-height-spacing-6.3.diff";
               hash = "sha256-usMIMmloUG4NrX10AVbgr8kFs9ZG6Krn1NxXTVcLq70=";
+            })
+
+            (fetchpatch {
+              url = "https://raw.githubusercontent.com/bakkeby/patches/c5eae9d/dwm/dwm-desktop_icons-6.5.diff";
+              hash = "sha256-oIgeph9pmIWKBepnQhc+aNWU7ZHxsJbhJr5LVNTtuHc=";
             })
           ];
         };
