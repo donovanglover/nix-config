@@ -255,6 +255,7 @@ in
               };
 
               static const Button buttons[] = {
+                { ClkTagBar, 0, Button1, view, {0} },
                 { ClkClientWin, MODKEY, Button1, movemouse, {0} },
                 { ClkClientWin, MODKEY, Button3, resizemouse, {0} },
               };
