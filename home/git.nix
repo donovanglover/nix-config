@@ -15,13 +15,6 @@
   programs.git = {
     enable = true;
 
-    aliases = {
-      contrib = "shortlog -n -s";
-      remotes = "remote -v";
-      praise = "blame";
-      verify = "log --show-signature";
-    };
-
     attributes = [ "*.lockb binary diff=lockb" ];
 
     extraConfig = {
