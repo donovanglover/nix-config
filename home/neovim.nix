@@ -437,7 +437,6 @@
       vim-javascript
       vim-jsx-pretty
       rust-vim
-      yuck-vim
       neoformat
       vim-nix
       tagbar
