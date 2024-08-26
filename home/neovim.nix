@@ -432,7 +432,6 @@
           '';
       }
       fzf-vim
-      vim-caddyfile
       vim-graphql
       vim-javascript
       vim-jsx-pretty
