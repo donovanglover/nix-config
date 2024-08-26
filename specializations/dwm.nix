@@ -18,6 +18,7 @@ in
       packages = with pkgs; [
         feh
         xclip
+        scrot
       ];
 
       file.".xinitrc" = {
