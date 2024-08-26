@@ -44,9 +44,8 @@ in
       onefetch
       scc
       genact
-      dwt1-shell-color-scripts
-      colorpanes
       sanctity
+      asciiquarium-transparent
       cmatrix
       gdu
       hexyl
