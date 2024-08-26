@@ -112,6 +112,10 @@ in
 
         shadowExclude = fadeExclude;
 
+        opacityRules = [
+          "95:class_g = 'Thunar'"
+        ];
+
         settings = {
           blur = {
             method = "dual_kawase";
