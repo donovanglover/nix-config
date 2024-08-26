@@ -185,7 +185,6 @@ in
         ", Print, exec, grimblast --freeze copy area"
         "${super}_ALT, delete, exit"
         "${super}, V, togglefloating"
-        "${super}, B, centerwindow"
         "${super}, U, exec, ~/.config/${gapsScript}"
         "${super}, X, pin"
         "${super}, F, fullscreen"
