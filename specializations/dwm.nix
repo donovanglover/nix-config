@@ -310,5 +310,10 @@ in
         accelProfile = "flat";
       };
     };
+
+    greetd.settings = {
+      default_session.command = lib.mkForce "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd startx --time-format '%F %R'";
+      initial_session.command = lib.mkForce "${pkgs.xorg.xinit}/bin/startx";
+    };
   };
 }
