@@ -9,12 +9,6 @@ in
   environment = {
     shells = [ fish ];
 
-    sessionVariables = {
-      GIT_DISCOVERY_ACROSS_FILESYSTEM = "1";
-      NODE_OPTIONS = "--max-old-space-size=16384";
-      GATSBY_TELEMETRY_DISABLED = "1";
-    };
-
     systemPackages = with pkgs; [
       jq
       fd
