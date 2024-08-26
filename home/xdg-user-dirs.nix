@@ -9,10 +9,10 @@ in
       enable = true;
       createDirectories = true;
 
-      desktop = null;
       templates = null;
       publicShare = null;
 
+      desktop = "${homeDirectory}/デスクトップ";
       download = "${homeDirectory}/ダウンロード";
       documents = "${homeDirectory}/ドキュメント";
       music = "${homeDirectory}/音楽";
