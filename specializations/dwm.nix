@@ -2,14 +2,13 @@
 
 let
   inherit (lib) singleton;
+
   inherit (config.lib.stylix.colors.withHashtag)
     base00
     base02
     base03
     base05
     ;
-
-  osu-backgrounds = pkgs.callPackage ../packages/osu-backgrounds.nix { };
 
   barScript = "dwm/bar.fish";
 in
@@ -39,7 +38,7 @@ in
 
             xrdb -merge ~/.Xresources
             xset r rate 300 50
-            feh --bg-fill "$(fish -c 'random choice (fd . ${osu-backgrounds}/2024-07-15-Aerial-Antics-Art-Contest-All-Entries --follow -e jpg -e png)')" &
+            feh --no-fehbg --bg-scale ${config.stylix.image}
             ~/.config/${barScript} &
             picom --daemon
             ${pkgs.nemo}/bin/nemo-desktop &
