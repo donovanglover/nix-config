@@ -16,8 +16,8 @@ My [NixOS] configuration with [Nix Flakes], [Home Manager], [Stylix], and [Hyprl
 - Nix Flakes + Home Manager + Btrfs on LUKS.
 - Simple yet effective Neovim setup with nvim-lspconfig.
 - Modern Wayland support with Hyprland and the master-stack layout.
+- Easily switch to a similar dwm config if X is necessary.
 - Full Japanese support with fonts, input method, and wine covered.
-- Specializations for easy switching between Hyprland, GNOME, and Plasma.
 - A universal color scheme inherited by all applications.
 
 ## Usage
