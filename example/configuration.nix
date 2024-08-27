@@ -20,7 +20,9 @@ in
 
   home-manager.sharedModules =
     attrValues nix-config.homeModules
-    ++ singleton { programs.btop.enable = true; };
+    ++ singleton {
+      programs.btop.enable = true;
+    };
 
   environment.systemPackages = attrValues {
     inherit (nix-config.packages.${pkgs.system}) webp-thumbnailer;

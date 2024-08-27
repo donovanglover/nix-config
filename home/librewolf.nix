@@ -15,7 +15,9 @@ in
   programs.librewolf = {
     enable = true;
 
-    package = pkgs.librewolf.override { cfg.speechSynthesisSupport = false; };
+    package = pkgs.librewolf.override {
+      cfg.speechSynthesisSupport = false;
+    };
 
     profiles.default = {
       extensions = with firefox-addons.packages.${pkgs.system}; [

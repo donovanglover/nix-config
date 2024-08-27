@@ -96,7 +96,9 @@
             };
 
             modules = phoneModules ++ [
-              (import "${mobile-nixos}/lib/configuration.nix" { device = "pine64-pinephone"; })
+              (import "${mobile-nixos}/lib/configuration.nix" {
+                device = "pine64-pinephone";
+              })
 
               {
                 mobile.beautification = {

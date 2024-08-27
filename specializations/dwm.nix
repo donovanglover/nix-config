@@ -118,7 +118,9 @@ in
 
         shadowExclude = fadeExclude;
 
-        opacityRules = [ "95:class_g = 'Thunar'" ];
+        opacityRules = [
+          "95:class_g = 'Thunar'"
+        ];
 
         settings = {
           blur = {
@@ -126,9 +128,13 @@ in
             size = 10;
           };
 
-          blur-background-exclude = [ "class_g = 'Nemo-desktop'" ];
+          blur-background-exclude = [
+            "class_g = 'Nemo-desktop'"
+          ];
 
-          clip-shadow-above = [ "class_g = 'dwm'" ];
+          clip-shadow-above = [
+            "class_g = 'dwm'"
+          ];
         };
       };
 

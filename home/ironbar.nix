@@ -74,7 +74,9 @@ in
           type = "clock";
           format = "%x（%a）%R";
         }
-        { type = "notifications"; }
+        {
+          type = "notifications";
+        }
       ];
     };
 

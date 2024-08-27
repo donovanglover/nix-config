@@ -263,8 +263,14 @@ in
 
       postgresql = mkIf postgres {
         enable = true;
-        ensureUsers = singleton { name = username; };
-        ensureDatabases = [ username ];
+
+        ensureUsers = singleton {
+          name = username;
+        };
+
+        ensureDatabases = [
+          username
+        ];
       };
 
       openssh = {
