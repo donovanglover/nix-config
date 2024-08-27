@@ -7,7 +7,7 @@
 }:
 
 let
-  inherit (lib) mkIf;
+  inherit (lib) mkIf singleton;
 
   friendlyfox = pkgs.callPackage ../packages/friendlyfox.nix { };
 in
@@ -32,7 +32,15 @@ in
 
         engines = {
           Mullvad = {
-            urls = [ { template = "https://leta.mullvad.net/?q={searchTerms}"; } ];
+            urls = singleton {
+              template = "https://leta.mullvad.net";
+
+              params = singleton {
+                name = "q";
+                value = "{searchTerms}";
+              };
+            };
+
             icon = "${pkgs.mullvad-vpn}/share/icons/hicolor/32x32/apps/mullvad-vpn.png";
           };
         };
