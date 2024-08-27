@@ -201,13 +201,13 @@ in
 
     systemPackages = attrValues {
       inherit (self.packages.${pkgs.system}) webp-thumbnailer;
-      inherit (pkgs.gnome) gnome-contacts;
 
       inherit (pkgs)
         chatty
         megapixels
         livi
         gnome-calendar
+        gnome-contacts
         eog
         ;
     };
