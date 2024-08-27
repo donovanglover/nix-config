@@ -56,7 +56,6 @@ let
 in
 {
   imports = attrValues {
-    inherit (nix-config.inputs.home-manager.nixosModules) home-manager;
     inherit (nix-config.inputs.stylix.nixosModules) stylix;
   };
 
