@@ -147,22 +147,25 @@ in
     };
 
     environment.systemPackages = mkMerge [
-      (mkIf bloat (with pkgs; [
-        mullvad-browser
-        spek
-        audacity
-        gimp
-        libreoffice
-        element-desktop
-        signal-desktop
-        qbittorrent
-        popsicle
-        satty
-        srb2
-        ringracers
-        jamesdsp
-        texliveFull
-      ]))
+      (mkIf bloat (
+        with pkgs;
+        [
+          mullvad-browser
+          spek
+          audacity
+          gimp
+          libreoffice
+          element-desktop
+          signal-desktop
+          qbittorrent
+          popsicle
+          satty
+          srb2
+          ringracers
+          jamesdsp
+          texliveFull
+        ]
+      ))
 
       (with nix-config.inputs.sakaya.packages.${pkgs.system}; [ sakaya ])
 

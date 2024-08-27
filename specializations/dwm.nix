@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   inherit (lib) singleton;
@@ -56,39 +61,39 @@ in
       ${barScript} = {
         executable = true;
         text = # fish
-        ''
-          #!/usr/bin/env fish
+          ''
+            #!/usr/bin/env fish
 
-          function get_icon
-            if test "$argv" -gt 90
-              echo " "
-            else if test "$argv" -gt 60
-              echo " "
-            else if test "$argv" -gt 30
-              echo " "
-            else if test "$argv" -gt 10
-              echo " "
-            else
-              echo " "
+            function get_icon
+              if test "$argv" -gt 90
+                echo " "
+              else if test "$argv" -gt 60
+                echo " "
+              else if test "$argv" -gt 30
+                echo " "
+              else if test "$argv" -gt 10
+                echo " "
+              else
+                echo " "
+              end
             end
-          end
 
-          function update_bar
-            set VOLUME "音量：$(math "$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | choose 1) * 100")%"
-            set TIME "$(date '+%x（%a）%R')"
-            set capacity "$(cat /sys/class/power_supply/BAT0/capacity)"
+            function update_bar
+              set VOLUME "音量：$(math "$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | choose 1) * 100")%"
+              set TIME "$(date '+%x（%a）%R')"
+              set capacity "$(cat /sys/class/power_supply/BAT0/capacity)"
 
-            set BATTERY "$(get_icon $capacity)$capacity%"
+              set BATTERY "$(get_icon $capacity)$capacity%"
 
-            xsetroot -name " $VOLUME・$BATTERY・$TIME "
-          end
+              xsetroot -name " $VOLUME・$BATTERY・$TIME "
+            end
 
-          while true
-            update_bar
+            while true
+              update_bar
 
-            sleep 10s
-          end
-        '';
+              sleep 10s
+            end
+          '';
       };
     };
 
@@ -113,9 +118,7 @@ in
 
         shadowExclude = fadeExclude;
 
-        opacityRules = [
-          "95:class_g = 'Thunar'"
-        ];
+        opacityRules = [ "95:class_g = 'Thunar'" ];
 
         settings = {
           blur = {
@@ -123,13 +126,9 @@ in
             size = 10;
           };
 
-          blur-background-exclude = [
-            "class_g = 'Nemo-desktop'"
-          ];
+          blur-background-exclude = [ "class_g = 'Nemo-desktop'" ];
 
-          clip-shadow-above = [
-            "class_g = 'dwm'"
-          ];
+          clip-shadow-above = [ "class_g = 'dwm'" ];
         };
       };
 
