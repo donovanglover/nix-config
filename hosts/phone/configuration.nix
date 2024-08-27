@@ -213,6 +213,10 @@ in
     };
   };
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "olm-3.2.16"
+  ];
+
   modules = {
     system = {
       hostName = "mobile-nixos";
