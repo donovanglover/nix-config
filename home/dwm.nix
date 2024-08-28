@@ -2,8 +2,6 @@
 
 let
   barScript = "dwm/bar.fish";
-
-  phosh-backgrounds = pkgs.callPackage ../packages/phosh-backgrounds.nix { };
 in
 {
   home = {
@@ -11,7 +9,6 @@ in
       feh
       xclip
       scrot
-      CuboCore.corekeyboard
     ];
 
     file.".xinitrc" = {
@@ -29,15 +26,14 @@ in
           export SDL_IM_MODULE=fcitx
           export GLFW_IM_MODULE=ibus
           export GTK_CSD=0
-          export MOZ_USE_XINPUT2=1
 
           xrdb -merge ~/.Xresources
           xset r rate 300 50
-          feh --no-fehbg --bg-scale ${phosh-backgrounds}/wall-lock.jpg
+          feh --no-fehbg --bg-scale ${config.stylix.image}
           ~/.config/${barScript} &
+          picom --daemon
+          ${pkgs.nemo}/bin/nemo-desktop &
           fcitx5 &
-          kitty &
-          corekeyboard &
 
           while true; do
             dbus-launch --sh-syntax --exit-with-session dwm
