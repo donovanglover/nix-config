@@ -1,3 +1,5 @@
+{ lib, ... }:
+
 {
   services.picom = rec {
     enable = true;
@@ -38,4 +40,6 @@
       ];
     };
   };
+
+  systemd.user.services.picom = lib.mkForce { };
 }
