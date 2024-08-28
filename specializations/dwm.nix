@@ -70,6 +70,7 @@ in
               static const char *dmenucmd[] = { "rofi", "-show", "drun" };
               static const char *quitcmd[] = { "kill", "xinit" };
               static const char *termcmd[] = { "kitty", NULL };
+              static const char *keyboardcmd[] = { "corekeyboard", NULL };
               static const char *brighter[] = { "brightnessctl", "set", "5%+", NULL };
               static const char *dimmer[] = { "brightnessctl", "set", "5%-", NULL };
               static const char *up_vol[] = { "wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%+", NULL };
@@ -108,6 +109,7 @@ in
 
               static const Button buttons[] = {
                 { ClkTagBar, 0, Button1, view, {0} },
+                { ClkStatusText, 0, Button1, spawn, {.v = keyboardcmd } },
                 { ClkClientWin, MODKEY, Button1, movemouse, {0} },
                 { ClkClientWin, MODKEY, Button3, resizemouse, {0} },
               };

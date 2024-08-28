@@ -36,7 +36,9 @@ in
 
   home-manager.sharedModules = attrValues {
     inherit (self.homeModules)
+      dwm
       eza
+      fcitx
       fish
       git
       gpg
@@ -263,19 +265,8 @@ in
   };
 
   services = {
-    xserver = {
-      displayManager.lightdm.enable = false;
-
-      desktopManager.phosh = {
-        enable = true;
-        group = "users";
-        user = username;
-      };
-    };
-
     udisks2.enable = mkForce false;
     pipewire.enable = mkForce false;
-    greetd.enable = mkForce false;
   };
 
   boot = {

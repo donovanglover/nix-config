@@ -6,5 +6,6 @@
     "Xft.lcdfilter" = "lcddefault";
     "Xft.hintstyle" = "hintfull";
     "Xft.rgba" = "rgb";
+    "Xft.dpi" = 192;
   };
 }
