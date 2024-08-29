@@ -6,7 +6,7 @@
 
 stdenvNoCC.mkDerivation {
   pname = "aleo-fonts";
-  version = "unstable-2023-06-03";
+  version = "2.0.0-unstable-2023-06-03";
 
   src = fetchFromGitHub {
     owner = "AlessioLaiso";
