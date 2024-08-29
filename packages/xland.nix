@@ -6,10 +6,7 @@
   colorSelected ? "#eeeeee",
 }:
 
-dwm.overrideAttrs (oldAttrs: {
-  pname = "xland";
-  version = "0.1.0-dwm-${oldAttrs.version}";
-
+dwm.override {
   conf = # c
     ''
       #include <X11/XF86keysym.h>
@@ -133,4 +130,4 @@ dwm.overrideAttrs (oldAttrs: {
       hash = "sha256-oIgeph9pmIWKBepnQhc+aNWU7ZHxsJbhJr5LVNTtuHc=";
     })
   ];
-})
+}
