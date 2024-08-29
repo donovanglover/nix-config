@@ -21,7 +21,6 @@ let
 
   inherit (cfg)
     bloat
-    dwm
     container
     opacity
     fontSize
@@ -58,7 +57,6 @@ in
     };
 
     bloat = mkEnableOption "GUI applications";
-    dwm = mkEnableOption "dwm specialization";
     container = mkEnableOption "disable some options for container performance";
     graphical = mkEnableOption "xserver for graphical containers";
   };
@@ -93,9 +91,33 @@ in
         mountOnMedia = true;
       };
 
+      libinput = {
+        touchpad = {
+          naturalScrolling = true;
+          accelProfile = "flat";
+          accelSpeed = "0.75";
+        };
+
+        mouse = {
+          accelProfile = "flat";
+        };
+      };
+
       xserver = mkIf (!container || graphical) {
         enable = true;
         excludePackages = with pkgs; [ xterm ];
+
+        displayManager.startx.enable = mkIf (!container) true;
+
+        windowManager.dwm = mkIf (!container) {
+          enable = true;
+
+          package = pkgs.callPackage ../packages/xland.nix (with config.lib.stylix.colors.withHashtag; {
+            colorBackground = base00;
+            colorText = base03;
+            colorSelected = base05;
+          });
+        };
       };
 
       pipewire = {
@@ -275,10 +297,6 @@ in
           terminal = fontSize;
         };
       };
-    };
-
-    specialisation = {
-      dwm = mkIf dwm { configuration.imports = [ ../specializations/dwm.nix ]; };
     };
   };
 }
