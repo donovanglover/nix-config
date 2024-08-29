@@ -70,7 +70,7 @@ in
               -c:v libx264 \
               -preset ultrafast \
               -qp 23 \
-              "$(date -I)-$(uuidgen).mp4"
+              "$(date '+%x（%a）%R').mp4"
           '';
 
         man.generateCaches = mkForce false;
