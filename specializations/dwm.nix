@@ -67,8 +67,8 @@ in
               #define MODKEY Mod4Mask
 
               static char dmenumon[2] = "0";
-              static const char *dmenucmd[] = { "rofi", "-show", "drun" };
-              static const char *quitcmd[] = { "kill", "xinit" };
+              static const char *dmenucmd[] = { "rofi", "-show", "drun", NULL };
+              static const char *quitcmd[] = { "kill", "xinit", NULL };
               static const char *termcmd[] = { "kitty", NULL };
               static const char *brighter[] = { "brightnessctl", "set", "5%+", NULL };
               static const char *dimmer[] = { "brightnessctl", "set", "5%-", NULL };
