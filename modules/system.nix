@@ -190,8 +190,7 @@ in
       };
 
       extraSpecialArgs = {
-        inherit (nix-config.inputs) firefox-addons;
-        inherit phone;
+        inherit nix-config phone;
       };
     };
 

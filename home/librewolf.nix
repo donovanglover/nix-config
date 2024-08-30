@@ -1,7 +1,7 @@
 {
   pkgs,
   lib,
-  firefox-addons,
+  nix-config,
   phone,
   ...
 }:
@@ -20,7 +20,7 @@ in
     };
 
     profiles.default = {
-      extensions = with firefox-addons.packages.${pkgs.system}; [
+      extensions = with nix-config.packages.${pkgs.system}; [
         ublock-origin
         yomitan
       ];
