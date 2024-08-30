@@ -35,7 +35,7 @@ let
     noto-fonts-emoji
     ;
 
-  stylix-background = pkgs.callPackage ../packages/stylix-background.nix {
+  stylix-background = nix-config.packages.${pkgs.system}.stylix-background.override {
     color = config.lib.stylix.colors.base00;
   };
 

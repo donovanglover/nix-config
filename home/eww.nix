@@ -1,8 +1,9 @@
-{ pkgs, config, ... }:
+{ nix-config, pkgs, config, ... }:
 
 let
   inherit (config.home) homeDirectory;
   inherit (config.lib.stylix.colors.withHashtag) base00 base05;
+  inherit (nix-config.packages.${pkgs.system}) fluent-icons;
 
   inherit (config.xdg.userDirs)
     download
@@ -11,8 +12,6 @@ let
     pictures
     videos
     ;
-
-  fluent-icons = pkgs.callPackage ../packages/fluent-icons.nix { };
 in
 {
   home.packages = with pkgs; [ eww ];

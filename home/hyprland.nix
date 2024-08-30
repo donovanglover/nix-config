@@ -1,12 +1,11 @@
-{ pkgs, lib, ... }:
+{ nix-config, pkgs, lib, ... }:
 
 let
   inherit (lib) mkForce;
+  inherit (nix-config.packages.${pkgs.system}) osu-backgrounds;
 
   opacity = "0.95";
   super = "SUPER";
-
-  osu-backgrounds = pkgs.callPackage ../packages/osu-backgrounds.nix { };
 
   gapsScript = "hypr/gaps.fish";
   randomBackgroundScript = "hypr/random-bg.fish";

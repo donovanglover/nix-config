@@ -11,8 +11,7 @@ let
   inherit (lib.gvariant) mkTuple mkUint32;
   inherit (config.modules.system) username;
   inherit (builtins) attrValues;
-
-  phosh-backgrounds = pkgs.callPackage ../../packages/phosh-backgrounds.nix { };
+  inherit (self.packages.${pkgs.system}) phosh-backgrounds;
 
   getColorCh = colorName: channel: config.lib.stylix.colors."${colorName}-rgb-${channel}";
 

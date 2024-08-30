@@ -8,8 +8,7 @@
 
 let
   inherit (lib) mkIf singleton;
-
-  friendlyfox = pkgs.callPackage ../packages/friendlyfox.nix { };
+  inherit (nix-config.packages.${pkgs.system}) friendlyfox;
 in
 {
   programs.librewolf = {
