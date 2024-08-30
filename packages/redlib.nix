@@ -13,14 +13,21 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     hash = "sha256-j6A/CQ56hKOLgaDcmJBVE9lThn8js4xDkj88wqIzBE8=";
   };
 
-  buildCommand = ''
+  dontUnpack = true;
+
+  installPhase = ''
+    runHook preInstall
+
     install -Dm644 "$src" "$out/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/{5003e502-f361-4bf6-b09e-41a844d36d33}.xpi"
+
+    runHook postInstall
   '';
 
   meta = {
     homepage = "https://addons.mozilla.org/en-US/firefox/addon/redlib/";
     description = "Redirect to Redlib with Farside";
     license = lib.licenses.mit;
+    maintainers = with lib.maintainers; [ donovanglover ];
     platforms = lib.platforms.all;
   };
 })

@@ -13,14 +13,21 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     hash = "sha256-HbnGdqB9FB+NNtu8JPnj1kpswjQNv8bISLxDlfls+xQ=";
   };
 
-  buildCommand = ''
+  dontUnpack = true;
+
+  installPhase = ''
+    runHook preInstall
+
     install -Dm644 "$src" "$out/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/uBlock0@raymondhill.net.xpi"
+
+    runHook postInstall
   '';
 
   meta = {
     homepage = "https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/";
     description = "Efficient wide-spectrum content blocker";
     license = lib.licenses.gpl3Plus;
+    maintainers = with lib.maintainers; [ donovanglover ];
     platforms = lib.platforms.all;
   };
 })
