@@ -4,6 +4,13 @@
   programs.fish = {
     enable = true;
 
+    loginShellInit = # fish
+      ''
+        if test (tty) = /dev/tty2
+          exec startx
+        end
+      '';
+
     shellInit = # fish
       ''
         set -U fish_greeting ""
