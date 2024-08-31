@@ -20,7 +20,6 @@ in
 
     profiles.default = {
       extensions = with nix-config.packages.${pkgs.system}; [
-        ublock-origin
         yomitan
         redlib
         new-tab-identity
