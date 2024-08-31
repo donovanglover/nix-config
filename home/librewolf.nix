@@ -74,6 +74,8 @@ in
 
       "xpinstall.signatures.required" = false;
 
+      "network.dns.native_https_query" = false;
+
       "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
     };
   };
