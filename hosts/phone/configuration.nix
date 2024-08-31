@@ -124,8 +124,6 @@ in
         };
 
         "sm/puri/phosh/plugins" = {
-          lock-screen = [ "upcoming-events" ];
-
           quick-settings = [
             "night-light-quick-setting"
             "caffeine-quick-setting"
@@ -205,7 +203,6 @@ in
         chatty
         megapixels
         livi
-        gnome-calendar
         gnome-contacts
         eog
         ;
