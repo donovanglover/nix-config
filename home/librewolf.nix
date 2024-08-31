@@ -23,6 +23,7 @@ in
         ublock-origin
         yomitan
         redlib
+        new-tab-identity
       ];
 
       search = {
