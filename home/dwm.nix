@@ -34,6 +34,7 @@ in
           picom --daemon
           ${pkgs.nemo}/bin/nemo-desktop &
           fcitx5 &
+          xset -dpms
 
           while true; do
             dbus-launch --sh-syntax --exit-with-session dwm
