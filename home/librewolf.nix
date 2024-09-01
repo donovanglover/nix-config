@@ -45,6 +45,22 @@ in
 
             icon = "${pkgs.mullvad-vpn}/share/icons/hicolor/32x32/apps/mullvad-vpn.png";
           };
+
+          "goo.ne.jp" = {
+            urls = singleton {
+              template = "https://search.goo.ne.jp/web.jsp";
+
+              params = singleton {
+                name = "MT";
+                value = "{searchTerms}";
+              };
+            };
+
+            icon = pkgs.fetchurl {
+              url = "https://search.goo.ne.jp/favicon.ico";
+              hash = "sha256-luYqjziIpHgIJPbryjFjera3Fdbbj/fO6SNyDbnEZj0=";
+            };
+          };
         };
       };
 
