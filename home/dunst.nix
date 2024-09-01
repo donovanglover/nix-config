@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   services.dunst = {
@@ -28,4 +28,6 @@
       };
     };
   };
+
+  systemd.user.services.dunst = lib.mkForce { };
 }
