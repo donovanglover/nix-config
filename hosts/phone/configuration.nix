@@ -134,6 +134,10 @@ in
           show-battery-percentage = true;
         };
 
+        "org/postmarketos/megapixels" = {
+          save-raw = false;
+        };
+
         "org/gnome/desktop/session" = {
           idle-delay = mkUint32 60;
         };
