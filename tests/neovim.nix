@@ -1,6 +1,6 @@
 { self, pkgs }:
 
-(self.inputs.nixpkgs.lib.nixos.runTest {
+self.inputs.nixpkgs.lib.nixos.runTest {
   name = "neovim";
 
   hostPkgs = pkgs;
@@ -57,4 +57,4 @@
 
       assert "Hello world" in text
     '';
-}).config.result
+}
