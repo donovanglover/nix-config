@@ -24,6 +24,7 @@ in
         yomitan
         redlib
         new-tab-identity
+        showdex
       ];
 
       search = {
