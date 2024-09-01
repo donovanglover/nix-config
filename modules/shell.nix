@@ -67,6 +67,7 @@ in
       ventoy
       taskwarrior3
       nixpkgs-review
+      nix-init
       nix-update
       statix
       nvd
