@@ -31,7 +31,13 @@ in
 {
   imports = attrValues self.nixosModules;
 
-  nixpkgs.overlays = with self.overlays; [ phinger-cursors ];
+  nixpkgs = {
+    overlays = with self.overlays; [ phinger-cursors ];
+
+    config.permittedInsecurePackages = [
+      "olm-3.2.16"
+    ];
+  };
 
   home-manager.sharedModules = attrValues {
     inherit (self.homeModules)
@@ -208,10 +214,6 @@ in
       eog
     ];
   };
-
-  nixpkgs.config.permittedInsecurePackages = [
-    "olm-3.2.16"
-  ];
 
   modules = {
     system = {

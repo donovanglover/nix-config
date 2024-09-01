@@ -74,9 +74,12 @@ in
     };
 
     environment = {
-      systemPackages = mkIf mouseSettings (with pkgs; [
-        piper
-      ]);
+      systemPackages = mkIf mouseSettings (
+        with pkgs;
+        [
+          piper
+        ]
+      );
 
       etc.${dualFunctionKeysConfig}.text = toJSON {
         TIMING = [
