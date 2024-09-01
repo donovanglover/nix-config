@@ -1,9 +1,6 @@
 { self, pkgs }:
 
-let
-  nixos-lib = import (pkgs.path + "/nixos/lib") { };
-in
-(nixos-lib.runTest {
+(self.inputs.nixpkgs.lib.nixos.runTest {
   name = "neovim";
 
   hostPkgs = pkgs;
