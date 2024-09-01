@@ -8,13 +8,13 @@ self.inputs.nixpkgs.lib.nixos.runTest {
   nodes.machine =
     { nix-config, ... }:
     {
-      imports = builtins.attrValues {
-        inherit (nix-config.nixosModules) desktop system shell;
+      imports = with nix-config.nixosModules; [
+        desktop
+        shell
+        system
+      ];
 
-        customConfig = {
-          modules.desktop.container = true;
-        };
-      };
+      modules.desktop.container = true;
 
       home-manager.sharedModules = with nix-config.homeModules; [ neovim ];
     };
