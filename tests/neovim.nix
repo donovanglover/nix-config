@@ -1,13 +1,22 @@
+{ self, pkgs }:
+
 let
-  inherit (builtins) attrValues;
+  nixos-lib = import (pkgs.path + "/nixos/lib") { };
 in
-(import ../lib/test.nix) {
+(nixos-lib.runTest {
   name = "neovim";
+
+  hostPkgs = pkgs;
+  defaults.documentation.enable = pkgs.lib.mkDefault false;
+
+  node.specialArgs = {
+    nix-config = self;
+  };
 
   nodes.machine =
     { nix-config, ... }:
     {
-      imports = attrValues {
+      imports = builtins.attrValues {
         inherit (nix-config.nixosModules) desktop system shell;
 
         customConfig = {
@@ -51,4 +60,4 @@ in
 
       assert "Hello world" in text
     '';
-}
+}).config.result
