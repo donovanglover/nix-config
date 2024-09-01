@@ -9,6 +9,7 @@
 let
   inherit (lib.types) float int;
   inherit (config.modules.system) username;
+  inherit (config.boot) isContainer;
   inherit (nix-config.packages.${pkgs.system}) aleo-fonts;
   inherit (builtins) attrValues;
   inherit (config.lib.stylix.colors.withHashtag) base00 base03 base05;
@@ -22,7 +23,6 @@ let
 
   inherit (cfg)
     bloat
-    container
     opacity
     fontSize
     graphical
@@ -58,7 +58,6 @@ in
     };
 
     bloat = mkEnableOption "GUI applications";
-    container = mkEnableOption "disable some options for container performance";
     graphical = mkEnableOption "xserver for graphical containers";
   };
 
@@ -66,7 +65,7 @@ in
     hardware.graphics.enable32Bit = true;
 
     programs = {
-      hyprland.enable = mkIf (!container) true;
+      hyprland.enable = mkIf (!isContainer) true;
       cdemu.enable = true;
 
       thunar = {
@@ -104,13 +103,13 @@ in
         };
       };
 
-      xserver = mkIf (!container || graphical) {
+      xserver = mkIf (!isContainer || graphical) {
         enable = true;
         excludePackages = with pkgs; [ xterm ];
 
-        displayManager.startx.enable = mkIf (!container) true;
+        displayManager.startx.enable = mkIf (!isContainer) true;
 
-        windowManager.dwm = mkIf (!container) {
+        windowManager.dwm = mkIf (!isContainer) {
           enable = true;
 
           package = pkgs.dwm.override {
@@ -252,7 +251,7 @@ in
         pulse.enable = true;
       };
 
-      greetd = mkIf (!container) {
+      greetd = mkIf (!isContainer) {
         enable = true;
         restart = false;
 

@@ -14,8 +14,6 @@ self.inputs.nixpkgs.lib.nixos.runTest {
         system
       ];
 
-      modules.desktop.container = true;
-
       home-manager.sharedModules = with nix-config.homeModules; [
         neovim
       ];

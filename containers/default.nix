@@ -20,7 +20,6 @@
   nixpkgs.overlays = builtins.attrValues nix-config.overlays;
 
   modules = {
-    desktop.container = true;
     system.noRoot = true;
   };
 
