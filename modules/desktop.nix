@@ -163,6 +163,7 @@ in
                 static const char *termcmd[] = { "kitty", NULL };
                 static const char *brighter[] = { "brightnessctl", "set", "5%+", NULL };
                 static const char *dimmer[] = { "brightnessctl", "set", "5%-", NULL };
+                static const char *print[] = { "scrot", NULL };
                 static const char *up_vol[] = { "wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%+", NULL };
                 static const char *down_vol[] = { "wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%-", NULL };
                 static const char *mute_vol[] = { "wpctl", "set-mute", "@DEFAULT_AUDIO_SINK@", "toggle", NULL };
@@ -173,6 +174,7 @@ in
                   { 0, XF86XK_AudioRaiseVolume, spawn, {.v = up_vol } },
                   { 0, XF86XK_MonBrightnessDown, spawn, {.v = dimmer } },
                   { 0, XF86XK_MonBrightnessUp, spawn, {.v = brighter } },
+                  { 0, XK_Print, spawn, {.v = print } },
                   { MODKEY, XK_p, spawn, {.v = dmenucmd } },
                   { MODKEY, XK_o, togglebar, {0} },
                   { MODKEY, XK_f, togglefullscr, {0} },
