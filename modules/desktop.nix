@@ -24,7 +24,6 @@ let
     bloat
     opacity
     fontSize
-    graphical
     ;
 
   inherit (pkgs)
@@ -57,7 +56,6 @@ in
     };
 
     bloat = mkEnableOption "GUI applications";
-    graphical = mkEnableOption "xserver for graphical containers";
   };
 
   config = {
@@ -102,7 +100,7 @@ in
         };
       };
 
-      xserver = mkIf (!isContainer || graphical) {
+      xserver = mkIf (!isContainer) {
         enable = true;
         excludePackages = with pkgs; [ xterm ];
 

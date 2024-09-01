@@ -14,8 +14,6 @@ let
   sakayaPort = 39493;
 in
 {
-  modules.desktop.graphical = true;
-
   networking = {
     nat.forwardPorts = singleton {
       destination = "192.168.100.49:${sakayaPort}";
