@@ -200,17 +200,13 @@ in
       LIBGL_ALWAYS_SOFTWARE = "true";
     };
 
-    systemPackages = attrValues {
-      inherit (self.packages.${pkgs.system}) webp-thumbnailer;
-
-      inherit (pkgs)
-        chatty
-        megapixels
-        livi
-        gnome-contacts
-        eog
-        ;
-    };
+    systemPackages = with pkgs; [
+      chatty
+      megapixels
+      livi
+      gnome-contacts
+      eog
+    ];
   };
 
   nixpkgs.config.permittedInsecurePackages = [

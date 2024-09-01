@@ -1,13 +1,12 @@
 { pkgs, ... }:
 
-let
-  inherit (pkgs) fish;
-in
 {
-  users.defaultUserShell = fish;
+  users.defaultUserShell = pkgs.fish;
 
   environment = {
-    shells = [ fish ];
+    shells = with pkgs; [
+      fish
+    ];
 
     systemPackages = with pkgs; [
       jq

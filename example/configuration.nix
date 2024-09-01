@@ -6,7 +6,7 @@
 }:
 
 let
-  inherit (lib) singleton;
+  inherit (lib) singleton mkMerge;
   inherit (builtins) attrValues;
 in
 {
@@ -24,10 +24,16 @@ in
       programs.btop.enable = true;
     };
 
-  environment.systemPackages = attrValues {
-    inherit (nix-config.packages.${pkgs.system}) webp-thumbnailer;
-    inherit (pkgs) ruby php;
-  };
+  environment.systemPackages = mkMerge [
+    (with pkgs; [
+      ruby
+      php
+    ])
+
+    (with nix-config.packages.${pkgs.system}; [
+      webp-thumbnailer
+    ])
+  ];
 
   nixpkgs.overlays = attrValues nix-config.overlays ++ [
     (final: prev: {

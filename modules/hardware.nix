@@ -6,8 +6,6 @@
 }:
 
 let
-  inherit (pkgs) piper interception-tools;
-  inherit (pkgs.interception-tools-plugins) dual-function-keys;
   inherit (builtins) toJSON;
 
   inherit (lib)
@@ -50,14 +48,17 @@ in
 
       interception-tools = {
         enable = mkIf keyboardBinds true;
-        plugins = [ dual-function-keys ];
+
+        plugins = with pkgs.interception-tools-plugins; [
+          dual-function-keys
+        ];
 
         udevmonConfig = toJSON (singleton {
           JOB = # bash
             ''
-              ${interception-tools}/bin/intercept -g $DEVNODE |
-              ${getExe dual-function-keys} -c /etc/${dualFunctionKeysConfig} |
-              ${interception-tools}/bin/uinput -d $DEVNODE
+              ${pkgs.interception-tools}/bin/intercept -g $DEVNODE |
+              ${getExe pkgs.interception-tools-plugins.dual-function-keys} -c /etc/${dualFunctionKeysConfig} |
+              ${pkgs.interception-tools}/bin/uinput -d $DEVNODE
             '';
 
           DEVICE = {
@@ -73,7 +74,9 @@ in
     };
 
     environment = {
-      systemPackages = mkIf mouseSettings [ piper ];
+      systemPackages = mkIf mouseSettings (with pkgs; [
+        piper
+      ]);
 
       etc.${dualFunctionKeysConfig}.text = toJSON {
         TIMING = [

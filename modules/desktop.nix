@@ -26,13 +26,6 @@ let
     fontSize
     ;
 
-  inherit (pkgs)
-    phinger-cursors
-    noto-fonts-cjk-sans
-    maple-mono
-    noto-fonts-emoji
-    ;
-
   stylix-background = nix-config.packages.${pkgs.system}.stylix-background.override {
     color = config.lib.stylix.colors.base00;
   };
@@ -179,14 +172,14 @@ in
 
       packages =
         [
-          noto-fonts-cjk-sans
-          noto-fonts-emoji
-          maple-mono
           aleo-fonts
         ]
         ++ (with pkgs; [
           noto-fonts
           noto-fonts-cjk-serif
+          noto-fonts-cjk-sans
+          noto-fonts-emoji
+          maple-mono
           font-awesome
           (nerdfonts.override { fonts = [ "Noto" ]; })
           kanji-stroke-order-font
@@ -251,7 +244,7 @@ in
       };
 
       cursor = {
-        package = phinger-cursors;
+        package = pkgs.phinger-cursors;
         name = "phinger-cursors";
         size = 24;
       };
@@ -263,17 +256,17 @@ in
         };
 
         sansSerif = {
-          package = noto-fonts-cjk-sans;
+          package = pkgs.noto-fonts-cjk-sans;
           name = "Noto Sans CJK JP";
         };
 
         monospace = {
-          package = maple-mono;
+          package = pkgs.maple-mono;
           name = "Maple Mono";
         };
 
         emoji = {
-          package = noto-fonts-emoji;
+          package = pkgs.noto-fonts-emoji;
           name = "Noto Color Emoji";
         };
 
