@@ -1,4 +1,9 @@
-{ nix-config, pkgs, config, ... }:
+{
+  nix-config,
+  pkgs,
+  config,
+  ...
+}:
 
 let
   inherit (config.home) homeDirectory;

@@ -1,4 +1,9 @@
-{ nix-config, pkgs, lib, ... }:
+{
+  nix-config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   inherit (lib) mkForce;
