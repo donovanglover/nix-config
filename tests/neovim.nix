@@ -2,13 +2,8 @@
 
 self.inputs.nixpkgs.lib.nixos.runTest {
   name = "neovim";
-
   hostPkgs = pkgs;
-  defaults.documentation.enable = pkgs.lib.mkDefault false;
-
-  node.specialArgs = {
-    nix-config = self;
-  };
+  node.specialArgs.nix-config = self;
 
   nodes.machine =
     { nix-config, ... }:
