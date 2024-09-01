@@ -9,7 +9,6 @@ self.inputs.nixpkgs.lib.nixos.runTest {
     { nix-config, ... }:
     {
       imports = with nix-config.nixosModules; [
-        desktop
         shell
         system
       ];
