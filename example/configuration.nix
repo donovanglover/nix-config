@@ -10,13 +10,11 @@ let
   inherit (builtins) attrValues;
 in
 {
-  imports = attrValues {
-    inherit (nix-config.nixosModules) system shell desktop;
-
-    customConfig = {
-      modules.system.username = "asuna";
-    };
-  };
+  imports = with nix-config.nixosModules; [
+    system
+    shell
+    desktop
+  ];
 
   home-manager.sharedModules =
     attrValues nix-config.homeModules
@@ -50,4 +48,6 @@ in
       });
     })
   ];
+
+  modules.system.username = "asuna";
 }
