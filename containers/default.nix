@@ -19,10 +19,6 @@
 
   nixpkgs.overlays = builtins.attrValues nix-config.overlays;
 
-  modules = {
-    system.noRoot = true;
-  };
-
   environment = {
     variables = {
       TERM = "xterm-kitty";

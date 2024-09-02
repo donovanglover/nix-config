@@ -8,6 +8,7 @@
 
 let
   inherit (lib.types) nullOr str listOf;
+  inherit (config.boot) isContainer;
 
   inherit (lib)
     mkOption
@@ -25,7 +26,6 @@ let
     allowSRB2Port
     allowDevPort
     phone
-    noRoot
     postgres
     ;
 
@@ -76,7 +76,6 @@ in
     };
 
     iHaveLotsOfRam = mkEnableOption "tmpfs on /tmp";
-    noRoot = mkEnableOption "disable access to root";
     mullvad = mkEnableOption "mullvad vpn";
     postgres = mkEnableOption "postgres database for containers";
     allowSRB2Port = mkEnableOption "port for srb2";
@@ -148,17 +147,17 @@ in
 
     users = {
       mutableUsers = false;
-      allowNoPasswordLogin = mkIf noRoot true;
+      allowNoPasswordLogin = mkIf isContainer true;
 
       users.${username} = {
         inherit hashedPassword;
 
         isNormalUser = true;
         uid = 1000;
-        password = mkIf (hashedPassword == null && !noRoot) (if phone then "1234" else username);
+        password = mkIf (hashedPassword == null && !isContainer) (if phone then "1234" else username);
 
         extraGroups =
-          if noRoot then
+          if isContainer then
             [ ]
           else
             [
