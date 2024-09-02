@@ -120,8 +120,8 @@ in
           favorites = [
             "org.gnome.Calls.desktop"
             "sm.puri.Chatty.desktop"
-            "org.gnome.Contacts.desktop"
-            "org.gnome.Calendar.desktop"
+            "kitty.desktop"
+            "librewolf.desktop"
           ];
         };
 
