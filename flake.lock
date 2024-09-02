@@ -286,11 +286,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1725037356,
-        "narHash": "sha256-2uOVj/Eq8tcOtagAuqzFBYmoKMXbeIjy1TplY7fC9EM=",
+        "lastModified": 1725295329,
+        "narHash": "sha256-SJC/XHV4Sm5XszHnkHbRe9eisDU9ruRpu2nyAFcYL84=",
         "owner": "donovanglover",
         "repo": "stylix",
-        "rev": "698336b2bb2763f10e02128591fc4e9c185915f8",
+        "rev": "54de0e7c26735f4a03cb001577269272e8df479d",
         "type": "github"
       },
       "original": {
