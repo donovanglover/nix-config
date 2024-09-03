@@ -230,12 +230,12 @@ in
       ];
 
       bindl = [
-        ", XF86AudioMute, exec, swayosd-client --output-volume mute-toggle"
-        ", XF86AudioRaiseVolume, exec, swayosd-client --output-volume raise"
-        ", XF86AudioLowerVolume, exec, swayosd-client --output-volume lower"
-        ", XF86AudioMicMute, exec, swayosd-client --input-volume mute-toggle"
-        ", XF86MonBrightnessDown, exec, swayosd-client --brightness lower"
-        ", XF86MonBrightnessUp, exec, swayosd-client --brightness raise"
+        ", XF86AudioMute, exec, volumectl -d toggle-mute"
+        ", XF86AudioRaiseVolume, exec, volumectl -d up"
+        ", XF86AudioLowerVolume, exec, volumectl -d down"
+        ", XF86AudioMicMute, exec, volumectl -d -m toggle-mute"
+        ", XF86MonBrightnessDown, exec, lightctl -d down"
+        ", XF86MonBrightnessUp, exec, lightctl -d up"
         ", XF86Display, exec, ~/.config/${monitorScript}"
         ", XF86Messenger, togglespecialworkspace"
         ", XF86Favorites, exec, killall rofi || rofi -show drun"
@@ -337,7 +337,6 @@ in
   services = {
     batsignal.enable = true;
     swaync.enable = true;
-    swayosd.enable = true;
     hyprpaper.enable = mkForce false;
   };
 }

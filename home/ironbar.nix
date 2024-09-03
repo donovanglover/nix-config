@@ -62,8 +62,8 @@ in
         {
           type = "script";
           cmd = "~/.config/${volumeScript}";
-          on_click_left = "swayosd-client --output-volume raise";
-          on_click_right = "swayosd-client --output-volume lower";
+          on_click_left = "volumectl -d up";
+          on_click_right = "volumectl -d down";
           mode = "watch";
         }
         {
