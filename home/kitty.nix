@@ -30,11 +30,4 @@ in
       inactive_tab_background ${base00}
     '';
   };
-
-  xdg.configFile."kitty/diff.conf".text = ''
-    map d scroll_to next-page
-    map u scroll_to prev-page
-    map g scroll_to start
-    map G scroll_to end
-  '';
 }
