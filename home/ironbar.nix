@@ -74,9 +74,6 @@ in
           type = "clock";
           format = "%x（%a）%R";
         }
-        {
-          type = "notifications";
-        }
       ];
     };
 
@@ -111,11 +108,6 @@ in
           padding-right: 0.5em;
         }
 
-        .notifications button {
-          padding-left: 0.2em;
-          padding-right: 0.7em;
-        }
-
         .upower {
           padding-left: 0.2em;
           padding-right: 0.2em;
@@ -129,10 +121,6 @@ in
         .popup {
           border: 1px solid ${base01};
           padding: 1em;
-        }
-
-        .clock {
-          padding-right: 0.4em;
         }
 
         .popup-clock .calendar-clock {
