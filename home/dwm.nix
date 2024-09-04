@@ -11,6 +11,7 @@ in
       feh
       xclip
       scrot
+      mpdris2
 
       (dwm.override {
         conf = # c
@@ -31,6 +32,13 @@ in
             static const char *colors[][3] = {
               [SchemeNorm] = { "${base03}", "${base00}", "${base03}" },
               [SchemeSel] = { "${base05}", "${base00}", "${base05}" },
+            };
+
+            static const char *const autostart[] = {
+              "mpDris2", NULL,
+              "dunst", NULL,
+              "avizo-service", NULL,
+              NULL
             };
 
             static const unsigned int baralpha = 243;
