@@ -19,7 +19,9 @@
       "window_type = 'tooltip'"
     ];
 
-    shadowExclude = fadeExclude;
+    shadowExclude = fadeExclude ++ [
+      "class_g = 'slop'"
+    ];
 
     opacityRules = [
       "95:class_g = 'Thunar'"
@@ -33,6 +35,7 @@
 
       blur-background-exclude = [
         "class_g = 'Nemo-desktop'"
+        "class_g = 'slop'"
       ];
 
       clip-shadow-above = [
