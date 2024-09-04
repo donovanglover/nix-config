@@ -137,6 +137,7 @@ in
 
         "org/postmarketos/megapixels" = {
           save-raw = false;
+          postprocessor = "${pkgs.megapixels}/share/megapixels/postprocess.sh";
         };
 
         "org/gnome/desktop/session" = {
