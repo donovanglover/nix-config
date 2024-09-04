@@ -11,7 +11,6 @@
 
     settings = {
       global = {
-        geometry = "1870x5-25+45";
         width = 350;
         separator_height = 5;
         padding = 24;
