@@ -139,6 +139,11 @@ in
             url = "https://raw.githubusercontent.com/bakkeby/patches/c5eae9d/dwm/dwm-desktop_icons-6.5.diff";
             hash = "sha256-oIgeph9pmIWKBepnQhc+aNWU7ZHxsJbhJr5LVNTtuHc=";
           })
+
+          (fetchpatch {
+            url = "https://dwm.suckless.org/patches/cool_autostart/dwm-cool-autostart-20240312-9f88553.diff";
+            hash = "sha256-pgXbgoAAewCjZP16smKkTVh5p7P/FK+Rue0F6gjmGVo=";
+          })
         ];
       })
     ];
