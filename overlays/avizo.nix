@@ -3,8 +3,8 @@ final: prev: {
     src = prev.fetchFromGitHub {
       owner = "donovanglover";
       repo = "avizo";
-      rev = "8179e1d650a43065b2775ca9d316aee721c36a44";
-      hash = "sha256-mWH+fqDD/wB/++0izp820t65zAr+s/kwx5jS2z3B4c0=";
+      rev = "e5e51a14768e6c3c273f2e121a3fca71cc30f3b9";
+      hash = "sha256-FZn1HOnBNyqj448egH2H5FZc0ApKMWH6i8iM2qoHaRs=";
     };
   });
 }
