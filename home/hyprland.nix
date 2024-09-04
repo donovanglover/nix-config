@@ -335,7 +335,6 @@ in
   };
 
   services = {
-    swaync.enable = true;
     hyprpaper.enable = mkForce false;
   };
 }
