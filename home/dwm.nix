@@ -61,15 +61,17 @@ in
             static const char *dmenucmd[] = { "rofi", "-show", "drun", NULL };
             static const char *quitcmd[] = { "kill", "xinit", NULL };
             static const char *termcmd[] = { "kitty", NULL };
-            static const char *brighter[] = { "brightnessctl", "set", "5%+", NULL };
-            static const char *dimmer[] = { "brightnessctl", "set", "5%-", NULL };
+            static const char *brighter[] = { "lightctl", "-d", "up", NULL };
+            static const char *dimmer[] = { "lightctl", "-d", "down", NULL };
             static const char *print[] = { "scrot", NULL };
-            static const char *up_vol[] = { "wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%+", NULL };
-            static const char *down_vol[] = { "wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%-", NULL };
-            static const char *mute_vol[] = { "wpctl", "set-mute", "@DEFAULT_AUDIO_SINK@", "toggle", NULL };
+            static const char *up_vol[] = { "volumectl", "-d", "up", NULL };
+            static const char *down_vol[] = { "volumectl", "-d", "down", NULL };
+            static const char *mute_vol[] = { "volumectl", "-d", "toggle-mute", NULL };
+            static const char *mute_mic[] = { "volumectl", "-d", "-m", "toggle-mute", NULL };
 
             static const Key keys[] = {
               { 0, XF86XK_AudioMute, spawn, {.v = mute_vol } },
+              { 0, XF86XK_AudioMicMute, spawn, {.v = mute_mic } },
               { 0, XF86XK_AudioLowerVolume, spawn, {.v = down_vol } },
               { 0, XF86XK_AudioRaiseVolume, spawn, {.v = up_vol } },
               { 0, XF86XK_MonBrightnessDown, spawn, {.v = dimmer } },
