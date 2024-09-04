@@ -1,0 +1,3 @@
+{
+  services.batsignal.enable = true;
+}

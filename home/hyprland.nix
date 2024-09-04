@@ -335,7 +335,6 @@ in
   };
 
   services = {
-    batsignal.enable = true;
     swaync.enable = true;
     hyprpaper.enable = mkForce false;
   };
