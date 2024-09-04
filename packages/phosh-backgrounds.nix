@@ -2,6 +2,9 @@
   lib,
   stdenvNoCC,
   fetchurl,
+  fd,
+  imagemagick,
+  color ? "181818",
 }:
 
 stdenvNoCC.mkDerivation {
@@ -34,6 +37,11 @@ stdenvNoCC.mkDerivation {
     })
   ];
 
+  nativeBuildInputs = [
+    fd
+    imagemagick
+  ];
+
   unpackPhase = ''
     runHook preUnpack
 
@@ -47,7 +55,8 @@ stdenvNoCC.mkDerivation {
   installPhase = ''
     runHook preInstall
 
-    install -Dm644 *.jpg -t $out
+    mkdir -p $out
+    fd -e jpg -x magick "{}" -fill "#${color}" -colorize 30% "$out/{.}.jpg"
 
     runHook postInstall
   '';

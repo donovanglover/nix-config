@@ -11,15 +11,10 @@ let
   inherit (lib.gvariant) mkTuple mkUint32;
   inherit (config.modules.system) username;
   inherit (builtins) attrValues;
-  inherit (self.packages.${pkgs.system}) phosh-backgrounds;
 
-  getColorCh = colorName: channel: config.lib.stylix.colors."${colorName}-rgb-${channel}";
-
-  rgba =
-    color: transparency:
-    ''rgba(${getColorCh color "r"}, ${getColorCh color "g"}, ${getColorCh color "b"}, ${transparency})'';
-
-  bg = ''linear-gradient(${rgba "base00" "0.7"}, ${rgba "base00" "0.7"})'';
+  phosh-backgrounds = self.packages.${pkgs.system}.phosh-backgrounds.override {
+    color = config.lib.stylix.colors.base00;
+  };
 
   no = {
     name = "";
@@ -178,19 +173,19 @@ in
       stylix.targets.gtk.extraCss = # css
         ''
           phosh-lockscreen {
-            background: ${bg}, url('${phosh-backgrounds}/wall-lock.jpg');
+            background: url('${phosh-backgrounds}/wall-lock.jpg');
           }
 
           phosh-app-grid {
-            background: ${bg}, url('${phosh-backgrounds}/wall-grid.jpg');
+            background: url('${phosh-backgrounds}/wall-grid.jpg');
           }
 
           phosh-top-panel {
-            background: ${bg}, url('${phosh-backgrounds}/wall-panel.jpg');
+            background: url('${phosh-backgrounds}/wall-panel.jpg');
           }
 
           phosh-home {
-            background: ${bg}, url('${phosh-backgrounds}/wall-home.jpg');
+            background: url('${phosh-backgrounds}/wall-home.jpg');
           }
 
           phosh-lockscreen, phosh-app-grid, phosh-top-panel, phosh-home {
