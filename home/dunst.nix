@@ -11,7 +11,7 @@
 
     settings = {
       global = {
-        width = 350;
+        width = 370;
         separator_height = 5;
         padding = 24;
         horizontal_padding = 24;
