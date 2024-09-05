@@ -25,6 +25,7 @@ in
         redlib
         new-tab-identity
         showdex
+        invidious
       ];
 
       search = {
