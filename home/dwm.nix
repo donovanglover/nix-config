@@ -2,6 +2,7 @@
 
 let
   inherit (config.lib.stylix.colors.withHashtag) base00 base03 base05;
+  inherit (config.home) homeDirectory;
 
   barScript = "dwm/bar.fish";
 in
@@ -35,8 +36,16 @@ in
             };
 
             static const char *const autostart[] = {
+              "${pkgs.nemo}/bin/nemo-desktop", NULL,
+              "xrdb", "-merge", "${homeDirectory}/.Xresources", NULL,
               "mpDris2", NULL,
               "dunst", NULL,
+              "picom", NULL,
+              "fcitx5", NULL,
+              "xset", "r", "rate", "300", "50", NULL,
+              "xset", "-dpms", NULL,
+              "fish", "${homeDirectory}/.config/${barScript}", NULL,
+              "feh", "--no-fehbg", "--bg-scale", "${config.stylix.image}", NULL,
               NULL
             };
 
@@ -170,15 +179,6 @@ in
           export SDL_IM_MODULE=fcitx
           export GLFW_IM_MODULE=ibus
           export GTK_CSD=0
-
-          xrdb -merge ~/.Xresources
-          xset r rate 300 50
-          feh --no-fehbg --bg-scale ${config.stylix.image}
-          ~/.config/${barScript} &
-          picom --daemon
-          ${pkgs.nemo}/bin/nemo-desktop &
-          fcitx5 &
-          xset -dpms
 
           while true; do
             dbus-launch --sh-syntax --exit-with-session dwm
