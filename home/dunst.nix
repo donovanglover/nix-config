@@ -31,6 +31,7 @@ in
         padding = 24;
         horizontal_padding = 24;
         frame_width = 1;
+        sort = "update";
         idle_threshold = 120;
         alignment = "center";
         word_wrap = "yes";
