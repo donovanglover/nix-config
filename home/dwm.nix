@@ -47,7 +47,7 @@ in
               [SchemeSel] = { OPAQUE, baralpha, baralpha },
             };
 
-            static const char *tags[] = { "⬤", "⬤", "⬤" };
+            static const char *tags[] = { "⬤", "⬤", "⬤", "⬤", "⬤", "⬤" };
 
             static const Rule rules[] = {
               { "librewolf", NULL, NULL, 0, 1, -1 },
