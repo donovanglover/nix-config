@@ -9,9 +9,10 @@ let
   inherit (lib) mkForce;
 
   inherit (config.lib.stylix.colors.withHashtag)
+    base02
+    base03
     base08
     base0A
-    base02
     ;
 in
 {
@@ -38,6 +39,7 @@ in
         markup = "full";
         min_icon_size = 32;
         max_icon_size = 128;
+        highlight = mkForce base03;
       };
 
       urgency_low = {
