@@ -26,10 +26,10 @@ in
     settings = {
       global = {
         width = 370;
-        separator_height = 5;
+        separator_height = 1;
         padding = 24;
         horizontal_padding = 24;
-        frame_width = 3;
+        frame_width = 1;
         idle_threshold = 120;
         alignment = "center";
         word_wrap = "yes";
