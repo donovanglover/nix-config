@@ -229,12 +229,12 @@ in
       ];
 
       bindl = [
-        ", XF86AudioMute, exec, volumectl -d toggle-mute"
-        ", XF86AudioRaiseVolume, exec, volumectl -d up"
-        ", XF86AudioLowerVolume, exec, volumectl -d down"
-        ", XF86AudioMicMute, exec, volumectl -d -m toggle-mute"
-        ", XF86MonBrightnessDown, exec, lightctl -d down"
-        ", XF86MonBrightnessUp, exec, lightctl -d up"
+        ", XF86AudioMute, exec, mv-mute"
+        ", XF86AudioRaiseVolume, exec, mv-up"
+        ", XF86AudioLowerVolume, exec, mv-down"
+        ", XF86AudioMicMute, exec, mv-mic"
+        ", XF86MonBrightnessDown, exec, mb-down"
+        ", XF86MonBrightnessUp, exec, mb-up"
         ", XF86Display, exec, ~/.config/${monitorScript}"
         ", XF86Messenger, togglespecialworkspace"
         ", XF86Favorites, exec, killall rofi || rofi -show drun"

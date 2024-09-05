@@ -37,7 +37,6 @@ in
             static const char *const autostart[] = {
               "mpDris2", NULL,
               "dunst", NULL,
-              "avizo-service", NULL,
               NULL
             };
 
@@ -69,13 +68,13 @@ in
             static const char *dmenucmd[] = { "rofi", "-show", "drun", NULL };
             static const char *quitcmd[] = { "kill", "xinit", NULL };
             static const char *termcmd[] = { "kitty", NULL };
-            static const char *brighter[] = { "lightctl", "-d", "up", NULL };
-            static const char *dimmer[] = { "lightctl", "-d", "down", NULL };
+            static const char *brighter[] = { "mb-up", NULL };
+            static const char *dimmer[] = { "mb-down", NULL };
             static const char *print[] = { "scrot", NULL };
-            static const char *up_vol[] = { "volumectl", "-d", "up", NULL };
-            static const char *down_vol[] = { "volumectl", "-d", "down", NULL };
-            static const char *mute_vol[] = { "volumectl", "-d", "toggle-mute", NULL };
-            static const char *mute_mic[] = { "volumectl", "-d", "-m", "toggle-mute", NULL };
+            static const char *up_vol[] = { "mv-up", NULL };
+            static const char *down_vol[] = { "mv-down", NULL };
+            static const char *mute_vol[] = { "mv-mute", NULL };
+            static const char *mute_mic[] = { "mv-mic", NULL };
 
             static const Key keys[] = {
               { 0, XF86XK_AudioMute, spawn, {.v = mute_vol } },
