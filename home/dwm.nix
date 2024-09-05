@@ -218,7 +218,7 @@ in
             xsetroot -name " $VOLUME・$BATTERY・$TIME "
           end
 
-          while true
+          while pidof dwm
             update_bar
 
             sleep 10s
