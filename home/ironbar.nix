@@ -253,11 +253,6 @@ in
 
           sleep 2
 
-          function get_volume
-            set VOLUME (wpctl get-volume @DEFAULT_AUDIO_SINK@ | choose 1)
-            echo "音量：$(math "$VOLUME * 100")%"
-          end
-
           ~/.config/${volumeGet}
 
           pactl subscribe | grep --line-buffered -e "シンク" | xargs -L 1 ~/.config/${volumeGet}
