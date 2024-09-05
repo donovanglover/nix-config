@@ -1,5 +1,12 @@
-{ pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
+let
+  inherit (lib) mkForce;
+
+  inherit (config.lib.stylix.colors.withHashtag)
+    base0D
+    ;
+in
 {
   services.dunst = {
     enable = true;
@@ -25,6 +32,10 @@
         min_icon_size = 32;
         max_icon_size = 128;
       };
+
+      urgency_low.frame_color = mkForce base0D;
+      urgency_normal.frame_color = mkForce base0D;
+      urgency_critical.frame_color = mkForce base0D;
     };
   };
 }
