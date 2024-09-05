@@ -61,7 +61,9 @@ in
       thunar = {
         enable = true;
 
-        plugins = with pkgs.xfce; [ thunar-volman ];
+        plugins = with pkgs.xfce; [
+          thunar-volman
+        ];
       };
     };
 
@@ -70,8 +72,11 @@ in
       type = "fcitx5";
 
       fcitx5 = {
-        addons = with pkgs; [ fcitx5-mozc ];
         waylandFrontend = true;
+
+        addons = with pkgs; [
+          fcitx5-mozc
+        ];
       };
     };
 
@@ -212,6 +217,7 @@ in
       enable = true;
       image = "${stylix-background}/wallpaper.png";
       polarity = "dark";
+
       base16Scheme = {
         system = "base16";
         name = "selenized-black";
