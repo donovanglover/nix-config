@@ -24,6 +24,7 @@ let
           --icon "multimedia-volume-control" \
           --hint "string:x-dunst-stack-tag:volume" \
           --hint "int:value:$(math "$(echo "$VOL" | awk '{print $2}') * 100")" \
+          --expire-time 1000 \
           "音量" \
           "$(echo "$VOL" | awk '{print $3}' | sed -e 's/\[MUTED\]/ミュート/' | tr --delete '\n')"
       '';
@@ -39,6 +40,7 @@ let
           --icon "brightness" \
           --hint "string:x-dunst-stack-tag:brightness" \
           --hint "int:value:$(brightnessctl set 5%+ -m | awk --field-separator , '{print $4}')" \
+          --expire-time 1000 \
           "明るさ"
       '';
   };
