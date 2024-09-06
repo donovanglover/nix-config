@@ -186,6 +186,7 @@ in
         "${super}_SHIFT, W, exec, ~/.config/${swapBackgroundScript}"
         "${super}, P, exec, grimblast --notify save screen"
         ", Print, exec, grimblast --freeze copy area"
+        "${super}, bracketleft, exec, killall rofi || rofi -show drun"
         "${super}_ALT, delete, exit"
         "${super}, V, togglefloating"
         "${super}, U, exec, ~/.config/${gapsScript}"
@@ -237,7 +238,6 @@ in
         ", XF86MonBrightnessUp, exec, mb-up"
         ", XF86Display, exec, ~/.config/${monitorScript}"
         ", XF86Messenger, togglespecialworkspace"
-        ", XF86Favorites, exec, killall rofi || rofi -show drun"
       ];
     };
 

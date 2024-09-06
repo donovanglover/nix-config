@@ -74,7 +74,7 @@ in
             #define MODKEY Mod4Mask
 
             static char dmenumon[2] = "0";
-            static const char *dmenucmd[] = { "rofi", "-show", "drun", NULL };
+            static const char *rofi[] = { "rofi", "-show", "drun", NULL };
             static const char *quitcmd[] = { "kill", "xinit", NULL };
             static const char *termcmd[] = { "kitty", NULL };
             static const char *brighter[] = { "mb-up", NULL };
@@ -93,7 +93,7 @@ in
               { 0, XF86XK_MonBrightnessDown, spawn, {.v = dimmer } },
               { 0, XF86XK_MonBrightnessUp, spawn, {.v = brighter } },
               { 0, XK_Print, spawn, {.v = print } },
-              { MODKEY, XK_p, spawn, {.v = dmenucmd } },
+              { MODKEY, XK_bracketleft, spawn, {.v = rofi } },
               { MODKEY, XK_o, togglebar, {0} },
               { MODKEY, XK_f, togglefullscr, {0} },
               { MODKEY, XK_v, togglefloating, {0} },
