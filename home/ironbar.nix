@@ -265,8 +265,11 @@ in
         ''
           #!/usr/bin/env fish
 
-          set VOLUME (wpctl get-volume @DEFAULT_AUDIO_SINK@ | choose 1)
-          echo "音量：$(math "$VOLUME * 100")%"
+          set VOL $(wpctl get-volume @DEFAULT_AUDIO_SINK@)
+          set MUTE $(echo "$VOL" | awk '{print $3}' | sed -e 's/\[MUTED\]/（ミュート）/' | tr --delete '\n')
+
+          echo -n "$MUTE"
+          echo "音量：$(math "$(echo "$VOL" | choose 1) * 100")%"
         '';
     };
   };
