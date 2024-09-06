@@ -46,6 +46,7 @@ in
               "xset", "-dpms", NULL,
               "fish", "${homeDirectory}/.config/${barScript}", NULL,
               "feh", "--no-fehbg", "--bg-scale", "${config.stylix.image}", NULL,
+              "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1", NULL,
               NULL
             };
 
