@@ -209,13 +209,16 @@ in
           end
 
           function update_bar
-            set VOLUME "音量：$(math "$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | choose 1) * 100")%"
-            set TIME "$(date '+%x（%a）%R')"
-            set capacity "$(cat /sys/class/power_supply/BAT0/capacity)"
+            set VOL $(wpctl get-volume @DEFAULT_AUDIO_SINK@)
+            set MUTE $(echo "$VOL" | awk '{print $3}' | sed -e 's/\[MUTED\]/（ミュート）/' | tr --delete '\n')
+            set VOLUME "音量：$(math "$(echo "$VOL" | choose 1) * 100")%"
 
+            set TIME "$(date '+%x（%a）%R')"
+
+            set capacity "$(cat /sys/class/power_supply/BAT0/capacity)"
             set BATTERY "$(get_icon $capacity)$capacity%"
 
-            xsetroot -name " $VOLUME・$BATTERY・$TIME "
+            xsetroot -name " $MUTE$VOLUME・$BATTERY・$TIME "
           end
 
           while pidof dwm
