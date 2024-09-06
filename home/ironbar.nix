@@ -1,4 +1,5 @@
 {
+  nix-config,
   config,
   lib,
   pkgs,
@@ -8,6 +9,7 @@
 let
   inherit (lib) singleton;
   inherit (builtins) toJSON;
+  inherit (nix-config.packages.${pkgs.system}) dunst-scripts;
 
   inherit (config.lib.stylix.colors.withHashtag)
     base00
@@ -62,8 +64,8 @@ in
         {
           type = "script";
           cmd = "~/.config/${volumeScript}";
-          on_click_left = "volumectl -d up";
-          on_click_right = "volumectl -d down";
+          on_click_left = "${dunst-scripts}/bin/mv-up";
+          on_click_right = "${dunst-scripts}/bin/mv-down";
           mode = "watch";
         }
         {
