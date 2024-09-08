@@ -12,10 +12,6 @@ let
   inherit (config.modules.system) username;
   inherit (builtins) attrValues;
 
-  phosh-backgrounds = self.packages.${pkgs.system}.phosh-backgrounds.override {
-    color = config.lib.stylix.colors.base00;
-  };
-
   no = {
     name = "";
     settings = {
@@ -168,32 +164,6 @@ in
           sleep-inactive-battery-type = "suspend";
         };
       };
-    };
-
-    background = {
-      stylix.targets.gtk.extraCss = # css
-        ''
-          phosh-lockscreen {
-            background: url('${phosh-backgrounds}/wall-lock.jpg');
-          }
-
-          phosh-app-grid {
-            background: url('${phosh-backgrounds}/wall-grid.jpg');
-          }
-
-          phosh-top-panel {
-            background: url('${phosh-backgrounds}/wall-panel.jpg');
-          }
-
-          phosh-home {
-            background: url('${phosh-backgrounds}/wall-home.jpg');
-          }
-
-          phosh-lockscreen, phosh-app-grid, phosh-top-panel, phosh-home {
-            background-size: cover;
-            background-position: center;
-          }
-        '';
     };
   };
 
