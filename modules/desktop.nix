@@ -7,7 +7,6 @@
 }:
 
 let
-  inherit (lib.types) float int;
   inherit (config.modules.system) username;
   inherit (config.boot) isContainer;
   inherit (nix-config.packages.${pkgs.system}) aleo-fonts;
@@ -17,18 +16,16 @@ let
     mkEnableOption
     mkIf
     mkMerge
-    mkOption
     ;
 
-  inherit (cfg)
-    bloat
-    opacity
-    fontSize
-    ;
+  inherit (cfg) bloat;
 
   stylix-background = nix-config.packages.${pkgs.system}.stylix-background.override {
     color = config.lib.stylix.colors.base00;
   };
+
+  opacity = 0.95;
+  fontSize = 11;
 
   cfg = config.modules.desktop;
 in
@@ -38,16 +35,6 @@ in
   };
 
   options.modules.desktop = {
-    opacity = mkOption {
-      type = float;
-      default = 0.95;
-    };
-
-    fontSize = mkOption {
-      type = int;
-      default = 11;
-    };
-
     bloat = mkEnableOption "GUI applications";
   };
 
