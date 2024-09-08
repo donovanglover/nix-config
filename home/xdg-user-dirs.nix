@@ -12,7 +12,7 @@ in
       templates = null;
       publicShare = null;
 
-      desktop = "${homeDirectory}/デスクトップ";
+      desktop = "${homeDirectory}";
       download = "${homeDirectory}/ダウンロード";
       documents = "${homeDirectory}/ドキュメント";
       music = "${homeDirectory}/音楽";
