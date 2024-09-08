@@ -21,8 +21,10 @@ in
 
             static const unsigned int borderpx = 0;
             static const unsigned int snap = 32;
-            static const int user_bh = 10;
-            static const int showbar = 1;
+            static const int usealtbar = 1;
+            static const char *altbarclass = "yambar";
+            static const char *altbarcmd = "yambar";
+            static const int showbar = 0;
             static const int topbar = 1;
             static const char *fonts[] = {
               "Maple Mono:size=10",
@@ -48,13 +50,6 @@ in
               "feh", "--no-fehbg", "--bg-scale", "${config.stylix.image}", NULL,
               "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1", NULL,
               NULL
-            };
-
-            static const unsigned int baralpha = 243;
-
-            static const unsigned int alphas[][3] = {
-              [SchemeNorm] = { OPAQUE, baralpha, baralpha },
-              [SchemeSel] = { OPAQUE, baralpha, baralpha },
             };
 
             static const char *tags[] = { "⬤", "⬤", "⬤", "⬤", "⬤", "⬤" };
@@ -133,23 +128,8 @@ in
           ../assets/dwm-savefloats-alwayscenter.patch
 
           (fetchpatch {
-            url = "https://dwm.suckless.org/patches/hide_vacant_tags/dwm-hide_vacant_tags-6.4.diff";
-            hash = "sha256-GIbRW0Inwbp99rsKLfIDGvPwZ3pqihROMBp5vFlHx5Q=";
-          })
-
-          (fetchpatch {
-            url = "https://dwm.suckless.org/patches/alpha/dwm-alpha-20230401-348f655.diff";
-            hash = "sha256-ZhuqyDpY+nQQgrjniQ9DNheUgE9o/MUXKaJYRU3Uyl4=";
-          })
-
-          (fetchpatch {
             url = "https://dwm.suckless.org/patches/reorganizetags/dwm-reorganizetags-6.2.diff";
             hash = "sha256-Fj+cfw+5d7i6UrakMbebhZsfmu8ZfooduQA08STovK4=";
-          })
-
-          (fetchpatch {
-            url = "https://dwm.suckless.org/patches/bar_height/dwm-bar-height-spacing-6.3.diff";
-            hash = "sha256-usMIMmloUG4NrX10AVbgr8kFs9ZG6Krn1NxXTVcLq70=";
           })
 
           (fetchpatch {
@@ -160,6 +140,11 @@ in
           (fetchpatch {
             url = "https://dwm.suckless.org/patches/cool_autostart/dwm-cool-autostart-20240312-9f88553.diff";
             hash = "sha256-pgXbgoAAewCjZP16smKkTVh5p7P/FK+Rue0F6gjmGVo=";
+          })
+
+          (fetchpatch {
+            url = "https://github.com/mihirlad55/dwm-anybar/releases/download/v1.1.2/dwm-anybar-20210926-a786211.diff";
+            hash = "sha256-6Pj58Y0gYz25Eba5EsAUc/GZFTSvtyhgPqfo3jlgvPA=";
           })
         ];
       })
