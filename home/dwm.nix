@@ -36,7 +36,6 @@ in
             };
 
             static const char *const autostart[] = {
-              "${pkgs.nemo}/bin/nemo-desktop", NULL,
               "xrdb", "-merge", "${homeDirectory}/.Xresources", NULL,
               "mpDris2", NULL,
               "dunst", NULL,

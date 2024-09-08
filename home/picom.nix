@@ -34,7 +34,6 @@
       };
 
       blur-background-exclude = [
-        "class_g = 'Nemo-desktop'"
         "class_g = 'slop'"
       ];
 
