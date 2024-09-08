@@ -38,7 +38,7 @@ in
           name = "startMenu";
           type = "label";
           label = "❄";
-          on_mouse_enter = "rofi -show drun";
+          on_mouse_enter = "rofi -show";
         }
         {
           type = "script";
