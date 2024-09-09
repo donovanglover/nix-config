@@ -79,7 +79,11 @@
         type = "lua";
         config = # lua
           ''
-            require("nvim-tree").setup()
+            require("nvim-tree").setup {
+              update_focused_file = {
+                enable = true
+              }
+            }
 
             vim.api.nvim_create_autocmd({"QuitPre"}, {
               callback = function()
