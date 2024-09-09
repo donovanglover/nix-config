@@ -179,7 +179,7 @@ in
           inherit (cfg) stateVersion;
         };
 
-        programs.man.generateCaches = true;
+        programs.man.generateCaches = mkIf (!isPhone) true;
       };
 
       users.${username}.home = {
