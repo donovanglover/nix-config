@@ -10,13 +10,6 @@ let
   inherit (lib) mkIf mkForce;
   inherit (config.modules.system) username;
   inherit (builtins) attrValues;
-
-  no = {
-    name = "";
-    settings = {
-      Hidden = "true";
-    };
-  };
 in
 {
   imports = attrValues self.nixosModules;
@@ -48,37 +41,6 @@ in
 
     config = {
       programs.man.generateCaches = mkForce false;
-
-      xdg = {
-        desktopEntries = {
-          anki = no;
-          htop = no;
-          fish = no;
-          nvim = no;
-          yazi = no;
-          qt5ct = no;
-          qt6ct = no;
-          gcdemu = no;
-          nixos-manual = no;
-          image-analyzer = no;
-          kvantummanager = no;
-          chromium-browser = no;
-
-          "org.gnome.Extensions" = no;
-          "org.pwmt.zathura" = no;
-          "org.gnome.eog" = no;
-          "org.gnome.Settings" = no;
-          "org.sigxcpu.Livi" = no;
-        };
-
-        userDirs = {
-          download = mkForce "/home/${username}";
-          documents = mkForce "/home/${username}";
-          music = mkForce "/home/${username}";
-          pictures = mkForce "/home/${username}";
-          videos = mkForce "/home/${username}";
-        };
-      };
     };
   };
 
