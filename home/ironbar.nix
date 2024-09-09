@@ -1,5 +1,5 @@
 {
-  nix-config,
+  nixosConfig,
   config,
   lib,
   pkgs,
@@ -7,6 +7,8 @@
 }:
 
 let
+  inherit (nixosConfig._module.specialArgs) nix-config;
+
   inherit (lib) singleton;
   inherit (builtins) toJSON;
   inherit (nix-config.packages.${pkgs.system}) dunst-scripts;

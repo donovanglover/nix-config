@@ -1,11 +1,13 @@
 {
-  nix-config,
+  nixosConfig,
   config,
   pkgs,
   ...
 }:
 
 let
+  inherit (nixosConfig._module.specialArgs) nix-config;
+
   phosh-backgrounds = nix-config.packages.${pkgs.system}.phosh-backgrounds.override {
     color = config.lib.stylix.colors.base00;
   };

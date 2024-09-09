@@ -1,12 +1,13 @@
 {
   pkgs,
   lib,
-  nix-config,
   nixosConfig,
   ...
 }:
 
 let
+  inherit (nixosConfig._module.specialArgs) nix-config;
+
   inherit (lib) mkIf singleton;
   inherit (nix-config.packages.${pkgs.system}) friendlyfox;
 

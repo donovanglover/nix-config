@@ -187,10 +187,6 @@ in
 
         homeDirectory = "/home/${username}";
       };
-
-      extraSpecialArgs = {
-        inherit nix-config;
-      };
     };
 
     virtualisation.vmVariant = {

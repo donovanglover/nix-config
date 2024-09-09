@@ -1,11 +1,13 @@
 {
-  nix-config,
+  nixosConfig,
   pkgs,
   lib,
   ...
 }:
 
 let
+  inherit (nixosConfig._module.specialArgs) nix-config;
+
   inherit (lib) mkForce;
   inherit (nix-config.packages.${pkgs.system}) osu-backgrounds;
 
