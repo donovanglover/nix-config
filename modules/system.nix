@@ -25,9 +25,10 @@ let
     mullvad
     allowSRB2Port
     allowDevPort
-    phone
     postgres
     ;
+
+  isPhone = config.programs.calls.enable;
 
   cfg = config.modules.system;
 in
@@ -80,7 +81,6 @@ in
     postgres = mkEnableOption "postgres database for containers";
     allowSRB2Port = mkEnableOption "port for srb2";
     allowDevPort = mkEnableOption "port for development server";
-    phone = mkEnableOption "phone support";
   };
 
   config = {
@@ -154,7 +154,7 @@ in
 
         isNormalUser = true;
         uid = 1000;
-        password = mkIf (hashedPassword == null && !isContainer) (if phone then "1234" else username);
+        password = mkIf (hashedPassword == null && !isContainer) (if isPhone then "1234" else username);
 
         extraGroups =
           if isContainer then
