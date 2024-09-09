@@ -20,23 +20,21 @@ in
     ];
   };
 
-  home-manager.sharedModules = attrValues {
-    inherit (self.homeModules)
-      dconf
-      eza
-      fish
-      git
-      gpg
-      gtk
-      htop
-      kitty
-      librewolf
-      neovim
-      starship
-      xdg-user-dirs
-      xresources
-      ;
-  };
+  home-manager.sharedModules = with self.homeModules; [
+    dconf
+    eza
+    fish
+    git
+    gpg
+    gtk
+    htop
+    kitty
+    librewolf
+    neovim
+    starship
+    xdg-user-dirs
+    xresources
+  ];
 
   modules = {
     system = {

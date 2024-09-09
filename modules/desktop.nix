@@ -89,7 +89,7 @@ in
         enable = true;
         excludePackages = with pkgs; [ xterm ];
 
-        displayManager.startx.enable = mkIf (!isContainer) true;
+        displayManager.startx.enable = true;
       };
 
       pipewire = {
