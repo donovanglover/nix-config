@@ -189,7 +189,7 @@ in
       };
 
       extraSpecialArgs = {
-        inherit nix-config phone;
+        inherit nix-config;
       };
     };
 

@@ -1,7 +1,9 @@
-{ lib, phone, ... }:
+{ lib, nixosConfig, ... }:
 
 let
   inherit (lib) mkIf;
+
+  isPhone = nixosConfig.programs.calls.enable;
 
   no = {
     name = "";
@@ -9,7 +11,7 @@ let
   };
 in
 {
-  xdg.desktopEntries = mkIf phone {
+  xdg.desktopEntries = mkIf isPhone {
     anki = no;
     htop = no;
     fish = no;

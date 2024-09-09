@@ -2,13 +2,15 @@
   pkgs,
   lib,
   nix-config,
-  phone,
+  nixosConfig,
   ...
 }:
 
 let
   inherit (lib) mkIf singleton;
   inherit (nix-config.packages.${pkgs.system}) friendlyfox;
+
+  isPhone = nixosConfig.programs.calls.enable;
 in
 {
   programs.librewolf = {
@@ -101,7 +103,7 @@ in
     };
   };
 
-  home.file = mkIf phone {
+  home.file = mkIf isPhone {
     ".librewolf/default/chrome/userChrome.css".source = "${friendlyfox}/userChrome.css";
     ".librewolf/default/chrome/userContent.css".source = "${friendlyfox}/userContent.css";
   };
