@@ -147,10 +147,6 @@ in
         ]
       ))
 
-      (mkIf (pkgs.system == "x86_64-linux") (
-        with nix-config.inputs.sakaya.packages.${pkgs.system}; [ sakaya ]
-      ))
-
       (with pkgs; [
         anki
         pulseaudio

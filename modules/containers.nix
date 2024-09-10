@@ -2,6 +2,7 @@
   config,
   nix-config,
   lib,
+  pkgs,
   ...
 }:
 
@@ -52,6 +53,10 @@ let
 in
 {
   systemd.tmpfiles.rules = [ "d /run/user/1000 0700 ${username} users -" ];
+
+  environment.systemPackages = mkIf (pkgs.system == "x86_64-linux") (
+    with nix-config.inputs.sakaya.packages.${pkgs.system}; [ sakaya ]
+  );
 
   containers = mkIf enableContainers {
     wine = template // {
