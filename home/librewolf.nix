@@ -100,7 +100,6 @@ in
           redlib
           new-tab-identity
           showdex
-          invidious
         ];
 
         inherit settings search;
