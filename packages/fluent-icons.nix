@@ -19,6 +19,13 @@ let
       hash = "sha256-6jaRyZsp9GVYAihE8lcslwpDtcKJfC2KZbXw0MFJNRY=";
     };
 
+    postInstall = ''
+      installShellCompletion --cmd lutgen \
+        --bash <($out/bin/lutgen completions bash) \
+        --fish <($out/bin/lutgen completions fish) \
+        --zsh <($out/bin/lutgen completions zsh)
+    '';
+
     cargoDeps = oldAttrs.cargoDeps.overrideAttrs (
       lib.const {
         name = "${oldAttrs.pname}-${version}-vendor.tar.gz";
