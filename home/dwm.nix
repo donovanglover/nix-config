@@ -1,10 +1,19 @@
-{ config, pkgs, ... }:
+{
+  nixosConfig,
+  config,
+  pkgs,
+  ...
+}:
 
 let
+  inherit (nixosConfig._module.specialArgs) nix-config;
+
   inherit (config.lib.stylix.colors.withHashtag) base00 base03 base05;
   inherit (config.home) homeDirectory;
+  inherit (nix-config.packages.${pkgs.system}) osu-backgrounds;
 
   barScript = "dwm/bar.fish";
+  wallpaperScript = "dwm/wallpaper.fish";
 in
 {
   home = {
@@ -44,7 +53,7 @@ in
               "xset", "r", "rate", "300", "50", NULL,
               "xset", "-dpms", NULL,
               "fish", "${homeDirectory}/.config/${barScript}", NULL,
-              "feh", "--no-fehbg", "--bg-scale", "${config.stylix.image}", NULL,
+              "fish", "${homeDirectory}/.config/${wallpaperScript}", NULL,
               "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1", NULL,
               NULL
             };
@@ -188,6 +197,18 @@ in
   };
 
   xdg.configFile = {
+    ${wallpaperScript} = {
+      executable = true;
+      text = # fish
+        ''
+          #!/usr/bin/env fish
+
+          feh --bg-fill \
+            (random choice (fd . ${osu-backgrounds}/2024-07-15-Aerial-Antics-Art-Contest-All-Entries --follow -e jpg -e png)) \
+            (random choice (fd . ${osu-backgrounds}/2024-07-15-Aerial-Antics-Art-Contest-All-Entries --follow -e jpg -e png))
+        '';
+    };
+
     ${barScript} = {
       executable = true;
       text = # fish
