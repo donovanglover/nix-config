@@ -108,6 +108,7 @@ in
               { MODKEY, XK_v, togglefloating, {0} },
               { MODKEY, XK_j, focusstack, {.i = +1 } },
               { MODKEY, XK_k, focusstack, {.i = -1 } },
+              { MODKEY, XK_m, tagmon, {.i = +1 } },
               { MODKEY, XK_Return, zoom, {0} },
               { MODKEY, XK_comma, focusmon, {.i = -1 } },
               { MODKEY, XK_period, focusmon, {.i = +1 } },
@@ -117,12 +118,11 @@ in
               { MODKEY|ShiftMask, XK_1, reorganizetags, {0} },
               { MODKEY|ShiftMask, XK_2, tagtonext, {0} },
               { MODKEY|ShiftMask, XK_2, reorganizetags, {0} },
+              { MODKEY|ShiftMask, XK_m, tagmon, {.i = -1 } },
               { MODKEY|ShiftMask, XK_h, setmfact, {.f = -0.05} },
               { MODKEY|ShiftMask, XK_l, setmfact, {.f = +0.05} },
               { MODKEY|ShiftMask, XK_Return, spawn, {.v = termcmd } },
               { MODKEY|ShiftMask, XK_q, killclient, {0} },
-              { MODKEY|ShiftMask, XK_comma, tagmon, {.i = -1 } },
-              { MODKEY|ShiftMask, XK_period, tagmon, {.i = +1 } },
               { MODKEY|Mod1Mask, XK_Delete, spawn, {.v = quitcmd } },
             };
 
