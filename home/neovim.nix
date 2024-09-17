@@ -146,7 +146,7 @@
               root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
             }
 
-            lspconfig.tsserver.setup {
+            lspconfig.ts_ls.setup {
               capabilities = capabilities,
               root_dir = lspconfig.util.root_pattern("package.json"),
               single_file_support = false
