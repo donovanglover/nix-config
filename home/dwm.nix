@@ -245,7 +245,7 @@ in
           while pidof dwm
             update_bar
 
-            sleep 10s
+            sleep 5s
           end
         '';
     };
