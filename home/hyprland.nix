@@ -9,7 +9,11 @@ let
   inherit (nixosConfig._module.specialArgs) nix-config;
 
   inherit (lib) mkForce;
-  inherit (nix-config.packages.${pkgs.system}) osu-backgrounds;
+
+  inherit (nix-config.packages.${pkgs.system})
+    osu-backgrounds
+    dunst-scripts
+    ;
 
   opacity = "0.95";
   super = "SUPER";
@@ -230,12 +234,12 @@ in
       ];
 
       bindl = [
-        ", XF86AudioMute, exec, mv-mute"
-        ", XF86AudioRaiseVolume, exec, mv-up"
-        ", XF86AudioLowerVolume, exec, mv-down"
-        ", XF86AudioMicMute, exec, mv-mic"
-        ", XF86MonBrightnessDown, exec, mb-down"
-        ", XF86MonBrightnessUp, exec, mb-up"
+        ", XF86AudioMute, exec, ${dunst-scripts}/bin/mv-mute"
+        ", XF86AudioRaiseVolume, exec, ${dunst-scripts}/bin/mv-up"
+        ", XF86AudioLowerVolume, exec, ${dunst-scripts}/bin/mv-down"
+        ", XF86AudioMicMute, exec, ${dunst-scripts}/bin/mv-mic"
+        ", XF86MonBrightnessDown, exec, ${dunst-scripts}/bin/mb-down"
+        ", XF86MonBrightnessUp, exec, ${dunst-scripts}/bin/mb-up"
         ", XF86Display, exec, ~/.config/${monitorScript}"
         ", XF86Messenger, togglespecialworkspace"
       ];
