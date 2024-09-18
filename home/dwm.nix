@@ -10,7 +10,11 @@ let
 
   inherit (config.lib.stylix.colors.withHashtag) base00 base03 base05;
   inherit (config.home) homeDirectory;
-  inherit (nix-config.packages.${pkgs.system}) osu-backgrounds;
+
+  inherit (nix-config.packages.${pkgs.system})
+    osu-backgrounds
+    dunst-scripts
+    ;
 
   barScript = "dwm/bar.fish";
   wallpaperScript = "dwm/wallpaper.fish";
@@ -86,13 +90,13 @@ in
             static const char *dmenucmd[] = { "rofi", "-show", NULL };
             static const char *quitcmd[] = { "kill", "xinit", NULL };
             static const char *termcmd[] = { "kitty", NULL };
-            static const char *brighter[] = { "mb-up", NULL };
-            static const char *dimmer[] = { "mb-down", NULL };
+            static const char *brighter[] = { "${dunst-scripts}/bin/mb-up", NULL };
+            static const char *dimmer[] = { "${dunst-scripts}/bin/mb-down", NULL };
             static const char *print[] = { "scrot", NULL };
-            static const char *up_vol[] = { "mv-up", NULL };
-            static const char *down_vol[] = { "mv-down", NULL };
-            static const char *mute_vol[] = { "mv-mute", NULL };
-            static const char *mute_mic[] = { "mv-mic", NULL };
+            static const char *up_vol[] = { "${dunst-scripts}/bin/mv-up", NULL };
+            static const char *down_vol[] = { "${dunst-scripts}/bin/mv-down", NULL };
+            static const char *mute_vol[] = { "${dunst-scripts}/bin/mv-mute", NULL };
+            static const char *mute_mic[] = { "${dunst-scripts}/bin/mv-mic", NULL };
 
             static const Key keys[] = {
               { 0, XF86XK_AudioMute, spawn, {.v = mute_vol } },
