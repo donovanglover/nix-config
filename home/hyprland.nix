@@ -66,7 +66,6 @@ in
         "hyprctl dispatch workspace 5000000"
         "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
         "hyprdim --no-dim-when-only --persist --ignore-leaving-special --dialog-dim"
-        "sleep 1 && eww open desktop-icons"
         "~/.config/${randomBackgroundScript}"
       ];
 
@@ -198,7 +197,6 @@ in
         "${super}, S, swapactiveworkspaces, 0 1"
         "${super}_SHIFT, S, movetoworkspace, special"
         "${super}, O, exec, killall .ironbar-wrapper inotifywait pactl || ironbar"
-        "${super}_SHIFT, O, exec, eww close overlay || eww open overlay"
         "${super}, M, focusmonitor, +1"
         "${super}_SHIFT, M, focusmonitor, -1"
 
