@@ -5,6 +5,8 @@
     shell
     desktop
     system
+    stylix
+    fonts
   ];
 
   home-manager.sharedModules = with nix-config.homeModules; [
