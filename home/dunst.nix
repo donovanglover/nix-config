@@ -26,6 +26,7 @@ in
 
     settings = {
       global = {
+        follow = "keyboard";
         width = 370;
         separator_height = 1;
         padding = 24;
