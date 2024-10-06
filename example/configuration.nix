@@ -11,9 +11,11 @@ let
 in
 {
   imports = with nix-config.nixosModules; [
-    system
-    shell
     desktop
+    fonts
+    shell
+    stylix
+    system
   ];
 
   home-manager.sharedModules =
