@@ -192,6 +192,8 @@ in
           export SDL_IM_MODULE=fcitx
           export GLFW_IM_MODULE=ibus
           export GTK_CSD=0
+          export QT_QPA_PLATFORMTHEME=qt5ct
+          export QT_STYLE_OVERRIDE=kvantum
 
           while true; do
             dbus-launch --sh-syntax --exit-with-session dwm
