@@ -79,6 +79,8 @@ let
 
     "network.dns.native_https_query" = false;
 
+    "apz.overscroll.enabled" = false;
+
     "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
   };
 
