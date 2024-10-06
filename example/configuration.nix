@@ -29,7 +29,7 @@ in
     ])
 
     (with nix-config.packages.${pkgs.system}; [
-      webp-thumbnailer
+      dunst-scripts
     ])
   ];
 
