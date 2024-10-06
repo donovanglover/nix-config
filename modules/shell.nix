@@ -79,7 +79,11 @@
       bacon
       clippy
       nodejs
-      deno
+      monolith
+      haylxon
+      nix-inspect
+      sherlock
+      remind
     ];
   };
 
