@@ -80,6 +80,7 @@ let
     "network.dns.native_https_query" = false;
 
     "apz.overscroll.enabled" = false;
+    "browser.tabs.hoverPreview.enabled" = true;
 
     "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
   };
