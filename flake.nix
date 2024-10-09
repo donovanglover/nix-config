@@ -40,17 +40,21 @@
       inherit (builtins) listToAttrs map replaceStrings;
 
       nameOf = path: replaceStrings [ ".nix" ] [ "" ] (baseNameOf (toString path));
-      forAllSystems = function:
+      forAllSystems =
+        function:
         nixpkgs.lib.genAttrs [
           "x86_64-linux"
           "aarch64-linux"
         ] (system: function nixpkgs.legacyPackages.${system});
     in
     {
-      packages = forAllSystems (pkgs: packagesFromDirectoryRecursive {
-        callPackage = pkgs.callPackage;
-        directory = ./packages;
-      });
+      packages = forAllSystems (
+        pkgs:
+        packagesFromDirectoryRecursive {
+          callPackage = pkgs.callPackage;
+          directory = ./packages;
+        }
+      );
 
       nixosModules = listToAttrs (
         map (file: {
@@ -73,14 +77,16 @@
         }) (listFilesRecursive ./overlays)
       );
 
-      checks.x86_64-linux = listToAttrs (map (file: {
-        name = nameOf file;
+      checks.x86_64-linux = listToAttrs (
+        map (file: {
+          name = nameOf file;
 
-        value = import file {
-          inherit self;
-          pkgs = x86_64-linux;
-        };
-      }) (listFilesRecursive ./tests));
+          value = import file {
+            inherit self;
+            pkgs = x86_64-linux;
+          };
+        }) (listFilesRecursive ./tests)
+      );
 
       nixosConfigurations =
         let
