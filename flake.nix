@@ -34,7 +34,7 @@
       ...
     }@attrs:
     let
-      inherit (nixpkgs.lib) nixosSystem;
+      inherit (nixpkgs.lib) nixosSystem packagesFromDirectoryRecursive;
       inherit (nixpkgs.legacyPackages) x86_64-linux aarch64-linux;
 
       inherit (builtins)
@@ -49,7 +49,6 @@
         "overlays"
         "nixosModules"
         "homeModules"
-        "packages"
         "checks"
       ];
 
@@ -57,11 +56,21 @@
         "overlays"
         "modules"
         "home"
-        "packages"
         "tests"
       ];
+
+      forAllSystems = function:
+        nixpkgs.lib.genAttrs [
+          "x86_64-linux"
+          "aarch64-linux"
+        ] (system: function nixpkgs.legacyPackages.${system});
     in
     {
+      packages = forAllSystems (pkgs: packagesFromDirectoryRecursive {
+        callPackage = pkgs.callPackage;
+        directory = ./packages;
+      });
+
       nixosConfigurations =
         let
           phoneModules = [
@@ -131,9 +140,7 @@
               map (file: {
                 name = replaceStrings [ ".nix" ] [ "" ] file;
                 value =
-                  if directory == "packages" then
-                    x86_64-linux.callPackage ./${directory}/${file} { }
-                  else if directory == "tests" then
+                  if directory == "tests" then
                     import ./${directory}/${file} {
                       inherit self;
                       pkgs = x86_64-linux;
@@ -143,21 +150,8 @@
               }) (attrNames (readDir ./${directory}))
             );
 
-            aarch64Packages = listToAttrs (
-              map (file: {
-                name = replaceStrings [ ".nix" ] [ "" ] file;
-                value =
-                  if directory == "packages" then aarch64-linux.callPackage ./${directory}/${file} { } else null;
-              }) (attrNames (readDir ./${directory}))
-            );
-
             attributeSet =
-              if directory == "packages" then
-                {
-                  x86_64-linux = attributeValue;
-                  aarch64-linux = aarch64Packages;
-                }
-              else if directory == "tests" then
+              if directory == "tests" then
                 { x86_64-linux = attributeValue; }
               else
                 attributeValue;
