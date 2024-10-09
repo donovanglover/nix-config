@@ -39,6 +39,7 @@
       inherit (nixpkgs.legacyPackages) x86_64-linux aarch64-linux;
       inherit (builtins) listToAttrs map replaceStrings;
 
+      nameOf = path: replaceStrings [ ".nix" ] [ "" ] (baseNameOf (toString path));
       forAllSystems = function:
         nixpkgs.lib.genAttrs [
           "x86_64-linux"
@@ -53,27 +54,27 @@
 
       nixosModules = listToAttrs (
         map (file: {
-          name = replaceStrings [ ".nix" ] [ "" ] (baseNameOf (toString file));
+          name = nameOf file;
           value = import file;
         }) (listFilesRecursive ./modules)
       );
 
       homeModules = listToAttrs (
         map (file: {
-          name = replaceStrings [ ".nix" ] [ "" ] (baseNameOf (toString file));
+          name = nameOf file;
           value = import file;
         }) (listFilesRecursive ./home)
       );
 
       overlays = listToAttrs (
         map (file: {
-          name = replaceStrings [ ".nix" ] [ "" ] (baseNameOf (toString file));
+          name = nameOf file;
           value = import file;
         }) (listFilesRecursive ./overlays)
       );
 
       checks.x86_64-linux = listToAttrs (map (file: {
-        name = replaceStrings [ ".nix" ] [ "" ] (baseNameOf (toString file));
+        name = nameOf file;
 
         value = import file {
           inherit self;
