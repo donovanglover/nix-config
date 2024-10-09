@@ -39,18 +39,6 @@
       inherit (nixpkgs.legacyPackages) x86_64-linux aarch64-linux;
       inherit (builtins) listToAttrs map replaceStrings;
 
-      flakeOutputs = [
-        "overlays"
-        "nixosModules"
-        "homeModules"
-      ];
-
-      flakeDirectories = [
-        "overlays"
-        "modules"
-        "home"
-      ];
-
       forAllSystems = function:
         nixpkgs.lib.genAttrs [
           "x86_64-linux"
@@ -62,6 +50,27 @@
         callPackage = pkgs.callPackage;
         directory = ./packages;
       });
+
+      nixosModules = listToAttrs (
+        map (file: {
+          name = replaceStrings [ ".nix" ] [ "" ] (baseNameOf (toString file));
+          value = import file;
+        }) (listFilesRecursive ./modules)
+      );
+
+      homeModules = listToAttrs (
+        map (file: {
+          name = replaceStrings [ ".nix" ] [ "" ] (baseNameOf (toString file));
+          value = import file;
+        }) (listFilesRecursive ./home)
+      );
+
+      overlays = listToAttrs (
+        map (file: {
+          name = replaceStrings [ ".nix" ] [ "" ] (baseNameOf (toString file));
+          value = import file;
+        }) (listFilesRecursive ./overlays)
+      );
 
       checks.x86_64-linux = listToAttrs (map (file: {
         name = replaceStrings [ ".nix" ] [ "" ] (baseNameOf (toString file));
@@ -129,20 +138,5 @@
         x86_64-linux = x86_64-linux.nixfmt-rfc-style;
         aarch64-linux = aarch64-linux.nixfmt-rfc-style;
       };
-    }
-    // (listToAttrs (
-      map (attributeName: {
-        name = attributeName;
-        value =
-          let
-            directory = replaceStrings flakeOutputs flakeDirectories attributeName;
-          in
-          listToAttrs (
-            map (file: {
-              name = replaceStrings [ ".nix" ] [ "" ] (baseNameOf (toString file));
-              value = import file;
-            }) (listFilesRecursive ./${directory})
-          );
-      }) flakeOutputs
-    ));
+    };
 }
