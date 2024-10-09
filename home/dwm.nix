@@ -210,8 +210,8 @@ in
           #!/usr/bin/env fish
 
           feh --bg-fill \
-            (random choice (fd . ${osu-backgrounds}/2024-07-15-Aerial-Antics-Art-Contest-All-Entries --follow -e jpg -e png)) \
-            (random choice (fd . ${osu-backgrounds}/2024-07-15-Aerial-Antics-Art-Contest-All-Entries --follow -e jpg -e png))
+            (random choice (fd . ${osu-backgrounds}/2024-10-09-Autumn-2024-Fanart-Contest-All-Entries --follow -e jpg -e png)) \
+            (random choice (fd . ${osu-backgrounds}/2024-10-09-Autumn-2024-Fanart-Contest-All-Entries --follow -e jpg -e png))
         '';
     };
 

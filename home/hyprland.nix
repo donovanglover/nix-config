@@ -302,7 +302,7 @@ in
           #!/usr/bin/env fish
 
           for monitor in (hyprctl monitors -j | jq -r '.[].name')
-            ~/.config/${setBackgroundScript} "$monitor" "$(random choice $(fd . ${osu-backgrounds}/2024-07-15-Aerial-Antics-Art-Contest-All-Entries --follow -e jpg -e png))"
+            ~/.config/${setBackgroundScript} "$monitor" "$(random choice $(fd . ${osu-backgrounds}/2024-10-09-Autumn-2024-Fanart-Contest-All-Entries --follow -e jpg -e png))"
           end
         '';
     };
