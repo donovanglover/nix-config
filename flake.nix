@@ -34,7 +34,8 @@
       ...
     }@attrs:
     let
-      inherit (nixpkgs.lib) nixosSystem packagesFromDirectoryRecursive;
+      inherit (nixpkgs.lib) nixosSystem;
+      inherit (nixpkgs.lib.filesystem) packagesFromDirectoryRecursive listFilesRecursive;
       inherit (nixpkgs.legacyPackages) x86_64-linux aarch64-linux;
 
       inherit (builtins)
@@ -49,14 +50,12 @@
         "overlays"
         "nixosModules"
         "homeModules"
-        "checks"
       ];
 
       flakeDirectories = [
         "overlays"
         "modules"
         "home"
-        "tests"
       ];
 
       forAllSystems = function:
@@ -70,6 +69,15 @@
         callPackage = pkgs.callPackage;
         directory = ./packages;
       });
+
+      checks.x86_64-linux = listToAttrs (map (file: {
+        name = replaceStrings [ ".nix" ] [ "" ] (baseNameOf (toString file));
+
+        value = import file {
+          inherit self;
+          pkgs = x86_64-linux;
+        };
+      }) (listFilesRecursive ./tests));
 
       nixosConfigurations =
         let
@@ -139,22 +147,11 @@
             attributeValue = listToAttrs (
               map (file: {
                 name = replaceStrings [ ".nix" ] [ "" ] file;
-                value =
-                  if directory == "tests" then
-                    import ./${directory}/${file} {
-                      inherit self;
-                      pkgs = x86_64-linux;
-                    }
-                  else
-                    import ./${directory}/${file};
+                value = import ./${directory}/${file};
               }) (attrNames (readDir ./${directory}))
             );
 
-            attributeSet =
-              if directory == "tests" then
-                { x86_64-linux = attributeValue; }
-              else
-                attributeValue;
+            attributeSet = attributeValue;
           in
           attributeSet;
       }) flakeOutputs
