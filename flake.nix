@@ -37,14 +37,7 @@
       inherit (nixpkgs.lib) nixosSystem;
       inherit (nixpkgs.lib.filesystem) packagesFromDirectoryRecursive listFilesRecursive;
       inherit (nixpkgs.legacyPackages) x86_64-linux aarch64-linux;
-
-      inherit (builtins)
-        attrNames
-        listToAttrs
-        map
-        replaceStrings
-        readDir
-        ;
+      inherit (builtins) listToAttrs map replaceStrings;
 
       flakeOutputs = [
         "overlays"
@@ -143,17 +136,13 @@
         value =
           let
             directory = replaceStrings flakeOutputs flakeDirectories attributeName;
-
-            attributeValue = listToAttrs (
-              map (file: {
-                name = replaceStrings [ ".nix" ] [ "" ] file;
-                value = import ./${directory}/${file};
-              }) (attrNames (readDir ./${directory}))
-            );
-
-            attributeSet = attributeValue;
           in
-          attributeSet;
+          listToAttrs (
+            map (file: {
+              name = replaceStrings [ ".nix" ] [ "" ] (baseNameOf (toString file));
+              value = import file;
+            }) (listFilesRecursive ./${directory})
+          );
       }) flakeOutputs
     ));
 }
