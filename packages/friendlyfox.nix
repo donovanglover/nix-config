@@ -41,7 +41,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   meta = {
     description = "Custom CSS styles for Firefox browsers on Linux, with a focus on mobile devices like Librem 5 and PinePhone";
     license = lib.licenses.mpl20;
-    homepage = "https://forums.puri.sm/t/tutorial-add-a-custom-background-in-phosh/13385/23";
+    homepage = "https://codeberg.org/user0/Mobile-Friendly-Firefox";
     maintainers = with lib.maintainers; [ donovanglover ];
     platforms = lib.platforms.all;
   };
