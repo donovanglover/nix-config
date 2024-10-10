@@ -97,6 +97,7 @@ in
             static const char *down_vol[] = { "${dunst-scripts}/bin/mv-down", NULL };
             static const char *mute_vol[] = { "${dunst-scripts}/bin/mv-mute", NULL };
             static const char *mute_mic[] = { "${dunst-scripts}/bin/mv-mic", NULL };
+            static const char *wallpaper[] = { "fish", "${homeDirectory}/.config/${wallpaperScript}", NULL };
 
             static const Key keys[] = {
               { 0, XF86XK_AudioMute, spawn, {.v = mute_vol } },
@@ -113,6 +114,7 @@ in
               { MODKEY, XK_j, focusstack, {.i = +1 } },
               { MODKEY, XK_k, focusstack, {.i = -1 } },
               { MODKEY, XK_m, tagmon, {.i = +1 } },
+              { MODKEY, XK_w, spawn, {.v = wallpaper } },
               { MODKEY, XK_Return, zoom, {0} },
               { MODKEY, XK_comma, focusmon, {.i = -1 } },
               { MODKEY, XK_period, focusmon, {.i = +1 } },
