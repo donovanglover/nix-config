@@ -36,16 +36,16 @@
     let
       inherit (nixpkgs.lib) nixosSystem;
       inherit (nixpkgs.lib.filesystem) packagesFromDirectoryRecursive listFilesRecursive;
-      inherit (nixpkgs.legacyPackages) x86_64-linux aarch64-linux;
       inherit (builtins) listToAttrs map replaceStrings;
 
-      nameOf = path: replaceStrings [ ".nix" ] [ "" ] (baseNameOf (toString path));
       forAllSystems =
         function:
         nixpkgs.lib.genAttrs [
           "x86_64-linux"
           "aarch64-linux"
         ] (system: function nixpkgs.legacyPackages.${system});
+
+      nameOf = path: replaceStrings [ ".nix" ] [ "" ] (baseNameOf (toString path));
     in
     {
       packages = forAllSystems (
@@ -83,7 +83,7 @@
 
           value = import file {
             inherit self;
-            pkgs = x86_64-linux;
+            pkgs = nixpkgs.legacyPackages.x86_64-linux;
           };
         }) (listFilesRecursive ./tests)
       );
