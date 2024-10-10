@@ -51,7 +51,8 @@
       packages = forAllSystems (
         pkgs:
         packagesFromDirectoryRecursive {
-          callPackage = pkgs.callPackage;
+          inherit (pkgs) callPackage;
+
           directory = ./packages;
         }
       );
