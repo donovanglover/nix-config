@@ -17,6 +17,8 @@ let
 
   inherit (cfg) bloat;
 
+  isPhone = config.programs.calls.enable;
+
   cfg = config.modules.desktop;
 in
 {
@@ -25,14 +27,14 @@ in
   };
 
   config = {
-    hardware.graphics.enable32Bit = true;
+    hardware.graphics.enable32Bit = mkIf (!isPhone) true;
 
     programs = {
-      hyprland.enable = mkIf (!isContainer) true;
-      cdemu.enable = true;
+      hyprland.enable = mkIf (!isContainer && !isPhone) true;
+      cdemu.enable = mkIf (!isPhone) true;
 
       thunar = {
-        enable = true;
+        enable = mkIf (!isPhone) true;
 
         plugins = with pkgs.xfce; [
           thunar-volman
@@ -40,7 +42,7 @@ in
       };
     };
 
-    i18n.inputMethod = {
+    i18n.inputMethod = mkIf (!isPhone) {
       enable = true;
       type = "fcitx5";
 
@@ -54,7 +56,7 @@ in
     };
 
     services = {
-      udisks2 = {
+      udisks2 = mkIf (!isPhone) {
         enable = true;
         mountOnMedia = true;
       };
@@ -78,7 +80,7 @@ in
         displayManager.startx.enable = true;
       };
 
-      pipewire = {
+      pipewire = mkIf (!isPhone) {
         enable = true;
 
         alsa = {
@@ -89,7 +91,7 @@ in
         pulse.enable = true;
       };
 
-      greetd = mkIf (!isContainer) {
+      greetd = mkIf (!isContainer && !isPhone) {
         enable = true;
         restart = false;
 

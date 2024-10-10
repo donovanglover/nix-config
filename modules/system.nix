@@ -90,7 +90,7 @@ in
       binfmt.emulatedSystems = [ "aarch64-linux" ];
 
       loader = {
-        systemd-boot = {
+        systemd-boot = mkIf (!isPhone) {
           enable = true;
           editor = false;
           configurationLimit = 10;

@@ -47,25 +47,4 @@ in
 
     phone.enable = true;
   };
-
-  i18n.inputMethod.enable = mkForce false;
-
-  programs = {
-    cdemu.enable = mkForce false;
-    hyprland.enable = mkForce false;
-    thunar.enable = mkForce false;
-  };
-
-  services = {
-    udisks2.enable = mkForce false;
-    pipewire.enable = mkForce false;
-    greetd.enable = mkForce false;
-  };
-
-  boot = {
-    binfmt.emulatedSystems = mkForce [ ];
-    loader.systemd-boot.enable = mkIf (pkgs.system == "aarch64-linux") (mkForce false);
-  };
-
-  hardware.graphics.enable32Bit = mkForce false;
 }
