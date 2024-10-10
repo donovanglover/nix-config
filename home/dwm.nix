@@ -90,6 +90,7 @@ in
             static const char *dmenucmd[] = { "rofi", "-show", NULL };
             static const char *quitcmd[] = { "kill", "xinit", NULL };
             static const char *termcmd[] = { "kitty", NULL };
+            static const char *explorercmd[] = { "kitty", "yazi", NULL };
             static const char *brighter[] = { "${dunst-scripts}/bin/mb-up", NULL };
             static const char *dimmer[] = { "${dunst-scripts}/bin/mb-down", NULL };
             static const char *print[] = { "scrot", NULL };
@@ -108,6 +109,7 @@ in
               { 0, XF86XK_MonBrightnessUp, spawn, {.v = brighter } },
               { 0, XK_Print, spawn, {.v = print } },
               { MODKEY, XK_bracketleft, spawn, {.v = dmenucmd } },
+              { MODKEY, XK_bracketright, spawn, {.v = explorercmd } },
               { MODKEY, XK_o, togglebar, {0} },
               { MODKEY, XK_f, togglefullscr, {0} },
               { MODKEY, XK_v, togglefloating, {0} },

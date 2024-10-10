@@ -192,6 +192,7 @@ in
         "${super}, P, exec, grimblast --notify save screen"
         ", Print, exec, grimblast --freeze copy area"
         "${super}, bracketleft, exec, killall rofi || rofi -show"
+        "${super}, bracketright, exec, kitty yazi"
         "${super}_ALT, delete, exit"
         "${super}, V, togglefloating"
         "${super}, U, exec, ~/.config/${gapsScript}"
