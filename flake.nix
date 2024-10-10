@@ -88,58 +88,57 @@
         }) (listFilesRecursive ./tests)
       );
 
-      nixosConfigurations =
-        let
-          phoneModules = [
+      nixosConfigurations = {
+        nixos = nixosSystem {
+          system = "x86_64-linux";
+
+          specialArgs = attrs // {
+            nix-config = self;
+          };
+
+          modules = [
+            ./hosts/laptop/configuration.nix
+            ./hosts/laptop/hardware-configuration.nix
+          ];
+        };
+
+        mobile-nixos = nixosSystem {
+          system = "aarch64-linux";
+
+          specialArgs = attrs // {
+            nix-config = self;
+          };
+
+          modules = [
+            ./hosts/phone/configuration.nix
+            ./hosts/phone/hardware-configuration.nix
+
+            (import "${mobile-nixos}/lib/configuration.nix" {
+              device = "pine64-pinephone";
+            })
+
+            {
+              mobile.beautification = {
+                silentBoot = true;
+                splash = true;
+              };
+            }
+          ];
+        };
+
+        mobile-nixos-vm = nixosSystem {
+          system = "x86_64-linux";
+
+          specialArgs = attrs // {
+            nix-config = self;
+          };
+
+          modules = [
             ./hosts/phone/configuration.nix
             ./hosts/phone/hardware-configuration.nix
           ];
-        in
-        {
-          nixos = nixosSystem {
-            system = "x86_64-linux";
-
-            specialArgs = attrs // {
-              nix-config = self;
-            };
-
-            modules = [
-              ./hosts/laptop/configuration.nix
-              ./hosts/laptop/hardware-configuration.nix
-            ];
-          };
-
-          mobile-nixos = nixosSystem {
-            system = "aarch64-linux";
-
-            specialArgs = attrs // {
-              nix-config = self;
-            };
-
-            modules = phoneModules ++ [
-              (import "${mobile-nixos}/lib/configuration.nix" {
-                device = "pine64-pinephone";
-              })
-
-              {
-                mobile.beautification = {
-                  silentBoot = true;
-                  splash = true;
-                };
-              }
-            ];
-          };
-
-          mobile-nixos-vm = nixosSystem {
-            system = "x86_64-linux";
-
-            specialArgs = attrs // {
-              nix-config = self;
-            };
-
-            modules = phoneModules;
-          };
         };
+      };
 
       formatter = forAllSystems (pkgs: pkgs.nixfmt-rfc-style);
     };
