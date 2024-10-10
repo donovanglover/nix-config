@@ -87,7 +87,7 @@ in
     boot = {
       tmp = if iHaveLotsOfRam then { useTmpfs = true; } else { cleanOnBoot = true; };
 
-      binfmt.emulatedSystems = [ "aarch64-linux" ];
+      binfmt.emulatedSystems = mkIf (pkgs.system == "x86_64-linux") [ "aarch64-linux" ];
 
       loader = {
         systemd-boot = mkIf (!isPhone) {
