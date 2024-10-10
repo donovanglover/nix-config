@@ -141,9 +141,6 @@
           };
         };
 
-      formatter = {
-        x86_64-linux = x86_64-linux.nixfmt-rfc-style;
-        aarch64-linux = aarch64-linux.nixfmt-rfc-style;
-      };
+      formatter = forAllSystems (pkgs: pkgs.nixfmt-rfc-style);
     };
 }
