@@ -230,5 +230,10 @@ in
       force = true;
       text = "TriggerKey=";
     };
+
+    "fcitx5/conf/quickphrase.conf" = {
+      force = true;
+      text = "TriggerKey=";
+    };
   };
 }
