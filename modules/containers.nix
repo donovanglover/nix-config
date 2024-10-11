@@ -67,7 +67,6 @@ in
         { ... }:
         {
           imports = [
-            ../containers
             ../containers/wine.nix
           ];
         };
