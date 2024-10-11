@@ -115,6 +115,7 @@ in
         auto-optimise-store = true;
         warn-dirty = false;
         allow-import-from-derivation = false;
+        keep-going = true;
 
         experimental-features = [
           "nix-command"
