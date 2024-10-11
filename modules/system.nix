@@ -90,7 +90,7 @@ in
       binfmt.emulatedSystems = mkIf (pkgs.system == "x86_64-linux") [ "aarch64-linux" ];
 
       loader = {
-        systemd-boot = mkIf (!isPhone) {
+        systemd-boot = mkIf (pkgs.system != "aarch64-linux") {
           enable = true;
           editor = false;
           configurationLimit = 10;
