@@ -76,21 +76,13 @@
         nixos = nixosSystem {
           system = "x86_64-linux";
           specialArgs.nix-config = self;
-
-          modules = [
-            ./hosts/laptop/configuration.nix
-            ./hosts/laptop/hardware-configuration.nix
-          ];
+          modules = listFilesRecursive ./hosts/laptop;
         };
 
         mobile-nixos = nixosSystem {
           system = "aarch64-linux";
           specialArgs.nix-config = self;
-
-          modules = [
-            ./hosts/phone/configuration.nix
-            ./hosts/phone/hardware-configuration.nix
-          ];
+          modules = listFilesRecursive ./hosts/phone;
         };
       };
 
