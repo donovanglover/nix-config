@@ -157,13 +157,17 @@
       }
     },
     "mobile-nixos": {
-      "flake": false,
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
       "locked": {
-        "lastModified": 1725381272,
-        "narHash": "sha256-WXh7GJZLmKqiNiR47NAbH+K9VyLDQPraplGwgPR+7sA=",
+        "lastModified": 1728620064,
+        "narHash": "sha256-cfQOiJ0k+WEFh1P98h9iAjiyEJI2OSq3SXiZNaE4bBA=",
         "owner": "donovanglover",
         "repo": "mobile-nixos",
-        "rev": "ce6dbf9bfbace2450ad338c019f7263d497755bf",
+        "rev": "ded241ad82077c5e7a30f262dd5d4b0dd45e89ea",
         "type": "github"
       },
       "original": {

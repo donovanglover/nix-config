@@ -22,7 +22,7 @@
 
     mobile-nixos = {
       url = "github:donovanglover/mobile-nixos";
-      flake = false;
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -114,9 +114,8 @@
             ./hosts/phone/configuration.nix
             ./hosts/phone/hardware-configuration.nix
 
-            (import "${mobile-nixos}/lib/configuration.nix" {
-              device = "pine64-pinephone";
-            })
+            mobile-nixos.nixosModules.pine64-pinephone
+            mobile-nixos.nixosModules.module-list
 
             {
               mobile.beautification = {
