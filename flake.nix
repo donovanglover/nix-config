@@ -30,7 +30,6 @@
     {
       self,
       nixpkgs,
-      mobile-nixos,
       ...
     }@attrs:
     let
@@ -113,16 +112,6 @@
           modules = [
             ./hosts/phone/configuration.nix
             ./hosts/phone/hardware-configuration.nix
-
-            mobile-nixos.nixosModules.pine64-pinephone
-            mobile-nixos.nixosModules.module-list
-
-            {
-              mobile.beautification = {
-                silentBoot = true;
-                splash = true;
-              };
-            }
           ];
         };
 

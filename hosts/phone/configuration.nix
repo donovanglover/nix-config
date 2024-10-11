@@ -1,16 +1,10 @@
-{
-  self,
-  pkgs,
-  lib,
-  ...
-}:
+{ self, ... }:
 
 let
-  inherit (lib) mkIf mkForce;
   inherit (builtins) attrValues;
 in
 {
-  imports = attrValues self.nixosModules;
+  imports = attrValues self.nixosModules ++ attrValues self.inputs.mobile-nixos.nixosModules;
 
   nixpkgs = {
     overlays = with self.overlays; [ phinger-cursors ];
@@ -46,5 +40,10 @@ in
     hardware.keyboardBinds = true;
 
     phone.enable = true;
+  };
+
+  mobile.beautification = {
+    silentBoot = true;
+    splash = true;
   };
 }
