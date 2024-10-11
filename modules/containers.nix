@@ -64,5 +64,20 @@ in
       localAddress = "192.168.100.49";
       config = ../containers/wine.nix;
     };
+
+    wordpress = {
+      privateNetwork = true;
+      ephemeral = true;
+      autoStart = true;
+
+      hostAddress = "192.168.100.24";
+      localAddress = "192.168.100.39";
+
+      specialArgs = {
+        inherit nix-config;
+      };
+
+      config = ../containers/wordpress.nix;
+    };
   };
 }
