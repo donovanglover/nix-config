@@ -235,7 +235,7 @@ in
       nat = mkIf mullvad {
         enable = true;
         internalInterfaces = [ "ve-+" ];
-        externalInterface = "wg-mullvad";
+        externalInterface = "wg0-mullvad";
       };
 
       firewall = {
