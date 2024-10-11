@@ -62,14 +62,7 @@ in
     wine = template // {
       hostAddress = "192.168.100.34";
       localAddress = "192.168.100.49";
-
-      config =
-        { ... }:
-        {
-          imports = [
-            ../containers/wine.nix
-          ];
-        };
+      config = ../containers/wine.nix;
     };
   };
 }
