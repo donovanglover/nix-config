@@ -14,7 +14,6 @@ let
   template = {
     privateNetwork = true;
     ephemeral = true;
-    autoStart = true;
     restartIfChanged = false;
 
     bindMounts = {
@@ -52,8 +51,6 @@ let
   };
 in
 {
-  systemd.tmpfiles.rules = [ "d /run/user/1000 0700 ${username} users -" ];
-
   environment.systemPackages = mkIf (pkgs.system == "x86_64-linux") (
     with nix-config.inputs.sakaya.packages.${pkgs.system}; [ sakaya ]
   );
