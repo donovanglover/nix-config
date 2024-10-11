@@ -114,19 +114,6 @@
             ./hosts/phone/hardware-configuration.nix
           ];
         };
-
-        mobile-nixos-vm = nixosSystem {
-          system = "x86_64-linux";
-
-          specialArgs = attrs // {
-            nix-config = self;
-          };
-
-          modules = [
-            ./hosts/phone/configuration.nix
-            ./hosts/phone/hardware-configuration.nix
-          ];
-        };
       };
 
       formatter = forAllSystems (pkgs: pkgs.nixfmt-rfc-style);
