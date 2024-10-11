@@ -30,9 +30,8 @@
   outputs =
     { self, nixpkgs, ... }:
     let
-      inherit (nixpkgs.lib) nixosSystem genAttrs;
+      inherit (nixpkgs.lib) nixosSystem genAttrs replaceStrings;
       inherit (nixpkgs.lib.filesystem) packagesFromDirectoryRecursive listFilesRecursive;
-      inherit (builtins) map replaceStrings;
 
       forAllSystems =
         function:
@@ -57,9 +56,7 @@
         name: import ./modules/${name}.nix
       );
 
-      homeModules = genAttrs (map nameOf (listFilesRecursive ./home)) (
-        name: import ./home/${name}.nix
-      );
+      homeModules = genAttrs (map nameOf (listFilesRecursive ./home)) (name: import ./home/${name}.nix);
 
       overlays = genAttrs (map nameOf (listFilesRecursive ./overlays)) (
         name: import ./overlays/${name}.nix
