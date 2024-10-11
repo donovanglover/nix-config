@@ -65,11 +65,14 @@
         name: import ./overlays/${name}.nix
       );
 
-      checks.x86_64-linux = genAttrs (map nameOf (listFilesRecursive ./tests)) (
-        name: import ./tests/${name}.nix {
-          inherit self;
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        }
+      checks = forAllSystems (
+        pkgs:
+        genAttrs (map nameOf (listFilesRecursive ./tests)) (
+          name:
+          import ./tests/${name}.nix {
+            inherit self pkgs;
+          }
+        )
       );
 
       nixosConfigurations = {
