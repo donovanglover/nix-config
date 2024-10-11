@@ -9,6 +9,7 @@
 
     stylix = {
       url = "github:donovanglover/stylix";
+
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
@@ -27,11 +28,7 @@
   };
 
   outputs =
-    {
-      self,
-      nixpkgs,
-      ...
-    }:
+    { self, nixpkgs, ... }:
     let
       inherit (nixpkgs.lib) nixosSystem;
       inherit (nixpkgs.lib.filesystem) packagesFromDirectoryRecursive listFilesRecursive;
@@ -91,10 +88,7 @@
       nixosConfigurations = {
         nixos = nixosSystem {
           system = "x86_64-linux";
-
-          specialArgs = {
-            nix-config = self;
-          };
+          specialArgs.nix-config = self;
 
           modules = [
             ./hosts/laptop/configuration.nix
@@ -104,10 +98,7 @@
 
         mobile-nixos = nixosSystem {
           system = "aarch64-linux";
-
-          specialArgs = {
-            nix-config = self;
-          };
+          specialArgs.nix-config = self;
 
           modules = [
             ./hosts/phone/configuration.nix

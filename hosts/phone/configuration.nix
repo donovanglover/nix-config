@@ -4,7 +4,9 @@ let
   inherit (builtins) attrValues;
 in
 {
-  imports = attrValues nix-config.nixosModules ++ attrValues nix-config.inputs.mobile-nixos.nixosModules;
+  imports =
+    attrValues nix-config.nixosModules
+    ++ attrValues nix-config.inputs.mobile-nixos.nixosModules;
 
   nixpkgs = {
     overlays = with nix-config.overlays; [ phinger-cursors ];
