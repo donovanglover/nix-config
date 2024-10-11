@@ -30,13 +30,13 @@
   outputs =
     { self, nixpkgs, ... }:
     let
-      inherit (nixpkgs.lib) nixosSystem;
+      inherit (nixpkgs.lib) nixosSystem genAttrs;
       inherit (nixpkgs.lib.filesystem) packagesFromDirectoryRecursive listFilesRecursive;
-      inherit (builtins) listToAttrs map replaceStrings;
+      inherit (builtins) map replaceStrings;
 
       forAllSystems =
         function:
-        nixpkgs.lib.genAttrs [
+        genAttrs [
           "x86_64-linux"
           "aarch64-linux"
         ] (system: function nixpkgs.legacyPackages.${system});
@@ -53,36 +53,23 @@
         }
       );
 
-      nixosModules = listToAttrs (
-        map (file: {
-          name = nameOf file;
-          value = import file;
-        }) (listFilesRecursive ./modules)
+      nixosModules = genAttrs (map nameOf (listFilesRecursive ./modules)) (
+        name: import ./modules/${name}.nix
       );
 
-      homeModules = listToAttrs (
-        map (file: {
-          name = nameOf file;
-          value = import file;
-        }) (listFilesRecursive ./home)
+      homeModules = genAttrs (map nameOf (listFilesRecursive ./home)) (
+        name: import ./home/${name}.nix
       );
 
-      overlays = listToAttrs (
-        map (file: {
-          name = nameOf file;
-          value = import file;
-        }) (listFilesRecursive ./overlays)
+      overlays = genAttrs (map nameOf (listFilesRecursive ./overlays)) (
+        name: import ./overlays/${name}.nix
       );
 
-      checks.x86_64-linux = listToAttrs (
-        map (file: {
-          name = nameOf file;
-
-          value = import file {
-            inherit self;
-            pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          };
-        }) (listFilesRecursive ./tests)
+      checks.x86_64-linux = genAttrs (map nameOf (listFilesRecursive ./tests)) (
+        name: import ./tests/${name}.nix {
+          inherit self;
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        }
       );
 
       nixosConfigurations = {
