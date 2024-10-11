@@ -9,7 +9,7 @@
 let
   inherit (nix-config.inputs.sakaya.packages.${pkgs.system}) sakaya;
   inherit (config.modules.system) username;
-  inherit (lib) singleton getExe;
+  inherit (lib) getExe;
 
   sakayaPort = 39493;
 in
@@ -66,14 +66,7 @@ in
 
   hardware.graphics.enable = true;
 
-  networking = {
-    nat.forwardPorts = singleton {
-      destination = "192.168.100.49:${sakayaPort}";
-      sourcePort = sakayaPort;
-    };
-
-    firewall.allowedTCPPorts = [ sakayaPort ];
-  };
+  networking.firewall.allowedTCPPorts = [ sakayaPort ];
 
   systemd.services.sakaya = {
     enable = true;
