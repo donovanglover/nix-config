@@ -1,13 +1,13 @@
-{ self, pkgs, ... }:
+{ nix-config, pkgs, ... }:
 
 let
   inherit (builtins) attrValues;
 in
 {
-  imports = attrValues self.nixosModules;
-  nixpkgs.overlays = attrValues self.overlays;
-  home-manager.sharedModules = attrValues self.homeModules;
-  environment.systemPackages = attrValues self.packages.${pkgs.system};
+  imports = attrValues nix-config.nixosModules;
+  nixpkgs.overlays = attrValues nix-config.overlays;
+  home-manager.sharedModules = attrValues nix-config.homeModules;
+  environment.systemPackages = attrValues nix-config.packages.${pkgs.system};
 
   modules = {
     hardware = {

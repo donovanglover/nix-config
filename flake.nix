@@ -31,7 +31,7 @@
       self,
       nixpkgs,
       ...
-    }@attrs:
+    }:
     let
       inherit (nixpkgs.lib) nixosSystem;
       inherit (nixpkgs.lib.filesystem) packagesFromDirectoryRecursive listFilesRecursive;
@@ -92,7 +92,7 @@
         nixos = nixosSystem {
           system = "x86_64-linux";
 
-          specialArgs = attrs // {
+          specialArgs = {
             nix-config = self;
           };
 
@@ -105,7 +105,7 @@
         mobile-nixos = nixosSystem {
           system = "aarch64-linux";
 
-          specialArgs = attrs // {
+          specialArgs = {
             nix-config = self;
           };
 

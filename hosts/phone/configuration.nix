@@ -1,20 +1,20 @@
-{ self, ... }:
+{ nix-config, ... }:
 
 let
   inherit (builtins) attrValues;
 in
 {
-  imports = attrValues self.nixosModules ++ attrValues self.inputs.mobile-nixos.nixosModules;
+  imports = attrValues nix-config.nixosModules ++ attrValues nix-config.inputs.mobile-nixos.nixosModules;
 
   nixpkgs = {
-    overlays = with self.overlays; [ phinger-cursors ];
+    overlays = with nix-config.overlays; [ phinger-cursors ];
 
     config.permittedInsecurePackages = [
       "olm-3.2.16"
     ];
   };
 
-  home-manager.sharedModules = with self.homeModules; [
+  home-manager.sharedModules = with nix-config.homeModules; [
     dconf
     eza
     fish
