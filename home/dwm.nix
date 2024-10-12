@@ -99,6 +99,11 @@ in
             static const char *mute_vol[] = { "${dunst-scripts}/bin/mv-mute", NULL };
             static const char *mute_mic[] = { "${dunst-scripts}/bin/mv-mic", NULL };
             static const char *wallpaper[] = { "fish", "${homeDirectory}/.config/${wallpaperScript}", NULL };
+            static const char *audio_prev[] = { "playerctl", "-p", "playerctld", "previous", NULL };
+            static const char *audio_next[] = { "playerctl", "-p", "playerctld", "next", NULL };
+            static const char *audio_play_pause[] = { "playerctl", "-p", "playerctld", "play-pause", NULL };
+            static const char *audio_forward[] = { "playerctl", "-p", "playerctld", "position", "10+", NULL };
+            static const char *audio_rewind[] = { "playerctl", "-p", "playerctld", "position", "10-", NULL };
 
             static const Key keys[] = {
               { 0, XF86XK_AudioMute, spawn, {.v = mute_vol } },
@@ -107,6 +112,11 @@ in
               { 0, XF86XK_AudioRaiseVolume, spawn, {.v = up_vol } },
               { 0, XF86XK_MonBrightnessDown, spawn, {.v = dimmer } },
               { 0, XF86XK_MonBrightnessUp, spawn, {.v = brighter } },
+              { 0, XF86XK_AudioPrev, spawn, {.v = audio_prev } },
+              { 0, XF86XK_AudioNext, spawn, {.v = audio_next } },
+              { 0, XF86XK_AudioPlay, spawn, {.v = audio_play_pause } },
+              { 0, XF86XK_AudioForward, spawn, {.v = audio_forward } },
+              { 0, XF86XK_AudioRewind, spawn, {.v = audio_rewind } },
               { 0, XK_Print, spawn, {.v = print } },
               { MODKEY, XK_bracketleft, spawn, {.v = dmenucmd } },
               { MODKEY, XK_bracketright, spawn, {.v = explorercmd } },

@@ -35,6 +35,7 @@ in
     lnch
     wev
     wf-recorder
+    playerctl
   ];
 
   wayland.windowManager.hyprland = {
@@ -242,6 +243,12 @@ in
         ", XF86MonBrightnessDown, exec, ${dunst-scripts}/bin/mb-down"
         ", XF86MonBrightnessUp, exec, ${dunst-scripts}/bin/mb-up"
         ", XF86Display, exec, ~/.config/${monitorScript}"
+        ", XF86AudioPrev, exec, playerctl -p playerctld previous"
+        ", XF86AudioNext, exec, playerctl -p playerctld next"
+        ", XF86AudioPlay, exec, playerctl -p playerctld play"
+        ", XF86AudioPause, exec, playerctl -p playerctld pause"
+        ", XF86AudioForward, exec, playerctl -p playerctld position 10+"
+        ", XF86AudioRewind, exec, playerctl -p playerctld position 10-"
         ", XF86Messenger, togglespecialworkspace"
       ];
     };
