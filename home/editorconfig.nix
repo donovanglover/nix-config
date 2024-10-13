@@ -11,6 +11,14 @@
         indent_style = "space";
         trim_trailing_whitespace = true;
       };
+
+      "*.md" = {
+        indent_size = 4;
+      };
+
+      "*.rs" = {
+        indent_size = 4;
+      };
     };
   };
 }
