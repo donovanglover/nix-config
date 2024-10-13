@@ -115,6 +115,7 @@ in
               { 0, XF86XK_AudioPrev, spawn, {.v = audio_prev } },
               { 0, XF86XK_AudioNext, spawn, {.v = audio_next } },
               { 0, XF86XK_AudioPlay, spawn, {.v = audio_play_pause } },
+              { 0, XF86XK_AudioPause, spawn, {.v = audio_play_pause } },
               { 0, XF86XK_AudioForward, spawn, {.v = audio_forward } },
               { 0, XF86XK_AudioRewind, spawn, {.v = audio_rewind } },
               { 0, XK_Print, spawn, {.v = print } },
