@@ -6,16 +6,16 @@
 
 buildNpmPackage rec {
   pname = "all-the-package-names";
-  version = "2.0.1669";
+  version = "2.0.1794";
 
   src = fetchFromGitHub {
     owner = "nice-registry";
     repo = "all-the-package-names";
     rev = "v${version}";
-    hash = "sha256-p0pt/mZoudMIMkLTksKCkSEO7yrixHNqGGnonpEGrO4=";
+    hash = "sha256-B91XRiyZ/cheUM02BQi/cSesf6dFOHwV21m+HQNkTbo=";
   };
 
-  npmDepsHash = "sha256-F5kJJ5oA69xmv9VXVpegjcLHEnRtzGL3DV2kAghfDqY=";
+  npmDepsHash = "sha256-32Vp6oVI5pHcuCvImRtJvE6/4A/xNlEQM/vkqgTtyRk=";
 
   meta = {
     description = "List of all the public package names on npm";
