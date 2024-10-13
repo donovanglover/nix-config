@@ -6,11 +6,11 @@
 
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "showdex";
-  version = "1.2.4";
+  version = "1.2.5-b1923BC50731";
 
   src = fetchurl {
-    url = "https://addons.mozilla.org/firefox/downloads/file/4329311/showdex-${finalAttrs.version}.xpi";
-    hash = "sha256-V2TbyhrB1mrkF7PdJrPdvN+umJXbEcbSKA2jfVPFvV8=";
+    url = "https://github.com/doshidak/showdex/releases/download/v${finalAttrs.version}/showdex-v${finalAttrs.version}.firefox.xpi";
+    hash = "sha256-wn0pF8ar5Ldfc/kNMznzg9NAz+5ckZB7SCEUObj0BPw=";
   };
 
   dontUnpack = true;
