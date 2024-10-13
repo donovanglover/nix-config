@@ -2,15 +2,16 @@
   lib,
   stdenvNoCC,
   fetchurl,
+  gitUpdater,
 }:
 
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "yomitan";
-  version = "24.8.19.0";
+  version = "24.10.7.0";
 
   src = fetchurl {
-    url = "https://addons.mozilla.org/firefox/downloads/file/4343062/yomitan-${finalAttrs.version}.xpi";
-    hash = "sha256-Ki6AbZeaW28tAYZWTIOU2HLq/9zlGyrms3z3LANsc5U=";
+    url = "https://github.com/yomidevs/yomitan/releases/download/${finalAttrs.version}/yomitan-firefox.zip";
+    hash = "sha256-d2PmqLm3uYVc2S5hUFe9zOnbih7N7f2mQKc5O8qqPs8=";
   };
 
   dontUnpack = true;
@@ -22,6 +23,10 @@ stdenvNoCC.mkDerivation (finalAttrs: {
 
     runHook postInstall
   '';
+
+  passthru.updateScript = gitUpdater {
+    url = "https://github.com/yomidevs/yomitan";
+  };
 
   meta = {
     homepage = "https://addons.mozilla.org/en-US/firefox/addon/yomitan/";
