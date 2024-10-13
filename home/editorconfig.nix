@@ -9,7 +9,7 @@
         insert_final_newline = true;
         indent_size = 2;
         indent_style = "space";
-        trim_trailing_whitespace = false;
+        trim_trailing_whitespace = true;
       };
     };
   };
