@@ -8,11 +8,11 @@
 
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "ublock-origin";
-  version = "1.59.0";
+  version = "1.60.0";
 
   src = fetchurl {
-    url = "https://addons.mozilla.org/firefox/downloads/file/4328681/ublock_origin-${finalAttrs.version}.xpi";
-    hash = "sha256-HbnGdqB9FB+NNtu8JPnj1kpswjQNv8bISLxDlfls+xQ=";
+    url = "https://github.com/gorhill/uBlock/releases/download/${finalAttrs.version}/uBlock0_${finalAttrs.version}.firefox.signed.xpi";
+    hash = "sha256-4s2psqGwp/bl7w2p+H8o31L4VgWHui5RowAxIc+4FgA=";
   };
 
   dontUnpack = true;
@@ -37,7 +37,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   installPhase = ''
     runHook preInstall
 
-    install -Dm644 ublock-origin.xpi "$out/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/uBlock0@raymondhill.net.xpi"
+    install -Dm644 "$src" "$out/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/uBlock0@raymondhill.net.xpi"
 
     runHook postInstall
   '';
