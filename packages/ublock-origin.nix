@@ -2,8 +2,6 @@
   lib,
   stdenvNoCC,
   fetchurl,
-  unzip,
-  zip,
 }:
 
 stdenvNoCC.mkDerivation (finalAttrs: {
@@ -16,23 +14,6 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   };
 
   dontUnpack = true;
-
-  nativeBuildInputs = [
-    unzip
-    zip
-  ];
-
-  postPatch = ''
-    unzip "$src"
-
-    substituteInPlace ./js/vapi-background-ext.js \
-      --replace-fail "browser.dns instanceof Object" "false"
-
-    substituteInPlace ./js/background.js \
-      --replace-fail "cnameUncloakEnabled: true" "cnameUncloakEnabled: false"
-
-    zip -x env-vars -r ublock-origin.xpi *
-  '';
 
   installPhase = ''
     runHook preInstall
