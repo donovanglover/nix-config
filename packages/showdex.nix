@@ -23,6 +23,16 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     runHook postInstall
   '';
 
+  passthru.updateScript = # fish
+    ''
+      set URL $(curl -s https://api.github.com/repos/doshidak/showdex/releases/latest | jq -r ".assets[] | select(.content_type == \"application/x-xpinstall\") | .browser_download_url")
+      and set VERSION $(echo "$URL" | grep -Eo '[0-9\.]+-+b[A-Z0-9]+')
+      and set HASH $(nix hash convert --to sri sha256:$(nix-prefetch-url "$URL"))
+
+      and sd -n 1 'version = "[^"]*"' "version = \"$VERSION\"" ./packages/showdex.nix
+      and sd -n 1 'hash = "[^"]*"' "hash = \"$HASH\"" ./packages/showdex.nix
+    '';
+
   meta = {
     homepage = "https://github.com/doshidak/showdex";
     description = "Pokémon Showdown extension that harnesses the power of parabolic calculus to strategically extract your opponents' Elo";
