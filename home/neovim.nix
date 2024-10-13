@@ -22,6 +22,7 @@
     extraConfig = # vim
       ''
         filetype plugin indent on
+
         set undofile
         set spell
         set number
@@ -36,8 +37,6 @@
         set smartcase
         set scrolloff=1
         set sidescrolloff=5
-        set tabstop=4
-        set shiftwidth=4
 
         set foldmethod=indent
         set foldlevelstart=99
@@ -56,6 +55,7 @@
         highlight Folded ctermbg=NONE guibg=NONE
 
         let mapleader = ' '
+
         nnoremap <silent> <leader>e :set nu!<CR>
         nnoremap <silent> <leader>o :GitBlameToggle<CR>
         nnoremap <silent> <leader>a :NvimTreeFocus<CR>
