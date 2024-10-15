@@ -136,7 +136,7 @@ in
       ))
 
       (with pkgs; [
-        anki
+        anki-bin
         pulseaudio
         grim
         wl-clipboard-rs
