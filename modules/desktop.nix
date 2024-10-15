@@ -135,8 +135,14 @@ in
         ]
       ))
 
+      (mkIf (pkgs.system != "aarch64-linux") (
+        with pkgs;
+        [
+          anki-bin
+        ]
+      ))
+
       (with pkgs; [
-        anki-bin
         pulseaudio
         grim
         wl-clipboard-rs
