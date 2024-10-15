@@ -158,6 +158,11 @@
               end
             }
 
+            lspconfig.nixd.setup {
+              capabilities = capabilities,
+              offset_encoding = 'utf-8'
+            }
+
             vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
             vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
             vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
@@ -203,7 +208,6 @@
             local lspconfig = require('lspconfig')
 
             local servers = {
-              'nixd',
               'rust_analyzer',
               'markdown_oxide',
               'html',
