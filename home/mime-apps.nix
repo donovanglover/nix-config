@@ -8,7 +8,7 @@
       "text/plain" = "nvim.desktop";
       "image/png" = "pqiv.desktop";
       "image/jpeg" = "pqiv.desktop";
-      "image/gif" = "org.qutebrowser.qutebrowser.desktop";
+      "image/gif" = "pqiv.desktop";
       "application/pdf" = "org.pwmt.zathura-pdf-mupdf.desktop";
       "application/x-wine-extension-osz" = "osu-stable.desktop";
       "x-scheme-handler/http" = "librewolf.desktop";

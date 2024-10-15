@@ -57,7 +57,7 @@ in
           "librewolf"
           "kitty"
           "thunar"
-          "org.qutebrowser.qutebrowser"
+          "Chromium-browser"
           "anki"
         ];
       };
