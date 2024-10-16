@@ -2,28 +2,19 @@
   lib,
   stdenvNoCC,
   fetchFromGitea,
-  fetchpatch2,
 }:
 
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "friendlyfox";
-  version = "2.11.1";
+  version = "3.1.0";
 
   src = fetchFromGitea {
     domain = "codeberg.org";
     owner = "user0";
     repo = "Mobile-Friendly-Firefox";
     rev = "v${finalAttrs.version}";
-    hash = "sha256-rA5lnfW5zOyfJ6pbcrsTBEhMEof5h/heGaHxST+q+AY=";
+    hash = "sha256-4y7rSAQT6N9VIQhRVyfLBCIb+bIUUOSawURywRCcb7c=";
   };
-
-  patches = [
-    # Fix for Firefox 127 and later (renamed id)
-    (fetchpatch2 {
-      url = "https://codeberg.org/user0/Mobile-Friendly-Firefox/commit/bfb7946973bf707d0494714679df47ec66017f97.patch";
-      hash = "sha256-wJLXgNUUaNHVgCMi8sGnC5cx2yNwZwh2JoDaVMsVehY=";
-    })
-  ];
 
   installPhase = ''
     runHook preInstall
