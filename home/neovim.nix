@@ -354,17 +354,6 @@
           '';
       }
       {
-        plugin = vim-markdown;
-        config = # vim
-          ''
-            let g:vim_markdown_folding_disabled = 1
-            let g:vim_markdown_conceal = 0
-            let g:vim_markdown_frontmatter = 1
-            let g:vim_markdown_toml_frontmatter = 1
-            let g:vim_markdown_json_frontmatter = 1
-          '';
-      }
-      {
         plugin = nvim-ts-autotag;
         type = "lua";
         config = # lua
@@ -415,6 +404,7 @@
                     and lang ~= "glsl"
                     and lang ~= "nix"
                     and lang ~= "prisma"
+                    and lang ~= "markdown"
                 end,
                 additional_vim_regex_highlighting = true,
               },
