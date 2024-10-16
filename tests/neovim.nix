@@ -6,7 +6,7 @@ self.inputs.nixpkgs.lib.nixos.runTest {
   node.specialArgs.nix-config = self;
 
   nodes.machine =
-    { nix-config, ... }:
+    { nix-config, config, ... }:
     {
       imports = with nix-config.nixosModules; [
         shell
@@ -16,20 +16,13 @@ self.inputs.nixpkgs.lib.nixos.runTest {
       home-manager.sharedModules = with nix-config.homeModules; [
         neovim
       ];
+
+      services.getty.autologinUser = config.modules.system.username;
     };
 
   testScript = # python
     ''
       machine.wait_for_unit("default.target")
-
-      machine.send_chars("user")
-      machine.sleep(1)
-      machine.send_key("ret")
-      machine.sleep(1)
-      machine.send_chars("user")
-      machine.sleep(1)
-      machine.send_key("ret")
-      machine.sleep(5)
 
       machine.send_chars("nvim hello.txt")
       machine.sleep(1)
