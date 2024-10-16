@@ -24,9 +24,7 @@ self.inputs.nixpkgs.lib.nixos.runTest {
     ''
       machine.wait_for_unit("default.target")
 
-      machine.send_chars("nvim hello.txt")
-      machine.sleep(1)
-      machine.send_key("ret")
+      machine.send_chars("nvim hello.txt\n")
       machine.sleep(20)
 
       machine.send_chars("i")
@@ -35,9 +33,7 @@ self.inputs.nixpkgs.lib.nixos.runTest {
       machine.sleep(2)
       machine.send_key("esc")
       machine.sleep(2)
-      machine.send_chars(":wq")
-      machine.sleep(2)
-      machine.send_key("ret")
+      machine.send_chars(":wq\n")
       machine.sleep(2)
 
       text = machine.succeed("cat /home/user/hello.txt")
