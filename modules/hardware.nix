@@ -39,7 +39,6 @@ in
 
     services = {
       ratbagd.enable = mkIf mouseSettings true;
-      blueman.enable = mkIf bluetooth true;
 
       logind = {
         lidSwitch = mkIf lidIgnore "ignore";
