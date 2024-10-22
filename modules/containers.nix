@@ -72,8 +72,6 @@ in
           inherit (nix-config.inputs.sakaya.packages.${pkgs.system}) sakaya;
           inherit (config.modules.system) username;
           inherit (lib) getExe;
-
-          sakayaPort = 39493;
         in
         {
           imports = with nix-config.nixosModules; [
@@ -128,22 +126,14 @@ in
 
           hardware.graphics.enable = true;
 
-          networking.firewall.allowedTCPPorts = [ sakayaPort ];
+          networking.firewall.allowedTCPPorts = [ 39493 ];
 
           systemd.services.sakaya = {
             enable = true;
             description = "sakaya server";
-
-            unitConfig = {
-              Type = "simple";
-            };
-
+            unitConfig.Type = "simple";
             path = with pkgs; [ su ];
-
-            serviceConfig = {
-              ExecStart = "/usr/bin/env su ${username} --command=${getExe sakaya}";
-            };
-
+            serviceConfig.ExecStart = "/usr/bin/env su ${username} --command=${getExe sakaya}";
             wantedBy = [ "multi-user.target" ];
           };
         };
