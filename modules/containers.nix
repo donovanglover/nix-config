@@ -60,27 +60,20 @@ in
       hostAddress = "192.168.100.34";
       localAddress = "192.168.100.49";
       config =
+        { nix-config, pkgs, ... }:
         {
-          nix-config,
-          config,
-          lib,
-          pkgs,
-          ...
-        }:
+          imports =
+            with nix-config.nixosModules;
+            [
+              shell
+              desktop
+              system
+              stylix
+              fonts
+            ]
+            ++ (with nix-config.inputs.sakaya.nixosModules; [ sakaya ]);
 
-        let
-          inherit (nix-config.inputs.sakaya.packages.${pkgs.system}) sakaya;
-          inherit (config.modules.system) username;
-          inherit (lib) getExe;
-        in
-        {
-          imports = with nix-config.nixosModules; [
-            shell
-            desktop
-            system
-            stylix
-            fonts
-          ];
+          sakaya.enable = true;
 
           home-manager.sharedModules = with nix-config.homeModules; [
             fish
@@ -95,15 +88,12 @@ in
           nixpkgs.overlays = builtins.attrValues nix-config.overlays;
 
           environment = {
-            systemPackages =
-              (with pkgs; [
-                wineWowPackages.waylandFull
-                winetricks
-              ]);
+            systemPackages = with pkgs; [
+              wineWowPackages.waylandFull
+              winetricks
+            ];
 
-            variables = {
-              TERM = "xterm-kitty";
-            };
+            variables.TERM = "xterm-kitty";
 
             sessionVariables = {
               WAYLAND_DISPLAY = "wayland-1";
@@ -124,17 +114,6 @@ in
           };
 
           hardware.graphics.enable = true;
-
-          networking.firewall.allowedTCPPorts = [ 39493 ];
-
-          systemd.services.sakaya = {
-            enable = true;
-            description = "sakaya server";
-            unitConfig.Type = "simple";
-            path = with pkgs; [ su ];
-            serviceConfig.ExecStart = "/usr/bin/env su ${username} --command=${getExe sakaya}";
-            wantedBy = [ "multi-user.target" ];
-          };
         };
     };
 
