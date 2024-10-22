@@ -99,8 +99,7 @@ in
               (with pkgs; [
                 wineWowPackages.waylandFull
                 winetricks
-              ])
-              ++ [ sakaya ];
+              ]);
 
             variables = {
               TERM = "xterm-kitty";
