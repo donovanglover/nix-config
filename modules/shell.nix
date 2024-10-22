@@ -72,6 +72,7 @@
       nvd
       nix-search-cli
       nix-tree
+      gcc
       rustc
       rustfmt
       cargo
