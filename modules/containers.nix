@@ -99,10 +99,6 @@ in
               WAYLAND_DISPLAY = "wayland-1";
               XDG_RUNTIME_DIR = "/run/user/1000";
               DISPLAY = ":0";
-              QT_IM_MODULE = "fcitx";
-              XMODIFIERS = "@im=fcitx";
-              SDL_IM_MODULE = "fcitx";
-              GLFW_IM_MODULE = "ibus";
               LC_ALL = "ja_JP.UTF-8";
               TZ = "Asia/Tokyo";
             };
