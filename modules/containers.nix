@@ -96,9 +96,6 @@ in
             variables.TERM = "xterm-kitty";
 
             sessionVariables = {
-              WAYLAND_DISPLAY = "wayland-1";
-              XDG_RUNTIME_DIR = "/run/user/1000";
-              DISPLAY = ":0";
               LC_ALL = "ja_JP.UTF-8";
               TZ = "Asia/Tokyo";
             };
