@@ -6,14 +6,14 @@
 
 buildNpmPackage rec {
   pname = "nadesiko3";
-  version = "3.6.22";
+  version = "3.6.24";
 
   src = fetchurl {
     url = "https://registry.npmjs.org/nadesiko3/-/nadesiko3-${version}.tgz";
-    hash = "sha256-0I1FBs+4Za1n+E49R58NS8XZM1/JD1I7/QGHXpl39qM=";
+    hash = "sha256-GtguZH46n+/pq+byoZ0SbNYoqigUidrqZYcaEouawtA=";
   };
 
-  npmDepsHash = "sha256-odGCIHp+qr7S3BBam0yFIRzZr4RzrrtwhgydLVyRPuE=";
+  npmDepsHash = "sha256-qrhHSOLcUiPuBHUkqREpxQRH5iO6zXzJVrF1Za8dc4w=";
 
   postPatch = ''
     ln -s ${../assets/nadesiko3-package-lock.json} package-lock.json
