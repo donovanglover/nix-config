@@ -63,6 +63,7 @@
       zbar
       phraze
       lychee
+      bluetui
       ventoy
       taskwarrior3
       nixpkgs-review
