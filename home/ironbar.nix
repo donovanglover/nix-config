@@ -100,7 +100,7 @@ in
         }
 
         button:hover {
-          background: ${base01};
+          background: alpha(${base01}, 0.8);
         }
 
         #bar {
@@ -154,7 +154,7 @@ in
         }
 
         button:active {
-          background: ${base04};
+          background: alpha(${base04}, 0.8);
         }
 
         .launcher .open {
