@@ -104,7 +104,7 @@ in
         }
 
         #bar {
-          border-top: 1px solid ${base01};
+          border-top: 1px solid alpha(${base01}, 0.925);
         }
 
         .label, .script, .tray {
