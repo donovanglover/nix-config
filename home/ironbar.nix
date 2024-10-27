@@ -158,12 +158,12 @@ in
         }
 
         .launcher .open {
-          box-shadow: inset 0 -2px ${base04};
+          box-shadow: inset 0 -2px alpha(${base04}, 0.8);
         }
 
         .launcher .focused {
-          box-shadow: inset 0 -2px ${base0D};
-          background: ${base01};
+          box-shadow: inset 0 -2px alpha(${base0D}, 0.8);
+          background: alpha(${base01}, 0.8);
         }
 
         .popup-launcher {
