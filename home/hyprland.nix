@@ -237,8 +237,6 @@ in
 
       bindl = [
         ", XF86AudioMute, exec, ${dunst-scripts}/bin/mv-mute"
-        ", XF86AudioRaiseVolume, exec, ${dunst-scripts}/bin/mv-up"
-        ", XF86AudioLowerVolume, exec, ${dunst-scripts}/bin/mv-down"
         ", XF86AudioMicMute, exec, ${dunst-scripts}/bin/mv-mic"
         ", XF86MonBrightnessDown, exec, ${dunst-scripts}/bin/mb-down"
         ", XF86MonBrightnessUp, exec, ${dunst-scripts}/bin/mb-up"
@@ -250,6 +248,11 @@ in
         ", XF86AudioForward, exec, playerctl -p playerctld position 10+"
         ", XF86AudioRewind, exec, playerctl -p playerctld position 10-"
         ", XF86Messenger, togglespecialworkspace"
+      ];
+
+      binde = [
+        ", XF86AudioRaiseVolume, exec, ${dunst-scripts}/bin/mv-up"
+        ", XF86AudioLowerVolume, exec, ${dunst-scripts}/bin/mv-down"
       ];
     };
 
