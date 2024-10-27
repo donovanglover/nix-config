@@ -70,7 +70,7 @@ in
         "fcitx5"
         "hyprctl dispatch workspace 5000000"
         "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"
-        "hyprdim --no-dim-when-only --persist --ignore-leaving-special --dialog-dim"
+        "hyprdim"
         "~/.config/${randomBackgroundScript}"
       ];
 
