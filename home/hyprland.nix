@@ -131,7 +131,7 @@ in
 
       master = {
         new_on_top = false;
-        mfact = 0.65;
+        mfact = 0.55;
         special_scale_factor = 1;
       };
 
@@ -213,7 +213,7 @@ in
         "${super}_SHIFT, K, layoutmsg, swapprev"
         "${super}, C, splitratio, exact 0.80"
         "${super}, C, layoutmsg, orientationtop"
-        "${super}_SHIFT, C, splitratio, exact 0.65"
+        "${super}_SHIFT, C, splitratio, exact 0.55"
         "${super}_SHIFT, C, layoutmsg, orientationleft"
         "${super}, H, layoutmsg, addmaster"
         "${super}, L, layoutmsg, removemaster"
