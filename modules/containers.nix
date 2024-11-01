@@ -104,48 +104,5 @@ in
           hardware.graphics.enable = true;
         };
     };
-
-    wordpress = {
-      privateNetwork = true;
-      ephemeral = true;
-      autoStart = true;
-
-      hostAddress = "192.168.100.24";
-      localAddress = "192.168.100.39";
-
-      specialArgs = {
-        inherit nix-config;
-      };
-
-      config =
-        { nix-config, pkgs, ... }:
-        {
-          imports = with nix-config.nixosModules; [
-            system
-          ];
-
-          users.defaultUserShell = pkgs.fish;
-
-          programs = {
-            fish.enable = true;
-            neovim.enable = true;
-          };
-
-          environment = {
-            systemPackages = with pkgs; [ kitty ];
-            shells = with pkgs; [ fish ];
-
-            variables = {
-              TERM = "xterm-kitty";
-            };
-          };
-
-          networking = {
-            firewall.allowedTCPPorts = [ 80 ];
-          };
-
-          services.wordpress.sites.localhost = { };
-        };
-    };
   };
 }
