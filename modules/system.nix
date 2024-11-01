@@ -25,7 +25,6 @@ let
     mullvad
     allowSRB2Port
     allowDevPort
-    postgres
     ;
 
   isPhone = config.programs.calls.enable;
@@ -78,7 +77,6 @@ in
 
     iHaveLotsOfRam = mkEnableOption "tmpfs on /tmp";
     mullvad = mkEnableOption "mullvad vpn";
-    postgres = mkEnableOption "postgres database for containers";
     allowSRB2Port = mkEnableOption "port for srb2";
     allowDevPort = mkEnableOption "port for development server";
   };
@@ -254,18 +252,6 @@ in
       mullvad-vpn = mkIf mullvad {
         enable = true;
         enableExcludeWrapper = false;
-      };
-
-      postgresql = mkIf postgres {
-        enable = true;
-
-        ensureUsers = singleton {
-          name = username;
-        };
-
-        ensureDatabases = [
-          username
-        ];
       };
 
       openssh = {
