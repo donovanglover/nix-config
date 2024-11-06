@@ -98,6 +98,8 @@ in
         efi.canTouchEfiVariables = true;
       };
 
+      kernelPackages = pkgs.linuxPackages_latest;
+
       blacklistedKernelModules = [ "floppy" ];
     };
 
