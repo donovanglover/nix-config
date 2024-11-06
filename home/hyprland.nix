@@ -166,7 +166,6 @@ in
       windowrulev2 = [
         "nomaxsize,class:^(winecfg\.exe|osu\.exe)$"
         "opaque,class:^(kitty)$"
-        "noblur,class:^(kitty)$"
         "nodim,title:^(Picture-in-Picture|ピクチャーインピクチャー)$"
         "nodim,class:^(mpv)$"
         "tile,class:^(.qemu-system-x86_64-wrapped)$"
