@@ -9,7 +9,6 @@ let
   inherit (nixosConfig._module.specialArgs) nix-config;
 
   inherit (lib) mkIf singleton;
-  inherit (nix-config.packages.${pkgs.system}) friendlyfox;
 
   search = {
     force = true;
@@ -114,10 +113,5 @@ in
         inherit settings search;
       };
     };
-  };
-
-  home.file = mkIf isPhone {
-    ".librewolf/default/chrome/userChrome.css".source = "${friendlyfox}/userChrome.css";
-    ".librewolf/default/chrome/userContent.css".source = "${friendlyfox}/userContent.css";
   };
 }
