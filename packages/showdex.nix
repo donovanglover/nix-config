@@ -4,12 +4,15 @@
   fetchurl,
 }:
 
+let
+  build = "b1923BC50731";
+in
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "showdex";
-  version = "1.2.5-b1923BC50731";
+  version = "1.2.5";
 
   src = fetchurl {
-    url = "https://github.com/doshidak/showdex/releases/download/v${finalAttrs.version}/showdex-v${finalAttrs.version}.firefox.xpi";
+    url = "https://github.com/doshidak/showdex/releases/download/v${finalAttrs.version}/showdex-v${finalAttrs.version}-${build}.firefox.xpi";
     hash = "sha256-wn0pF8ar5Ldfc/kNMznzg9NAz+5ckZB7SCEUObj0BPw=";
   };
 
@@ -26,10 +29,12 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   passthru.updateScript = # fish
     ''
       set URL $(curl -s https://api.github.com/repos/doshidak/showdex/releases/latest | jq -r ".assets[] | select(.content_type == \"application/x-xpinstall\") | .browser_download_url")
-      and set VERSION $(echo "$URL" | grep -Eo '[0-9\.]+-+b[A-Z0-9]+')
+      and set VERSION $(echo "$URL" | grep -Eo '[0-9\.]+-' | sd "-" "")
+      and set BUILD $(echo "$URL" | grep -Eo 'b[A-Z0-9]+')
       and set HASH $(nix hash convert --to sri sha256:$(nix-prefetch-url "$URL"))
 
       and sd -n 1 'version = "[^"]*"' "version = \"$VERSION\"" ./packages/showdex.nix
+      and sd -n 1 'build = "[^"]*"' "build = \"$BUILD\"" ./packages/showdex.nix
       and sd -n 1 'hash = "[^"]*"' "hash = \"$HASH\"" ./packages/showdex.nix
     '';
 
