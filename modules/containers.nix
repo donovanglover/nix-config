@@ -94,11 +94,6 @@ in
             ];
 
             variables.TERM = "xterm-kitty";
-
-            sessionVariables = {
-              LC_ALL = "ja_JP.UTF-8";
-              TZ = "Asia/Tokyo";
-            };
           };
 
           hardware.graphics.enable = true;
