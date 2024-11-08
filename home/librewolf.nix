@@ -8,7 +8,7 @@
 let
   inherit (nixosConfig._module.specialArgs) nix-config;
 
-  inherit (lib) mkIf singleton;
+  inherit (lib) singleton;
 
   search = {
     force = true;
@@ -83,8 +83,6 @@ let
 
     "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
   };
-
-  isPhone = nixosConfig.programs.calls.enable;
 in
 {
   programs.librewolf = {
