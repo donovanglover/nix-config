@@ -193,9 +193,9 @@ in
               set inside true
               test -n "$initialized" && sleep 0.2
 
-              set MULLVAD (mullvad status | head -1)
+              set MULLVAD (mullvad status | tail -1)
 
-              set LOCATION (echo "$MULLVAD" | choose 4.. | sed \
+              set LOCATION (echo "$MULLVAD" | choose 3.. | sed \
                 -e 's/Ashburn.*/アッシュバーン/g' \
                 -e 's/Atlanta.*/アトランタ/g' \
                 -e 's/Boston.*/ボストン/g' \

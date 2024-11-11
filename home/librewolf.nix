@@ -76,8 +76,6 @@ let
 
     "xpinstall.signatures.required" = false;
 
-    "network.dns.native_https_query" = false;
-
     "apz.overscroll.enabled" = false;
     "browser.tabs.hoverPreview.enabled" = true;
 
