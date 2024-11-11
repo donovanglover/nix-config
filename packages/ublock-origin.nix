@@ -6,11 +6,11 @@
 
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "ublock-origin";
-  version = "1.60.0";
+  version = "1.61.1b1";
 
   src = fetchurl {
     url = "https://github.com/gorhill/uBlock/releases/download/${finalAttrs.version}/uBlock0_${finalAttrs.version}.firefox.signed.xpi";
-    hash = "sha256-4s2psqGwp/bl7w2p+H8o31L4VgWHui5RowAxIc+4FgA=";
+    hash = "sha256-8hh6yx15WBqDt/g7de152tfCpCxG4v46pkkAWYf4pGQ=";
   };
 
   dontUnpack = true;
