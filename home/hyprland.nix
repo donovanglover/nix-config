@@ -112,6 +112,7 @@ in
       animations = {
         enabled = true;
         bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
+
         animation = [
           "windows, 1, 7, myBezier"
           "windowsOut, 1, 7, default, popin 80%"
@@ -243,14 +244,14 @@ in
         ", XF86AudioNext, exec, playerctl -p playerctld next"
         ", XF86AudioPlay, exec, playerctl -p playerctld play"
         ", XF86AudioPause, exec, playerctl -p playerctld pause"
-        ", XF86AudioForward, exec, playerctl -p playerctld position 10+"
-        ", XF86AudioRewind, exec, playerctl -p playerctld position 10-"
         ", XF86Messenger, togglespecialworkspace"
       ];
 
       binde = [
         ", XF86AudioRaiseVolume, exec, ${dunst-scripts}/bin/mv-up"
         ", XF86AudioLowerVolume, exec, ${dunst-scripts}/bin/mv-down"
+        ", XF86AudioForward, exec, playerctl -p playerctld position 10+"
+        ", XF86AudioRewind, exec, playerctl -p playerctld position 10-"
       ];
     };
 
