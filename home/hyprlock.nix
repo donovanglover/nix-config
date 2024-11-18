@@ -1,3 +1,8 @@
+{ lib, ... }:
+
+let
+  inherit (lib) mkForce;
+in
 {
   programs.hyprlock = {
     enable = true;
@@ -8,7 +13,7 @@
         grace = 2;
       };
 
-      background = {
+      background = mkForce {
         color = "rgba(25, 20, 20, 1.0)";
         path = "screenshot";
         blur_passes = 2;
@@ -29,9 +34,9 @@
         size = "50, 50";
         dots_size = 0.33;
         dots_spacing = 0.15;
-        outer_color = "rgba(25, 20, 20, 0)";
-        inner_color = "rgba(25, 20, 20, 0)";
-        font_color = "rgba(222, 222, 222, 1.0)";
+        outer_color = mkForce "rgba(25, 20, 20, 0)";
+        inner_color = mkForce "rgba(25, 20, 20, 0)";
+        font_color = mkForce "rgba(222, 222, 222, 1.0)";
         placeholder_text = "パスワード";
       };
     };
