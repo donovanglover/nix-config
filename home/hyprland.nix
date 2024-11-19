@@ -132,7 +132,8 @@ in
       };
 
       master = {
-        new_on_top = false;
+        new_on_top = true;
+        new_status = "master";
         mfact = 0.55;
         special_scale_factor = 1;
       };
