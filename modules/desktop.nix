@@ -1,5 +1,4 @@
 {
-  nix-config,
   pkgs,
   config,
   lib,
@@ -50,7 +49,7 @@ in
       fcitx5 = {
         waylandFrontend = true;
 
-        addons = with nix-config.packages.${pkgs.system}; [
+        addons = with pkgs; [
           fcitx5-mozc
         ];
       };
