@@ -11,6 +11,7 @@ self.inputs.nixpkgs.lib.nixos.runTest {
       imports = with nix-config.nixosModules; [
         shell
         system
+        stylix
       ];
 
       home-manager.sharedModules = with nix-config.homeModules; [
@@ -25,7 +26,7 @@ self.inputs.nixpkgs.lib.nixos.runTest {
       machine.wait_for_unit("default.target")
 
       machine.send_chars("nvim hello.txt\n")
-      machine.sleep(20)
+      machine.sleep(30)
 
       machine.send_chars("i")
       machine.sleep(2)
