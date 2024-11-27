@@ -6,8 +6,6 @@
 }:
 
 let
-  inherit (nix-config.packages.${pkgs.system}) aleo-fonts;
-
   stylix-background = nix-config.packages.${pkgs.system}.stylix-background.override {
     color = config.lib.stylix.colors.base00;
   };
@@ -62,7 +60,7 @@ in
 
     fonts = {
       serif = {
-        package = aleo-fonts;
+        package = pkgs.aleo-fonts;
         name = "Aleo";
       };
 
