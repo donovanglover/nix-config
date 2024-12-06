@@ -102,26 +102,25 @@ buildGoModule rec {
     runHook prePatch
 
     substituteInPlace scripts/* \
-      --replace /etc/numen/scripts "$out/etc/numen/scripts" \
-      --replace sed ${gnused}/bin/sed \
-      --replace awk ${gawk}/bin/awk \
-      --replace cat ${coreutils}/bin/cat \
-      --replace notify-send ${libnotify}/bin/notify-send
+      --replace-warn /etc/numen/scripts/ "numen-" \
+      --replace-warn sed ${gnused}/bin/sed \
+      --replace-warn awk ${gawk}/bin/awk \
+      --replace-warn cat ${coreutils}/bin/cat \
+      --replace-warn notify-send ${libnotify}/bin/notify-send
 
     substituteInPlace scripts/menu \
-      --replace "-dmenu" "-${dmenu}/bin/dmenu"
+      --replace-warn "-dmenu" "-${dmenu}/bin/dmenu"
 
     substituteInPlace scripts/displaying \
-      --replace "(pgrep" "(${procps}/bin/pgrep" \
-      --replace "(ps" "(${procps}/bin/ps"
+      --replace-warn "(pgrep" "(${procps}/bin/pgrep" \
+      --replace-warn "(ps" "(${procps}/bin/ps"
 
     substituteInPlace phrases/* \
-      --replace /etc/numen/scripts "$out/etc/numen/scripts" \
-      --replace numenc "$out/bin/numenc"
+      --replace-warn /etc/numen/scripts/ "numen-"
 
     substituteInPlace numenc \
-      --replace /bin/echo "${coreutils}/bin/echo" \
-      --replace cat "${coreutils}/bin/cat" \
+      --replace-warn /bin/echo "${coreutils}/bin/echo" \
+      --replace-warn cat "${coreutils}/bin/cat"
 
     runHook postPatch
   '';
@@ -135,6 +134,10 @@ buildGoModule rec {
     export NUMEN_SKIP_CHECKS=yes
     export NUMEN_DEFAULT_PHRASES_DIR=/etc/numen/phrases
     export NUMEN_SCRIPTS_DIR=/etc/numen/scripts
+
+    for file in ./scripts/*; do
+      cp "$file" "$out/bin/numen-$(basename $file)"
+    done
 
     ./install-numen.sh $out /bin
 
