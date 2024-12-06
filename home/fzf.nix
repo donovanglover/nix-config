@@ -11,5 +11,7 @@
       "--border"
       "--color=16"
     ];
+
+    defaultCommand = "rg --files --hidden --glob=!.git/";
   };
 }
