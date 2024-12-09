@@ -12,7 +12,7 @@
       noto-fonts-emoji
       maple-mono
       font-awesome
-      (nerdfonts.override { fonts = [ "Noto" ]; })
+      nerd-fonts.noto
       kanji-stroke-order-font
       liberation_ttf
     ];
