@@ -65,7 +65,6 @@
       lychee
       bluetui
       ventoy
-      taskwarrior3
       nixpkgs-review
       nix-init
       nix-update
@@ -86,6 +85,12 @@
       nix-inspect
       sherlock
       remind
+      oxipng
+      lazydocker
+      tabiew
+      viddy
+      jless
+      rclip
     ];
   };
 

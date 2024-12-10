@@ -138,8 +138,11 @@ in
       (with pkgs; [
         anki
         pulseaudio
+        pavucontrol
         grim
         wl-clipboard-rs
+        antimicrox
+        libnotify
       ])
     ];
   };
