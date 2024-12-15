@@ -84,6 +84,12 @@
           specialArgs.nix-config = self;
           modules = listFilesRecursive ./hosts/phone;
         };
+
+        iso = nixosSystem {
+          system = "x86_64-linux";
+          specialArgs.nix-config = self;
+          modules = listFilesRecursive ./hosts/iso;
+        };
       };
 
       formatter = forAllSystems (pkgs: pkgs.nixfmt-rfc-style);
