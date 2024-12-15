@@ -29,12 +29,14 @@
 
   outputs =
     { self, nixpkgs, ... }:
+
     let
       inherit (nixpkgs.lib) nixosSystem genAttrs replaceStrings;
       inherit (nixpkgs.lib.filesystem) packagesFromDirectoryRecursive listFilesRecursive;
 
       forAllSystems =
         function:
+
         genAttrs [
           "x86_64-linux"
           "aarch64-linux"
@@ -45,6 +47,7 @@
     {
       packages = forAllSystems (
         pkgs:
+
         packagesFromDirectoryRecursive {
           inherit (pkgs) callPackage;
 
@@ -64,8 +67,10 @@
 
       checks = forAllSystems (
         pkgs:
+
         genAttrs (map nameOf (listFilesRecursive ./tests)) (
           name:
+
           import ./tests/${name}.nix {
             inherit self pkgs;
           }

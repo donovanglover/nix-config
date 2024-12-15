@@ -37,6 +37,7 @@ in
             static const int user_bh = 10;
             static const int showbar = 1;
             static const int topbar = 1;
+
             static const char *fonts[] = {
               "Maple Mono:size=10",
               "Noto Sans Mono CJK JP:size=10",

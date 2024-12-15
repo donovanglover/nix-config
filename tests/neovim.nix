@@ -7,6 +7,7 @@ self.inputs.nixpkgs.lib.nixos.runTest {
 
   nodes.machine =
     { nix-config, config, ... }:
+
     {
       imports = with nix-config.nixosModules; [
         shell

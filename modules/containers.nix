@@ -61,6 +61,7 @@ in
       localAddress = "192.168.100.49";
       config =
         { nix-config, pkgs, ... }:
+
         {
           imports =
             with nix-config.nixosModules;

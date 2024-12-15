@@ -7,6 +7,7 @@
 
   outputs =
     { nix-config, ... }@attrs:
+
     let
       inherit (nix-config.inputs) nixpkgs;
       inherit (nixpkgs.lib) nixosSystem optional;
@@ -17,6 +18,7 @@
         hyprland = nixosSystem {
           system = "x86_64-linux";
           specialArgs = attrs;
+
           modules = [
             ./configuration.nix
           ] ++ optional (pathExists ./hardware-configuration.nix) ./hardware-configuration.nix;
