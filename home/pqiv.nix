@@ -4,9 +4,9 @@
 
     settings = {
       options = {
-        lazy-load = 1;
-        hide-info-box = 1;
-        scale-mode-screen-fraction = 1;
+        lazy-load = true;
+        hide-info-box = true;
+        scale-mode-screen-fraction = true;
         background-pattern = "black";
         disable-backends = "archive,archive_cbx,libav,poppler,spectre";
         thumbnail-size = "256x256";
