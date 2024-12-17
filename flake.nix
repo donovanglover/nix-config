@@ -95,6 +95,12 @@
           specialArgs.nix-config = self;
           modules = listFilesRecursive ./hosts/iso;
         };
+
+        server = nixosSystem {
+          system = "x86_64-linux";
+          specialArgs.nix-config = self;
+          modules = listFilesRecursive ./hosts/server;
+        };
       };
 
       formatter = forAllSystems (pkgs: pkgs.nixfmt-rfc-style);
