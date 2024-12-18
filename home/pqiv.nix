@@ -11,6 +11,7 @@
         disable-backends = "archive,archive_cbx,libav,poppler,spectre";
         thumbnail-size = "256x256";
         command-1 = "thunar";
+        command-2 = "trash put";
       };
     };
 
