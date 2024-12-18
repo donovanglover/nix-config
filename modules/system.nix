@@ -245,7 +245,10 @@ in
           68
         ] ++ optional allowSRB2Port [ 5029 ];
 
-        allowedTCPPorts = mkIf allowDevPort [ 3000 ];
+        allowedTCPPorts = [
+          80
+          443
+        ] ++ optional allowDevPort [ 3000 ];
       };
     };
 
