@@ -33,12 +33,14 @@
 
     bindings = {
       "ctrl+a" = "script-message osc-visibility cycle";
+      "ctrl+f" = "script-binding subtitle_lines/list_subtitles";
     };
 
     scripts = with pkgs.mpvScripts; [
       mpris
       uosc
       thumbfast
+      mpv-subtitle-lines
     ];
   };
 
