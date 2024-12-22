@@ -163,11 +163,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1728620064,
-        "narHash": "sha256-cfQOiJ0k+WEFh1P98h9iAjiyEJI2OSq3SXiZNaE4bBA=",
+        "lastModified": 1734876194,
+        "narHash": "sha256-GlnpNCrcVCqNfvMI2U+72Qft9lmezaG/3ZTqYvKbnoo=",
         "owner": "donovanglover",
         "repo": "mobile-nixos",
-        "rev": "ded241ad82077c5e7a30f262dd5d4b0dd45e89ea",
+        "rev": "dc50a14bedf0863f9ae89c1d9c58f68a3c83f7ef",
         "type": "github"
       },
       "original": {
