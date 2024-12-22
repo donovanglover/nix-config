@@ -180,6 +180,7 @@ in
 
       misc = {
         disable_hyprland_logo = true;
+        disable_hyprland_qtutils_check = true;
         animate_manual_resizes = true;
         animate_mouse_windowdragging = true;
         disable_autoreload = true;
