@@ -65,6 +65,9 @@ in
 
       end = [
         {
+          type = "tray";
+        }
+        {
           type = "script";
           cmd = "~/.config/${volumeScript}";
           on_click_left = "${dunst-scripts}/bin/mv-up";
@@ -111,6 +114,10 @@ in
         .label, .script, .tray {
           padding-left: 0.5em;
           padding-right: 0.5em;
+        }
+
+        .tray .item {
+          padding-left: 0.5em;
         }
 
         .upower {
