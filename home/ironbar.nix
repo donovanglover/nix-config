@@ -53,6 +53,7 @@ in
       center = singleton {
         type = "launcher";
         icon_size = 39;
+
         favorites = [
           "librewolf"
           "kitty"
