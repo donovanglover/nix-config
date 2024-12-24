@@ -164,4 +164,13 @@ buildGoModule rec {
         ]
       } \
   '';
+
+  meta = {
+    homepage = "https://git.sr.ht/~geb/numen";
+    description = "Voice control for handsfree computing";
+    license = lib.licenses.agpl3Only;
+    maintainers = with lib.maintainers; [ donovanglover ];
+    mainProgram = "numen";
+    platforms = lib.platforms.linux;
+  };
 }
