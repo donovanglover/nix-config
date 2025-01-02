@@ -211,6 +211,13 @@ stdenvNoCC.mkDerivation {
       hash = "sha256-mHT9+nslxUDJp96gU/UjzEifG1BIOu+T4LhgN/wJDts=";
       stripRoot = false;
     })
+
+    (fetchzip {
+      name = "2025-01-01 Midnight Moment Art Contest All Entries";
+      url = "https://assets.ppy.sh/contests/226/MidnightMomentFanartSubmissions.zip";
+      hash = "sha256-Tx550sw690WK3SVAsl+cjLb7Qrbrn8laaqjZMLU3efc=";
+      stripRoot = false;
+    })
   ];
 
   sourceRoot = ".";

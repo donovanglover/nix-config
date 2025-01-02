@@ -221,8 +221,8 @@ in
           #!/usr/bin/env fish
 
           feh --bg-fill \
-            (random choice (fd . ${osu-backgrounds}/2024-10-09-Autumn-2024-Fanart-Contest-All-Entries --follow -e jpg -e png)) \
-            (random choice (fd . ${osu-backgrounds}/2024-10-09-Autumn-2024-Fanart-Contest-All-Entries --follow -e jpg -e png))
+            (random choice (fd . ${osu-backgrounds}/2025-01-01-Midnight-Moment-Art-Contest-All-Entries --follow -e jpg -e png)) \
+            (random choice (fd . ${osu-backgrounds}/2025-01-01-Midnight-Moment-Art-Contest-All-Entries --follow -e jpg -e png))
         '';
     };
 
