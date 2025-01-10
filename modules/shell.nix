@@ -90,6 +90,8 @@
       viddy
       jless
       rclip
+      exiftool
+      xsubfind3r
     ];
   };
 
