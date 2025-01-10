@@ -33,7 +33,6 @@
       stress
       hdparm
       recode
-      rmlint
       jpegoptim
       pass
       sudachi-rs
