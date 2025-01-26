@@ -20,11 +20,6 @@
       url = "github:donovanglover/sakaya";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    mobile-nixos = {
-      url = "github:donovanglover/mobile-nixos";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -82,12 +77,6 @@
           system = "x86_64-linux";
           specialArgs.nix-config = self;
           modules = listFilesRecursive ./hosts/laptop;
-        };
-
-        mobile-nixos = nixosSystem {
-          system = "aarch64-linux";
-          specialArgs.nix-config = self;
-          modules = listFilesRecursive ./hosts/phone;
         };
 
         iso = nixosSystem {

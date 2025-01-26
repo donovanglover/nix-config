@@ -27,8 +27,6 @@ let
     allowDevPort
     ;
 
-  isPhone = config.programs.calls.enable;
-
   cfg = config.modules.system;
 in
 {
@@ -155,7 +153,7 @@ in
 
         isNormalUser = true;
         uid = 1000;
-        password = mkIf (hashedPassword == null && !isContainer) (if isPhone then "1234" else username);
+        password = mkIf (hashedPassword == null && !isContainer) username;
 
         extraGroups =
           if isContainer then
@@ -181,7 +179,7 @@ in
           inherit (cfg) stateVersion;
         };
 
-        programs.man.generateCaches = mkIf (!isPhone) true;
+        programs.man.generateCaches = true;
       };
 
       users.${username}.home = {

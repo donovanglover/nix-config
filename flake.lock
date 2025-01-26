@@ -225,26 +225,6 @@
         "type": "github"
       }
     },
-    "mobile-nixos": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1737174595,
-        "narHash": "sha256-9PypiQkyXtg8R3eZlNNu6Qafc/CmKfWyJB3qYx6tUNE=",
-        "owner": "donovanglover",
-        "repo": "mobile-nixos",
-        "rev": "816d7d125e0cb0e6a9b639e51e71d84e9dae572e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "donovanglover",
-        "repo": "mobile-nixos",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1736883708,
@@ -264,7 +244,6 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "mobile-nixos": "mobile-nixos",
         "nixpkgs": "nixpkgs",
         "sakaya": "sakaya",
         "stylix": "stylix"
