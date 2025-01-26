@@ -5,9 +5,6 @@
     enable = true;
 
     config = {
-      video-sync = "display-resample";
-      interpolation = true;
-      tscale = "oversample";
       fullscreen = true;
 
       sub-auto = "fuzzy";
