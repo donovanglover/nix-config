@@ -9,6 +9,7 @@
       "image/png" = "pqiv.desktop";
       "image/jpeg" = "pqiv.desktop";
       "image/gif" = "pqiv.desktop";
+      "image/webp" = "pqiv.desktop";
       "application/pdf" = "org.pwmt.zathura-pdf-mupdf.desktop";
       "application/x-wine-extension-osz" = "osu-stable.desktop";
       "x-scheme-handler/http" = "librewolf.desktop";
