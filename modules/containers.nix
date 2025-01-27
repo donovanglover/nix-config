@@ -58,7 +58,6 @@ in
     wine = template // {
       config =
         { nix-config, pkgs, ... }:
-
         {
           imports =
             with nix-config.nixosModules;

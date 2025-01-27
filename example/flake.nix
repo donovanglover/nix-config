@@ -7,7 +7,6 @@
 
   outputs =
     { nix-config, ... }@attrs:
-
     let
       inherit (nix-config.inputs) nixpkgs;
       inherit (nixpkgs.lib) nixosSystem optional;
