@@ -47,7 +47,6 @@
       cmatrix
       gdu
       hexyl
-      diskonaut
       pgcli
       litecli
       p7zip
