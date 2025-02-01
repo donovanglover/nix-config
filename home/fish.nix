@@ -150,6 +150,15 @@
           echo "Done. Reduced file size from $ORIGINAL_SIZE to $NEW_SIZE"
         '';
 
+      pr = # fish
+        ''
+          if git remote | rg -q upstream
+            git fetch upstream "pull/$argv/head" && git checkout FETCH_HEAD
+          else
+            git fetch origin "pull/$argv/head" && git checkout FETCH_HEAD
+          end
+        '';
+
       ex = # fish
         ''
           if string match -qe -- ".part1." "$argv";
