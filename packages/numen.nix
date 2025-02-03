@@ -1,6 +1,7 @@
 {
   fetchzip,
   stdenv,
+  stdenvNoCC,
   buildGoModule,
   makeWrapper,
   scdoc,
@@ -19,7 +20,7 @@
 }:
 
 let
-  vosk-bin = stdenv.mkDerivation (finalAttrs: {
+  vosk-bin = stdenvNoCC.mkDerivation (finalAttrs: {
     name = "vosk-bin";
     version = "0.3.45";
 
@@ -38,7 +39,7 @@ let
     '';
   });
 
-  vosk-model-small-en-us = stdenv.mkDerivation (finalAttrs: {
+  vosk-model-small-en-us = stdenvNoCC.mkDerivation (finalAttrs: {
     name = "vosk-model-small-en-us";
     version = "0.15";
 
@@ -103,13 +104,13 @@ buildGoModule rec {
 
     substituteInPlace scripts/* \
       --replace-warn /etc/numen/scripts/ "numen-" \
-      --replace-warn sed ${gnused}/bin/sed \
-      --replace-warn awk ${gawk}/bin/awk \
+      --replace-warn sed ${lib.getExe gnused} \
+      --replace-warn awk ${lib.getExe gawk} \
       --replace-warn cat ${coreutils}/bin/cat \
-      --replace-warn notify-send ${libnotify}/bin/notify-send
+      --replace-warn notify-send ${lib.getExe libnotify}
 
     substituteInPlace scripts/menu \
-      --replace-warn "-dmenu" "-${dmenu}/bin/dmenu"
+      --replace-warn "-dmenu" "-${lib.getExe dmenu}"
 
     substituteInPlace scripts/displaying \
       --replace-warn "(pgrep" "(${procps}/bin/pgrep" \
@@ -162,7 +163,7 @@ buildGoModule rec {
           libxkbcommon
           stdenv.cc.cc.lib
         ]
-      } \
+      }
   '';
 
   meta = {
