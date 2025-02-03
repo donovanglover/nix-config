@@ -178,6 +178,10 @@ in
         "center 1,class:^(librewolf|Mullvad Browser)$"
       ];
 
+      ecosystem = {
+        no_update_news = true;
+      };
+
       misc = {
         disable_hyprland_logo = true;
         disable_hyprland_qtutils_check = true;
