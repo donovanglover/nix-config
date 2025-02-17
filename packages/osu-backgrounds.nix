@@ -6,7 +6,7 @@
 
 stdenvNoCC.mkDerivation {
   pname = "osu-backgrounds";
-  version = "2024-10-09";
+  version = "2025-01-01";
 
   srcs = [
     (fetchzip {
