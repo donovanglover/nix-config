@@ -92,7 +92,7 @@ in
 
     profiles = {
       default = {
-        extensions = with nix-config.packages.${pkgs.system}; [
+        extensions.packages = with nix-config.packages.${pkgs.system}; [
           new-tab-identity
         ];
 

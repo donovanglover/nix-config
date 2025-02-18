@@ -35,7 +35,6 @@
       recode
       jpegoptim
       pass
-      sudachi-rs
       tango
       npm-check-updates
       microfetch
