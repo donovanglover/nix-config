@@ -90,6 +90,7 @@
       rclip
       exiftool
       xsubfind3r
+      all-the-package-names
     ];
   };
 
