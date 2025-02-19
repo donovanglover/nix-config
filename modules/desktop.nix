@@ -130,6 +130,7 @@ in
           ringracers
           jamesdsp
           texliveFull
+          shotwell
         ]
       ))
 
