@@ -25,7 +25,7 @@ in
   };
 
   config = {
-    hardware.graphics.enable32Bit = true;
+    hardware.graphics.enable32Bit = mkIf (pkgs.system == "x86_64-linux") true;
 
     programs = {
       hyprland.enable = mkIf (!isContainer) true;
