@@ -81,11 +81,6 @@ buildGoModule rec {
 
   vendorHash = "sha256-Y3CbAnIK+gEcUfll9IlEGZE/s3wxdhAmTJkj9zlAtoQ=";
 
-  preBuild = ''
-    export CGO_CFLAGS="-I${vosk-bin}/include"
-    export CGO_LDFLAGS="-L${vosk-bin}/lib"
-  '';
-
   nativeBuildInputs = [
     makeWrapper
     scdoc
@@ -98,6 +93,15 @@ buildGoModule rec {
     "-X main.DefaultModelPaths=${vosk-model-small-en-us}/usr/share/vosk-models/small-en-us"
     "-X main.DefaultPhrasesDir=${placeholder "out"}/etc/numen/phrases"
   ];
+
+  env = {
+    CGO_CFLAGS = "-I${vosk-bin}/include";
+    CGO_LDFLAGS = "-L${vosk-bin}/lib";
+    NUMEN_SKIP_BINARY = "yes";
+    NUMEN_SKIP_CHECKS = "yes";
+    NUMEN_DEFAULT_PHRASES_DIR = "/etc/numen/phrases";
+    NUMEN_SCRIPTS_DIR = "/etc/numen/scripts";
+  };
 
   patchPhase = ''
     runHook prePatch
@@ -130,11 +134,6 @@ buildGoModule rec {
     runHook preInstall
 
     install -Dm755 $GOPATH/bin/numen -t $out/bin
-
-    export NUMEN_SKIP_BINARY=yes
-    export NUMEN_SKIP_CHECKS=yes
-    export NUMEN_DEFAULT_PHRASES_DIR=/etc/numen/phrases
-    export NUMEN_SCRIPTS_DIR=/etc/numen/scripts
 
     for file in ./scripts/*; do
       cp "$file" "$out/bin/numen-$(basename $file)"
