@@ -128,7 +128,6 @@ in
           satty
           srb2
           ringracers
-          jamesdsp
           texliveFull
           shotwell
         ]
