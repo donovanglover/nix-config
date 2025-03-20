@@ -9,7 +9,7 @@
       noto-fonts
       noto-fonts-cjk-serif
       noto-fonts-cjk-sans
-      noto-fonts-emoji
+      noto-fonts-color-emoji
       maple-mono
       font-awesome
       nerd-fonts.noto
