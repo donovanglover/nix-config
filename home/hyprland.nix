@@ -234,8 +234,8 @@ in
         "${super}_SHIFT, 1, exec, hyprnome --previous --move"
         "${super}_SHIFT, 2, exec, hyprnome --move"
 
-        "${super}, mouse_down, workspace, e+1"
-        "${super}, mouse_up, workspace, e-1"
+        "${super}, mouse_down, exec, hyprnome --previous"
+        "${super}, mouse_up, exec, hyprnome"
       ];
 
       bindm = [
