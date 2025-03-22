@@ -45,10 +45,10 @@ let
         };
       };
 
-      Google.metaData.hidden = true;
-      Bing.metaData.hidden = true;
-      DuckDuckGo.metaData.hidden = true;
-      "Wikipedia (en)".metaData.hidden = true;
+      google.metaData.hidden = true;
+      bing.metaData.hidden = true;
+      ddg.metaData.hidden = true;
+      wikipedia.metaData.hidden = true;
     };
   };
 
@@ -83,6 +83,8 @@ let
   };
 in
 {
+  stylix.targets.librewolf.profileNames = [ "default" ];
+
   programs.librewolf = {
     enable = true;
 

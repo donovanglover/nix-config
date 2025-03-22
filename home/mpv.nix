@@ -8,7 +8,6 @@
       fullscreen = true;
 
       sub-auto = "fuzzy";
-      sub-font = "Noto Sans CJK JP Medium";
       sub-blur = 10;
       sub-file-paths = "subs:subtitles:字幕";
 
