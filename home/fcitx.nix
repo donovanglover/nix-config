@@ -194,7 +194,7 @@ in
           TrayTextColor=${base05}
           PreferTextIcon=False
           ShowLayoutNameInIcon=True
-          UseInputMethodLangaugeToDisplayText=True
+          UseInputMethodLanguageToDisplayText=True
           Theme=${themeName}
         '';
     };
