@@ -4,12 +4,12 @@
   fetchurl,
 }:
 
-buildNpmPackage rec {
+buildNpmPackage (finalAttrs: {
   pname = "nadesiko3";
   version = "3.6.44";
 
   src = fetchurl {
-    url = "https://registry.npmjs.org/nadesiko3/-/nadesiko3-${version}.tgz";
+    url = "https://registry.npmjs.org/nadesiko3/-/nadesiko3-${finalAttrs.version}.tgz";
     hash = "sha256-LSS/ieeyOUc3Q1bEfVqdNei4rIeG9Wz67TmCsGtrojU=";
   };
 
@@ -50,4 +50,4 @@ buildNpmPackage rec {
     mainProgram = "cnako3";
     maintainers = with lib.maintainers; [ donovanglover ];
   };
-}
+})
