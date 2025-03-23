@@ -21,7 +21,7 @@
 
 let
   vosk-bin = stdenvNoCC.mkDerivation (finalAttrs: {
-    name = "vosk-bin";
+    pname = "vosk-bin";
     version = "0.3.45";
 
     src = fetchzip {
@@ -40,7 +40,7 @@ let
   });
 
   vosk-model-small-en-us = stdenvNoCC.mkDerivation (finalAttrs: {
-    name = "vosk-model-small-en-us";
+    pname = "vosk-model-small-en-us";
     version = "0.15";
 
     src = fetchzip {
