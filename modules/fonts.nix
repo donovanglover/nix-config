@@ -10,7 +10,7 @@
       noto-fonts-cjk-serif
       noto-fonts-cjk-sans
       noto-fonts-color-emoji
-      maple-mono
+      maple-mono.variable
       font-awesome
       nerd-fonts.noto
       kanji-stroke-order-font

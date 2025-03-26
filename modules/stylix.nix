@@ -70,7 +70,7 @@ in
       };
 
       monospace = {
-        package = pkgs.maple-mono;
+        package = pkgs.maple-mono.variable;
         name = "Maple Mono";
       };
 
