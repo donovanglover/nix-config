@@ -129,6 +129,9 @@ in
           srb2
           ringracers
           texliveFull
+          sqlitebrowser
+          qdiskinfo
+          memento
           shotwell
         ]
       ))

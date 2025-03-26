@@ -52,6 +52,7 @@
       unar
       rsync
       rclone
+      megacmd
       ffmpeg
       imagemagick
       smartmontools
@@ -91,6 +92,12 @@
       exiftool
       xsubfind3r
       all-the-package-names
+      pik
+      bottom
+      pdfminer
+      dos2unix
+      clock-rs
+      taskwarrior3
     ];
   };
 
