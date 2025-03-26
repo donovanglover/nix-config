@@ -130,7 +130,7 @@
         ''
           set ORIGINAL_SIZE (du -hs | cut -f1)
 
-          fd -e wav -x ffmpeg -i "{}" -loglevel quiet -stats "{.}.flac"
+          fd -e wav -x ffmpeg -i "file:{}" -loglevel quiet -stats "file:{.}.flac"
           fd -e wav -X trash
 
           set NEW_SIZE (du -hs | cut -f1)
@@ -142,7 +142,7 @@
         ''
           set ORIGINAL_SIZE (du -hs | cut -f1)
 
-          fd -e wav -e flac -x ffmpeg -i "{}" -c:a libopus -b:a 128K -loglevel quiet -stats "{.}.opus"
+          fd -e wav -e flac -x ffmpeg -i "file:{}" -c:a libopus -b:a 128K -loglevel quiet -stats "file:{.}.opus"
           fd -e wav -e flac -X rm -I
 
           set NEW_SIZE (du -hs | cut -f1)
