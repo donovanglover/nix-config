@@ -7,9 +7,7 @@
     config = {
       fullscreen = true;
 
-      sub-auto = "fuzzy";
       sub-blur = 10;
-      sub-file-paths = "subs:subtitles:字幕";
 
       screenshot-format = "png";
 
