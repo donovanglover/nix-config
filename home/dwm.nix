@@ -18,6 +18,7 @@ let
 
   barScript = "dwm/bar.fish";
   wallpaperScript = "dwm/wallpaper.fish";
+  areaScript = "dwm/area.fish";
 in
 {
   home = {
@@ -25,6 +26,7 @@ in
       feh
       xclip
       scrot
+      maim
       mpdris2
 
       (dwm.override {
@@ -100,6 +102,7 @@ in
             static const char *mute_vol[] = { "${dunst-scripts}/bin/mv-mute", NULL };
             static const char *mute_mic[] = { "${dunst-scripts}/bin/mv-mic", NULL };
             static const char *wallpaper[] = { "fish", "${homeDirectory}/.config/${wallpaperScript}", NULL };
+            static const char *area[] = { "fish", "${homeDirectory}/.config/${areaScript}", NULL };
             static const char *audio_prev[] = { "playerctl", "-p", "playerctld", "previous", NULL };
             static const char *audio_next[] = { "playerctl", "-p", "playerctld", "next", NULL };
             static const char *audio_play_pause[] = { "playerctl", "-p", "playerctld", "play-pause", NULL };
@@ -119,7 +122,7 @@ in
               { 0, XF86XK_AudioPause, spawn, {.v = audio_play_pause } },
               { 0, XF86XK_AudioForward, spawn, {.v = audio_forward } },
               { 0, XF86XK_AudioRewind, spawn, {.v = audio_rewind } },
-              { 0, XK_Print, spawn, {.v = print } },
+              { 0, XK_Print, spawn, {.v = area } },
               { MODKEY, XK_bracketleft, spawn, {.v = dmenucmd } },
               { MODKEY, XK_bracketright, spawn, {.v = explorercmd } },
               { MODKEY, XK_o, togglebar, {0} },
@@ -128,6 +131,7 @@ in
               { MODKEY, XK_j, focusstack, {.i = +1 } },
               { MODKEY, XK_k, focusstack, {.i = -1 } },
               { MODKEY, XK_m, tagmon, {.i = +1 } },
+              { MODKEY, XK_p, spawn, {.v = print } },
               { MODKEY, XK_w, spawn, {.v = wallpaper } },
               { MODKEY, XK_Return, zoom, {0} },
               { MODKEY, XK_comma, focusmon, {.i = -1 } },
@@ -264,6 +268,16 @@ in
 
             sleep 5s
           end
+        '';
+    };
+
+    ${areaScript} = {
+      executable = true;
+      text = # fish
+        ''
+          #!/usr/bin/env fish
+
+          maim -s | xclip -selection clipboard -t image/png
         '';
     };
   };
