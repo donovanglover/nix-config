@@ -10,7 +10,6 @@
     extraPackages = with pkgs; [
       nodePackages.typescript-language-server
       nodePackages."@astrojs/language-server"
-      nodePackages."@prisma/language-server"
       emmet-language-server
       markdown-oxide
       tailwindcss-language-server
