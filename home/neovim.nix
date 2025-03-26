@@ -18,6 +18,7 @@
       texlab
       nixd
       universal-ctags
+      typos-lsp
     ];
 
     extraConfig = # vim
@@ -219,6 +220,7 @@
               'astro',
               'cssls',
               'ts_ls',
+              'typos_lsp',
             }
 
             for _, lsp in ipairs(servers) do
