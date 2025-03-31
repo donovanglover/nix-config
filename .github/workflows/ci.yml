@@ -6,12 +6,16 @@ on:
   pull_request:
     branches: [ master ]
 
+permissions: {}
+
 jobs:
   build:
     name: nix build packages/*.nix
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: cachix/install-nix-action@v27
       - run: basename -s .nix packages/* | sed 's/.*/.#&/' | xargs nix build
   test:
@@ -19,6 +23,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
+      with:
+        persist-credentials: false
     - uses: cachix/install-nix-action@v27
       with:
         extra_nix_config: "extra-platforms = aarch64-linux"
@@ -28,6 +34,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: cachix/install-nix-action@v27
       - run: nix fmt -- --check **/*.nix
   example:
@@ -35,6 +43,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: cachix/install-nix-action@v27
       - run: cp ./hosts/laptop/hardware-configuration.nix ./example/hardware-configuration.nix
       - run: git add .
@@ -44,6 +54,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: cachix/install-nix-action@v27
       - run: nix run nixpkgs#statix check
   nixd:
@@ -51,5 +63,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - uses: cachix/install-nix-action@v27
       - run: nix run .#nixf-tidy
