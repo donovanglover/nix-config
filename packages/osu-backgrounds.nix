@@ -6,7 +6,7 @@
 
 stdenvNoCC.mkDerivation {
   pname = "osu-backgrounds";
-  version = "2025-01-01";
+  version = "2025-04-01";
 
   srcs = [
     (fetchzip {
@@ -216,6 +216,13 @@ stdenvNoCC.mkDerivation {
       name = "2025-01-01 Midnight Moment Art Contest All Entries";
       url = "https://assets.ppy.sh/contests/226/MidnightMomentFanartSubmissions.zip";
       hash = "sha256-Tx550sw690WK3SVAsl+cjLb7Qrbrn8laaqjZMLU3efc=";
+      stripRoot = false;
+    })
+
+    (fetchzip {
+      name = "2025-04-01 Springtime Showdown Art Contest All Entries";
+      url = "https://assets.ppy.sh/contests/242/SpringtimeShowdownFanartSubmissions.zip";
+      hash = "sha256-Jrkwi68iZd1R9NoIHjUz+rArICG+icr/cJZerl/t3Ck=";
       stripRoot = false;
     })
   ];
