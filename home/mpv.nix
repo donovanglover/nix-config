@@ -28,6 +28,7 @@
     bindings = {
       "ctrl+a" = "script-message osc-visibility cycle";
       "ctrl+f" = "script-binding subtitle_lines/list_subtitles";
+      "Del" = "run \"trash\" \"\${path}\"; playlist_next";
     };
 
     scripts = with pkgs.mpvScripts; [
