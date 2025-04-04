@@ -167,7 +167,7 @@ in
         "blur,notifications"
       ];
 
-      windowrulev2 = [
+      windowrule = [
         "nomaxsize,class:^(winecfg\.exe|osu\.exe)$"
         "opaque,class:^(kitty)$"
         "nodim,title:^(Picture-in-Picture|ピクチャーインピクチャー)$"
