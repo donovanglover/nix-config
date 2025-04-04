@@ -98,6 +98,9 @@
       dos2unix
       clock-rs
       taskwarrior3
+      unflac
+      openai-whisper
+      zizmor
     ];
   };
 
