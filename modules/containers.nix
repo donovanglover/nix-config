@@ -86,7 +86,7 @@ in
 
           environment = {
             systemPackages = with pkgs; [
-              wineWowPackages.waylandFull
+              wineWowPackages.stagingFull
               winetricks
             ];
 
