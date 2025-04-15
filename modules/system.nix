@@ -162,6 +162,7 @@ in
               "feedbackd"
               "video"
               "input"
+              "cdrom"
             ];
       };
     };
