@@ -21,6 +21,7 @@
 
     shadowExclude = fadeExclude ++ [
       "class_g = 'slop'"
+      "class_g = 'coord'"
     ];
 
     opacityRules = [
@@ -35,6 +36,7 @@
 
       blur-background-exclude = [
         "class_g = 'slop'"
+        "class_g = 'coord'"
       ];
 
       clip-shadow-above = [
