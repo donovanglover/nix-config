@@ -7,8 +7,6 @@
     config = {
       fullscreen = true;
 
-      sub-blur = 10;
-
       screenshot-format = "png";
 
       title = "\${filename} - mpv";
