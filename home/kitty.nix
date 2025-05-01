@@ -22,6 +22,8 @@ in
       window_padding_width = 5;
       tab_bar_margin_width = 5;
 
+      notify_on_cmd_finish = "unfocused";
+
       scrollback_pager = "less --chop-long-lines --raw-control-chars +INPUT_LINE_NUMBER";
     };
 
