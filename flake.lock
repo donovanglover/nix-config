@@ -296,11 +296,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1744017723,
-        "narHash": "sha256-/InfrpDiO5Tk8i00qmNjocX8/4BRwWjTRKFT3c8ruoA=",
+        "lastModified": 1746120897,
+        "narHash": "sha256-joPvzJwuCE0thZzKPSsK5k37EIIYHomx+Y8t+gZunLk=",
         "owner": "donovanglover",
         "repo": "sakaya",
-        "rev": "902ee6dbc6d3ea5304d040db4d9afe6fb665a429",
+        "rev": "449d31702e9d91219eb3f005087308972fb6d7f2",
         "type": "github"
       },
       "original": {
