@@ -81,11 +81,9 @@
       monolith
       haylxon
       nix-inspect
-      sherlock
       remind
       oxipng
       lazydocker
-      tabiew
       viddy
       jless
       rclip
