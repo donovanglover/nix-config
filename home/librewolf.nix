@@ -29,19 +29,19 @@ let
         icon = "${pkgs.mullvad-vpn}/share/icons/hicolor/32x32/apps/mullvad-vpn.png";
       };
 
-      "goo.ne.jp" = {
+      "excite.co.jp" = {
         urls = singleton {
-          template = "https://search.goo.ne.jp/web.jsp";
+          template = "https://websearch.excite.co.jp";
 
           params = singleton {
-            name = "MT";
+            name = "q";
             value = "{searchTerms}";
           };
         };
 
         icon = pkgs.fetchurl {
-          url = "https://search.goo.ne.jp/favicon.ico";
-          hash = "sha256-luYqjziIpHgIJPbryjFjera3Fdbbj/fO6SNyDbnEZj0=";
+          url = "https://s.eximg.jp/search/images/lep.ico";
+          hash = "sha256-mUnVTRrpDFAcXtC8YPmHUCICr/cYF0FNYkBBHedZReE=";
         };
       };
 
