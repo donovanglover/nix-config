@@ -31,6 +31,11 @@ let
         mountPoint = hostPath;
       };
 
+      seq = rec {
+        hostPath = "/dev/snd/seq";
+        mountPoint = hostPath;
+      };
+
       dri = rec {
         hostPath = "/dev/dri";
         mountPoint = hostPath;
@@ -41,6 +46,10 @@ let
       {
         modifier = "rw";
         node = "/dev/dri/renderD128";
+      }
+      {
+        modifier = "rw";
+        node = "/dev/snd/seq";
       }
     ];
 
