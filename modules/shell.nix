@@ -62,7 +62,6 @@
       phraze
       lychee
       bluetui
-      ventoy
       nixpkgs-review
       nix-init
       nix-update
