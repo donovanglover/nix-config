@@ -21,6 +21,11 @@ let
         isReadOnly = false;
       };
 
+      media = rec {
+        hostPath = "/media";
+        mountPoint = hostPath;
+      };
+
       waylandDisplay = rec {
         hostPath = "/run/user/1000";
         mountPoint = hostPath;
