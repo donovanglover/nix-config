@@ -98,6 +98,10 @@
       unflac
       openai-whisper
       zizmor
+      go-grip
+      eclint
+      editorconfig-checker
+      mountpoint-s3
     ];
   };
 

@@ -116,6 +116,8 @@ in
       (mkIf bloat (
         with pkgs;
         [
+          wineWowPackages.stagingFull
+          winetricks
           mullvad-browser
           spek
           audacity
@@ -131,8 +133,15 @@ in
           texliveFull
           sqlitebrowser
           qdiskinfo
-          memento
           shotwell
+          mkvtoolnix
+          meld
+          flacon
+          vlc
+          picard
+          czkawka
+          wvkbd
+          rehex
         ]
       ))
 
