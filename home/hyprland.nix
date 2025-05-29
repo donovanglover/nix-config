@@ -206,6 +206,7 @@ in
         "${super}_ALT, delete, exit"
         "${super}, V, togglefloating"
         "${super}, U, exec, ~/.config/${gapsScript}"
+        "${super}, R, exec, record"
         "${super}, X, pin"
         "${super}, F, fullscreen"
         "${super}, Tab, exec, hyprctl dispatch overview:toggle"
