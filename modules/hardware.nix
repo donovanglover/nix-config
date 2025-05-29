@@ -6,6 +6,8 @@
 }:
 
 let
+  inherit (config.modules.system) username;
+
   inherit (builtins) toJSON;
 
   inherit (lib)
@@ -35,7 +37,14 @@ in
   };
 
   config = {
-    hardware.bluetooth.enable = mkIf bluetooth true;
+    hardware = {
+      bluetooth.enable = mkIf bluetooth true;
+
+      openrazer = mkIf mouseSettings {
+        enable = true;
+        users = [ username ];
+      };
+    };
 
     services = {
       ratbagd.enable = mkIf mouseSettings true;
@@ -77,6 +86,7 @@ in
         with pkgs;
         [
           piper
+          polychromatic
         ]
       );
 
