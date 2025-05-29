@@ -19,7 +19,6 @@
       osd-bar-h = "0.2";
       osd-duration = 750;
 
-      really-quiet = "yes";
       autofit = "65%";
     };
 
