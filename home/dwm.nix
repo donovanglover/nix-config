@@ -76,6 +76,7 @@ in
 
             static const Rule rules[] = {
               { "librewolf", NULL, NULL, 0, 1, -1 },
+              { "coord", NULL, NULL, 0, 1, -1 },
             };
 
             static const float mfact = 0.55;
