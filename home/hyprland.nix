@@ -172,6 +172,7 @@ in
         "opaque,class:^(kitty)$"
         "nodim,title:^(Picture-in-Picture|ピクチャーインピクチャー)$"
         "nodim,class:^(mpv)$"
+        "nodim,class:^(.*.exe)\$"
         "tile,class:^(.qemu-system-x86_64-wrapped)$"
         "opacity ${opacity} ${opacity},class:^(thunar)$"
         "float,class:^(librewolf|Mullvad Browser)$"
