@@ -98,6 +98,7 @@ in
             static const char *brighter[] = { "${dunst-scripts}/bin/mb-up", NULL };
             static const char *dimmer[] = { "${dunst-scripts}/bin/mb-down", NULL };
             static const char *print[] = { "scrot", NULL };
+            static const char *record[] = { "record", NULL };
             static const char *up_vol[] = { "${dunst-scripts}/bin/mv-up", NULL };
             static const char *down_vol[] = { "${dunst-scripts}/bin/mv-down", NULL };
             static const char *mute_vol[] = { "${dunst-scripts}/bin/mv-mute", NULL };
@@ -134,6 +135,7 @@ in
               { MODKEY, XK_m, tagmon, {.i = +1 } },
               { MODKEY, XK_p, spawn, {.v = print } },
               { MODKEY, XK_w, spawn, {.v = wallpaper } },
+              { MODKEY, XK_r, spawn, {.v = record } },
               { MODKEY, XK_Return, zoom, {0} },
               { MODKEY, XK_comma, focusmon, {.i = -1 } },
               { MODKEY, XK_period, focusmon, {.i = +1 } },
