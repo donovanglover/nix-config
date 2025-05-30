@@ -28,6 +28,7 @@ in
       scrot
       maim
       mpdris2
+      xdotool
 
       (dwm.override {
         conf = # c
