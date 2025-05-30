@@ -4,6 +4,19 @@
   programs.mpv = {
     enable = true;
 
+    package = pkgs.mpv-unwrapped.wrapper {
+      mpv = pkgs.mpv-unwrapped.override {
+        ffmpeg = pkgs.ffmpeg-full;
+      };
+
+      scripts = with pkgs.mpvScripts; [
+        mpris
+        uosc
+        thumbfast
+        mpv-subtitle-lines
+      ];
+    };
+
     config = {
       fullscreen = true;
 
@@ -27,13 +40,6 @@
       "ctrl+f" = "script-binding subtitle_lines/list_subtitles";
       "Del" = "run \"trash\" \"\${path}\"; playlist_next";
     };
-
-    scripts = with pkgs.mpvScripts; [
-      mpris
-      uosc
-      thumbfast
-      mpv-subtitle-lines
-    ];
   };
 
   xdg.configFile."mpv/script-opts/uosc.conf".text = lib.concatStrings [
