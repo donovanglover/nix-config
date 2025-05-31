@@ -47,6 +47,8 @@ in
 
       autofit = "65%";
 
+      slang = "jp,jpn,japanese";
+
       inherit input-ipc-server;
     };
 
