@@ -20,6 +20,18 @@ in
     package = pkgs.mpv-unwrapped.wrapper {
       mpv = pkgs.mpv-unwrapped.override {
         ffmpeg = pkgs.ffmpeg-full;
+
+        libplacebo = pkgs.libplacebo.overrideAttrs (oldAttrs: rec {
+          version = "7.349.0";
+
+          src = pkgs.fetchFromGitLab {
+            domain = "code.videolan.org";
+            owner = "videolan";
+            repo = "libplacebo";
+            tag = "v${version}";
+            hash = "sha256-mIjQvc7SRjE1Orb2BkHK+K1TcRQvzj2oUOCUT4DzIuA=";
+          };
+        });
       };
 
       scripts = with pkgs.mpvScripts; [
