@@ -54,7 +54,6 @@
 
         highlight Search ctermbg=240 ctermfg=255
         highlight IncSearch ctermbg=255 ctermfg=240
-        highlight Folded ctermbg=NONE guibg=NONE
 
         let mapleader = ' '
 
@@ -293,6 +292,7 @@
         config = # lua
           ''
             local theme = require("lualine.themes.base16")
+
             theme.normal.b.bg = nil
             theme.normal.c.bg = nil
             theme.replace.b.bg = nil
@@ -309,6 +309,21 @@
               },
               sections = { lualine_c = {'%f'} }
             }
+
+            local base_statusline_highlights = {
+              'StatusLine',
+              'StatusLineNC',
+              'Tabline',
+              'TabLineFill',
+              'TabLineSel',
+              'Winbar',
+              'WinbarNC',
+              'Folded'
+            }
+
+            for _, hl_group in pairs(base_statusline_highlights) do
+              vim.api.nvim_set_hl(0, hl_group, { bg = 'none' })
+            end
           '';
       }
       {
