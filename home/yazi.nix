@@ -3,7 +3,7 @@
     enable = true;
 
     settings = {
-      manager = {
+      mgr = {
         sort_dir_first = true;
         linemode = "mtime";
 
@@ -24,7 +24,7 @@
     };
 
     keymap = {
-      manager.prepend_keymap = [
+      mgr.prepend_keymap = [
         {
           run = "remove --force";
           on = [ "d" ];
