@@ -142,6 +142,8 @@ in
           czkawka
           wvkbd
           rehex
+          readest
+          upscayl
         ]
       ))
 

@@ -80,9 +80,12 @@
       monolith
       haylxon
       nix-inspect
+      sherlock
       remind
       oxipng
       lazydocker
+      arion
+      tabiew
       viddy
       jless
       rclip
@@ -102,6 +105,8 @@
       eclint
       editorconfig-checker
       mountpoint-s3
+      signal-cli
+      typos
     ];
   };
 
