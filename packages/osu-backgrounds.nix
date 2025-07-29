@@ -6,7 +6,7 @@
 
 stdenvNoCC.mkDerivation {
   pname = "osu-backgrounds";
-  version = "2025-04-01";
+  version = "2025-07-08";
 
   srcs = [
     (fetchzip {
@@ -225,6 +225,14 @@ stdenvNoCC.mkDerivation {
       hash = "sha256-Jrkwi68iZd1R9NoIHjUz+rArICG+icr/cJZerl/t3Ck=";
       stripRoot = false;
     })
+
+    (fetchzip {
+      name = "2025-07-08 Fantasy World Art Contest All Entries";
+      url = "https://assets.ppy.sh/contests/249/FantasyWorldFanartSubmissions.zip";
+      hash = "sha256-6rYjnTjpeVymNsTImtigObCHZbpla7dIQ3cLDeYFWrU=";
+      stripRoot = false;
+    })
+
   ];
 
   sourceRoot = ".";
