@@ -26,7 +26,6 @@ in
         mpris
         uosc
         thumbfast
-        mpv-subtitle-lines
       ];
     };
 
