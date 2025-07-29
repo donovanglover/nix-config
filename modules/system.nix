@@ -250,10 +250,7 @@ in
     services = {
       resolved.llmnr = "false";
 
-      mullvad-vpn = mkIf mullvad {
-        enable = true;
-        enableExcludeWrapper = false;
-      };
+      mullvad-vpn.enable = mkIf mullvad true;
 
       openssh = {
         enable = true;
