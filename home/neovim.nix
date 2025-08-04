@@ -70,6 +70,7 @@
 
         autocmd BufWritePre,FileWritePre * silent! call mkdir(expand('<afile>:p:h'), 'p')
         autocmd VimEnter * silent! :cd `git rev-parse --show-toplevel`
+        autocmd BufRead,BufNewFile *.mdx set filetype=markdown
 
         tnoremap <C-space> <C-\><C-n>
       '';
