@@ -49,9 +49,9 @@ in
     services = {
       ratbagd.enable = mkIf mouseSettings true;
 
-      logind = {
-        lidSwitch = mkIf lidIgnore "ignore";
-        extraConfig = "HandlePowerKey=suspend";
+      logind.settings.Login = {
+        HandleLidSwitch = mkIf lidIgnore "ignore";
+        HandlePowerKey = "suspend";
       };
 
       interception-tools = {

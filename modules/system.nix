@@ -96,6 +96,7 @@ in
         efi.canTouchEfiVariables = true;
       };
 
+      enableContainers = true;
       blacklistedKernelModules = [ "floppy" ];
     };
 
