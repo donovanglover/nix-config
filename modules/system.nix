@@ -242,12 +242,14 @@ in
         allowedUDPPorts = [
           67
           68
-        ] ++ optional allowSRB2Port [ 5029 ];
+        ]
+        ++ optional allowSRB2Port [ 5029 ];
 
         allowedTCPPorts = [
           80
           443
-        ] ++ optional allowDevPort [ 3000 ];
+        ]
+        ++ optional allowDevPort [ 3000 ];
       };
     };
 

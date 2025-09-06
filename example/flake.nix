@@ -20,7 +20,8 @@
 
           modules = [
             ./configuration.nix
-          ] ++ optional (pathExists ./hardware-configuration.nix) ./hardware-configuration.nix;
+          ]
+          ++ optional (pathExists ./hardware-configuration.nix) ./hardware-configuration.nix;
         };
       };
     };
