@@ -214,7 +214,7 @@ in
       networking.resolvconf.enable = lib.mkForce true;
       zramSwap.enable = lib.mkForce false;
 
-      boot.enableContainers = false;
+      boot.enableContainers = lib.mkForce false;
     };
 
     networking = {
