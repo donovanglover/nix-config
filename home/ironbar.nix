@@ -75,7 +75,7 @@ in
           mode = "watch";
         }
         {
-          type = "upower";
+          type = "battery";
           show_if = "upower -e | grep BAT";
         }
         {
