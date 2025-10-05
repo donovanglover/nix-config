@@ -1,9 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ config, lib, ... }:
 
 let
   inherit (lib) mkForce;
@@ -14,8 +9,6 @@ in
   programs.rofi = {
     enable = true;
     cycle = false;
-
-    package = pkgs.rofi-wayland;
 
     extraConfig = {
       modi = "drun,filebrowser";

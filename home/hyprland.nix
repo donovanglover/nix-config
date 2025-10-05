@@ -138,10 +138,6 @@ in
         special_scale_factor = 1;
       };
 
-      gestures = {
-        workspace_swipe = true;
-      };
-
       device = [
         {
           name = "synps/2-synaptics-touchpad";
