@@ -148,7 +148,15 @@ in
       ))
 
       (with pkgs; [
-        anki
+        (with ankiAddons; anki.withAddons [
+          review-heatmap
+          anki-connect
+
+          (adjust-sound-volume.withConfig {
+            config.loudnorm.enabled = true;
+          })
+        ])
+
         pulseaudio
         pavucontrol
         grim
