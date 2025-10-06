@@ -394,7 +394,14 @@
           '';
       }
       {
-        plugin = tailwindcss-colors-nvim;
+        plugin = tailwindcss-colors-nvim.overrideAttrs {
+          patches = [
+            (pkgs.fetchpatch {
+              url = "https://github.com/that-richan/tailwindcss-colors.nvim/commit/805413bb981a9be09ab4753a43007e10ebc8226c.patch";
+              hash = "sha256-Rdm4tJ/PZCYrJKpsn1RXgL5PGJOZoYFHAH8eIoBetmc=";
+            })
+          ];
+        };
         type = "lua";
         config = # lua
           ''
