@@ -29,6 +29,7 @@ in
       maim
       mpdris2
       xdotool
+      xcolor
 
       (dwm.override {
         conf = # c
