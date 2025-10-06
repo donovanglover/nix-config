@@ -332,12 +332,12 @@ in
         ''
           #!/usr/bin/env fish
 
-          set M "$(swww query | cut -d ':' -f 5)"
+          set M "$(swww query | cut -d ':' -f 6)"
           set M1 "$(echo "$M" | head -n 1 | awk '{$1=$1};1')"
           set M2 "$(echo "$M" | tail -n 1 | awk '{$1=$1};1')"
 
-          ~/.config/${setBackgroundScript} "$(swww query | choose 0 | choose -c 0..-1 | tail -n 1)" "$M1"
-          ~/.config/${setBackgroundScript} "$(swww query | choose 0 | choose -c 0..-1 | head -n 1)" "$M2"
+          ~/.config/${setBackgroundScript} "$(swww query | choose 1 | choose -c 0..-1 | tail -n 1)" "$M1"
+          ~/.config/${setBackgroundScript} "$(swww query | choose 1 | choose -c 0..-1 | head -n 1)" "$M2"
         '';
     };
 
