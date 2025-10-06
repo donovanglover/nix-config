@@ -140,10 +140,9 @@
         type = "lua";
         config = # lua
           ''
-            local lspconfig = require('lspconfig')
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-            lspconfig.eslint.setup {
+            vim.lsp.config.eslint = {
               capabilities = capabilities,
               on_attach = function(client, bufnr)
                 vim.api.nvim_create_autocmd("BufWritePre", {
@@ -153,17 +152,21 @@
               end
             }
 
-            lspconfig.tailwindcss.setup {
+            vim.lsp.config.tailwindcss = {
               capabilities = capabilities,
               on_attach = function(client, bufnr)
                 require("tailwindcss-colors").buf_attach(bufnr)
               end
             }
 
-            lspconfig.nixd.setup {
+            vim.lsp.config.nixd = {
               capabilities = capabilities,
               offset_encoding = 'utf-8'
             }
+
+            for _, lsp in ipairs({'eslint', 'tailwindcss', 'nixd'}) do
+              vim.lsp.enable(lsp)
+            end
 
             vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
             vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
@@ -207,7 +210,6 @@
         config = # lua
           ''
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
-            local lspconfig = require('lspconfig')
 
             local servers = {
               'rust_analyzer',
@@ -224,9 +226,11 @@
             }
 
             for _, lsp in ipairs(servers) do
-              lspconfig[lsp].setup {
+              vim.lsp.config[lsp] = {
                 capabilities = capabilities,
               }
+
+              vim.lsp.enable(lsp)
             end
 
             local luasnip = require('luasnip')
