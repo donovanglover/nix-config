@@ -120,12 +120,12 @@ in
           padding-left: 0.5em;
         }
 
-        .upower {
+        .battery {
           padding-left: 0.2em;
           padding-right: 0.2em;
         }
 
-        .upower .label {
+        .battery .label {
           padding-left: 0;
           padding-right: 0;
         }
