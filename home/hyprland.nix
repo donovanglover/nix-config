@@ -208,6 +208,7 @@ in
         "${super}, Tab, exec, hyprctl dispatch overview:toggle"
         "${super}, S, swapactiveworkspaces, 0 1"
         "${super}_SHIFT, S, movetoworkspace, special"
+        "${super}, Backslash, togglespecialworkspace"
         "${super}, O, exec, killall .ironbar-wrapper inotifywait pactl || ironbar"
         "${super}, M, focusmonitor, +1"
         "${super}_SHIFT, M, focusmonitor, -1"
@@ -251,7 +252,6 @@ in
         ", XF86AudioNext, exec, playerctl -p playerctld next"
         ", XF86AudioPlay, exec, playerctl -p playerctld play"
         ", XF86AudioPause, exec, playerctl -p playerctld pause"
-        ", XF86Messenger, togglespecialworkspace"
       ];
 
       binde = [
