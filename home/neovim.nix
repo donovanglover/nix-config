@@ -143,12 +143,18 @@
           ''
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+            local base_on_attach = vim.lsp.config.eslint.on_attach
+
             vim.lsp.config.eslint = {
               capabilities = capabilities,
               on_attach = function(client, bufnr)
+                if not base_on_attach then return end
+
+                base_on_attach(client, bufnr)
+
                 vim.api.nvim_create_autocmd("BufWritePre", {
                   buffer = bufnr,
-                  command = "EslintFixAll",
+                  command = "LspEslintFixAll"
                 })
               end
             }
