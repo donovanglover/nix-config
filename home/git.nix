@@ -17,7 +17,7 @@
 
     attributes = [ "*.lockb binary diff=lockb" ];
 
-    extraConfig = {
+    settings = {
       include.path = "~/.gituser";
       commit.gpgsign = true;
 
@@ -60,7 +60,10 @@
         whitespace = "red reverse";
       };
     };
+  };
 
-    diff-so-fancy.enable = true;
+  programs.diff-so-fancy = {
+    enable = true;
+    enableGitIntegration = true;
   };
 }
