@@ -33,5 +33,5 @@ The code base is designed to be small so it's easy to adjust things as needed. H
 [NixOS]: https://nixos.org/
 [Nix Flakes]: https://wiki.nixos.org/wiki/Flakes
 [Home Manager]: https://nix-community.github.io/home-manager/
-[Stylix]: https://danth.github.io/stylix/
+[Stylix]: https://nix-community.github.io/stylix
 [Hyprland]: https://hyprland.org/
