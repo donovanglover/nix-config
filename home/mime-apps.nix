@@ -6,6 +6,8 @@
       "text/html" = "librewolf.desktop";
       "text/markdown" = "nvim.desktop";
       "text/plain" = "nvim.desktop";
+      "text/vnd.trolltech.linguist" = "mpv.desktop";
+      "video/mp2t" = "mpv.desktop";
       "image/png" = "pqiv.desktop";
       "image/jpeg" = "pqiv.desktop";
       "image/gif" = "pqiv.desktop";
