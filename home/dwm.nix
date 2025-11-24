@@ -30,6 +30,7 @@ in
       mpdris2
       xdotool
       xcolor
+      onboard
 
       (dwm.override {
         conf = # c
@@ -78,6 +79,7 @@ in
 
             static const Rule rules[] = {
               { "librewolf", NULL, NULL, 0, 1, -1 },
+              { "Onboard", NULL, NULL, 0, 1, -1 },
               { "coord", NULL, NULL, 0, 1, -1 },
             };
 
@@ -96,6 +98,7 @@ in
             static const char *dmenucmd[] = { "rofi", "-show", NULL };
             static const char *quitcmd[] = { "kill", "xinit", NULL };
             static const char *termcmd[] = { "kitty", NULL };
+            static const char *oskcmd[] = { "onboard", NULL };
             static const char *explorercmd[] = { "kitty", "yazi", NULL };
             static const char *brighter[] = { "${dunst-scripts}/bin/mb-up", NULL };
             static const char *dimmer[] = { "${dunst-scripts}/bin/mb-down", NULL };
@@ -129,6 +132,7 @@ in
               { 0, XK_Print, spawn, {.v = area } },
               { MODKEY, XK_bracketleft, spawn, {.v = dmenucmd } },
               { MODKEY, XK_bracketright, spawn, {.v = explorercmd } },
+              { MODKEY, XK_t, spawn, {.v = oskcmd } },
               { MODKEY, XK_o, togglebar, {0} },
               { MODKEY, XK_f, togglefullscr, {0} },
               { MODKEY, XK_v, togglefloating, {0} },
