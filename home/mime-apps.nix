@@ -3,6 +3,7 @@
     enable = true;
 
     defaultApplications = {
+      "inode/directory" = "thunar.desktop";
       "text/html" = "librewolf.desktop";
       "text/markdown" = "nvim.desktop";
       "text/plain" = "nvim.desktop";
