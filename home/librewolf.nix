@@ -81,20 +81,12 @@ in
 
     languagePacks = [ "ja" ];
 
-    profiles = {
-      default = {
-        extensions.packages = with nix-config.packages.${pkgs.system}; [
-          new-tab-identity
-        ];
+    profiles.default = {
+      extensions.packages = with nix-config.packages.${pkgs.system}; [
+        new-tab-identity
+      ];
 
-        inherit settings search;
-      };
-
-      work = {
-        id = 1;
-
-        inherit settings search;
-      };
+      inherit settings search;
     };
 
     policies = {
