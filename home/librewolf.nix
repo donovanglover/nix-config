@@ -82,7 +82,7 @@ in
     languagePacks = [ "ja" ];
 
     profiles.default = {
-      extensions.packages = with nix-config.packages.${pkgs.system}; [
+      extensions.packages = with nix-config.packages.${pkgs.stdenv.hostPlatform.system}; [
         new-tab-identity
       ];
 

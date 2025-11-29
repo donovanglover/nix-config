@@ -64,8 +64,8 @@ let
   };
 in
 {
-  environment.systemPackages = mkIf (pkgs.system == "x86_64-linux") (
-    with nix-config.inputs.sakaya.packages.${pkgs.system}; [ sakaya ]
+  environment.systemPackages = mkIf (pkgs.stdenv.hostPlatform.system == "x86_64-linux") (
+    with nix-config.inputs.sakaya.packages.${pkgs.stdenv.hostPlatform.system}; [ sakaya ]
   );
 
   containers = mkIf enableContainers {
@@ -100,7 +100,7 @@ in
 
           environment = {
             systemPackages = with pkgs; [
-              nix-config.inputs.nixpkgs-wine-10-5.legacyPackages.${pkgs.system}.wineWowPackages.stagingFull
+              nix-config.inputs.nixpkgs-wine-10-5.legacyPackages.${pkgs.stdenv.hostPlatform.system}.wineWowPackages.stagingFull
               winetricks
             ];
 

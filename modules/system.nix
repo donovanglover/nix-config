@@ -83,10 +83,10 @@ in
     boot = {
       tmp = if iHaveLotsOfRam then { useTmpfs = true; } else { cleanOnBoot = true; };
 
-      binfmt.emulatedSystems = mkIf (pkgs.system == "x86_64-linux") [ "aarch64-linux" ];
+      binfmt.emulatedSystems = mkIf (pkgs.stdenv.hostPlatform.system == "x86_64-linux") [ "aarch64-linux" ];
 
       loader = {
-        systemd-boot = mkIf (pkgs.system != "aarch64-linux") {
+        systemd-boot = mkIf (pkgs.stdenv.hostPlatform.system != "aarch64-linux") {
           enable = true;
           editor = false;
           configurationLimit = 10;

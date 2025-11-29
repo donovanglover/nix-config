@@ -11,7 +11,7 @@ let
   inherit (config.lib.stylix.colors.withHashtag) base00 base03 base05;
   inherit (config.home) homeDirectory;
 
-  inherit (nix-config.packages.${pkgs.system})
+  inherit (nix-config.packages.${pkgs.stdenv.hostPlatform.system})
     osu-backgrounds
     dunst-scripts
     ;

@@ -30,7 +30,7 @@ in
       php
     ])
 
-    (with nix-config.packages.${pkgs.system}; [
+    (with nix-config.packages.${pkgs.stdenv.hostPlatform.system}; [
       dunst-scripts
     ])
   ];

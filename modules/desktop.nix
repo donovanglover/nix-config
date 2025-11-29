@@ -26,7 +26,7 @@ in
   };
 
   config = {
-    hardware.graphics.enable32Bit = mkIf (pkgs.system == "x86_64-linux") true;
+    hardware.graphics.enable32Bit = mkIf (pkgs.stdenv.hostPlatform.system == "x86_64-linux") true;
 
     programs = {
       hyprland.enable = mkIf (!isContainer) true;
@@ -117,7 +117,7 @@ in
       (mkIf bloat (
         with pkgs;
         [
-          nix-config.inputs.nixpkgs-wine-10-12.legacyPackages.${pkgs.system}.wineWowPackages.stagingFull
+          nix-config.inputs.nixpkgs-wine-10-12.legacyPackages.${pkgs.stdenv.hostPlatform.system}.wineWowPackages.stagingFull
           winetricks
           mullvad-browser
           spek

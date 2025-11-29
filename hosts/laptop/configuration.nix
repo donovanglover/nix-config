@@ -7,7 +7,7 @@ in
   imports = attrValues nix-config.nixosModules;
   nixpkgs.overlays = attrValues nix-config.overlays;
   home-manager.sharedModules = attrValues nix-config.homeModules;
-  environment.systemPackages = attrValues nix-config.packages.${pkgs.system};
+  environment.systemPackages = attrValues nix-config.packages.${pkgs.stdenv.hostPlatform.system};
 
   modules = {
     hardware = {

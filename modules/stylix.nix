@@ -6,7 +6,7 @@
 }:
 
 let
-  stylix-background = nix-config.packages.${pkgs.system}.stylix-background.override {
+  stylix-background = nix-config.packages.${pkgs.stdenv.hostPlatform.system}.stylix-background.override {
     color = config.lib.stylix.colors.base00;
   };
 

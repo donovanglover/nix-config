@@ -9,7 +9,7 @@ let
   inherit (nixosConfig._module.specialArgs) nix-config;
 
   inherit (lib) getExe;
-  inherit (nix-config.packages.${pkgs.system}) mpv-websocket;
+  inherit (nix-config.packages.${pkgs.stdenv.hostPlatform.system}) mpv-websocket;
 
   input-ipc-server = "/tmp/mpv-socket";
 in

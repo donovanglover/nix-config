@@ -10,7 +10,7 @@ let
 
   inherit (lib) mkForce;
 
-  inherit (nix-config.packages.${pkgs.system})
+  inherit (nix-config.packages.${pkgs.stdenv.hostPlatform.system})
     osu-backgrounds
     dunst-scripts
     ;

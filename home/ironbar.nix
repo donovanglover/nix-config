@@ -11,7 +11,7 @@ let
 
   inherit (lib) singleton;
   inherit (builtins) toJSON;
-  inherit (nix-config.packages.${pkgs.system}) dunst-scripts;
+  inherit (nix-config.packages.${pkgs.stdenv.hostPlatform.system}) dunst-scripts;
 
   inherit (config.lib.stylix.colors.withHashtag)
     base00
