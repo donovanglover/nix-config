@@ -92,6 +92,8 @@ in
       cfg.speechSynthesisSupport = false;
     };
 
+    languagePacks = [ "ja" ];
+
     profiles = {
       default = {
         extensions.packages = with nix-config.packages.${pkgs.system}; [
