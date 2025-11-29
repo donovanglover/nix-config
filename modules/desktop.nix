@@ -142,6 +142,7 @@ in
           picard
           czkawka
           wvkbd
+          rehex
           readest
           upscayl
         ]
