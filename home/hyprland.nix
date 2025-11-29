@@ -60,7 +60,6 @@ in
       monitor = [
         ",preferred,auto,1"
         "eDP-1,preferred,auto-left,1"
-        "HDMI-A-1,highrr,auto-right,1"
       ];
 
       exec-once = [
