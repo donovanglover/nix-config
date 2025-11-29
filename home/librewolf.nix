@@ -12,23 +12,10 @@ let
 
   search = {
     force = true;
-    default = "Mullvad";
-    privateDefault = "Mullvad";
+    default = "excite.co.jp";
+    privateDefault = "excite.co.jp";
 
     engines = {
-      Mullvad = {
-        urls = singleton {
-          template = "https://leta.mullvad.net";
-
-          params = singleton {
-            name = "q";
-            value = "{searchTerms}";
-          };
-        };
-
-        icon = "${pkgs.mullvad-vpn}/share/icons/hicolor/32x32/apps/mullvad-vpn.png";
-      };
-
       "excite.co.jp" = {
         urls = singleton {
           template = "https://websearch.excite.co.jp";
