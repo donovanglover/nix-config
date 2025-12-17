@@ -54,6 +54,7 @@ in
 
     bindings = {
       "ctrl+a" = "script-message osc-visibility cycle";
+      "ctrl+b" = "apply-profile fast";
       "ctrl+f" = "script-binding subtitle_lines/list_subtitles";
       "Del" = "run \"trash\" \"\${path}\"; playlist_next";
     };
