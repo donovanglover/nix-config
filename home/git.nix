@@ -60,6 +60,8 @@
         whitespace = "red reverse";
       };
     };
+
+    lfs.enable = true;
   };
 
   programs.diff-so-fancy = {
