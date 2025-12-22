@@ -14,6 +14,7 @@ in
       keyboardBinds = true;
       lidIgnore = true;
       bluetooth = true;
+      mouseSettings = true;
     };
 
     system = {
