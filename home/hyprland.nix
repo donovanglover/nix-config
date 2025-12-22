@@ -202,6 +202,7 @@ in
         "${super}, bracketright, exec, kitty yazi"
         "${super}_ALT, delete, exit"
         "${super}, V, togglefloating"
+        "${super}, T, exec, killall -s 34 wvkbd-mobintl || wvkbd-mobintl"
         "${super}, U, exec, ~/.config/${gapsScript}"
         "${super}, R, exec, record"
         "${super}, X, pin"
