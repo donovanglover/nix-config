@@ -30,6 +30,7 @@ in
 
     programs = {
       hyprland.enable = mkIf (!isContainer) true;
+      niri.enable = mkIf (!isContainer) true;
       cdemu.enable = true;
 
       thunar = {
