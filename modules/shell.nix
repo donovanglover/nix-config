@@ -109,6 +109,9 @@
       typos
       gallery-dl
       awscli2
+      mkbrr
+      poppler-utils
+      dejsonlz4
     ];
   };
 
