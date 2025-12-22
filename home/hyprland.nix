@@ -36,6 +36,8 @@ in
     wev
     wf-recorder
     playerctl
+    wl-kbptr
+    wlrctl
   ];
 
   wayland.windowManager.hyprland = {
@@ -263,6 +265,19 @@ in
 
     extraConfig = # hyprlang
       ''
+        bind=${super},g,exec,hyprctl dispatch submap cursor
+        submap=cursor
+        bind=,a,exec,hyprctl dispatch submap reset && wl-kbptr && hyprctl dispatch submap cursor
+        bind=,s,exec,wlrctl pointer click left
+        bind=,d,exec,wlrctl pointer click middle
+        bind=,f,exec,wlrctl pointer click right
+        binde=,h,exec,wlrctl pointer move -10 0
+        binde=,j,exec,wlrctl pointer move 0 10
+        binde=,k,exec,wlrctl pointer move 0 -10
+        binde=,l,exec,wlrctl pointer move 10 0
+        bind=,escape,exec,hyprctl dispatch submap reset
+        submap = reset
+
         bind = ${super}_ALT, BackSpace, submap, passthrough
         submap = passthrough
         bind = ${super}_ALT, BackSpace, submap, reset
