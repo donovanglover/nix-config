@@ -1,0 +1,54 @@
+diff --git a/src/qtx11keymapper.cpp b/src/qtx11keymapper.cpp
+index 7f8c91e8..8c9dec05 100644
+--- a/src/qtx11keymapper.cpp
++++ b/src/qtx11keymapper.cpp
+@@ -145,49 +145,6 @@ void QtX11KeyMapper::populateCharKeyInformation()
+ 
+             if ((j == 1) || (j == 3))
+                 dicis |= Qt::ShiftModifier;
+-
+-            int testsym =
+-                XkbKeycodeToKeysym(display, i, (dicis & Qt::MetaModifier) ? 1 : 0, (dicis & Qt::ShiftModifier) ? 1 : 0);
+-
+-            if (testsym != NoSymbol)
+-            {
+-                XKeyPressedEvent tempevent;
+-                tempevent.keycode = i;
+-                tempevent.type = KeyPress;
+-                tempevent.display = display;
+-                tempevent.state = 0;
+-
+-                if (dicis & Qt::ShiftModifier)
+-                    tempevent.state |= ShiftMask;
+-
+-                if (dicis & Qt::MetaModifier)
+-                    tempevent.state |= Mod1Mask;
+-
+-                char returnstring[256];
+-                memset(returnstring, 0, sizeof(returnstring));
+-                int bitestoreturn = sizeof(returnstring) - 1;
+-                int numchars = XLookupString(&tempevent, returnstring, bitestoreturn, nullptr, nullptr);
+-
+-                if (numchars > 0)
+-                {
+-                    returnstring[numchars] = '\0';
+-                    QString tempstring = QString::fromUtf8(returnstring);
+-
+-                    if (tempstring.length() == 1)
+-                    {
+-                        QChar tempchar(tempstring.at(0));
+-                        charKeyInformation testKeyInformation;
+-                        testKeyInformation.modifiers = dicis;
+-                        testKeyInformation.virtualkey = testsym;
+-
+-                        if (!virtkeyToCharKeyInfo.contains(tempchar.unicode()))
+-                        {
+-                            virtkeyToCharKeyInfo.insert(tempchar.unicode(), testKeyInformation);
+-                            total++;
+-                        }
+-                    }
+-                }
+-            }
+         }
+     }
+ 
