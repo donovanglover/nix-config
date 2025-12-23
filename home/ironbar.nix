@@ -40,7 +40,7 @@ in
           name = "startMenu";
           type = "label";
           label = "❄";
-          on_click_left = "rofi -show";
+          on_click_left = "killall rofi || rofi -show";
         }
         {
           type = "script";
