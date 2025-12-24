@@ -6,9 +6,11 @@
 }:
 
 let
-  stylix-background = nix-config.packages.${pkgs.stdenv.hostPlatform.system}.stylix-background.override {
-    color = config.lib.stylix.colors.base00;
-  };
+  stylix-background =
+    nix-config.packages.${pkgs.stdenv.hostPlatform.system}.stylix-background.override
+      {
+        color = config.lib.stylix.colors.base00;
+      };
 
   opacity = 0.95;
   fontSize = 11;
