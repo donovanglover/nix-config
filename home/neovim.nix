@@ -425,7 +425,7 @@
           '';
       }
       {
-        plugin = nvim-treesitter.withAllGrammars;
+        plugin = nvim-treesitter-legacy.withAllGrammars;
         type = "lua";
         config = # lua
           ''

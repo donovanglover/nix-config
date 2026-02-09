@@ -256,7 +256,7 @@ in
     };
 
     services = {
-      resolved.llmnr = "false";
+      resolved.settings.Resolve.LLMNR = "false";
 
       mullvad-vpn.enable = mkIf mullvad true;
 

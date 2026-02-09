@@ -36,7 +36,7 @@ in
       thunar = {
         enable = true;
 
-        plugins = with pkgs.xfce; [
+        plugins = with pkgs; [
           thunar-volman
         ];
       };
@@ -97,12 +97,12 @@ in
 
         settings = {
           default_session = {
-            command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd Hyprland --time-format '%F %R'";
+            command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd start-hyprland --time-format '%F %R'";
             user = "greeter";
           };
 
           initial_session = {
-            command = "${pkgs.hyprland}/bin/Hyprland";
+            command = "${pkgs.hyprland}/bin/start-hyprland";
             user = username;
           };
         };

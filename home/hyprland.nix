@@ -159,21 +159,20 @@ in
       };
 
       layerrule = [
-        "blur,ironbar"
-        "blur,rofi"
-        "blur,notifications"
+        "blur on, match:namespace ironbar"
+        "blur on, match:namespace rofi"
+        "blur on, match:namespace notifications"
       ];
 
       windowrule = [
-        "nomaxsize,class:^(winecfg\.exe|osu\.exe)$"
-        "opaque,class:^(kitty)$"
-        "nodim,title:^(Picture-in-Picture|ピクチャーインピクチャー)$"
-        "nodim,class:^(mpv)$"
-        "nodim,class:^(.*.exe)\$"
-        "tile,class:^(.qemu-system-x86_64-wrapped)$"
-        "opacity ${opacity} ${opacity},class:^(thunar)$"
-        "float,class:^(librewolf|Mullvad Browser)$"
-        "center 1,class:^(librewolf|Mullvad Browser)$"
+        "no_max_size on, match:class ^(winecfg.exe|osu.exe)$"
+        "opaque on, match:class ^(kitty)$"
+        "no_dim on, match:title ^(Picture-in-Picture|ピクチャーインピクチャー)$"
+        "no_dim on, match:class ^(mpv)$"
+        "no_dim on, match:class ^(.*.exe)$"
+        "tile on, match:class ^(.qemu-system-x86_64-wrapped)$"
+        "opacity ${opacity} ${opacity}, match:class ^(thunar)$"
+        "float on, center 1, match:class ^(librewolf|Mullvad Browser)$"
       ];
 
       ecosystem = {
@@ -187,7 +186,7 @@ in
         animate_manual_resizes = true;
         animate_mouse_windowdragging = true;
         disable_autoreload = true;
-        new_window_takes_over_fullscreen = 1;
+        on_focus_under_fullscreen = 1;
         initial_workspace_tracking = 0;
       };
 
