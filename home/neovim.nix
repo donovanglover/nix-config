@@ -12,7 +12,6 @@
       nodePackages."@astrojs/language-server"
       prisma-language-server
       emmet-language-server
-      markdown-oxide
       tailwindcss-language-server
       vscode-langservers-extracted
       rust-analyzer
@@ -220,7 +219,6 @@
 
             local servers = {
               'rust_analyzer',
-              'markdown_oxide',
               'html',
               'texlab',
               'prismals',
