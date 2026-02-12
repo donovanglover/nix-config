@@ -11,7 +11,6 @@
       nodePackages.typescript-language-server
       nodePackages."@astrojs/language-server"
       prisma-language-server
-      emmet-language-server
       tailwindcss-language-server
       vscode-langservers-extracted
       rust-analyzer
@@ -223,7 +222,6 @@
               'texlab',
               'prismals',
               'jsonls',
-              'emmet_language_server',
               'astro',
               'cssls',
               'ts_ls',
