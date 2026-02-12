@@ -293,7 +293,6 @@
             require("luasnip.loaders.from_vscode").lazy_load()
           '';
       }
-      friendly-snippets
       {
         plugin = lualine-nvim;
         type = "lua";
