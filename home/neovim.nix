@@ -312,7 +312,7 @@
             require('lualine').setup {
               options = {
                 theme = theme,
-                disabled_filetypes = {'NvimTree', 'tagbar'}
+                disabled_filetypes = {'NvimTree'}
               },
               sections = { lualine_c = {'%f'} }
             }
@@ -462,7 +462,6 @@
       rust-vim
       neoformat
       vim-nix
-      tagbar
       rainbow-delimiters-nvim
     ];
   };
