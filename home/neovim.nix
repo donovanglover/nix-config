@@ -16,7 +16,6 @@
       rust-analyzer
       texlab
       nixd
-      universal-ctags
       typos-lsp
     ];
 
@@ -65,7 +64,6 @@
         nnoremap <silent> <leader>j :Buffers<CR>
         nnoremap <silent> <leader>l :Rg<CR>
         nnoremap <silent> <leader>; :NvimTreeToggle<CR>
-        nnoremap <silent> <leader>b :Vista!!<CR>
 
         autocmd BufWritePre,FileWritePre * silent! call mkdir(expand('<afile>:p:h'), 'p')
         autocmd VimEnter * silent! :cd `git rev-parse --show-toplevel`
@@ -441,18 +439,6 @@
                 additional_vim_regex_highlighting = true,
               },
             }
-          '';
-      }
-      {
-        plugin = vista-vim;
-        config = # vim
-          ''
-            let g:vista_default_executive = 'nvim_lsp'
-            let g:vista_executive_for = {
-              \ 'rust': 'ctags',
-              \ }
-
-            autocmd QuitPre * silent! :Vista!
           '';
       }
       fzf-vim
