@@ -38,6 +38,7 @@ in
     playerctl
     wl-kbptr
     wlrctl
+    hyprpicker
   ];
 
   wayland.windowManager.hyprland = {
