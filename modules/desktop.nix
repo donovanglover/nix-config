@@ -126,7 +126,7 @@ in
           gimp
           libreoffice
           element-desktop
-          signal-desktop-bin
+          signal-desktop
           qbittorrent
           popsicle
           satty
