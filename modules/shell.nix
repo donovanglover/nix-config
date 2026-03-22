@@ -112,6 +112,14 @@
       mkbrr
       poppler-utils
       dejsonlz4
+      gdb
+      deno
+      bun
+      json2yaml
+      gemini-cli
+      opencode
+      wrangler
+      sqlit-tui
     ];
   };
 
