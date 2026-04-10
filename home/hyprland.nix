@@ -28,7 +28,7 @@ in
   home.packages = with pkgs; [
     hyprdim
     hyprnome
-    swww
+    awww
     grimblast
     brightnessctl
     mpvpaper
@@ -51,11 +51,11 @@ in
         "XMODIFIERS,@im=fcitx"
         "SDL_IM_MODULE,fcitx"
         "GLFW_IM_MODULE,ibus"
-        "SWWW_TRANSITION,grow"
-        "SWWW_TRANSITION_STEP,200"
-        "SWWW_TRANSITION_DURATION,1.5"
-        "SWWW_TRANSITION_FPS,240"
-        "SWWW_TRANSITION_WAVE,80,40"
+        "AWWW_TRANSITION,grow"
+        "AWWW_TRANSITION_STEP,200"
+        "AWWW_TRANSITION_DURATION,1.5"
+        "AWWW_TRANSITION_FPS,240"
+        "AWWW_TRANSITION_WAVE,80,40"
         "QT_QPA_PLATFORMTHEME,qt5ct"
         "QT_STYLE_OVERRIDE,kvantum"
       ];
@@ -66,7 +66,7 @@ in
       ];
 
       exec-once = [
-        "sleep 0.1; swww-daemon"
+        "sleep 0.1; awww-daemon"
         "ironbar"
         "fcitx5"
         "hyprctl dispatch workspace 5000000"
@@ -307,7 +307,7 @@ in
           #!/usr/bin/env fish
 
           if [ (hyprctl getoption animations:enabled -j | jq -r ".int") = "1" ]
-            swww img \
+            awww img \
               --transition-type $(random choice grow wave outer) \
               --transition-wave 80,40 \
               --transition-angle $(random choice 45 90 135 225 270 315) \
@@ -318,7 +318,7 @@ in
               --outputs "$argv[1]" \
               "$argv[2]"
           else
-            swww img \
+            awww img \
               --transition-type simple \
               --transition-step 255 \
               --outputs "$argv[1]" \
@@ -347,12 +347,12 @@ in
         ''
           #!/usr/bin/env fish
 
-          set M "$(swww query | cut -d ':' -f 6)"
+          set M "$(awww query | cut -d ':' -f 6)"
           set M1 "$(echo "$M" | head -n 1 | awk '{$1=$1};1')"
           set M2 "$(echo "$M" | tail -n 1 | awk '{$1=$1};1')"
 
-          ~/.config/${setBackgroundScript} "$(swww query | choose 1 | choose -c 0..-1 | tail -n 1)" "$M1"
-          ~/.config/${setBackgroundScript} "$(swww query | choose 1 | choose -c 0..-1 | head -n 1)" "$M2"
+          ~/.config/${setBackgroundScript} "$(awww query | choose 1 | choose -c 0..-1 | tail -n 1)" "$M1"
+          ~/.config/${setBackgroundScript} "$(awww query | choose 1 | choose -c 0..-1 | head -n 1)" "$M2"
         '';
     };
 

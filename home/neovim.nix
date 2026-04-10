@@ -6,10 +6,12 @@
   programs.neovim = {
     enable = true;
     defaultEditor = true;
+    withRuby = false;
+    withPython3 = false;
 
     extraPackages = with pkgs; [
-      nodePackages.typescript-language-server
-      nodePackages."@astrojs/language-server"
+      typescript-language-server
+      astro-language-server
       prisma-language-server
       tailwindcss-language-server
       vscode-langservers-extracted

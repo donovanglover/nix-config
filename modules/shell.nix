@@ -104,7 +104,6 @@
       go-grip
       eclint
       editorconfig-checker
-      mountpoint-s3
       signal-cli
       typos
       gallery-dl
