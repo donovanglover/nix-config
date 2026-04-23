@@ -209,6 +209,7 @@ in
         "${super}, F, fullscreen"
         "${super}, Tab, exec, hyprctl dispatch overview:toggle"
         "${super}, S, swapactiveworkspaces, 0 1"
+        "${super}, S, focusmonitor, +1"
         "${super}_SHIFT, S, movetoworkspace, special"
         "${super}, Backslash, togglespecialworkspace"
         "${super}, O, exec, killall .ironbar-wrapper inotifywait pactl || ironbar"
