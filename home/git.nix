@@ -17,6 +17,8 @@
 
     attributes = [ "*.lockb binary diff=lockb" ];
 
+    signing.format = "openpgp";
+
     settings = {
       include.path = "~/.gituser";
       commit.gpgsign = true;

@@ -357,6 +357,7 @@
       }
       {
         plugin = vimtex;
+        type = "viml";
         config = # vim
           ''
             let g:vimtex_mappings_enabled = 0
