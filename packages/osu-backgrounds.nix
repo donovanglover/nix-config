@@ -6,7 +6,7 @@
 
 stdenvNoCC.mkDerivation {
   pname = "osu-backgrounds";
-  version = "2025-12-17";
+  version = "2026-04-12";
 
   srcs = [
     (fetchzip {
@@ -246,6 +246,13 @@ stdenvNoCC.mkDerivation {
       hash = "sha256-PZqNSdL35FcWi0hPs0YHlHdLm4dL7tnM/Gqs7UJO1N8=";
       stripRoot = false;
     })
+
+    (fetchzip {
+      name = "2026-04-12 Spring 2026 Fanart Contest All Entries";
+      url = "https://assets.ppy.sh/contests/282/Spring2026FanartSubmissions.zip";
+      hash = "sha256-A0WJxFJ6U+1pGHhDkcVwEgRN2G11aC2Y5iJnEMtkjrU=";
+      stripRoot = false;
+    })
   ];
 
   sourceRoot = ".";
@@ -260,6 +267,11 @@ stdenvNoCC.mkDerivation {
 
     BASE="2024-10-09-Autumn-2024-Fanart-Contest-All-Entries"
     DIR="all-ordered"
+
+    mv $BASE/$DIR . && rm -r $BASE && mv $DIR $BASE
+
+    BASE="2026-04-12-Spring-2026-Fanart-Contest-All-Entries"
+    DIR="45-2026-spring--all"
 
     mv $BASE/$DIR . && rm -r $BASE && mv $DIR $BASE
 
