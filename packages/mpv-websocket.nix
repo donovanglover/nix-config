@@ -6,16 +6,25 @@
 
 rustPlatform.buildRustPackage (finalAttrs: {
   pname = "mpv-websocket";
-  version = "0.4.1";
+  version = "0.4.4";
 
   src = fetchFromGitHub {
     owner = "kuroahna";
     repo = "mpv_websocket";
     tag = finalAttrs.version;
-    hash = "sha256-a2/TMTl9QIU7oKqm9yv/SFLwpKArMdGjJZjaTyUwXfM=";
+    hash = "sha256-e8t8R+SMcMAKyfL1SwKcUuW1qRBXNtx/LPJrqNbRyw4=";
   };
 
-  cargoHash = "sha256-avBHcFJW5SvAZDISKUcEwL6Wxa4hiKQPljEx5eHswDE=";
+  cargoHash = "sha256-fcYucTUP9fDqO7zdCjZvSmB16gFpbBXAo1DPhDBw4z0=";
+
+  patchPhase = ''
+    runHook prePatch
+
+    substituteInPlace src/main.rs \
+      --replace-fail 'exe_path.join("logs")' 'std::env::temp_dir().join("mpv_websocket")'
+
+    runHook postPatch
+  '';
 
   meta = {
     description = "WebSocket plugin for mpv";
