@@ -100,7 +100,7 @@ in
 
           environment = {
             systemPackages = with pkgs; [
-              nix-config.inputs.nixpkgs-wine-10-5.legacyPackages.${pkgs.stdenv.hostPlatform.system}.wineWowPackages.stagingFull
+              wine-staging
               winetricks
             ];
 
