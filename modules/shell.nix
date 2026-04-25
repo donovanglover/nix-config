@@ -46,8 +46,6 @@
       cmatrix
       gdu
       hexyl
-      pgcli
-      litecli
       p7zip
       unar
       rsync
