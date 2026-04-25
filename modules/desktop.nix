@@ -2,7 +2,6 @@
   pkgs,
   config,
   lib,
-  nix-config,
   ...
 }:
 
@@ -118,7 +117,7 @@ in
       (mkIf bloat (
         with pkgs;
         [
-          nix-config.inputs.nixpkgs-wine-10-12.legacyPackages.${pkgs.stdenv.hostPlatform.system}.wineWowPackages.stagingFull
+          wine-staging
           winetricks
           mullvad-browser
           spek

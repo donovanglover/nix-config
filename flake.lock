@@ -174,22 +174,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-wine-10-12": {
-      "locked": {
-        "lastModified": 1754214453,
-        "narHash": "sha256-Q/I2xJn/j1wpkGhWkQnm20nShYnG7TI99foDBpXm1SY=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
-        "type": "github"
-      }
-    },
     "nixpkgs-wine-10-5": {
       "locked": {
         "lastModified": 1747426788,
@@ -235,7 +219,6 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-wine-10-12": "nixpkgs-wine-10-12",
         "nixpkgs-wine-10-5": "nixpkgs-wine-10-5",
         "sakaya": "sakaya",
         "stylix": "stylix"
