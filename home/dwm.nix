@@ -232,8 +232,8 @@ in
           set LATEST $(ls -1 ${osu-backgrounds} | tail -n 1)
 
           feh --bg-fill \
-            (random choice (fd . ${osu-backgrounds}/$LATEST --follow -e jpg -e png)) \
-            (random choice (fd . ${osu-backgrounds}/$LATEST --follow -e jpg -e png))
+            (random choice (fd . ${osu-backgrounds}/$LATEST --follow -e jpg -e jpeg -e png)) \
+            (random choice (fd . ${osu-backgrounds}/$LATEST --follow -e jpg -e jpeg -e png))
         '';
     };
 

@@ -337,7 +337,7 @@ in
           set LATEST $(ls -1 ${osu-backgrounds} | tail -n 1)
 
           for monitor in (hyprctl monitors -j | jq -r '.[].name')
-            ~/.config/${setBackgroundScript} "$monitor" "$(random choice $(fd . ${osu-backgrounds}/$LATEST --follow -e jpg -e png))"
+            ~/.config/${setBackgroundScript} "$monitor" "$(random choice $(fd . ${osu-backgrounds}/$LATEST --follow -e jpg -e jpeg -e png))"
           end
         '';
     };
