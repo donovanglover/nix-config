@@ -35,7 +35,7 @@ in
       fullscreen = true;
 
       screenshot-format = "png";
-      screenshot-template = "%F-%p-%n";
+      screenshot-template = "%F-%wH_%wM_%wS-%n";
 
       title = "\${filename} - mpv";
       script-opts = "osc-title=\${filename},osc-boxalpha=150,osc-visibility=never,osc-boxvideo=yes";
