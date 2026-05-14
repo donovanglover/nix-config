@@ -9,12 +9,12 @@ stdenvNoCC.mkDerivation {
   version = "2026-04-12";
 
   srcs = [
-    (fetchzip {
-      name = "2017-04-27 Spring 2017 Fanart Contest Winners";
-      url = "https://files.catbox.moe/nzn2d3.zip";
-      hash = "sha256-ZiX1L5umRt9NSVT1r1XojDBpdwAcHcizWyi5Yjph2Ho=";
-      stripRoot = false;
-    })
+    # (fetchzip {
+    #   name = "2017-04-27 Spring 2017 Fanart Contest Winners";
+    #   url = "https://files.catbox.moe/nzn2d3.zip";
+    #   hash = "sha256-ZiX1L5umRt9NSVT1r1XojDBpdwAcHcizWyi5Yjph2Ho=";
+    #   stripRoot = false;
+    # })
 
     (fetchzip {
       name = "2017-07-11 Mocha in Summer Fanart Contest All Entries";
@@ -30,26 +30,26 @@ stdenvNoCC.mkDerivation {
       stripRoot = false;
     })
 
-    (fetchzip {
-      name = "2018-08-09 Summer 2018 Fanart Contest Winners";
-      url = "https://files.catbox.moe/sy7yuq.zip";
-      hash = "sha256-9UDH45ILPKEA9kWrHrI3eabG6STJ8QZBdJeul/aCLpA=";
-      stripRoot = false;
-    })
+    # (fetchzip {
+    #   name = "2018-08-09 Summer 2018 Fanart Contest Winners";
+    #   url = "https://files.catbox.moe/sy7yuq.zip";
+    #   hash = "sha256-9UDH45ILPKEA9kWrHrI3eabG6STJ8QZBdJeul/aCLpA=";
+    #   stripRoot = false;
+    # })
 
-    (fetchzip {
-      name = "2018-10-23 Halloween 2018 Fanart Contest Winners";
-      url = "https://files.catbox.moe/0ibq8k.zip";
-      hash = "sha256-lIXHZZaUyaWF3Ebna40P2UmNMym+MB8Pxp1O2OCexs4=";
-      stripRoot = false;
-    })
+    # (fetchzip {
+    #   name = "2018-10-23 Halloween 2018 Fanart Contest Winners";
+    #   url = "https://files.catbox.moe/0ibq8k.zip";
+    #   hash = "sha256-lIXHZZaUyaWF3Ebna40P2UmNMym+MB8Pxp1O2OCexs4=";
+    #   stripRoot = false;
+    # })
 
-    (fetchzip {
-      name = "2018-12-12 Winter 2018 Fanart Contest Winners";
-      url = "https://files.catbox.moe/0iv4ib.zip";
-      hash = "sha256-kfaXNOM+o+1/CAPLdiRX+E8HncIUA4U1rUbTdEJ18lE=";
-      stripRoot = false;
-    })
+    # (fetchzip {
+    #   name = "2018-12-12 Winter 2018 Fanart Contest Winners";
+    #   url = "https://files.catbox.moe/0iv4ib.zip";
+    #   hash = "sha256-kfaXNOM+o+1/CAPLdiRX+E8HncIUA4U1rUbTdEJ18lE=";
+    #   stripRoot = false;
+    # })
 
     (fetchzip {
       name = "2019-06-03 Spring 2019 Fanart Contest Winners";
