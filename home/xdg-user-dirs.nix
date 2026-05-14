@@ -19,6 +19,7 @@ in
       music = "${homeDirectory}/音楽";
       pictures = "${homeDirectory}/画像";
       videos = "${homeDirectory}/ビデオ";
+      projects = homeDirectory;
     };
 
     configFile."user-dirs.locale".text = "ja_JP";
