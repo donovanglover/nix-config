@@ -145,6 +145,7 @@ in
           rehex
           readest
           upscayl
+          freetube
         ]
       ))
 
@@ -167,6 +168,7 @@ in
         wl-clipboard-rs
         antimicrox
         libnotify
+        xwayland-satellite
       ])
     ];
   };

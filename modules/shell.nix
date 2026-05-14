@@ -55,7 +55,6 @@
       imagemagick
       smartmontools
       restic
-      borgbackup
       zbar
       phraze
       lychee
@@ -105,18 +104,18 @@
       signal-cli
       typos
       gallery-dl
+      hydra-check
       awscli2
       mkbrr
       poppler-utils
       dejsonlz4
       gdb
-      deno
       bun
       json2yaml
       gemini-cli
       opencode
-      wrangler
       sqlit-tui
+      silverbullet
     ];
   };
 
