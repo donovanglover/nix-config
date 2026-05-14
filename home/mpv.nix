@@ -17,19 +17,17 @@ in
   programs.mpv = {
     enable = true;
 
-    package = (
-      pkgs.mpv.override {
-        mpv-unwrapped = pkgs.mpv-unwrapped.override {
-          ffmpeg = pkgs.ffmpeg-full;
-        };
+    package = pkgs.mpv.override {
+      mpv-unwrapped = pkgs.mpv-unwrapped.override {
+        ffmpeg = pkgs.ffmpeg-full;
+      };
 
-        scripts = with pkgs.mpvScripts; [
-          mpris
-          uosc
-          thumbfast
-        ];
-      }
-    );
+      scripts = with pkgs.mpvScripts; [
+        mpris
+        uosc
+        thumbfast
+      ];
+    };
 
     config = {
       fullscreen = true;
