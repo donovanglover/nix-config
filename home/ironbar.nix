@@ -204,6 +204,8 @@ in
               set MULLVAD (mullvad status | tail -1)
 
               set LOCATION (echo "$MULLVAD" | choose 3.. | sed \
+                -e 's/Tokyo.*/東京/g' \
+                -e 's/Osaka.*/大阪/g' \
                 -e 's/Ashburn.*/アッシュバーン/g' \
                 -e 's/Atlanta.*/アトランタ/g' \
                 -e 's/Boston.*/ボストン/g' \
