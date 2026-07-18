@@ -1,10 +1,8 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 {
   gtk = {
     enable = true;
-
-    gtk4.theme = config.gtk.theme;
 
     gtk3.extraConfig = {
       gtk-decoration-layout = "menu:";
