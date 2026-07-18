@@ -91,11 +91,6 @@ in
 
     policies = {
       ExtensionSettings = {
-        "showdex@tize.io" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/showdex/latest.xpi";
-          installation_mode = "force_installed";
-        };
-
         "{6b733b82-9261-47ee-a595-2dda294a4d08}" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/yomitan/latest.xpi";
           installation_mode = "force_installed";
