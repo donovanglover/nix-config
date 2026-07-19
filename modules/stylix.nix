@@ -67,7 +67,7 @@ in
       };
 
       sansSerif = {
-        package = pkgs.noto-fonts-cjk-sans;
+        package = pkgs.noto-fonts-cjk-sans-static;
         name = "Noto Sans CJK JP";
       };
 
