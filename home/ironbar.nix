@@ -53,6 +53,7 @@ in
       center = singleton {
         type = "launcher";
         icon_size = 39;
+        launch_command = "${pkgs.gtk4.dev}/bin/gtk4-launch {app_name}";
 
         favorites = [
           "librewolf"
