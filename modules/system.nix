@@ -214,6 +214,7 @@ in
 
       services.interception-tools.enable = lib.mkForce false;
       networking.resolvconf.enable = lib.mkForce true;
+      services.resolved.enable = lib.mkForce false;
       zramSwap.enable = lib.mkForce false;
 
       boot.enableContainers = lib.mkForce false;

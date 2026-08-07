@@ -22,7 +22,7 @@ index 81c3fc0..6d5b40c 100644
  /* tagging */
  static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 diff --git a/config.mk b/config.mk
-index b469a2b..31b21ef 100644
+index 982dc21..18ac1c1 100644
 --- a/config.mk
 +++ b/config.mk
 @@ -23,7 +23,7 @@ FREETYPEINC = /usr/include/freetype2
@@ -35,7 +35,7 @@ index b469a2b..31b21ef 100644
  # flags
  CPPFLAGS = -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=700L -DVERSION=\"${VERSION}\" ${XINERAMAFLAGS}
 diff --git a/drw.c b/drw.c
-index c41e6af..dda50ad 100644
+index 9fdd1a4..ed05e03 100644
 --- a/drw.c
 +++ b/drw.c
 @@ -47,7 +47,7 @@ utf8decode(const char *s_in, long *u, int *err)
@@ -70,7 +70,7 @@ index c41e6af..dda50ad 100644
  }
  
  void
-@@ -167,21 +170,22 @@ drw_fontset_free(Fnt *font)
+@@ -167,20 +170,21 @@ drw_fontset_free(Fnt *font)
  }
  
  void
@@ -89,15 +89,14 @@ index c41e6af..dda50ad 100644
 +    dest->pixel = (dest->pixel & 0x00ffffffU) | (alpha << 24);
  }
  
- /* Wrapper to create color schemes. The caller has to call free(3) on the
-  * returned color scheme when done using it. */
+ /* Create color schemes. */
  Clr *
 -drw_scm_create(Drw *drw, const char *clrnames[], size_t clrcount)
 +drw_scm_create(Drw *drw, const char *clrnames[], const unsigned int alphas[], size_t clrcount)
  {
  	size_t i;
  	Clr *ret;
-@@ -191,7 +195,7 @@ drw_scm_create(Drw *drw, const char *clrnames[], size_t clrcount)
+@@ -190,7 +194,7 @@ drw_scm_create(Drw *drw, const char *clrnames[], size_t clrcount)
  		return NULL;
  
  	for (i = 0; i < clrcount; i++)
@@ -106,7 +105,7 @@ index c41e6af..dda50ad 100644
  	return ret;
  }
  
-@@ -250,9 +254,7 @@ drw_text(Drw *drw, int x, int y, unsigned int w, unsigned int h, unsigned int lp
+@@ -273,9 +277,7 @@ drw_text(Drw *drw, int x, int y, unsigned int w, unsigned int h, unsigned int lp
  		XFillRectangle(drw->dpy, drw->drawable, drw->gc, x, y, w, h);
  		if (w < lpad)
  			return x + w;
@@ -118,7 +117,7 @@ index c41e6af..dda50ad 100644
  		w -= lpad;
  	}
 diff --git a/drw.h b/drw.h
-index 6471431..2143533 100644
+index bda06f9..869faf3 100644
 --- a/drw.h
 +++ b/drw.h
 @@ -20,6 +20,9 @@ typedef struct {
@@ -140,19 +139,20 @@ index 6471431..2143533 100644
  void drw_resize(Drw *drw, unsigned int w, unsigned int h);
  void drw_free(Drw *drw);
  
-@@ -39,8 +42,8 @@ unsigned int drw_fontset_getwidth_clamp(Drw *drw, const char *text, unsigned int
+@@ -39,9 +42,9 @@ unsigned int drw_fontset_getwidth_clamp(Drw *drw, const char *text, unsigned int
  void drw_font_getexts(Fnt *font, const char *text, unsigned int len, unsigned int *w, unsigned int *h);
  
  /* Colorscheme abstraction */
 -void drw_clr_create(Drw *drw, Clr *dest, const char *clrname);
--Clr *drw_scm_create(Drw *drw, const char *clrnames[], size_t clrcount);
 +void drw_clr_create(Drw *drw, Clr *dest, const char *clrname, unsigned int alpha);
+ void drw_clr_free(Drw *drw, Clr *c);
+-Clr *drw_scm_create(Drw *drw, const char *clrnames[], size_t clrcount);
 +Clr *drw_scm_create(Drw *drw, const char *clrnames[], const unsigned int alphas[], size_t clrcount);
+ void drw_scm_free(Drw *drw, Clr *scm, size_t clrcount);
  
  /* Cursor abstraction */
- Cur *drw_cur_create(Drw *drw, int shape);
 diff --git a/dwm.c b/dwm.c
-index 4cf07eb..b8e5642 100644
+index ab3a84c..e8e3242 100644
 --- a/dwm.c
 +++ b/dwm.c
 @@ -55,6 +55,7 @@
@@ -183,7 +183,7 @@ index 4cf07eb..b8e5642 100644
  /* configuration, allows nested code to access above variables */
  #include "config.h"
  
-@@ -1557,7 +1564,8 @@ setup(void)
+@@ -1558,7 +1565,8 @@ setup(void)
  	sw = DisplayWidth(dpy, screen);
  	sh = DisplayHeight(dpy, screen);
  	root = RootWindow(dpy, screen);
@@ -193,7 +193,7 @@ index 4cf07eb..b8e5642 100644
  	if (!drw_fontset_create(drw, fonts, LENGTH(fonts)))
  		die("no fonts could be loaded.");
  	lrpad = drw->fonts->h;
-@@ -1585,7 +1593,7 @@ setup(void)
+@@ -1586,7 +1594,7 @@ setup(void)
  	/* init appearance */
  	scheme = ecalloc(LENGTH(colors), sizeof(Clr *));
  	for (i = 0; i < LENGTH(colors); i++)
@@ -202,7 +202,7 @@ index 4cf07eb..b8e5642 100644
  	/* init bars */
  	updatebars();
  	updatestatus();
-@@ -1820,16 +1828,18 @@ updatebars(void)
+@@ -1821,16 +1829,18 @@ updatebars(void)
  	Monitor *m;
  	XSetWindowAttributes wa = {
  		.override_redirect = True,
@@ -225,7 +225,7 @@ index 4cf07eb..b8e5642 100644
  		XDefineCursor(dpy, m->barwin, cursor[CurNormal]->cursor);
  		XMapRaised(dpy, m->barwin);
  		XSetClassHint(dpy, m->barwin, &ch);
-@@ -2127,6 +2137,43 @@ xerrorstart(Display *dpy, XErrorEvent *ee)
+@@ -2128,6 +2138,43 @@ xerrorstart(Display *dpy, XErrorEvent *ee)
  	return -1;
  }
  
