@@ -105,6 +105,10 @@
       cc = "cargo clippy";
       cf = "cargo fmt";
 
+      jb = "just build";
+      jd = "just dev";
+      jl = "just lint";
+
       dl = "yt-dlp";
       vol = "wpctl set-volume '@DEFAULT_AUDIO_SINK@'";
       jis = "recode shift_jis..utf8";
