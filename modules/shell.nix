@@ -112,7 +112,6 @@
       gdb
       bun
       json2yaml
-      gemini-cli
       opencode
       sqlit-tui
       silverbullet
