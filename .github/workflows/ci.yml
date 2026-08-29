@@ -30,14 +30,14 @@ jobs:
         extra_nix_config: "extra-platforms = aarch64-linux"
     - run: nix flake check --all-systems
   format:
-    name: nix fmt -- --check **/*.nix
+    name: nix fmt -- --ci
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
       - uses: cachix/install-nix-action@v27
-      - run: nix fmt -- --check **/*.nix
+      - run: nix fmt -- --ci
   example:
     name: nix flake check ./example
     runs-on: ubuntu-latest
