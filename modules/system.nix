@@ -255,6 +255,14 @@ in
 
       mullvad-vpn.enable = mkIf mullvad true;
 
+      kmscon = {
+        enable = true;
+
+        config = {
+          font-size = lib.mkForce 15;
+        };
+      };
+
       openssh = {
         enable = true;
 
