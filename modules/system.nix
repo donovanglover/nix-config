@@ -259,6 +259,7 @@ in
         enable = true;
 
         config = {
+          font-engine = "pango";
           font-size = lib.mkForce 15;
         };
       };
