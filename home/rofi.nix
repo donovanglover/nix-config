@@ -8,14 +8,14 @@ in
 {
   programs.rofi = {
     enable = true;
-    cycle = false;
 
-    extraConfig = {
+    settings = {
       modi = "drun,filebrowser";
       font = "Noto Sans CJK JP 12";
       show-icons = true;
       disable-history = true;
       hover-select = true;
+      cycle = false;
       bw = 0;
       display-drun = "";
       display-window = "";
